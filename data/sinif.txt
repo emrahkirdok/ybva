@@ -1,0 +1,11 @@
+isimler	cinsiyet	boy	kilo	el
+bihter	kadin	1.85	63	sag
+melisa	erkek	1.77	71	sag
+adnan	kadin	1.71	97	sag
+behlul	erkek	1.73	70	sol
+gozde	kadin	1.58	100	sag
+zeynep	kadin	1.96	92	sol
+furkan	erkek	1.62	60	sol
+firdevs	kadin	1.95	79	sag
+kuzey	erkek	1.7	74	sag
+guney	erkek	1.6	78	sag
