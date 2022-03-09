@@ -2,9 +2,9 @@
 title: "R ve R Stüdyo Kullanımı"
 author: "Emrah Kırdök, Ph. D."
 date: "16/02/2022"
-
-  output:
+output:
   bookdown::html_document2:
+    css: "templates/scholarly.css"
   bookdown::pdf_document2:
     template: templates/eisvogel.tex
     keep_md: yes

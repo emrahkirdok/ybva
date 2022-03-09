@@ -4,6 +4,7 @@ author: "Emrah Kırdök, Ph. D."
 date: "2/18/2021"
 output:
   bookdown::html_document2:
+      css: "templates/scholarly.css"
   bookdown::pdf_document2:
     template: ../resources/templates/eisvogel.tex
     keep_md: yes

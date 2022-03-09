@@ -5,9 +5,9 @@ date: "16/02/2022"
 
 output:
   bookdown::html_document2:
+    css: "templates/scholarly.css"
   bookdown::pdf_document2:
     template: templates/eisvogel.tex
-    keep_md: yes
     toc: false
     pandoc_args:
     - --filter
