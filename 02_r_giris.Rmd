@@ -1,0 +1,309 @@
+---
+title: "R ve R Stüdyo Kullanımı"
+author: "Emrah Kırdök, Ph. D."
+date: "16/02/2022"
+output:
+  bookdown::html_document2:
+  bookdown::pdf_document2:
+    template: ../resources/templates/eisvogel.tex
+    keep_md: yes
+    toc: false
+    keep_tex: true
+    pandoc_args:
+    - --filter
+    - ~/miniconda3/bin/pandoc-latex-environment
+bibliography: bibliography.bib
+lang: tr
+header-includes: |
+  ```{=latex}
+  \usepackage{awesomebox}
+  ```
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
+---
+# R ve R studio Kullanımı
+
+Bu döküman içerisinde, ilk derste gördüğümüz pratik konular hakkında bilgiler verilecektir. İkinci derse başlamadan önce, bu komutları tekrar etmeniz sizin için iyi olacaktır.
+
+## Çalışırken dikkat edilmesi gereken noktalar
+
+R sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Ayrıca, R üzerinde çalışırken dikkat edilmesi gereken bazı noktalar bulunmaktadır. Aşağıdaki noktalara dikkat ederseniz, daha sorunsuz bir şekilde çalışabilirsiniz.
+
+### ASCII dışındaki karakterlerin kullanımı
+
+Kullanacağımız sistem üzerinde ASCII sistemi dışında karakterler kullanırken çok dikkat etmeliyiz. ASCII karakterleri genel olarak İngilizce'de bulunan karakterler olarak düşünebilirsiniz. Bilgisayarlar ilk yaygınlaşmaya başladığında, sadece bu karakter setlerine destek veriliyordu. Son yıllarda gelişen UTF-8 kodlaması artık bütün dillerdeki karakterleri destekliyor, ancak Windows sistemleri hala UTF-8'i standart olarak kabul etmedi. Bu yüzden ASCII dışındaki karakterleri kullanmayınız.
+
+::: important
+Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanmayınız:
+```
+Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö 
+```
+Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa, onları da kullanmayın!
+:::
+
+### Dosyaların isimlendirilmesi
+
+Bir diğer önemli nokta ise dosyaların isimlendirilmesi. Dosya isimlerinde asla ASCII dışında karakter ve boşluk kullanmayın. 
+
+::: important
+Dosya isimlerini seçerken asla ASCII dışında karakter ve boşluk kullanmayın. Eğer boşluk kullanmanız gerekirse "_" (alt çizgi, SHIFT ve - tuşlarına aynı anda basınız) karakterini kullanın.
+:::
+
+### Ondalık işareti
+
+Türkiye ve Avrupa'da ondalık ayracı olarak `,` kulanılmaktadır. Mesela:
+
+```
+14,6
+```
+
+Ancak R programı, Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız `.` işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.
+
+::: note
+Peki kendi hazırladığınız verilerde ondalık ayracı olarak `;` kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken `dec` opsiyonu ilse ondalık ayracını seçmeyi öğreneceğiz.
+:::
+
+
+## Komut satırı üzerinde çalışma
+
+Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:
+
+```{r}
+34 + 45
+```
+
+R, bu işlemi yapar ve sonucu ekrana yazdırır.
+
+## Değişken atama
+
+Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü `<-` kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:
+
+```{r}
+sayi1 <- 12
+```
+
+Bu işlemin sonucunda 12 değerini, `sayi1` değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde `sayi1` değişkenini kullanabiliriz.
+
+İsterseniz ikinci bir değişken atayalım:
+
+```{r}
+sayi2 <- 23
+```
+
+Artık ikinci bir degisken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:
+
+```{r}
+sayi1 + sayi2
+```
+
+Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır.
+
+## Veri tipleri
+
+R içerisinde dört temel veri tipimiz bulunmaktadır:
+
++ Sayı (*numeric*, `num`) 
++ Karakter (*character*, `chr`)
++ Mantıksal (*logical*, `logi`)
++ Kategori/faktör (*factor*, `fac`)
+
+Bu veri tiplerinin hepsi, farklı veri analizi adımlarında kullanılmaktadır. Dolayısıyla, bu veri tiplerinin düzgün bir şekilde ayarlandığından emin olmalısınız.
+
+Bir verinin tipini öğrenmek istiyorsanız, basit olarak `str` fonksiyonunu kullanabilirsiniz:
+
+```{r}
+str(12)
+```
+
+::: note
+R üzerindeki fonksiyonlar, belirli işlevleri yerine getiren kod parçaları olarak tanımlanabilir. Her fonskiyonun, parantez içerisine yazılan en az bir tane girdisi bulunmaktadır. Burada kullandığımız `str` fonksiyonu, parantez içerisinde belirtilen verinin tipini geri döndürmekten sorumludur.
+:::
+
+Sayılar dışında neler kullanabiliriz? Karakterleri kullanabiliriz. Ancak karakterle çalışmak istiyorsanız, mutlaka tırnak işareti `"` kullanmalısınız:
+
+```{r}
+"karakter"
+```
+
+Peki bu karakterin tipine bakalım:
+
+```{r}
+str("karakter")
+```
+
+Mantıksal değişkenler ise *Evet* ya da *Hayır* durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç bulunmamaktadır:
+
+- `TRUE` veya `T`
+- `FALSE` veya `F`
+
+Mesela bir tanesinin tipine bakalım:
+
+```{r}
+str(TRUE)
+```
+
+::: note
+Mantıksal operatörler, R içerisinde ön tanımlı olarak gelmektedir. Dolayısıyla, bu operatörleri oldukları gibi kullanabilme imkanınız bulunmaktadır.
+:::
+
+Son olarak kategori ya da faktörleri inceleyelim. Faktör değişkenleri, genel olarak gruplandırma vazifesi görmektedir. Mesela, farklı deney koşullarını faktör olarak gösterebiliriz. Bu sayede, R içerisinde bu koşullara arasındaki değişimleri inceleme imkanımız bulunmaktadır. Faktör oluşturmak için mutlaka bir karaktere ihtiyacımız bulunmaktadır. Bir faktör oluşturmak için, `factor` fonksiyonunu kullanmalıyız:
+
+
+```{r}
+factor("karanlik")
+```
+
+İsterseniz bir de bu faktörün tipine bakalım:
+
+```{r}
+str(factor("karanlik"))
+```
+
+# Vektörler
+
+Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil, bir grup örnek ile çalışmamız gerekmektedir.
+
+R üzerinde farklı veri yapıları bulunmaktadır. Bunlarda bir tanesi vektörler olarak adlandırılır. Vektörler, kısaca *belli bir tipte* veri tipini içeren listeler olarak tanımlanabilir. Bir vektör oluşturmak istiyorsanız `c()` fonksiyonunu kullanmanız gerekmektedir:
+
+```{r}
+vektor1 <- c(12, 43, 45)
+```
+
+Oluşturduğunuz `vektor1` isimli vektör, üç tane elemana sahiptir. Bu elemanları dikkat ederseniz `,` ile ayırdık.
+
+İsterseniz karakter vektörleri de oluşturabilirsiniz:
+
+```{r}
+vektor2 <- c("bitki1", "bitki2", "bitki3")
+```
+
+Ya da mantıksal vektörler:
+
+```{r}
+vektor3 <- c(TRUE, FALSE, TRUE, FALSE)
+```
+
+Ya da faktör vektörleri:
+
+```{r}
+vektor4 <- factor(c("karanlik", "aydinlik", "karanlik", "aydinlik"))
+```
+
+Dikkat ederseniz önce `c()` fonskiyonu ile vektör oluşturduk, ardından `factor` fonksiyonu ile faktör'e çevirdik.
+
+
+İstersek iki farklı vektörü birleştirebiliriz. Önce iki farklı vektör oluşturalım:
+
+```{r}
+x <- c(12, 34, 56)
+y <- c(39, 45, 67)
+```
+
+Şimdi bu iki vektörü birleştirelim:
+
+```{r}
+yeni_vektor <- c(x, y)
+```
+
+Bu vektörü ekrana yazdıralım:
+
+
+```{r}
+yeni_vektor
+```
+
+
+Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `_` ile ayırdık. Siz de buna dikkat edin lütfen.
+
+> Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
+
+## Vektör oluşturma üzerine örnekler
+
+Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz?
+
+| Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
+|:-----------|---------------------:|:----------------|
+| bitki1     | 2.3                  | Karanlık        |
+| bitki2     | 3.4                  | Aydınlık        |
+| bitki3     | 4.5                  | Aydınlık        |
+| bitki4     | 1.2                  | Karanlık        |
+| bitki5     | 3.4                  | Aydınlık        |
+| bitki6     | 2.5                  | Karanlık        |
+
+Öncelikle bitki isimleri için bir karakter vektörü oluşturalım:
+
+```{r}
+bitki_ismi <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", "bitki6")
+```
+
+Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım:
+
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 2.5)
+```
+
+Son olarak deney koşulları için bir vektör oluşturmamız gerekli. Dikkat edin, deney koşulları aslında bir kategori ifade ediyor. Bu nedenle, deney koşulları vektörü aslında bir faktör vektörü olmalı:
+
+```{r}
+deney_kosullari <- factor(c("karanlik", "aydinlik", "aydinlik", "karanlik", "aydinlik", "karanlik"))
+```
+
+Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:
+
+```{r}
+str(deney_kosullari)
+```
+
+Oluşturduğumuz vektörün uzunluğunu elde etmek için ise `len` fonksiyonunu kullanabiliriz:
+
+```{r}
+length(yaprak_uzunlugu)
+```
+
+## Vektörlerde indis kullanımı
+
+Peki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz `yaprak_uzunlugu` vektörü üzerinde ikinci elemanı alalım:
+
+```{r}
+yaprak_uzunlugu[2]
+```
+
+Şimdi de ikinci ve dördüncü elemanlar arasındaki verileri geri döndürelim:
+
+```{r}
+yaprak_uzunlugu[2:4]
+```
+
+::: note
+`:` operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur:
+
+```{r}
+1:16
+```
+:::
+
+Eğer `-` işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:
+
+```{r}
+yaprak_uzunlugu[-5]
+```
+
+::: note
+Dikkat edin, burada `yaprak_uzunlugu` vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.
+:::
+
+
+## Sonuç
+
+Bu kısım kapsamında aşağıdaki konular önemlidir:
+
++ Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız, ve vektör elemanlarını `,` ile ayırırız
++ Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız
++ Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
+
+
