@@ -1,0 +1,205 @@
+---
+title: "Vektörler ve İndisler"
+author: "Emrah Kırdök, Ph. D."
+date: "2/18/2021"
+output:
+  bookdown::html_document2:
+  bookdown::pdf_document2:
+    template: ../resources/templates/eisvogel.tex
+    keep_md: yes
+    toc: false
+    pandoc_args:
+    - --filter
+    - /Users/quatta/miniconda3/bin/pandoc-latex-environment
+bibliography: bibliography.bib
+lang: tr
+header-includes: |
+  ```{=latex}
+  \usepackage{awesomebox}
+  ```
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Giriş
+
+Bu belgede, ikinci ders kapsamında işlediğimiz pratikler aktarılacaktır. 
+
+## Vektörler'e devam
+
+Bir dizi oluşturmak için `seq` fonksiyonu kullanılabilir:
+
+```{r}
+seq(1, 100, 2)
+```
+
+Eğer daha basit bir şekilde oluşturmak istiyorsanız `:` kullanabilirsiniz. Ancak bu sefer, bir bir arttırısınız sayıları:
+
+```{r}
+1:100
+```
+
+
+Eğer, belirli bir değeri tekrar etmek isterseniz, `rep` fonksiyonunu kullanabilirsiniz:
+
+
+```{r}
+rep(1,14)
+```
+
+İsterseniz bir vektörü de tekrar ettirebilirsiniz:
+
+
+```{r}
+rep(c(3,5,16), 5)
+```
+
+Ya da, bir vektördeki her değeri, farklı sayılarda tekrar ettirebilirsiniz:
+
+```{r}
+rep(c(TRUE, FALSE), c(3,4))
+```
+
+
+## Kayıp veriler
+
+Her zaman elimizde veri olmayabilir. Örnek verelim, yaptığımız bir deneyde, ölçümlerden bir tanesini alamadığımızı farzedelim. Bu durumda `NA` değişkenini ekleyebiliriz. Bu değişken, ister karakter ister sayı vektörlerinin içine alınabilir:
+
+
+```{r}
+c(NA, TRUE, FALSE)
+```
+
+
+```{r}
+c(NA, 1, 2)
+```
+
+## Vektörler üzerine biraz daha alıştırma
+
+Bu kısıda aşağıdaki hayali tabloyu ayrı ayrı vektörler haline getirelim mi? Ne kadar çok tekrar, o kadar ustalaşma demektir:
+
+```{r}
+sinif <- read.table(file = "data/sinif.txt", header = TRUE)
+
+knitr::kable(sinif)
+```
+
+Mesela ilk olarak isimler sütununu vektör yapalım. Bu bir karakter vektörü olmalı değil mi?
+
+```{r}
+isimler <- c("bihter", "polat", "adnan", "behlul", "cakir", "safiye" ,"han", "firdevs", "kuzey", "guney")
+```
+
+Şimdi cinsiyet karakterine gelelim. Bu bir faktör olmalı değil mi?
+
+```{r}
+cinsiyet <- factor(c("kadin", "erkek", "kadin", "erkek", "kadin", "erkek", "kadin", "erkek", "kadin", "erkek", "erkek"))
+```
+
+Boy vektörü sayı olmalı:
+
+```{r}
+boy <- c(1.85, 1.77, 1.71, 1.73, 1.58, 1.96, 1.62, 1.95, 1.70, 1.60)
+```
+
+Kilo vektörü de sayı olmalı:
+
+```{r}
+kilo  <- c(63, 71, 97, 70, 81, 92, 60, 79, 74, 78)
+```
+
+El kullanımı vektörü de faktör olmalı:
+
+```{r}
+el <- factor(c("sag", "sag", "sag", "sol", "sag", "sol", "sol", "sag", "sag", "sag"))
+```
+
+Acaba, bütün vektörlerin tiplerini `str` ile kontrol edebilir misiniz?
+
+## Vektörlerde indis kullanımı
+
+Peki, bir vektördeki elemanlara nasıl erişeceğiz? Bakın burası çok önemli. Örnek verelim, `boy` vektöründeki beşinci elemana erişebilir miyiz?
+
+```{r}
+boy[5]
+```
+
+Pek boy vektörü içindeki ikinci, üçüncü ve 6. elemanlara erişsek?
+
+```{r}
+boy[c(2, 3, 6)]
+```
+
+Peki boy vektörü içindeki ikinci ve 7. elemanlar arasındaki bütün değerlere erişmek istesek?
+
+```{r}
+boy[2:7]
+```
+
+
+Negatif değerler ise, o elemanları vektör içerisinden çıkartır:
+
+
+```{r}
+boy[c(-1,-3, -5)]
+```
+
+İstersek, vektörlerde karşılaştırma yapabiliriz. Mesela boyları 1.8'den büyük olan elemanları bulalım:
+
+```{r}
+boy > 1.8
+```
+
+Bu komut bize bir mantıksal vektör döndürdü. Değer 1.8'den büyük olanlar `TRUE`, olmayanlar ise `FALSE` olarak gösterildi.
+
+Peki bu vektörü de bir indis olarak kullanabilir miyiz? Evet kullanabiliriz:
+
+
+```{r}
+boy[boy > 1.8]
+```
+
+
+İstersek, vektördeki elemanlara isim de atayabiliriz:
+
+
+```{r}
+names(boy) <- isimler
+```
+
+Peki şimdi, hangi kişilerin boylarının 1.8'den uzun olduğunu bulabilir miyiz?
+
+```{r}
+boy > 1.8
+```
+
+Biraz daha güzelleştirelim:
+
+```{r}
+boy[boy > 1.8]
+```
+
+Ayrıca, vektörlerin boyları eşit ise, bir mantıksal vektörü, başka bir vektör için indis olarak da kullanabiliriz:
+
+```{r}
+isimler[ boy > 1.8]
+```
+
+Mesela, boyları 1.8'den büyük olan kişilerin cinsiyetlerine bakabilir miyiz?
+
+```{r}
+cinsiyet[ boy > 1.8]
+```
+
+
+
+
