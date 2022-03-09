@@ -1,0 +1,193 @@
+---
+title: "Vektörel işlemler"
+description: "Vektörleri kesip biçme"
+subtitle: "BYT210 Veri Analizi"
+author: "Emrah Kırdök, PhD"
+date: "Şubat 28, 2022"
+lang: tr
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment=NA, prompt=FALSE)
+```
+
+# R Kullanımına Devam...
+
+## Vektörler
+
++ Aynı tipe sahip veri bütünü
++ Tipler:
+    * Karakter
+    * Rakam
+    * Mantıksal
+    * Faktör
+
+## Kendi vektörümüzü yapalım
+
+Farklı şekillerde oluşturabiliriz:
+
+- En basiti bir fonksyion: `c(3,1,4)`
+- Diziler olarak: `seq(1,10)`
+
+
+## Diziler
+
+Mesela 4 ile 9 arasında
+```{r}
+4:9
+seq(4, 9)
+```
+İkisi de aynı sonucu verir
+
+## Artım miktarını belirtebiliriz
+
+Mesela 4 ile 10 arasında, 2 aktarımlı
+
+```{r}
+seq(4, 10, 2)
+```
+
+Ya da sadece kaç tane numara istediğimizi belirtebiliriz:
+
+```{r}
+seq(from=4, by=2, length=4)
+```
+
+## Tekrarlı vektörler
+
+```{r}
+rep(1, 3)
+rep(c(7, 9, 13), 3)
+rep(c(7, 9, 13), c(2,1,3))
+```
+
+## Tekrarlı vektörler
+
+```{r}
+rep(1:2, c(10, 5))
+rep(c(TRUE, FALSE), 3)
+rep(c(TRUE, FALSE), c(3, 3))
+```
+
+# Kayıp veriler
+
+## Kayıp veriler
+
++ Her zaman elimizde bazı veriler olmayabilir
++ Onun yerine belirli bir sembol kullanılır
++ `NA` bu iş için kullanılır
++ Herhangi bir vektör içinde kullanılabilir
+
+```{r}
+c(NA, TRUE, FALSE)
+c(NA, 1, 2)
+```
+
+## Kayıp veri
+
++ `NA`'yı çok kullanacağız!
++ Not Available = Yok
++ Deney sonucu çıkmadığında belirtiriz
+
+# İndis, Konum
+
+## Vektörlerde farklı elementler var
+
+Amacımız bir vektörde yer alan veriyi:
+- okumak
+- değiştirmek
+- işlemek
+
+istiyoruz.
+
+## **Dersin En Önemli Konusu!!!!**
+
+- Amacımız bir vektördeki elemanlara erişmek
+
+## Vektördeki elemanlara erişmek
+
+Bir `v` vektöründeki `i`'inci elemana erişmek için: `v[i]`
+
+```{r}
+weight <- c(60, 72, 57, 90, 95, 72)
+weight
+weight[3]
+```
+
+`[]` yapısı içindeki sayı *indis* olarak isimlendirilir
+
+## İndis bir rakam vektörü olabilir
+
+```{r}
+weight[c(1,3,5)]
+weight[2:4]
+```
+
+## Negatif indis
+
+Bahsi geçen konumdaki verileri vektörden çıkartır
+
+```{r}
+weight
+weight[c(-1,-3,-5)]
+```
+
+## Mantıksal indislerin kullanımı
+
+Vektörler, mantıksal vektörler kullanılarak işlenebilir:
+
+Vektörler aynı uzunlukta olmak şartıyla:
+
+```{r}
+weight>72
+weight[weight>72]
+```
+
+**Çok aşırı kullanışlı**
+
+## Elemanların isimleri
+
+Vektördeki bütün elemanların isimleri vardır (`names` kodu ile atanır):
+
+```{r}
+names(weight) <- c("Ali", "Deniz", "Fatma", "Emre",
+                   "Volkan", "Onur")
+weight
+```
+
+## Vektör oluştururken de eklenebilir
+
+Vektör oluştururken isimleri atama:
+
+```{r}
+height <- c(Ali=1.75, Deniz=1.80, Fatma=1.65, Emre=1.90,
+            Volkan=1.74, Onur=1.91)
+height
+```
+
+## İndis olarak isimler
+
+Eğer vektörümüzde isimler varsa, bu isimleri de indis olarak kullanabiliriz:
+
+```{r}
+weight[c("Deniz", "Volkan", "Fatma")]
+```
+
++ Peki vektörümüzün ismi olup olmadığını nasıl öğrenebiliriz?
+
+```{r}
+names(vector)
+```
+
+## Sonuç
+
++ İndisler, vektör içindeki kısımları görüp değiştirmemizi sağlar
+4 İndisler
+    - pozitif rakam vektörleri
+    - negatif rakam vektörleri
+    - mantıksal vektörler
+    - karakter vektörler
+    
++ İndis vektörleri bir veya birden daha fazla elemana sahip olmalı
+    - ama mantıksal indisler, vektörle **aynı boyutta** olmalı!
