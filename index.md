@@ -14,6 +14,10 @@ Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döne
 + Matrisler ve veri çerçeveleri pratik [html](veri-analizi/metin_04_pratik.html)
 + Listeler sunum [html](veri-analizi/sunum_06_listeler.html)
 
+### İstatistiksel Öğrenme (Bilgisyarlı Düşünme)
+
+Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır. 
+
 ## R ve Rstüdyo hakkında genel kaynaklar
 
 ### Ek kaynak ve okumalar:
