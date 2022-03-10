@@ -40,12 +40,12 @@ Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Desc
 
 + [Yunus Emrah Bulut, Medium makalesi](https://medium.com/datajarlabs/veri-bilimi-nedir-ve-nasıl-öğrenilebilir-b5ff8c581bbc)
 
-### R hakkında kitaplar
+### R hakkında kitaplar, kaynaklar, videolar
 
 + [R for Data Science, Hadley Wickham ve Garret Grolemund](https://r4ds.had.co.nz)
 + [ggplot2, Hadley Wickham](https://ggplot2-book.org)
   + Bu kitap gerçekten çok iyi!
-
++ Windows 10 üzerinde R ve Rstüdyo kurulum videosu, Nathan Williams [youtube](https://www.youtube.com/watch?v=_2sewGCA0y4)
 ### Rmarkdown
 
 + [Rmarkdown kopya kağıdı 1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
