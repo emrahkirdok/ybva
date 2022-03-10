@@ -1,8 +1,8 @@
-## Yaşam Bilimlerinde Veri Analizi
+# Yaşam Bilimlerinde Veri Analizi
 
 Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döneminde verdiğim **Veri Analizi** ve **İstatstiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
-### Veri Analizi
+## Veri Analizi
 
 + Veri bilimine giriş: [html](veri-analizi/metin_01_veri_bilimine_giris.html)
 + R giriş dersi [html](veri-analizi/metin_02_r_giris.htmli)
@@ -14,7 +14,7 @@ Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döne
 + Matrisler ve veri çerçeveleri pratik [html](veri-analizi/metin_04_pratik.html)
 + Listeler sunum [html](veri-analizi/sunum_06_listeler.html)
 
-### İstatistiksel Öğrenme (Bilgisyarlı Düşünme)
+## İstatistiksel Öğrenme (Bilgisyarlı Düşünme)
 
 Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır.
 
