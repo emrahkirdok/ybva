@@ -30,9 +30,9 @@ Kitap dışında, derste anlatılan notlar da burada paylaşılacaktır.
 
 Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında üç tane yazı:
 
-+ [bağlantı 1](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
-+ [bağlantı 2](https://www.alexbaecher.com/post/gradient-descent/) Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
-+ [bağlantı 3](https://rpubs.com/VladimirKazan/139320)
++ [Doğrusal regresyon, Ethen Liu](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
++ [Aşamalı azalış ile doğrusal regresyon, Alex Baecher](https://www.alexbaecher.com/post/gradient-descent/) Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
++ [Tek bir değişkeli doğrusal regresyon için aşamalı azalış, Vladimir Kuznetsov](https://rpubs.com/VladimirKazan/139320)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
