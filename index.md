@@ -24,7 +24,9 @@ Bu ders kapsamında Gareth James, Daniela Witten, Trevor Hastie ve Robert Tibshi
 
 + Kullanılacak veri, kodlar, slaytlar ve Rmarkdown belgeleri için [bağlantıya tıklayınız](https://www.statlearning.com/resources-second-edition)
 
-Kitap dışında, derste anlatılan notlar da burada paylaşılacaktır.
+Derslerde işlenen konular:
+
++ Doğrusal modelleme uygulama 1 [html](veri-analizi/metin_dogrusal_modelleme_uygulamasi_1.html)
 
 ### Yardımcı okumalar
 
