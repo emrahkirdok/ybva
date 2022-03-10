@@ -18,17 +18,17 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Matrisler ve veri çerçeveleri pratik [html](veri-analizi/metin_04_pratik.html)
 + Listeler sunum [html](veri-analizi/sunum_06_listeler.html)
 
-## İstatistiksel Öğrenme (Bilgisyarlı Düşünme)
+## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
 Bu ders kapsamında Gareth James, Daniela Witten, Trevor Hastie ve Robert Tibshirani tarafından yazlmış [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) kitabı kullanılacaktır. Gerekli bütün kodlar, kitabın internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır:
 
-+ Kullanılacak veri, kodlar, slaytlar ve Rmarkdown belgeleri için [bağlantıyu tıklayınız](https://www.statlearning.com/resources-second-edition)
++ Kullanılacak veri, kodlar, slaytlar ve Rmarkdown belgeleri için [bağlantıya tıklayınız](https://www.statlearning.com/resources-second-edition)
 
 Kitap dışında, derste anlatılan notlar da burada paylaşılacaktır.
 
 ### Yardımcı okumalar
 
-Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında üç tane yazı:
+Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal modelleme hakkında üç tane yazı:
 
 + [Doğrusal regresyon, Ethen Liu](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
 + [Aşamalı azalış ile doğrusal regresyon, Alex Baecher](https://www.alexbaecher.com/post/gradient-descent/) Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
@@ -43,9 +43,9 @@ Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Desc
 ### R hakkında kitaplar, kaynaklar, videolar
 
 + [R for Data Science, Hadley Wickham ve Garret Grolemund](https://r4ds.had.co.nz)
-+ [ggplot2, Hadley Wickham](https://ggplot2-book.org)
-  + Bu kitap gerçekten çok iyi!
-+ Windows 10 üzerinde R ve Rstüdyo kurulum videosu, Nathan Williams [youtube](https://www.youtube.com/watch?v=_2sewGCA0y4)
++ [ggplot2, Hadley Wickham](https://ggplot2-book.org) (Bu kitap gerçekten çok iyi!)
++ [Windows 10 üzerinde R ve Rstüdyo kurulum videosu, Nathan Williams youtube](https://www.youtube.com/watch?v=_2sewGCA0y4)
+
 ### Rmarkdown
 
 + [Rmarkdown kopya kağıdı 1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
