@@ -4,6 +4,10 @@ Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döne
 
 ## Veri Analizi
 
+Bu ders kapsamında işleyeceğimiz belirli bir kaynak kitap yok. Genel olarak aşağıda belirttiğim notları kullancağız. Bunun dışında kullanabileceğiniz bir çok farklı kaynak bulunmtaktadır. Sayfanın sonunda bu kaynakları bulabilirsiniz.
+
+Dersler, konuların işlenme sırasına göre düzenlenmiştir.
+
 + Veri bilimine giriş: [html](veri-analizi/metin_01_veri_bilimine_giris.html)
 + R giriş dersi [html](veri-analizi/metin_02_r_giris.htmli)
 + R ve R stüdyo yüklenmesi (Anıl'ın katkılarıyla) [video](https://drive.google.com/file/d/1WSclKBr2VwgeD5r2Df3Acg02ejb7zy-V/view?usp=sharing)
@@ -16,7 +20,13 @@ Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döne
 
 ## İstatistiksel Öğrenme (Bilgisyarlı Düşünme)
 
-Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır.
+Bu ders kapsamında Gareth James, Daniela Witten, Trevor Hastie ve Robert Tibshirani tarafından yazlmış [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) kitabı kullanılacaktır. Gerekli bütün kodlar, kitabın internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır:
+
++ Kullanılacak veri, kodlar, slaytlar ve Rmarkdown belgeleri için [bağlantıyu tıklayınız](https://www.statlearning.com/resources-second-edition)
+
+Kitap dışında, derste anlatılan notlar da burada paylaşılacaktır.
+
+### Yardımcı okumalar
 
 Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında üç tane yazı:
 
