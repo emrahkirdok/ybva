@@ -20,6 +20,8 @@ Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](h
 
 + Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında harika bir yazı! [bağlantı](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
     + Yazı biraz üst seviye, ancak çevirmek isteyen olursa yardım ederim!
++ Aşamalı alçalış ile doğrusal modelleme hakkında başka bir yazı [bağlantı](https://www.alexbaecher.com/post/gradient-descent/)
+    + Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
 ## R ve Rstüdyo hakkında genel kaynaklar
 
 ### Ek kaynak ve okumalar:
