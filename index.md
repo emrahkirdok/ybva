@@ -18,21 +18,24 @@ Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döne
 
 Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır.
 
-+ Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında üç tane yazı:
-  + [bağlantı 1](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
-  + [bağlantı 2](https://www.alexbaecher.com/post/gradient-descent/)
-    + Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
-+ [bağlantı 3](https://rpubs.com/VladimirKazan/139320)
+Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında üç tane yazı:
+
+    + [bağlantı 1](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
+    + [bağlantı 2](https://www.alexbaecher.com/post/gradient-descent/)
+        + Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
+    + [bağlantı 3](https://rpubs.com/VladimirKazan/139320)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
-### Ek kaynak ve okumalar:
+### Ek kaynak ve okumalar
 
 + [Yunus Emrah Bulut, Medium makalesi](https://medium.com/datajarlabs/veri-bilimi-nedir-ve-nasıl-öğrenilebilir-b5ff8c581bbc)
 
 ### R hakkında kitaplar
 
 + [R for Data Science, Hadley Wickham ve Garret Grolemund](https://r4ds.had.co.nz)
++ [ggplot2, Hadley Wickham](https://ggplot2-book.org)
+  + Bu kitap gerçekten çok iyi!
 
 ### Rmarkdown
 
