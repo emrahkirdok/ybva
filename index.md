@@ -16,7 +16,9 @@ Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döne
 
 ### İstatistiksel Öğrenme (Bilgisyarlı Düşünme)
 
-Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır. 
+Bu ders ile ilgili olan kaynakların hepsi [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır.
+
++ Derste gördüğümüz aşamalı azalış ile doğrusal modelleme (Gradient Descent) hakkında harika bir yazı! [bağlantı](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
