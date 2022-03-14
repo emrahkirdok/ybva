@@ -53,3 +53,7 @@ Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal mod
 + [Rmarkdown kopya kağıdı 1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 + [Rmarkdown kopya kağıdı 2](https://ethz.ch/content/dam/ethz/special-interest/math/statistics/sfs/Education/Advanced%20Studies%20in%20Applied%20Statistics/course-material-1719/Datenanalyse/rmarkdown-2.pdf)
 + [Rmarkdown kullanımı](https://ucsbcarpentry.github.io/R-markdown/03-headings-lists/index.html)
+
+### Önemli mevzular
+
++ Dosya isimlerine kullanılmaması gereken karakterler [web sayfası](https://www.mtu.edu/umc/services/websites/writing/characters-avoid/)
