@@ -17,7 +17,7 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Rmarkdown ile yazma (Anıl'ın katkılarıyla) [video](https://drive.google.com/file/d/16DPADrvItcoglN_xswiVxzGrNGPBxZOy/view)
   + Bu video çok güzel. Ancak bir güncelleme eklemek istiyorum. R kod bloğu eklemek için ayrı bir tuş var, yani R kod bloğunu kendiniz oluşturmak zorunda değilsiniz.
 + Matris ve veri çerçeveleri [html](veri-analizi/sunum_05_matrix_data_frames.html)
-+ Matrisler ve veri çerçeveleri pratik [html](veri-analizi/metin_04_pratik.html)
++ Matrisler ve veri çerçeveleri pratik [html](veri-analizi/metin_03_pratik.html)
 + Listeler sunum [html](veri-analizi/sunum_06_listeler.html)
 + Rmarkdown ile ödev cevaplama [html](veri-analizi/metin_rmarkdown_odevleri_bilgi.html)
 
