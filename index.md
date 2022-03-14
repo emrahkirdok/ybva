@@ -9,7 +9,7 @@ Bu ders kapsamında işleyeceğimiz belirli bir kaynak kitap yok. Genel olarak a
 Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 
 + Veri bilimine giriş: [html](veri-analizi/metin_01_veri_bilimine_giris.html)
-+ R giriş dersi [html](veri-analizi/metin_02_r_giris.htmli)
++ R giriş dersi [html](veri-analizi/metin_02_r_giris.html)
 + R ve R stüdyo yüklenmesi (Anıl'ın katkılarıyla) [video](https://drive.google.com/file/d/1WSclKBr2VwgeD5r2Df3Acg02ejb7zy-V/view?usp=sharing)
 + Vektörler sunumu [html](veri-analizi/sunum_03_vektörler_devam.html)
 + Vektörler pratik [html](veri-analizi/metin_03_vektorler_pratik.html)
