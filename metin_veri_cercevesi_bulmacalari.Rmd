@@ -1,0 +1,212 @@
+---
+title: "Veri çerçevesi bulmacaları"
+author: "Emrah Kırdök, Ph. D."
+date: "2022-03-16"
+
+---
+
+# Giriş
+
+Bu belge kapsamında bir veri çerçevesinde bulunan veriyi, bazı kıstaslara göre filtrelemeyi öğreneceğiz.
+
+Örnek olarak R içerisinde öntamımlı olarak gelen `iris` veri çerçevesini inceleyelim:
+
+```{r}
+head(iris)
+```
+
+::: note
+`head` fonksiyonu, bir veri çerçevesinin ilk beş satırını geri döndürür.
+:::
+
+Bu veri çerçevesinin boyutları nedir?
+
+```{r}
+dim(iris)
+```
+
+Peki sütun isimleri?
+
+```{r}
+colnames(iris)
+```
+
+Bu veri çerçevesi, *iris* bitkisinin üç farklı türüne ait sepal ve petal yaprakların uzunluk ve genişliklerini içermektedir.
+
+## Bu veriyi nasıl filtreleyeceğiz?
+
+Petal uzunluğu 3'den büyük olan türleri nasıl elde edebiliriz? Ya da sadece *setosa* türüne ait verileri nasıl elde edebiliriz?
+
+### Mantıksal operatörler
+
+R üzerinde farklı mantıksal operatörler kullanarak, elimizdeki veriyi istediğimiz şekilde filtreleyebiliriz.
+
+Mesela, 2 rakamının 5'den küçük olduğunu nasıl test edebiliriz?
+
+```{r}
+2 < 5
+
+```
+
+Elimizdeki değer `TRUE`, yani 2 rakamının 5'den küçük olma karşılaştırmasını doğru olarak geri döndürdü.
+
+Tam tersini yapsaydık:
+
+```{r}
+2 > 5
+```
+
+Bu sefer `FALSE` değerini geri döndürdük. Bu karşılaştırmanın sonucu olumsuz.
+
+Peki, 2 rakamı 5'e eşit mi?
+
+```{r}
+2 == 5
+
+```
+
+Bu karşılaştırmadan `FALSE` değeri geri döndü. Denklik karşılaştırmasını yapmak istiyorsak, `==` iki tane eşittir kullanıyoruz.
+
+Şu şekilde olsaydı:
+
+```{r}
+2 == 2
+```
+
+Geri döndürdüğümüz değer, `TRUE` oldu şimdi.
+
+### Vektörler üzerinde karşılaştırma yapmak
+
+Peki elimizde şöyle bir vektör olsun:
+
+```{r}
+sayilar <- c(2, 5, 6, -1, -10, 4.6)
+```
+
+Bu vektör içerisinde 3'den büyük olan elemanlar hangileri?
+
+```{r}
+sayilar > 3
+```
+
+Bu yazım tarzı bize her elemanın 3'den büyük olup olmama koşulu hakkında doğru ya da yanlış bilgisini geri döndürdü. Bu mantıksal vektörü bir indis olarak kullanırsak:
+
+```{r}
+sayilar[sayilar > 3]
+
+```
+
+Bize 3'den büyük olan sayıları geri döndürdü.
+
+## Veri çerçevesinde mantıksal işlemler
+
+Peki, `iris` veri çerçevesinde bu işleri nasıl yapabiliriz? Tabii bunu bir örnek olarak kabul edin. Her türlü veri çerçevesini bu mantığa göre filtreleyebilirsiniz.
+
+Türlerin bulunduğu sütunu düşünelim. Bu vektör içerisinde sadece *setosa* türlerinin ifade edildiği mantıksal vektörü geri döndürebilir miyiz?
+
+```{r}
+iris$Species == "setosa"
+```
+
+Bu bize hangi elemanların *setosa* olduğunu geri döndürdü. Peki, veri çerçevesini nasıl geri döndüreceğiz?
+
+```{r}
+iris[iris$Species == "setosa", ]
+```
+
+Dikkat ederseniz, bu mantıksal vektörü satır indisi olarak belirttik. Unutmayın, veri çerçevesinde indis kullanmak istiyorsak, hem satır hem de sütun indisleri belirtmeliyiz: `[satir,sutun]`
+
+Peki, petal uzunluğu 3'den büyük olan ölçümleri geri döndürsek?
+
+```{r}
+iris[iris$Petal.Length > 3, ]
+```
+
+Hem petal uzunluğu 3'den büyük olsun, hem de Sepal genişliği 2.7'den küçük olsun. Acaba her iki koşulu sağlayan verileri nasıl geri döndürebiliriz?
+
+Burada `ve` ya da `and` operatörünü (`&`) kulanacağız. Bu operatör bize her iki koşulu sağlayan değerleri geri döndürür.
+
+Adım adım gidelim. Önce ilk koşula bakalım:
+
+```{r}
+iris$Petal.Length > 3
+```
+
+Şimdi ikinci koşul:
+
+```{r}
+iris$Sepal.Width < 2.7
+```
+
+Bu iki koşulu sorgulamak istersek şu şekilde yazmalıyız:
+
+```{r}
+iris$Petal.Length > 3 & iris$Sepal.Width < 2.7
+```
+
+Dikkat ederseniz, her iki değerin de aynı anda karşılandığı elemanları elde ettik.
+
+Şimdi bunu bir indis olarak kullanırsak:
+
+```{r}
+
+iris[iris$Petal.Length > 3 & iris$Sepal.Width < 2.7, ]
+
+```
+
+Bize istediğimiz verileri geri döndürdü.
+
+### Farklı mantıksal operatörlerin kullanımı
+
+Peki, şimdi çalışmamıza bir katman daha ekleyelim.
+
+Bu veri çerçevesinden aşağıdaki koşullara uygun bir filtreleme yapalım:
+
++ Sepal genişliği 2.5'dan küçük **veya** 3.5 büyük olan
++ *virginica* türleri
+
+Burada **veya** koşulu için `|` (sağdaki alt gr tuşu + < tuşu) karakterini kullanacağız. Burada farklı şekilde işlenen iki farklı koşul kullancağız:
+
++ **veya** `|`
++ **ve** `&`
+
+Aşağıdaki örneklerin farkları sizce ne?
+
+```{r}
+(2 + 5)*3
+```
+
+```{r}
+2 + 3*5
+```
+
+Dikkat edin burada bir işlem sırası var. İlk örnekte önce parantez içindeki toplama işlemi yapılıyor, daha sonra çarpma işlemi. İkinci örnekte ise, önce çarpma işlemi yapılıyor, sonra toplama işlemi.
+
+Biz de buna uygun bir strateji işlemeliyiz. Önce **veya** koşulunu irdeleyelim
+
+```{r}
+iris$Petal.Width < 2.5 | iris$Petal.Width > 3.5
+```
+
+Şimdi ise **ve** koşulunu ekleyelim:
+
+```{r}
+(iris$Petal.Width < 2.5 | iris$Petal.Width > 3.5) & iris$Species == "virginica"
+```
+
+Önce parantez içindeki **veya** koşulu işletildi, daha sonra **ve** koşulu. Buradaki işlem sırası mantığını oturtmanız önemlidir.
+
+Şimdi ise bu bilgiyi `iris` veri çerçevesine uygulayalım:
+
+```{r}
+iris[(iris$Petal.Width < 2.5 | iris$Petal.Width > 3.5) & iris$Species == "virginica", ]
+```
+
+Tabi veri çerçevesi filtreleme işlemlerini anlattığım şekilde yapmak durumunda değilsiniz. Çok farklı yollar var. Benim gösterdiğim sadece bir yol. İlerleyen derslerde daha farklı yollar öğreneceğiz.
+
+
+
+
+
+
+
