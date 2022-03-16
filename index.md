@@ -20,6 +20,7 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Matrisler ve veri çerçeveleri pratik [html](veri-analizi/metin_03_pratik.html)
 + Listeler sunum [html](veri-analizi/sunum_06_listeler.html)
 + Rmarkdown ile ödev cevaplama [html](veri-analizi/metin_rmarkdown_odevleri_bilgi.html)
++ Veri çerçevesi üzerinde filtreleme işlemleri [html](veri-analizi/metin_veri_cercevesi_bulmacalari.html)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
