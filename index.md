@@ -33,7 +33,7 @@ Derslerde işlenen konular:
 + Doğrusal modelleme uygulama 1 [html](veri-analizi/metin_dogrusal_modelleme_uygulamasi_1.html)
 + İleri seviye R, kontrol yapıları [sunum](veri-analizi/01_01_kontrol_yapilari.html)
 + İleri seviye R, fonksiyonlar [sunum](veri-analizi/ders_05.html)
-+ Aşamalı azalış ile doğrusal modelleme [html](veri-analizi/metin_asamali_azalis.html)
++ Aşamalı azalış ile doğrusal modelleme [html](veri-analizi/metin_asamali_azalis.html) (Rmd belgesi)(https://raw.githubusercontent.com/emrahkirdok/ybva/main/metin_asamali_azalis.Rmd)
 
 ### Yardımcı okumalar
 
