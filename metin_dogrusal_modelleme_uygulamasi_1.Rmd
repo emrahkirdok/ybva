@@ -31,7 +31,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Doğrusal modelleme, Doğrusal regresyon
 
-## Kütüphanler
+## Kütüphanler
 
 Bu kısım kapsamında kullanılacak veri setlerinin ve fonksiyonlar için iki farklı kütüphane gereklidir:
 
@@ -71,7 +71,7 @@ Bu çalışma kapsamında, `medv` ve `lstat` değişkenleri arasındaki ilişkiy
 Öncelikle bu iki değişken arasındaki ilişkiyi görselleştirelim. Bunun için basitçe bir grafik kullanabiliriz (Şekil \@ref(fig:bostonplot)):
 
 ```{r bostonplot, fig.cap = "Boston veri setinde bulunan `medv` ve `lstat` değişkenleri arasındaki ilişki"}
-plot(medv~lstat, data=Boston)
+plot(medv~lstat, data = Boston)
 ```
 
 ::: note
@@ -79,7 +79,7 @@ plot(medv~lstat, data=Boston)
 R üzerinde herşeyin birden çok çözüm yolu bulunmaktadır. Mesela bu grafiği oluşturmak için üç farklı yol kullanabiliriz:
 
 ```{r, eval = FALSE}
-plot(medv~lstat, data=Boston)
+plot(medv~lstat, data = Boston)
 plot(Boston$medv~Boston$lstat)
 
 attach(Boston)
@@ -91,7 +91,7 @@ Burada kullandığımız `attach` foknsiyonu, bahsi geçen veri setinde bulunan 
 Ancak, kodlarımızın daha açık ve okunabilir olması açısından ben aşağıdaki tarzı tercih edeceğim:
 
 ```{r eval = FALSE}
-plot(medv~lstat, data=Boston)
+plot(medv~lstat, data = Boston)
 ```
 
 :::
@@ -122,7 +122,9 @@ Modeldeki katsayıları elde etmek için `coef` fonksiyonunu kullabiliriz:
 coef(lm.fit)
 ```
 
-Güven aralıklarını elde etmek için ise `confint` fonkisyonunu kullanabiliriz:
+Elde ettiğimiz katsayılar aslında derslerde gördüğümüz $\beta_{0}$ ve $\beta_{1}$ parametrelerini ifade etmektedir.
+
+Güven aralıklarını (%95) elde etmek için ise `confint` fonkisyonunu kullanabiliriz:
 
 ```{r}
 confint(lm.fit)
@@ -134,7 +136,9 @@ Güven aralıkları kısmı tekrar yazılacaktır!
 
 :::
 
-Eğer Şekil \@ref(fig:bostonplot)'i dikkatle incelerseniz, iki değişken arasında doğrusal olmayan bir ilişki görebilme imkanınız var. Bunu daha iyi olarak, doğrusal modeli çizerek gösterebiliriz (Şekil \@ref(fig:lm)).
+Eğer Şekil \@ref(fig:bostonplot)'i dikkatle incelerseniz, iki değişken arasında doğrusal olmayan bir ilişki görebilme imkanınız var. Derslerde de belirttiğimiz gibi, aslında mükemmel bir doğrusal ilişki bulma imkanınız yok. Bizim burada yaptığımız ise, aslında iki değişken arasındaki ilişkiyi en iyi ifade eden doğrusal modeli elde etmek.
+
+Bunu daha iyi olarak, doğrusal modeli çizerek gösterebiliriz (Şekil \@ref(fig:lm)).
 
 ```{r lm, fig.cap = "Boston veri setinden oluştruğdumuz doğrusal modelin grafik üzerinde gösterilmesi"}
 plot(medv~lstat, data=Boston)
@@ -143,20 +147,23 @@ abline(lm.fit, col = "red")
 
 Son olarak, R bize farklı grafikler ile, oluşturduğumuz model hakkında daha fazla bilgi vermektedir (Şekil \@ref(fig:diagnostic)). Burada dikkat etmemiz gereken grafik, sol üstteki *Residuals cs Fitted* grafiği. Derste, artıklardan bahsetmiştik. Bu artık değerlerinin homojen bir şekilde doğrusal modelin etrafında dağıması ideal olacaktır. Aslında x eksenindeki girdi ile, artıklar arasında hiç bir ilişkinin olmaması gerekir.
 
-```{r diagnostic}
+```{r diagnostic, fig.cap = "R içerisinde gelen doğrusal modelleme fonksiyonundaki çıktılar. Burada en önemlisi bizim sol üstteki grafiğimiz. Burada artık değerleri ile $x$ ekseni arasındaki ilişki irdeleniyor. Artıkların, x ekseni ile az da olsa bir ilişkisi var"}
 opar <- par(no.readonly = TRUE)  # copy of current settings
 par(mfrow = c(2, 2))             # 2 * 2
 plot(lm.fit)
 ```
 
-Ancak grafiğe baktığımızda, artıklar ile x arasında az da olsa bir ilişki var.
+İdeal olarak baktığımızda, artık değerlerinin aslında çizdiğimiz doğrusal model etrafında homojen bir şekilde dağılmasını bekleriz. Bu bize aslında artık değerleriyle, $x$ eksenindeki değişken arasında bir ilişki olmamasını beraberinde getirir. 
 
-## ggplot ile denemeler
+Ancak grafiğe baktığımızda, artıklar ile x arasında az da olsa bir ilişki var. Bu çok istenen bir durum değildir. Benim bu noktadaki yorumum şu olur:
 
-Eğer buraya kadar geldiyseniz, ggplot2'yi mutlaka denemelisiniz. Şimdi aynı grafikleri ggplot2 ile tekrarlayalım:
+> Elimizdeki değişkenler arasında doğrusal bir ilişki olmadığı için, artıklar doğrusal model etrafında homojen bir şekilde dağılmamıştır. 
 
+## Ekstralar: `ggplot` ile denemeler
 
-```{r }
+Eğer buraya kadar geldiyseniz, `ggplot2`'yi mutlaka denemelisiniz. Şimdi aynı grafikleri ggplot2 ile tekrarlayalım (Şekil \@ref(fig:try)). R üzerinde harka görselleştirme araçları mevcuttur. Bununla ilgili görselleştirmeleri internet sitesinde paylaştım.
+
+```{r try, fig.cap = "ggplot2 ile oluşturulmuş bir grafik"}
 library(ggplot2)
 ggplot(data = Boston, aes(x = lstat, y = medv)) +
   geom_point() +
