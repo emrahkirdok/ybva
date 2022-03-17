@@ -1,0 +1,144 @@
+---
+title: "Aşamalı alçalış"
+author: "Emrah Kırdök, Ph. D."
+date: "16/10/2022"
+output:
+  bookdown::pdf_document2:
+    template: templates/eisvogel.tex
+    toc: false
+    pandoc_args:
+    - --filter
+    - ~/miniconda3/bin/pandoc-latex-environment
+  bookdown::html_document2:
+    css: "templates/scholarly.css"
+bibliography: bibliography.bib
+lang: tr
+header-includes: |
+  ```{=latex}
+  \usepackage{awesomebox}
+  ```
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
+---
+
+> Maalesef belge daha tamamlanmadı. Bugün yarın biter :)
+
+# Giriş
+
+Bu belge kapsamında, aşamalı alçalış kullanarak nasıl doğrusal modelleme gerçekleştirilebileceği irdelenecektir. Bu belgede genel olarak [Alex Beacher](https://www.alexbaecher.com/post/gradient-descent/) tarafından yazılmış blog yazısını temel alacaktır.
+
+## Aşamalı alçalış
+
+Bir öncek belgede basit kareler toplamı ismindek metodu kullanarak doğrusal modelleme yaptık. Ancak bu ders kapsamında biz istatistiksel öğrenmenin temellerini incelemek istiyoruz. Bu açıdan baktığımızda, bu soruyu basit bir örnek üzerinden irdelemek güzel olacaktır.
+
+## Veri
+
+Bu çalışma kapsamınd veri simüle edeceğiz:
+
+```{r}
+set.seed(123)
+
+x <- runif(1000, -5, 5)
+y <- x + rnorm(1000) + 3
+
+plot(y~x)
+```
+
+## Yöntem
+
+İlk olarak maliyet fonksiyonumuzu yazalım. Burada ortalama karelerin toplamı hatasını kulladık:
+
+
+```{r}
+cost <- function(X, y, theta) {
+  sum( (X %*% theta - y)^2 ) / (2*length(y))
+}
+```
+
+Şimdi ikinci önemli kısma geçelim:
+
++ öğrenme hızı (learning rate)
++ deneme sayısı (iteration limit)
+
+
+```{r}
+alpha <- 0.01
+num_iters <- 1000
+```
+
+Şimdi ise, maliyet fonksiyonumuzdan elde ettiğimiz çıktıyı ve katsayıları depolayacağımız listeleri hazırlayalım:
+
+```{r}
+cost_history <- double(num_iters)
+theta_history <- list(num_iters)
+theta <- matrix(c(0,0), nrow=2)
+
+# add a column of 1's for the intercept coefficient
+X <- cbind(1, matrix(x))
+```
+
+Burada `theta` olarak belirlediğimiz veri aslında bizim başlangıç katsayılarımız. Aslıbda $\beta_{0}$ ve $\beta_{1}$ katsayılarımız bunlar.
+
+Peki bu katasyılar bize nasıl bir doğru çiziyor? Bakalım hemen. Burada gördüğümüz kırmızı çizgi aslında bizim başlangıç kastasıylarımız ifade eden denklem. Biz bu noktadan başlayarak, bu veri en iyi açıklayan doğruyu tahmin etmeye çalışacağız.
+
+```{r}
+plot(y~x)
+abline(coef=theta, col = "red")
+```
+
+Şimdi ise aşamalı alçalışı uygulayalım:
+
+```{r}
+for (i in 1:num_iters) {
+  error <- (X %*% theta - y)
+  delta <- t(X) %*% error / length(y)
+  theta <- theta - alpha * delta
+  cost_history[i] <- cost(X, y, theta)
+  theta_history[[i]] <- theta
+}
+```
+
+Maliyet çıktısına bakalım (head ile)
+
+```{r}
+head(cost_history)
+```
+
+Katsayılara bakalım:
+
+```{r}
+head(theta_history)
+```
+
+Peki, şimdi grafiği oluşturalım:
+
+```{r}
+iters <- c((1:31)^2, 1000)
+cols <- rev(terrain.colors(num_iters))
+library(gifski)
+png("frame%03d.png")
+par(ask = FALSE)
+
+for (i in iters) {
+  plot(x,y, col="grey80", main='Linear regression using Gradient Descent')
+  text(x = -3, y = 10, paste("slope = ", round(theta_history[[i]][2], 3), sep = " "), adj = 0)
+  text(x = -3, y = 8, paste("intercept = ", round(theta_history[[i]][1], 3), sep = " "), adj = 0)
+  abline(coef=theta_history[[i]], col=cols[i], lwd = 2)
+}
+
+dev.off()
+
+## png 
+##   2
+
+png_files <- sprintf("frame%03d.png", 1:32)
+gif_file <- gifski(png_files, delay = 0.1)
+unlink(png_files)
+utils::browseURL(gif_file)
+```
+
+![](animation.gif)
