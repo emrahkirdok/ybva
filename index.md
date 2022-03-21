@@ -21,6 +21,10 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Listeler sunum [html](veri-analizi/sunum_06_listeler.html)
 + Rmarkdown ile ödev cevaplama [html](veri-analizi/metin_rmarkdown_odevleri_bilgi.html)
 + Veri çerçevesi üzerinde filtreleme işlemleri [html](veri-analizi/metin_veri_cercevesi_bulmacalari.html)
++ Bilgisayardan veri yükleme [sunum](veri-analizi/sunum_07_metin_dosyalar%C4%B1_okuma.html)
+  + Kullanılacak veriyi indirin (sağ tıklayıp farklı kaydete basın) [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinif.txt)
+
++ Bilimsel hikaye anlatıcılığı - 1 [html](veri-analizi/metin_bilimsel_hikaye_anlaticiligi.html)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
