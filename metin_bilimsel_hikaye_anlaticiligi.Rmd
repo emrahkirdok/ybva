@@ -1,0 +1,227 @@
+---
+author: "Emrah Kırdök, Ph. D."
+date: '2022-03-21'
+output:
+  pdf_document:
+    template: /Users/quatta/pk/pandoc-latex-template/eisvogel.tex
+    keep_md: true
+    pandoc_args: ["--listings"]
+subtitle: Tanımlayıcı İstatistikler - 1
+title: "Bilimsel Hikaye Anlatıcılığına Giriş"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bilimsel Hikaye Anlatımı
+
+Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler, ve veri çerçevelerini öğrendik. Hatta, bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?
+
+Veri analizi aslında bilimsel bir hikaye anlatıcılığıdır. Nasıl bir hikaye anlatıcısı üslubuyla, benzetmeleriyle, kelime oyunlarıyla bize bir öykü anlatıyorsa; biz de tablolarımızla, grafiklerimizle, ve istatsisitk bilgimizle okuyuculara bilimsel bir öykü anlatıyoruz. Bu öykü anlatıcılığındaki ilk adım ise, elimizdeki verinin ne olduğunu tanımlamak. İşte bunu tanımlayıcı istatistik olarak isimlendiriyoruz.
+
+Bir önceki derste kullandığımız veri setini tekrar R programına yükleyelim:
+
+```{r read}
+sinif <- read.table("data/sinif.txt", header = TRUE, stringsAsFactors = FALSE)
+sinif <- read.table("data/sinif.txt", header = TRUE, stringsAsFactors = FALSE)
+sinif <- read.table("data/sinif.txt", header = TRUE, stringsAsFactors = FALSE)
+```
+
+Hatırlarsanız bu komut, `sinif.txt` ismindeki dosyayı okuyup, ilk satırı sütun isimleri olarak atayıp, `sinif` olarak tanımlanan bir veri çerçevesi geri döndürüyordu.
+
+Dikkat ederseiz, `stringsAsFactors = FALSE` opsiyonunu kullandığım için, bütün karakter vektörlerini olduğu gibi aktardı. Dolayısıyla burada `cinsiyet` ve `el` vektörlerinin faktör olmasını istiyorum. Çünkü bunlar gruplama değişkenleri ve ilerleyen adımlarda verimi özetlememde yardımcı olacak:
+
+```{r}
+sinif$cinsiyet <- factor(sinif$cinsiyet)
+sinif$el <- factor(sinif$el)
+```
+
+Bu adımdan sonra kullanacağımız ilk fonksiyon `summary` olacak. Bir dosya okuduktan sonra her zaman bu fonksiyonla elde ettiğiniz veri çerçevesini özetlemenizi tavsiye ederim. Bu sayede elinizdeki verinin içeriğini öğrenmiş olacaksınız:
+
+```{r}
+summary(sinif)
+```
+
+Bu komut sonucunda, her sütunun sahip olduğu veri tiplerini ve özelliklerini elde ettik. Mesela `isimler` sütünu bir karakter vektörü, `cinsiyet` sütunu bir faktör vektörü, `boy` ve `kilo` sütunları rakam vektörleri, ve `el` sütunu ise bir faktör vektörü olduğu görülüyor.
+
+Peki bundan sonra ne olacak? Bu verilerle ne yapabilirim?
+
+1. Kaç tane var?
+2. Neredeler?
+3. Dağılımları nasıl? (*homojen* veya *heterojen*)
+
+Sıra sıra gidelim...
+
+## Tanımlayıcı istatistikler
+
+Veri çerçevesinde kaç eleman var?
+
+```{r}
+dim(sinif)
+nrow(sinif)
+ncol(sinif)
+```
+
+Ya da vektörlerin boyutlarını hesaplayabiliriz:
+
+```{r}
+length(sinif$boy)
+```
+
+## Frekans tabloları
+
+Mesela sağlak veya solaklar için frekans tablosu oluşturalım. Bunun için `table` fonksiyonunu kullanacağız:
+
+```{r}
+table(sinif$el)
+```
+
+Sonuç olarak bu sinifta 6 kişi sağlak, ve 4 kişi de solak. Peki iki farklı değişkeni hesaplayabilir miyiz?
+
+```{r}
+table(sinif$cinsiyet, sinif$el)
+```
+
+Peki şimdi rakam vektörlerinde kullanalım:
+
+```{r}
+table(sinif$boy)
+```
+
+Sanırım bu fonkisyon rakam vektörleri için kullanışlı değil. Rakam vektörleri için ayrı bir sistem gerek.
+
+Mesela belli bir boynun üstündeki insanları sayalım:
+
+```{r}
+sum(sinif$boy>1.80)
+```
+
+Peki bu vektörü nasıl ifade edebiliriz?
+
+## Ortalama, ortanca ve dağılım
+
+İlk seçeneğimiz *aritmetik ortalama* hesaplamak:
+
+```{r}
+mean(sinif$boy)
+```
+
+İkinci seçeneğimiz *ortanca* değeri hesaplamak:
+
+```{r}
+median(sinif$boy)
+```
+
+Bu değer bize şunu ifade ediyor:
+
+- elimizdeki rakamların yarısı ortancadan fazla
+- yarısı ortancadan az
+
+Peki, verimizin sınırları ne? Bunun için tekrar `summary` fonksiyonuna bakalım:
+
+```{r}
+summary(sinif$boy)
+```
+
+Elde ettiğimiz ilk değer, en küçük elemanı gösteriyor. En sonraki değer ise en büyük elemanı. Aynı zamanda bu şekilde de hesaplayabiliriz:
+
+```{r}
+min(sinif$boy)
+max(sinif$boy)
+```
+
+Aynı zamanda ortanca (median), ve aritmetik ortalama (mean) değerleri de hesaplanmış. Peki, 1st Qu. ve 3rd Qu. nedir?
+
+Bu değerler *çeyreklik* olarak isimlendirilir. Elimizdeki veriyi, her bir parça toplam rakamların %25'ini içerecek şekilde 4 parçaya böldüğümüzde, elde ettiğimiz her bölge çeyreklik olarak isimlendirilir. Bu değerleri daha iyi anlamak için `quantile` fonksiyonunu kullanalım:
+
+```{r}
+quantile(sinif$boy)
+```
+
+0% aslında en küçük değeri, 100% ise en büyük değeri gösteriyor. 1.64' e kadar ilk çeyreklik kısım, 1.72'ye kadar ikinci çeyreklik, 1.83'e kadar üçüncü çeyreklik ve 1.96'ya kadar ise son çeyreklik kısım bulunur. İsterseniz rakamları sıralamamızı sağlayan `sort` fonksiyonu ile daha rahat görebiliriz:
+
+```{r}
+sort(sinif$boy)
+```
+
+Tam olmasa da, yaklaşık olarak eşit sayıda gruplar olduğu görülmekte. 
+
+Son olarak `cut` isimli fonksiyonlar benzer bir çalışma yapabiliriz. Bu fonksiyon, elimizdeki bir rakam vektörünü, istediğimiz aralıklarla bölmemizi sağlar. Mesela `boy` vektörünü, en küçük elemanı koruyacak şekilde 4 parçaya ayıralım:
+
+```{r}
+cut(sinif$boy, 4, include.lowest = TRUE)
+```
+
+Bu işlem, vektörü 4 parçaya böldü ve her elemanı bir gruba dahil eden bir faktör vektörü geri döndürdü. Şimdi ise `quantile` fonksiyonunun çıktısını, kesim noktaları olarak tanımlayalım:
+
+```{r}
+cut(sinif$boy, quantile(sinif$boy), include.lowest = TRUE)
+```
+
+Son olarak elde ettiğimiz faktör vektörünün frekans tablosunu elde edelim:
+
+```{r}
+table(cut(sinif$boy, quantile(sinif$boy), include.lowest = TRUE))
+```
+
+Yaklaşık olarak eşit gruplar elde ettik. Sonuç olarak verimizin dağılımı bu şekilde
+
+## Hatta grafiğini yapalım!
+
+R bize aynı zamanda bu dağılımı görselleştirme imkanı da sunuyor. Mesela **kutu grafikleri** (`boxplot`) elimizdeki verinin dağılımını gösteren yegane görselleştirme metodudur. Burada `boxplot` fonksiyonu ile birlikte bir rakam vektörü kullanmamız gerektiğine dikkat edin lütfen. Yani sadece **sürekli (continious)**  veri tipleriyle işlem yapabiliriz. Faktör gibi **kategori (disecrete)** veri tipleri tek başlarına kullanılamaz.
+
+Burada kullandığımız `outline` opsiyonu, outlier değerlerin gösterilmemesi gerektiğini belirtmektedir.
+
+```{r}
+boxplot(sinif$boy, outline = FALSE)
+```
+
+Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir. Ortadaki kalın çizgi bize ortanca değeri gösterir. 
+
+- En aşağıdaki çizgi ise minimum değeri
+- kesikli çizgi birinci çeyreklik kısmı
+- kutu içerisinde ikinci ve üçüncü çeyreklik kısımlar ortanca değer ile ayrılır
+- en üstteki değerle kutunun arasındaki kesikli çizgi ise dördüncü çeyrekliği gösterir
+
+İsterseniz siniftaki insanların ağırlıklarını da tanımlayıcı istatistik yöntemleriyle inceleyelim:
+
+```{r}
+summary(sinif$kilo)
+```
+
+En hafif kişi 60 kilo, en ağır kişi ise 100 kiloymuş. 
+
+```{r}
+boxplot(sinif$kilo)
+```
+
+Peki, siniftaki insanların boy dağılımı cinsiyete göre nasıl değişim gösteriyor? İşte faktör veri sınıfını kullanacağımız yere geldik!
+
+```{r}
+boxplot(sinif$boy~sinif$cinsiyet)
+```
+
+Burada `~` işareti (sağ alt tuşu + ü), **soldaki değeri, sağdaki değere göre ifade et** şeklinde özetlenebilir. Aslında bir değişkeni, başka bir değişken kullanarak modelliyoruz. Bu konuya ilerleyen derslerde geleceğiz.
+
+Dikkat ederseniz bu sınıftaki kadınlar, erkeklerden çok uzun. Siz de bilgisayarlarınızda aynısını, kişilerin kiloları için yapın. Ne sonuç bulacaksınız?
+
+## GGplot2!
+
+Buraya kadar normal R grafiklerini gördük. Ancak R üzerinde başka görselleştirme kütüphaneleri de mevcuttur. Bunlardan bir tanesi de `ggplot2`.
+
+Önce kütüphaneyi yükleyelim:
+
+```{r}
+library(ggplot2)
+```
+
+Kutu grafiğini yapalım:
+
+```{r}
+ggplot(data = sinif, aes(x = cinsiyet, y = boy)) + geom_boxplot()
+```
+
+
+

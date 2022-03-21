@@ -1,0 +1,146 @@
+---
+title: "Veri Okuma"
+author: "Emrah Kırdök, Ph. D."
+date: "2021-03-21"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Veri Okuma
+
+## Metin dosyalarını okuma
+
+Bilgisayardaki metin dosyalarını okumak için:
+
+```{r readtbl, eval=FALSE}
+read.table(file, header = FALSE, sep = "", quote = "\"'",
+           row.names, col.names, na.strings = "NA",
+           stringsAsFactors = TRUE,
+           dec = ".", comment.char = "#", ...)
+```
+
+İsterseniz yardım dosyaını okuyabilirsiniz `read.table()`.
+
+```r
+help(read.table)
+```
+
+## Metin dosyalarını okuma
+
+Bu fonksiyonun ardından bir `veri çerçevesi` elde edersiniz. Zorunlu argüman:
+
+file
+: Okunacak dosyanın ismi
+
+## Diğer opsiyonlar
+
+header
+: Eğer TRUE ise, dosyanın ilk satırı, sütun isimleri olarak kullanılır
+
+sep
+: Sütunları ayırmak için kullanılan belirteç. *Tab*  için `"\t"`
+
+## Diğer opsiyonlar
+
+stringsAsFactors
+: TRUE ise metinler *faktör* olarak okunur
+
+: Bu opsiyonu `FALSE` seçerseniz metinler *karakter* olarak okunr
+
+dec
+: Ondalık ayracı
+: Türkiye için `dec=","` 
+
+## Örnek veri
+
+Lütfen ders sistemine yüklenmiş `sinif.txt` dosyasını bilgisayarınıza indirip kaydedin.
+
+## örnek veri
+
+Dosyayi okuyalım:
+
+```{r read, cache=TRUE}
+sinif <- read.table("data/sinif.txt", header=T)
+```
+
+Veriyi inceleyelim
+
+## Sütunların seçimi
+
+Veri çerçevelerinde her zaman sütun isimleri var:
+
+```{r}
+colnames(sinif)
+```
+
+## Sütunların seçimi
+
+Her sütun bir vektördür
+```{r}
+sinif$isimler
+```
+
+## Bazı satırları seçelim
+
+Mesela solakları seçelim:
+```{r}
+sinif$el=="sol"
+```
+(Dikkat edin `==` işaret karşılaştırma için kullanılır)
+
+## Bazı satırların seçimi
+
+Hatırlarsak, mantıksal karşılaştırma vektörlerini indis olarak kullanabiliyorduk:
+
+```{r}
+sinif[sinif$el=="sol",]
+```
+
+## Kimler solak?
+```{r}
+sinif[sinif$el=="sol", "isimler"]
+sinif$isimler[sinif$el=="sol"]
+```
+
+İkisi de aynı sonucu verir
+
+## Özet istatistikler
+
+Metin dosyası okuma fonksiyonunu (`read.table`) her kullandığınızda
+```{r summary}
+summary(sinif)
+```
+
+## `summary()`
+
+Sonuç, incelenen sütüna göre 
+
+Mesela `boy` vektörünün sonucu:
+```{r}
+summary(sinif$boy)
+```
+
+## Satır ve sütunlar
+
+Satır sayısı
+```{r}
+nrow(sinif)
+```
+
+Hem satır hem de sütun sayısı
+```{r}
+dim(sinif)
+```
+
+## Peki frekans hesaplayalım mı?
+
+Seçeceğimiz bir vektördeki öğelerin frekanslarını hesaplayabiliriz:
+
+```{r}
+table(sinif$el)
+```
+
