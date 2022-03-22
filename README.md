@@ -1,6 +1,6 @@
 # Yaşam bilimlerinde veri analizi
 
-Merhaba! Burada Mersin Üniversitesi Biyoteknoloji bölümünde lisans ve lisansüstü seviyede verdiğim veri analizi ve istatistiksel öğrenme derslerini paylaşıyorum. 
+Merhaba! Burada Mersin Üniversitesi Biyoteknoloji bölümünde lisans ve lisansüstü seviyede verdiğim veri analizi ve istatistiksel öğrenme derslerini paylaşıyorum.
 
 ## Lisans
 
