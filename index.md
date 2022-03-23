@@ -24,8 +24,8 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Bilgisayardan veri yükleme [sunum](veri-analizi/sunum_07_metin_dosyalar%C4%B1_okuma.html)
   + Kullanılacak veriyi indirin (sağ tıklayıp farklı kaydete basın) [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinif.txt)
 + Klasör işlemleri [metin](veri-analizi/metin_klasor_islemleri.html)
-
 + Bilimsel hikaye anlatıcılığı - 1 [html](veri-analizi/metin_bilimsel_hikaye_anlaticiligi.html)
++ Ggplot2 ile grafik dilbilgisi [html](veri-analizi/metin_ggplot2_grafik_dilbilgisi.html)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
