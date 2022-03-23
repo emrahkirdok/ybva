@@ -1,0 +1,116 @@
+---
+title: "Klasör ve dosyalarda yönümüzü bulmak"
+author: "Emrah Kırdök, Ph. D."
+date: "23/03/2022"
+output:
+  bookdown::html_document2:
+    css: "templates/scholarly.css"
+  bookdown::pdf_document2:
+    template: templates/eisvogel.tex
+    keep_md: yes
+    toc: false
+    keep_tex: true
+    pandoc_args:
+    - --filter
+    - ~/miniconda3/bin/pandoc-latex-environment
+bibliography: bibliography.bib
+lang: tr
+header-includes: |
+  ```{=latex}
+  \usepackage{awesomebox}
+  ```
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Giriş
+
+R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.
+
+Bu belge bu amaçla hazırlandı.
+
+## Adımlar
+
+1. Çalışma klasörümüz nerede?
+2. Kullanıcı ismimiz nedir?
+3. Klasör isimlendirmeleri ve klasörlerde gezinmek
+4. Proje içerisinde çalışmak en kolayı
+
+## Çalışma klasörümüz nerede?
+
+İlk olarak `getwd()` komutunu konsola yazalım:
+
+```{r}
+getwd()
+```
+
+Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir.
+
+Kullanıcı ismi nedir? Kullancı ismi, her bilgisayarda bulunan ve sizin bilgilerinizin depolandığı klasördür.
+
+Unix (mesela macbooklar) ve Linux tabanlı  işletim sistemlerinde bu konu önemlidir. Çünkü bu sistemler çok kullanıcılı olması için optimize edilmiştir.
+
+Ancak Windows bilgisayarlarında bu konu çok anlaşılamamış bir olgudur. Genelde, bilgisayarı aldığınız yerde rastgele bir kullanıcı adı atanır. 
+
+Windows sistemlerinde kullanıcı klasörleri `C:/Users/` içerisinde bulunur.
+
+Mac sistemlerde `/Users/` içerisinde.
+
+Linux sistemlerde ise `/home/` içinde bulunur.
+
+Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.
+
+Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyıorsunuz.
+
+Herkes kendi kullancı ismini belirlesin önce. Eğer bilgisyar mühendisliği laboratuvarında bu kullanııcı ismi `PCC` olarak atanmıştır.
+
+## Çalışma klasörü içindekiler nedir?
+
+Peki bu klasör içinde neler var? `dir()` fonksiyonu bu işe yarar. Klasördeki dosyaları size gösterir:
+
+```{r}
+dir()
+```
+
+## Klasörlerde gezinmek
+
+Eğer klasörler içerisinde gezinmek istiyorsanız, her klasörü ya da belgeyi `/` işareti ile ayırmalısınız.
+
+Türkçe karakterler kullanmamaya dikkat edin.
+
+Klasör isimlerinde boşluk kullanmayın. Hata alma şansınız yüksek. Genel olara komut satırında çalışırken kullandığınız boşluk (space) karakteri, yazdığınız şeyin bittiği anlamına geliyor ve bilgisayar sizden yeni bir cümle yazmanınızı bekliyor.
+
+Bu nedenle hata alabilirsiniz.
+
+## Proje oluşturmak
+
+Eğer proje oluşturursanız, hayatınız daha kolaylaşır.
+
+Proje oluşturun ve proje klasörünüzün içerisine `data` isimli bir klasör daha oluşturun.
+
+Artık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.
+
+Proje klasörü oluştdurduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.
+
+```{r}
+getwd()
+```
+
+Bu klasör içerisinde `data` isimli verilerin saklandığı bir klasör daha bulunmakta. Onun içinde neler var?
+
+```{r}
+dir("data")
+```
+
+Artık R içerisinde bir dosya okumak isterseniz `data/sinif.txt` yazarak, rahatlıkla bu dosyayı okuyabilirsiniz.
+
+
+
