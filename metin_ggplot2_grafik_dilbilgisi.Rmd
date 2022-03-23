@@ -1,0 +1,105 @@
+---
+title: "GGplot2 ile grafik dilbilgisi"
+author: "Emrah Kırdök, Ph. D."
+date: "23/03/2022"
+output:
+  bookdown::html_document2:
+    css: "templates/scholarly.css"
+  bookdown::pdf_document2:
+    template: templates/eisvogel.tex
+    keep_md: yes
+    toc: false
+    keep_tex: true
+    pandoc_args:
+    - --filter
+    - ~/miniconda3/bin/pandoc-latex-environment
+bibliography: bibliography.bib
+lang: tr
+header-includes: |
+  ```{=latex}
+  \usepackage{awesomebox}
+  ```
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Giriş
+
+Bugün derste `ggplot2` ile grafik dilbilgisi hakkında çalışmalar yaptık.
+
+Öncelikle `ggplot2` paketini yükleyelim. Büyük bir ihtimalle sizin bilgisayarlarınızda bu paket olmayacak, o yüzden ilk kullanımdan önce paketi kurmanız gerekebilir:
+
+```{r eval = FALSE}
+install.packages("ggplot2")
+```
+
+Paketi bir kere yükledikten sonra artık aşağıdaki şekilde kullanabilirsiniz:
+
+```{r}
+library("ggplot2")
+```
+
+## Grafik dilbilgisi
+
+Bir grafiği gözünüzün önüne getirin, acaba hangi öğeler var?
+
++ Kullanılacak veri 
++ Grafik düzlemi
++ $x$ ve $y$ eksenleri
++ Görselleştirme 
+    + noktlar
+    + kutu grafiği vs
+
+Mesela öncelikle boş bir grafik düzlemi oluşturalım:
+
+```{r}
+ggplot()
+```
+
+Şimdi veriyi ve eksenleri ekleyelim:
+
+```{r}
+ggplot(data = iris, aes(x = Species, y = Petal.Length))
+```
+
+Son olarak da kutu grafiğini geometrisini ekleyelim:
+
+```{r}
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_boxplot()
+```
+
+Bu mantığı kullanarak farklı geometriler ekleyelibiriz:
+
+```{r}
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_boxplot() + geom_point()
+```
+
+## Histogram
+
+Peki, Petal uzunlukları irisi bitkilerinde nasıl değişiyor?
+
+```{r}
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram()
+```
+
+Acaba buradaki sütunları türlere göre boyayabilir miyiz?
+
+```{r}
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(aes(fill = Species))
+```
+
+Dikkat ederseniz, veri çerçevesi içersindeki sütunları grafik içerisinde bir parametre olarak kullanmak istiyorsak `aes()` içerisine yazıyoruz.
+
+## Yoğunluk grafikleri (güzel görünen histogramlar)
+
+```{r}
+ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species), alpha = 0.8)
+```
