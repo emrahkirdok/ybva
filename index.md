@@ -48,6 +48,8 @@ Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal mod
 + [Doğrusal regresyon, Ethen Liu](http://ethen8181.github.io/machine-learning/linear_regression/linear_regession.html)
 + [Aşamalı azalış ile doğrusal regresyon, Alex Baecher](https://www.alexbaecher.com/post/gradient-descent/) Bu yazı içerisindeki animasyonlar oldukça açıklayıcı!
 + [Tek bir değişkeli doğrusal regresyon için aşamalı azalış, Vladimir Kuznetsov](https://rpubs.com/VladimirKazan/139320)
++ Görselleştirme neden önemli? Anscombe'nin dörtlüsünü bir inceleyin [bağlantı](https://rpubs.com/debosruti007/anscombeQuartet)
+  + Tanımlayıcı istatistikler aynı olan dört farklı veri grubu aynı doğrusal regresyon modelini işaret ediyor. Acaba dördü de aynı mı?
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
