@@ -1,0 +1,241 @@
+---
+title: "Ders"
+author: "Anil"
+date: '2022-04-03'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+İlk olarak library fonksiyonunu kullanarak "ggplot2" yi yüklüyoruz
+
+```{r}
+
+library("ggplot2")
+
+
+```
+
+Bunu yazdığınızda hata alıyorsanız install.packages("ggplot2") yazabilirsiniz.
+
+```{r}
+# ggplot() Hazırlayacağımız grafiğin alt yapısını oluşturur.
+## ggplot içerisinde çoğunlukla veri çerçevisi kullanıyoruz, kullandığımız bilginin veri çerçevesi olması gerekiyor.
+ggplot()
+```
+
+```{r}
+# öncelikle iris veri çerçevesini kullanıyoruz, iris veri çerçevesi R içinde hazır geliyor.
+## Sütun isimlerini hatırlamak gerekiyor.
+head(iris)
+
+```
+
+
+```{r}
+# Bir grafik oluşturalım. Data içerisine kullanacağımız veri çerçevesinin ismini yazmalıyız.
+
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length))
+
+
+```
+
+
+```{r}
+# Bir opsiyon daha ekleyelim. Veriyi belirledik üstüne görselleştirmeler ekleyelim.
+
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point()
+
+
+```
+
+
+```{r}
+# Renklendirme yapalım. Aes opsiyonu ile gerçekleştiriyoruz.
+
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(color = Species))
+
+
+```
+
+
+```{r}
+# "ggtitle()" komutu ile grafiğin içine başlık ekleyebiliriz.
+
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(color = Species)) + ggtitle(label = "İris veri cercevesi")
+
+```
+
+```{r}
+# "subtitle" ile alt başlık da oluşturabiliriz.
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(color = Species)) + ggtitle(label = "İris veri cercevesi", subtitle = "İris veri cercevesindeki bitkilerin petal uzunluk ve genisliklerinin nokta grafi ile gösterimi. Renkler, farklı turleri temsil etmekte")
+
+
+```
+
+```{r}
+# İstersek bu grafiği kaydedebiliriz. Plots kısmında "Export" a tıklayıp  save as pdf e tıklayıp Landscape olarak kaydedebilirsiniz.
+```
+
+```{r}
+# "xlab" ve "ylab" komutları ile grafiğin x ve y eksenini Türkçeleştirebilirsiniz fakat Türkçe olunca her zaman kaydedilemiyor.
+
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(color = Species)) + ggtitle(label = "İris veri cercevesi", subtitle = "İris veri cercevesindeki bitkilerin petal uzunluk ve genisliklerinin nokta grafi ile gösterimi. Renkler, farklı turleri temsil etmekte") + xlab("Petal Genisligi") + ylab("Petal Uzunlugu")
+
+```
+
+
+```{r}
+# Grafik de türlerin şekillerini değiştirmek istersek. "shape" komutunu kullanabiliriz.
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(color = Species, shape = Species))
+
+
+```
+
+```{r}
+# Grafikteki noktaların boyutlarını da değiştirebiliriz.
+ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(color = Species, shape = Species, size = Sepal.Length))
+
+```
+
+```{r}
+# Kutu grafikleri. Kutu grafiklerini oluşturmak için ise "geom_boxlot()" kullanmalıyız.
+ggplot(data = iris, aes(y = Petal.Length)) + geom_boxplot()
+
+```
+
+```{r}
+# "X" eksenine türleri ekleme
+ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot()
+
+
+```
+
+```{r}
+# Kutu grafiğinde renk ekleme.
+ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot(aes(color = Species))
+
+```
+
+```{r}
+# "Color" komutu çoğunlukla dış kısmı boyuyor. "fill" ise doldurma anlamına gelmekte iç kısımları boyuyor.
+ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot(aes(color = Species, fill = Species))
+
+```
+
+```{r}
+# Grafige başlık ekleme ile x ve y eksenini isimlendirme.
+ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot(aes(color = Species, fill = Species)) + ggtitle(label = "İris bitkisi turlere gore sepal uzunluklar") + xlab("Tur") + ylab("Petal Uzunlugu")
+
+
+```
+
+
+```{r}
+# Histogramlar bir verinin dağılımını bize veriyor. Histogramları oluştururken tek bir eksen kurmalıyız o da "X" ekseni.
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram()
+
+
+```
+
+
+```{r}
+# Üstekki komutu yazdığınızda uyarı alacaksınız. Bu uyarının anlamı bin boyutları oluşturduğumuz histogramda 30 farklı bin var. Bin boyutunu değiştirebiliriz.
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 10)
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 5)
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 30)
+
+```
+
+```{r}
+# "X" Ekseni bizim belirlediğimiz değişkeni ifade ederken, "Y" ekseni ise onun frekansı(kaç tane olduğu). Bin ön tanımlı olarak 30 geliyor isterseniz değiştirebilirsiniz.
+
+```
+
+```{r}
+# Histogram grafiğine renk ekleyebiliriz. "fill" opsiyonunu kullanıyoruz, kutuların içini boyayacağız.
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 30, aes(fill = Species))
+
+
+```
+
+```{r}
+# Oluşturduğumuz histograma, başlık, y ve x ekseni isimleri ekleyelim.
+ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 30, aes(fill = Species)) + ggtitle(label = "İris bitkisinde petal uzunluklarının histogrami") + xlab("Petal uzunlugu") + ylab("Frekans")
+
+```
+
+```{r}
+# Histogramın bir sonraki aşaması
+## Yogunluk grafikleri, histogramlara göre göze daha hoş görünen grafikler.
+
+ggplot(data = iris, aes(x = Petal.Length)) + geom_density()
+
+```
+
+```{r}
+# Biraz daha güzelleştirelim
+ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species))
+
+
+```
+
+```{r}
+# Renkleri fill opsiyonu ile verdiğimiz için  üç farklı popülasyon içindeki dağılımları vermiş oldu.
+
+```
+
+```{r}
+# Grafiğe transparanlık ekleyelim.
+ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species), alpha = 0.9)
+
+```
+
+```{r}
+# Grafiğe isim ekleyelim.
+ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species), alpha = 0.9) + ggtitle(label = "Iris bitkisinde petal uzunlukları yogunluk grafigi")
+
+
+```
+
+```{r}
+# Kutu grafikleri ile ilgili bir grafik. Kutu grafiğine benziyor ama yoğunlukları da vermekte.
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin()
+```
+
+```{r}
+# Bu grafiği renklendirelim
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin(aes(fill = Species))
+
+```
+
+```{r}
+# Bu grafiğin üstüne farklı görselleştirmeler ekleyebilme imkanımız var.
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_point()
+
+```
+
+```{r}
+# geom_jitter fonksiyonu ile de görselleştirme imkanımız var.
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_jitter()
+
+```
+
+```{r}
+# Noktaların dağılımlarını da ayarlayabiliriz.
+
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_jitter(width = 0.5)
+ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_jitter(width = 0.1)
+
+```
+
+
+```{r}
+# Sütun grafikleri oluşturma.
+ggplot(data = iris, aes(y = Petal.Length)) + geom_bar()
+ggplot(data = iris, aes(x = Petal.Length)) + geom_bar()
+
+```
+
