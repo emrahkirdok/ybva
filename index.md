@@ -27,6 +27,7 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Bilimsel hikaye anlatıcılığı - 1 [html](veri-analizi/metin_bilimsel_hikaye_anlaticiligi.html)
 + Ggplot2 ile grafik dilbilgisi [html](veri-analizi/metin_ggplot2_grafik_dilbilgisi.html)
 + Çevrimiçi yaptığımız dersin bağlantısı [link](https://drive.google.com/file/d/1fvkK3mzNIrdvrluOLhT8BGWVZ-OqMIdZ/view)
++ Çevrimiçi yaptığımız dersin html versiyonu [html](veri-analizi/metin_ggplot2_pratik.html)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
