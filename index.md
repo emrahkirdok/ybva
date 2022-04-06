@@ -28,7 +28,7 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Ggplot2 ile grafik dilbilgisi [html](veri-analizi/metin_ggplot2_grafik_dilbilgisi.html)
 + Çevrimiçi yaptığımız dersin bağlantısı [link](https://drive.google.com/file/d/1fvkK3mzNIrdvrluOLhT8BGWVZ-OqMIdZ/view)
 + Çevrimiçi yaptığımız dersin html versiyonu [html](veri-analizi/metin_ggplot2_pratik.html)
-
++ T-test dersi [html](veri-analizi/metin_t_test.html)
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
 Bu ders kapsamında Gareth James, Daniela Witten, Trevor Hastie ve Robert Tibshirani tarafından yazlmış [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) kitabı kullanılacaktır. Gerekli bütün kodlar, kitabın internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır:
