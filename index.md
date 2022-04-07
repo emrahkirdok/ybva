@@ -41,7 +41,7 @@ Derslerde işlenen konular:
 + İleri seviye R, kontrol yapıları [sunum](veri-analizi/01_01_kontrol_yapilari.html)
 + İleri seviye R, fonksiyonlar [sunum](veri-analizi/ders_05.html)
 + Aşamalı azalış ile doğrusal modelleme [html](veri-analizi/metin_asamali_azalis.html) [Rmd belgesi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/metin_asamali_azalis.Rmd)
-
++ Çoklu doğrusal modelleme [html](metin_coklu_dogrusal_modeller.html)
 ### Yardımcı okumalar
 
 Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal modelleme hakkında üç tane yazı:
