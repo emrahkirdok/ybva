@@ -35,7 +35,7 @@ hist(dagilim1)
 hist(dagilim2)
 ```
 
-İstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:
+İstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:
 
 ```{r}
 sim <- data.frame(
@@ -73,16 +73,16 @@ Dikkat ederseniz bu değer çok düşük. Bu sonuç aslında, bu iki dağılım�
 
 ## Hipotez testi
 
-Bu kısım biraz kafa karıştırıcı. Eğer ilk dersleri hatırlarsanız, bilimde bir şeyi doğrudan kanıtlayamadığımızı hatırlarsınız. bu nedenle bir hipotezi doğrudan kanıtlama imkanımız yoktur. Bir hipotezi, ancak onun karşıtını reddederek *kabul edebiliriz*.
+Bu kısım biraz kafa karıştırıcı. Eğer ilk dersleri hatırlarsanız, bilimde bir şeyi doğrudan kanıtlayamadığımızı hatırlarsınız. Bu nedenle bir hipotezi doğrudan kanıtlama imkanımız yoktur. Bir hipotezi, ancak onun karşıtını reddederek *kabul edebiliriz*.
 
 Nasıl mı? Bir önceki örnekte iki dağılımın birbirinden farklı olduğu hipotezini ortaya atmıştık. Bu mantığa göre, bu hipotezi test etmenin yolu, bu hipotezin zıddını test etmekten geçer.
 
 Yani aslında ortaya iki tane hipotez atıyoruz:
 
-+ H0 (sıfır hipotezi): Bu iki dağılımın ortamaları birbirine eşittir
-+ HA (alternatif hipotez): Bu iki dağılımın ortalamarı birbirinden farklıdır
++ H0 (sıfır hipotezi): Bu iki dağılımın ortamaları birbirine eşittir.
++ HA (alternatif hipotez): Bu iki dağılımın ortalamarı birbirinden farklıdır.
 
-Yapmaya çalıştığımız ise doğrudan sıfır hipotezini reddedmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.
+Yapmaya çalıştığımız ise doğrudan sıfır hipotezini reddetmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.
 
 Testimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte, sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?
 
@@ -112,7 +112,7 @@ test
 
 + alternative hypothesis: true difference in means is not equal to 0
 
-Bunun anlamı aslında şu: 0.0001 hata olaslığı durumunda, bu iki dağılımın ortalamaları anlamlı bir şekilde farklı! Yani sıfır hipotezini reddedip, alternatif hipotezi kabul ediyoruz!
+Bunun anlamı aslında şu: 0.0001 hata olasılığı durumunda, bu iki dağılımın ortalamaları anlamlı bir şekilde farklı! Yani sıfır hipotezini reddedip, alternatif hipotezi kabul ediyoruz!
 
 ## İkinci bir örnek
 
@@ -138,7 +138,7 @@ library(ggplot2)
 ggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)
 
 ```
-Dikkat ederseniz, bu dağılımların ortalamalrı üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?
+Dikkat ederseniz, bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?
 
 ```{r}
 test <- t.test(x = dagilim1, y = dagilim2)
