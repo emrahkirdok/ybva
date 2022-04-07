@@ -44,6 +44,7 @@ Derslerde işlenen konular:
 + Aşamalı azalış ile doğrusal modelleme [html](veri-analizi/metin_asamali_azalis.html) [Rmd belgesi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/metin_asamali_azalis.Rmd)
 + Çoklu doğrusal modelleme [html](metin_coklu_dogrusal_modeller.html)
 + Amfibi veri seti (veri yazısına sağ tıklayıp farklı kaydedin) [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/AmphiBIO_v1.csv)
++ Amfibi veri seti makalesi [link](https://www.nature.com/articles/sdata2017123)
 + Amfibi veri seti makale çevirisi (çeviri: Tanya Beril Korkmaz) [döküman](https://docs.google.com/document/d/1dovAfnijSY1Nywulf5_dFqFE84Ko8HGdS_nJqGmgLUc/edit?usp=sharing)
 
 ### Yardımcı okumalar
