@@ -1,6 +1,6 @@
 # Yaşam Bilimlerinde Veri Analizi
 
-Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döneminde verdiğim **Veri Analizi** ve **İstatstiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
+Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2021 - 2022 bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
 ## Veri Analizi
 
@@ -29,6 +29,7 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Çevrimiçi yaptığımız dersin bağlantısı [link](https://drive.google.com/file/d/1fvkK3mzNIrdvrluOLhT8BGWVZ-OqMIdZ/view)
 + Çevrimiçi yaptığımız dersin html versiyonu [html](veri-analizi/metin_ggplot2_pratik.html)
 + T-test dersi [html](veri-analizi/metin_t_test.html)
+
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
 Bu ders kapsamında Gareth James, Daniela Witten, Trevor Hastie ve Robert Tibshirani tarafından yazlmış [İstatistiksel Öğrenmeye Giriş](https://www.statlearning.com) kitabı kullanılacaktır. Gerekli bütün kodlar, kitabın internet sitesinde açık kaynaklı ve ücretsiz olarak bulunmaktadır:
@@ -42,6 +43,8 @@ Derslerde işlenen konular:
 + İleri seviye R, fonksiyonlar [sunum](veri-analizi/ders_05.html)
 + Aşamalı azalış ile doğrusal modelleme [html](veri-analizi/metin_asamali_azalis.html) [Rmd belgesi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/metin_asamali_azalis.Rmd)
 + Çoklu doğrusal modelleme [html](metin_coklu_dogrusal_modeller.html)
++ Amfibi veri seti (veri yazısına sağ tıklayıp farklı kaydedin) [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/AmphiBIO_v1.csv)
+
 ### Yardımcı okumalar
 
 Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal modelleme hakkında üç tane yazı:
