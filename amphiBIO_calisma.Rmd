@@ -1,0 +1,244 @@
+---
+title: "Amphibio_alistirma"
+author: "Tanya Beril Korkmaz"
+date: "08 04 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Giriş
+
+Bu dökümanda, amfibi takımlarının özelliklerinin araştırıldığı ve gruplandırmalarının yapıldığı AmphiBIO projesi ve projeye ait veri seti üzerinde alıştırmalara yer verilmiştir. Amfibilerin belirli morfolojik özellikleri ve aralarındaki bağlantılar incelenip yorumlanacaktır.
+
+#Başlangıç
+
+Ders materyallerinin paylaşıldığı siteden, AmphiBIO veri setininin linkine sağ tıklayıp ''Bağlantıyı farklı kaydet'' seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
+
+Öncelikle çalışma yaptığımız klasör konumuna bakalım, veri setini yüklemek için bu bilgiye ihtiyacımız olacak. 
+
+ ```{r}
+ getwd()
+ 
+ ```
+ 
+Bilgisayarımıza indirdiğimiz veri setini önce inceleyelim. Ayraç olarak kullanılan karakteri tespit edelim. Sonrasında isim atayıp buraya yükleyelim; atadığımız isimlerin akılda kalıcı, takip edilebilir ve veriyi tanımlayıcı olmasına dikkat edelim. 'sep' fonksiyonu veri setinde kullanılan ayracı tanımlamaktadır. 'header' fonksiyonu ise veri setinin ilk satırını sütun etiketi/başlık olarak atamaktadır. 
+
+```{r}
+amph_veri <- read.table("C:/Users/packardbell/Desktop/AmphiBIO_v1.txt", sep = "," , header = T)
+
+```
+
+Veri setimizi yükledikten sonra inceleyelim:
+
+```{r}
+View(amph_veri)
+
+```
+
+Şimdi de veri setinin boyutlarını inceleyelim:
+
+```{r}
+dim(amph_veri)
+
+```
+
+Veri setinin başlık isimlerini inceleyelim, böylece çalışma yapmak istediğimiz morfolojik özelliklerin bir listesine ulaşabiliriz.
+
+```{r}
+colnames(amph_veri)
+
+```
+
+Çalışmak istediğimiz veri gruplarını bir araya getirmek istiyoruz. Bu nedenle öncelikle verileri bu programa tanımlatalım. Bu şekilde program veri setindeki ''hücreleri'' tanıyıp, yazım sırasında otomatik olarak tanımlayacaktır.
+
+```{r}
+attach(amph_veri)
+
+```
+
+Devamında veri seti içerisinde çalışmak istediğimiz veri gruplarını yani morfolojik özellikleri seçip bir araya getirelim, daha kolay çalışmak için veri setimizi küçültelim. Bunun için birçok yöntem mevcuttur. Verilen ilk örnek çalışmanın devamında kullanılacaktır. Daha rahat incelenmesi için her örnekte farklı isim atanmıştır, sizler istediğiniz isimle istediğiniz kodu kullanarak alt veri seti oluşturabilirsiniz.
+
+Bu daha ''klasik'' bir yöntemdir. Başta attach fonksiyonu ile veri setini programa tanıtmamış olsaydık, her sütun adını "" içinde yazmamız gerekirdi.
+
+```{r}
+amph_sub_veri <- data.frame(Longevity_max_y, Body_size_mm, Body_mass_g, Size_at_maturity_max_mm, Size_at_maturity_min_mm)
+
+```
+İstersek indis gösterebiliriz, indislerde virgül öncesi satırları, virgül sonrası ise sütunları ifade etmektedir. Birden çok sütun tanımlayacağımız için indisin içine hepsini vektör olarak atadık.
+
+```{r}
+amph_ver1 <- amph_veri [,c("Longevity_max_y", "Body_size_mm", "Body_mass_g", "Size_at_maturity_max_mm", "Size_at_maturity_min_mm")]
+
+```
+
+İstersek de alt kümede gösterip seçim yapabiliriz; önce hangi veri setinin içinden seçeceğimizi, sonra da veri setinden neleri seçeceğimizi gösterdik.
+
+```{r}
+amph_ver2 <- subset(x=amph_veri, select=c(Longevity_max_y, Body_mass_g, Body_size_mm, Size_at_maturity_max_mm, Size_at_maturity_min_mm))
+
+```
+
+Yukarıda yazılanların hepsi aynı şeyi ifade etmektedir.
+
+Şimdi yeni alt verimizin başlığını/sütun isimlerini inceleyelim
+
+```{r}
+colnames(amph_sub_veri)
+
+```
+
+Ortaya attığımız hipoteze göre veya çalışmak istediğimiz konuya göre verileri görselleştirmeye başlayabiliriz. Bu çalışmada amaç, seçtiğimiz verilerin birbiriyle ilişkisini incelemektir fakat unutmayın ki her ilişki (korelasyon) bilimsel olarak anlamlı veya doğru olmak zorunda değildir.
+
+Şimdi alt veri setindeki iki veri grubunu histogramda inceleyelim:
+
+```{r}
+hist(amph_sub_veri$Longevity_max_y)
+
+```
+
+```{r}
+hist(amph_sub_veri$Body_mass_g)
+
+```
+
+ve boxplotta inceleyelim:
+
+```{r}
+boxplot(amph_sub_veri$Longevity_max_y)
+
+```
+
+ 
+```{r}
+boxplot(amph_sub_veri$Body_mass_g)
+
+```
+
+Son olarak ikisini kıyaslayalım ve ilişkilerine bakalım:
+
+```{r}
+plot(data=amph_sub_veri, Longevity_max_y~Body_mass_g)
+```
+
+Görüldüğü üzere oluşturulan grafikler bir anlam ifade etmemektedir. Bunun nedeni kıyaslanmak istenen verilerin farklı birimlerde olmasıdır. Örneğin yaşam ömrü sayı, vücut kütlesi de gram cinsindendir. Yorumlanabilir bir görselleştirme için bu verileri logaritmik cinsten yazabiliriz.
+
+O zaman son denediğimiz grafiği, log versiyonda inceleyelim:
+
+```{r}
+plot(data=amph_sub_veri, log(Longevity_max_y)~log(Body_mass_g))
+
+```
+
+Artık grafiğimiz daha güzel görünüyor. Bunun yerine oluşturduğumuz alt veriyi tek tek log cinsinde tanımlamak yerine, alt veri setinin tamamını log cinsine çevirelim:
+
+```{r}
+amph_log <- log(amph_sub_veri)
+
+```
+
+Şimdi kolon isimlerine bir bakalım. Görüldüğü üzere verimiz aynı kaldı, sadece değerlerin birimi değişti.
+
+```{r}
+colnames(amph_log)
+
+```
+
+Log cinsindeki veri setimizin bütün grafiklerini inceleyelim:
+
+```{r}
+plot(amph_log)
+
+```
+
+Şimdi de bu veri setimizde yer alan herhangi bir veriyi histogramda inceleyelim:
+
+```{r}
+hist(amph_log$Body_mass_g)
+
+```
+
+
+Veri setindeki bir veri ile model oluşturalım,
+
+```{r}
+model <- lm(data=amph_log, Longevity_max_y~.)
+
+```
+
+ve bu modeli özetleyelim:
+
+```{r}
+summary(model)
+
+```
+
+İstersek verileri inceledikten sonra kullanılmasının anlamsız olduğunu düşündüğümüz yani birbirini etkileyen ve güçlü korelasyon gösteren verileri bir araya getirerek daha anlamlı bir model de oluşturabiliriz:
+
+```{r}
+model_1 <- lm(data=amph_log, Longevity_max_y~Body_mass_g*Body_size_mm + Body_size_mm)
+
+```
+Şimdi bu yeni modeli özetleyerek inceleyip, yapmaya çalıştığımız şeyin etkisini kontrol edebiliriz.
+
+```{r}
+summary(model_1)
+
+```
+
+AmphiBIO çalışması, 3 farklı takım bazında gerçekleştirilmiştir. Bu nedenle biz de veri setini takım bazında incelemek için yeni bir takım değişkeni oluşturabiliriz. 
+
+```{r}
+amph_log$order <- amph_veri$Order
+
+```
+
+Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim:
+
+```{r}
+install.packages("ggplot2")
+
+```
+
+ve paketi aktifleştirelim:
+
+```{r}
+library(ggplot2)
+
+```
+
+Şimdi bu araçla, log cinsinden oluşturduğumuz veri setinin bir grubunu görselleştirelim, bunu her bir veri grubu için oluşturabiliriz:
+
+```{r}
+ggplot(data=amph_log, aes(x=Longevity_max_y)) + geom_density(aes(fill=order), alpha = 0.5)
+
+```
+
+Son olarak order değişkeni ile modelleri inceleyelim ve özetlerine bakalım:
+
+```{r}
+model_2 <- lm(data=amph_log, Longevity_max_y~order)
+
+```
+```{r}
+summary(model_2)
+
+```
+```{r}
+model_3 <- lm(data=amph_log, Longevity_max_y~Body_mass_g * Body_size_mm + Body_size_mm + order)
+
+```
+```{r}
+summary(model_3)
+
+```
+
+
+
+
+
+
+
+
