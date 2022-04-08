@@ -15,7 +15,7 @@ Bu döküman kapsamında R üzerinde t-test ile ile ilgili bilgiler verilecektir
 
 ## t.test()
 
-Tanım olarak t-testi, iki grubun ortamaları arasında anlamlı bir fark olup olmadığını test etmek için kulanılabilir.
+Tanım olarak t-testi, iki grubun ortalamaları arasında anlamlı bir fark olup olmadığını test etmek için kullanılabilir.
 
 Bunu göstermek için iki farklı dağlım simüle edelim.
 
