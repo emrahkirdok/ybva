@@ -33,7 +33,7 @@ ggplot içerisinde çoğunlukla veri çerçevisi kullanıyoruz, kullandığımı
 ggplot()
 ```
 
-öncelikle iris veri çerçevesini kullanıyoruz, iris veri çerçevesi R içinde hazır geliyor.
+Öncelikle iris veri çerçevesini kullanıyoruz, iris veri çerçevesi R içinde hazır geliyor.
 
 Sütun isimlerini hatırlamak gerekiyor.
 
