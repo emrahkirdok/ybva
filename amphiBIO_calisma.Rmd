@@ -9,11 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##Giriş
+# Giriş
 
 Bu dökümanda, amfibi takımlarının özelliklerinin araştırıldığı ve gruplandırmalarının yapıldığı AmphiBIO projesi ve projeye ait veri seti üzerinde alıştırmalara yer verilmiştir. Amfibilerin belirli morfolojik özellikleri ve aralarındaki bağlantılar incelenip yorumlanacaktır.
 
-#Başlangıç
+## Başlangıç
 
 Ders materyallerinin paylaşıldığı siteden, AmphiBIO veri setininin linkine sağ tıklayıp ''Bağlantıyı farklı kaydet'' seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
 
@@ -198,6 +198,7 @@ amph_log$order <- amph_veri$Order
 Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim:
 
 ```{r}
+{reval=FALSE}
 install.packages("ggplot2")
 
 ```
