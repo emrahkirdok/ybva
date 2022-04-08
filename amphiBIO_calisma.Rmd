@@ -198,7 +198,6 @@ amph_log$order <- amph_veri$Order
 Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim:
 
 ```{r}
-{reval=FALSE}
 install.packages("ggplot2")
 
 ```
