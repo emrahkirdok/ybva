@@ -31,7 +31,7 @@ Kullanılan opsiyonların anlamları:
 + `header` fonksiyonu ise veri setinin ilk satırını sütun etiketi/başlık olarak atamaktadır. 
 
 ```{r}
-amph_veri <- read.table("C:/Users/packardbell/Desktop/AmphiBIO_v1.txt", sep = "," , header = T)
+amph_veri <- read.table("data/AmphiBIO_v1.txt", sep = "," , header = T)
 
 ```
 
