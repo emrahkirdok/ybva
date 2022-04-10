@@ -7,7 +7,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu veri setinde, Boston şehrinde bulunan farklı mahallelerden elde edilen istatistik veriler derlenmiştir. Aşağıda bu verileri hakkında bilgileri bulabilirsiniz:
