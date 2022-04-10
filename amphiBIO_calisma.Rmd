@@ -1,5 +1,5 @@
 ---
-title: "Amphibio_alistirma"
+title: "Amphibio Veri Seti ile Alıştırma"
 author: "Tanya Beril Korkmaz"
 date: "08 04 2022"
 output: html_document
@@ -15,16 +15,20 @@ Bu dökümanda, amfibi takımlarının özelliklerinin araştırıldığı ve gr
 
 ## Başlangıç
 
-Ders materyallerinin paylaşıldığı siteden, AmphiBIO veri setininin linkine sağ tıklayıp ''Bağlantıyı farklı kaydet'' seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
+Ders materyallerinin paylaşıldığı siteden, AmphiBIO veri setininin linkine sağ tıklayıp **Bağlantıyı farklı kaydet** seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
 
 Öncelikle çalışma yaptığımız klasör konumuna bakalım, veri setini yüklemek için bu bilgiye ihtiyacımız olacak. 
 
  ```{r}
  getwd()
- 
  ```
  
-Bilgisayarımıza indirdiğimiz veri setini önce inceleyelim. Ayraç olarak kullanılan karakteri tespit edelim. Sonrasında isim atayıp buraya yükleyelim; atadığımız isimlerin akılda kalıcı, takip edilebilir ve veriyi tanımlayıcı olmasına dikkat edelim. 'sep' fonksiyonu veri setinde kullanılan ayracı tanımlamaktadır. 'header' fonksiyonu ise veri setinin ilk satırını sütun etiketi/başlık olarak atamaktadır. 
+Bilgisayarımıza indirdiğimiz veri setini önce inceleyelim. Ayraç olarak kullanılan karakteri tespit edelim. Sonrasında isim atayıp buraya yükleyelim; atadığımız isimlerin akılda kalıcı, takip edilebilir ve veriyi tanımlayıcı olmasına dikkat edelim. 
+
+Kullanılan opsiyonların anlamları:
+
++ `sep` fonksiyonu veri setinde kullanılan ayracı tanımlamaktadır. 
++ `header` fonksiyonu ise veri setinin ilk satırını sütun etiketi/başlık olarak atamaktadır. 
 
 ```{r}
 amph_veri <- read.table("C:/Users/packardbell/Desktop/AmphiBIO_v1.txt", sep = "," , header = T)
@@ -52,7 +56,7 @@ colnames(amph_veri)
 
 ```
 
-Çalışmak istediğimiz veri gruplarını bir araya getirmek istiyoruz. Bu nedenle öncelikle verileri bu programa tanımlatalım. Bu şekilde program veri setindeki ''hücreleri'' tanıyıp, yazım sırasında otomatik olarak tanımlayacaktır.
+Çalışmak istediğimiz veri gruplarını bir araya getirmek istiyoruz. Bu nedenle öncelikle verileri bu programa tanımlatalım. Bu şekilde program veri setindeki *sütun isimlerini* tanıyıp, yazım sırasında otomatik olarak tanımlayacaktır.
 
 ```{r}
 attach(amph_veri)
@@ -61,16 +65,17 @@ attach(amph_veri)
 
 Devamında veri seti içerisinde çalışmak istediğimiz veri gruplarını yani morfolojik özellikleri seçip bir araya getirelim, daha kolay çalışmak için veri setimizi küçültelim. Bunun için birçok yöntem mevcuttur. Verilen ilk örnek çalışmanın devamında kullanılacaktır. Daha rahat incelenmesi için her örnekte farklı isim atanmıştır, sizler istediğiniz isimle istediğiniz kodu kullanarak alt veri seti oluşturabilirsiniz.
 
-Bu daha ''klasik'' bir yöntemdir. Başta attach fonksiyonu ile veri setini programa tanıtmamış olsaydık, her sütun adını "" içinde yazmamız gerekirdi.
+Bu daha **klasik** bir yöntemdir. Başta attach fonksiyonu ile veri setini programa tanıtmamış olsaydık, her sütun adını \"  \" içinde yazmamız gerekirdi.
 
 ```{r}
 amph_sub_veri <- data.frame(Longevity_max_y, Body_size_mm, Body_mass_g, Size_at_maturity_max_mm, Size_at_maturity_min_mm)
 
 ```
+
 İstersek indis gösterebiliriz, indislerde virgül öncesi satırları, virgül sonrası ise sütunları ifade etmektedir. Birden çok sütun tanımlayacağımız için indisin içine hepsini vektör olarak atadık.
 
 ```{r}
-amph_ver1 <- amph_veri [,c("Longevity_max_y", "Body_size_mm", "Body_mass_g", "Size_at_maturity_max_mm", "Size_at_maturity_min_mm")]
+amph_ver1 <- amph_veri[,c("Longevity_max_y", "Body_size_mm", "Body_mass_g", "Size_at_maturity_max_mm", "Size_at_maturity_min_mm")]
 
 ```
 
@@ -104,14 +109,13 @@ hist(amph_sub_veri$Body_mass_g)
 
 ```
 
-ve boxplotta inceleyelim:
+Şimdi de kutu grafiğinde inceleyelim:
 
 ```{r}
 boxplot(amph_sub_veri$Longevity_max_y)
 
 ```
 
- 
 ```{r}
 boxplot(amph_sub_veri$Body_mass_g)
 
@@ -134,12 +138,14 @@ plot(data=amph_sub_veri, log(Longevity_max_y)~log(Body_mass_g))
 
 Artık grafiğimiz daha güzel görünüyor. Bunun yerine oluşturduğumuz alt veriyi tek tek log cinsinde tanımlamak yerine, alt veri setinin tamamını log cinsine çevirelim:
 
+> Burada dikkat etmeniz gereken şey şu, elimizde sadece sayısal veri olduğu için bütün veri çerçevesini `log` fonksiyonu ile modifiye edebildik. Eğer elimizda karakter verileri de olsaydı, tek tek sütunları dönüştürmek durumunda kalacaktık.
+
 ```{r}
 amph_log <- log(amph_sub_veri)
 
 ```
 
-Şimdi kolon isimlerine bir bakalım. Görüldüğü üzere verimiz aynı kaldı, sadece değerlerin birimi değişti.
+Şimdi sütun isimlerine bir bakalım. Görüldüğü üzere verimiz aynı kaldı, sadece değerlerin birimi değişti.
 
 ```{r}
 colnames(amph_log)
@@ -160,6 +166,7 @@ hist(amph_log$Body_mass_g)
 
 ```
 
+## Modelleme aşaması
 
 Veri setindeki bir veri ile model oluşturalım,
 
@@ -195,14 +202,14 @@ amph_log$order <- amph_veri$Order
 
 ```
 
-Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim:
+Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim (`ggplot2` paketi tekrar tekrar yüklenmesin diye R kod bloğuna `eval = FALSE` opsiyonunu ekledik):
 
 ```{r eval=FALSE}
 install.packages("ggplot2")
 
 ```
 
-ve paketi aktifleştirelim:
+Şimdi paketi aktifleştirelim:
 
 ```{r}
 library(ggplot2)
