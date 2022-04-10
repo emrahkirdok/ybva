@@ -39,7 +39,7 @@ dim(boston)
 Bu veri çerçevesindeki sütunları geri döndüren kodu yazınız:
 
 ```{r}
-colnames(boston(
+colnames(boston)
 ```
 
 Bu veri çerçevesinde bulunan `chas` sütunu aslında bir kategori değişkeni. Acaba bu sütunu kategori değişkeni haline çeviren kodu yazabilir misiniz?
