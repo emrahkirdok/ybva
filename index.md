@@ -29,6 +29,7 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Çevrimiçi yaptığımız dersin bağlantısı [link](https://drive.google.com/file/d/1fvkK3mzNIrdvrluOLhT8BGWVZ-OqMIdZ/view)
 + Çevrimiçi yaptığımız dersin html versiyonu [html](veri-analizi/metin_ggplot2_pratik.html)
 + T-test dersi [html](veri-analizi/metin_t_test.html)
++ Ödev 2 cevap anahtarı [Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/metin_odev_2.Rmd), [html](veri-analizi/metin_odev_2.html)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
