@@ -1,0 +1,8 @@
+SampleName	Group	Library
+SRR031714	Untreated	PE
+SRR031716	Untreated	PE
+SRR031724	Treated	PE
+SRR031726	Treated	PE
+SRR031708	Untreated	SE
+SRR031718	Treated	SE
+SRR031728	Untreated	SE
