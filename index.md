@@ -58,6 +58,9 @@ Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal mod
 + [Tek bir değişkeli doğrusal regresyon için aşamalı azalış, Vladimir Kuznetsov](https://rpubs.com/VladimirKazan/139320)
 + Görselleştirme neden önemli? Anscombe'nin dörtlüsünü bir inceleyin [bağlantı](https://rpubs.com/debosruti007/anscombeQuartet)
   + Tanımlayıcı istatistikler aynı olan dört farklı veri grubu aynı doğrusal regresyon modelini işaret ediyor. Acaba dördü de aynı mı?
++ Vize sınavı:
+  + Boş kağıt [vize](https://raw.githubusercontent.com/emrahkirdok/ybva/main/vize_sinavi_bilgisayarli_dusunme.Rmd)
+  + Veri [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
