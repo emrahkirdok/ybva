@@ -30,6 +30,9 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Çevrimiçi yaptığımız dersin html versiyonu [html](veri-analizi/metin_ggplot2_pratik.html)
 + T-test dersi [html](veri-analizi/metin_t_test.html)
 + Ödev 2 cevap anahtarı [Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/metin_odev_2.Rmd), [html](veri-analizi/metin_odev_2.html)
++ Gen anlatım verileri:
+  + Gen anlatim verisi [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/counts_drosophila.txt)
+  + Örnek bilgisi [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sample_info_drosophila.txt)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
