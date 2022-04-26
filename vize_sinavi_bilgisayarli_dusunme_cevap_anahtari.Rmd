@@ -69,7 +69,7 @@ Cinsiyet bir faktör vektörü olmalı. Bundan emin olur musunuz?
 
 ```{r}
 abalone_veri$Cinsiyet <- factor(abalone_veri$Cinsiyet)
-str(Cinsiyet)
+str(abalone_veri$Cinsiyet)
 
 
 ```
