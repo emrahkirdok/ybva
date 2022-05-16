@@ -33,6 +33,8 @@ Dersler, konuların işlenme sırasına göre düzenlenmiştir.
 + Gen anlatım verileri:
   + Gen anlatim verisi [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/counts_drosophila.txt)
   + Örnek bilgisi [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sample_info_drosophila.txt)
++ Doğrusal modeller - 1 (Hazırlanıyor)
++ Doğrusal modeller - 2 (Logaritmik modeller) [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt), [ders](sunum_12_logaritmik_modeller.html)
 
 ## İstatistiksel Öğrenme (aka Bilgisayarlı Düşünme)
 
