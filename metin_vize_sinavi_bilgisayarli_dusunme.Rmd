@@ -1,11 +1,10 @@
 ---
 title: "Bilgisayarlı Düşünme Vize Sınavı"
-author: 'Tanya Beril Korkmaz'
+author: "Tanya Beril Korkmaz"
 date: "26/04/2022"
 output:
   html_document: default
-  word_document: default
-number: ''
+
 ---
 
 ```{r setup, include=FALSE}
@@ -43,10 +42,12 @@ Ekte verilmiş `abalone.csv` verisinde 4177 farklı abalon yumuşakçasına ait 
 
 Bu dosyayı yükleyiniz lütfen (verinizi bir değişkenin içine yükleyin mutlaka). Bu verideki ayraç karakteriniz (`sep`) boşluk karakteri olarak belirlenmiştir. İlk satır ise sütun isimleri olarak düzenlenmiştir.
 
+En kolayı, yeni bir proje klasörü oluşturmanız ve bu veriyi de o proje klasörü içerisine yüklemeniz olacaktır.
+
 Verimizi, sonrasında üzerinde çalışılmak üzere kolay takip edilebilir ve veriyi tanımlayıcı bir isime atayalım. Ayraç fonksiyonuna dikkat ediniz; zaten boşluk tuşu kullanıldığından tekrar belirtmek durumunda kalmadık. header fonksiyonunu TRUE olarak belirtip, veri çerçevesinin ilk satırını sütun etiketleri olarak atadık. 
 
 ```{r}
-abalone_veri <- read.table("C:/Users/packardbell/Desktop/Ders_materyali/abalone_materyal/abalone.txt", header = T)
+abalone_veri <- read.table("data/abalone.txt", header = T)
 
 ```
 
