@@ -53,6 +53,7 @@ Derslerde işlenen konular:
 + Amfibi veri seti makalesi [link](https://www.nature.com/articles/sdata2017123)
 + Amfibi veri seti makale çevirisi (çeviri: Tanya Beril Korkmaz) [döküman](https://docs.google.com/document/d/1dovAfnijSY1Nywulf5_dFqFE84Ko8HGdS_nJqGmgLUc/edit?usp=sharing)
 + Amfibi veri seti çalışma [html](metin_amphiBIO_calisma.html)
++ Vize sınavı çözümü [html](metin_vize_sinavi_bilgisayarli_dusunme.html)
 
 ### Yardımcı okumalar
 
