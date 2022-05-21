@@ -40,14 +40,14 @@ Ekte verilmiş `abalone.csv` verisinde 4177 farklı abalon yumuşakçasına ait 
 
 ## Veri yükleme 
 
-Bu dosyayı yükleyiniz lütfen (verinizi bir değişkenin içine yükleyin mutlaka). Bu verideki ayraç karakteriniz (`sep`) boşluk karakteri olarak belirlenmiştir. İlk satır ise sütun isimleri olarak düzenlenmiştir.
+Bu [dosyayı](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv) yükleyiniz lütfen (verinizi bir değişkenin içine yükleyin mutlaka). Bu verideki ayraç karakteriniz (`sep`) boşluk karakteri olarak belirlenmiştir. İlk satır ise sütun isimleri olarak düzenlenmiştir.
 
-En kolayı, yeni bir proje klasörü oluşturmanız ve bu veriyi de o proje klasörü içerisine yüklemeniz olacaktır.
+En kolayı, yeni bir proje klasörü oluşturmanız ve bu veriyi de o proje klasörü içerisine yüklemeniz olacaktır. Dosyanın uzantısı sizde farklı olabilir.
 
 Verimizi, sonrasında üzerinde çalışılmak üzere kolay takip edilebilir ve veriyi tanımlayıcı bir isime atayalım. Ayraç fonksiyonuna dikkat ediniz; zaten boşluk tuşu kullanıldığından tekrar belirtmek durumunda kalmadık. header fonksiyonunu TRUE olarak belirtip, veri çerçevesinin ilk satırını sütun etiketleri olarak atadık. 
 
 ```{r}
-abalone_veri <- read.table("data/abalone.txt", header = T)
+abalone_veri <- read.table("data/abalone.csv", header = T)
 
 ```
 
