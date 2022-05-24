@@ -1,0 +1,95 @@
+---
+title: "Tekrar"
+author: "Anıl"
+date: '2022-05-23'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+Öncelikle verileri yüklüyoruz. Verilere isim atıyoruz
+
+```{r}
+veri <- read.table(file = "counts_drosophila.txt", header = T, sep = " ")
+bilgi <- read.table(file = "sample_info_drosophila.txt", sep = "\t", header = T)
+```
+
+
+ggplot u yükleyelim
+
+```{r}
+library("ggplot2")
+```
+
+
+Verileri  kontrol edelim. head komutu ile.
+
+```{r}
+head(bilgi)
+
+```
+
+
+Verilerimizin boyutlarına bakalım
+```{r}
+dim(veri)
+dim(bilgi)
+```
+
+
+Grup'u faktöre çevirelim
+
+```{r}
+bilgi$Grup <- factor(bilgi$Grup)
+```
+
+1. Sütuna erişelim, histogram ve kutu grafikleri ile inceleyelim
+```{r}
+hist(veri[ ,1])
+boxplot(veri[ ,1])
+```
+
+1. sütundaki  7  elemana erişelim
+```{r}
+veri <- log2(veri)
+boxplot(veri[ ,1:7])
+```
+
+2. satırdaki kontrol ve uygulama
+```{r}
+boxplot(t(veri[2, ])~bilgi$Grup)
+```
+
+
+```{r}
+bilgi$Grup[bilgi$Grup]
+bilgi$Grup==bilgi$Grup
+
+```
+
+t test yapmak için verimizi x ve y diye atayalım
+
+```{r}
+x <- veri[1, bilgi$Grup=="Kontrol"]
+y <- veri[1, bilgi$Grup=="Uygulama"]
+
+```
+
+t test
+```{r}
+test <- t.test(x=x, y=y)
+test
+```
+
+cetvel de kontrol edelim
+
+```{r}
+test$p.value < 0.01
+```
+
+
+
