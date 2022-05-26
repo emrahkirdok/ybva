@@ -1,6 +1,6 @@
 ---
 title: "Tekrar"
-author: "Anıl"
+author: "Anıl Yalçıner"
 date: '2022-05-23'
 output: html_document
 ---
