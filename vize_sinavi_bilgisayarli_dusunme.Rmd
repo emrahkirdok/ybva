@@ -1,0 +1,208 @@
+---
+title: "Bilgisayarlı Düşünme Vize Sınavı"
+author: ''
+date: "4/13/2022"
+output:
+  word_document: default
+  html_document: default
+number: ''
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bilimsel hikaye
+
+Abalone yumuşakçaları, denizlerde yaşayan kabuklu hayvanlardır. Bu hayvanları aslında rahatlıkla midyeler gibi düşünebilirsiniz.
+
+Bilim insanları, abalon yumuşakçalarının yaşlarını tahmin etmek için kabuklarını kesip mikroskop altında özel boyalarla yaş hakalarını sayıyorlar. Ancak bu iş oldukça zahmetli ve yorucu olmaktaktadır. Alternatif olarak ise, yumuşakçalardan alınacak bazı ölçümler kullanarak, yaş tahmini yapabilecek modeller oluşturabiliriz.
+
+Bu kapsamda, gerekli modelleri oluşturarak bilim insanlarını bu zorlu işten kurtarınız.
+
+## Ölçümler
+
+Ekte verilmiş `abalone.csv` verisinde 4177 farklı abalon yumuşakçasına ait aşağıdaki bilgiler bulunmaktadır:
+
++ `Cinsiyet`
+  + `D` (dişi)
+  + `E` (erkek)
+  + `C` (çocuk)
++ `Uzunluk`: Kabuk uzunluğu
++ `Cap`: Kabuk çapı
++ `Kalinlik`: Kabukların kalınlığı
++ `Tam_agirlik`: Hayvanların tam ağırlığı (kabuk + iç organlar)
++ `Et_agirlik`: Sadece et ağırlığı
++ `Ic_organlar_agirlik`: İç organların ağırlığı
++ `Kabuk_agirlik`: Kabukların ağırlığı
++ `Yas`: Toplam yaş halkası
+
+# Sınav
+
+## Veri yükleme 
+
+Bu dosyayı yükleyiniz lütfen (verinizi bir değişkenin içine yükleyin mutlaka). Bu verideki ayraç karakteriniz (`sep`) boşluk karakteri olarak belirlenmiştir. İlk satır ise sütun isimleri olarak düzenlenmiştir.
+
+```{r}
+
+```
+
+Veri çerçevesi boyutlarına bakalım:
+
+```{r}
+
+```
+
+Yüklediğiniz veri çerçevesinin sütun isimleri:
+
+```{r}
+
+```
+
+Cinsiyet bir faktör vektörü olmalı. Bundan emin olur musunuz?
+
+```{r}
+
+```
+
+# Frekans tablosu
+
+Cinsyet değerlerinden bir frekans tablosu oluşturabilir misiniz?
+
+```{r}
+
+```
+
+## Yaş değerlerinin incelenmesi
+
+Acaba yaş değerlerinin bir histogramını oluşturabilir misiniz?
+
+```{r}
+
+```
+
+Peki, yaş değerlerinin farklı cinsiyetlerdeki dağılımını gösteren kutu grafiği oluşturabilir misiniz?
+
+```{r}
+
+```
+
+## Uzunluk değerlerinin incelenmesi
+
+Acaba `Uzunluk` değerlerinden bir histogram oluşturabilir misiniz?
+
+```{r}
+
+```
+
+Şimdi de `Uzunluk` değerlerinin cinsiyete göre dağılımllarını gösteren kutu grafiklerini oluşturalım:
+
+```{r}
+
+```
+
+## Tek değişkenli regresyon
+
+İlk olarak `Uzunluk` değişkeninin, `Yas` değişkeni ile ilişkisine bakalım.
+
+```{r}
+
+```
+Acaba yaş ile uzunluk arasındaki ikişki nasıl? Doğrusal bir ilişki var mı? Bir cümle ile cevaplayınız (Bu cevabın aynısını kağıda da yazınız):
+
+>
+>
+>
+
+Modelleme yapalım (modelin ismi `model1` olsun) ve modelin özet istatistiklerini elde edelim
+
+```{r}
+
+```
+
+Şimdi tekrar `Uzunluk` değişkeninin, `Yas` değişkeni arasındaki nokta grafiğini oluşturalım ve regresyon çizgisini ekleyelim (çizgyi kırmızı renkle boyayınız):
+
+```{r}
+
+```
+Yukarıdaki iki sonuca göre aşağıdaki soruları cevaplayınız:
+
+Sizce `Yas` ve `Uzunluk` arasındaki bağlantı, 0.001 `alfa` değerine (p-değeri eşiği) göre anlamlı mı? (Bu cevabın aynısını kağıda da yazınız)
+
+>
+>
+>
+
+Modelden elde edilen artık değerleri (residuals) sizce homojen bir şekilde dağılmış mı? (Bu cevabın aynısını kağıda da yazınız)
+
+> 
+>
+>
+
+Elde ettiğinizbu model, toplam varyasyonun yüzde kaçını kapsıyor? (Bu cevabın aynısını kağıda da yazınız)
+
+>
+>
+>
+
+Grafiğe baktığınızda, oluşturduğunuz modelin performansı 0.5 - 0.7 `Uzunluk` değeri aralığında nasıl bir performans gösteriyor? Bu aralıktaki hata oranının yüksek mi yoksa düşük mü olmasını beklersiniz?
+Tahmini bir aralık belirtebilir misiniz? (Bu cevabın aynısını kağıda da yazınız)
+
+> 
+>
+>
+>
+
+## Çoklu modeller
+
+Peki, şimdi diğer değişkenleri işin içine katalım. `Cinsiyet` değişkeni haricindeki diğer değişkenleri kullanarak bir çoklu model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `Model2` olsun. Modeli oluşturduktan sonra, özet istatistiklerini görüntüleyin.
+
+```{r}
+
+```
+
+Sadece `Uzunluk` değişkeni ile yaptığımız modele göre nasıl bir değişiklik gördük? Çok değişkenli modelimiz acaba tahmin performansımızı arttırmış olabilir mi? Aşağıdaki soruları cevaplayınız:
+
+Yeni modelde artık değerlerinin dağılımıları nasıl? Modelin içerisinden artık değerlerini `model2$residuals` yazarak elde edebilirsiniz. Bu değerlerin histogramını oluşturunuz:
+
+```{r}
+
+```
+
+Sizce artık değerleri, tek değişkenli modele göre daha homojen bir şekilde mi dağılmış? (Bu cevabın aynısını kağıda da yazınız)
+
+> 
+>
+>
+
+Yeni modelimizin kapsadığı varyasyon oranı ne kadar? Eski modele göre bir gelişme var mı? (Bu cevabın aynısını kağıda da yazınız)
+
+>
+>
+>
+
+Sizce hangi değişken artık `Yas` değeri ile ilişkisini kaybetti? (Bu cevabın aynısını kağıda da yazınız)
+
+>
+>
+>
+
+## Çok değişkenli modeli güncelleme
+
+Bu değişkeni çıkartarak yeni bir model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `model3` olsun. Modeli oluşturduktan sonra, özet istatistiklerini görüntüleyin:
+
+```{r}
+
+```
+
+Şimdi son bir ekleme daha yapalım. `Cinsiyet` değişkenini de modele dahil edelim:
+
+```{r}
+
+```
+
+Cinsiyet değişkenini eklediğimizde modelin performansında bir iyileşme gördük mü? (Bu cevabın aynısını kağıda da yazınız)
+
+>
+>
+>

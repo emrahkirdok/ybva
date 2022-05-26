@@ -1,0 +1,8 @@
+Ornek	Grup	Kutuphane
+SRR031714	Kontrol	PE
+SRR031716	Kontrol	PE
+SRR031724	Uygulama	PE
+SRR031726	Uygulama	PE
+SRR031708	Kontrol	SE
+SRR031718	Uygulama	SE
+SRR031728	Kontrol	SE
