@@ -67,6 +67,7 @@ Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal mod
 + Vize sınavı:
   + Boş kağıt [vize](https://raw.githubusercontent.com/emrahkirdok/ybva/main/vize_sinavi_bilgisayarli_dusunme.Rmd)
   + Veri [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv)
++ Lojistik regresyon dersi [html](./metin_lojistik_regresyon.html)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
