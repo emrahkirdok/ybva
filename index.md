@@ -59,6 +59,12 @@ Derslerde işlenen konular:
 + Amfibi veri seti makale çevirisi (çeviri: Tanya Beril Korkmaz) [döküman](https://docs.google.com/document/d/1dovAfnijSY1Nywulf5_dFqFE84Ko8HGdS_nJqGmgLUc/edit?usp=sharing)
 + Amfibi veri seti çalışma [html](metin_amphiBIO_calisma.html)
 + Vize sınavı çözümü [html](metin_vize_sinavi_bilgisayarli_dusunme.html)
++ Vize sınavı:
+  + Boş kağıt [vize](https://raw.githubusercontent.com/emrahkirdok/ybva/main/vize_sinavi_bilgisayarli_dusunme.Rmd)
+  + Veri [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv)
++ Lojistik regresyon dersi [html](./metin_lojistik_regresyon.html)
++ Karmaşa matrisi ile ilgili konularda aşağıdaki sayfadaki hesaplama yöntemleri kullanılacaktır:
+  + [web sitesi](https://www.veribilimiokulu.com/hata-matrisini-confusion-matrix-yorumlama/)
 
 ### Yardımcı okumalar
 
@@ -69,12 +75,6 @@ Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal mod
 + [Tek bir değişkeli doğrusal regresyon için aşamalı azalış, Vladimir Kuznetsov](https://rpubs.com/VladimirKazan/139320)
 + Görselleştirme neden önemli? Anscombe'nin dörtlüsünü bir inceleyin [bağlantı](https://rpubs.com/debosruti007/anscombeQuartet)
   + Tanımlayıcı istatistikler aynı olan dört farklı veri grubu aynı doğrusal regresyon modelini işaret ediyor. Acaba dördü de aynı mı?
-+ Vize sınavı:
-  + Boş kağıt [vize](https://raw.githubusercontent.com/emrahkirdok/ybva/main/vize_sinavi_bilgisayarli_dusunme.Rmd)
-  + Veri [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv)
-+ Lojistik regresyon dersi [html](./metin_lojistik_regresyon.html)
-+ Karmaşa matrisi ile ilgili konularda aşağıdaki sayfadaki hesaplama yöntemleri kullanılacaktır:
-  + [web sitesi](https://www.veribilimiokulu.com/hata-matrisini-confusion-matrix-yorumlama/)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
