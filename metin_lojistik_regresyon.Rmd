@@ -1,0 +1,158 @@
+---
+title: "Lojistik Regresyon"
+author: "Merve Akküp"
+date: '2022-05-16'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Giriş
+
+Lojistik regresyon basitçe mevcut parametreler üzerinden veri tahmini yapma işlemidir. Şöyle düşünelim: yeni bir hastalık tanı kiti oluşturduk ve bu kit ile sadece pozitif/hastalık etmeni var ve negatif/hastalık etmeni yok sonuçlarını alabiliyoruz. Ve diyelim ki bu pozitiflik ve negatiflik, test edilen materyaldeki hastalık etmeni miktarına bağlı olsun. Tanı kitimizin güvenilirliğini test etmemiz hususunda öncelikle güvenilir olduğundan emin olduğumuz mevcut test kitlerinden veya laboratuvar çalışmalarından alınan sonuçlara sahip olmamız gerekmektedir. Laboratuvarda çalışılan aynı deney grubunu yeni geliştirdiğimiz kit ile test ettiğimizde net olarak aynı sonucu elde etmemiz gerekir. Eğer test kitimiz güvenliyse, laboratuvar sonucu pozitif ise test kitimizde de pozitif; laboratuvar sonucu negatif ise, test kitimizde de negatif değer çıkmalıdır. Bunun gerçekleşmediği durumlar da olabilir ki bu beklenmeyen sonuçların gerçekleşme miktarı aslında bizim test kitimizin güvenilirliği ile ilişkilidir.
+
+Bu çalışmada, programda mevcut olan Smarket veri seti (borsa ile alakalı veriler bulunmaktadır) üzerinden lojistik regresyon testi gerçekleştirilmiştir. Mevcut borsa verileri kullanılarak model oluşturulup tahminler yapılacaktır ve bu tahminlerin güvenilirliği test edilecektir.
+Öncelikle veri setinin olduğu kütüphaneyi çağıralım:
+
+```{r}
+
+library(ISLR2)
+
+```
+
+Smarket veri setini inceleyelim ve veri setini daha rahat çalışabilmek adına attach fonksiyonu ile programa bağlayalım:
+
+```{r}
+
+colnames(Smarket)
+
+dim(Smarket)
+
+summary(Smarket)
+
+attach(Smarket)
+
+```
+Verilerle bir model oluşturalım, modeli setteki Direction(intercept) verisine göre kurup, modelin özetini inceleyelim, modele, modeli tanımlayacak bir isim atayarak glm fonksiyonu ile oluşturduk.
+
+```{r}
+
+glm.fits <- glm(data = Smarket, Direction~Lag1 + Lag2 +Lag3+ Lag4+ Lag5+ Volume, family = binomial)
+
+summary(glm.fits)
+
+```
+Predict fonksiyonu ile modelimizin ilk 10 parametresine bakalım:
+
+```{r}
+
+predict(glm.fits, type = "response")[1:10]
+
+```
+Tahminleri, yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece tahmin üzerinden işlem yapabiliriz.
+
+```{r}
+
+glm_pred <- predict(glm.fits, type = "response")
+
+```
+
+Yeni oluşturduğumuz tahmin veri setinin ilk 6 elemanını inceleyelim:
+
+```{r}
+
+head(glm_pred)
+
+```
+Ve tahmin veri setimizin histogramını oluşturduktan sonra, tahmin veri seti için olasılık veri seti oluşturalım: 
+
+```{r}
+
+hist(glm_pred)
+
+```
+```{r}
+
+glm_prob <- predict(glm.fits, type = "response")
+
+```
+
+```{r}
+
+rm(glm_pred)
+
+```
+
+Sadece histograma baktığımızda, tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz. sum fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında, dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir. 
+
+```{r}
+
+sum(glm_prob > 0.5)
+
+```
+```{r}
+
+sum(glm_prob < 0.5)
+
+```
+Şimdi aynı histogramın, 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:
+
+```{r}
+
+glm_pred <- predict(glm.fits, type = "response")
+
+hist(glm_pred)
+
+abline(v=0.5, col="red", lwd=10)
+
+```
+Şimdi bu değerleri, ''aşağı ve yukarı'' olarak tanımlayalım.
+
+```{r}
+
+glm_pred<- rep("Down", 1250)
+
+glm_pred[glm_prob> 0.5]  <- "up"
+
+```
+
+Şimdi bu tanımlanan değerlerin table fonksiyonu ile frekans tablosunu oluşturup sağlamasını yapalım: 
+
+```{r}
+
+table(glm_pred)
+
+```
+Veri seti içindeki herhangi bir verinin aşağı ve yukarı olarak nasıl gösterilebileceğine bakalım, burada Direction verisinin ilk 5 satırı incelenmiştir. Down olarak gösterilenler 0.5'ten küçük, up olarak gösterilenler ise 0.5'ten büyük olan değerlerdir.
+
+```{r}
+
+Smarket$Direction[1:5]
+
+```
+Az önce incelediğimiz verinin frekans tablosuna bakalım.Artık burası çalışmanın kilit noktasıdır. Oluşturduğumuz tablo, karmaşa matriksi/confussion matrix olarak bilinmektedir ve bu matriks, test kitinden alınan değerlerin ve laboratuvar sonuçlarının karşılaştırılmasını sağlar.Burada testin güvenilirliğini gösteren nokta,up-up ve down-down değerlerinin yüksekliğidir.
+
+Bu veri setinde borsa değerleri vardı ve borsadaki düşüşleri ve yükselişleri temsil etmek adına ölçümlerimizi up ve down olarak tanımladık. Bu tanımları istediğimiz şekilde  yapabiliriz, eğer hastalık tanı kitiyse hasta-sağlıklı gibi...
+Pozitif ve negatiften (1-0) bahsetmiştik. Karmaşa matriksinde bu değerlerin temsil ettiği durumlar şu şekildedir:
+
+True Positive/Gerçek Pozitif: Eğer test kitimizden aldığımız pozitifler, laboratuvar çalışmalarında da pozitif çıktıysa gerçekten pozitiftir.
+
+True Negative/Gerçek Negatif: Eğer test kitimizden aldığımız negatifler, laboratuvar çalışmalarında da negatif çıktıysa gerçekten negatiftir.
+
+False Posivite/Hatalı Pozitif: Eğer test kitimizden aldığımız sonuçlar pozitifse fakat laboratuvarda bu sonuçlar negatif çıkmışsa, yanlış pozitif değerler elde etmiş oluruz.
+
+False Negative/Hatalı Negatif: Eğer test kitimizden aldığımız negatif sonuçlar laboratuvarda pozitif olarak çıkmışsa, yanlış negatif değerler elde etmişiz demektir.
+
+Bir takım basit matematiksel formüllerle bu değer oranlarına bakılarak veri seti üzerinde oluşturulan modellerin güvenilirliği incelenebilir.Örneğin:
+
+accuracy(güvenilirlik)=(TruePositive+TrueNegative)/Toplam veri 
+error(hata)=1-accuracy
+
+```{r}
+
+table(Smarket$Direction, glm_pred)
+
+```
+
