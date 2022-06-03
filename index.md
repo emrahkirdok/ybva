@@ -68,6 +68,8 @@ Derste gördüğümüz aşamalı azalış (*gradient descent*) ile doğrusal mod
   + Boş kağıt [vize](https://raw.githubusercontent.com/emrahkirdok/ybva/main/vize_sinavi_bilgisayarli_dusunme.Rmd)
   + Veri [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv)
 + Lojistik regresyon dersi [html](./metin_lojistik_regresyon.html)
++ Karmaşa matrisi ile ilgili konularda aşağıdaki sayfadaki hesaplama yöntemleri kullanılacaktır:
+  + [web sitesi](https://www.veribilimiokulu.com/hata-matrisini-confusion-matrix-yorumlama/)
 
 ## R ve Rstüdyo hakkında genel kaynaklar
 
