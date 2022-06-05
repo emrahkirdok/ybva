@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Giriş
 
 Bu çalışmada, programda mevcut olan Smarket veri seti (borsa ile alakalı veriler bulunmaktadır) üzerinden lojistik regresyon testi gerçekleştirilmiştir. Mevcut borsa verileri kullanılarak model oluşturulup tahminler yapılacaktır ve bu tahminlerin güvenilirliği test edilecektir.
+ s
 Öncelikle veri setinin olduğu kütüphaneyi çağıralım:
 
 ```{r}
@@ -31,6 +32,19 @@ attach(Smarket)
 ```
 
 Burada `attach` fonksiyonu ile verimizi R çevresine bağlayabiliyoruz. Bu sayede, veri çerçevesi içindeki sütun isimlerine doğrudan erişebiliriz.
+
+
++ `Year` Ölçümlerin alındığı yıl değişkeni
++ `Lag1` Bir gün önce borsa kapanma fiyatı
++ `Lag2` İki gün önceki borsa kapanma fiyatı
++ `Lag3` Üç gün önceki borsa kapanma fiyatı
++ `Lag4` Dört gün önceki borsa kapanma fiyatı
++ `Lag5` Beş gün önceki borsa kapanma fiyatı
++ `Volume` Borsanın o günkü işlem hacmi
++ `Today` O gün borsa kapanma fiyatı
++ `Direction` Bir önceki güne göre borsa yüksek mi yoksa düşük mü kapattı
+    + `Up`
+    + `Down`
 
 Bu modelleme çalışmasındaki amacımız, borsanın o günkü seyrini (`Direction` değişkeni), son beş gün boyunca borsa kapanışı ve o günkü alış satış hacmini kullanarak tahmin etmeye çalışıyoruz.
 
@@ -67,7 +81,9 @@ Ve tahmin veri setimizin histogramını oluşturduktan sonra, tahmin veri seti i
 hist(glm_prob)
 ```
 
-Sadece histograma baktığımızda, tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz. sum fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında, dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir. 
+Sadece histograma baktığımızda, tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz. 
+
+`sum` fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında, dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir. 
 
 Kaç tane tahmin olaslığı 0.5'den büyük?
 
@@ -83,7 +99,6 @@ sum(glm_prob < 0.5)
 
 Şimdi aynı histogramın, 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:
 
-
 ```{r}
 glm_pred <- predict(glm.fits, type = "response")
 
@@ -92,7 +107,7 @@ hist(glm_pred)
 abline(v=0.5, col="red", lwd=10)
 ```
 
-Şimdi bu değerleri, ''aşağı ve yukarı'' olarak tanımlayalım.
+Şimdi bu değerleri, *Aşağı (Down)* ve *Yukarı (Up)* olarak tanımlayalım.
 
 ```{r}
 
@@ -122,23 +137,61 @@ Smarket$Direction[1:5]
 table(Smarket$Direction, glm_pred)
 ```
 
-Az önce incelediğimiz verinin frekans tablosuna bakalım.Artık burası çalışmanın kilit noktasıdır. Oluşturduğumuz tablo, karmaşa matriksi/confussion matrix olarak bilinmektedir ve bu matriks, test kitinden alınan değerlerin ve laboratuvar sonuçlarının karşılaştırılmasını sağlar.Burada testin güvenilirliğini gösteren nokta,up-up ve down-down değerlerinin yüksekliğidir.
+Karmaşa matrisi, bir modelin performansını ölçmek için kullanabikeceğiniz bir frekans tablosu olarak tanımlanabilir.
 
-Bu veri setinde borsa değerleri vardı ve borsadaki düşüşleri ve yükselişleri temsil etmek adına ölçümlerimizi up ve down olarak tanımladık. Bu tanımları istediğimiz şekilde  yapabiliriz, eğer hastalık tanı kitiyse hasta-sağlıklı gibi...
+Az önceki tabloyu oluşturmak için; gerçek değerleri, tahmin edilen değerlerle karşılaştırdık. Basit olsun diye, 1 ve 0 olarak iki durumumuz olsun.
+
++ Gerçek değer 1, tahmin edilen değer 1: *Gerçek Pozitif, True Pozitif* $TP$
++ Gerçek değer 1, tahmin edilen değer 0: *Yanlış Negatif, False Negative* $FN$
++ Gerçek değer 0, tahmin edilen değer 0:  *Gerçek Negatif True Negative* $TN$
++ Gerçek değer 0, tahmin edilen değer 1:  *Yanlış Pozitif False Positive* $FP$
+
+Toplam örneklem sayımız ise: $N = TP + TN + TN + FP$
+
+Bu değerlerin hepsini aşağıdaki şekilde özetleyebiliriz:
+
+```{r}
+knitr::include_graphics(path = "images/conf_tbl.png")
+```
+
+
+
+Bu veri setinde borsa değerleri vardı ve borsadaki düşüşleri ve yükselişleri temsil etmek adına ölçümlerimizi up ve down olarak tanımladık. 
+
 Pozitif ve negatiften (1-0) bahsetmiştik. Karmaşa matriksinde bu değerlerin temsil ettiği durumlar şu şekildedir:
 
-True Positive/Gerçek Pozitif: Eğer test kitimizden aldığımız pozitifler, laboratuvar çalışmalarında da pozitif çıktıysa gerçekten pozitiftir.
+Bir takım basit matematiksel formüllerle bu değer oranlarına bakılarak veri seti üzerinde oluşturulan modellerin güvenilirliği incelenebilir.
 
-True Negative/Gerçek Negatif: Eğer test kitimizden aldığımız negatifler, laboratuvar çalışmalarında da negatif çıktıysa gerçekten negatiftir.
+$$
+Doğruluk (Accuracy) = \frac{TP + TN}{N}
+$$
+Doğruları ve yanlışları ne kadar yüksek oranda belirleyebilirsek, modelimizin doğruluk payı o kadar yüksektir.
 
-False Posivite/Hatalı Pozitif: Eğer test kitimizden aldığımız sonuçlar pozitifse fakat laboratuvarda bu sonuçlar negatif çıkmışsa, yanlış pozitif değerler elde etmiş oluruz.
+$$
+Hata Oranı (Error Rate) = \frac{FN + FP}{N}
+$$
 
-False Negative/Hatalı Negatif: Eğer test kitimizden aldığımız negatif sonuçlar laboratuvarda pozitif olarak çıkmışsa, yanlış negatif değerler elde etmişiz demektir.
 
-Bir takım basit matematiksel formüllerle bu değer oranlarına bakılarak veri seti üzerinde oluşturulan modellerin güvenilirliği incelenebilir.Örneğin:
+$$
+Hata Oranı (Error Rate) = 1 - Doğruluk (Accuracy)
+$$
+Elimizdeki gerçek değerlerin ne kadarını doğru tahmin etmişiz?
 
-accuracy(güvenilirlik)=(TruePositive+TrueNegative)/Toplam veri 
-error(hata)=1-accuracy
+$$
+DoğruPozitifOranı = \frac{TP}{FN + TP}
+$$
+
+Elimizdeki gerçek değerlerin ne kadarını yanlış tahmin etmişiz?
+
+$$
+Yanlış Pozitif Oranı = \frac{FP}{TN + FP}
+$$
+
+Peki yaptığımız tahminlerin ne kadarı doğru?
+
+$$
+Hassasiyet (Precision) = \frac{TP}{TP + FP}
+$$
 
 Peki bu öğrendiklerimizi neye ölçekleyebiliriz?
 
@@ -148,5 +201,5 @@ Sizce ne yapabiliriz? İlk olarak hasta ve sağlıklı olduklarından emin oldu�
 
 Elde edeceğimiz sonuç ya hasta ya da sağlıklı olacaktır. 
 
-Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir.
+Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir. Modelmizin ya da test kitimizin *Doğruluk* değer ne kadar yüksekse, o kadar iyi çalışan bir kitimiz var demektir.
 
