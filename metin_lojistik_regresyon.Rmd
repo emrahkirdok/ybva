@@ -100,9 +100,7 @@ sum(glm_prob < 0.5)
 Şimdi aynı histogramın, 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:
 
 ```{r}
-glm_pred <- predict(glm.fits, type = "response")
-
-hist(glm_pred)
+hist(glm_prob)
 
 abline(v=0.5, col="red", lwd=10)
 ```
