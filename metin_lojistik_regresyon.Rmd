@@ -1,7 +1,7 @@
 ---
 title: "Lojistik Regresyon"
-author: "Merve Akküp"
-date: '2022-05-16'
+author: "Merve Akküp, Tanya Beril Korkmaz"
+date: '05.06.2022'
 output: html_document
 ---
 
@@ -39,23 +39,23 @@ Verilerle bir model oluşturalım, modeli setteki Direction(intercept) verisine 
 
 ```{r}
 
-glm.fits <- glm(data = Smarket, Direction~Lag1 + Lag2 +Lag3+ Lag4+ Lag5+ Volume, family = binomial)
+glm_fits <- glm(data = Smarket, Direction~Lag1 + Lag2 +Lag3+ Lag4+ Lag5+ Volume, family = binomial)
 
-summary(glm.fits)
+summary(glm_fits)
 
 ```
 Predict fonksiyonu ile modelimizin ilk 10 parametresine bakalım:
 
 ```{r}
 
-predict(glm.fits, type = "response")[1:10]
+predict(glm_fits, type = "response")[1:10]
 
 ```
 Tahminleri, yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece tahmin üzerinden işlem yapabiliriz.
 
 ```{r}
 
-glm_pred <- predict(glm.fits, type = "response")
+glm_pred <- predict(glm_fits, type = "response")
 
 ```
 
@@ -73,48 +73,36 @@ Ve tahmin veri setimizin histogramını oluşturduktan sonra, tahmin veri seti i
 hist(glm_pred)
 
 ```
-```{r}
-
-glm_prob <- predict(glm.fits, type = "response")
-
-```
-
-```{r}
-
-rm(glm_pred)
-
-```
 
 Sadece histograma baktığımızda, tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz. sum fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında, dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir. 
 
 ```{r}
 
-sum(glm_prob > 0.5)
+sum(glm_pred > 0.5)
 
 ```
 ```{r}
 
-sum(glm_prob < 0.5)
+sum(glm_pred < 0.5)
 
 ```
-Şimdi aynı histogramın, 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:
+Şimdi aynı histogramın, 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım, v, 0.5 değerine çizmek istediğimiz vertical/dikey çizgiyi, col çizgi rengini, lwd ise çizgi kalınlığını göstermektedir.
 
 ```{r}
 
-glm_pred <- predict(glm.fits, type = "response")
+glm_pred <- predict(glm_fits, type = "response")
 
 hist(glm_pred)
 
 abline(v=0.5, col="red", lwd=10)
 
 ```
-Şimdi bu değerleri, ''aşağı ve yukarı'' olarak tanımlayalım.
+Şimdi bu değerleri, ''aşağı ve yukarı'' olarak tanımlayalım. 0.5 üstünü up, 0.5 altını down olarak tanımladık
 
 ```{r}
 
-glm_pred<- rep("Down", 1250)
-
-glm_pred[glm_prob> 0.5]  <- "up"
+glm_pred[output> 0.5] <- "up"
+glm_pred[output< 0.5]<- "down" 
 
 ```
 
@@ -132,7 +120,9 @@ Veri seti içindeki herhangi bir verinin aşağı ve yukarı olarak nasıl göst
 Smarket$Direction[1:5]
 
 ```
-Az önce incelediğimiz verinin frekans tablosuna bakalım.Artık burası çalışmanın kilit noktasıdır. Oluşturduğumuz tablo, karmaşa matriksi/confussion matrix olarak bilinmektedir ve bu matriks, test kitinden alınan değerlerin ve laboratuvar sonuçlarının karşılaştırılmasını sağlar.Burada testin güvenilirliğini gösteren nokta,up-up ve down-down değerlerinin yüksekliğidir.
+Az önce incelediğimiz verinin frekans tablosuna bakalım.Hem gerçek veriyi hem de tahmin verilerini parantez içine sırasıyla belirtelim.
+
+Artık burası çalışmanın kilit noktasıdır. Oluşturduğumuz tablo, karmaşa matriksi/confussion matrix olarak bilinmektedir ve bu matriks, test kitinden alınan değerlerin ve laboratuvar sonuçlarının karşılaştırılmasını sağlar.Burada testin güvenilirliğini gösteren nokta,up-up ve down-down değerlerinin yüksekliğidir.
 
 Bu veri setinde borsa değerleri vardı ve borsadaki düşüşleri ve yükselişleri temsil etmek adına ölçümlerimizi up ve down olarak tanımladık. Bu tanımları istediğimiz şekilde  yapabiliriz, eğer hastalık tanı kitiyse hasta-sağlıklı gibi...
 Pozitif ve negatiften (1-0) bahsetmiştik. Karmaşa matriksinde bu değerlerin temsil ettiği durumlar şu şekildedir:
