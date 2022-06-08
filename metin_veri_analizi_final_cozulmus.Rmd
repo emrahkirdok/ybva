@@ -1,0 +1,158 @@
+---
+title: "Veri Analizi Final Sınavı"
+author: "Emrah Kırdök"
+date: "06 06 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Verinin hikayesi
+
+Veri analizi üzerine verilen bir R dersi kapsamında, iki farklı üniversiteden elde edilen sonuçlar derlenmiştir. Bu çalışma kapsamında iki temel soru cevaplanmaya çalışılmıştır:
+
++ Veri analizi dersindek başarının farklı üniversitelerdeki değişimi
++ Bilgisayar ve istatistik dersi bilgilerinin veri analizi dersi üzerindeki etkisi
+
+Bu kapsamda elde edilmiş ölçümler ile ilgili bilgileri aşağıda bulabilirsiniz:
+
++ `kod`: Derse katılan öğrencinin kodu
++ `veri_analizi`: Veri analizi dersinde öğrencinin aldığı not (100 üzerinden)
++ `bilgisayar`: Öğrencinin bilgisayar dersinden aldığı not
++ `istatistik`: Öğrencinin istatistik dersinden aldığı not
++ `universite`: Çalışmaların yapıldığı üniversiteler
+
+# Veri yükleme
+
+Lütfen ekte verilmiş `sinav.csv` verisini aşağıdaki bilgileri kullanarak yükleyiniz:
+
++ Ayraç (`sep`): `;`
++ Başlık satırları (`header`) bulunmaktadır.
+
+Yükleme kodunu aşağıya yazınız (7 puan):
+
+```{r}
+library(ggplot2)
+veri <- read.table("data/sinav.csv", sep = ";", header= T)
+```
+
+# Veriyi tanıma
+
+Yüklediğiniz veri çerçevesinin boyutlarını geri döndüren kodu yazınız (7 puan):
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız (7 puan):
+
+```{r}
+colnames(veri)
+```
+
+
+Çalışmaya katılan üniversiteler hakkında frekans tablosu oluşturabilir misiniz? Her üniversiteden kaç tane ölçüm var? (7 puan)
+
+```{r}
+table(veri$universite)
+```
+
+
+# Histogramlar
+
+Oluşturulacak grafikler için `ggplot2` paketini kullanınız.
+
+Öğrencilerin veri analizi dersindeki başarsını gösteren histogramı çizebilir misiniz? (7 puan)
+
+```{r}
+ggplot(data=veri, aes(x=veri_analizi)) + 
+  geom_histogram() + 
+  ggtitle("Veri analizi dersi basarisini gosteren histogram") + 
+  xlab("Veri analizi dersi notu")  + ylab("Frekans")
+```
+
+
+Öğrencilerin bilgisayar derslerinden aldığı notları gösteren histogramı çizebilir misiniz? (7 puan)
+
+
+```{r}
+ggplot(data=veri, aes(x=bilgisayar)) + 
+  geom_histogram() + 
+  ggtitle("Bilgisayar dersi basarisini gosteren histogram") + 
+  xlab("Bilgisayar dersi notu")  + ylab("Frekans")
+```
+
+Öğrencilerin istatistik derslerinden aldığı notları gösteren histogramı çizebilir misiniz? (7 puan)
+
+```{r}
+ggplot(data=veri, aes(x=istatistik)) + 
+  geom_histogram() + 
+  ggtitle("Istatistik dersi basarisini gosteren histogram") + 
+  xlab("Istatistik dersi notu")  + ylab("Frekans")
+```
+
+# Nokta grafikleri
+
+Bilgisayar ve istatistik derslerindeki başarı acaba veri analizini etkiliyor mu? 
+
+İlk olarak veri analizi dersindeki başarı ve bilgisayar dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni bilgisayar dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
+
+```{r}
+ggplot(data = veri, aes(x = bilgisayar, y = veri_analizi)) + 
+  geom_point() + 
+  ggtitle("Veri analizi ve bilgisayar dersleri arasindaki iliski") + 
+  xlab("Bilgisayar dersi basarisi") + ylab("Veri analizi dersi basarisi")
+```
+
+
+Şimdi de veri analizi dersindeki başarı ve istatistik dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni istatistik dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
+
+```{r}
+ggplot(data = veri, aes(x = istatistik, y = veri_analizi)) + 
+  geom_point()  + geom_smooth(method = "lm") +
+  ggtitle("Veri analizi ve istatistik dersleri arasindaki iliski") + 
+  xlab("Istatistik dersi basarisi") + ylab("Veri analizi dersi basarisi")
+```
+
+# Kutu grafikleri
+
+Farklı üniversitelerdeki veri analizi dersi sınav başarısını gösteren kutu grafiğini çizebilir misiniz? (7 puan)
+
+```{r}
+ggplot(data = veri, aes(x = universite, y = veri_analizi)) + 
+  geom_boxplot() + 
+  ggtitle("Veri analizi dersi basarisinin farkli universitelere gore dagilimi") + 
+  xlab("Universite") + ylab("Veri analizi dersi basarisi")
+```
+
+
+# T-test (10 puan)
+
+Peki, test edilen iki üniversitedeki veri analizi dersleri başarısı arasında anlamlı bir farklılık var mı? Bu sorunun cevabını *t-test* ile test edebilir misiniz?
+
+Kodunuzu, şu adımları izleyerek oluşturabilirsiniz:
+
+1. Önce `Universite_1` için `veri_analizi` dersi başarı notlarını alın ve `x` değişkeni içinde depolayın
+2. Sonra `Universite_2` için `veri_analizi` dersi başarı notlarını alın ve `y` değişkeni içinde depolayın
+3. `t-test` fonkisyonu ile, testi gerçekleştirin ve sonuçları `test` değişkeni içinde depolayın
+4. Son olarak test hakkındaki bilgileri ekrana yazdırın.
+
+
+```{r}
+x <- veri$veri_analizi[veri$universite=="Universite_1"]
+y <- veri$veri_analizi[veri$universite=="Universite_2"]
+
+test <- t.test(x = x, y = y)
+
+test
+```
+
+
+Buraya kadar geldiyseniz, Veri analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
+
+```{r}
+ggplot(data = veri, aes(x=veri_analizi)) + geom_density(aes(fill=universite))
+```
+
