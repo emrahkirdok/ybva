@@ -1,6 +1,9 @@
+gh-pages
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 .snakemake
 *Rproj
+
+/.quarto/
