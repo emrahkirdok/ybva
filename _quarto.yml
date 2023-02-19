@@ -21,13 +21,19 @@ book:
   repo-url: https://github.com/emrahkirdok/ybva/
   
   chapters:
-    - index.Rmd
-    - metin_01_veri_bilimine_giris.Rmd
+    - part: "Derse Hazırlık"
+      chapters:
+        - index.qmd
+        - CONTRIBUTING.qmd
+#        - metin_klasor_islemleri.Rmd
+
+    - part: "Giriş"
+      chapters:
+        - metin_01_veri_bilimine_giris.qmd 
 
     - part: "Veri Analizi"
 #      chapters:
 #        - metin_02_r_giris.Rmd
-#        - metin_klasor_islemleri.Rmd
 #        - metin_bilimsel_hikaye_anlaticiligi.Rmd
 #        - metin_rmarkdown_odevleri_bilgi.Rmd
 #        - metin_dogrusal_modelleme_uygulamasi_1.Rmd
