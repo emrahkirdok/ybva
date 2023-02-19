@@ -7,7 +7,7 @@ book:
   reader-mode: true
 
   sidebar:
-    logo: "ybva.png"
+    logo: "images/ybva.png"
 
   page-footer:
     left: |
