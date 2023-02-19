@@ -4,6 +4,7 @@ project:
 
 book:
   title: "Yaşam Bilimleri İçin Veri Analizi"
+  favicon: "images/ybva.png"
   reader-mode: true
 
   sidebar:
@@ -21,9 +22,10 @@ book:
   repo-url: https://github.com/emrahkirdok/ybva/
   
   chapters:
+    - index.qmd
+    
     - part: "Derse Hazırlık"
       chapters:
-        - index.qmd
         - CONTRIBUTING.qmd
 #        - metin_klasor_islemleri.Rmd
 
@@ -54,6 +56,10 @@ book:
 #        - metin_ggplot2_pratik.Rmd
     
     - part: "Türkiye'nin Verisi"
+
+
+bibliography : bibliography.bib
+lang: tr
 
 format:
   html:

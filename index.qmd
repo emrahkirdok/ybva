@@ -1,19 +1,14 @@
----
-title: "Yaşam Bilimlerinde Veri Analizi"
-author: "Emrah Kırdök, Ph.D."
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-
----
+# Önsoz {.unnumbered}
 
 Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
 Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır. Ders tamamen açık kaynaklı bir şekilde sunulmaktdır ve kaktılara açıktır.
 
-## Dersin işlenme şekli
+## Dersin işlenme şekli {.unnumbered}
 
 Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir.
 
-## Katkı sunma
+## Katkı sunma {.unnumbered}
 
 Derse katkı sunmak isterseniz, bir GitHub hesabı açalak depoyu klonlamanız gerekmektedir. Bu şekilde bir katkılarınızı sunabilirisiniz.
 
