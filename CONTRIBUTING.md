@@ -4,9 +4,11 @@ Daha tam olarak bir lisans belirlenmese de, *Yaşam Bilimlerinde Veri Analiz* de
 
 ## Hangi konularda katkı sağlayabilirim?
 
+İki temel konu üzerinde katkı sağlayabilirsiniz:
+
 Şu anda benim odağım dersleri hazırlayıp eklemek. Bu yüzden derslerde bulunabilecek imla hatalarını düzeltmeye fazla vakit ayıramıyorum. Bu noktaların belirtilmesi güzel bir katkı olur şu an için.
 
-Öğrencilerim ise derslerde işlediğimiz ve notları hazır olmayan konuları hazırlamaya her zaman gönüllü olabilirler.
+Bunun dışında ders materyal hazırlama ekibi olarak da katkıda bulunabilirsiniz. Bazı dersleri, kaynak olmadan doğaçlama bir şekilde anlattığım da oluyor. Bu durumda, anlattığım dersin materyalini hazırlama görevi üstlenebilirsiniz.
 
 ## Nasıl katkı sağlarım?
 
@@ -16,16 +18,9 @@ Eğer daha aktif bir şekilde katılım sağlamak isterseniz bu depoyu çatallay
 
 Bu depoda iki tane dal bulunmaktadır:
 
-+ main: Derslerin `Rmd` kaynak kodlarının bulunduğu dal
-+ gh-pages: İnternet sitesinini oluşturan markdown ve derslerin derlenmiş `html` dosyalarının bulunduğu dal
++ main: Derslerin kaynak kodlarının bulunduğu dal. Bu dal üzerindeki metinler, `Rmd`, `md`, veya `qmd` formatlarında hazırlanmıştır. Bu dosyaları R üzerinde düzenleyerek katkıda bulunabilirsiniz.
++ gh-pages: İnternet sitesinini oluşturan markdown ve derslerin derlenmiş `html` dosyalarının bulunduğu dal.
 
-Dersler ile ilgili doğrudan katkılarınızı (genel olarak `Rmd` dökümanları ekleme ya da varolan dökümanları değiştirme) `main` dalında gerçekleştiriniz. Bu dökümanları daha sonra `html` formatında derleyerek `gh-pages` dalına aktaracağım.
-
-Burada iki farklı kelime ile başlayan dosyalar göreceksiniz:
-
-+ metin (bu başlangıca sahip dosyalar, `knitr` ile `html` formatına dönüştürülecek)
-+ sunum (bu başlangıca sahip dosyalar, `knitr` ile `ioslides` sunum formatına dönüştürülecek)
-
-Ekleyeceğiniz dökümanın tipi neyse, o başlangıcı kullanırsanız işim biraz daha kolaylaşır.
+Dersler ile ilgili doğrudan katkılarınızı (genel olarak `Rmd` dökümanları ekleme ya da varolan dökümanları değiştirme) `main` dalında gerçekleştiriniz. Bu dökümanları daha sonra otomatik olarak `html` formatına dönüştürülerek, `gh-pages` dalına aktarılacaktır.
 
 Dersime gösterdiğiniz ilgi için teşekkürler!
