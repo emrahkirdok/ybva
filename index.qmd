@@ -12,7 +12,21 @@ Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir.
 
 ## Katkıda bulunan yazarlar {.unnumbered}
 
-Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda (Alfabetik olarak sıralanmıştır):
+Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda alfabetik olarak sıralanmıştır:
 
 + Anıl Yalçıner
 + Tanya Beril Korkmaz
+
+Eğer siz de katkı sunmak isterseniz, bir sonraki sayfada yazılanları inceleyebilirsiniz.
+
+## Bu kitap neleri kapsıyor?
+
+Kitap kapsamında beş farklı bölüm olması planlanmıştır:
+
++ Veri analizi
++ Bilgisayarlı düşünme
++ Pratikler
++ Uygulamalar
++ Türkiye'nin verisi
+
+**Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. **Bilgisayarlı düşünme** kısmında ise, R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ve ileri seviye doğrusal modeller işlenecektir. **Pratik** kısmında, bu iki derse ait pratikler olacaktır. Aynı zamanda bu pratiklerin, çözümleri de **Ekler** kısmında verilecektir. **Uygulamalar** kısmında, tüm ders kapsamında işlenen konuların, biyolojik veriler üzerinden uygulaması yapıkacaktır. Son olarak, **Türkiye'nin verisi** kısmında ise, Türkiye sınırları içerisinde elde edilmiş açık kaynaklı veriler hakkında uygulamalar yapılacaktır.
