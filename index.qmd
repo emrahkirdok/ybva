@@ -17,7 +17,7 @@ Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar
 + Anıl Yalçıner
 + Tanya Beril Korkmaz
 
-Eğer siz de katkı sunmak isterseniz, bir sonraki sayfada yazılanları inceleyebilirsiniz.
+Eğer siz de katkı sunmak isterseniz, bir @sec-contributing kısmında yazılanları inceleyebilirsiniz.
 
 ## Bu kitap neleri kapsıyor?
 
