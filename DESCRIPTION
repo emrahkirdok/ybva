@@ -1,0 +1,23 @@
+Package: ybva
+Title: Data Analysis in Life Sciences
+Version: 0.1
+Authors@R: c(
+    person("Emrah", "Kırdök", , "emrahkirdok@gmail.com", role = c("aut", "cre"))
+  )
+URL: https://github.com/emrahkirdok/ybva
+Depends: 
+    R (>= 3.1.0)
+Imports:
+    tidyverse,
+Suggests:
+    downlit,
+    htmltools,
+    jpeg,
+    knitr,
+    sessioninfo
+Remotes:
+    tidyverse/dplyr,
+    tidyverse/dbplyr,
+    tidyverse/tidyr,
+    tidyverse/purrr
+Encoding: UTF-8
