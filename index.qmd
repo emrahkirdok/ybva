@@ -12,7 +12,7 @@ Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir.
 
 ## Katkıda bulunan yazarlar {.unnumbered}
 
-Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda:
+Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda (Alfabetik olarak sıralanmıştır):
 
-+ Tanya Beril Korkmaz
 + Anıl Yalçıner
++ Tanya Beril Korkmaz

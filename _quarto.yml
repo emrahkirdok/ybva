@@ -28,7 +28,7 @@ book:
     - CONTRIBUTING.md
     
     - part: "Derse Hazırlık"
-      chapters:
+#      chapters:
 #        - metin_klasor_islemleri.Rmd
 
     - part: "Giriş"
