@@ -1,4 +1,4 @@
-# Katkı Sunma {.unnumbered} {#sec-contrbuting}
+# Katkı Sunma {.unnumbered} {#sec-contributing}
 
 Daha tam olarak bir lisans belirlenmese de, *Yaşam Bilimlerinde Veri Analiz* dersi açık kaynaklı bir şekilde herkesin kullanımına sunulacaktır. Dolayısıyla, dileyen herkes bu derse katkı sağlayabilir.
 
