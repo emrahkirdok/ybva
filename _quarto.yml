@@ -3,7 +3,9 @@ project:
   output-dir: _book
 
 book:
-  title: "Yaşam Bilimleri İçin Veri Analizi"
+  title: "Yaşam Bilimlerinde Veri Analizi"
+  author: "Emrah Kırdök, Ph.D."
+  date: "2023/02/20"
   favicon: "images/ybva.png"
   reader-mode: true
 
