@@ -1,0 +1,70 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Yaşam Bilimleri İçin Veri Analizi"
+  favicon: "images/ybva.png"
+  reader-mode: true
+
+  sidebar:
+    logo: "images/ybva.png"
+
+  page-footer:
+    left: |
+      Yaşam Bilimlerinde Veri Analizi
+      Emrah Kırdök, Ph.D.
+    right: |
+      Bu kitap Veri Analizi, İstatistiksel Öğrenme, ve
+      Yaşam Bilimlerinde Veri Analizi Dersleri için
+      kaynak olarak kullanılacaktır.
+  site-url: https://emrahkirdok.github.io/ybva/
+  repo-url: https://github.com/emrahkirdok/ybva/
+  
+  chapters:
+    - index.qmd
+    
+    - part: "Derse Hazırlık"
+      chapters:
+        - CONTRIBUTING.qmd
+#        - metin_klasor_islemleri.Rmd
+
+    - part: "Giriş"
+      chapters:
+        - metin_01_veri_bilimine_giris.qmd 
+
+    - part: "Veri Analizi"
+#      chapters:
+#        - metin_02_r_giris.Rmd
+#        - metin_bilimsel_hikaye_anlaticiligi.Rmd
+#        - metin_rmarkdown_odevleri_bilgi.Rmd
+#        - metin_dogrusal_modelleme_uygulamasi_1.Rmd
+#        - metin_ggplot2_grafik_dilbilgisi.Rmd
+#        - metin_lojistik_regresyon.Rmd
+#        - metin_t_test.Rmd
+#
+    - part: "Bilgisayarlı Düşünme"
+#      chapters:
+#        - metin_asamali_azalis.Rmd
+#        - metin_amphiBIO_calisma.Rmd
+    
+    - part: "Uygulamalar"
+#      chapters:
+#        - metin_03_pratik.Rmd
+#        - metin_03_vektorler_pratik.Rmd
+#        - metin_04_pratik.Rmd
+#        - metin_ggplot2_pratik.Rmd
+    
+    - part: "Türkiye'nin Verisi"
+
+
+bibliography : bibliography.bib
+lang: tr
+
+format:
+  html:
+    theme:
+      - darkly
+    code-link: true
+
+    author-meta: "Emrah Kırdök"

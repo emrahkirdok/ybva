@@ -1,36 +1,14 @@
 ---
 title: "Veri Bilimine Giriş"
 author: "Emrah Kırdök, Ph. D."
-date: "16/02/2022"
-
-output:
-  bookdown::html_document2:
-    css: "templates/scholarly.css"
-  bookdown::pdf_document2:
-    template: templates/eisvogel.tex
-    toc: false
-    pandoc_args:
-    - --filter
-    - ~/miniconda3/bin/pandoc-latex-environment
-bibliography: bibliography.bib
-lang: tr
-header-includes: |
-  ```{=latex}
-  \usepackage{awesomebox}
-  ```
-pandoc-latex-environment:
-  noteblock: [note]
-  tipblock: [tip]
-  warningblock: [warning]
-  cautionblock: [caution]
-  importantblock: [important]
+date: "`r Sys.Date()`"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Bilimsel araştırmaya nasıl başlarız?
+## Bilimsel araştırmaya nasıl başlarız?
 
 Karl Popper, **Bilimsel Araştırmanın Mantığı** isimli kitabının birinci Almanca baskısının önsözünde şöyle yazmıştır [@Popper]:
 
