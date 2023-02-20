@@ -23,10 +23,10 @@ book:
   
   chapters:
     - index.qmd
+    - CONTRIBUTING.md
     
     - part: "Derse Hazırlık"
       chapters:
-        - CONTRIBUTING.qmd
 #        - metin_klasor_islemleri.Rmd
 
     - part: "Giriş"

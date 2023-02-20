@@ -1,4 +1,4 @@
-# Önsoz {.unnumbered}
+# Önsöz {.unnumbered}
 
 Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
@@ -10,7 +10,9 @@ Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince olu
 
 Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir.
 
-## Katkı sunma {.unnumbered}
+## Katkıda bulunan yazarlar {.unnumbered}
 
-Derse katkı sunmak isterseniz, bir GitHub hesabı açalak depoyu klonlamanız gerekmektedir. Bu şekilde bir katkılarınızı sunabilirisiniz.
+Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda:
 
++ Tanya Beril Korkmaz
++ Anıl Yalçıner

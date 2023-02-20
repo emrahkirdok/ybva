@@ -1,8 +1,4 @@
----
-title: "Derse Nasıl Katkı Sağlarım?"
-author: "Emrah Kırdök, Ph.D."
-date: "r Sys.Date()`"
----
+# Katkı Sunma {.unnumbered}
 
 Daha tam olarak bir lisans belirlenmese de, *Yaşam Bilimlerinde Veri Analiz* dersi açık kaynaklı bir şekilde herkesin kullanımına sunulacaktır. Dolayısıyla, dileyen herkes bu derse katkı sağlayabilir.
 
