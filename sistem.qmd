@@ -1,4 +1,4 @@
-# Kullanılacak Sistem {.unnumbered}
+# Kullanılacak Sistem {#sec-sistem}
 
 Bu ders kapsamında, açık kaynaklı olarak dağıtılan [R istatistik paketi](https://www.r-project.org/) ve bu paketin bütünleşik geliştirme platformu olan [RStudio](https://posit.co/download/rstudio-desktop/) masaüstü programını kullanacağız.
 

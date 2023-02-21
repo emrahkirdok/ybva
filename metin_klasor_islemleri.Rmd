@@ -1,4 +1,4 @@
-# Klasör İşlemleri {.unnumbered}
+# Klasör İşlemleri {#sec-klasor}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
