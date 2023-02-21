@@ -1,8 +1,4 @@
----
-title: "Veri Bilimine Giriş"
-author: "Emrah Kırdök, Ph. D."
-date: "`r Sys.Date()`"
----
+# Veri Bilimine Giriş
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
