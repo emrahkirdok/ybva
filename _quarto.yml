@@ -30,6 +30,7 @@ book:
     - part: "Derse Hazırlık"
       chapters:
         - sistem.qmd
+        - dikkat.qmd
         - metin_klasor_islemleri.Rmd
 
     - part: "Veri Analizi"

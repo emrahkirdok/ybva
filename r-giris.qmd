@@ -1,46 +1,5 @@
 # R ve R studio Kullanımı
 
-Bu döküman içerisinde, ilk derste gördüğümüz pratik konular hakkında bilgiler verilecektir. İkinci derse başlamadan önce, bu komutları tekrar etmeniz sizin için iyi olacaktır.
-
-## Çalışırken dikkat edilmesi gereken noktalar
-
-R sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Ayrıca, R üzerinde çalışırken dikkat edilmesi gereken bazı noktalar bulunmaktadır. Aşağıdaki noktalara dikkat ederseniz, daha sorunsuz bir şekilde çalışabilirsiniz.
-
-### ASCII dışındaki karakterlerin kullanımı
-
-Kullanacağımız sistem üzerinde ASCII sistemi dışında karakterler kullanırken çok dikkat etmeliyiz. ASCII karakterleri genel olarak İngilizce'de bulunan karakterler olarak düşünebilirsiniz. Bilgisayarlar ilk yaygınlaşmaya başladığında, sadece bu karakter setlerine destek veriliyordu. Son yıllarda gelişen UTF-8 kodlaması artık bütün dillerdeki karakterleri destekliyor, ancak Windows sistemleri hala UTF-8'i standart olarak kabul etmedi. Bu yüzden ASCII dışındaki karakterleri kullanmayınız.
-
-::: important
-Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanmayınız:
-```
-Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö 
-```
-Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa, onları da kullanmayın!
-:::
-
-### Dosyaların isimlendirilmesi
-
-Bir diğer önemli nokta ise dosyaların isimlendirilmesi. Dosya isimlerinde asla ASCII dışında karakter ve boşluk kullanmayın. 
-
-::: important
-Dosya isimlerini seçerken asla ASCII dışında karakter ve boşluk kullanmayın. Eğer boşluk kullanmanız gerekirse "_" (alt çizgi, SHIFT ve - tuşlarına aynı anda basınız) karakterini kullanın.
-:::
-
-### Ondalık işareti
-
-Türkiye ve Avrupa'da ondalık ayracı olarak `,` kulanılmaktadır. Mesela:
-
-```
-14,6
-```
-
-Ancak R programı, Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız `.` işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.
-
-::: note
-Peki kendi hazırladığınız verilerde ondalık ayracı olarak `;` kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken `dec` opsiyonu ilse ondalık ayracını seçmeyi öğreneceğiz.
-:::
-
-
 ## Komut satırı üzerinde çalışma
 
 Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:
