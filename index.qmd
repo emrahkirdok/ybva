@@ -23,7 +23,7 @@ Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları ince
 
 Kitap kapsamında beş farklı bölüm olması planlanmıştır:
 
-Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Kurulum** kısmını inceleyerek R ve Rstüdyo programlarının kullanımı hakkında bilgi alabilirsiniz.
+Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Kurulum** kısmını inceleyerek @sec-sistem kısmında R ve Rstüdyo programlarının kurulumu hakkında bilgi alabilirsiniz. Ardından @sec-onemli kısmında bulunan dikkat edilmesi gereken noktaları inceleyebilirsiniz. Daha sonra @sec-klasor kısmında ise, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
 
 **Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. 
 
