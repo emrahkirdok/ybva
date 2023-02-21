@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emrah Kırdök">
-<title>Yaşam Bilimlerinde Veri Analizi - 2&nbsp; R ve R studio Kullanımı</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 3&nbsp; R ve R studio Kullanımı</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span>
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -178,6 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./sistem.html" class="sidebar-item-text sidebar-link">Kullanılacak Sistem</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metin_klasor_islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -190,12 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  <a href="./metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
+  <a href="./r-giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
   </div>
 </li>
       </ul>
@@ -216,22 +221,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
 <li>
-<a href="#%C3%A7al%C4%B1%C5%9F%C4%B1rken-dikkat-edilmesi-gereken-noktalar" id="toc-çalışırken-dikkat-edilmesi-gereken-noktalar" class="nav-link active" data-scroll-target="#%C3%A7al%C4%B1%C5%9F%C4%B1rken-dikkat-edilmesi-gereken-noktalar"><span class="toc-section-number">2.1</span>  Çalışırken dikkat edilmesi gereken noktalar</a>
+<a href="#%C3%A7al%C4%B1%C5%9F%C4%B1rken-dikkat-edilmesi-gereken-noktalar" id="toc-çalışırken-dikkat-edilmesi-gereken-noktalar" class="nav-link active" data-scroll-target="#%C3%A7al%C4%B1%C5%9F%C4%B1rken-dikkat-edilmesi-gereken-noktalar"><span class="toc-section-number">3.1</span>  Çalışırken dikkat edilmesi gereken noktalar</a>
   <ul class="collapse">
-<li><a href="#ascii-d%C4%B1%C5%9F%C4%B1ndaki-karakterlerin-kullan%C4%B1m%C4%B1" id="toc-ascii-dışındaki-karakterlerin-kullanımı" class="nav-link" data-scroll-target="#ascii-d%C4%B1%C5%9F%C4%B1ndaki-karakterlerin-kullan%C4%B1m%C4%B1"><span class="toc-section-number">2.1.1</span>  ASCII dışındaki karakterlerin kullanımı</a></li>
-  <li><a href="#dosyalar%C4%B1n-isimlendirilmesi" id="toc-dosyaların-isimlendirilmesi" class="nav-link" data-scroll-target="#dosyalar%C4%B1n-isimlendirilmesi"><span class="toc-section-number">2.1.2</span>  Dosyaların isimlendirilmesi</a></li>
-  <li><a href="#ondal%C4%B1k-i%C5%9Fareti" id="toc-ondalık-işareti" class="nav-link" data-scroll-target="#ondal%C4%B1k-i%C5%9Fareti"><span class="toc-section-number">2.1.3</span>  Ondalık işareti</a></li>
+<li><a href="#ascii-d%C4%B1%C5%9F%C4%B1ndaki-karakterlerin-kullan%C4%B1m%C4%B1" id="toc-ascii-dışındaki-karakterlerin-kullanımı" class="nav-link" data-scroll-target="#ascii-d%C4%B1%C5%9F%C4%B1ndaki-karakterlerin-kullan%C4%B1m%C4%B1"><span class="toc-section-number">3.1.1</span>  ASCII dışındaki karakterlerin kullanımı</a></li>
+  <li><a href="#dosyalar%C4%B1n-isimlendirilmesi" id="toc-dosyaların-isimlendirilmesi" class="nav-link" data-scroll-target="#dosyalar%C4%B1n-isimlendirilmesi"><span class="toc-section-number">3.1.2</span>  Dosyaların isimlendirilmesi</a></li>
+  <li><a href="#ondal%C4%B1k-i%C5%9Fareti" id="toc-ondalık-işareti" class="nav-link" data-scroll-target="#ondal%C4%B1k-i%C5%9Fareti"><span class="toc-section-number">3.1.3</span>  Ondalık işareti</a></li>
   </ul>
 </li>
-  <li><a href="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma" id="toc-komut-satırı-üzerinde-çalışma" class="nav-link" data-scroll-target="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma"><span class="toc-section-number">2.2</span>  Komut satırı üzerinde çalışma</a></li>
-  <li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="toc-section-number">2.3</span>  Değişken atama</a></li>
-  <li><a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="toc-section-number">2.4</span>  Veri tipleri</a></li>
+  <li><a href="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma" id="toc-komut-satırı-üzerinde-çalışma" class="nav-link" data-scroll-target="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma"><span class="toc-section-number">3.2</span>  Komut satırı üzerinde çalışma</a></li>
+  <li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="toc-section-number">3.3</span>  Değişken atama</a></li>
+  <li><a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="toc-section-number">3.4</span>  Veri tipleri</a></li>
   <li>
-<a href="#vekt%C3%B6rler" id="toc-vektörler" class="nav-link" data-scroll-target="#vekt%C3%B6rler"><span class="toc-section-number">3</span>  Vektörler</a>
+<a href="#vekt%C3%B6rler" id="toc-vektörler" class="nav-link" data-scroll-target="#vekt%C3%B6rler"><span class="toc-section-number">4</span>  Vektörler</a>
   <ul class="collapse">
-<li><a href="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler" id="toc-vektör-oluşturma-üzerine-örnekler" class="nav-link" data-scroll-target="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler"><span class="toc-section-number">3.1</span>  Vektör oluşturma üzerine örnekler</a></li>
-  <li><a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">3.2</span>  Vektörlerde indis kullanımı</a></li>
-  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">3.3</span>  Sonuç</a></li>
+<li><a href="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler" id="toc-vektör-oluşturma-üzerine-örnekler" class="nav-link" data-scroll-target="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler"><span class="toc-section-number">4.1</span>  Vektör oluşturma üzerine örnekler</a></li>
+  <li><a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">4.2</span>  Vektörlerde indis kullanımı</a></li>
+  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">4.3</span>  Sonuç</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -239,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span>
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span>
 </h1>
 </div>
 
@@ -254,33 +259,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
 
 </header><p>Bu döküman içerisinde, ilk derste gördüğümüz pratik konular hakkında bilgiler verilecektir. İkinci derse başlamadan önce, bu komutları tekrar etmeniz sizin için iyi olacaktır.</p>
-<section id="çalışırken-dikkat-edilmesi-gereken-noktalar" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="çalışırken-dikkat-edilmesi-gereken-noktalar">
-<span class="header-section-number">2.1</span> Çalışırken dikkat edilmesi gereken noktalar</h2>
+<section id="çalışırken-dikkat-edilmesi-gereken-noktalar" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="çalışırken-dikkat-edilmesi-gereken-noktalar">
+<span class="header-section-number">3.1</span> Çalışırken dikkat edilmesi gereken noktalar</h2>
 <p>R sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Ayrıca, R üzerinde çalışırken dikkat edilmesi gereken bazı noktalar bulunmaktadır. Aşağıdaki noktalara dikkat ederseniz, daha sorunsuz bir şekilde çalışabilirsiniz.</p>
-<section id="ascii-dışındaki-karakterlerin-kullanımı" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="ascii-dışındaki-karakterlerin-kullanımı">
-<span class="header-section-number">2.1.1</span> ASCII dışındaki karakterlerin kullanımı</h3>
+<section id="ascii-dışındaki-karakterlerin-kullanımı" class="level3" data-number="3.1.1"><h3 data-number="3.1.1" class="anchored" data-anchor-id="ascii-dışındaki-karakterlerin-kullanımı">
+<span class="header-section-number">3.1.1</span> ASCII dışındaki karakterlerin kullanımı</h3>
 <p>Kullanacağımız sistem üzerinde ASCII sistemi dışında karakterler kullanırken çok dikkat etmeliyiz. ASCII karakterleri genel olarak İngilizce’de bulunan karakterler olarak düşünebilirsiniz. Bilgisayarlar ilk yaygınlaşmaya başladığında, sadece bu karakter setlerine destek veriliyordu. Son yıllarda gelişen UTF-8 kodlaması artık bütün dillerdeki karakterleri destekliyor, ancak Windows sistemleri hala UTF-8’i standart olarak kabul etmedi. Bu yüzden ASCII dışındaki karakterleri kullanmayınız.</p>
 <div class="important">
 <p>Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanmayınız:</p>
 <pre><code>Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö </code></pre>
 <p>Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa, onları da kullanmayın!</p>
 </div>
-</section><section id="dosyaların-isimlendirilmesi" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="dosyaların-isimlendirilmesi">
-<span class="header-section-number">2.1.2</span> Dosyaların isimlendirilmesi</h3>
+</section><section id="dosyaların-isimlendirilmesi" class="level3" data-number="3.1.2"><h3 data-number="3.1.2" class="anchored" data-anchor-id="dosyaların-isimlendirilmesi">
+<span class="header-section-number">3.1.2</span> Dosyaların isimlendirilmesi</h3>
 <p>Bir diğer önemli nokta ise dosyaların isimlendirilmesi. Dosya isimlerinde asla ASCII dışında karakter ve boşluk kullanmayın.</p>
 <div class="important">
 <p>Dosya isimlerini seçerken asla ASCII dışında karakter ve boşluk kullanmayın. Eğer boşluk kullanmanız gerekirse “_” (alt çizgi, SHIFT ve - tuşlarına aynı anda basınız) karakterini kullanın.</p>
 </div>
-</section><section id="ondalık-işareti" class="level3" data-number="2.1.3"><h3 data-number="2.1.3" class="anchored" data-anchor-id="ondalık-işareti">
-<span class="header-section-number">2.1.3</span> Ondalık işareti</h3>
+</section><section id="ondalık-işareti" class="level3" data-number="3.1.3"><h3 data-number="3.1.3" class="anchored" data-anchor-id="ondalık-işareti">
+<span class="header-section-number">3.1.3</span> Ondalık işareti</h3>
 <p>Türkiye ve Avrupa’da ondalık ayracı olarak <code>,</code> kulanılmaktadır. Mesela:</p>
 <pre><code>14,6</code></pre>
 <p>Ancak R programı, Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız <code>.</code> işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.</p>
 <div class="note">
 <p>Peki kendi hazırladığınız verilerde ondalık ayracı olarak <code>;</code> kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken <code>dec</code> opsiyonu ilse ondalık ayracını seçmeyi öğreneceğiz.</p>
 </div>
-</section></section><section id="komut-satırı-üzerinde-çalışma" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="komut-satırı-üzerinde-çalışma">
-<span class="header-section-number">2.2</span> Komut satırı üzerinde çalışma</h2>
+</section></section><section id="komut-satırı-üzerinde-çalışma" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="komut-satırı-üzerinde-çalışma">
+<span class="header-section-number">3.2</span> Komut satırı üzerinde çalışma</h2>
 <p>Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">34</span> <span class="op">+</span> <span class="fl">45</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -289,8 +294,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>R, bu işlemi yapar ve sonucu ekrana yazdırır.</p>
-</section><section id="değişken-atama" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="değişken-atama">
-<span class="header-section-number">2.3</span> Değişken atama</h2>
+</section><section id="değişken-atama" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="değişken-atama">
+<span class="header-section-number">3.3</span> Değişken atama</h2>
 <p>Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü <code>&lt;-</code> kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -308,8 +313,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır.</p>
-</section><section id="veri-tipleri" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="veri-tipleri">
-<span class="header-section-number">2.4</span> Veri tipleri</h2>
+</section><section id="veri-tipleri" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="veri-tipleri">
+<span class="header-section-number">3.4</span> Veri tipleri</h2>
 <p>R içerisinde dört temel veri tipimiz bulunmaktadır:</p>
 <ul>
 <li>Sayı (<em>numeric</em>, <code>num</code>)</li>
@@ -376,8 +381,8 @@ Levels: karanlik</code></pre>
 <pre><code> Factor w/ 1 level "karanlik": 1</code></pre>
 </div>
 </div>
-</section><section id="vektörler" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Vektörler</h1>
+</section><section id="vektörler" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Vektörler</h1>
 <p>Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil, bir grup örnek ile çalışmamız gerekmektedir.</p>
 <p>R üzerinde farklı veri yapıları bulunmaktadır. Bunlarda bir tanesi vektörler olarak adlandırılır. Vektörler, kısaca <em>belli bir tipte</em> veri tipini içeren listeler olarak tanımlanabilir. Bir vektör oluşturmak istiyorsanız <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanmanız gerekmektedir:</p>
 <div class="cell">
@@ -417,8 +422,8 @@ Levels: karanlik</code></pre>
 <blockquote class="blockquote">
 <p>Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?</p>
 </blockquote>
-<section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
-<span class="header-section-number">3.1</span> Vektör oluşturma üzerine örnekler</h2>
+<section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
+<span class="header-section-number">4.1</span> Vektör oluşturma üzerine örnekler</h2>
 <p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz?</p>
 <table class="table">
 <thead><tr class="header">
@@ -485,8 +490,8 @@ Levels: karanlik</code></pre>
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
-</section><section id="vektörlerde-indis-kullanımı" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="vektörlerde-indis-kullanımı">
-<span class="header-section-number">3.2</span> Vektörlerde indis kullanımı</h2>
+</section><section id="vektörlerde-indis-kullanımı" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="vektörlerde-indis-kullanımı">
+<span class="header-section-number">4.2</span> Vektörlerde indis kullanımı</h2>
 <p>Peki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz <code>yaprak_uzunlugu</code> vektörü üzerinde ikinci elemanı alalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -520,8 +525,8 @@ Levels: karanlik</code></pre>
 <div class="note">
 <p>Dikkat edin, burada <code>yaprak_uzunlugu</code> vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.</p>
 </div>
-</section><section id="sonuç" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="sonuç">
-<span class="header-section-number">3.3</span> Sonuç</h2>
+</section><section id="sonuç" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="sonuç">
+<span class="header-section-number">4.3</span> Sonuç</h2>
 <p>Bu kısım kapsamında aşağıdaki konular önemlidir:</p>
 <ul>
 <li>Bir vektör oluşturmak için <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanırız, ve vektör elemanlarını <code>,</code> ile ayırırız</li>
@@ -665,7 +670,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./metin_01_veri_bilimine_giris.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emrah Kırdök">
-<title>Yaşam Bilimlerinde Veri Analizi - 1&nbsp; Veri Bilimine Giriş</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 2&nbsp; Veri Bilimine Giriş</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./r-giris.html" rel="next">
-<link href="./sistem.html" rel="prev">
+<link href="./metin_klasor_islemleri.html" rel="prev">
 <link href="./images/ybva.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +82,7 @@ div.csl-indent {
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span>
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -135,6 +135,11 @@ div.csl-indent {
   <a href="./sistem.html" class="sidebar-item-text sidebar-link">Kullanılacak Sistem</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metin_klasor_islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -147,12 +152,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  <a href="./metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
+  <a href="./r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
   </div>
 </li>
       </ul>
@@ -172,32 +177,32 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#bilimsel-ara%C5%9Ft%C4%B1rmaya-nas%C4%B1l-ba%C5%9Flar%C4%B1z" id="toc-bilimsel-araştırmaya-nasıl-başlarız" class="nav-link active" data-scroll-target="#bilimsel-ara%C5%9Ft%C4%B1rmaya-nas%C4%B1l-ba%C5%9Flar%C4%B1z"><span class="toc-section-number">1.1</span>  Bilimsel araştırmaya nasıl başlarız?</a></li>
-  <li><a href="#g%C3%B6zlem" id="toc-gözlem" class="nav-link" data-scroll-target="#g%C3%B6zlem"><span class="toc-section-number">1.2</span>  Gözlem</a></li>
-  <li><a href="#g%C3%B6zlemlere-dayanarak-hipotez-olu%C5%9Fturulmas%C4%B1" id="toc-gözlemlere-dayanarak-hipotez-oluşturulması" class="nav-link" data-scroll-target="#g%C3%B6zlemlere-dayanarak-hipotez-olu%C5%9Fturulmas%C4%B1"><span class="toc-section-number">1.3</span>  Gözlemlere dayanarak hipotez oluşturulması</a></li>
-  <li><a href="#teorinin-deneysel-y%C3%B6ntem-ile-test-edilmesi" id="toc-teorinin-deneysel-yöntem-ile-test-edilmesi" class="nav-link" data-scroll-target="#teorinin-deneysel-y%C3%B6ntem-ile-test-edilmesi"><span class="toc-section-number">1.4</span>  Teorinin deneysel yöntem ile test edilmesi</a></li>
-  <li><a href="#bilimin-temel-prensiplerinden-bir-tanesi-t%C3%BCmevar%C4%B1m" id="toc-bilimin-temel-prensiplerinden-bir-tanesi-tümevarım" class="nav-link" data-scroll-target="#bilimin-temel-prensiplerinden-bir-tanesi-t%C3%BCmevar%C4%B1m"><span class="toc-section-number">1.5</span>  Bilimin temel prensiplerinden bir tanesi: Tümevarım</a></li>
-  <li><a href="#t%C3%BCmervar%C4%B1m-sorunu" id="toc-tümervarım-sorunu" class="nav-link" data-scroll-target="#t%C3%BCmervar%C4%B1m-sorunu"><span class="toc-section-number">1.6</span>  Tümervarım sorunu</a></li>
-  <li><a href="#yanl%C4%B1%C5%9Flanabilirlik-ilkesi" id="toc-yanlışlanabilirlik-ilkesi" class="nav-link" data-scroll-target="#yanl%C4%B1%C5%9Flanabilirlik-ilkesi"><span class="toc-section-number">1.7</span>  Yanlışlanabilirlik ilkesi</a></li>
+<li><a href="#bilimsel-ara%C5%9Ft%C4%B1rmaya-nas%C4%B1l-ba%C5%9Flar%C4%B1z" id="toc-bilimsel-araştırmaya-nasıl-başlarız" class="nav-link active" data-scroll-target="#bilimsel-ara%C5%9Ft%C4%B1rmaya-nas%C4%B1l-ba%C5%9Flar%C4%B1z"><span class="toc-section-number">2.1</span>  Bilimsel araştırmaya nasıl başlarız?</a></li>
+  <li><a href="#g%C3%B6zlem" id="toc-gözlem" class="nav-link" data-scroll-target="#g%C3%B6zlem"><span class="toc-section-number">2.2</span>  Gözlem</a></li>
+  <li><a href="#g%C3%B6zlemlere-dayanarak-hipotez-olu%C5%9Fturulmas%C4%B1" id="toc-gözlemlere-dayanarak-hipotez-oluşturulması" class="nav-link" data-scroll-target="#g%C3%B6zlemlere-dayanarak-hipotez-olu%C5%9Fturulmas%C4%B1"><span class="toc-section-number">2.3</span>  Gözlemlere dayanarak hipotez oluşturulması</a></li>
+  <li><a href="#teorinin-deneysel-y%C3%B6ntem-ile-test-edilmesi" id="toc-teorinin-deneysel-yöntem-ile-test-edilmesi" class="nav-link" data-scroll-target="#teorinin-deneysel-y%C3%B6ntem-ile-test-edilmesi"><span class="toc-section-number">2.4</span>  Teorinin deneysel yöntem ile test edilmesi</a></li>
+  <li><a href="#bilimin-temel-prensiplerinden-bir-tanesi-t%C3%BCmevar%C4%B1m" id="toc-bilimin-temel-prensiplerinden-bir-tanesi-tümevarım" class="nav-link" data-scroll-target="#bilimin-temel-prensiplerinden-bir-tanesi-t%C3%BCmevar%C4%B1m"><span class="toc-section-number">2.5</span>  Bilimin temel prensiplerinden bir tanesi: Tümevarım</a></li>
+  <li><a href="#t%C3%BCmervar%C4%B1m-sorunu" id="toc-tümervarım-sorunu" class="nav-link" data-scroll-target="#t%C3%BCmervar%C4%B1m-sorunu"><span class="toc-section-number">2.6</span>  Tümervarım sorunu</a></li>
+  <li><a href="#yanl%C4%B1%C5%9Flanabilirlik-ilkesi" id="toc-yanlışlanabilirlik-ilkesi" class="nav-link" data-scroll-target="#yanl%C4%B1%C5%9Flanabilirlik-ilkesi"><span class="toc-section-number">2.7</span>  Yanlışlanabilirlik ilkesi</a></li>
   <li>
-<a href="#veri-bilimi-bu-i%C5%9Fin-neresinde" id="toc-veri-bilimi-bu-işin-neresinde" class="nav-link" data-scroll-target="#veri-bilimi-bu-i%C5%9Fin-neresinde"><span class="toc-section-number">2</span>  Veri bilimi bu işin neresinde?</a>
+<a href="#veri-bilimi-bu-i%C5%9Fin-neresinde" id="toc-veri-bilimi-bu-işin-neresinde" class="nav-link" data-scroll-target="#veri-bilimi-bu-i%C5%9Fin-neresinde"><span class="toc-section-number">3</span>  Veri bilimi bu işin neresinde?</a>
   <ul class="collapse">
-<li><a href="#son-y%C4%B1llarda-veri-art%C4%B1%C5%9F%C4%B1-var" id="toc-son-yıllarda-veri-artışı-var" class="nav-link" data-scroll-target="#son-y%C4%B1llarda-veri-art%C4%B1%C5%9F%C4%B1-var"><span class="toc-section-number">2.1</span>  Son yıllarda veri artışı var</a></li>
+<li><a href="#son-y%C4%B1llarda-veri-art%C4%B1%C5%9F%C4%B1-var" id="toc-son-yıllarda-veri-artışı-var" class="nav-link" data-scroll-target="#son-y%C4%B1llarda-veri-art%C4%B1%C5%9F%C4%B1-var"><span class="toc-section-number">3.1</span>  Son yıllarda veri artışı var</a></li>
   <li>
-<a href="#peki-veri-bilimi-nas%C4%B1l-i%C5%9Fliyor" id="toc-peki-veri-bilimi-nasıl-işliyor" class="nav-link" data-scroll-target="#peki-veri-bilimi-nas%C4%B1l-i%C5%9Fliyor"><span class="toc-section-number">2.2</span>  Peki veri bilimi nasıl işliyor?</a>
+<a href="#peki-veri-bilimi-nas%C4%B1l-i%C5%9Fliyor" id="toc-peki-veri-bilimi-nasıl-işliyor" class="nav-link" data-scroll-target="#peki-veri-bilimi-nas%C4%B1l-i%C5%9Fliyor"><span class="toc-section-number">3.2</span>  Peki veri bilimi nasıl işliyor?</a>
   <ul class="collapse">
-<li><a href="#verinin-incelemesi-ve-modelleme-%C3%A7al%C4%B1%C5%9Fmalar%C4%B1" id="toc-verinin-incelemesi-ve-modelleme-çalışmaları" class="nav-link" data-scroll-target="#verinin-incelemesi-ve-modelleme-%C3%A7al%C4%B1%C5%9Fmalar%C4%B1"><span class="toc-section-number">2.2.1</span>  Verinin incelemesi ve modelleme çalışmaları</a></li>
+<li><a href="#verinin-incelemesi-ve-modelleme-%C3%A7al%C4%B1%C5%9Fmalar%C4%B1" id="toc-verinin-incelemesi-ve-modelleme-çalışmaları" class="nav-link" data-scroll-target="#verinin-incelemesi-ve-modelleme-%C3%A7al%C4%B1%C5%9Fmalar%C4%B1"><span class="toc-section-number">3.2.1</span>  Verinin incelemesi ve modelleme çalışmaları</a></li>
   </ul>
 </li>
   </ul>
 </li>
-  <li><a href="#kaynak%C3%A7a" id="toc-kaynakça" class="nav-link" data-scroll-target="#kaynak%C3%A7a"><span class="toc-section-number">3</span>  Kaynakça</a></li>
+  <li><a href="#kaynak%C3%A7a" id="toc-kaynakça" class="nav-link" data-scroll-target="#kaynak%C3%A7a"><span class="toc-section-number">4</span>  Kaynakça</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span>
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span>
 </h1>
 </div>
 
@@ -211,8 +216,8 @@ div.csl-indent {
   </div>
   
 
-</header><section id="bilimsel-araştırmaya-nasıl-başlarız" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="bilimsel-araştırmaya-nasıl-başlarız">
-<span class="header-section-number">1.1</span> Bilimsel araştırmaya nasıl başlarız?</h2>
+</header><section id="bilimsel-araştırmaya-nasıl-başlarız" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="bilimsel-araştırmaya-nasıl-başlarız">
+<span class="header-section-number">2.1</span> Bilimsel araştırmaya nasıl başlarız?</h2>
 <p>Karl Popper, <strong>Bilimsel Araştırmanın Mantığı</strong> isimli kitabının birinci Almanca baskısının önsözünde şöyle yazmıştır <span class="citation" data-cites="Popper">(<a href="#ref-Popper" role="doc-biblioref">Popper 1984</a>)</span>:</p>
 <blockquote class="blockquote">
 <p>Araştırma, deyim yerindeyse damdan düşer gibi başlar; çünkü düşecek bir “dam” vardır.</p>
@@ -225,16 +230,16 @@ div.csl-indent {
 <li>Gözlemlere dayanarak hipotez kurulması</li>
 <li>Deneysel metodoloji ve teorinin testi</li>
 <li>Deney sonucunda elde edilen bulguların tümevarmsal analizi</li>
-</ul></section><section id="gözlem" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="gözlem">
-<span class="header-section-number">1.2</span> Gözlem</h2>
+</ul></section><section id="gözlem" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="gözlem">
+<span class="header-section-number">2.2</span> Gözlem</h2>
 <p>Yukarıdaki <strong>damdan düşme</strong> metaforunu ele alalım yine. Bu olay aslında uzun süreli bir gözlem sürecinin ardından bir anda ortaya çıkıyor. Yani ilk adım <strong>gözlem</strong>. Örnek verelim:</p>
 <p>Kuğular üzerinde yaptığınız bir gözlem sonucunda, bütün kuğuların beyaz olduğunu gözlemlediniz. Bu gözlem size, dünya üzerindeki bütün kuğuların beyaz olduğunu düşünmenize sebep oldu.</p>
-</section><section id="gözlemlere-dayanarak-hipotez-oluşturulması" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="gözlemlere-dayanarak-hipotez-oluşturulması">
-<span class="header-section-number">1.3</span> Gözlemlere dayanarak hipotez oluşturulması</h2>
+</section><section id="gözlemlere-dayanarak-hipotez-oluşturulması" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="gözlemlere-dayanarak-hipotez-oluşturulması">
+<span class="header-section-number">2.3</span> Gözlemlere dayanarak hipotez oluşturulması</h2>
 <p>Gözlem sürecinin ardından, hipotez oluşturma süreci ortaya giriyor. Yine kuğu örneğinden gidersek, bu gözlem sonucunda şöyle bir hipotez oluşturdunuz: Dünya üzerindeki bütün kuğular beyazdır. Peki gerçekten öyle mi?</p>
 <p>Artık üçüncü adımda geçmeye hazırsınız…</p>
-</section><section id="teorinin-deneysel-yöntem-ile-test-edilmesi" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="teorinin-deneysel-yöntem-ile-test-edilmesi">
-<span class="header-section-number">1.4</span> Teorinin deneysel yöntem ile test edilmesi</h2>
+</section><section id="teorinin-deneysel-yöntem-ile-test-edilmesi" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="teorinin-deneysel-yöntem-ile-test-edilmesi">
+<span class="header-section-number">2.4</span> Teorinin deneysel yöntem ile test edilmesi</h2>
 <p>Artık bu teorinizle ilgili bir yönetm geliştirmeniz ve bu teoriniz test etmeniz gerkekir. Tabi kuğu örneği açısından bakarsak, yapmamız gereken şey aslında bir kuğu popülasyonu alarak, elinizdeki kuğuların renklerini tespit etmek. Peki burada sorulabilecek muhtemel bir soru:</p>
 <div class="warning">
 <p>Acaba dünya üzerindeki bütün kuğuları tek tek inceleyerek renklerini gözlemleyebilir misiniz?</p>
@@ -246,8 +251,8 @@ div.csl-indent {
 <p><strong>Rastgele örneklem:</strong> Geniş bir popülasyonu, yanlılık içermeden temsil eden alt popülasyon. Dolayısıyla, elde ettiğimiz alt popülasyondaki her bir örneğin bulunma frekansı, ana popülasyondaki örneklerin bulunma frekanslarına yakınsayacaktır. Bu sayede, rastgele örneklem kullanarak, daha büyük bir popülasyon hakkında yargılara varabiliriz - ya da varabileceğimizi düşünürüz.</p>
 </div>
 <p>Kuğu örneğine geri dönelim o zaman. Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu <strong>yanlı</strong> bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır.</p>
-</section><section id="bilimin-temel-prensiplerinden-bir-tanesi-tümevarım" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="bilimin-temel-prensiplerinden-bir-tanesi-tümevarım">
-<span class="header-section-number">1.5</span> Bilimin temel prensiplerinden bir tanesi: Tümevarım</h2>
+</section><section id="bilimin-temel-prensiplerinden-bir-tanesi-tümevarım" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="bilimin-temel-prensiplerinden-bir-tanesi-tümevarım">
+<span class="header-section-number">2.5</span> Bilimin temel prensiplerinden bir tanesi: Tümevarım</h2>
 <p>Peki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabilirz - ya da biz şimdilik öyle kabul ediyoruz.</p>
 <div class="important">
 <p><strong>Tümevarım (indüksiyon, induction) ilkesi:</strong> Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlaya felsefi bir ilke. Bilim özeline bu ilkeyi uygularsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.</p>
@@ -256,19 +261,19 @@ div.csl-indent {
 <div class="warning">
 <p>Bu noktada bir dakika durun. Sizce bu sonuca varabilir miyiz?</p>
 </div>
-</section><section id="tümervarım-sorunu" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="tümervarım-sorunu">
-<span class="header-section-number">1.6</span> Tümervarım sorunu</h2>
+</section><section id="tümervarım-sorunu" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="tümervarım-sorunu">
+<span class="header-section-number">2.6</span> Tümervarım sorunu</h2>
 <p>Dünya üzerinde bir tane siyah kuğu olduğunu düşünün. Eğer biz bu kuğuyu, <strong>rastgele örneklem</strong> içerisinde dahil etmede başarısız olursak; bütün tümavarım çıkarımımız çöker. Çünkü artık, dünya üzerindeki kuğulardan bir tanesinin siyah olduğunu biliyoruz.</p>
 <p>Karl Popper, yine aynı kitabında bu sorun üzerine eğiliyor. Ne kadar iyi örneklem alırsak alalım, modern bilimin işleyişinde tümevarım ilkesini kullanmak her zaman doğru sonuçlara varacağmızı garanti etmez.</p>
-</section><section id="yanlışlanabilirlik-ilkesi" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="yanlışlanabilirlik-ilkesi">
-<span class="header-section-number">1.7</span> Yanlışlanabilirlik ilkesi</h2>
+</section><section id="yanlışlanabilirlik-ilkesi" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="yanlışlanabilirlik-ilkesi">
+<span class="header-section-number">2.7</span> Yanlışlanabilirlik ilkesi</h2>
 <p>Dolayısıyla, modern bilim genel olarak yanlışlanabilirlik ilkesine göre çalışır. Bu ilkeye göre, tümevarımsal çıkarımlarımız aslında belirli bir olasılık düzeyine göre doğru kabul edilir (<em>p</em>-değeri) ve yanlışlanana kadar doğrudur.</p>
 <p>Yine kuğu örneğine geri dönecek olursa, bütün kuğular beyaz olarak kabul edilirken, 1967 yılında Hollanda’da bir tane siyah kuğu keşfedilmiştir. Dolayısıyla artık bütün kuğular beyaz olmadığı gösterilmiştir.</p>
 <div class="important">
 <p>Yanlışlanabilirlik ilkesine göre tümevarım çıkımları, yanlışlanana kadar doğru kabul edilir.</p>
 </div>
-</section><section id="veri-bilimi-bu-işin-neresinde" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> Veri bilimi bu işin neresinde?</h1>
+</section><section id="veri-bilimi-bu-işin-neresinde" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Veri bilimi bu işin neresinde?</h1>
 <p>Peki bu yazılanların derslerimizle olan ilgisi nedir? Geleneksel bilimsel yöntemin işleyişi genel olarak bir önceki kısımlarda yazdığımız güzergah üzerinde hareket etmektedi. Bu da genel olarka doğa gözlemlerine dayanır.</p>
 <p>Örnek vermek gerekirse; antik çağ filozofoları, gözlem yeteneklerini sadece gözlem yeteneklerini kullanarak hipotezler gerliştimiş ve dünyayı kavramamızı sağlamıştır.</p>
 <p>Ancak, yaşam bilimlerinde yaşanan hızlı gelişme artık karşımıza farklı bir paradigma çıkarmıştır: <strong>Veri üzerinden gözlem</strong></p>
@@ -276,8 +281,8 @@ div.csl-indent {
 <div class="important">
 <p><strong>Fenotip:</strong> Bir canlılnın sahip olduğu genetik bilginin, anlatıma uğrayarak işlevsel hale gelmiş halidir. Mesela göz rengimizden sorumlu gen bölgesi anlatıma uğradığında, göz rengi fenotipi oluşur.</p>
 </div>
-<section id="son-yıllarda-veri-artışı-var" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="son-yıllarda-veri-artışı-var">
-<span class="header-section-number">2.1</span> Son yıllarda veri artışı var</h2>
+<section id="son-yıllarda-veri-artışı-var" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="son-yıllarda-veri-artışı-var">
+<span class="header-section-number">3.1</span> Son yıllarda veri artışı var</h2>
 <p>Yeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyır. DNA dizi verisi gene olarka veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil @ref(fig:sra))</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -289,8 +294,8 @@ div.csl-indent {
 </div>
 </div>
 <p>Bu veri miktarı bize yeni artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor.</p>
-</section><section id="peki-veri-bilimi-nasıl-işliyor" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="peki-veri-bilimi-nasıl-işliyor">
-<span class="header-section-number">2.2</span> Peki veri bilimi nasıl işliyor?</h2>
+</section><section id="peki-veri-bilimi-nasıl-işliyor" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="peki-veri-bilimi-nasıl-işliyor">
+<span class="header-section-number">3.2</span> Peki veri bilimi nasıl işliyor?</h2>
 <p>Geleneksel yöntemin aksine, artık çıkış noktamız veri. Örnek vermek gerekirse DNA, RNA dizi verisi sıklıkla kullanılan yaşam bilimi verilerindendir. Peki süreç nasıl işliyor? Şöyle özetleyebiliriz:</p>
 <ol type="1">
 <li>Verinin elde edilmesi</li>
@@ -298,8 +303,8 @@ div.csl-indent {
 <li>Oluşturulan modellerin, benzer veri üzerinde test edilmesi</li>
 </ol>
 <p>DNA veya RNA dizi versinin nasıl elde edileceğini gelecek sene <strong>Biyoinformatik</strong> dersinde daha ayrıntılı bir şekilde işleyeceğiz. Dolayısıyla, şimdilik daha çok ikinci nokta üzerinde duracağız.</p>
-<section id="verinin-incelemesi-ve-modelleme-çalışmaları" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="verinin-incelemesi-ve-modelleme-çalışmaları">
-<span class="header-section-number">2.2.1</span> Verinin incelemesi ve modelleme çalışmaları</h3>
+<section id="verinin-incelemesi-ve-modelleme-çalışmaları" class="level3" data-number="3.2.1"><h3 data-number="3.2.1" class="anchored" data-anchor-id="verinin-incelemesi-ve-modelleme-çalışmaları">
+<span class="header-section-number">3.2.1</span> Verinin incelemesi ve modelleme çalışmaları</h3>
 <p>Bu amaçla R ve Rstudio platformlarını kullancağız. Bu platformlar bize veri analizi, görselleştirmesi ve modellenmesi konusunda harika imkanlar sağlıyor.</p>
 <p>İlk adımda R içerisindeki veri yapılarını öğreneceğiz. Daha sonra R içerisine veriler yükleyerek, tablolar ve grafikler oluşturacağız. Örnek vermek gerekirse, Tablo @ref(tab:mtcarstb)’da R içerisinde gelen örnek veri setlerinden bir tanesinin tablo haline getirilmiş hali mevcut.</p>
 <div class="cell">
@@ -328,8 +333,8 @@ div.csl-indent {
 <li>Temel istatistik analizler</li>
 <li>GGplot2 ile görlselleştirme</li>
 <li>Doğrusal modeller</li>
-</ol></section></section></section><section id="kaynakça" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Kaynakça</h1>
+</ol></section></section></section><section id="kaynakça" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Kaynakça</h1>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
@@ -470,13 +475,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./sistem.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Kullanılacak Sistem</span>
+      <a href="./metin_klasor_islemleri.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./r-giris.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
