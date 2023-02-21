@@ -2,7 +2,7 @@
 
 Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
-Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır.
+Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır. 
 
 [Eski siteye buradan ulaşabilirsiniz](old-site/index.html)
 
@@ -19,14 +19,48 @@ Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar
 
 Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları inceleyebilirsiniz.
 
-## Bu kitap neleri kapsıyor?
+## Bu siteyi nasıl takip etmeniz gerek?
 
 Kitap kapsamında beş farklı bölüm olması planlanmıştır:
 
-+ Veri analizi
-+ Bilgisayarlı düşünme
-+ Pratikler
-+ Uygulamalar
-+ Türkiye'nin verisi
+Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Kurulum** kısmını inceleyerek R ve Rstüdyo programlarının kullanımı hakkında bilgi alabilirsiniz.
 
-**Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. **Bilgisayarlı düşünme** kısmında ise, R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ve ileri seviye doğrusal modeller işlenecektir. **Pratik** kısmında, bu iki derse ait pratikler olacaktır. Aynı zamanda bu pratiklerin, çözümleri de **Ekler** kısmında verilecektir. **Uygulamalar** kısmında, tüm ders kapsamında işlenen konuların, biyolojik veriler üzerinden uygulaması yapıkacaktır. Son olarak, **Türkiye'nin verisi** kısmında ise, Türkiye sınırları içerisinde elde edilmiş açık kaynaklı veriler hakkında uygulamalar yapılacaktır.
+**Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. 
+
+**Bilgisayarlı düşünme** kısmında ise, R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ve ileri seviye doğrusal modeller işlenecektir. 
+
+**Pratik** kısmında, bu iki derse ait pratikler olacaktır. Aynı zamanda bu pratiklerin, çözümleri de **Ekler** kısmında verilecektir. 
+
+**Uygulamalar** kısmında, tüm ders kapsamında işlenen konuların, biyolojik veriler üzerinden uygulaması yapılacaktır. Şu an için RNA dizileme ve mikrodizin verisi analizi üzerine pratikler bulunmaktadır.
+
+Son olarak, **Türkiye'nin verisi** kısmında ise, Türkiye sınırları içerisinde elde edilmiş açık kaynaklı veriler hakkında uygulamalar yapılacaktır.
+
+## Önemli noktalar
+
+Bir çok yerde dikkat etmeniz gereken özel noktalar size belirtilecektir.
+
+::: {.callout-note}
+## Not
+
+Eğer böyle bir uyarıya denk gelirseniz, bunu not etmeniz sizin için faydalı olabilir
+:::
+
+:::{.callout-tip}
+## İpucu
+
+R üzerinde bir işi yapmanın birden fazla yolu bulunmaktadır. Eğer böyle bir uyarıya denk gelirseniz, alternatif bir yol izleyebilirsiniz
+
+:::
+
+:::{.callout-important}
+## Önemli
+
+Burada yazan bilgiler, o işin gerçekleştirilmesi için önem arz etmektedir.
+:::
+
+:::{.callout-caution}
+## Dikkat!
+
+Eğer bu kutududaki bilgilere dikkat etmezseniz, bir hatayla karşılaşmanız oldukça yüksektir.
+
+:::
