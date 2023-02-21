@@ -1,31 +1,3 @@
----
-title: "R ve R Stüdyo Kullanımı"
-author: "Emrah Kırdök, Ph. D."
-date: "16/02/2022"
-output:
-  bookdown::html_document2:
-    css: "templates/scholarly.css"
-  bookdown::pdf_document2:
-    template: templates/eisvogel.tex
-    keep_md: yes
-    toc: false
-    keep_tex: true
-    pandoc_args:
-    - --filter
-    - ~/miniconda3/bin/pandoc-latex-environment
-bibliography: bibliography.bib
-lang: tr
-header-includes: |
-  ```{=latex}
-  \usepackage{awesomebox}
-  ```
-pandoc-latex-environment:
-  noteblock: [note]
-  tipblock: [tip]
-  warningblock: [warning]
-  cautionblock: [caution]
-  importantblock: [important]
----
 # R ve R studio Kullanımı
 
 Bu döküman içerisinde, ilk derste gördüğümüz pratik konular hakkında bilgiler verilecektir. İkinci derse başlamadan önce, bu komutları tekrar etmeniz sizin için iyi olacaktır.
