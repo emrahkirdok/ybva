@@ -1,10 +1,8 @@
-# Klasör İşlemleri
+# Klasör İşlemleri {.unnumbered}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# Giriş
 
 R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.
 
