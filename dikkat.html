@@ -179,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#ascii-dışındaki-karakterlerin-kullanımı" id="toc-ascii-dışındaki-karakterlerin-kullanımı" class="nav-link active" data-scroll-target="#ascii-dışındaki-karakterlerin-kullanımı"><span class="toc-section-number">2.1</span>  ASCII dışındaki karakterlerin kullanımı</a></li>
+  <li><a href="#karakter-kodlama-sorunları" id="toc-karakter-kodlama-sorunları" class="nav-link active" data-scroll-target="#karakter-kodlama-sorunları"><span class="toc-section-number">2.1</span>  Karakter kodlama sorunları</a></li>
   <li><a href="#dosyaların-isimlendirilmesi" id="toc-dosyaların-isimlendirilmesi" class="nav-link" data-scroll-target="#dosyaların-isimlendirilmesi"><span class="toc-section-number">2.2</span>  Dosyaların isimlendirilmesi</a>
   <ul class="collapse">
   <li><a href="#ondalık-işareti" id="toc-ondalık-işareti" class="nav-link" data-scroll-target="#ondalık-işareti"><span class="toc-section-number">2.2.1</span>  Ondalık işareti</a></li>
@@ -209,9 +209,13 @@ ul.task-list li input[type="checkbox"] {
 
 <p>R ve RStudio sistemleri üzerinde çalışırken bazı noktalara dikkat edilmesi gereklidir. Bu konulara dikkat ederseniz, daha verimli bir ders geçirebilirsiniz.</p>
 <p>R sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Ayrıca, R üzerinde çalışırken dikkat edilmesi gereken bazı noktalar bulunmaktadır. Aşağıdaki noktalara dikkat ederseniz, daha sorunsuz bir şekilde çalışabilirsiniz.</p>
-<section id="ascii-dışındaki-karakterlerin-kullanımı" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ascii-dışındaki-karakterlerin-kullanımı"><span class="header-section-number">2.1</span> ASCII dışındaki karakterlerin kullanımı</h2>
-<p>Kullanacağımız sistem üzerinde ASCII sistemi dışında karakterler kullanırken çok dikkat etmeliyiz. ASCII karakterleri genel olarak İngilizce’de bulunan karakterler olarak düşünebilirsiniz. Bilgisayarlar ilk yaygınlaşmaya başladığında, sadece bu karakter setlerine destek veriliyordu. Son yıllarda gelişen UTF-8 kodlaması artık bütün dillerdeki karakterleri destekliyor, ancak Windows sistemleri hala UTF-8’i standart olarak kabul etmedi. Bu yüzden ASCII dışındaki karakterleri kullanmayınız.</p>
+<section id="karakter-kodlama-sorunları" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="karakter-kodlama-sorunları"><span class="header-section-number">2.1</span> Karakter kodlama sorunları</h2>
+<p>Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemlerini kullanırlar. Hatta farklı işletim sistemleri bile farklı karakter kodlama sistemleri ile çalışır.</p>
+<p>İlk geliştirilen kodlama sistemi olan <a href="">ASCII</a> sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla, sadece belirli karakterleri kullanma imkanımız vardı.</p>
+<p>Ancak ilerleyen yıllarda farklı kodlama sistemleri kullanıılmaya başlandı. Ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile, ASCII karakterleri, aynı kodlarla belirtiliyordu.</p>
+<p>Hepiniz farklı sistemler kullanıyoruz. DOlayısıyla bilgisayarlarımızın kodlama sistemlerinin uyuşmama ihtimalleri bulunmaktador. Mesela, son yıllarda gelişen UTF-8 kodlaması artık bütün dillerdeki karakterleri destekliyor, ancak Windows sistemleri hala UTF-8’i standart olarak kabul etmedi.</p>
+<p>Dolayısıyla, gönderdiğiniz ödevleri düzgün bir şekilde görememe tehlikem bulunmaktadır Bu yüzden kodlamalarınızı sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler YASAK!</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
