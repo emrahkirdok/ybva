@@ -28,7 +28,8 @@ book:
     - CONTRIBUTING.md
     
     - part: "Derse Hazırlık"
-#      chapters:
+      chapters:
+        - sistem.qmd
 #        - metin_klasor_islemleri.Rmd
 
     - part: "Veri Analizi"

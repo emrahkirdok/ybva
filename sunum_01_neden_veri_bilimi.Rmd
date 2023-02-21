@@ -3,7 +3,7 @@ title: "Veri Bilimine Giriş "
 subtitle: "BYT210 Veri Analizi"
 author: "Emrah Kırdök, Ph. D."
 date: "Şubat 14, 2022"
-output: ioslides_presentation
+output: revealjs
 
 ---
 
