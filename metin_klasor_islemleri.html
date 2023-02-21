@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emrah Kırdök">
-<title>Yaşam Bilimlerinde Veri Analizi - 1&nbsp; Klasör İşlemleri</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 3&nbsp; Klasör İşlemleri</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./metin_01_veri_bilimine_giris.html" rel="next">
-<link href="./sistem.html" rel="prev">
+<link href="./dikkat.html" rel="prev">
 <link href="./images/ybva.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -125,9 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span>
-</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -176,12 +174,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sistem.html" class="sidebar-item-text sidebar-link">Kullanılacak Sistem</a>
+  <a href="./sistem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kullanılacak Sistem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./metin_klasor_islemleri.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  <a href="./dikkat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metin_klasor_islemleri.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
   </div>
 </li>
       </ul>
@@ -196,12 +199,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  <a href="./metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
+  <a href="./r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
   </div>
 </li>
       </ul>
@@ -221,23 +224,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li>
-<a href="#giri%C5%9F" id="toc-giriş" class="nav-link active" data-scroll-target="#giri%C5%9F"><span class="toc-section-number">2</span>  Giriş</a>
-  <ul class="collapse">
-<li><a href="#ad%C4%B1mlar" id="toc-adımlar" class="nav-link" data-scroll-target="#ad%C4%B1mlar"><span class="toc-section-number">2.1</span>  Adımlar</a></li>
-  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede" id="toc-çalışma-klasörümüz-nerede" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede"><span class="toc-section-number">2.2</span>  Çalışma klasörümüz nerede?</a></li>
-  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir" id="toc-çalışma-klasörü-içindekiler-nedir" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir"><span class="toc-section-number">2.3</span>  Çalışma klasörü içindekiler nedir?</a></li>
-  <li><a href="#klas%C3%B6rlerde-gezinmek" id="toc-klasörlerde-gezinmek" class="nav-link" data-scroll-target="#klas%C3%B6rlerde-gezinmek"><span class="toc-section-number">2.4</span>  Klasörlerde gezinmek</a></li>
-  <li><a href="#proje-olu%C5%9Fturmak" id="toc-proje-oluşturmak" class="nav-link" data-scroll-target="#proje-olu%C5%9Fturmak"><span class="toc-section-number">2.5</span>  Proje oluşturmak</a></li>
-  </ul>
-</li>
+<li><a href="#ad%C4%B1mlar" id="toc-adımlar" class="nav-link active" data-scroll-target="#ad%C4%B1mlar"><span class="toc-section-number">3.1</span>  Adımlar</a></li>
+  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede" id="toc-çalışma-klasörümüz-nerede" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede"><span class="toc-section-number">3.2</span>  Çalışma klasörümüz nerede?</a></li>
+  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir" id="toc-çalışma-klasörü-içindekiler-nedir" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir"><span class="toc-section-number">3.3</span>  Çalışma klasörü içindekiler nedir?</a></li>
+  <li><a href="#klas%C3%B6rlerde-gezinmek" id="toc-klasörlerde-gezinmek" class="nav-link" data-scroll-target="#klas%C3%B6rlerde-gezinmek"><span class="toc-section-number">3.4</span>  Klasörlerde gezinmek</a></li>
+  <li><a href="#proje-olu%C5%9Fturmak" id="toc-proje-oluşturmak" class="nav-link" data-scroll-target="#proje-olu%C5%9Fturmak"><span class="toc-section-number">3.5</span>  Proje oluşturmak</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span>
-</h1>
+<h1 class="title"><span id="sec-klasor" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></span></h1>
 </div>
 
 
@@ -250,19 +246,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><section id="giriş" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> Giriş</h1>
-<p>R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.</p>
+</header><p>R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.</p>
 <p>Bu belge bu amaçla hazırlandı.</p>
-<section id="adımlar" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="adımlar">
-<span class="header-section-number">2.1</span> Adımlar</h2>
+<section id="adımlar" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="adımlar">
+<span class="header-section-number">3.1</span> Adımlar</h2>
 <ol type="1">
 <li>Çalışma klasörümüz nerede?</li>
 <li>Kullanıcı ismimiz nedir?</li>
 <li>Klasör isimlendirmeleri ve klasörlerde gezinmek</li>
 <li>Proje içerisinde çalışmak en kolayı</li>
-</ol></section><section id="çalışma-klasörümüz-nerede" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="çalışma-klasörümüz-nerede">
-<span class="header-section-number">2.2</span> Çalışma klasörümüz nerede?</h2>
+</ol></section><section id="çalışma-klasörümüz-nerede" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="çalışma-klasörümüz-nerede">
+<span class="header-section-number">3.2</span> Çalışma klasörümüz nerede?</h2>
 <p>İlk olarak <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> komutunu konsola yazalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -280,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.</p>
 <p>Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar <code>C:/</code> ile <code>c:/</code> arasındaki farkı anlamıyor. O yüzden hata alıyıorsunuz.</p>
 <p>Herkes kendi kullancı ismini belirlesin önce. Eğer bilgisyar mühendisliği laboratuvarında bu kullanııcı ismi <code>PCC</code> olarak atanmıştır.</p>
-</section><section id="çalışma-klasörü-içindekiler-nedir" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="çalışma-klasörü-içindekiler-nedir">
-<span class="header-section-number">2.3</span> Çalışma klasörü içindekiler nedir?</h2>
+</section><section id="çalışma-klasörü-içindekiler-nedir" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="çalışma-klasörü-içindekiler-nedir">
+<span class="header-section-number">3.3</span> Çalışma klasörü içindekiler nedir?</h2>
 <p>Peki bu klasör içinde neler var? <code><a href="https://rdrr.io/r/base/list.files.html">dir()</a></code> fonksiyonu bu işe yarar. Klasördeki dosyaları size gösterir:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -293,58 +287,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  [5] "CONTRIBUTING.md"                           
  [6] "data"                                      
  [7] "DESCRIPTION"                               
- [8] "images"                                    
- [9] "index.html"                                
-[10] "index.qmd"                                 
-[11] "istatistiksel_ogrenme_giris.Rmd"           
-[12] "logo.R"                                    
-[13] "metin_01_veri_bilimine_giris.qmd"          
-[14] "metin_03_pratik.Rmd"                       
-[15] "metin_03_vektorler_pratik.Rmd"             
-[16] "metin_04_pratik.Rmd"                       
-[17] "metin_amphiBIO_calisma.Rmd"                
-[18] "metin_asamali_azalis.Rmd"                  
-[19] "metin_bilimsel_hikaye_anlaticiligi.Rmd"    
-[20] "metin_coklu_dogrusal_modeller.Rmd"         
-[21] "metin_dogrusal_modelleme_uygulamasi_1.Rmd" 
-[22] "metin_ggplot2_grafik_dilbilgisi.Rmd"       
-[23] "metin_ggplot2_pratik.Rmd"                  
-[24] "metin_klasor_islemleri.rmarkdown"          
-[25] "metin_klasor_islemleri.Rmd"                
-[26] "metin_lojistik_regresyon.Rmd"              
-[27] "metin_odev_2.Rmd"                          
-[28] "metin_rmarkdown_odevleri_bilgi.Rmd"        
-[29] "metin_t_test.Rmd"                          
-[30] "metin_veri_analizi_final_cozulmus.Rmd"     
-[31] "metin_veri_cercevesi_bulmacalari.Rmd"      
-[32] "metin_vize_sinavi_bilgisayarli_dusunme.Rmd"
-[33] "odev_1.Rmd"                                
-[34] "pratik_05.Rmd"                             
-[35] "r-giris.qmd"                               
-[36] "README.md"                                 
-[37] "sistem.html"                               
-[38] "sistem.qmd"                                
-[39] "site_libs"                                 
-[40] "Snakefile"                                 
-[41] "sunum_01_neden_veri_bilimi.Rmd"            
-[42] "sunum_03_vektörler_devam.Rmd"              
-[43] "sunum_04_rmarkdown.Rmd"                    
-[44] "sunum_05_matrix_data_frames.Rmd"           
-[45] "sunum_06_listeler.Rmd"                     
-[46] "sunum_07_metin_dosyaları_okuma.Rmd"        
-[47] "templates"                                 
-[48] "vize_sinavi_bilgisayarli_dusunme.Rmd"      
-[49] "vize_sinavi_veri_analizi.Rmd"              </code></pre>
+ [8] "dikkat.html"                               
+ [9] "dikkat.qmd"                                
+[10] "images"                                    
+[11] "index.html"                                
+[12] "index.qmd"                                 
+[13] "istatistiksel_ogrenme_giris.Rmd"           
+[14] "logo.R"                                    
+[15] "metin_01_veri_bilimine_giris.qmd"          
+[16] "metin_03_pratik.Rmd"                       
+[17] "metin_03_vektorler_pratik.Rmd"             
+[18] "metin_04_pratik.Rmd"                       
+[19] "metin_amphiBIO_calisma.Rmd"                
+[20] "metin_asamali_azalis.Rmd"                  
+[21] "metin_bilimsel_hikaye_anlaticiligi.Rmd"    
+[22] "metin_coklu_dogrusal_modeller.Rmd"         
+[23] "metin_dogrusal_modelleme_uygulamasi_1.Rmd" 
+[24] "metin_ggplot2_grafik_dilbilgisi.Rmd"       
+[25] "metin_ggplot2_pratik.Rmd"                  
+[26] "metin_klasor_islemleri.rmarkdown"          
+[27] "metin_klasor_islemleri.Rmd"                
+[28] "metin_lojistik_regresyon.Rmd"              
+[29] "metin_odev_2.Rmd"                          
+[30] "metin_rmarkdown_odevleri_bilgi.Rmd"        
+[31] "metin_t_test.Rmd"                          
+[32] "metin_veri_analizi_final_cozulmus.Rmd"     
+[33] "metin_veri_cercevesi_bulmacalari.Rmd"      
+[34] "metin_vize_sinavi_bilgisayarli_dusunme.Rmd"
+[35] "odev_1.Rmd"                                
+[36] "pratik_05.Rmd"                             
+[37] "r-giris.qmd"                               
+[38] "README.md"                                 
+[39] "sistem.html"                               
+[40] "sistem.qmd"                                
+[41] "site_libs"                                 
+[42] "Snakefile"                                 
+[43] "sunum_01_neden_veri_bilimi.Rmd"            
+[44] "sunum_03_vektörler_devam.Rmd"              
+[45] "sunum_04_rmarkdown.Rmd"                    
+[46] "sunum_05_matrix_data_frames.Rmd"           
+[47] "sunum_06_listeler.Rmd"                     
+[48] "sunum_07_metin_dosyaları_okuma.Rmd"        
+[49] "templates"                                 
+[50] "vize_sinavi_bilgisayarli_dusunme.Rmd"      
+[51] "vize_sinavi_veri_analizi.Rmd"              </code></pre>
 </div>
 </div>
-</section><section id="klasörlerde-gezinmek" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="klasörlerde-gezinmek">
-<span class="header-section-number">2.4</span> Klasörlerde gezinmek</h2>
+</section><section id="klasörlerde-gezinmek" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="klasörlerde-gezinmek">
+<span class="header-section-number">3.4</span> Klasörlerde gezinmek</h2>
 <p>Eğer klasörler içerisinde gezinmek istiyorsanız, her klasörü ya da belgeyi <code>/</code> işareti ile ayırmalısınız.</p>
 <p>Türkçe karakterler kullanmamaya dikkat edin.</p>
 <p>Klasör isimlerinde boşluk kullanmayın. Hata alma şansınız yüksek. Genel olara komut satırında çalışırken kullandığınız boşluk (space) karakteri, yazdığınız şeyin bittiği anlamına geliyor ve bilgisayar sizden yeni bir cümle yazmanınızı bekliyor.</p>
 <p>Bu nedenle hata alabilirsiniz.</p>
-</section><section id="proje-oluşturmak" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="proje-oluşturmak">
-<span class="header-section-number">2.5</span> Proje oluşturmak</h2>
+</section><section id="proje-oluşturmak" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="proje-oluşturmak">
+<span class="header-section-number">3.5</span> Proje oluşturmak</h2>
 <p>Eğer proje oluşturursanız, hayatınız daha kolaylaşır.</p>
 <p>Proje oluşturun ve proje klasörünüzün içerisine <code>data</code> isimli bir klasör daha oluşturun.</p>
 <p>Artık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.</p>
@@ -369,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Artık R içerisinde bir dosya okumak isterseniz <code>data/sinif.txt</code> yazarak, rahatlıkla bu dosyayı okuyabilirsiniz.</p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -502,13 +498,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./sistem.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Kullanılacak Sistem</span>
+      <a href="./dikkat.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./metin_01_veri_bilimine_giris.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
