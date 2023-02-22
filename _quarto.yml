@@ -29,9 +29,9 @@ book:
     
     - part: "Derse Hazırlık"
       chapters:
-        - kurulum/sistem.qmd
-        - kurulum/dikkat.qmd
-        - kurulum/metin_klasor_islemleri.Rmd
+        - 01-kurulum/sistem.qmd
+        - 01-kurulum/dikkat.qmd
+        - 01-kurulum/metin_klasor_islemleri.Rmd
 
     - part: "Veri Analizi"
       chapters:
