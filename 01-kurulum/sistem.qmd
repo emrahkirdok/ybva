@@ -1,4 +1,4 @@
-# Kullanılacak Sistem {#sec-sistem}
+# R ve Rstudio {#sec-sistem}
 
 Bu ders kapsamında, açık kaynaklı olarak dağıtılan [R istatistik paketi](https://www.r-project.org/) ve bu paketin bütünleşik geliştirme platformu olan [RStudio](https://posit.co/download/rstudio-desktop/) masaüstü programını kullanacağız.
 
@@ -7,6 +7,20 @@ Bu ders kapsamında, açık kaynaklı olarak dağıtılan [R istatistik paketi](
 R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R'a yeni işlevler kazandıran bir kabuk gibi de düşünebilirsiniz.
 
 Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren [posit](https://posit.co/) şirketi tarafından sunulan [posit cloud](https://posit.co/products/cloud/cloud/) platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.
+
+## Dik bir öğrenme eğrisi
+
+Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullan programların mantıklarını kavramanız gerekir. 
+
+Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir.
+
+Mesela @fig-curve-1, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum...
+
+![Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.](mages/learning-curve-1.png){#fig-curve-1}
+
+Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle @sec-veri-bilimi-giriş'de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çapılı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman git gide artacaktır [@fig-curve-2]
+
+![Bu grafikte $x$ ekseni yapılan veri analiz işleminin boyutunu, $y$ ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır.](images/learning-curve-2.png){#fig-curve-2}
 
 ## Posit Cloud
 

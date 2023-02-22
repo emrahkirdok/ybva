@@ -1,4 +1,4 @@
-# Veri Bilimine Giriş
+# Veri Bilimine Giriş {#sec-veri-bilimi-giris}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
