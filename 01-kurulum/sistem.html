@@ -8,7 +8,7 @@
 
 <meta name="author" content="Emrah Kırdök">
 
-<title>Yaşam Bilimlerinde Veri Analizi - 1&nbsp; Kullanılacak Sistem</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 1&nbsp; R ve RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -72,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kullanılacak Sistem</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -126,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/sistem.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kullanılacak Sistem</span></a>
+  <a href="../01-kurulum/sistem.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -151,17 +152,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  <a href="../02-veri-analizi/metin_01_veri_bilimine_giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
+  <a href="../02-veri-analizi/r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  <a href="../02-veri-analizi/vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
   </div>
 </li>
       </ul>
@@ -184,11 +185,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link active" data-scroll-target="#posit-cloud"><span class="toc-section-number">1.1</span>  Posit Cloud</a>
+  <li><a href="#dik-bir-öğrenme-eğrisi" id="toc-dik-bir-öğrenme-eğrisi" class="nav-link active" data-scroll-target="#dik-bir-öğrenme-eğrisi"><span class="toc-section-number">1.1</span>  Dik bir öğrenme eğrisi</a></li>
+  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link" data-scroll-target="#posit-cloud"><span class="toc-section-number">1.2</span>  Posit Cloud</a>
   <ul class="collapse">
-  <li><a href="#posit-cloud-sistemine-giriş" id="toc-posit-cloud-sistemine-giriş" class="nav-link" data-scroll-target="#posit-cloud-sistemine-giriş"><span class="toc-section-number">1.1.1</span>  Posit Cloud sistemine giriş</a></li>
+  <li><a href="#posit-cloud-sistemine-giriş" id="toc-posit-cloud-sistemine-giriş" class="nav-link" data-scroll-target="#posit-cloud-sistemine-giriş"><span class="toc-section-number">1.2.1</span>  Posit Cloud sistemine giriş</a></li>
   </ul></li>
-  <li><a href="#r-ve-rstudio-kurulumu" id="toc-r-ve-rstudio-kurulumu" class="nav-link" data-scroll-target="#r-ve-rstudio-kurulumu"><span class="toc-section-number">1.2</span>  R ve RStudio kurulumu</a></li>
+  <li><a href="#r-ve-rstudio-kurulumu" id="toc-r-ve-rstudio-kurulumu" class="nav-link" data-scroll-target="#r-ve-rstudio-kurulumu"><span class="toc-section-number">1.3</span>  R ve RStudio kurulumu</a></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sistem" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kullanılacak Sistem</span></span></h1>
+<h1 class="title"><span id="sec-sistem" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></h1>
 </div>
 
 
@@ -216,8 +218,27 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://www.r-project.org/">R istatistik paketi</a>, son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta, biyolojik veri analizi için önemli olan R paketleri, <a href="https://www.bioconductor.org/">Bioconductor</a> sistemi içerisinde sürekli bir şekilde güncellenmektedir.</p>
 <p>R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R’a yeni işlevler kazandıran bir kabuk gibi de düşünebilirsiniz.</p>
 <p>Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren <a href="https://posit.co/">posit</a> şirketi tarafından sunulan <a href="https://posit.co/products/cloud/cloud/">posit cloud</a> platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.</p>
-<section id="posit-cloud" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="posit-cloud"><span class="header-section-number">1.1</span> Posit Cloud</h2>
+<section id="dik-bir-öğrenme-eğrisi" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="dik-bir-öğrenme-eğrisi"><span class="header-section-number">1.1</span> Dik bir öğrenme eğrisi</h2>
+<p>Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullan programların mantıklarını kavramanız gerekir.</p>
+<p>Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir.</p>
+<p>Mesela <a href="#fig-curve-1">Şekil&nbsp;<span>1.1</span></a>, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum…</p>
+<div id="fig-curve-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/learning-curve-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;1.1: Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.</figcaption><p></p>
+</figure>
+</div>
+<p>Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle <a href="../02-veri-analizi/metin_01_veri_bilimine_giris.html"><span>Bölüm&nbsp;4</span></a>’de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çapılı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman git gide artacaktır (<a href="#fig-curve-2">Şekil&nbsp;<span>1.2</span></a>).</p>
+<div id="fig-curve-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/learning-curve-2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;1.2: Bu grafikte <span class="math inline">\(x\)</span> ekseni yapılan veri analiz işleminin boyutunu, <span class="math inline">\(y\)</span> ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="posit-cloud" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="posit-cloud"><span class="header-section-number">1.2</span> Posit Cloud</h2>
 <p>Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz, ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız, ya ücret ödemeniz gerekir, ya da bir sonraki ayı beklemeniz gerekmektedir.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -232,33 +253,34 @@ ul.task-list li input[type="checkbox"] {
 <p>Bu terim, bir ay boyunca size tanınan işlemci kullanarak yapılan hesaplama hakkını belirtir. Ya da toplam kod çalıştırma hakkınız. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.</p>
 </div>
 </div>
-<section id="posit-cloud-sistemine-giriş" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="posit-cloud-sistemine-giriş"><span class="header-section-number">1.1.1</span> Posit Cloud sistemine giriş</h3>
-<p>İlk olarak <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> sitesine gidelim ve <strong>Sign Up</strong> tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, <strong>Login</strong> tuşuna basarak hesabımıza giriş yapalım (<a href="#fig-posit1">Şekil&nbsp;<span>1.1</span></a>).</p>
+<section id="posit-cloud-sistemine-giriş" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="posit-cloud-sistemine-giriş"><span class="header-section-number">1.2.1</span> Posit Cloud sistemine giriş</h3>
+<p>İlk olarak <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> sitesine gidelim ve <strong>Sign Up</strong> tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, <strong>Login</strong> tuşuna basarak hesabımıza giriş yapalım (<a href="#fig-posit1">Şekil&nbsp;<span>1.3</span></a>).</p>
 <div id="fig-posit1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/posit1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;1.1: Posit Cloud sitesi üzerinden yeni bir hesap açalım</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;1.3: Posit Cloud sitesi üzerinden yeni bir hesap açalım</figcaption><p></p>
 </figure>
 </div>
-<p>Arından, <strong>New Project</strong> tuşuna basalım ve <strong>New RStudio Project</strong> tuşuna basarak yeni bir R projesi oluşturalım (<a href="#fig-posit2">Şekil&nbsp;<span>1.2</span></a>).</p>
+<p>Arından, <strong>New Project</strong> tuşuna basalım ve <strong>New RStudio Project</strong> tuşuna basarak yeni bir R projesi oluşturalım (<a href="#fig-posit2">Şekil&nbsp;<span>1.4</span></a>).</p>
 <div id="fig-posit2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/posit2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;1.2: Yeni bir proje oluşturalım</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;1.4: Yeni bir proje oluşturalım</figcaption><p></p>
 </figure>
 </div>
-<p>Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (<a href="#fig-posit3">Şekil&nbsp;<span>1.3</span></a>)</p>
+<p>Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (<a href="#fig-posit3">Şekil&nbsp;<span>1.5</span></a>)</p>
 <div id="fig-posit3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/posit3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;1.3: Projemizi oluşturduktan sonra karşımıza çıkan ekran</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Şekil&nbsp;1.5: Projemizi oluşturduktan sonra karşımıza çıkan ekran</figcaption><p></p>
 </figure>
 </div>
+<p>Tebrikler, Posit Cloud sistemi ile R ve RStudio kullanmaya hazırsınız artık!</p>
 </section>
 </section>
-<section id="r-ve-rstudio-kurulumu" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="r-ve-rstudio-kurulumu"><span class="header-section-number">1.2</span> R ve RStudio kurulumu</h2>
+<section id="r-ve-rstudio-kurulumu" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="r-ve-rstudio-kurulumu"><span class="header-section-number">1.3</span> R ve RStudio kurulumu</h2>
 <p>Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.</p>
 <p>Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekir. Sadece RStudio kurmanız yeterli değildir.</p>
 

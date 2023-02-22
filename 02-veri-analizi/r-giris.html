@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emrah Kırdök">
-<title>Yaşam Bilimlerinde Veri Analizi - 3&nbsp; Klasör İşlemleri</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 5&nbsp; R ve R studio Kullanımı</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,8 +90,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../02-veri-analizi/metin_01_veri_bilimine_giris.html" rel="next">
-<link href="../01-kurulum/dikkat.html" rel="prev">
+<link href="../02-veri-analizi/vektorler.html" rel="next">
+<link href="../02-veri-analizi/metin_01_veri_bilimine_giris.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -125,7 +125,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></h1>
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -184,7 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/metin_klasor_islemleri.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  <a href="../01-kurulum/metin_klasor_islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
   </div>
 </li>
       </ul>
@@ -204,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
+  <a href="../02-veri-analizi/r-giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -229,16 +231,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#ad%C4%B1mlar" id="toc-adımlar" class="nav-link active" data-scroll-target="#ad%C4%B1mlar"><span class="toc-section-number">3.1</span>  Adımlar</a></li>
-  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede" id="toc-çalışma-klasörümüz-nerede" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede"><span class="toc-section-number">3.2</span>  Çalışma klasörümüz nerede?</a></li>
-  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir" id="toc-çalışma-klasörü-içindekiler-nedir" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir"><span class="toc-section-number">3.3</span>  Çalışma klasörü içindekiler nedir?</a></li>
-  <li><a href="#klas%C3%B6rlerde-gezinmek" id="toc-klasörlerde-gezinmek" class="nav-link" data-scroll-target="#klas%C3%B6rlerde-gezinmek"><span class="toc-section-number">3.4</span>  Klasörlerde gezinmek</a></li>
-  <li><a href="#proje-olu%C5%9Fturmak" id="toc-proje-oluşturmak" class="nav-link" data-scroll-target="#proje-olu%C5%9Fturmak"><span class="toc-section-number">3.5</span>  Proje oluşturmak</a></li>
+<li><a href="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma" id="toc-komut-satırı-üzerinde-çalışma" class="nav-link active" data-scroll-target="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma"><span class="toc-section-number">5.1</span>  Komut satırı üzerinde çalışma</a></li>
+  <li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="toc-section-number">5.2</span>  Değişken atama</a></li>
+  <li><a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="toc-section-number">5.3</span>  Veri tipleri</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-klasor" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></span></h1>
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span>
+</h1>
 </div>
 
 
@@ -251,72 +253,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.</p>
-<p>Bu belge bu amaçla hazırlandı.</p>
-<section id="adımlar" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="adımlar">
-<span class="header-section-number">3.1</span> Adımlar</h2>
-<ol type="1">
-<li>Çalışma klasörümüz nerede?</li>
-<li>Kullanıcı ismimiz nedir?</li>
-<li>Klasör isimlendirmeleri ve klasörlerde gezinmek</li>
-<li>Proje içerisinde çalışmak en kolayı</li>
-</ol></section><section id="çalışma-klasörümüz-nerede" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="çalışma-klasörümüz-nerede">
-<span class="header-section-number">3.2</span> Çalışma klasörümüz nerede?</h2>
-<p>İlk olarak <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> komutunu konsola yazalım:</p>
+</header><section id="komut-satırı-üzerinde-çalışma" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="komut-satırı-üzerinde-çalışma">
+<span class="header-section-number">5.1</span> Komut satırı üzerinde çalışma</h2>
+<p>Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">34</span> <span class="op">+</span> <span class="fl">45</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/runner/work/ybva/ybva/01-kurulum"</code></pre>
+<pre><code>[1] 79</code></pre>
 </div>
 </div>
-<p>Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir.</p>
-<p>Kullanıcı ismi nedir? Kullancı ismi, her bilgisayarda bulunan ve sizin bilgilerinizin depolandığı klasördür.</p>
-<p>Unix (mesela macbooklar) ve Linux tabanlı işletim sistemlerinde bu konu önemlidir. Çünkü bu sistemler çok kullanıcılı olması için optimize edilmiştir.</p>
-<p>Ancak Windows bilgisayarlarında bu konu çok anlaşılamamış bir olgudur. Genelde, bilgisayarı aldığınız yerde rastgele bir kullanıcı adı atanır.</p>
-<p>Windows sistemlerinde kullanıcı klasörleri <code>C:/Users/</code> içerisinde bulunur.</p>
-<p>Mac sistemlerde <code>/Users/</code> içerisinde.</p>
-<p>Linux sistemlerde ise <code>/home/</code> içinde bulunur.</p>
-<p>Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.</p>
-<p>Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar <code>C:/</code> ile <code>c:/</code> arasındaki farkı anlamıyor. O yüzden hata alıyıorsunuz.</p>
-<p>Herkes kendi kullancı ismini belirlesin önce. Eğer bilgisyar mühendisliği laboratuvarında bu kullanııcı ismi <code>PCC</code> olarak atanmıştır.</p>
-</section><section id="çalışma-klasörü-içindekiler-nedir" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="çalışma-klasörü-içindekiler-nedir">
-<span class="header-section-number">3.3</span> Çalışma klasörü içindekiler nedir?</h2>
-<p>Peki bu klasör içinde neler var? <code><a href="https://rdrr.io/r/base/list.files.html">dir()</a></code> fonksiyonu bu işe yarar. Klasördeki dosyaları size gösterir:</p>
+<p>R, bu işlemi yapar ve sonucu ekrana yazdırır.</p>
+</section><section id="değişken-atama" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="değişken-atama">
+<span class="header-section-number">5.2</span> Değişken atama</h2>
+<p>Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü <code>&lt;-</code> kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "dikkat.html"                      "dikkat.qmd"                      
-[3] "images"                           "metin_klasor_islemleri.rmarkdown"
-[5] "metin_klasor_islemleri.Rmd"       "sistem.html"                     
-[7] "sistem.qmd"                      </code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section><section id="klasörlerde-gezinmek" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="klasörlerde-gezinmek">
-<span class="header-section-number">3.4</span> Klasörlerde gezinmek</h2>
-<p>Eğer klasörler içerisinde gezinmek istiyorsanız, her klasörü ya da belgeyi <code>/</code> işareti ile ayırmalısınız.</p>
-<p>Türkçe karakterler kullanmamaya dikkat edin.</p>
-<p>Klasör isimlerinde boşluk kullanmayın. Hata alma şansınız yüksek. Genel olara komut satırında çalışırken kullandığınız boşluk (space) karakteri, yazdığınız şeyin bittiği anlamına geliyor ve bilgisayar sizden yeni bir cümle yazmanınızı bekliyor.</p>
-<p>Bu nedenle hata alabilirsiniz.</p>
-</section><section id="proje-oluşturmak" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="proje-oluşturmak">
-<span class="header-section-number">3.5</span> Proje oluşturmak</h2>
-<p>Eğer proje oluşturursanız, hayatınız daha kolaylaşır.</p>
-<p>Proje oluşturun ve proje klasörünüzün içerisine <code>data</code> isimli bir klasör daha oluşturun.</p>
-<p>Artık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.</p>
-<p>Proje klasörü oluştdurduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.</p>
+<p>Bu işlemin sonucunda 12 değerini, <code>sayi1</code> değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde <code>sayi1</code> değişkenini kullanabiliriz.</p>
+<p>İsterseniz ikinci bir değişken atayalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/runner/work/ybva/ybva/01-kurulum"</code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi2</span> <span class="op">&lt;-</span> <span class="fl">23</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Bu klasör içerisinde <code>data</code> isimli verilerin saklandığı bir klasör daha bulunmakta. Onun içinde neler var?</p>
+<p>Artık ikinci bir degisken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">+</span> <span class="va">sayi2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] 35</code></pre>
 </div>
 </div>
-<p>Artık R içerisinde bir dosya okumak isterseniz <code>data/sinif.txt</code> yazarak, rahatlıkla bu dosyayı okuyabilirsiniz.</p>
+<p>Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır.</p>
+</section><section id="veri-tipleri" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="veri-tipleri">
+<span class="header-section-number">5.3</span> Veri tipleri</h2>
+<p>R içerisinde dört temel veri tipimiz bulunmaktadır:</p>
+<ul>
+<li>Sayı (<em>numeric</em>, <code>num</code>)</li>
+<li>Karakter (<em>character</em>, <code>chr</code>)</li>
+<li>Mantıksal (<em>logical</em>, <code>logi</code>)</li>
+<li>Kategori/faktör (<em>factor</em>, <code>fac</code>)</li>
+</ul>
+<p>Bu veri tiplerinin hepsi, farklı veri analizi adımlarında kullanılmaktadır. Dolayısıyla, bu veri tiplerinin düzgün bir şekilde ayarlandığından emin olmalısınız.</p>
+<p>Bir verinin tipini öğrenmek istiyorsanız, basit olarak <code>str</code> fonksiyonunu kullanabilirsiniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num 12</code></pre>
+</div>
+</div>
+<div class="note">
+<p>R üzerindeki fonksiyonlar, belirli işlevleri yerine getiren kod parçaları olarak tanımlanabilir. Her fonskiyonun, parantez içerisine yazılan en az bir tane girdisi bulunmaktadır. Burada kullandığımız <code>str</code> fonksiyonu, parantez içerisinde belirtilen verinin tipini geri döndürmekten sorumludur.</p>
+</div>
+<p>Sayılar dışında neler kullanabiliriz? Karakterleri kullanabiliriz. Ancak karakterle çalışmak istiyorsanız, mutlaka tırnak işareti <code>"</code> kullanmalısınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"karakter"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "karakter"</code></pre>
+</div>
+</div>
+<p>Peki bu karakterin tipine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="st">"karakter"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> chr "karakter"</code></pre>
+</div>
+</div>
+<p>Mantıksal değişkenler ise <em>Evet</em> ya da <em>Hayır</em> durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç bulunmamaktadır:</p>
+<ul>
+<li>
+<code>TRUE</code> veya <code>T</code>
+</li>
+<li>
+<code>FALSE</code> veya <code>F</code>
+</li>
+</ul>
+<p>Mesela bir tanesinin tipine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> logi TRUE</code></pre>
+</div>
+</div>
+<div class="note">
+<p>Mantıksal operatörler, R içerisinde ön tanımlı olarak gelmektedir. Dolayısıyla, bu operatörleri oldukları gibi kullanabilme imkanınız bulunmaktadır.</p>
+</div>
+<p>Son olarak kategori ya da faktörleri inceleyelim. Faktör değişkenleri, genel olarak gruplandırma vazifesi görmektedir. Mesela, farklı deney koşullarını faktör olarak gösterebiliriz. Bu sayede, R içerisinde bu koşullara arasındaki değişimleri inceleme imkanımız bulunmaktadır. Faktör oluşturmak için mutlaka bir karaktere ihtiyacımız bulunmaktadır. Bir faktör oluşturmak için, <code>factor</code> fonksiyonunu kullanmalıyız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="st">"karanlik"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] karanlik
+Levels: karanlik</code></pre>
+</div>
+</div>
+<p>İsterseniz bir de bu faktörün tipine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Factor w/ 1 level "karanlik": 1</code></pre>
+</div>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -452,13 +485,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../01-kurulum/dikkat.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span>
+      <a href="../02-veri-analizi/metin_01_veri_bilimine_giris.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../02-veri-analizi/metin_01_veri_bilimine_giris.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../02-veri-analizi/vektorler.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vektörler</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

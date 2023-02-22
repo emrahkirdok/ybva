@@ -49,18 +49,25 @@
     "text": "Nasıl katkı sağlarım?\nEn basit şekilde katkı sağlamak isterseniz, derslerde görüğünüz hataları Issues kısmında belirtebilirsiniz. İş yoğunluğuma bağlı olarak en kısa zamanda sorunları çözmeye çalışacağım.\nEğer daha aktif bir şekilde katılım sağlamak isterseniz bu depoyu çatallayabilir (fork) ve yapacağınız katkıları birleştirme isteği (pull request) göndererek benimle paylaşabilirsiniz. Bu noktada bilmeniz gereken bir kaç nokta var:\nBu depoda iki tane dal bulunmaktadır:\n\nmain: Derslerin kaynak kodlarının bulunduğu dal. Bu dal üzerindeki metinler, Rmd, md, veya qmd formatlarında hazırlanmıştır. Bu dosyaları R üzerinde düzenleyerek katkıda bulunabilirsiniz.\ngh-pages: İnternet sitesinini oluşturan markdown ve derslerin derlenmiş html dosyalarının bulunduğu dal.\n\nDersler ile ilgili doğrudan katkılarınızı (genel olarak Rmd dökümanları ekleme ya da varolan dökümanları değiştirme) main dalında gerçekleştiriniz. Bu dökümanları daha sonra otomatik olarak html formatına dönüştürülerek, gh-pages dalına aktarılacaktır.\nDersime gösterdiğiniz ilgi için teşekkürler!"
   },
   {
+    "objectID": "01-kurulum/sistem.html#dik-bir-öğrenme-eğrisi",
+    "href": "01-kurulum/sistem.html#dik-bir-öğrenme-eğrisi",
+    "title": "1  R ve RStudio",
+    "section": "1.1 Dik bir öğrenme eğrisi",
+    "text": "1.1 Dik bir öğrenme eğrisi\nKullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullan programların mantıklarını kavramanız gerekir.\nAncak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir.\nMesela Şekil 1.1, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum…\n\n\n\nŞekil 1.1: Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.\n\n\nAncak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle Bölüm 4’de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çapılı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman git gide artacaktır (Şekil 1.2).\n\n\n\nŞekil 1.2: Bu grafikte \\(x\\) ekseni yapılan veri analiz işleminin boyutunu, \\(y\\) ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır."
+  },
+  {
     "objectID": "01-kurulum/sistem.html#posit-cloud",
     "href": "01-kurulum/sistem.html#posit-cloud",
-    "title": "1  Kullanılacak Sistem",
-    "section": "1.1 Posit Cloud",
-    "text": "1.1 Posit Cloud\nEğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz, ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. Posit cloud platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız, ya ücret ödemeniz gerekir, ya da bir sonraki ayı beklemeniz gerekmektedir.\n\n\n\n\n\n\nİşlemci saati\n\n\n\nBu terim, bir ay boyunca size tanınan işlemci kullanarak yapılan hesaplama hakkını belirtir. Ya da toplam kod çalıştırma hakkınız. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.\n\n\n\n1.1.1 Posit Cloud sistemine giriş\nİlk olarak Posit cloud sitesine gidelim ve Sign Up tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, Login tuşuna basarak hesabımıza giriş yapalım (Şekil 1.1).\n\n\n\nŞekil 1.1: Posit Cloud sitesi üzerinden yeni bir hesap açalım\n\n\nArından, New Project tuşuna basalım ve New RStudio Project tuşuna basarak yeni bir R projesi oluşturalım (Şekil 1.2).\n\n\n\nŞekil 1.2: Yeni bir proje oluşturalım\n\n\nEğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (Şekil 1.3)\n\n\n\nŞekil 1.3: Projemizi oluşturduktan sonra karşımıza çıkan ekran"
+    "title": "1  R ve RStudio",
+    "section": "1.2 Posit Cloud",
+    "text": "1.2 Posit Cloud\nEğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz, ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. Posit cloud platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız, ya ücret ödemeniz gerekir, ya da bir sonraki ayı beklemeniz gerekmektedir.\n\n\n\n\n\n\nİşlemci saati\n\n\n\nBu terim, bir ay boyunca size tanınan işlemci kullanarak yapılan hesaplama hakkını belirtir. Ya da toplam kod çalıştırma hakkınız. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.\n\n\n\n1.2.1 Posit Cloud sistemine giriş\nİlk olarak Posit cloud sitesine gidelim ve Sign Up tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, Login tuşuna basarak hesabımıza giriş yapalım (Şekil 1.3).\n\n\n\nŞekil 1.3: Posit Cloud sitesi üzerinden yeni bir hesap açalım\n\n\nArından, New Project tuşuna basalım ve New RStudio Project tuşuna basarak yeni bir R projesi oluşturalım (Şekil 1.4).\n\n\n\nŞekil 1.4: Yeni bir proje oluşturalım\n\n\nEğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (Şekil 1.5)\n\n\n\nŞekil 1.5: Projemizi oluşturduktan sonra karşımıza çıkan ekran\n\n\nTebrikler, Posit Cloud sistemi ile R ve RStudio kullanmaya hazırsınız artık!"
   },
   {
     "objectID": "01-kurulum/sistem.html#r-ve-rstudio-kurulumu",
     "href": "01-kurulum/sistem.html#r-ve-rstudio-kurulumu",
-    "title": "1  Kullanılacak Sistem",
-    "section": "1.2 R ve RStudio kurulumu",
-    "text": "1.2 R ve RStudio kurulumu\nEğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.\nÖncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekir. Sadece RStudio kurmanız yeterli değildir."
+    "title": "1  R ve RStudio",
+    "section": "1.3 R ve RStudio kurulumu",
+    "text": "1.3 R ve RStudio kurulumu\nEğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.\nÖncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekir. Sadece RStudio kurmanız yeterli değildir."
   },
   {
     "objectID": "01-kurulum/dikkat.html#karakter-kodlama-sorunları",
@@ -112,113 +119,113 @@
     "text": "3.5 Proje oluşturmak\nEğer proje oluşturursanız, hayatınız daha kolaylaşır.\nProje oluşturun ve proje klasörünüzün içerisine data isimli bir klasör daha oluşturun.\nArtık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.\nProje klasörü oluştdurduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.\n\ngetwd()\n\n[1] \"/home/runner/work/ybva/ybva/01-kurulum\"\n\n\nBu klasör içerisinde data isimli verilerin saklandığı bir klasör daha bulunmakta. Onun içinde neler var?\n\ndir(\"data\")\n\ncharacter(0)\n\n\nArtık R içerisinde bir dosya okumak isterseniz data/sinif.txt yazarak, rahatlıkla bu dosyayı okuyabilirsiniz."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html",
-    "href": "metin_01_veri_bilimine_giris.html",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html",
+    "title": "4  Veri Bilimine Giriş",
     "section": "",
     "text": "5 Veri bilimi bu işin neresinde?\nPeki bu yazılanların derslerimizle olan ilgisi nedir? Geleneksel bilimsel yöntemin işleyişi genel olarak bir önceki kısımlarda yazdığımız güzergah üzerinde hareket etmektedi. Bu da genel olarka doğa gözlemlerine dayanır.\nÖrnek vermek gerekirse; antik çağ filozofoları, gözlem yeteneklerini sadece gözlem yeteneklerini kullanarak hipotezler gerliştimiş ve dünyayı kavramamızı sağlamıştır.\nAncak, yaşam bilimlerinde yaşanan hızlı gelişme artık karşımıza farklı bir paradigma çıkarmıştır: Veri üzerinden gözlem\nBir önceki dönem Moleküler Biyoloji dersinde yaşamsal bilginin hem nasıl sonraki nesillere hem de aynı zamanda hücre içerisinde aktarıldığını gördük. Bu yaşamsal bilgi aslında sahip oldumuz bütün fenotipten sorumlu. Dolayısıyla, sahip olduğumuz fenotipik özelliklerin bir çoğunun (epigenetik özellikler dışında) kaynağı DNA."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#bilimsel-araştırmaya-nasıl-başlarız",
-    "href": "metin_01_veri_bilimine_giris.html#bilimsel-araştırmaya-nasıl-başlarız",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#bilimsel-araştırmaya-nasıl-başlarız",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#bilimsel-araştırmaya-nasıl-başlarız",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.1 Bilimsel araştırmaya nasıl başlarız?",
     "text": "4.1 Bilimsel araştırmaya nasıl başlarız?\nKarl Popper, Bilimsel Araştırmanın Mantığı isimli kitabının birinci Almanca baskısının önsözünde şöyle yazmıştır (Popper 1984):\n\nAraştırma, deyim yerindeyse damdan düşer gibi başlar; çünkü düşecek bir “dam” vardır.\n\nDamdan düşmek terimi bence güzel bir metafor; çünkü bilimsel araştırma aslında aklımıza takılan bir soruyla başlıyor. Bu soru oldukça sezgisel - ve kişisel deneyimlerimce - nasıl olduğunu anlamadığınız bir şekilde ortaya çıkıyor. Yani bir anlamda, hiç sebep yokken bir anda kendinizi çözmeniz gereken bir soruyla baş başa buluyorsunuz - yani damdan düşüyorsunuz.\nAncak, bilimde her şeyin bir kuralı olduğu gibi, damdan düşmenin de bir kuralı var. Biz buna bilimsel araştırma yöntemi diyoruz. Genel olarak aslında bilimin çalışma prensiplerinden bir tanesi de diyebiliriz.\nPeki nasıl işliyor? Genel bir çerçeve çizmek gerekirse:\n\nGözlem\nGözlemlere dayanarak hipotez kurulması\nDeneysel metodoloji ve teorinin testi\nDeney sonucunda elde edilen bulguların tümevarmsal analizi"
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#gözlem",
-    "href": "metin_01_veri_bilimine_giris.html#gözlem",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#gözlem",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#gözlem",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.2 Gözlem",
     "text": "4.2 Gözlem\nYukarıdaki damdan düşme metaforunu ele alalım yine. Bu olay aslında uzun süreli bir gözlem sürecinin ardından bir anda ortaya çıkıyor. Yani ilk adım gözlem. Örnek verelim:\nKuğular üzerinde yaptığınız bir gözlem sonucunda, bütün kuğuların beyaz olduğunu gözlemlediniz. Bu gözlem size, dünya üzerindeki bütün kuğuların beyaz olduğunu düşünmenize sebep oldu."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#gözlemlere-dayanarak-hipotez-oluşturulması",
-    "href": "metin_01_veri_bilimine_giris.html#gözlemlere-dayanarak-hipotez-oluşturulması",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#gözlemlere-dayanarak-hipotez-oluşturulması",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#gözlemlere-dayanarak-hipotez-oluşturulması",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.3 Gözlemlere dayanarak hipotez oluşturulması",
     "text": "4.3 Gözlemlere dayanarak hipotez oluşturulması\nGözlem sürecinin ardından, hipotez oluşturma süreci ortaya giriyor. Yine kuğu örneğinden gidersek, bu gözlem sonucunda şöyle bir hipotez oluşturdunuz: Dünya üzerindeki bütün kuğular beyazdır. Peki gerçekten öyle mi?\nArtık üçüncü adımda geçmeye hazırsınız…"
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#teorinin-deneysel-yöntem-ile-test-edilmesi",
-    "href": "metin_01_veri_bilimine_giris.html#teorinin-deneysel-yöntem-ile-test-edilmesi",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#teorinin-deneysel-yöntem-ile-test-edilmesi",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#teorinin-deneysel-yöntem-ile-test-edilmesi",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.4 Teorinin deneysel yöntem ile test edilmesi",
     "text": "4.4 Teorinin deneysel yöntem ile test edilmesi\nArtık bu teorinizle ilgili bir yönetm geliştirmeniz ve bu teoriniz test etmeniz gerkekir. Tabi kuğu örneği açısından bakarsak, yapmamız gereken şey aslında bir kuğu popülasyonu alarak, elinizdeki kuğuların renklerini tespit etmek. Peki burada sorulabilecek muhtemel bir soru:\n\nAcaba dünya üzerindeki bütün kuğuları tek tek inceleyerek renklerini gözlemleyebilir misiniz?\n\nNe kadar geniş bir arama yaparsanız yapın, eninde sonunda gözünüzden kaçacak bir kuğu olacaktır. Burada bilimin bize sunduğu bir kolaylık ise, dünya üzerindeki kuğu popülasyonundan rastgele örneklem ile, küçük bir alt popülasyon oluşturmaktır.\nBurada önemli olan anahtar kelimeler: örneklem ve rastgele olacaktır.\nÖrneklem olarak tanımladığımız şey esasında, büyük bir popülasyonu temsil eden küçük bir alt popülasyonu tarif edecektir. Peki neden rastgele olmalı? İstatistik biliminde rastgele tanımı gelen olarak, hiç bir yanlılık içermeyen, tamamen körlemesine yapılan iş olarak tanımlanabilir.\n\nRastgele örneklem: Geniş bir popülasyonu, yanlılık içermeden temsil eden alt popülasyon. Dolayısıyla, elde ettiğimiz alt popülasyondaki her bir örneğin bulunma frekansı, ana popülasyondaki örneklerin bulunma frekanslarına yakınsayacaktır. Bu sayede, rastgele örneklem kullanarak, daha büyük bir popülasyon hakkında yargılara varabiliriz - ya da varabileceğimizi düşünürüz.\n\nKuğu örneğine geri dönelim o zaman. Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu yanlı bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#bilimin-temel-prensiplerinden-bir-tanesi-tümevarım",
-    "href": "metin_01_veri_bilimine_giris.html#bilimin-temel-prensiplerinden-bir-tanesi-tümevarım",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#bilimin-temel-prensiplerinden-bir-tanesi-tümevarım",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#bilimin-temel-prensiplerinden-bir-tanesi-tümevarım",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.5 Bilimin temel prensiplerinden bir tanesi: Tümevarım",
     "text": "4.5 Bilimin temel prensiplerinden bir tanesi: Tümevarım\nPeki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabilirz - ya da biz şimdilik öyle kabul ediyoruz.\n\nTümevarım (indüksiyon, induction) ilkesi: Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlaya felsefi bir ilke. Bilim özeline bu ilkeyi uygularsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.\n\nYine kuğu popülasyonuna dönecek olursak; rastgele örneklem ile elde ettiğimiz alt popülasyonu incelediğimizi düşünelim. Bu örneklem içerisindeki kuğuların hepsi beyaz. O zaman tümevarım ilkesini kullanarak, dünya üzerindeki bütün kuğuların beyaz olduğu sonucuna varabiliriz.\n\nBu noktada bir dakika durun. Sizce bu sonuca varabilir miyiz?"
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#tümervarım-sorunu",
-    "href": "metin_01_veri_bilimine_giris.html#tümervarım-sorunu",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#tümervarım-sorunu",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#tümervarım-sorunu",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.6 Tümervarım sorunu",
     "text": "4.6 Tümervarım sorunu\nDünya üzerinde bir tane siyah kuğu olduğunu düşünün. Eğer biz bu kuğuyu, rastgele örneklem içerisinde dahil etmede başarısız olursak; bütün tümavarım çıkarımımız çöker. Çünkü artık, dünya üzerindeki kuğulardan bir tanesinin siyah olduğunu biliyoruz.\nKarl Popper, yine aynı kitabında bu sorun üzerine eğiliyor. Ne kadar iyi örneklem alırsak alalım, modern bilimin işleyişinde tümevarım ilkesini kullanmak her zaman doğru sonuçlara varacağmızı garanti etmez."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#yanlışlanabilirlik-ilkesi",
-    "href": "metin_01_veri_bilimine_giris.html#yanlışlanabilirlik-ilkesi",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#yanlışlanabilirlik-ilkesi",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#yanlışlanabilirlik-ilkesi",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n4.7 Yanlışlanabilirlik ilkesi",
     "text": "4.7 Yanlışlanabilirlik ilkesi\nDolayısıyla, modern bilim genel olarak yanlışlanabilirlik ilkesine göre çalışır. Bu ilkeye göre, tümevarımsal çıkarımlarımız aslında belirli bir olasılık düzeyine göre doğru kabul edilir (p-değeri) ve yanlışlanana kadar doğrudur.\nYine kuğu örneğine geri dönecek olursa, bütün kuğular beyaz olarak kabul edilirken, 1967 yılında Hollanda’da bir tane siyah kuğu keşfedilmiştir. Dolayısıyla artık bütün kuğular beyaz olmadığı gösterilmiştir.\n\nYanlışlanabilirlik ilkesine göre tümevarım çıkımları, yanlışlanana kadar doğru kabul edilir."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#son-yıllarda-veri-artışı-var",
-    "href": "metin_01_veri_bilimine_giris.html#son-yıllarda-veri-artışı-var",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#son-yıllarda-veri-artışı-var",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#son-yıllarda-veri-artışı-var",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n5.1 Son yıllarda veri artışı var",
     "text": "5.1 Son yıllarda veri artışı var\nYeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyır. DNA dizi verisi gene olarka veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil @ref(fig:sra))\n\n\n\n\nSRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)\n\n\n\n\nBu veri miktarı bize yeni artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor."
   },
   {
-    "objectID": "metin_01_veri_bilimine_giris.html#peki-veri-bilimi-nasıl-işliyor",
-    "href": "metin_01_veri_bilimine_giris.html#peki-veri-bilimi-nasıl-işliyor",
-    "title": "\n4  Veri Bilimine Giriş\n",
+    "objectID": "02-veri-analizi/metin_01_veri_bilimine_giris.html#peki-veri-bilimi-nasıl-işliyor",
+    "href": "02-veri-analizi/metin_01_veri_bilimine_giris.html#peki-veri-bilimi-nasıl-işliyor",
+    "title": "4  Veri Bilimine Giriş",
     "section": "\n5.2 Peki veri bilimi nasıl işliyor?",
     "text": "5.2 Peki veri bilimi nasıl işliyor?\nGeleneksel yöntemin aksine, artık çıkış noktamız veri. Örnek vermek gerekirse DNA, RNA dizi verisi sıklıkla kullanılan yaşam bilimi verilerindendir. Peki süreç nasıl işliyor? Şöyle özetleyebiliriz:\n\nVerinin elde edilmesi\nVeri üzerinde incelemeler ve modelleme çalışmaları yapılması\nOluşturulan modellerin, benzer veri üzerinde test edilmesi\n\nDNA veya RNA dizi versinin nasıl elde edileceğini gelecek sene Biyoinformatik dersinde daha ayrıntılı bir şekilde işleyeceğiz. Dolayısıyla, şimdilik daha çok ikinci nokta üzerinde duracağız.\n\n5.2.1 Verinin incelemesi ve modelleme çalışmaları\nBu amaçla R ve Rstudio platformlarını kullancağız. Bu platformlar bize veri analizi, görselleştirmesi ve modellenmesi konusunda harika imkanlar sağlıyor.\nİlk adımda R içerisindeki veri yapılarını öğreneceğiz. Daha sonra R içerisine veriler yükleyerek, tablolar ve grafikler oluşturacağız. Örnek vermek gerekirse, Tablo @ref(tab:mtcarstb)’da R içerisinde gelen örnek veri setlerinden bir tanesinin tablo haline getirilmiş hali mevcut.\n\n\n\n\n\nBu noktadan sonra amacımız, verinin sakladığı hikayeleri incelemek ve bu hikayeleri tanımlayan modeller oluşturmak olacak. Eğer Şekil @ref(fig:mtcars)’e bakarsanız, örnek veri setindeki iki farklı değişken kullanılarak oluşturulmuş bir modeli görebilirsiniz.\nEğer matematiksel bir notasyon kullanmak istersek, şekilde görülen çizgiyi aslında şu şekilde ifade edebiliriz:\n\\[ Y = f(X) + \\epsilon \\]\n\n\n\n\nÖrnek veri seti kullanılarak oluşturulmuş bir doğrusal model. Bu model bize, y eksenindeki değerlerin, x eksenindeki değerlerle olan ilişkisini açıklıyor. Ya da başka bir tanımla, x eksenindeki değerleri kullanarak, y eksenindeki değerleri ne kadar doğrulukla tahmin edebiliriz?\n\n\n\n\nTabi, şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşağıdaki konular üzerinden giderek R ve Rstüdyo programlarını kullanarak veri bilimine giriş yapacağız:\n\nR ve RStüdyo kurulumu\nR üzerinde bulunan temel veri yapıları\nVeri çerçevleri, matrisler, listeler\nTanımlayıcı istatistikler\nTemel istatistik analizler\nGGplot2 ile görlselleştirme\nDoğrusal modeller"
   },
   {
-    "objectID": "r-giris.html#komut-satırı-üzerinde-çalışma",
-    "href": "r-giris.html#komut-satırı-üzerinde-çalışma",
+    "objectID": "02-veri-analizi/r-giris.html#komut-satırı-üzerinde-çalışma",
+    "href": "02-veri-analizi/r-giris.html#komut-satırı-üzerinde-çalışma",
     "title": "\n5  R ve R studio Kullanımı\n",
     "section": "\n5.1 Komut satırı üzerinde çalışma",
     "text": "5.1 Komut satırı üzerinde çalışma\nKomut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:\n\n34 + 45\n\n[1] 79\n\n\nR, bu işlemi yapar ve sonucu ekrana yazdırır."
   },
   {
-    "objectID": "r-giris.html#değişken-atama",
-    "href": "r-giris.html#değişken-atama",
+    "objectID": "02-veri-analizi/r-giris.html#değişken-atama",
+    "href": "02-veri-analizi/r-giris.html#değişken-atama",
     "title": "\n5  R ve R studio Kullanımı\n",
     "section": "\n5.2 Değişken atama",
     "text": "5.2 Değişken atama\nAncak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü <- kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:\n\nsayi1 <- 12\n\nBu işlemin sonucunda 12 değerini, sayi1 değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde sayi1 değişkenini kullanabiliriz.\nİsterseniz ikinci bir değişken atayalım:\n\nsayi2 <- 23\n\nArtık ikinci bir degisken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:\n\nsayi1 + sayi2\n\n[1] 35\n\n\nŞu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır."
   },
   {
-    "objectID": "r-giris.html#veri-tipleri",
-    "href": "r-giris.html#veri-tipleri",
+    "objectID": "02-veri-analizi/r-giris.html#veri-tipleri",
+    "href": "02-veri-analizi/r-giris.html#veri-tipleri",
     "title": "\n5  R ve R studio Kullanımı\n",
     "section": "\n5.3 Veri tipleri",
     "text": "5.3 Veri tipleri\nR içerisinde dört temel veri tipimiz bulunmaktadır:\n\nSayı (numeric, num)\nKarakter (character, chr)\nMantıksal (logical, logi)\nKategori/faktör (factor, fac)\n\nBu veri tiplerinin hepsi, farklı veri analizi adımlarında kullanılmaktadır. Dolayısıyla, bu veri tiplerinin düzgün bir şekilde ayarlandığından emin olmalısınız.\nBir verinin tipini öğrenmek istiyorsanız, basit olarak str fonksiyonunu kullanabilirsiniz:\n\nstr(12)\n\n num 12\n\n\n\nR üzerindeki fonksiyonlar, belirli işlevleri yerine getiren kod parçaları olarak tanımlanabilir. Her fonskiyonun, parantez içerisine yazılan en az bir tane girdisi bulunmaktadır. Burada kullandığımız str fonksiyonu, parantez içerisinde belirtilen verinin tipini geri döndürmekten sorumludur.\n\nSayılar dışında neler kullanabiliriz? Karakterleri kullanabiliriz. Ancak karakterle çalışmak istiyorsanız, mutlaka tırnak işareti \" kullanmalısınız:\n\n\"karakter\"\n\n[1] \"karakter\"\n\n\nPeki bu karakterin tipine bakalım:\n\nstr(\"karakter\")\n\n chr \"karakter\"\n\n\nMantıksal değişkenler ise Evet ya da Hayır durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç bulunmamaktadır:\n\n\nTRUE veya T\n\n\nFALSE veya F\n\n\nMesela bir tanesinin tipine bakalım:\n\nstr(TRUE)\n\n logi TRUE\n\n\n\nMantıksal operatörler, R içerisinde ön tanımlı olarak gelmektedir. Dolayısıyla, bu operatörleri oldukları gibi kullanabilme imkanınız bulunmaktadır.\n\nSon olarak kategori ya da faktörleri inceleyelim. Faktör değişkenleri, genel olarak gruplandırma vazifesi görmektedir. Mesela, farklı deney koşullarını faktör olarak gösterebiliriz. Bu sayede, R içerisinde bu koşullara arasındaki değişimleri inceleme imkanımız bulunmaktadır. Faktör oluşturmak için mutlaka bir karaktere ihtiyacımız bulunmaktadır. Bir faktör oluşturmak için, factor fonksiyonunu kullanmalıyız:\n\nfactor(\"karanlik\")\n\n[1] karanlik\nLevels: karanlik\n\n\nİsterseniz bir de bu faktörün tipine bakalım:\n\nstr(factor(\"karanlik\"))\n\n Factor w/ 1 level \"karanlik\": 1"
   },
   {
-    "objectID": "vektorler.html#vektör-oluşturma-üzerine-örnekler",
-    "href": "vektorler.html#vektör-oluşturma-üzerine-örnekler",
+    "objectID": "02-veri-analizi/vektorler.html#vektör-oluşturma-üzerine-örnekler",
+    "href": "02-veri-analizi/vektorler.html#vektör-oluşturma-üzerine-örnekler",
     "title": "\n6  Vektörler\n",
     "section": "\n6.1 Vektör oluşturma üzerine örnekler",
     "text": "6.1 Vektör oluşturma üzerine örnekler\nAşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için Tablo 6.1’e bakınız.\n\n\nTablo 6.1: Hayali veri setimizdeki bitkiler\n\nBitki İsmi\nYaprak Uzunluğu (cm)\nDeney Koşulları\n\n\n\nbitki1\n2.3\nKaranlık\n\n\nbitki2\n3.4\nAydınlık\n\n\nbitki3\n4.5\nAydınlık\n\n\nbitki4\n1.2\nKaranlık\n\n\nbitki5\n3.4\nAydınlık\n\n\nbitki6\n2.5\nKaranlık\n\n\n\n\nÖncelikle bitki isimleri için bir karakter vektörü oluşturalım:\n\nbitki_ismi <- c(\"bitki1\", \"bitki2\", \"bitki3\", \"bitki4\", \"bitki5\", \"bitki6\")\n\nŞimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım:\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 2.5)\n\nSon olarak deney koşulları için bir vektör oluşturmamız gerekli. Dikkat edin, deney koşulları aslında bir kategori ifade ediyor. Bu nedenle, deney koşulları vektörü aslında bir faktör vektörü olmalı:\n\ndeney_kosullari <- factor(c(\"karanlik\", \"aydinlik\", \"aydinlik\", \"karanlik\", \"aydinlik\", \"karanlik\"))\n\nGerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:\n\nstr(deney_kosullari)\n\n Factor w/ 2 levels \"aydinlik\",\"karanlik\": 2 1 1 2 1 2\n\n\nOluşturduğumuz vektörün uzunluğunu elde etmek için ise len fonksiyonunu kullanabiliriz:\n\nlength(yaprak_uzunlugu)\n\n[1] 6"
   },
   {
-    "objectID": "vektorler.html#vektörlerde-indis-kullanımı",
-    "href": "vektorler.html#vektörlerde-indis-kullanımı",
+    "objectID": "02-veri-analizi/vektorler.html#vektörlerde-indis-kullanımı",
+    "href": "02-veri-analizi/vektorler.html#vektörlerde-indis-kullanımı",
     "title": "\n6  Vektörler\n",
     "section": "\n6.2 Vektörlerde indis kullanımı",
     "text": "6.2 Vektörlerde indis kullanımı\nPeki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz yaprak_uzunlugu vektörü üzerinde ikinci elemanı alalım:\n\nyaprak_uzunlugu[2]\n\n[1] 3.4\n\n\nŞimdi de ikinci ve dördüncü elemanlar arasındaki verileri geri döndürelim:\n\nyaprak_uzunlugu[2:4]\n\n[1] 3.4 4.5 1.2\n\n\n\n: operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur:\n\n1:16\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\n\nEğer - işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:\n\nyaprak_uzunlugu[-5]\n\n[1] 2.3 3.4 4.5 1.2 2.5\n\n\n\nDikkat edin, burada yaprak_uzunlugu vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü."
   },
   {
-    "objectID": "vektorler.html#sonuç",
-    "href": "vektorler.html#sonuç",
+    "objectID": "02-veri-analizi/vektorler.html#sonuç",
+    "href": "02-veri-analizi/vektorler.html#sonuç",
     "title": "\n6  Vektörler\n",
     "section": "\n6.3 Sonuç",
     "text": "6.3 Sonuç\nBu kısım kapsamında aşağıdaki konular önemlidir:\n\nBir vektör oluşturmak için c() fonksiyonunu kullanırız, ve vektör elemanlarını , ile ayırırız\nBir vektörün uzunluğunu öğrenmek için length() fonksiyonunu kullanırız\nVektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız yaprak_uzunlugu[5]"
