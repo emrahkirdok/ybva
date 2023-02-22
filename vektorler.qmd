@@ -58,7 +58,7 @@ Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `
 
 ## Vektör oluşturma üzerine örnekler
 
-Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz?
+Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için @tbl-bitkiler'e bakınız.
 
 | Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
 |:-----------|---------------------:|:----------------|
@@ -68,6 +68,8 @@ Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin
 | bitki4     | 1.2                  | Karanlık        |
 | bitki5     | 3.4                  | Aydınlık        |
 | bitki6     | 2.5                  | Karanlık        |
+
+: Hayali veri setimizdeki bitkiler {#tbl-bitkiler}
 
 Öncelikle bitki isimleri için bir karakter vektörü oluşturalım:
 
