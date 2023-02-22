@@ -18,6 +18,20 @@ Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar r
 Bu terim, bir ay boyunca size tanınan işlemci kullanarak yapılan hesaplama hakkını belirtir. Ya da toplam kod çalıştırma hakkınız. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.
 :::
 
+### Posit Cloud sistemine giriş
+
+İlk olarak [Posit cloud](https://posit.co/products/cloud/cloud/) sitesine gidelim ve **Sign Up** tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, **Login** tuşuna basarak hesabımıza giriş yapalım (@fig-posit1).
+
+![Posit Cloud sitesi üzerinden yeni bir hesap açalım](images/posit1.png){#fig-posit1}
+
+Arından, **New Project** tuşuna basalım ve **New RStudio Project** tuşuna basarak yeni bir R projesi oluşturalım (@fig-posit2).
+
+![Yeni bir proje oluşturalım](images/posit2.png){#fig-posit2}
+
+Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (@fig-posit3)
+
+![Projemizi oluşturduktan sonra karşımıza çıkan ekran](images/posit3.png){#fig-posit3}
+
 ## R ve RStudio kurulumu
 
 Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.
