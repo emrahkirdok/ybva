@@ -293,8 +293,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
 <span class="header-section-number">6.1</span> Vektör oluşturma üzerine örnekler</h2>
-<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz?</p>
+<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için <a href="#tbl-bitkiler">Tablo&nbsp;<span>6.1</span></a>’e bakınız.</p>
+<div id="tbl-bitkiler" class="anchored">
 <table class="table">
+<caption>Tablo&nbsp;6.1: Hayali veri setimizdeki bitkiler</caption>
 <thead><tr class="header">
 <th style="text-align: left;">Bitki İsmi</th>
 <th style="text-align: right;">Yaprak Uzunluğu (cm)</th>
@@ -333,6 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
+</div>
 <p>Öncelikle bitki isimleri için bir karakter vektörü oluşturalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, <span class="st">"bitki6"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
