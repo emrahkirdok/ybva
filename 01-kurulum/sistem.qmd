@@ -32,6 +32,8 @@ Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız 
 
 ![Projemizi oluşturduktan sonra karşımıza çıkan ekran](images/posit3.png){#fig-posit3}
 
+Tebrikler, Posit Cloud sistemi ile R ve RStudio kullanmaya hazırsınız artık!
+
 ## R ve RStudio kurulumu
 
 Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.
