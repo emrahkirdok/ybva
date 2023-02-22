@@ -90,6 +90,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./vektorler.html" rel="next">
 <link href="./metin_01_veri_bilimine_giris.html" rel="prev">
 <link href="./images/ybva.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -208,6 +209,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./r-giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R ve R studio Kullanımı</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -228,14 +234,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma" id="toc-komut-satırı-üzerinde-çalışma" class="nav-link active" data-scroll-target="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma"><span class="toc-section-number">5.1</span>  Komut satırı üzerinde çalışma</a></li>
   <li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="toc-section-number">5.2</span>  Değişken atama</a></li>
   <li><a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="toc-section-number">5.3</span>  Veri tipleri</a></li>
-  <li>
-<a href="#vekt%C3%B6rler" id="toc-vektörler" class="nav-link" data-scroll-target="#vekt%C3%B6rler"><span class="toc-section-number">6</span>  Vektörler</a>
-  <ul class="collapse">
-<li><a href="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler" id="toc-vektör-oluşturma-üzerine-örnekler" class="nav-link" data-scroll-target="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler"><span class="toc-section-number">6.1</span>  Vektör oluşturma üzerine örnekler</a></li>
-  <li><a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">6.2</span>  Vektörlerde indis kullanımı</a></li>
-  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">6.3</span>  Sonuç</a></li>
-  </ul>
-</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -352,162 +350,9 @@ Levels: karanlik</code></pre>
 <pre><code> Factor w/ 1 level "karanlik": 1</code></pre>
 </div>
 </div>
-</section><section id="vektörler" class="level1" data-number="6"><h1 data-number="6">
-<span class="header-section-number">6</span> Vektörler</h1>
-<p>Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil, bir grup örnek ile çalışmamız gerekmektedir.</p>
-<p>R üzerinde farklı veri yapıları bulunmaktadır. Bunlarda bir tanesi vektörler olarak adlandırılır. Vektörler, kısaca <em>belli bir tipte</em> veri tipini içeren listeler olarak tanımlanabilir. Bir vektör oluşturmak istiyorsanız <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanmanız gerekmektedir:</p>
-<div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vektor1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">43</span>, <span class="fl">45</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Oluşturduğunuz <code>vektor1</code> isimli vektör, üç tane elemana sahiptir. Bu elemanları dikkat ederseniz <code>,</code> ile ayırdık.</p>
-<p>İsterseniz karakter vektörleri de oluşturabilirsiniz:</p>
-<div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vektor2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Ya da mantıksal vektörler:</p>
-<div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vektor3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Ya da faktör vektörleri:</p>
-<div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vektor4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Dikkat ederseniz önce <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonskiyonu ile vektör oluşturduk, ardından <code>factor</code> fonksiyonu ile faktör’e çevirdik.</p>
-<p>İstersek iki farklı vektörü birleştirebiliriz. Önce iki farklı vektör oluşturalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">34</span>, <span class="fl">56</span><span class="op">)</span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">39</span>, <span class="fl">45</span>, <span class="fl">67</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Şimdi bu iki vektörü birleştirelim:</p>
-<div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yeni_vektor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Bu vektörü ekrana yazdıralım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yeni_vektor</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12 34 56 39 45 67</code></pre>
-</div>
-</div>
-<p>Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri <code>_</code> ile ayırdık. Siz de buna dikkat edin lütfen.</p>
-<blockquote class="blockquote">
-<p>Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?</p>
-</blockquote>
-<section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
-<span class="header-section-number">6.1</span> Vektör oluşturma üzerine örnekler</h2>
-<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz?</p>
-<table class="table">
-<thead><tr class="header">
-<th style="text-align: left;">Bitki İsmi</th>
-<th style="text-align: right;">Yaprak Uzunluğu (cm)</th>
-<th style="text-align: left;">Deney Koşulları</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">bitki1</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: left;">Karanlık</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bitki2</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: left;">Aydınlık</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bitki3</td>
-<td style="text-align: right;">4.5</td>
-<td style="text-align: left;">Aydınlık</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bitki4</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: left;">Karanlık</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bitki5</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: left;">Aydınlık</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bitki6</td>
-<td style="text-align: right;">2.5</td>
-<td style="text-align: left;">Karanlık</td>
-</tr>
-</tbody>
-</table>
-<p>Öncelikle bitki isimleri için bir karakter vektörü oluşturalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, <span class="st">"bitki6"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">2.5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Son olarak deney koşulları için bir vektör oluşturmamız gerekli. Dikkat edin, deney koşulları aslında bir kategori ifade ediyor. Bu nedenle, deney koşulları vektörü aslında bir faktör vektörü olmalı:</p>
-<div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">deney_kosullari</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:</p>
-<div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">deney_kosullari</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Factor w/ 2 levels "aydinlik","karanlik": 2 1 1 2 1 2</code></pre>
-</div>
-</div>
-<p>Oluşturduğumuz vektörün uzunluğunu elde etmek için ise <code>len</code> fonksiyonunu kullanabiliriz:</p>
-<div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-</section><section id="vektörlerde-indis-kullanımı" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="vektörlerde-indis-kullanımı">
-<span class="header-section-number">6.2</span> Vektörlerde indis kullanımı</h2>
-<p>Peki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz <code>yaprak_uzunlugu</code> vektörü üzerinde ikinci elemanı alalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.4</code></pre>
-</div>
-</div>
-<p>Şimdi de ikinci ve dördüncü elemanlar arasındaki verileri geri döndürelim:</p>
-<div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.4 4.5 1.2</code></pre>
-</div>
-</div>
-<div class="note">
-<p><code>:</code> operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur:</p>
-<div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16</code></pre>
-</div>
-</div>
-</div>
-<p>Eğer <code>-</code> işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:</p>
-<div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.3 3.4 4.5 1.2 2.5</code></pre>
-</div>
-</div>
-<div class="note">
-<p>Dikkat edin, burada <code>yaprak_uzunlugu</code> vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.</p>
-</div>
-</section><section id="sonuç" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="sonuç">
-<span class="header-section-number">6.3</span> Sonuç</h2>
-<p>Bu kısım kapsamında aşağıdaki konular önemlidir:</p>
-<ul>
-<li>Bir vektör oluşturmak için <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanırız, ve vektör elemanlarını <code>,</code> ile ayırırız</li>
-<li>Bir vektörün uzunluğunu öğrenmek için <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> fonksiyonunu kullanırız</li>
-<li>Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız <code>yaprak_uzunlugu[5]</code>
-</li>
-</ul>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -645,6 +490,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./vektorler.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Vektörler</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
