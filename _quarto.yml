@@ -29,9 +29,10 @@ book:
     
     - part: "Derse Hazırlık"
       chapters:
-        - 01-kurulum/sistem.qmd
-        - 01-kurulum/dikkat.qmd
-        - 01-kurulum/metin_klasor_islemleri.Rmd
+        - 01-kurulum/01-r-rstudio-kurulum.qmd
+        - 01-kurulum/02-ilk-kurallar.qmd
+#        - 01-kurulum/03-r-rstudio-ilk-adimlar.qmd
+        - 01-kurulum/04-klasor-islemleri.qmd
 
     - part: "Veri Analizi"
       chapters:
