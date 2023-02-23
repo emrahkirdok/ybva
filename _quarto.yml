@@ -35,7 +35,7 @@ book:
 
     - part: "Veri Analizi"
       chapters:
-        - 02-veri-analizi/metin_01_veri_bilimine_giris.qmd 
+        - 02-veri-analizi/veri-bilimine-giris.qmd 
         - 02-veri-analizi/r-giris.qmd
         - 02-veri-analizi/vektorler.qmd
 #        - metin_bilimsel_hikaye_anlaticiligi.Rmd
