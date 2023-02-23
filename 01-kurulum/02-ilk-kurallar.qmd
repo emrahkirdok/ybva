@@ -44,7 +44,7 @@ Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. 
 
 ## Dosya ve klasörlerin isimlendirilmesi
 
-Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla **ASCII** dışında karakter ve boşluk kullanmayın. 
+Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla **ASCII** dışında karakter ve boşluk kullanmayın. Ayrıca büyük küçük harf ayrımmına dikkat ediniz.
 
 ASCII dışındaki karakterler ve boşluk karakteri, dosya isimlerinin hatalı bir şekilde görünmesine sebep olabilir ve işlerinizi zorlaştırır.
 
@@ -86,3 +86,12 @@ Ancak R programı, Amerika sistemini kullanır. Dolayısıyla ondalıklı sayıl
 
 Peki kendi hazırladığınız verilerde ondalık ayracı olarak `,` kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken `dec` opsiyonu ilse ondalık ayracını seçmeyi öğreneceğiz.
 :::
+
+## Sonuç
+
+Dikkat etmeniz gereken noktalar:
+
++ Kodlamaları **ASCII** karakterleri ile yapalım
++ Klasör ve dosya isimlerinde yanlızca **ASCII** karakter kullanalaım
++ Klasör ve dosya isimlerinde boşluk karakteri kullanmayalım
++ Klasör ve dosya isimlerinde büyük küçük harf ayrımına dikkat edelim
