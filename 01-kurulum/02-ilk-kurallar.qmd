@@ -42,16 +42,35 @@ Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. 
 
 ![RStudio üzerinde UTF-8 kodlamasının seçilmesi](images/utf-8.png)
 
-## Dosyaların isimlendirilmesi
+## Dosya ve klasörlerin isimlendirilmesi
 
-Bir diğer önemli nokta ise dosyaların isimlendirilmesi. Dosya isimlerinde asla ASCII dışında karakter ve boşluk kullanmayın. 
+Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla **ASCII** dışında karakter ve boşluk kullanmayın. 
+
+ASCII dışındaki karakterler ve boşluk karakteri, dosya isimlerinin hatalı bir şekilde görünmesine sebep olabilir ve işlerinizi zorlaştırır.
+
+Komut satırı ile çalışan programlarda, boşluk karakteri özel bir anlama gelir. Eğer boşluk karakteri kullanıyorsanız, komut satırı işleyicileri yazdığınız kelimenin bittiğini düşünür ve komutunuz ona göre çalıştırır. Bu da hata yapmanıza sebep olur.
+
 
 ::: {.callout-important}
 
 ## Dosya isimlerine dikkat ediniz
 
-Dosya isimlerini seçerken asla ASCII dışında karakter ve boşluk kullanmayın. Eğer boşluk kullanmanız gerekirse "_" (alt çizgi, SHIFT ve - tuşlarına aynı anda basınız) karakterini kullanın.
+Dosya isimlerini seçerken asla ASCII dışında karakter ve boşluk kullanmayın. Boşluk kullanacağınız zaman `-` (tire) veya `_` (alt çizgi: SHIFT + `-`) karakterlerini kullanabilirisniz.
 :::
+
+Hatalı klasör ve dosya isimleri:
+
+```
+veri analizi/ödev 01.Rmd
+Veri analizi/Proje/Ödev (1)(11).Rmd
+```
+
+Güzel bir şekilde yazılmış klasör ve dosya isimleri:
+
+```
+veri-analizi/odev_01.Rmd
+Veri_analizi/Proje/Odev_(1).Rmd
+```
 
 ### Ondalık işareti
 
