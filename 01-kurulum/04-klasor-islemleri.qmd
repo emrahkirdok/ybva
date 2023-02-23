@@ -1,29 +1,44 @@
 # Klasör İşlemleri {#sec-klasor}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+Deneysel çalışmalar yapan bir araştırmacının ekipmanları laboratuvar malzemeleridir. Bu araştırmacıları, laboratuvar ekipmanları ve cihazlarının nasıl çalıştıklarını ayrtıntılı bir şekilde bilirler.
+
+Bir veri bilimcinin temel ekipmanı da bilgisayarıdır. Bilgisayarımızın nasıl çalıştığını en ince ayrıntısına kadar bilmeli ve hakim olmalıyız.
 
 R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.
 
 Bu belge bu amaçla hazırlandı.
 
-## Adımlar
-
-1. Çalışma klasörümüz nerede?
-2. Kullanıcı ismimiz nedir?
-3. Klasör isimlendirmeleri ve klasörlerde gezinmek
-4. Proje içerisinde çalışmak en kolayı
-
 ## Çalışma klasörümüz nerede?
 
-İlk olarak `getwd()` komutunu konsola yazalım:
+İlk olarak `getwd()` komutunu konsola yazalım ve çıktıyı inceleylim:
 
 ```{r}
 getwd()
 ```
 
-Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir.
+Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir. Bu döküman, aslında yerin bilmediğim bir sunucuda derlendi. O yüzden buradaki bilgi biraz gerçeği yansıtmıyor.
+
+Ama kişisel MAC bilgisyarımda şöyle bir çıktı alacağım:
+
+```bash
+/Users/quatta/Akademia/Lectures/ybva
+```
+
+Ofiste bulunan Windows bilgisayarımda ise şuna benzer bir çıktı alacağım:
+
+```bash
+C:/Users/User/Akademia/Lectures/ybva
+```
+
+Linux bilgisayarda ise şöyle olacaktı:
+
+```bash
+/home/quatta/Akademia/Lectures/ybva
+```
+
+Bu bilgi aslında bize, o sıradaki çalışma klasörümüzün nerede olduğunu gösteriyor. 
+
+## Kullanıcı ismi
 
 Kullanıcı ismi nedir? Kullancı ismi, her bilgisayarda bulunan ve sizin bilgilerinizin depolandığı klasördür.
 
@@ -40,8 +55,6 @@ Linux sistemlerde ise `/home/` içinde bulunur.
 Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.
 
 Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyıorsunuz.
-
-Herkes kendi kullancı ismini belirlesin önce. Eğer bilgisyar mühendisliği laboratuvarında bu kullanııcı ismi `PCC` olarak atanmıştır.
 
 ## Çalışma klasörü içindekiler nedir?
 
