@@ -152,5 +152,3 @@ Tabi, şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşa�
 5. Temel istatistik analizler
 6. GGplot2 ile görlselleştirme
 7. Doğrusal modeller
-
-# Kaynakça

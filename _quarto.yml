@@ -66,6 +66,8 @@ book:
 #        - metin_ggplot2_pratik.Rmd
     
     - part: "Türkiye'nin Verisi"
+  
+    - references.qmd
 
 
 bibliography : bibliography.bib
