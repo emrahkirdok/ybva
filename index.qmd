@@ -1,12 +1,12 @@
 # Önsöz {.unnumbered}
 
-Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
+Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli dersleri ile ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
 Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır.
 
 [Eski siteye buradan ulaşabilirsiniz](old-site/index.html)
 
-Ders sürekli güncellenmektedir. Dolayısıyla takip etmeniz gereklidir.
+Dersler sürekli güncellenmektedir, dolayısıyla dönemin sonuna doğru eski site kullanımdan kaldırılacaktır. Ancak şu an için dersin internet sitesini sürekli takip etmeniz iyi olacaktır.
 
 ## Dersin işlenme şekli {.unnumbered}
 
@@ -14,8 +14,7 @@ Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir. Çevrimiç
 
 Ders videoları da yine Teams platformu üzerinden tekrar izlenmeye açık olacaktır.
 
-Biyoteknoloji Bölümü Discord sunucusu temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları orada cevaplayacağım. Dolayısıyla platforma üye olmanızı tavsiye ederim.
-
+Biyoteknoloji Bölümü Discord sunucusu ise temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları sunucuda cevaplayacağım. Dolayısıyla platforma üye olmanızı tavsiye edilir.
 
 ## Katkıda bulunan yazarlar {.unnumbered}
 
@@ -28,9 +27,11 @@ Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları ince
 
 ## Bu siteyi nasıl takip etmeniz gerek?
 
-Kitap kapsamında beş farklı bölüm olması planlanmıştır:
+Kitap kapsamında altı farklı bölüm olması planlanmıştır:
 
-Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilir. @sec-sistem bölümünde, R ve Rstüdyo programlarının kurulumu hakkında bilgi alabilirsiniz. Ardından @sec-onemli bölümünde ise, dikkat edilmesi gereken noktaları inceleyebilirsiniz. @sec-klasor'de ise, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
+Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilirsiniz. Derslere başlamadan önce, bu kısmı bitirmiş olduğunuzdan emin olun. Yoksa ilerleyen adımlarda sorunlarla karşılaşabilirsiniz.
+
+@sec-sistem bölümünde, R ve Rstüdyo programlarının kurulumu hakkında bilgi alabilirsiniz. Ardından @sec-onemli bölümünde ise, dikkat edilmesi gereken noktaları inceleyebilirsiniz. @sec-klasor'de ise, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
 
 **Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. 
 
