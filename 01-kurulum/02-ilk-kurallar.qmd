@@ -1,20 +1,22 @@
 # Önemli Konular {#sec-onemli}
 
-R ve RStudio sistemleri üzerinde çalışırken bazı noktalara dikkat edilmesi gereklidir. Bu konulara dikkat ederseniz, daha verimli bir ders geçirebilirsiniz.
+R ve RStudio sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Yani, ilk öğrenme maliyeti çok yüksektir. Ancak bir kere öğrendiğinizde, uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.
 
-R sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Ayrıca, R üzerinde çalışırken dikkat edilmesi gereken bazı noktalar bulunmaktadır. Aşağıdaki noktalara dikkat ederseniz, daha sorunsuz bir şekilde çalışabilirsiniz.
+Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştım. Bu noktalara dikkat ederseniz daha verimli bir ders geçirebilirsiniz.
 
 ## Karakter kodlama sorunları
 
-Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemlerini kullanırlar. Hatta farklı işletim sistemleri bile farklı karakter kodlama sistemleri ile çalışır. 
+Bilgisayarlar geliştirildiği günden beri, farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden, bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.
 
-İlk geliştirilen kodlama sistemi olan [ASCII]() sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla, sadece belirli karakterleri kullanma imkanımız vardı.
+İlk geliştirilen kodlama sistemlerinden birisi olan [ASCII](https://en.wikipedia.org/wiki/ASCII) sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla, belirli sayıda karakter kullanma imkanımız vardı ve daha çok İngilizce alfabesinde bulunan latince karakterleri destekliyordu.
 
 Ancak ilerleyen yıllarda farklı kodlama sistemleri kullanıılmaya başlandı. Ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile, ASCII karakterleri, aynı kodlarla belirtiliyordu.
 
-Hepiniz farklı sistemler kullanıyoruz. DOlayısıyla bilgisayarlarımızın kodlama sistemlerinin uyuşmama ihtimalleri bulunmaktador. Mesela, son yıllarda gelişen UTF-8 kodlaması artık bütün dillerdeki karakterleri destekliyor, ancak Windows sistemleri hala UTF-8'i standart olarak kabul etmedi.
+Son yıllarda [UTF-8](https://en.wikipedia.org/wiki/UTF-8) karakter kodlama sistemi yaygın olarak kullanılmaktadır. Bu sistem sayesinde, farklı alfabelerdeki karakterler (mesela Türkçe'ye özgü karakterler) desteklenmeye başlandı.
 
-Dolayısıyla, gönderdiğiniz ödevleri düzgün bir şekilde görememe tehlikem bulunmaktadır Bu yüzden kodlamalarınızı sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler YASAK!
+UTF-8, şu anda yaygın bir kodlama sistemi olsa da, Windows bu kodlama sistemini son yıllarda kullanmaya başladı ve hala bu yüzden sorunlar yaşıyoruz. Önceki yıllarda, bu kodlama sorunları yüzünden öğrenci ödevlerini düzgün bir şekilde görüntüleyemedim.
+
+Bu yüzden, ders kapsamında yapacağınız **kodlamaları** sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler - ve kendi alfabenizdeki İngilizce dışındaki karakterler - YASAK!
 
 ::: {.callout-important}
 
@@ -26,7 +28,20 @@ Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanm
 ```
 Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa, onları da kullanmayın!
 :::
-""
+
+### RStudio üzerinde karakter kodlaması
+
+Eğer kullandığınız RStudio programında karakter kodlamasının ne olduğunu merak ediyorsanız şu yolu takip ediniz:
+
+- Önce üstteki menüden **Tools (Araçlar)** düğmesine tıklayınız
+- Açılan menüde **Global Options (Global ayarlar)** düğmesini bulunuz
+- Açılan sayfada **Code** tuşuna basınız
+- Ardından **Saving** sekmesine tıklayınız
+
+Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. Burada **Default text encoding** kısmına dikkat ediniz. Eğer **UTF-8** yazmıyorsa, **Change** tuşuna basarak, **UTF-8** kodlamasını bulunuz.
+
+![RStudio üzerinde UTF-8 kodlamasının seçilmesi](images/utf-8.png)
+
 ## Dosyaların isimlendirilmesi
 
 Bir diğer önemli nokta ise dosyaların isimlendirilmesi. Dosya isimlerinde asla ASCII dışında karakter ve boşluk kullanmayın. 
