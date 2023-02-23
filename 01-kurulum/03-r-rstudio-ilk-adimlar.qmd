@@ -8,9 +8,7 @@ Bu ders boyunca, yeni bir çalışma sistemi ile haşır neşir olacağız. Eski
 
 Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullan programların mantıklarını kavramanız gerekir. 
 
-Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir.
-
-Mesela @fig-curve-1, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum...
+Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir. Mesela @fig-curve-1, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum...
 
 ![Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.](images/learning-curve-1.png){#fig-curve-1}
 
@@ -18,12 +16,32 @@ Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde dök�
 
 ![Bu grafikte $x$ ekseni yapılan veri analiz işleminin boyutunu, $y$ ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır.](images/learning-curve-2.png){#fig-curve-2}
 
+Kafanız biraz karıştı farkediyorum. Ancak sürece güvenin. Unutmayın, hayatta önemli olan aslında süreçtir...
 
 ## Genel görünüm
 
-Bir RStudio ekranı açtığınızda aşağıdaki gibi bir görüntü ile karşılaşacaksınız.
+Eğer @sec-sistem bölümündeki adımları tam olarak takip ettiyseniz, R ve Rstudio programlarını kurmuş olmanız gerek. Eğer programları kurmadıysanız şimdi @sec-sistem kısmına geri dönerek, gerekli işlemleri yapınız.
+
+Programları tam olarak kurduysanız, @fig-r1'da göreceğiniz bir ekran karşınıza çıkmalı. Gelin bu ekranı inceleyelim:
+
++ Pencere 1: Burada komut satırı karşınıza çıkmakta. R ile komut satırı üzerinden etkileşeceksiniz.
++ Pencere 2: Bu kısımda ise iki temel sekme var:
+    + *Environment (Çevre)*: Bu sekmede, R üzerinde oluşturduğumuz değişkenler bulunmaktadır
+    + *History (Tarihçe)*: Kullandığımız komutlar burada saklanır. İstediğimiz zaman geriye dönebiliriz.
++ Pencere 3: Bu kısımda 3 farklı temel sekme bulunmaktadır:
+    + *Files (Dosyalar)*: R çalışma klasörümüzdeki dosyalar burada bulunur.
+    + *Plots (Grafikler)*: Veri analizi sırasında oluşturacağımız grafiklerin burada görüntülenecektir
+    + *Help (Yardım)*: R üzerinde paket bilgilerinin görüntülendiği yer.
+
+![RStudio karşılama ekranı](){#fig-r1}
+
+***Yanıp sönen imleç artık komutunuzu bekliyor!*
 
 ## Komut satırı üzerinde çalışma
+
+Komut satırı ekranında yanıp sönen bir imleç var. O imleç sizin komutunuzu bekliyor artık. R ile bu pencere üzerinden etkileşeceğiz. Siz bir komut yazacaksınız, R bu komutu işleyecek, ve sonucu geri döndürecek.
+
+Eğer imleç yanıp sönmüyorsa, R o sırada bir işle uğraşıyor demektir. İşin bitmesini bekleyiniz.
 
 Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:
 
@@ -32,3 +50,17 @@ Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. M
 ```
 
 R, bu işlemi yapar ve sonucu ekrana yazdırır.
+
+İsterseniz başka işlemler de yapabilirsiniz:
+
+```{r}
+12/4
+```
+
+Parantezli işlemler deneyelim:
+
+```{r}
+((6+5)*(12+6))/4
+```
+
+Tebrikler! R üzerinde ilk komutlarınızı yazdınız!
