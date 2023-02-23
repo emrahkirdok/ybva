@@ -2,13 +2,20 @@
 
 Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli derslerler ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
-Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır. 
+Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır.
 
 [Eski siteye buradan ulaşabilirsiniz](old-site/index.html)
 
+Ders sürekli güncellenmektedir. Dolayısıyla takip etmeniz gereklidir.
+
 ## Dersin işlenme şekli {.unnumbered}
 
-Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir.
+Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir. Çevrimiçi dersler, Microsoft Teams platformu üzerinden verilecektir. Mersin Üniversitesi öğrencileri, öğrenci e-posta adresleri ile, Teams platformuna girerek derslere ulaşabilirlirler.
+
+Ders videoları da yine Teams platformu üzerinden tekrar izlenmeye açık olacaktır.
+
+Biyoteknoloji Bölümü Discord sunucusu temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları orada cevaplayacağım. Dolayısıyla platforma üye olmanızı tavsiye ederim.
+
 
 ## Katkıda bulunan yazarlar {.unnumbered}
 
