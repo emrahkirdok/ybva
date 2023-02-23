@@ -36,9 +36,16 @@ book:
 
     - part: "Veri Analizi"
       chapters:
-        - 02-veri-analizi/veri-bilimine-giris.qmd 
-        - 02-veri-analizi/r-giris.qmd
-        - 02-veri-analizi/vektorler.qmd
+        - 02-veri-analizi/01-veri-bilimine-giris.qmd
+#        - 02-veri-analizi/02-bilimsel-yontem.qmd
+        - 02-veri-analizi/03-r-giris.qmd
+        - 02-veri-analizi/04-vektorler.qmd
+#        - 02-veri-analizi/05-matrisler.qmd
+#        - 02-veri-analizi/06-veri-cerceveleri.qmd
+#        - 02-veri-analizi/07-tibble.qmd
+#        - 02-veri-analizi/08-listeler.qmd
+#        - 02-veri-analizi/09-veri-cercevesi-vs-tibble.qmd
+#        - 02-veri-analizi/10-veri-islemleri.qmd
 #        - metin_bilimsel_hikaye_anlaticiligi.Rmd
 #        - metin_rmarkdown_odevleri_bilgi.Rmd
 #        - metin_dogrusal_modelleme_uygulamasi_1.Rmd
