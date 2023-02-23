@@ -1,0 +1,15 @@
+# R ve RStudio ile ilk adımlar
+
+## Genel görünüm
+
+Bir RStudio ekranı açtığınızda aşağıdaki gibi bir görüntü ile karşılaşacaksınız.
+
+## Komut satırı üzerinde çalışma
+
+Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:
+
+```{r}
+34 + 45
+```
+
+R, bu işlemi yapar ve sonucu ekrana yazdırır.
