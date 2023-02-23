@@ -38,9 +38,9 @@ Eğer kullandığınız RStudio programında karakter kodlamasının ne olduğun
 - Açılan sayfada **Code** tuşuna basınız
 - Ardından **Saving** sekmesine tıklayınız
 
-Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. Burada **Default text encoding** kısmına dikkat ediniz. Eğer **UTF-8** yazmıyorsa, **Change** tuşuna basarak, **UTF-8** kodlamasını bulunuz.
+Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. Burada **Default text encoding** kısmına dikkat ediniz. Eğer **UTF-8** yazmıyorsa, **Change** tuşuna basarak, **UTF-8** kodlamasını bulunuz (@fig-utf-8).
 
-![RStudio üzerinde UTF-8 kodlamasının seçilmesi](images/utf-8.png)
+![RStudio üzerinde UTF-8 kodlamasının seçilmesi](images/utf-8.png){#fig-utf-8}
 
 ## Dosya ve klasörlerin isimlendirilmesi
 
@@ -49,7 +49,6 @@ Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya
 ASCII dışındaki karakterler ve boşluk karakteri, dosya isimlerinin hatalı bir şekilde görünmesine sebep olabilir ve işlerinizi zorlaştırır.
 
 Komut satırı ile çalışan programlarda, boşluk karakteri özel bir anlama gelir. Eğer boşluk karakteri kullanıyorsanız, komut satırı işleyicileri yazdığınız kelimenin bittiğini düşünür ve komutunuz ona göre çalıştırır. Bu da hata yapmanıza sebep olur.
-
 
 ::: {.callout-important}
 
