@@ -33,7 +33,7 @@ Programları tam olarak kurduysanız, @fig-r1'da göreceğiniz bir ekran karşı
     + *Plots (Grafikler)*: Veri analizi sırasında oluşturacağımız grafiklerin burada görüntülenecektir
     + *Help (Yardım)*: R üzerinde paket bilgilerinin görüntülendiği yer.
 
-![RStudio karşılama ekranı](){#fig-r1}
+![RStudio karşılama ekranı](images/r1.png){#fig-r1}
 
 ***Yanıp sönen imleç artık komutunuzu bekliyor!*
 
