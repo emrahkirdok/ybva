@@ -6,5 +6,5 @@ _book
 .Ruserdata
 .snakemake
 *Rproj
-
+.Rbuildignore
 /.quarto/
