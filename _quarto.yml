@@ -79,6 +79,7 @@ language:
 
 format:
   html:
+    mainfont: helvetica
     theme:
       - darkly
     code-link: true
