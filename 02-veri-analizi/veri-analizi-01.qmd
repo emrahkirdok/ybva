@@ -1,5 +1,0 @@
-# Neden Veri Analizi?
-
-Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) 
-
-Örnek vermek gerekirse @fig-sra'ya bakacak olursanız, son yıllarda
