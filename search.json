@@ -144,7 +144,7 @@
     "href": "02-veri-analizi/01-veri-bilimine-giris.html",
     "title": "\n5  Neden Veri Analizi?\n",
     "section": "",
-    "text": "Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, veri miktarını inanılmaz ölçüde arttırdı.\nÖrnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi ?fig-sra’da görebilme imkanınız var.\n\nlibrary(ggplot2)\n\nsra <- read.csv2(\"data/sra_stat.csv\", \n    sep = \",\", \n    stringsAsFactors = FALSE)\n\nsra$date <- as.Date(sra$date, format = \"%m/%d/%Y\")\n\nggplot(data = sra, \n    aes(x=date, y= bytes/10^12)) + \n    geom_line() + \n    xlab(\"Tarih\") + \n    ylab(\"Veri Miktari (TB)\") + \n    theme_bw()\n\n[](01-veri-bilimine-giris_files/figure-html/label - fig-srawarning - FALSEfig.cap - “SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)”-1.png){width=672}\n\n\nBu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir."
+    "text": "Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, veri miktarını inanılmaz ölçüde arttırdı.\nÖrnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi ?fig-sra1’da görebilme imkanınız var.\n\n\n\n\n\nBu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html",
