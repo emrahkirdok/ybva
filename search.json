@@ -140,79 +140,79 @@
     "text": "4.5 Proje oluşturmak\nEğer proje oluşturursanız, hayatınız daha kolaylaşır.\nProje oluşturun ve proje klasörünüzün içerisine data isimli bir klasör daha oluşturun.\nArtık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.\nProje klasörü oluştdurduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.\n\ngetwd()\n\n[1] \"/home/runner/work/ybva/ybva/01-kurulum\"\n\n\nBu klasör içerisinde data isimli verilerin saklandığı bir klasör daha bulunmakta. Onun içinde neler var?\n\ndir(\"data\")\n\ncharacter(0)\n\n\nArtık R içerisinde bir dosya okumak isterseniz data/sinif.txt yazarak, rahatlıkla bu dosyayı okuyabilirsiniz."
   },
   {
-    "objectID": "02-veri-analizi/01-veri-bilimine-giris.html",
-    "href": "02-veri-analizi/01-veri-bilimine-giris.html",
+    "objectID": "02-veri-analizi/01-veri-bilimine-giris.html#biyolojik-veri-miktarı-hızlı-bir-şekilde-artıyor",
+    "href": "02-veri-analizi/01-veri-bilimine-giris.html#biyolojik-veri-miktarı-hızlı-bir-şekilde-artıyor",
     "title": "\n5  Neden Veri Analizi?\n",
-    "section": "",
-    "text": "Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, kamuya açık halde paylaşılan DNA ve RNA dizileme veri miktarını inanılmaz ölçüde arttırdı (Knapp ve Hofreiter 2010).\nÖrnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi Şekil 5.1’da görebilme imkanınız var.\n\n\n\n\nŞekil 5.1: SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)\n\n\n\n\nPeki bu veri bütünlüğünün içinde neler var? Kişisel gözlemlerim neticesinde\nBu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.\n\n\n\n\nKnapp, Michael, ve Michael Hofreiter. 2010. “Next Generation Sequencing of Ancient DNA: Requirements, Strategies and Perspectives”. Genes 1 (2): 227-43. https://doi.org/10.3390/genes1020227."
+    "section": "\n5.1 Biyolojik veri miktarı hızlı bir şekilde artıyor",
+    "text": "5.1 Biyolojik veri miktarı hızlı bir şekilde artıyor\nGünümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, kamuya açık halde paylaşılan DNA ve RNA dizileme veri miktarını inanılmaz ölçüde arttırdı (Knapp ve Hofreiter 2010).\nÖrnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi Şekil 5.1’da görebilme imkanınız var.\n\n\n\n\nŞekil 5.1: SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)\n\n\n\n\nPeki bu veri bütünlüğünün içinde neler var? Kişisel gözlemlerim neticesinde\nBu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.\n\n\n\n\nKnapp, Michael, ve Michael Hofreiter. 2010. “Next Generation Sequencing of Ancient DNA: Requirements, Strategies and Perspectives”. Genes 1 (2): 227-43. https://doi.org/10.3390/genes1020227."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html",
     "href": "02-veri-analizi/02-bilimsel-yontem.html",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "",
     "text": "7 Veri bilimi bu işin neresinde?\nPeki bu yazılanların derslerimizle olan ilgisi nedir? Geleneksel bilimsel yöntemin işleyişi genel olarak bir önceki kısımlarda yazdığımız güzergah üzerinde hareket etmektedi. Bu da genel olarka doğa gözlemlerine dayanır.\nÖrnek vermek gerekirse; antik çağ filozofoları, gözlem yeteneklerini sadece gözlem yeteneklerini kullanarak hipotezler gerliştimiş ve dünyayı kavramamızı sağlamıştır.\nAncak, yaşam bilimlerinde yaşanan hızlı gelişme artık karşımıza farklı bir paradigma çıkarmıştır: Veri üzerinden gözlem\nBir önceki dönem Moleküler Biyoloji dersinde yaşamsal bilginin hem nasıl sonraki nesillere hem de aynı zamanda hücre içerisinde aktarıldığını gördük. Bu yaşamsal bilgi aslında sahip oldumuz bütün fenotipten sorumlu. Dolayısıyla, sahip olduğumuz fenotipik özelliklerin bir çoğunun (epigenetik özellikler dışında) kaynağı DNA."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#bilimsel-araştırmaya-nasıl-başlarız",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#bilimsel-araştırmaya-nasıl-başlarız",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.1 Bilimsel araştırmaya nasıl başlarız?",
     "text": "6.1 Bilimsel araştırmaya nasıl başlarız?\nKarl Popper, Bilimsel Araştırmanın Mantığı isimli kitabının birinci Almanca baskısının önsözünde şöyle yazmıştır (Popper 1984):\n\nAraştırma, deyim yerindeyse damdan düşer gibi başlar; çünkü düşecek bir “dam” vardır.\n\nDamdan düşmek terimi bence güzel bir metafor; çünkü bilimsel araştırma aslında aklımıza takılan bir soruyla başlıyor. Bu soru oldukça sezgisel - ve kişisel deneyimlerimce - nasıl olduğunu anlamadığınız bir şekilde ortaya çıkıyor. Yani bir anlamda, hiç sebep yokken bir anda kendinizi çözmeniz gereken bir soruyla baş başa buluyorsunuz - yani damdan düşüyorsunuz.\nAncak, bilimde her şeyin bir kuralı olduğu gibi, damdan düşmenin de bir kuralı var. Biz buna bilimsel araştırma yöntemi diyoruz. Genel olarak aslında bilimin çalışma prensiplerinden bir tanesi de diyebiliriz.\nPeki nasıl işliyor? Genel bir çerçeve çizmek gerekirse:\n\nGözlem\nGözlemlere dayanarak hipotez kurulması\nDeneysel metodoloji ve teorinin testi\nDeney sonucunda elde edilen bulguların tümevarmsal analizi"
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#gözlem",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#gözlem",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.2 Gözlem",
     "text": "6.2 Gözlem\nYukarıdaki damdan düşme metaforunu ele alalım yine. Bu olay aslında uzun süreli bir gözlem sürecinin ardından bir anda ortaya çıkıyor. Yani ilk adım gözlem. Örnek verelim:\nKuğular üzerinde yaptığınız bir gözlem sonucunda, bütün kuğuların beyaz olduğunu gözlemlediniz. Bu gözlem size, dünya üzerindeki bütün kuğuların beyaz olduğunu düşünmenize sebep oldu."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#gözlemlere-dayanarak-hipotez-oluşturulması",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#gözlemlere-dayanarak-hipotez-oluşturulması",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.3 Gözlemlere dayanarak hipotez oluşturulması",
     "text": "6.3 Gözlemlere dayanarak hipotez oluşturulması\nGözlem sürecinin ardından, hipotez oluşturma süreci ortaya giriyor. Yine kuğu örneğinden gidersek, bu gözlem sonucunda şöyle bir hipotez oluşturdunuz: Dünya üzerindeki bütün kuğular beyazdır. Peki gerçekten öyle mi?\nArtık üçüncü adımda geçmeye hazırsınız…"
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#teorinin-deneysel-yöntem-ile-test-edilmesi",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#teorinin-deneysel-yöntem-ile-test-edilmesi",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.4 Teorinin deneysel yöntem ile test edilmesi",
     "text": "6.4 Teorinin deneysel yöntem ile test edilmesi\nArtık bu teorinizle ilgili bir yönetm geliştirmeniz ve bu teoriniz test etmeniz gerkekir. Tabi kuğu örneği açısından bakarsak, yapmamız gereken şey aslında bir kuğu popülasyonu alarak, elinizdeki kuğuların renklerini tespit etmek. Peki burada sorulabilecek muhtemel bir soru:\n\nAcaba dünya üzerindeki bütün kuğuları tek tek inceleyerek renklerini gözlemleyebilir misiniz?\n\nNe kadar geniş bir arama yaparsanız yapın, eninde sonunda gözünüzden kaçacak bir kuğu olacaktır. Burada bilimin bize sunduğu bir kolaylık ise, dünya üzerindeki kuğu popülasyonundan rastgele örneklem ile, küçük bir alt popülasyon oluşturmaktır.\nBurada önemli olan anahtar kelimeler: örneklem ve rastgele olacaktır.\nÖrneklem olarak tanımladığımız şey esasında, büyük bir popülasyonu temsil eden küçük bir alt popülasyonu tarif edecektir. Peki neden rastgele olmalı? İstatistik biliminde rastgele tanımı gelen olarak, hiç bir yanlılık içermeyen, tamamen körlemesine yapılan iş olarak tanımlanabilir.\n\nRastgele örneklem: Geniş bir popülasyonu, yanlılık içermeden temsil eden alt popülasyon. Dolayısıyla, elde ettiğimiz alt popülasyondaki her bir örneğin bulunma frekansı, ana popülasyondaki örneklerin bulunma frekanslarına yakınsayacaktır. Bu sayede, rastgele örneklem kullanarak, daha büyük bir popülasyon hakkında yargılara varabiliriz - ya da varabileceğimizi düşünürüz.\n\nKuğu örneğine geri dönelim o zaman. Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu yanlı bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#bilimin-temel-prensiplerinden-bir-tanesi-tümevarım",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#bilimin-temel-prensiplerinden-bir-tanesi-tümevarım",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.5 Bilimin temel prensiplerinden bir tanesi: Tümevarım",
     "text": "6.5 Bilimin temel prensiplerinden bir tanesi: Tümevarım\nPeki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabilirz - ya da biz şimdilik öyle kabul ediyoruz.\n\nTümevarım (indüksiyon, induction) ilkesi: Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlaya felsefi bir ilke. Bilim özeline bu ilkeyi uygularsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.\n\nYine kuğu popülasyonuna dönecek olursak; rastgele örneklem ile elde ettiğimiz alt popülasyonu incelediğimizi düşünelim. Bu örneklem içerisindeki kuğuların hepsi beyaz. O zaman tümevarım ilkesini kullanarak, dünya üzerindeki bütün kuğuların beyaz olduğu sonucuna varabiliriz.\n\nBu noktada bir dakika durun. Sizce bu sonuca varabilir miyiz?"
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#tümervarım-sorunu",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#tümervarım-sorunu",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.6 Tümervarım sorunu",
     "text": "6.6 Tümervarım sorunu\nDünya üzerinde bir tane siyah kuğu olduğunu düşünün. Eğer biz bu kuğuyu, rastgele örneklem içerisinde dahil etmede başarısız olursak; bütün tümavarım çıkarımımız çöker. Çünkü artık, dünya üzerindeki kuğulardan bir tanesinin siyah olduğunu biliyoruz.\nKarl Popper, yine aynı kitabında bu sorun üzerine eğiliyor. Ne kadar iyi örneklem alırsak alalım, modern bilimin işleyişinde tümevarım ilkesini kullanmak her zaman doğru sonuçlara varacağmızı garanti etmez."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#yanlışlanabilirlik-ilkesi",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#yanlışlanabilirlik-ilkesi",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n6.7 Yanlışlanabilirlik ilkesi",
     "text": "6.7 Yanlışlanabilirlik ilkesi\nDolayısıyla, modern bilim genel olarak yanlışlanabilirlik ilkesine göre çalışır. Bu ilkeye göre, tümevarımsal çıkarımlarımız aslında belirli bir olasılık düzeyine göre doğru kabul edilir (p-değeri) ve yanlışlanana kadar doğrudur.\nYine kuğu örneğine geri dönecek olursa, bütün kuğular beyaz olarak kabul edilirken, 1967 yılında Hollanda’da bir tane siyah kuğu keşfedilmiştir. Dolayısıyla artık bütün kuğular beyaz olmadığı gösterilmiştir.\n\nYanlışlanabilirlik ilkesine göre tümevarım çıkımları, yanlışlanana kadar doğru kabul edilir."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#son-yıllarda-veri-artışı-var",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#son-yıllarda-veri-artışı-var",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n7.1 Son yıllarda veri artışı var",
     "text": "7.1 Son yıllarda veri artışı var\nYeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyır. DNA dizi verisi gene olarka veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil @ref(fig:sra))\nBu veri miktarı bize yeni artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html#peki-veri-bilimi-nasıl-işliyor",
     "href": "02-veri-analizi/02-bilimsel-yontem.html#peki-veri-bilimi-nasıl-işliyor",
-    "title": "6  Veri Bilimine Giriş",
+    "title": "6  Bilimsel Yöntem",
     "section": "\n7.2 Peki veri bilimi nasıl işliyor?",
     "text": "7.2 Peki veri bilimi nasıl işliyor?\nGeleneksel yöntemin aksine, artık çıkış noktamız veri. Örnek vermek gerekirse DNA, RNA dizi verisi sıklıkla kullanılan yaşam bilimi verilerindendir. Peki süreç nasıl işliyor? Şöyle özetleyebiliriz:\n\nVerinin elde edilmesi\nVeri üzerinde incelemeler ve modelleme çalışmaları yapılması\nOluşturulan modellerin, benzer veri üzerinde test edilmesi\n\nDNA veya RNA dizi versinin nasıl elde edileceğini gelecek sene Biyoinformatik dersinde daha ayrıntılı bir şekilde işleyeceğiz. Dolayısıyla, şimdilik daha çok ikinci nokta üzerinde duracağız.\n\n7.2.1 Verinin incelemesi ve modelleme çalışmaları\nBu amaçla R ve Rstudio platformlarını kullancağız. Bu platformlar bize veri analizi, görselleştirmesi ve modellenmesi konusunda harika imkanlar sağlıyor.\nİlk adımda R içerisindeki veri yapılarını öğreneceğiz. Daha sonra R içerisine veriler yükleyerek, tablolar ve grafikler oluşturacağız. Örnek vermek gerekirse, Tablo @ref(tab:mtcarstb)’da R içerisinde gelen örnek veri setlerinden bir tanesinin tablo haline getirilmiş hali mevcut.\n\nlibrary(ggplot2)\nkableExtra::kable(x = head(mtcars), format = \"latex\", caption = \"Örnek veri setinden oluşturulmuş tablo\")\n\n\n\n\nBu noktadan sonra amacımız, verinin sakladığı hikayeleri incelemek ve bu hikayeleri tanımlayan modeller oluşturmak olacak. Eğer Şekil @ref(fig:mtcars)’e bakarsanız, örnek veri setindeki iki farklı değişken kullanılarak oluşturulmuş bir modeli görebilirsiniz.\nEğer matematiksel bir notasyon kullanmak istersek, şekilde görülen çizgiyi aslında şu şekilde ifade edebiliriz:\n\\[ Y = f(X) + \\epsilon \\]\n\nggplot(data=mtcars, aes(x=drat, y=mpg)) + geom_point() + \n  xlab(\"X\") + ylab(\"Y\") + geom_smooth(method = \"lm\") + theme_bw()\n\n\n\nÖrnek veri seti kullanılarak oluşturulmuş bir doğrusal model. Bu model bize, y eksenindeki değerlerin, x eksenindeki değerlerle olan ilişkisini açıklıyor. Ya da başka bir tanımla, x eksenindeki değerleri kullanarak, y eksenindeki değerleri ne kadar doğrulukla tahmin edebiliriz?\n\n\n\n\nTabi, şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşağıdaki konular üzerinden giderek R ve Rstüdyo programlarını kullanarak veri bilimine giriş yapacağız:\n\nR ve RStüdyo kurulumu\nR üzerinde bulunan temel veri yapıları\nVeri çerçevleri, matrisler, listeler\nTanımlayıcı istatistikler\nTemel istatistik analizler\nGGplot2 ile görlselleştirme\nDoğrusal modeller\n\n\n\n\n\nPopper, Karl R. 1984. Bilimsel Araştırmanın Mantığı. 8th bs. Yapı Kredi Yayınları."
   },
