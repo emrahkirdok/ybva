@@ -4,7 +4,7 @@
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, veri miktarını inanılmaz ölçüde arttırdı.
+Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, kamuya açık halde paylaşılan DNA ve RNA dizileme veri miktarını inanılmaz ölçüde arttırdı [@knapp_next_2010].
 
 Örnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi @fig-sra'da görebilme imkanınız var.
 
@@ -28,5 +28,8 @@ ggplot(data = sra,
     theme_bw()
 
 ```
+
+Peki bu veri bütünlüğünün içinde neler var? Kişisel gözlemlerim neticesinde
+
 
 Bu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.
