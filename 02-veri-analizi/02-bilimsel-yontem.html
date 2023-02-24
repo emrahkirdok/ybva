@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Emrah Kırdök">
+<title>Yaşam Bilimlerinde Veri Analizi - 6&nbsp; Veri Bilimine Giriş</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../02-veri-analizi/03-r-giris.html" rel="next">
+<link href="../02-veri-analizi/01-veri-bilimine-giris.html" rel="prev">
+<link href="../images/ybva.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sonuç yok",
+    "search-matching-documents-text": "eşleşen belgeler",
+    "search-copy-link-title": "Aramak için bağlantıyı kopyalayın",
+    "search-hide-matches-text": "Ek eşleşmeleri gizle",
+    "search-more-match-text": "bu belgede daha fazla eşleşme",
+    "search-more-matches-text": "bu belgede daha fazla eşleşmeler",
+    "search-clear-button-title": "Temizle",
+    "search-detached-cancel-button-title": "İptal et",
+    "search-submit-button-title": "Göndermek"
+  }
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emrahkirdok/ybva/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Önsöz</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">Katkı Sunma</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Derse Hazırlık</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Veri Analizi</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Bilgisayarlı Düşünme</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Uygulamalar</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Türkiye'nin Verisi</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Kaynakça</a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+<li><a href="#bilimsel-ara%C5%9Ft%C4%B1rmaya-nas%C4%B1l-ba%C5%9Flar%C4%B1z" id="toc-bilimsel-araştırmaya-nasıl-başlarız" class="nav-link active" data-scroll-target="#bilimsel-ara%C5%9Ft%C4%B1rmaya-nas%C4%B1l-ba%C5%9Flar%C4%B1z"><span class="toc-section-number">6.1</span>  Bilimsel araştırmaya nasıl başlarız?</a></li>
+  <li><a href="#g%C3%B6zlem" id="toc-gözlem" class="nav-link" data-scroll-target="#g%C3%B6zlem"><span class="toc-section-number">6.2</span>  Gözlem</a></li>
+  <li><a href="#g%C3%B6zlemlere-dayanarak-hipotez-olu%C5%9Fturulmas%C4%B1" id="toc-gözlemlere-dayanarak-hipotez-oluşturulması" class="nav-link" data-scroll-target="#g%C3%B6zlemlere-dayanarak-hipotez-olu%C5%9Fturulmas%C4%B1"><span class="toc-section-number">6.3</span>  Gözlemlere dayanarak hipotez oluşturulması</a></li>
+  <li><a href="#teorinin-deneysel-y%C3%B6ntem-ile-test-edilmesi" id="toc-teorinin-deneysel-yöntem-ile-test-edilmesi" class="nav-link" data-scroll-target="#teorinin-deneysel-y%C3%B6ntem-ile-test-edilmesi"><span class="toc-section-number">6.4</span>  Teorinin deneysel yöntem ile test edilmesi</a></li>
+  <li><a href="#bilimin-temel-prensiplerinden-bir-tanesi-t%C3%BCmevar%C4%B1m" id="toc-bilimin-temel-prensiplerinden-bir-tanesi-tümevarım" class="nav-link" data-scroll-target="#bilimin-temel-prensiplerinden-bir-tanesi-t%C3%BCmevar%C4%B1m"><span class="toc-section-number">6.5</span>  Bilimin temel prensiplerinden bir tanesi: Tümevarım</a></li>
+  <li><a href="#t%C3%BCmervar%C4%B1m-sorunu" id="toc-tümervarım-sorunu" class="nav-link" data-scroll-target="#t%C3%BCmervar%C4%B1m-sorunu"><span class="toc-section-number">6.6</span>  Tümervarım sorunu</a></li>
+  <li><a href="#yanl%C4%B1%C5%9Flanabilirlik-ilkesi" id="toc-yanlışlanabilirlik-ilkesi" class="nav-link" data-scroll-target="#yanl%C4%B1%C5%9Flanabilirlik-ilkesi"><span class="toc-section-number">6.7</span>  Yanlışlanabilirlik ilkesi</a></li>
+  <li>
+<a href="#veri-bilimi-bu-i%C5%9Fin-neresinde" id="toc-veri-bilimi-bu-işin-neresinde" class="nav-link" data-scroll-target="#veri-bilimi-bu-i%C5%9Fin-neresinde"><span class="toc-section-number">7</span>  Veri bilimi bu işin neresinde?</a>
+  <ul class="collapse">
+<li><a href="#son-y%C4%B1llarda-veri-art%C4%B1%C5%9F%C4%B1-var" id="toc-son-yıllarda-veri-artışı-var" class="nav-link" data-scroll-target="#son-y%C4%B1llarda-veri-art%C4%B1%C5%9F%C4%B1-var"><span class="toc-section-number">7.1</span>  Son yıllarda veri artışı var</a></li>
+  <li>
+<a href="#peki-veri-bilimi-nas%C4%B1l-i%C5%9Fliyor" id="toc-peki-veri-bilimi-nasıl-işliyor" class="nav-link" data-scroll-target="#peki-veri-bilimi-nas%C4%B1l-i%C5%9Fliyor"><span class="toc-section-number">7.2</span>  Peki veri bilimi nasıl işliyor?</a>
+  <ul class="collapse">
+<li><a href="#verinin-incelemesi-ve-modelleme-%C3%A7al%C4%B1%C5%9Fmalar%C4%B1" id="toc-verinin-incelemesi-ve-modelleme-çalışmaları" class="nav-link" data-scroll-target="#verinin-incelemesi-ve-modelleme-%C3%A7al%C4%B1%C5%9Fmalar%C4%B1"><span class="toc-section-number">7.2.1</span>  Verinin incelemesi ve modelleme çalışmaları</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-veri-bilimi-giris" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><section id="bilimsel-araştırmaya-nasıl-başlarız" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="bilimsel-araştırmaya-nasıl-başlarız">
+<span class="header-section-number">6.1</span> Bilimsel araştırmaya nasıl başlarız?</h2>
+<p>Karl Popper, <strong>Bilimsel Araştırmanın Mantığı</strong> isimli kitabının birinci Almanca baskısının önsözünde şöyle yazmıştır <span class="citation" data-cites="Popper">(<a href="../references.html#ref-Popper" role="doc-biblioref">Popper 1984</a>)</span>:</p>
+<blockquote class="blockquote">
+<p>Araştırma, deyim yerindeyse damdan düşer gibi başlar; çünkü düşecek bir “dam” vardır.</p>
+</blockquote>
+<p><strong>Damdan düşmek</strong> terimi bence güzel bir metafor; çünkü bilimsel araştırma aslında aklımıza takılan bir soruyla başlıyor. Bu soru oldukça sezgisel - ve kişisel deneyimlerimce - nasıl olduğunu anlamadığınız bir şekilde ortaya çıkıyor. Yani bir anlamda, hiç sebep yokken bir anda kendinizi çözmeniz gereken bir soruyla baş başa buluyorsunuz - yani <strong>damdan düşüyorsunuz.</strong></p>
+<p>Ancak, bilimde her şeyin bir kuralı olduğu gibi, <strong>damdan düşme</strong>nin de bir kuralı var. Biz buna bilimsel araştırma yöntemi diyoruz. Genel olarak aslında bilimin çalışma prensiplerinden bir tanesi de diyebiliriz.</p>
+<p>Peki nasıl işliyor? Genel bir çerçeve çizmek gerekirse:</p>
+<ul>
+<li>Gözlem</li>
+<li>Gözlemlere dayanarak hipotez kurulması</li>
+<li>Deneysel metodoloji ve teorinin testi</li>
+<li>Deney sonucunda elde edilen bulguların tümevarmsal analizi</li>
+</ul></section><section id="gözlem" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="gözlem">
+<span class="header-section-number">6.2</span> Gözlem</h2>
+<p>Yukarıdaki <strong>damdan düşme</strong> metaforunu ele alalım yine. Bu olay aslında uzun süreli bir gözlem sürecinin ardından bir anda ortaya çıkıyor. Yani ilk adım <strong>gözlem</strong>. Örnek verelim:</p>
+<p>Kuğular üzerinde yaptığınız bir gözlem sonucunda, bütün kuğuların beyaz olduğunu gözlemlediniz. Bu gözlem size, dünya üzerindeki bütün kuğuların beyaz olduğunu düşünmenize sebep oldu.</p>
+</section><section id="gözlemlere-dayanarak-hipotez-oluşturulması" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="gözlemlere-dayanarak-hipotez-oluşturulması">
+<span class="header-section-number">6.3</span> Gözlemlere dayanarak hipotez oluşturulması</h2>
+<p>Gözlem sürecinin ardından, hipotez oluşturma süreci ortaya giriyor. Yine kuğu örneğinden gidersek, bu gözlem sonucunda şöyle bir hipotez oluşturdunuz: Dünya üzerindeki bütün kuğular beyazdır. Peki gerçekten öyle mi?</p>
+<p>Artık üçüncü adımda geçmeye hazırsınız…</p>
+</section><section id="teorinin-deneysel-yöntem-ile-test-edilmesi" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="teorinin-deneysel-yöntem-ile-test-edilmesi">
+<span class="header-section-number">6.4</span> Teorinin deneysel yöntem ile test edilmesi</h2>
+<p>Artık bu teorinizle ilgili bir yönetm geliştirmeniz ve bu teoriniz test etmeniz gerkekir. Tabi kuğu örneği açısından bakarsak, yapmamız gereken şey aslında bir kuğu popülasyonu alarak, elinizdeki kuğuların renklerini tespit etmek. Peki burada sorulabilecek muhtemel bir soru:</p>
+<div class="warning">
+<p>Acaba dünya üzerindeki bütün kuğuları tek tek inceleyerek renklerini gözlemleyebilir misiniz?</p>
+</div>
+<p>Ne kadar geniş bir arama yaparsanız yapın, eninde sonunda gözünüzden kaçacak bir kuğu olacaktır. Burada bilimin bize sunduğu bir kolaylık ise, dünya üzerindeki kuğu popülasyonundan <strong>rastgele örneklem</strong> ile, küçük bir alt popülasyon oluşturmaktır.</p>
+<p>Burada önemli olan anahtar kelimeler: <strong>örneklem</strong> ve <strong>rastgele</strong> olacaktır.</p>
+<p>Örneklem olarak tanımladığımız şey esasında, büyük bir popülasyonu temsil eden küçük bir alt popülasyonu tarif edecektir. Peki neden rastgele olmalı? İstatistik biliminde rastgele tanımı gelen olarak, hiç bir yanlılık içermeyen, tamamen körlemesine yapılan iş olarak tanımlanabilir.</p>
+<div class="important">
+<p><strong>Rastgele örneklem:</strong> Geniş bir popülasyonu, yanlılık içermeden temsil eden alt popülasyon. Dolayısıyla, elde ettiğimiz alt popülasyondaki her bir örneğin bulunma frekansı, ana popülasyondaki örneklerin bulunma frekanslarına yakınsayacaktır. Bu sayede, rastgele örneklem kullanarak, daha büyük bir popülasyon hakkında yargılara varabiliriz - ya da varabileceğimizi düşünürüz.</p>
+</div>
+<p>Kuğu örneğine geri dönelim o zaman. Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu <strong>yanlı</strong> bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır.</p>
+</section><section id="bilimin-temel-prensiplerinden-bir-tanesi-tümevarım" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="bilimin-temel-prensiplerinden-bir-tanesi-tümevarım">
+<span class="header-section-number">6.5</span> Bilimin temel prensiplerinden bir tanesi: Tümevarım</h2>
+<p>Peki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabilirz - ya da biz şimdilik öyle kabul ediyoruz.</p>
+<div class="important">
+<p><strong>Tümevarım (indüksiyon, induction) ilkesi:</strong> Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlaya felsefi bir ilke. Bilim özeline bu ilkeyi uygularsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.</p>
+</div>
+<p>Yine kuğu popülasyonuna dönecek olursak; rastgele örneklem ile elde ettiğimiz alt popülasyonu incelediğimizi düşünelim. Bu örneklem içerisindeki kuğuların hepsi beyaz. O zaman tümevarım ilkesini kullanarak, dünya üzerindeki bütün kuğuların beyaz olduğu sonucuna varabiliriz.</p>
+<div class="warning">
+<p>Bu noktada bir dakika durun. Sizce bu sonuca varabilir miyiz?</p>
+</div>
+</section><section id="tümervarım-sorunu" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="tümervarım-sorunu">
+<span class="header-section-number">6.6</span> Tümervarım sorunu</h2>
+<p>Dünya üzerinde bir tane siyah kuğu olduğunu düşünün. Eğer biz bu kuğuyu, <strong>rastgele örneklem</strong> içerisinde dahil etmede başarısız olursak; bütün tümavarım çıkarımımız çöker. Çünkü artık, dünya üzerindeki kuğulardan bir tanesinin siyah olduğunu biliyoruz.</p>
+<p>Karl Popper, yine aynı kitabında bu sorun üzerine eğiliyor. Ne kadar iyi örneklem alırsak alalım, modern bilimin işleyişinde tümevarım ilkesini kullanmak her zaman doğru sonuçlara varacağmızı garanti etmez.</p>
+</section><section id="yanlışlanabilirlik-ilkesi" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="yanlışlanabilirlik-ilkesi">
+<span class="header-section-number">6.7</span> Yanlışlanabilirlik ilkesi</h2>
+<p>Dolayısıyla, modern bilim genel olarak yanlışlanabilirlik ilkesine göre çalışır. Bu ilkeye göre, tümevarımsal çıkarımlarımız aslında belirli bir olasılık düzeyine göre doğru kabul edilir (<em>p</em>-değeri) ve yanlışlanana kadar doğrudur.</p>
+<p>Yine kuğu örneğine geri dönecek olursa, bütün kuğular beyaz olarak kabul edilirken, 1967 yılında Hollanda’da bir tane siyah kuğu keşfedilmiştir. Dolayısıyla artık bütün kuğular beyaz olmadığı gösterilmiştir.</p>
+<div class="important">
+<p>Yanlışlanabilirlik ilkesine göre tümevarım çıkımları, yanlışlanana kadar doğru kabul edilir.</p>
+</div>
+</section><section id="veri-bilimi-bu-işin-neresinde" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> Veri bilimi bu işin neresinde?</h1>
+<p>Peki bu yazılanların derslerimizle olan ilgisi nedir? Geleneksel bilimsel yöntemin işleyişi genel olarak bir önceki kısımlarda yazdığımız güzergah üzerinde hareket etmektedi. Bu da genel olarka doğa gözlemlerine dayanır.</p>
+<p>Örnek vermek gerekirse; antik çağ filozofoları, gözlem yeteneklerini sadece gözlem yeteneklerini kullanarak hipotezler gerliştimiş ve dünyayı kavramamızı sağlamıştır.</p>
+<p>Ancak, yaşam bilimlerinde yaşanan hızlı gelişme artık karşımıza farklı bir paradigma çıkarmıştır: <strong>Veri üzerinden gözlem</strong></p>
+<p>Bir önceki dönem Moleküler Biyoloji dersinde yaşamsal bilginin hem nasıl sonraki nesillere hem de aynı zamanda hücre içerisinde aktarıldığını gördük. Bu yaşamsal bilgi aslında sahip oldumuz bütün fenotipten sorumlu. Dolayısıyla, sahip olduğumuz fenotipik özelliklerin bir çoğunun (epigenetik özellikler dışında) kaynağı DNA.</p>
+<div class="important">
+<p><strong>Fenotip:</strong> Bir canlılnın sahip olduğu genetik bilginin, anlatıma uğrayarak işlevsel hale gelmiş halidir. Mesela göz rengimizden sorumlu gen bölgesi anlatıma uğradığında, göz rengi fenotipi oluşur.</p>
+</div>
+<section id="son-yıllarda-veri-artışı-var" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="son-yıllarda-veri-artışı-var">
+<span class="header-section-number">7.1</span> Son yıllarda veri artışı var</h2>
+<p>Yeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyır. DNA dizi verisi gene olarka veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil @ref(fig:sra))</p>
+<p>Bu veri miktarı bize yeni artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor.</p>
+</section><section id="peki-veri-bilimi-nasıl-işliyor" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="peki-veri-bilimi-nasıl-işliyor">
+<span class="header-section-number">7.2</span> Peki veri bilimi nasıl işliyor?</h2>
+<p>Geleneksel yöntemin aksine, artık çıkış noktamız veri. Örnek vermek gerekirse DNA, RNA dizi verisi sıklıkla kullanılan yaşam bilimi verilerindendir. Peki süreç nasıl işliyor? Şöyle özetleyebiliriz:</p>
+<ol type="1">
+<li>Verinin elde edilmesi</li>
+<li>Veri üzerinde incelemeler ve modelleme çalışmaları yapılması</li>
+<li>Oluşturulan modellerin, benzer veri üzerinde test edilmesi</li>
+</ol>
+<p>DNA veya RNA dizi versinin nasıl elde edileceğini gelecek sene <strong>Biyoinformatik</strong> dersinde daha ayrıntılı bir şekilde işleyeceğiz. Dolayısıyla, şimdilik daha çok ikinci nokta üzerinde duracağız.</p>
+<section id="verinin-incelemesi-ve-modelleme-çalışmaları" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="verinin-incelemesi-ve-modelleme-çalışmaları">
+<span class="header-section-number">7.2.1</span> Verinin incelemesi ve modelleme çalışmaları</h3>
+<p>Bu amaçla R ve Rstudio platformlarını kullancağız. Bu platformlar bize veri analizi, görselleştirmesi ve modellenmesi konusunda harika imkanlar sağlıyor.</p>
+<p>İlk adımda R içerisindeki veri yapılarını öğreneceğiz. Daha sonra R içerisine veriler yükleyerek, tablolar ve grafikler oluşturacağız. Örnek vermek gerekirse, Tablo @ref(tab:mtcarstb)’da R içerisinde gelen örnek veri setlerinden bir tanesinin tablo haline getirilmiş hali mevcut.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>, format <span class="op">=</span> <span class="st">"latex"</span>, caption <span class="op">=</span> <span class="st">"Örnek veri setinden oluşturulmuş tablo"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+</div>
+</div>
+<p>Bu noktadan sonra amacımız, verinin sakladığı hikayeleri incelemek ve bu hikayeleri tanımlayan modeller oluşturmak olacak. Eğer Şekil @ref(fig:mtcars)’e bakarsanız, örnek veri setindeki iki farklı değişken kullanılarak oluşturulmuş bir modeli görebilirsiniz.</p>
+<p>Eğer matematiksel bir notasyon kullanmak istersek, şekilde görülen çizgiyi aslında şu şekilde ifade edebiliriz:</p>
+<p><span class="math display">\[ Y = f(X) + \epsilon \]</span></p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">drat</span>, y<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"X"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Y"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="02-bilimsel-yontem_files/figure-html/mtcars-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Örnek veri seti kullanılarak oluşturulmuş bir doğrusal model. Bu model bize, y eksenindeki değerlerin, x eksenindeki değerlerle olan ilişkisini açıklıyor. Ya da başka bir tanımla, x eksenindeki değerleri kullanarak, y eksenindeki değerleri ne kadar doğrulukla tahmin edebiliriz?</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Tabi, şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşağıdaki konular üzerinden giderek R ve Rstüdyo programlarını kullanarak veri bilimine giriş yapacağız:</p>
+<ol type="1">
+<li>R ve RStüdyo kurulumu</li>
+<li>R üzerinde bulunan temel veri yapıları</li>
+<li>Veri çerçevleri, matrisler, listeler</li>
+<li>Tanımlayıcı istatistikler</li>
+<li>Temel istatistik analizler</li>
+<li>GGplot2 ile görlselleştirme</li>
+<li>Doğrusal modeller</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Popper" class="csl-entry" role="doc-biblioentry">
+Popper, Karl R. 1984. <em>Bilimsel <span>Araştırmanın</span> <span>Mantığı</span></em>. 8th bs. Yapı Kredi Yayınları.
+</div>
+</div>
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopyalandı");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopyalandı");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../02-veri-analizi/03-r-giris.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</div>   
+    <div class="nav-footer-right">Bu kitap Veri Analizi, İstatistiksel Öğrenme, ve Yaşam Bilimlerinde Veri Analizi Dersleri için kaynak olarak kullanılacaktır.</div>
+  </div>
+</footer>
+
+
+</body></html>

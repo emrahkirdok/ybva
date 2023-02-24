@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emrah Kırdök">
-<title>Yaşam Bilimlerinde Veri Analizi - 7&nbsp; Vektörler</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 8&nbsp; Vektörler</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vektörler</span>
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -186,7 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve RStudio ile ilk adımlar</span></a>
+  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -206,17 +206,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
   </div>
 </li>
       </ul>
@@ -241,15 +246,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler" id="toc-vektör-oluşturma-üzerine-örnekler" class="nav-link active" data-scroll-target="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler"><span class="toc-section-number">7.1</span>  Vektör oluşturma üzerine örnekler</a></li>
-  <li><a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">7.2</span>  Vektörlerde indis kullanımı</a></li>
-  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">7.3</span>  Sonuç</a></li>
+<li><a href="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler" id="toc-vektör-oluşturma-üzerine-örnekler" class="nav-link active" data-scroll-target="#vekt%C3%B6r-olu%C5%9Fturma-%C3%BCzerine-%C3%B6rnekler"><span class="toc-section-number">8.1</span>  Vektör oluşturma üzerine örnekler</a></li>
+  <li><a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">8.2</span>  Vektörlerde indis kullanımı</a></li>
+  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">8.3</span>  Sonuç</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vektörler</span>
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span>
 </h1>
 </div>
 
@@ -302,12 +307,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?</p>
 </blockquote>
-<section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
-<span class="header-section-number">7.1</span> Vektör oluşturma üzerine örnekler</h2>
-<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için <a href="#tbl-bitkiler">Tablo&nbsp;<span>7.1</span></a>’e bakınız.</p>
+<section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
+<span class="header-section-number">8.1</span> Vektör oluşturma üzerine örnekler</h2>
+<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için <a href="#tbl-bitkiler">Tablo&nbsp;<span>8.1</span></a>’e bakınız.</p>
 <div id="tbl-bitkiler" class="anchored">
 <table class="table">
-<caption>Tablo&nbsp;7.1: Hayali veri setimizdeki bitkiler</caption>
+<caption>Tablo&nbsp;8.1: Hayali veri setimizdeki bitkiler</caption>
 <thead><tr class="header">
 <th style="text-align: left;">Bitki İsmi</th>
 <th style="text-align: right;">Yaprak Uzunluğu (cm)</th>
@@ -373,8 +378,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
-</section><section id="vektörlerde-indis-kullanımı" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="vektörlerde-indis-kullanımı">
-<span class="header-section-number">7.2</span> Vektörlerde indis kullanımı</h2>
+</section><section id="vektörlerde-indis-kullanımı" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="vektörlerde-indis-kullanımı">
+<span class="header-section-number">8.2</span> Vektörlerde indis kullanımı</h2>
 <p>Peki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz <code>yaprak_uzunlugu</code> vektörü üzerinde ikinci elemanı alalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -408,8 +413,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="note">
 <p>Dikkat edin, burada <code>yaprak_uzunlugu</code> vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.</p>
 </div>
-</section><section id="sonuç" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="sonuç">
-<span class="header-section-number">7.3</span> Sonuç</h2>
+</section><section id="sonuç" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="sonuç">
+<span class="header-section-number">8.3</span> Sonuç</h2>
 <p>Bu kısım kapsamında aşağıdaki konular önemlidir:</p>
 <ul>
 <li>Bir vektör oluşturmak için <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanırız, ve vektör elemanlarını <code>,</code> ile ayırırız</li>
@@ -553,7 +558,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../02-veri-analizi/03-r-giris.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

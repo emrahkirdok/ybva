@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emrah Kırdök">
-<title>Yaşam Bilimlerinde Veri Analizi - 6&nbsp; R ve Rstudio ile çalışma</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 7&nbsp; R ve Rstudio ile çalışma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../02-veri-analizi/04-vektorler.html" rel="next">
-<link href="../02-veri-analizi/01-veri-bilimine-giris.html" rel="prev">
+<link href="../02-veri-analizi/02-bilimsel-yontem.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -126,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span>
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -186,7 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R ve RStudio ile ilk adımlar</span></a>
+  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -206,17 +206,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
+  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
   </div>
 </li>
       </ul>
@@ -241,14 +246,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link active" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="toc-section-number">6.1</span>  Değişken atama</a></li>
-  <li><a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="toc-section-number">6.2</span>  Veri tipleri</a></li>
+<li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link active" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="toc-section-number">7.1</span>  Değişken atama</a></li>
+  <li><a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="toc-section-number">7.2</span>  Veri tipleri</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span>
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span>
 </h1>
 </div>
 
@@ -262,8 +267,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><section id="değişken-atama" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="değişken-atama">
-<span class="header-section-number">6.1</span> Değişken atama</h2>
+</header><section id="değişken-atama" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="değişken-atama">
+<span class="header-section-number">7.1</span> Değişken atama</h2>
 <p>Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü <code>&lt;-</code> kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -281,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır.</p>
-</section><section id="veri-tipleri" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="veri-tipleri">
-<span class="header-section-number">6.2</span> Veri tipleri</h2>
+</section><section id="veri-tipleri" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="veri-tipleri">
+<span class="header-section-number">7.2</span> Veri tipleri</h2>
 <p>R içerisinde dört temel veri tipimiz bulunmaktadır:</p>
 <ul>
 <li>Sayı (<em>numeric</em>, <code>num</code>)</li>
@@ -484,13 +489,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span>
+      <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Veri Bilimine Giriş</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../02-veri-analizi/04-vektorler.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vektörler</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
