@@ -1,18 +1,16 @@
 # Neden Veri Analizi?
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
 Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, veri miktarını inanılmaz ölçüde arttırdı.
 
-Örnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi @fig-sra1'da görebilme imkanınız var. 
+Örnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi @fig-sra'da görebilme imkanınız var.
 
 ```{r}
-
-#| label: fig-sra1
-#| warning: false
-#| fig-cap: SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022).
+#| label: fig-sra
+#| fig.cap: "SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)"
 
 library(ggplot2)
 
@@ -31,5 +29,4 @@ ggplot(data = sra,
 
 ```
 
-Bu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir. 
-
+Bu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.
