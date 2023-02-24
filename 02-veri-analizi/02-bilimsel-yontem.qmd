@@ -1,9 +1,5 @@
 # Veri Bilimine Giriş {#sec-veri-bilimi-giris}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 ## Bilimsel araştırmaya nasıl başlarız?
 
 Karl Popper, **Bilimsel Araştırmanın Mantığı** isimli kitabının birinci Almanca baskısının önsözünde şöyle yazmıştır [@Popper]:
@@ -20,7 +16,6 @@ Peki nasıl işliyor? Genel bir çerçeve çizmek gerekirse:
 + Gözlemlere dayanarak hipotez kurulması
 + Deneysel metodoloji ve teorinin testi
 + Deney sonucunda elde edilen bulguların tümevarmsal analizi
-
 
 ## Gözlem
 
@@ -102,13 +97,6 @@ Bir önceki dönem Moleküler Biyoloji dersinde yaşamsal bilginin hem nasıl so
 
 Yeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyır. DNA dizi verisi gene olarka veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil \@ref(fig:sra))
 
-```{r sra, warning = FALSE, fig.cap= "SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)"}
-library(ggplot2)
-sra <- read.csv2("data/sra_stat.csv", sep = ",", stringsAsFactors = FALSE)
-sra$date <- as.Date(sra$date, format = "%m/%d/%Y")
-ggplot(data = sra, aes(x=date, y= bytes/10^12)) + geom_line() + 
-  xlab("Tarih") + ylab("Veri Miktari (TB)") + theme_bw()
-```
 
 Bu veri miktarı bize yeni artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor.
 
