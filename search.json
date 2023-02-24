@@ -144,7 +144,7 @@
     "href": "02-veri-analizi/01-veri-bilimine-giris.html",
     "title": "\n5  Neden Veri Analizi?\n",
     "section": "",
-    "text": "Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, veri miktarını inanılmaz ölçüde arttırdı.\nÖrnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi Şekil 5.1’da görebilme imkanınız var.\n\n\n\n\nŞekil 5.1: SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)\n\n\n\n\nBu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir."
+    "text": "Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, kamuya açık halde paylaşılan DNA ve RNA dizileme veri miktarını inanılmaz ölçüde arttırdı (Knapp ve Hofreiter 2010).\nÖrnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi Şekil 5.1’da görebilme imkanınız var.\n\n\n\n\nŞekil 5.1: SRA veritabanındaki hızlı büyüme. Yeni nesil dizileme teknolojilerinde yaşanan hızlı gelişmeler sayesinde, SRA veritanının güncel büyüklüğü 20bin Terabaytı aşmış durumdadır (erişim tarihi 16/02/2022)\n\n\n\n\nPeki bu veri bütünlüğünün içinde neler var? Kişisel gözlemlerim neticesinde\nBu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.\n\n\n\n\nKnapp, Michael, ve Michael Hofreiter. 2010. “Next Generation Sequencing of Ancient DNA: Requirements, Strategies and Perspectives”. Genes 1 (2): 227-43. https://doi.org/10.3390/genes1020227."
   },
   {
     "objectID": "02-veri-analizi/02-bilimsel-yontem.html",
@@ -256,6 +256,6 @@
     "href": "references.html",
     "title": "Kaynakça",
     "section": "",
-    "text": "Popper, Karl R. 1984. Bilimsel Araştırmanın\nMantığı. 8th ed. Yapı Kredi Yayınları."
+    "text": "Knapp, Michael, and Michael Hofreiter. 2010. “Next\nGeneration Sequencing of Ancient\nDNA: Requirements, Strategies and\nPerspectives.” Genes 1 (2): 227–43. https://doi.org/10.3390/genes1020227.\n\n\nPopper, Karl R. 1984. Bilimsel Araştırmanın\nMantığı. 8th ed. Yapı Kredi Yayınları."
   }
 ]
