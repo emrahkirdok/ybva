@@ -1,4 +1,8 @@
-# Veri Bilimine Giriş {#sec-veri-bilimi-giris}
+# Bilimsel Yöntem {#sec-veri-bilimi-giris}
+
+Veri biliminin temellerini anladıktan sonra bilimsel araştırma hakkında konuşabiliriz. Çünkü her veri, aslında bilimsel bir araştırmanın ürünüdür. Kamuya açık veriler kullanılarak yapılan araştırmalarda da bilimsel araştırma yöntemlerini kullanmalıyız.
+
+Bu yüzden, temel bilimsl araştırma mantığını kavramalı, ve veri bilimi ile olan ilişkisini öğrenmeliyiz.
 
 ## Bilimsel araştırmaya nasıl başlarız?
 

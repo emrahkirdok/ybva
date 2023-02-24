@@ -4,6 +4,18 @@
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+Öncelikle veri bilimi oldukça havalı bir meslek. Bunu sadece ben söylemiyorum, internette biraz araştırırsanız veri biliminin ne kadar gözde bir alan olduğunu anlayabilirsiniz.
+
+![](https://miro.medium.com/max/698/1*jDs1eDvuyAb7KLUbezCxuA.jpeg)
+
+Ayrıca Chandler Bing'in de zamanında icra ettiği bir meslekti. Tabii o zamanlar bu kadar çok popüler değildi.
+
+![](https://i.pinimg.com/originals/32/a0/0d/32a00d1722efa7a768265e00d0e1976e.jpg)
+
+Ancak benim değinmek istediğim nokta daha farklı.
+
+## Biyolojik veri miktarı hızlı bir şekilde artıyor
+
 Günümüzede yaşam bilimleri alanında hızlı bir gelişme mevcut. Özellikle Yeni Nesil Dizileme Teknolojileri (Next Generation Sequencing) alanında yaşanan hızlı gelişim, kamuya açık halde paylaşılan DNA ve RNA dizileme veri miktarını inanılmaz ölçüde arttırdı [@knapp_next_2010].
 
 Örnek vermek gerekirse, YND verisinin depolanıdğı SRA arşivindeki büyümeyi @fig-sra'da görebilme imkanınız var.
