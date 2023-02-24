@@ -117,6 +117,7 @@ Bu amaçla R ve Rstudio platformlarını kullancağız. Bu platformlar bize veri
 İlk adımda R içerisindeki veri yapılarını öğreneceğiz. Daha sonra R içerisine veriler yükleyerek, tablolar ve grafikler oluşturacağız. Örnek vermek gerekirse, Tablo \@ref(tab:mtcarstb)'da R içerisinde gelen örnek veri setlerinden bir tanesinin tablo haline getirilmiş hali mevcut.
 
 ```{r mtcarstb}
+library(ggplot2)
 kableExtra::kable(x = head(mtcars), format = "latex", caption = "Örnek veri setinden oluşturulmuş tablo")
 ```
 
