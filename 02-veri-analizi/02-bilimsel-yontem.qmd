@@ -1,4 +1,4 @@
-# Bilimsel Yöntem {#sec-veri-bilimi-giris}
+# Bilimsel Yöntem {#sec-veri-02}
 
 Veri biliminin temellerini anladıktan sonra bilimsel araştırma hakkında konuşabiliriz. Çünkü her veri, aslında bilimsel bir araştırmanın ürünüdür. Kamuya açık veriler kullanılarak yapılan araştırmalarda da bilimsel araştırma yöntemlerini kullanmalıyız.
 
