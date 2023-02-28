@@ -3,6 +3,7 @@
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+::: {.content-visible when-format="html"}
 
 Öncelikle veri bilimi oldukça havalı bir meslek. Bunu sadece ben söylemiyorum, internette biraz araştırırsanız veri biliminin ne kadar gözde bir alan olduğunu anlayabilirsiniz.
 
@@ -13,6 +14,8 @@ Ayrıca Chandler Bing'in de zamanında icra ettiği bir meslekti. Tabii o zamanl
 ![](https://i.pinimg.com/originals/32/a0/0d/32a00d1722efa7a768265e00d0e1976e.jpg)
 
 Ancak benim değinmek istediğim nokta daha farklı.
+
+:::
 
 ## Biyolojik veri miktarı hızlı bir şekilde artıyor
 

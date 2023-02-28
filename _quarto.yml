@@ -83,5 +83,6 @@ format:
     theme:
       - darkly
     code-link: true
-
+  pdf:
+    documentclass: scrbook
     author-meta: "Emrah Kırdök"
