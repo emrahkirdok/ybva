@@ -50,13 +50,13 @@ Bir çok yerde dikkat etmeniz gereken özel noktalar size belirtilecektir.
 ::: {.callout-note}
 ## Not
 
-Eğer böyle bir uyarıya denk gelirseniz, bunu not etmeniz sizin için faydalı olabilir
+Eğer böyle bir uyarıya denk gelirseniz, bunu not etmeniz sizin için faydalı olabilir.
 :::
 
 :::{.callout-tip}
 ## İpucu
 
-R üzerinde bir işi yapmanın birden fazla yolu bulunmaktadır. Eğer böyle bir uyarıya denk gelirseniz, alternatif bir yol izleyebilirsiniz
+R üzerinde bir işi yapmanın birden fazla yolu bulunmaktadır. Eğer böyle bir uyarıya denk gelirseniz, alternatif bir yol izleyebilirsiniz.
 
 :::
 
