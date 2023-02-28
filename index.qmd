@@ -21,6 +21,7 @@ Biyoteknoloji Bölümü Discord sunucusu ise temel haberleşme noktamız olacakt
 Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda alfabetik olarak sıralanmıştır:
 
 + Anıl Yalçıner
++ Merve Akküp
 + Tanya Beril Korkmaz
 
 Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları inceleyebilirsiniz.
