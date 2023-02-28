@@ -1,4 +1,4 @@
-# R ve Rstudio ile çalışma
+# R ve Rstudio ile çalışma {#sec-r-giris}
 
 ## Değişken atama
 

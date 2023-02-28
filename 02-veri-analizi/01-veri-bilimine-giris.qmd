@@ -1,4 +1,4 @@
-# Neden Veri Analizi?
+# Neden Veri Analizi? {#sec-veri-01}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

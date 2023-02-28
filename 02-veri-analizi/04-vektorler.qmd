@@ -1,4 +1,4 @@
-# Vektörler
+# Vektörler {#sec-vektorler}
 
 Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil, bir grup örnek ile çalışmamız gerekmektedir.
 
