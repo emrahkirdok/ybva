@@ -1,12 +1,12 @@
 # Önsöz {.unnumbered}
 
-Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli dersleri ile ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
+Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli dersler ile ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
 Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır.
 
 [Eski siteye buradan ulaşabilirsiniz](old-site/index.html)
 
-Dersler sürekli güncellenmektedir, dolayısıyla dönemin sonuna doğru eski site kullanımdan kaldırılacaktır. Ancak şu an için dersin internet sitesini sürekli takip etmeniz iyi olacaktır.
+Dersler sürekli güncellenmektedir, dolayısıyla dönemin sonuna doğru eski site kullanımdan kaldırılacaktır ancak şu an için dersin internet sitesini sürekli takip etmeniz iyi olacaktır.
 
 ## Dersin işlenme şekli {.unnumbered}
 
@@ -30,17 +30,17 @@ Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları ince
 
 Kitap kapsamında altı farklı bölüm olması planlanmıştır:
 
-Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilirsiniz. Derslere başlamadan önce, bu kısmı bitirmiş olduğunuzdan emin olun. Yoksa ilerleyen adımlarda sorunlarla karşılaşabilirsiniz.
+Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilirsiniz. Derslere başlamadan önce bu kısmı bitirmiş olduğunuzdan emin olun. Yoksa ilerleyen adımlarda sorunlarla karşılaşabilirsiniz.
 
 @sec-sistem R ve Rstüdyo programlarının kurulumu hakkında bilgileri içermektedir. Ardından @sec-onemli ise, R ve RStudio ile çalışırken dikkat edilmesi gereken noktaları içermektedir. Burada yazan küçük ayıntılara dikkat ederseniz, gereksiz bir şekilde yaşayacağınız vakit kaybının önüne geçebilirsiniz. @sec-ilk-adimlar, R ve Rstudio programları ile çalışmaya başlamanız için gerekli bilgileri anlatmaktdır. @sec-klasor'de, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
 
 **Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. @sec-veri-01, veri analizine giriş hakkında bilgi alabilirsiniz. @sec-veri-02 ise, bilimsel yöntem hakkında bilgi vermeyi amaçlamıştır. Ardından @sec-r-giris ve @sec-vektorler'de ise R ve Rstudio kullanmaya başlayacağız.
 
-**Bilgisayarlı düşünme** kısmında ise, R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ve ileri seviye doğrusal modeller işlenecektir. 
+**Bilgisayarlı düşünme** kısmında ise R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ileri seviye doğrusal modeller işlenecektir. 
 
 **Pratik** kısmında, bu iki derse ait pratikler olacaktır. Aynı zamanda bu pratiklerin, çözümleri de **Ekler** kısmında verilecektir. 
 
-**Uygulamalar** kısmında, tüm ders kapsamında işlenen konuların, biyolojik veriler üzerinden uygulaması yapılacaktır. Şu an için RNA dizileme ve mikrodizin verisi analizi üzerine pratikler bulunmaktadır.
+**Uygulamalar** kısmında, tüm ders kapsamında işlenen konuların biyolojik veriler üzerinden uygulaması yapılacaktır. Şu an için RNA dizileme ve mikrodizin verisi analizi üzerine pratikler bulunmaktadır.
 
 Son olarak, **Türkiye'nin verisi** kısmında ise, Türkiye sınırları içerisinde elde edilmiş açık kaynaklı veriler hakkında uygulamalar yapılacaktır.
 
@@ -70,6 +70,6 @@ Burada yazan bilgiler, o işin gerçekleştirilmesi için önem arz etmektedir.
 :::{.callout-caution}
 ## Dikkat!
 
-Eğer bu kutududaki bilgilere dikkat etmezseniz, bir hatayla karşılaşmanız oldukça yüksektir.
+Eğer bu kutududaki bilgilere dikkat etmezseniz, bir hatayla karşılaşma ihtimaliniz oldukça yüksektir.
 
 :::
