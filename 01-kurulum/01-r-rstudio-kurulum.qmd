@@ -4,18 +4,18 @@ Bu ders kapsamında, açık kaynaklı olarak dağıtılan [R istatistik paketi](
 
 [R istatistik paketi](https://www.r-project.org/), son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta, biyolojik veri analizi için önemli olan R paketleri, [Bioconductor](https://www.bioconductor.org/) sistemi içerisinde sürekli bir şekilde güncellenmektedir.
 
-R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R'a yeni işlevler kazandıran bir kabuk gibi de düşünebilirsiniz.
+R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R'a yeni işlevler kazandıran bir kabuk gibi düşünülebilir.
 
 Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren [posit](https://posit.co/) şirketi tarafından sunulan [posit cloud](https://posit.co/products/cloud/cloud/) platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.
 
 ## Posit Cloud
 
-Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz, ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. [Posit cloud](https://posit.co/products/cloud/cloud/) platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız, ya ücret ödemeniz gerekir, ya da bir sonraki ayı beklemeniz gerekmektedir.
+Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. [Posit cloud](https://posit.co/products/cloud/cloud/) platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız ya ücret ödemeniz gerekir ya da bir sonraki ayı beklemeniz gerekmektedir.
 
 :::{.callout-note}
 ## İşlemci saati
 
-Bu terim, bir ay boyunca size tanınan işlemci kullanarak yapılan hesaplama hakkını belirtir. Ya da toplam kod çalıştırma hakkınız. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.
+Bu terim, bir ay boyunca size tanınan işlemciyi kullanarak yapılan hesaplama hakkını ya da toplam kod çalıştırma hakkınızı belirtir. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.
 :::
 
 ### Posit Cloud sistemine giriş
@@ -28,7 +28,7 @@ Arından, **New Project** tuşuna basalım ve **New RStudio Project** tuşuna ba
 
 ![Yeni bir proje oluşturalım](images/posit2.png){#fig-posit2}
 
-Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (@fig-posit3)
+Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (@fig-posit3).
 
 ![Projemizi oluşturduktan sonra karşımıza çıkan ekran](images/posit3.png){#fig-posit3}
 
@@ -36,7 +36,7 @@ Tebrikler, Posit Cloud sistemi ile R ve RStudio kullanmaya hazırsınız artık!
 
 ## R ve RStudio kurulumu
 
-Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.
+Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi şu anda 64 bit ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.
 
-Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekir. Sadece RStudio kurmanız yeterli değildir.
+Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekmekte. Sadece RStudio kurmanız yeterli değildir.
 
