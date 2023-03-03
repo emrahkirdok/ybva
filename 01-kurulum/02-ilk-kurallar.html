@@ -230,13 +230,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>R ve RStudio sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Yani, ilk öğrenme maliyeti çok yüksektir. Ancak bir kere öğrendiğinizde, uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.</p>
-<p>Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştım. Bu noktalara dikkat ederseniz daha verimli bir ders geçirebilirsiniz.</p>
+<p>R ve RStudio sistemi, şu ana kadar çalıştığınız programlara göre daha dik bir öğrenme eğrisine sahiptir. Yani, ilk öğrenme maliyeti çok yüksektir ancak bir kere öğrendiğinizde uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.</p>
+<p>Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştım. Bu noktalara dikkat ederseniz öğrenme sürecini daha verimli geçirebilirsiniz.</p>
 <section id="karakter-kodlama-sorunları" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="karakter-kodlama-sorunları"><span class="header-section-number">2.1</span> Karakter kodlama sorunları</h2>
-<p>Bilgisayarlar geliştirildiği günden beri, farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden, bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.</p>
+<p>Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden, bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.</p>
 <p>İlk geliştirilen kodlama sistemlerinden birisi olan <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla, belirli sayıda karakter kullanma imkanımız vardı ve daha çok İngilizce alfabesinde bulunan latince karakterleri destekliyordu.</p>
-<p>Ancak ilerleyen yıllarda farklı kodlama sistemleri kullanıılmaya başlandı. Ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile, ASCII karakterleri, aynı kodlarla belirtiliyordu.</p>
+<p>İlerleyen yıllarda farklı kodlama sistemleri kullanılmaya başlandı ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile ASCII karakterleri aynı kodlarla belirtiliyordu.</p>
 <p>Son yıllarda <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> karakter kodlama sistemi yaygın olarak kullanılmaktadır. Bu sistem sayesinde, farklı alfabelerdeki karakterler (mesela Türkçe’ye özgü karakterler) desteklenmeye başlandı.</p>
 <p>UTF-8, şu anda yaygın bir kodlama sistemi olsa da, Windows bu kodlama sistemini son yıllarda kullanmaya başladı ve hala bu yüzden sorunlar yaşıyoruz. Önceki yıllarda, bu kodlama sorunları yüzünden öğrenci ödevlerini düzgün bir şekilde görüntüleyemedim.</p>
 <p>Bu yüzden, ders kapsamında yapacağınız <strong>kodlamaları</strong> sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler - ve kendi alfabenizdeki İngilizce dışındaki karakterler - YASAK!</p>
@@ -252,19 +252,19 @@ Kullanılmaması gereken karakterler
 <div class="callout-body-container callout-body">
 <p>Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanmayınız:</p>
 <pre><code>Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö </code></pre>
-<p>Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa, onları da kullanmayın!</p>
+<p>Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa onları da kullanmayın!</p>
 </div>
 </div>
 <section id="rstudio-üzerinde-karakter-kodlaması" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="rstudio-üzerinde-karakter-kodlaması"><span class="header-section-number">2.1.1</span> RStudio üzerinde karakter kodlaması</h3>
 <p>Eğer kullandığınız RStudio programında karakter kodlamasının ne olduğunu merak ediyorsanız şu yolu takip ediniz:</p>
 <ul>
-<li>Önce üstteki menüden <strong>Tools (Araçlar)</strong> düğmesine tıklayınız</li>
-<li>Açılan menüde <strong>Global Options (Global ayarlar)</strong> düğmesini bulunuz</li>
-<li>Açılan sayfada <strong>Code</strong> tuşuna basınız</li>
-<li>Ardından <strong>Saving</strong> sekmesine tıklayınız</li>
+<li>Önce üstteki menüden <strong>Tools (Araçlar)</strong> düğmesine tıklayınız.</li>
+<li>Açılan menüde <strong>Global Options (Global ayarlar)</strong> düğmesini bulunuz.</li>
+<li>Açılan sayfada <strong>Code</strong> tuşuna basınız.</li>
+<li>Ardından <strong>Saving</strong> sekmesine tıklayınız.</li>
 </ul>
-<p>Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. Burada <strong>Default text encoding</strong> kısmına dikkat ediniz. Eğer <strong>UTF-8</strong> yazmıyorsa, <strong>Change</strong> tuşuna basarak, <strong>UTF-8</strong> kodlamasını bulunuz (<a href="#fig-utf-8">Şekil&nbsp;<span>2.1</span></a>).</p>
+<p>Bu adımların ardından bir sonraki şekildeki ekran karşınıza çıkmalı. Burada <strong>Default text encoding</strong> kısmına dikkat ediniz. Eğer <strong>UTF-8</strong> yazmıyorsa, <strong>Change</strong> tuşuna basarak, <strong>UTF-8</strong> kodlamasını bulunuz (<a href="#fig-utf-8">Şekil&nbsp;<span>2.1</span></a>).</p>
 <div id="fig-utf-8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/utf-8.png" class="img-fluid figure-img"></p>
@@ -275,7 +275,7 @@ Kullanılmaması gereken karakterler
 </section>
 <section id="dosya-ve-klasörlerin-isimlendirilmesi" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="dosya-ve-klasörlerin-isimlendirilmesi"><span class="header-section-number">2.2</span> Dosya ve klasörlerin isimlendirilmesi</h2>
-<p>Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla <strong>ASCII</strong> dışında karakter ve boşluk kullanmayın. Ayrıca büyük küçük harf ayrımmına dikkat ediniz.</p>
+<p>Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla <strong>ASCII</strong> dışında karakter ve boşluk kullanmayın. Ayrıca büyük küçük harf ayrımmına dikkat edin.</p>
 <p>ASCII dışındaki karakterler ve boşluk karakteri, dosya isimlerinin hatalı bir şekilde görünmesine sebep olabilir ve işlerinizi zorlaştırır.</p>
 <p>Komut satırı ile çalışan programlarda, boşluk karakteri özel bir anlama gelir. Eğer boşluk karakteri kullanıyorsanız, komut satırı işleyicileri yazdığınız kelimenin bittiğini düşünür ve komutunuz ona göre çalıştırır. Bu da hata yapmanıza sebep olur.</p>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -301,7 +301,7 @@ Veri_analizi/Proje/Odev_(1).Rmd</code></pre>
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="ondalık-işareti"><span class="header-section-number">2.2.1</span> Ondalık işareti</h3>
 <p>Türkiye ve Avrupa’da ondalık ayracı olarak <code>,</code> kulanılmaktadır. Mesela:</p>
 <pre><code>14,6</code></pre>
-<p>Ancak R programı, Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız <code>.</code> işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.</p>
+<p>Ancak R programı Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız <code>.</code> işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -312,7 +312,7 @@ Ondalık ayracı farklıdır
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Peki kendi hazırladığınız verilerde ondalık ayracı olarak <code>,</code> kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken <code>dec</code> opsiyonu ilse ondalık ayracını seçmeyi öğreneceğiz.</p>
+<p>Peki kendi hazırladığınız verilerde ondalık ayracı olarak <code>,</code> kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken <code>dec</code> opsiyonu ile ondalık ayracını seçmeyi öğreneceğiz.</p>
 </div>
 </div>
 </section>
@@ -321,10 +321,10 @@ Ondalık ayracı farklıdır
 <h2 data-number="2.3" class="anchored" data-anchor-id="sonuç"><span class="header-section-number">2.3</span> Sonuç</h2>
 <p>Dikkat etmeniz gereken noktalar:</p>
 <ul>
-<li>Kodlamaları <strong>ASCII</strong> karakterleri ile yapalım</li>
-<li>Klasör ve dosya isimlerinde yanlızca <strong>ASCII</strong> karakter kullanalaım</li>
-<li>Klasör ve dosya isimlerinde boşluk karakteri kullanmayalım</li>
-<li>Klasör ve dosya isimlerinde büyük küçük harf ayrımına dikkat edelim</li>
+<li>Kodlamaları <strong>ASCII</strong> karakterleri ile yapalım.</li>
+<li>Klasör ve dosya isimlerinde yanlızca <strong>ASCII</strong> karakter kullanalım.</li>
+<li>Klasör ve dosya isimlerinde boşluk karakteri kullanmayalım.</li>
+<li>Klasör ve dosya isimlerinde büyük küçük harf ayrımına dikkat edelim.</li>
 </ul>
 
 
