@@ -6,7 +6,7 @@ Bu ders boyunca, yeni bir çalışma sistemi ile haşır neşir olacağız. Eski
 
 ## Dik bir öğrenme eğrisi
 
-Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullan programların mantıklarını kavramanız gerekir. 
+Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullanılan programların mantıklarını kavramanız gerekir. 
 
 Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir. Mesela @fig-curve-1, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum...
 
