@@ -54,7 +54,7 @@ Linux sistemlerde ise `/home/` içinde bulunur.
 
 Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.
 
-Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyıorsunuz.
+Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyorsunuz.
 
 ## Çalışma klasörü içindekiler nedir?
 
