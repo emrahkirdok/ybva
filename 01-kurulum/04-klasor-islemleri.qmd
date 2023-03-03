@@ -4,7 +4,7 @@ Deneysel çalışmalar yapan bir araştırmacının ekipmanları laboratuvar mal
 
 Bir veri bilimcinin temel ekipmanı da bilgisayarıdır. Bilgisayarımızın nasıl çalıştığını en ince ayrıntısına kadar bilmeli ve hakim olmalıyız.
 
-R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.
+R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımıza yazabiliriz.
 
 Bu belge bu amaçla hazırlandı.
 
