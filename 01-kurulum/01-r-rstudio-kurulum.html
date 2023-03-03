@@ -228,11 +228,11 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Bu ders kapsamında, açık kaynaklı olarak dağıtılan <a href="https://www.r-project.org/">R istatistik paketi</a> ve bu paketin bütünleşik geliştirme platformu olan <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> masaüstü programını kullanacağız.</p>
 <p><a href="https://www.r-project.org/">R istatistik paketi</a>, son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta, biyolojik veri analizi için önemli olan R paketleri, <a href="https://www.bioconductor.org/">Bioconductor</a> sistemi içerisinde sürekli bir şekilde güncellenmektedir.</p>
-<p>R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R’a yeni işlevler kazandıran bir kabuk gibi de düşünebilirsiniz.</p>
+<p>R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R’a yeni işlevler kazandıran bir kabuk gibi düşünülebilir.</p>
 <p>Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren <a href="https://posit.co/">posit</a> şirketi tarafından sunulan <a href="https://posit.co/products/cloud/cloud/">posit cloud</a> platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.</p>
 <section id="posit-cloud" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="posit-cloud"><span class="header-section-number">1.1</span> Posit Cloud</h2>
-<p>Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz, ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız, ya ücret ödemeniz gerekir, ya da bir sonraki ayı beklemeniz gerekmektedir.</p>
+<p>Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız ya ücret ödemeniz gerekir ya da bir sonraki ayı beklemeniz gerekmektedir.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -243,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Bu terim, bir ay boyunca size tanınan işlemci kullanarak yapılan hesaplama hakkını belirtir. Ya da toplam kod çalıştırma hakkınız. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.</p>
+<p>Bu terim, bir ay boyunca size tanınan işlemciyi kullanarak yapılan hesaplama hakkını ya da toplam kod çalıştırma hakkınızı belirtir. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.</p>
 </div>
 </div>
 <section id="posit-cloud-sistemine-giriş" class="level3" data-number="1.1.1">
@@ -262,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figcaption class="figure-caption">Şekil&nbsp;1.2: Yeni bir proje oluşturalım</figcaption><p></p>
 </figure>
 </div>
-<p>Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (<a href="#fig-posit3">Şekil&nbsp;<span>1.3</span></a>)</p>
+<p>Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (<a href="#fig-posit3">Şekil&nbsp;<span>1.3</span></a>).</p>
 <div id="fig-posit3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/posit3.png" class="img-fluid figure-img"></p>
@@ -274,8 +274,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="r-ve-rstudio-kurulumu" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="r-ve-rstudio-kurulumu"><span class="header-section-number">1.2</span> R ve RStudio kurulumu</h2>
-<p>Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi 64 bit şu anda, ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.</p>
-<p>Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekir. Sadece RStudio kurmanız yeterli değildir.</p>
+<p>Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi şu anda 64 bit ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.</p>
+<p>Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekmekte. Sadece RStudio kurmanız yeterli değildir.</p>
 
 
 </section>
