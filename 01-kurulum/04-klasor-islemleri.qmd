@@ -82,7 +82,7 @@ Proje oluşturun ve proje klasörünüzün içerisine `data` isimli bir klasör 
 
 Artık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.
 
-Proje klasörü oluştdurduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.
+Proje klasörü oluşturduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.
 
 ```{r}
 getwd()
