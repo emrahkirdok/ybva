@@ -1,16 +1,16 @@
 # Önemli Konular {#sec-onemli}
 
-R ve RStudio sistemi, şu ana kadar çalıştığınız programlardan göre daha dik bir öğrenme eğrisine sahiptir. Yani, ilk öğrenme maliyeti çok yüksektir. Ancak bir kere öğrendiğinizde, uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.
+R ve RStudio sistemi, şu ana kadar çalıştığınız programlara göre daha dik bir öğrenme eğrisine sahiptir. Yani, ilk öğrenme maliyeti çok yüksektir ancak bir kere öğrendiğinizde uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.
 
-Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştım. Bu noktalara dikkat ederseniz daha verimli bir ders geçirebilirsiniz.
+Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştım. Bu noktalara dikkat ederseniz öğrenme sürecini daha verimli geçirebilirsiniz.
 
 ## Karakter kodlama sorunları
 
-Bilgisayarlar geliştirildiği günden beri, farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden, bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.
+Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden, bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.
 
 İlk geliştirilen kodlama sistemlerinden birisi olan [ASCII](https://en.wikipedia.org/wiki/ASCII) sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla, belirli sayıda karakter kullanma imkanımız vardı ve daha çok İngilizce alfabesinde bulunan latince karakterleri destekliyordu.
 
-Ancak ilerleyen yıllarda farklı kodlama sistemleri kullanıılmaya başlandı. Ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile, ASCII karakterleri, aynı kodlarla belirtiliyordu.
+İlerleyen yıllarda farklı kodlama sistemleri kullanılmaya başlandı ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile ASCII karakterleri aynı kodlarla belirtiliyordu.
 
 Son yıllarda [UTF-8](https://en.wikipedia.org/wiki/UTF-8) karakter kodlama sistemi yaygın olarak kullanılmaktadır. Bu sistem sayesinde, farklı alfabelerdeki karakterler (mesela Türkçe'ye özgü karakterler) desteklenmeye başlandı.
 
@@ -26,25 +26,25 @@ Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanm
 ```
 Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö 
 ```
-Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa, onları da kullanmayın!
+Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa onları da kullanmayın!
 :::
 
 ### RStudio üzerinde karakter kodlaması
 
 Eğer kullandığınız RStudio programında karakter kodlamasının ne olduğunu merak ediyorsanız şu yolu takip ediniz:
 
-- Önce üstteki menüden **Tools (Araçlar)** düğmesine tıklayınız
-- Açılan menüde **Global Options (Global ayarlar)** düğmesini bulunuz
-- Açılan sayfada **Code** tuşuna basınız
-- Ardından **Saving** sekmesine tıklayınız
+- Önce üstteki menüden **Tools (Araçlar)** düğmesine tıklayınız.
+- Açılan menüde **Global Options (Global ayarlar)** düğmesini bulunuz.
+- Açılan sayfada **Code** tuşuna basınız.
+- Ardından **Saving** sekmesine tıklayınız.
 
-Bu adımların ardından, bir sonraki şekildeki ekran karşınıza çıkmalı. Burada **Default text encoding** kısmına dikkat ediniz. Eğer **UTF-8** yazmıyorsa, **Change** tuşuna basarak, **UTF-8** kodlamasını bulunuz (@fig-utf-8).
+Bu adımların ardından bir sonraki şekildeki ekran karşınıza çıkmalı. Burada **Default text encoding** kısmına dikkat ediniz. Eğer **UTF-8** yazmıyorsa, **Change** tuşuna basarak, **UTF-8** kodlamasını bulunuz (@fig-utf-8).
 
 ![RStudio üzerinde UTF-8 kodlamasının seçilmesi](images/utf-8.png){#fig-utf-8}
 
 ## Dosya ve klasörlerin isimlendirilmesi
 
-Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla **ASCII** dışında karakter ve boşluk kullanmayın. Ayrıca büyük küçük harf ayrımmına dikkat ediniz.
+Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla **ASCII** dışında karakter ve boşluk kullanmayın. Ayrıca büyük küçük harf ayrımmına dikkat edin.
 
 ASCII dışındaki karakterler ve boşluk karakteri, dosya isimlerinin hatalı bir şekilde görünmesine sebep olabilir ve işlerinizi zorlaştırır.
 
@@ -79,19 +79,19 @@ Türkiye ve Avrupa'da ondalık ayracı olarak `,` kulanılmaktadır. Mesela:
 14,6
 ```
 
-Ancak R programı, Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız `.` işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.
+Ancak R programı Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız `.` işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.
 
 ::: {.callout-note}
 ## Ondalık ayracı farklıdır
 
-Peki kendi hazırladığınız verilerde ondalık ayracı olarak `,` kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken `dec` opsiyonu ilse ondalık ayracını seçmeyi öğreneceğiz.
+Peki kendi hazırladığınız verilerde ondalık ayracı olarak `,` kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken `dec` opsiyonu ile ondalık ayracını seçmeyi öğreneceğiz.
 :::
 
 ## Sonuç
 
 Dikkat etmeniz gereken noktalar:
 
-+ Kodlamaları **ASCII** karakterleri ile yapalım
-+ Klasör ve dosya isimlerinde yanlızca **ASCII** karakter kullanalaım
-+ Klasör ve dosya isimlerinde boşluk karakteri kullanmayalım
-+ Klasör ve dosya isimlerinde büyük küçük harf ayrımına dikkat edelim
++ Kodlamaları **ASCII** karakterleri ile yapalım.
++ Klasör ve dosya isimlerinde yanlızca **ASCII** karakter kullanalım.
++ Klasör ve dosya isimlerinde boşluk karakteri kullanmayalım.
++ Klasör ve dosya isimlerinde büyük küçük harf ayrımına dikkat edelim.
