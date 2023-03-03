@@ -16,7 +16,7 @@ Bu belge bu amaçla hazırlandı.
 getwd()
 ```
 
-Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir. Bu döküman, aslında yerin bilmediğim bir sunucuda derlendi. O yüzden buradaki bilgi biraz gerçeği yansıtmıyor.
+Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir. Bu döküman, aslında yerini bilmediğim bir sunucuda derlendi. O yüzden buradaki bilgi biraz gerçeği yansıtmıyor.
 
 Ama kişisel MAC bilgisyarımda şöyle bir çıktı alacağım:
 
