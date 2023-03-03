@@ -12,7 +12,7 @@ Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha
 
 ![Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.](images/learning-curve-1.png){#fig-curve-1}
 
-Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle @sec-veri-01'de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çaplı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman git gide artacaktır (@fig-curve-2).
+Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle @sec-veri-01'de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çaplı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman gitgide artacaktır (@fig-curve-2).
 
 ![Bu grafikte $x$ ekseni yapılan veri analiz işleminin boyutunu, $y$ ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır.](images/learning-curve-2.png){#fig-curve-2}
 
