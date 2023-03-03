@@ -1,6 +1,6 @@
 # İlk adımlar {#sec-ilk-adimlar}
 
-Şu anda kadar büyük ihtimalle grafiksel arabilirmleri olan Microsoft Word ve Microsoft Excel gibi ofis programları ile çalıştınız muhtemelen. Bu programalar bir çok noktada işe yarasa da, ilerleyen kısımlarda göreceğimiz üzere, büyük kapasiteli verilerle çalışmaya uygun değildir.
+Şu anda kadar büyük ihtimalle grafiksel arabilimleri olan Microsoft Word ve Microsoft Excel gibi ofis programları ile çalıştınız muhtemelen. Bu programalar bir çok noktada işe yarasa da, ilerleyen kısımlarda göreceğimiz üzere, büyük kapasiteli verilerle çalışmaya uygun değildir.
 
 Bu ders boyunca, yeni bir çalışma sistemi ile haşır neşir olacağız. Eski bilgilerimizin ve eski alışkanlıklarımızın bazılarını unutmamız ve yenilerine yer açmamız gerekecektir.
 
