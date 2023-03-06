@@ -1,18 +1,18 @@
 # İlk adımlar {#sec-ilk-adimlar}
 
-Şu anda kadar büyük ihtimalle grafiksel arabilirmleri olan Microsoft Word ve Microsoft Excel gibi ofis programları ile çalıştınız muhtemelen. Bu programalar bir çok noktada işe yarasa da, ilerleyen kısımlarda göreceğimiz üzere, büyük kapasiteli verilerle çalışmaya uygun değildir.
+Şu anda kadar büyük ihtimalle grafiksel arabilimleri olan Microsoft Word ve Microsoft Excel gibi ofis programları ile çalıştınız muhtemelen. Bu programalar bir çok noktada işe yarasa da, ilerleyen kısımlarda göreceğimiz üzere, büyük kapasiteli verilerle çalışmaya uygun değildir.
 
 Bu ders boyunca, yeni bir çalışma sistemi ile haşır neşir olacağız. Eski bilgilerimizin ve eski alışkanlıklarımızın bazılarını unutmamız ve yenilerine yer açmamız gerekecektir.
 
 ## Dik bir öğrenme eğrisi
 
-Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullan programların mantıklarını kavramanız gerekir. 
+Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullanılan programların mantıklarını kavramanız gerekir. 
 
 Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir. Mesela @fig-curve-1, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum...
 
 ![Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.](images/learning-curve-1.png){#fig-curve-1}
 
-Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle @sec-veri-01'de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çapılı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman git gide artacaktır (@fig-curve-2).
+Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle @sec-veri-01'de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çaplı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman gitgide artacaktır (@fig-curve-2).
 
 ![Bu grafikte $x$ ekseni yapılan veri analiz işleminin boyutunu, $y$ ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır.](images/learning-curve-2.png){#fig-curve-2}
 
