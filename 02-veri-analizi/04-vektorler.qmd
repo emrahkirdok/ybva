@@ -2,6 +2,8 @@
 
 Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil, bir grup örnek ile çalışmamız gerekmektedir.
 
+## Nasıl vektör oluşturulur?
+
 R üzerinde farklı veri yapıları bulunmaktadır. Bunlarda bir tanesi vektörler olarak adlandırılır. Vektörler, kısaca *belli bir tipte* veri tipini içeren listeler olarak tanımlanabilir. Bir vektör oluşturmak istiyorsanız `c()` fonksiyonunu kullanmanız gerekmektedir:
 
 ```{r}
@@ -51,11 +53,22 @@ yeni_vektor
 
 Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `_` ile ayırdık. Siz de buna dikkat edin lütfen.
 
-> Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
+::: {.callout-caution}
+## Farklı veri tiplerini vektörde birleştirmek
+
+Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
+
+```{r}
+vektor <- c("bitki1", "bitki2", 12, 45)
+str(vektor)
+```
+
+Dikkat ederseniz, artık bir karakter vektörümüz oldu. Farklı veri tiplerini birleştiriken dikkat etmelisiniz. Beklemediğiniz sonuçlarla karşılaşabilirsiniz.
+::: 
 
 ## Vektör oluşturma üzerine örnekler
 
-Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için @tbl-bitkiler'e bakınız.
+Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için @tbl-bitkiler'e bakınız. Dikkat edin, ölçüm alınamayan noktalar var. 
 
 | Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
 |:-----------|---------------------:|:----------------|
@@ -64,26 +77,39 @@ Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 6 bitkinin
 | bitki3     | 4.5                  | Aydınlık        |
 | bitki4     | 1.2                  | Karanlık        |
 | bitki5     | 3.4                  | Aydınlık        |
-| bitki6     | 2.5                  | Karanlık        |
+| bitki6     | -                    | Karanlık        |
+| bitki7     | 1.8                  | Karanlık        |
+| bitki8     | 6.3                  | Aydinlik        |
+| bitki9     | 2.1                  | Karanlık        |
+| bitki10    | -                    | Karanlık        |
 
 : Hayali veri setimizdeki bitkiler {#tbl-bitkiler}
 
 Öncelikle bitki isimleri için bir karakter vektörü oluşturalım:
 
 ```{r}
-bitki_ismi <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", "bitki6")
+bitki_ismi <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", 
+                "bitki6", "bitki7","bitki8", "bitki9", "bitki10")
 ```
 
-Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım:
+Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım. Burada dikkat ediniz, belirlenemyen ölçümlere `NA` ekliyoruz.
 
 ```{r}
-yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 2.5)
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    NA, 1.8, 6.3, 2.1, NA)
 ```
+
+:::{.callout-tip}
+## NA karakterinin kullanımı
+
+Bu karakter, farklı veri tipleri ile bir vektör içerisinde kullanılabilir.
+:::
 
 Son olarak deney koşulları için bir vektör oluşturmamız gerekli. Dikkat edin, deney koşulları aslında bir kategori ifade ediyor. Bu nedenle, deney koşulları vektörü aslında bir faktör vektörü olmalı:
 
 ```{r}
-deney_kosullari <- factor(c("karanlik", "aydinlik", "aydinlik", "karanlik", "aydinlik", "karanlik"))
+deney_kosullari <- factor(c("karanlik", "aydinlik", "aydinlik", "karanlik", "aydinlik",
+                            "karanlik", "karanlik", "aydinlik", "karanlik", "karanlik"))
 ```
 
 Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:
@@ -91,6 +117,10 @@ Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:
 ```{r}
 str(deney_kosullari)
 ```
+
+Burada levels olarak belirtilen aslında faktör seviyeleri. `aydinlik` ve `karanlik` olmak üzere iki farklı seviye bulunmakta ve bu seviyeler `1` ve `2` olarak kodlanmış durumdadır. R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır. 
+
+### Vektörün uzunluğunu öğrenmek
 
 Oluşturduğumuz vektörün uzunluğunu elde etmek için ise `length` fonksiyonunu kullanabiliriz:
 
@@ -132,11 +162,43 @@ yaprak_uzunlugu[-5]
 Dikkat edin, burada `yaprak_uzunlugu` vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.
 :::
 
+## Vektör elemanlarına isim eklemek
 
+Eğer istersek, her vektör elemanına bir isim atayabiliriz. 
+
+```{r}
+names(yaprak_uzunlugu) <- bitki_ismi
+``` 
+
+Atanmış isimleri elde edebiliriz:
+
+```{r}
+names(yaprak_uzunlugu)
+```
+
+Ancak dikkat edin, kullandığınız her iki vektörün aynı uzunlukta olması gereklidir.
 
 ## `seq` fonksiyonu ile çalışmalar {#sec-seq-fonksiyonu} 
 
+Bu fonksiyon sayesinde iki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.
 
+Mesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:
+
+```{r}
+seq(2,16)
+```
+
+Ya da kısaca bu şekilde de oluşturabiliriz:
+
+```{r}
+2:16
+```
+
+Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:
+
+```{r}
+seq(2, 16, 2)
+```
 
 ## Sonuç
 
@@ -145,3 +207,4 @@ Bu kısım kapsamında aşağıdaki konular önemlidir:
 + Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız, ve vektör elemanlarını `,` ile ayırırız
 + Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız
 + Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
++ `seq` fonksiyonu kullanımı 
