@@ -42,6 +42,7 @@ R içerisinde dört temel veri tipimiz bulunmaktadır:
 + Karakter (*character*, `chr`)
 + Mantıksal (*logical*, `logi`)
 + Kategori/faktör (*factor*, `fac`)
++ Kayıp veri (`NA`)
 
 Bu veri tiplerinin hepsi, farklı veri analizi adımlarında kullanılmaktadır. Dolayısıyla, bu veri tiplerinin düzgün bir şekilde ayarlandığından emin olmalısınız.
 
@@ -51,7 +52,7 @@ Bir verinin tipini öğrenmek istiyorsanız, basit olarak `str` fonksiyonunu kul
 str(12)
 ```
 
-::: note
+::: {.callout-note}
 R üzerindeki fonksiyonlar, belirli işlevleri yerine getiren kod parçaları olarak tanımlanabilir. Her fonskiyonun, parantez içerisine yazılan en az bir tane girdisi bulunmaktadır. Burada kullandığımız `str` fonksiyonu, parantez içerisinde belirtilen verinin tipini geri döndürmekten sorumludur.
 :::
 
@@ -86,7 +87,7 @@ Mesela bir tanesinin tipine bakalım:
 str(TRUE)
 ```
 
-::: note
+::: {.callout-note}
 Mantıksal operatörler, R içerisinde ön tanımlı olarak gelmektedir. Dolayısıyla, bu operatörleri oldukları gibi kullanabilme imkanınız bulunmaktadır.
 :::
 
@@ -100,6 +101,14 @@ factor("karanlik")
 
 ```{r}
 str(factor("karanlik"))
+```
+
+### Kayıp veri
+
+Veri analizi çalışmalarında sıklıkla kayıp verilerle uğraşacaksınız. Çünkü deneyler sonucunda her zaman sonuç alamayabilirsiniz. Ancak o deneyi yaptığınız için, bir şekilde veri setinizde bu çıkmayan sonucu belirmeniz gerekir. Eğer deneyinizin sonucunda çıkmayan bir veri varsa, bunu `NA` karakteri ile belirtebilirsiniz. Bu karakter aslında mantıksal bir değişkendir ve olduğu gibi kullanılmalıdır.
+
+```{r}
+str(NA)
 ```
 
 ## Veri tipi dönüşümleri
