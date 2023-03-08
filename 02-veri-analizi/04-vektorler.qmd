@@ -173,13 +173,21 @@ Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak
 yaprak_uzunlugu["bitki2"]
 ```
 
-## Vektörleri filtrelemek
+### Vektörleri filtrelemek
 
 Eğer istersek, vektörler içerisinde işlem de yapabiliriz. Mesela yaprak uzunluğu 3'den büyük olan bitkileri geri döndürelim:
 
 ```{r}
 yaprak_uzunlugu > 3
 ```
+
+Bir mantıksal vektör elde ettik. İstersek bu vektörü, başka bir vektöre indis olarak da kullanabiliriz:
+
+```{r}
+bitki_ismi[yaprak_uzunlugu > 3]
+```
+
+### Vektörlerden eleman çıkartmak
 
 Eğer `-` işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:
 
