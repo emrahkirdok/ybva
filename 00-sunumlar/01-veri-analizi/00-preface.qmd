@@ -1,0 +1,271 @@
+---
+title: "Tanıtım"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "02-03-2023"
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+# Hoşgeldiniz
+
+## Ders hakkında bilgi
+
++ Dersimiz çevrimiçi olarak Microsoft Teams platformu üzerinde işlenecek
++ Video kayıtları Teams platormunda ve Uzaktan Eğitim sisteminde paylaşılacak
++ Dersin internet sitesi: [https://emrahkirdok.github.io/ybva/](https://emrahkirdok.github.io/ybva/)
++ Sınavlar hakkında açıklama ilerleyen haftalarda yapılacak
+
+## Ders hakkında bilgi
+
++ Dersler video üzerinden anlatılacak
++ Sorular Discord üzerinden!
++ Uzaktan eğitim sisteminde sorumluluk sizde!
++ R ve Rstudio programları kullanılacak
+
+# Neden YBVA
+
+## Yaşam Bilimlerinde Veri Analizi
+
++ Yaşam bilimleri alanında hızlı bir gelişme var
++ Dizileme teknolojileri sayesinde büyük miktarda veri üretildi
++ Ancak bu veriyi analiz edebilecek insan sayısı kısıtlı
++ Biz bu noktaya odaklanıyoruz
+
+## Örnek: Dizileme verisi
+
+![NCBI dizi okuma arşivindeki veri miktarının artışı](https://emrahkirdok.github.io/ybva/02-veri-analizi/01-veri-bilimine-giris_files/figure-html/fig-sra-1.png)
+
+::: {.notes}
+
+Örnek vermek gerekirse NCBI SRA veri tabanı. Bu veri tabanında dizileme teknolojileri sayesinde elde edilmiş veriler bulunmaktadır. Dikkat ederseniz, hızlı büyümeyi görebilirsiniz. Özellikle 2010'lu yıllarda bu büyüme başlamış ve halen de artan bir hızla devam etmekte.
+
+:::
+
+## Örnek: Türkiye deprem verisi
+
++ Sadece biyolojik veri olmasına gerek yok
++ Artık bir veri dünyasında yaşıyoruz
++ Mesela Türkiye ve çevresindeki depremleri incelemek ister misiniz?
+
+## Örnek: Türkiye deprem verisi
+
+![Deprem verisini analiz etmek ister misiniz?](https://emrahkirdok.github.io/posts/2023-02-12-quake/index_files/figure-html/fig-quake-2-1.gif)
+
+# Veri Bilimi
+
+## Yeni bir bakış açısı
+
++ Artan veri miktarı yeni bir bakış açısını gerekli kıldı
++ Artık veri üzerinde çalışıyoruz
+
+## Kısıt!
+
++ Ancak bu kadar veriyi analiz edecek insan sayısı az!
++ Geleceğin mesleği (on yıl sonra yerini başka bir geleceğin mesleğine devretmek üzere!)
+
+# Neden Veri Bilimi?
+
+## Verinin sakladığı gizemler
+
+- Bilimsel yöntem genelde gözlemden sonuca gider
+- Ancak artık sonuçtan gözleme gidiyoruz!
+- Ancak özel ekipman kullanmamız gerekli
+
+## Havalı bir meslek!
+
+![](https://miro.medium.com/max/698/1*jDs1eDvuyAb7KLUbezCxuA.jpeg)
+
+## Chandler Bing'in mesleği
+
+![](https://i.pinimg.com/originals/32/a0/0d/32a00d1722efa7a768265e00d0e1976e.jpg)
+
+# Bilgisayarlar
+
+## Bilgisayarlar
+
+- Adı üstünde bilgi sayar
+- Temel işi saymak
+- Sadece sayısal bilgi işleyebilir
+- Genelde sayılar birşeyleri temsil eder
+
+## Sayılar neyi temsil eder?
+
+Harfleri:
+
+- A, B, C, d, e
+
+Notaları
+
+## Sayılar neyi temsil eder?
+
+![Kedileri?](images/catsGresycale.jpg)
+
+
+## Sayılar neyi temsil eder?
+
+![Gri tonlama](images/greyscale3.jpg)
+
+
+## Sayılar neyi temsil eder?
+
+DNA'yı:
+
+TCTAGCTAGCTAGCTAGCTAGC
+TAGCTAGCTAGCTAGCTAGCTA
+GCTAGCTAGTCAGTCGTACGTA
+GCTAGCTAGCTAGCTAGTCGAT
+CGATCA
+
+## Sayılar neyi temsil eder?
+
+Proteinleri:
+
+QYINQSICIIYYMCTIKFSLWF
+LPGTKVCRCPVIQYDKFTRGYG
+LACTEEVATAQRYSRTIVRLWC
+EPKNRHCRGRDKNEGSLHASMF
+YQDTCWDDPYRLFKERYRCMPT
+NAQLTWTYYW
+
+
+## Bilgisayarlar bu verilerle ne yapar?
+
+Veriler bilgisayarlar yardımıyla işlenir
+
+Bir konumdan başka bir konuma iletilir ve ve dönüştürülmesi
+
+Verilerin uzun süreli depolanması
+
+## Bilgisayarlar
+
+![](images/comp_parts.png)
+
+
+## CPU
+
+Bilgisayarın temel bilgi işleme birimi.
+
+Bütün parçalar arasındaki koordinasyonu sağlamaktan sorumlu
+
+**Bir orkestra şefi gibi**
+
+## RAM
+
+Rastgele hafıza erişimi (Random Access Memory).
+
+Bilgisayardaki birincil hafıza birimi. Sadece aktif olarak kullanılan veriler depolanır.
+
+Ancak kısa süreldir ve kalıcılığı yoktur. Enerji kesildiğinde silinir.
+
+## Harddisk
+
+İkincil depolama birimi olarak kullanılır.
+
+Uzun süreli bir depolama sağlar. 
+
+Ucuz ancak yavaş bir depolama birimi.
+
+## Dosyalar
+
+Sayıları depoladığımız listeler. Her dosyanın:
+
+- ismi
+- oluşturulma tarihi
+- boyutu
+- kullanım hakları
+
+bulunur
+
+## Dosya isimleri
+
+Bir karakter listesi:
+
+- harfler
+- numaralar
+- semboller
+- 250 karater uzunluğunda olabilir
+
+Aşağıdakiler hariç:
+
+- **Türkçe karakter ve boşluk!**
+- **/, :, +, |, <, *, >, " ve ' **
+
+## Dosya isimleri
+
+Unix/Linux sistemlerde büyük ve küçük harfler farklıdır.
+
+Her dosyanın uzantısı vardır (zorunlu değil ama anlaşılmayı kolaylaştırır):
+
+- exe
+- jpg
+- doc
+- txt
+
+## Dosya tipleri
+
+Temel olarak iki tip dosya var:
+
+- Metin dosyaları
+  - Sadece düz metin içerirler
+  - Anlaşılabilir
+  
+- İkili dosyalar
+  - Sayısal bilginin ikili şekilde düzenlenmiş hali
+  - ses, resim dosylaları
+
+## Metni ifade etmek
+
+En basit metin gösterim metodu her bir karakteri tek bir bit ile ifade etmek
+
+İngilizce için ASCII isimli bir kodlama var
+
+Sıfır - 127 arasındak her numara bir *sembol* veya bir *sinyal* olarak ifade edilir:
+
++ Yeni satır
++ Tab
++ boşluk
++ Silme tuşu
+
+## ASCII code
+
+| |30|40|50|60|70|80|90|100|110|120
+--|--|--|--|--|--|--|--|---|---|---
+ 0|  | (| 2|\<| F| P| Z| d | n | x
+ 1|  | )| 3| =| G| Q|[ | e | o | y
+ 2|  |  | 4|\>| H| R|\\| f | p | z
+ 3| !| +| 5| ?| I| S| ]| g | q | {
+ 4| "| ,| 6| @| J| T| ^| h | r |\|
+ 5| #| -| 7| A| K| U|  | i | s | }
+ 6|\$| .| 8| B| L| V|\`| j | t | ~
+ 7| %| /| 9| C| M| W| a| k | u | |
+ 8|\&| 0| :| D| N| X| b| l | v | |
+ 9| ´| 1| ;| E| O| Y| c| m | w | |
+
+Non-English languages use numbers between 128 and 255 for symbols like "Ç", "Ö", "É", "Ñ"
+
+## Metin dosyaları
+
+![](images/text.png)
+
+## İkili dosyalar
+
+![](images/binary.png)
+
+# R ve RStudio
+
+## Yeni bir çalışma biçimi
+
+![](images/learning-curve-1.png)
+
+## Başlangıçlar hep zor!
+
+![](images/learning-curve-2.png)
+
+# O zaman başlayalım!
