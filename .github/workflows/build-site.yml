@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
@@ -33,7 +34,15 @@ jobs:
         # Add any command line argument needed
         run: |
           quarto render --to html
-          
+
+      - name: Render presentations
+        run: |
+          quarto render 00-sunumlar/*/*.qmd
+      
+      - name: Copy presentations
+        run: |
+          mkdir -p _book/00-sunumlar; cp 00-sunumlar/*/*.html _book/00-sunumlar
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
