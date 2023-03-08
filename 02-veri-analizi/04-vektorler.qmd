@@ -128,6 +128,22 @@ Oluşturduğumuz vektörün uzunluğunu elde etmek için ise `length` fonksiyonu
 length(yaprak_uzunlugu)
 ```
 
+## Vektör elemanlarına isim eklemek
+
+Eğer istersek, her vektör elemanına bir isim atayabiliriz. 
+
+```{r}
+names(yaprak_uzunlugu) <- bitki_ismi
+``` 
+
+Atanmış isimleri elde edebiliriz:
+
+```{r}
+names(yaprak_uzunlugu)
+```
+
+Ancak dikkat edin, kullandığınız her iki vektörün aynı uzunlukta olması gereklidir.
+
 ## Vektörlerde indis kullanımı
 
 Peki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz `yaprak_uzunlugu` vektörü üzerinde ikinci elemanı alalım:
@@ -151,6 +167,20 @@ yaprak_uzunlugu[2:4]
 ```
 :::
 
+Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz.
+
+```{r}
+yaprak_uzunlugu["bitki2"]
+```
+
+## Vektörleri filtrelemek
+
+Eğer istersek, vektörler içerisinde işlem de yapabiliriz. Mesela yaprak uzunluğu 3'den büyük olan bitkileri geri döndürelim:
+
+```{r}
+yaprak_uzunlugu > 3
+```
+
 Eğer `-` işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:
 
 ```{r}
@@ -161,22 +191,6 @@ yaprak_uzunlugu[-5]
 ## Dikkat
 Dikkat edin, burada `yaprak_uzunlugu` vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.
 :::
-
-## Vektör elemanlarına isim eklemek
-
-Eğer istersek, her vektör elemanına bir isim atayabiliriz. 
-
-```{r}
-names(yaprak_uzunlugu) <- bitki_ismi
-``` 
-
-Atanmış isimleri elde edebiliriz:
-
-```{r}
-names(yaprak_uzunlugu)
-```
-
-Ancak dikkat edin, kullandığınız her iki vektörün aynı uzunlukta olması gereklidir.
 
 ## `seq` fonksiyonu ile çalışmalar {#sec-seq-fonksiyonu} 
 

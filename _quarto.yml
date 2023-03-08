@@ -41,11 +41,12 @@ book:
         - 02-veri-analizi/03-r-giris.qmd
         - 02-veri-analizi/04-vektorler.qmd
 #        - 02-veri-analizi/05-matrisler.qmd
-#        - 02-veri-analizi/06-veri-cerceveleri.qmd
-#        - 02-veri-analizi/07-tibble.qmd
-#        - 02-veri-analizi/08-listeler.qmd
-#        - 02-veri-analizi/09-veri-cercevesi-vs-tibble.qmd
-#        - 02-veri-analizi/10-veri-islemleri.qmd
+#        - 02-veri-analizi/06-Rmarkdown.qmd
+#        - 02-veri-analizi/07-veri-cerceveleri.qmd
+#        - 02-veri-analizi/08-tibble.qmd
+#        - 02-veri-analizi/09-listeler.qmd
+#        - 02-veri-analizi/10-veri-cercevesi-vs-tibble.qmd
+#        - 02-veri-analizi/11-veri-islemleri.qmd
 #        - metin_bilimsel_hikaye_anlaticiligi.Rmd
 #        - metin_rmarkdown_odevleri_bilgi.Rmd
 #        - metin_dogrusal_modelleme_uygulamasi_1.Rmd
@@ -55,6 +56,7 @@ book:
 #
     - part: "Bilgisayarlı Düşünme"
 #      chapters:
+#         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
 #        - metin_asamali_azalis.Rmd
 #        - metin_amphiBIO_calisma.Rmd
     
