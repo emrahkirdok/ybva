@@ -1,0 +1,49 @@
+# İleri seviye R - 1
+
+Bu ders kapsamında ileri seviye R kullanımına başlayacağız.
+
+## Döngüler (`for` döngüsü)
+
+Veri ile çalışırken, çoğunukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.
+
+Basit bir örnek verelim. Önce bir sayı vektörü oluşturalım:
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    NA, 1.8, 6.3, 2.1, NA)
+```
+
+Bu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.
+
+Önce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz @sec-vektorler'i tekrar gözden geçirebilirsiniz.
+
+```{r}
+(yaprak_uzunlugu[1]+5)/2
+```
+
+Şimdi ise ikinci eleman için bunu yapalım:
+
+```{r}
+(yaprak_uzunlugu[2]+5)/2
+```
+
+Dikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla `for` döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.
+
+```{r}
+for (i in 1:length(yaprak_uzunlugu)){
+    sonuc <- (yaprak_uzunlugu[i]+5)/2
+    print(sonuc)
+}
+```
+
+Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoryuz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1'den `r length(yaprak_uzunlugu)`'a kadar bir sayı dizisi oluştuyor. 
+
+```{r}
+1:length(yaprak_uzunlugu
+```
+
+For döngüsü ise `i` adından bir değişken oluşturuyor. Önce `i` değişkenine 1 değerini atıyor ve belirtilen işlemi yapoıyor.
+
+O işlem bitince, `i` değerine ikinci elemanı atıyor ve bu sefer `i <- 2` için işlemi gerçekleştiriyor.
+
+Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
