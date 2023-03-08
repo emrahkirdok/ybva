@@ -114,7 +114,7 @@ yaprak_uzunlugu[2:4]
 
 ::: {.callout-note}
 ## Sayı sırası oluşturalım
-`:` operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur:
+`:` operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur (daha ayrıntılı bilgi için @sec-seq-fonksiyonu):
 
 ```{r}
 1:16
@@ -127,10 +127,16 @@ Eğer `-` işareti ile eksi indis verirsek, o elemanı vektörden çıkartabilir
 yaprak_uzunlugu[-5]
 ```
 
-::: {.callout-tip}
+::: {.callout-warning}
 ## Dikkat
 Dikkat edin, burada `yaprak_uzunlugu` vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.
 :::
+
+
+
+## `seq` fonksiyonu ile çalışmalar {#sec-seq-fonksiyonu} 
+
+
 
 ## Sonuç
 
