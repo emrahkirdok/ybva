@@ -55,7 +55,7 @@ book:
 #        - metin_t_test.Rmd
 #
     - part: "Bilgisayarlı Düşünme"
-#      chapters:
+      chapters:
         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
 #        - 03-bilgisayarli-dusunme/01-ileri-seviye-r-02.qmd
 #        - metin_asamali_azalis.Rmd
