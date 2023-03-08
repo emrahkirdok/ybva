@@ -10,6 +10,12 @@ Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildi
 sayi1 <- 12
 ```
 
+Bu işlemin aynısını şu şekilde de yapabiliriz. Önemli olan okun yönü:
+
+```{r}
+12 -> sayi1
+```
+
 Bu işlemin sonucunda 12 değerini, `sayi1` değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde `sayi1` değişkenini kullanabiliriz.
 
 Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde görebilirsiniz. Artık değişkenimiz, hafıza içerisine alınmış ve tekrar tekrar kullanılmaya hazır bir şekilde beklemektedir.
@@ -100,4 +106,19 @@ str(factor("karanlik"))
 
 Bir veri tipini, başka bir veri tipine dönüştürme imkanımız bulunmaktadır. Tabii ki belirli kurallar dahilinde bu işlemi gerçekleştirebiliriz. 
 
-Elimizde 
+Elimizde bir sayı olduğunu ve bunu karaktere dönüştüreceğimizi düşünelim:
+
+```{r}
+as.character(12)
+```
+
+Yanlışlıkla karakter haline çevrilmiş bir sayıyı tekrar sayı haline dönüştürelim:
+
+```{r}
+as.numeric(12)
+```
+
+Kullanılabilecek diğer dönüşümler:
+
++ Faktör verisi: `as.factor()`
++ Mantıksal veri: `as.logical()` 
