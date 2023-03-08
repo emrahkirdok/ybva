@@ -69,6 +69,9 @@ book:
   
     - references.qmd
 
+  appendices:
+    - 10-ekler/01-sunumlar.qmd
+
 
 bibliography : bibliography.bib
 lang: tr

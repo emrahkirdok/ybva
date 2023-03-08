@@ -1,0 +1,11 @@
+# Hazırlanan sunumlar
+
+Giriş sunumu:
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="00-sunumlar/01-00-preface.html"></iframe>
+```
+
+</div>

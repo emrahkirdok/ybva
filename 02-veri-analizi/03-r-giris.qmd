@@ -1,5 +1,7 @@
 # R ve Rstudio ile çalışma {#sec-r-giris}
 
+Bir önceki kısımda (@sec-ilk-adimlar), R ile çalışmanın temel adımlarını öğrenmeye başlamıştık. Çalışma sistemimiz şu an için büyük oranda konsol üzerinde devam edecektir. Dolayıyısyla, eksikleriniz var ise, bahsi geçen bölümü tekrar etmeniz iyi olacaktır.
+
 ## Değişken atama
 
 Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü `<-` kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:
@@ -9,6 +11,8 @@ sayi1 <- 12
 ```
 
 Bu işlemin sonucunda 12 değerini, `sayi1` değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde `sayi1` değişkenini kullanabiliriz.
+
+Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde görebilirsiniz. Artık değişkenimiz, hafıza içerisine alınmış ve tekrar tekrar kullanılmaya hazır bir şekilde beklemektedir.
 
 İsterseniz ikinci bir değişken atayalım:
 
@@ -22,7 +26,7 @@ Artık ikinci bir degisken elde ettik. Peki bunlarla neler yapabiliriz? Mesela d
 sayi1 + sayi2
 ```
 
-Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır.
+Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır. Bu veri tipleri bize farklı değişkenlerle çalışma (karakter, tarih vs) imkanı vererek, farklı alanlarda veri analizi çalışmaları yapmamızı sağlamaktadır.
 
 ## Veri tipleri
 
@@ -57,6 +61,14 @@ Peki bu karakterin tipine bakalım:
 str("karakter")
 ```
 
+Şimdi ise başka bir örnek verelim. Bir sayıyı, `"` işaretleri arasına alırsak ne olur?
+
+```{r}
+str("12")
+```
+
+Evet, bir sayıyı tırnak işareti içerisine alırsak artık onu karakter'e çevirmiş oluruz. Dolayısıyla artık sayı olarak kullanamayız.
+
 Mantıksal değişkenler ise *Evet* ya da *Hayır* durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç bulunmamaktadır:
 
 - `TRUE` veya `T`
@@ -74,7 +86,6 @@ Mantıksal operatörler, R içerisinde ön tanımlı olarak gelmektedir. Dolayı
 
 Son olarak kategori ya da faktörleri inceleyelim. Faktör değişkenleri, genel olarak gruplandırma vazifesi görmektedir. Mesela, farklı deney koşullarını faktör olarak gösterebiliriz. Bu sayede, R içerisinde bu koşullara arasındaki değişimleri inceleme imkanımız bulunmaktadır. Faktör oluşturmak için mutlaka bir karaktere ihtiyacımız bulunmaktadır. Bir faktör oluşturmak için, `factor` fonksiyonunu kullanmalıyız:
 
-
 ```{r}
 factor("karanlik")
 ```
@@ -85,3 +96,8 @@ factor("karanlik")
 str(factor("karanlik"))
 ```
 
+## Veri tipi dönüşümleri
+
+Bir veri tipini, başka bir veri tipine dönüştürme imkanımız bulunmaktadır. Tabii ki belirli kurallar dahilinde bu işlemi gerçekleştirebiliriz. 
+
+Elimizde 
