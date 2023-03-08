@@ -56,7 +56,7 @@ book:
 #
     - part: "Bilgisayarlı Düşünme"
 #      chapters:
-#         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
+         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
 #        - metin_asamali_azalis.Rmd
 #        - metin_amphiBIO_calisma.Rmd
     
