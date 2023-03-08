@@ -4,7 +4,7 @@ Deneysel çalışmalar yapan bir araştırmacının ekipmanları laboratuvar mal
 
 Bir veri bilimcinin temel ekipmanı da bilgisayarıdır. Bilgisayarımızın nasıl çalıştığını en ince ayrıntısına kadar bilmeli ve hakim olmalıyız.
 
-R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımız yazabiliriz.
+R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımıza yazabiliriz.
 
 Bu belge bu amaçla hazırlandı.
 
@@ -16,7 +16,7 @@ Bu belge bu amaçla hazırlandı.
 getwd()
 ```
 
-Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir. Bu döküman, aslında yerin bilmediğim bir sunucuda derlendi. O yüzden buradaki bilgi biraz gerçeği yansıtmıyor.
+Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir. Bu döküman, aslında yerini bilmediğim bir sunucuda derlendi. O yüzden buradaki bilgi biraz gerçeği yansıtmıyor.
 
 Ama kişisel MAC bilgisyarımda şöyle bir çıktı alacağım:
 
@@ -54,7 +54,7 @@ Linux sistemlerde ise `/home/` içinde bulunur.
 
 Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.
 
-Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyıorsunuz.
+Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyorsunuz.
 
 ## Çalışma klasörü içindekiler nedir?
 
@@ -82,7 +82,7 @@ Proje oluşturun ve proje klasörünüzün içerisine `data` isimli bir klasör 
 
 Artık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.
 
-Proje klasörü oluştdurduğunuzda, artık güncel çalışma klasörününüz burası olarak belirlenir.
+Proje klasörü oluşturduğunuzda, artık güncel çalışma klasörünüz burası olarak belirlenir.
 
 ```{r}
 getwd()
