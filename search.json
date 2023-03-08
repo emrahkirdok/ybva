@@ -252,32 +252,39 @@
     "text": "8.2 Vektör oluşturma üzerine örnekler\nAşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba, her sütundan bir vektör oluşturabilir miyiz? Bu örnek için Tablo 8.1’e bakınız. Dikkat edin, ölçüm alınamayan noktalar var.\n\n\nTablo 8.1: Hayali veri setimizdeki bitkiler\n\nBitki İsmi\nYaprak Uzunluğu (cm)\nDeney Koşulları\n\n\n\nbitki1\n2.3\nKaranlık\n\n\nbitki2\n3.4\nAydınlık\n\n\nbitki3\n4.5\nAydınlık\n\n\nbitki4\n1.2\nKaranlık\n\n\nbitki5\n3.4\nAydınlık\n\n\nbitki6\n-\nKaranlık\n\n\nbitki7\n1.8\nKaranlık\n\n\nbitki8\n6.3\nAydinlik\n\n\nbitki9\n2.1\nKaranlık\n\n\nbitki10\n-\nKaranlık\n\n\n\n\nÖncelikle bitki isimleri için bir karakter vektörü oluşturalım:\n\nbitki_ismi <- c(\"bitki1\", \"bitki2\", \"bitki3\", \"bitki4\", \"bitki5\", \n                \"bitki6\", \"bitki7\",\"bitki8\", \"bitki9\", \"bitki10\")\n\nŞimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım. Burada dikkat ediniz, belirlenemyen ölçümlere NA ekliyoruz.\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    NA, 1.8, 6.3, 2.1, NA)\n\n\n\n\n\n\n\nNA karakterinin kullanımı\n\n\n\nBu karakter, farklı veri tipleri ile bir vektör içerisinde kullanılabilir.\n\n\nSon olarak deney koşulları için bir vektör oluşturmamız gerekli. Dikkat edin, deney koşulları aslında bir kategori ifade ediyor. Bu nedenle, deney koşulları vektörü aslında bir faktör vektörü olmalı:\n\ndeney_kosullari <- factor(c(\"karanlik\", \"aydinlik\", \"aydinlik\", \"karanlik\", \"aydinlik\",\n                            \"karanlik\", \"karanlik\", \"aydinlik\", \"karanlik\", \"karanlik\"))\n\nGerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:\n\nstr(deney_kosullari)\n\n Factor w/ 2 levels \"aydinlik\",\"karanlik\": 2 1 1 2 1 2 2 1 2 2\n\n\nBurada levels olarak belirtilen aslında faktör seviyeleri. aydinlik ve karanlik olmak üzere iki farklı seviye bulunmakta ve bu seviyeler 1 ve 2 olarak kodlanmış durumdadır. R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır.\n\n8.2.1 Vektörün uzunluğunu öğrenmek\nOluşturduğumuz vektörün uzunluğunu elde etmek için ise length fonksiyonunu kullanabiliriz:\n\nlength(yaprak_uzunlugu)\n\n[1] 10"
   },
   {
-    "objectID": "02-veri-analizi/04-vektorler.html#vektörlerde-indis-kullanımı",
-    "href": "02-veri-analizi/04-vektorler.html#vektörlerde-indis-kullanımı",
-    "title": "8  Vektörler",
-    "section": "\n8.3 Vektörlerde indis kullanımı",
-    "text": "8.3 Vektörlerde indis kullanımı\nPeki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz yaprak_uzunlugu vektörü üzerinde ikinci elemanı alalım:\n\nyaprak_uzunlugu[2]\n\n[1] 3.4\n\n\nŞimdi de ikinci ve dördüncü elemanlar arasındaki verileri geri döndürelim:\n\nyaprak_uzunlugu[2:4]\n\n[1] 3.4 4.5 1.2\n\n\n\n\n\n\n\n\nSayı sırası oluşturalım\n\n\n\n: operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur (daha ayrıntılı bilgi için Bölüm 8.5):\n\n1:16\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\n\n\nEğer - işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:\n\nyaprak_uzunlugu[-5]\n\n[1] 2.3 3.4 4.5 1.2  NA 1.8 6.3 2.1  NA\n\n\n\n\n\n\n\n\nDikkat\n\n\n\nDikkat edin, burada yaprak_uzunlugu vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü."
-  },
-  {
     "objectID": "02-veri-analizi/04-vektorler.html#vektör-elemanlarına-isim-eklemek",
     "href": "02-veri-analizi/04-vektorler.html#vektör-elemanlarına-isim-eklemek",
     "title": "8  Vektörler",
-    "section": "\n8.4 Vektör elemanlarına isim eklemek",
-    "text": "8.4 Vektör elemanlarına isim eklemek\nEğer istersek, her vektör elemanına bir isim atayabiliriz.\n\nnames(yaprak_uzunlugu) <- bitki_ismi\n\nAtanmış isimleri elde edebiliriz:\n\nnames(yaprak_uzunlugu)\n\n [1] \"bitki1\"  \"bitki2\"  \"bitki3\"  \"bitki4\"  \"bitki5\"  \"bitki6\"  \"bitki7\" \n [8] \"bitki8\"  \"bitki9\"  \"bitki10\"\n\n\nAncak dikkat edin, kullandığınız her iki vektörün aynı uzunlukta olması gereklidir."
+    "section": "\n8.3 Vektör elemanlarına isim eklemek",
+    "text": "8.3 Vektör elemanlarına isim eklemek\nEğer istersek, her vektör elemanına bir isim atayabiliriz.\n\nnames(yaprak_uzunlugu) <- bitki_ismi\n\nAtanmış isimleri elde edebiliriz:\n\nnames(yaprak_uzunlugu)\n\n [1] \"bitki1\"  \"bitki2\"  \"bitki3\"  \"bitki4\"  \"bitki5\"  \"bitki6\"  \"bitki7\" \n [8] \"bitki8\"  \"bitki9\"  \"bitki10\"\n\n\nAncak dikkat edin, kullandığınız her iki vektörün aynı uzunlukta olması gereklidir."
+  },
+  {
+    "objectID": "02-veri-analizi/04-vektorler.html#vektörlerde-indis-kullanımı",
+    "href": "02-veri-analizi/04-vektorler.html#vektörlerde-indis-kullanımı",
+    "title": "8  Vektörler",
+    "section": "\n8.4 Vektörlerde indis kullanımı",
+    "text": "8.4 Vektörlerde indis kullanımı\nPeki vektör içerisindeki elemanlara nasıl erişiriz? Bunun için indisler kullanmamız gereklidir. Mesela yukarıda oluşturduğumuz yaprak_uzunlugu vektörü üzerinde ikinci elemanı alalım:\n\nyaprak_uzunlugu[2]\n\nbitki2 \n   3.4 \n\n\nŞimdi de ikinci ve dördüncü elemanlar arasındaki verileri geri döndürelim:\n\nyaprak_uzunlugu[2:4]\n\nbitki2 bitki3 bitki4 \n   3.4    4.5    1.2 \n\n\n\n\n\n\n\n\nSayı sırası oluşturalım\n\n\n\n: operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur (daha ayrıntılı bilgi için Bölüm 8.6):\n\n1:16\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\n\n\nEğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz.\n\nyaprak_uzunlugu[\"bitki2\"]\n\nbitki2 \n   3.4"
+  },
+  {
+    "objectID": "02-veri-analizi/04-vektorler.html#vektörleri-filtrelemek",
+    "href": "02-veri-analizi/04-vektorler.html#vektörleri-filtrelemek",
+    "title": "8  Vektörler",
+    "section": "\n8.5 Vektörleri filtrelemek",
+    "text": "8.5 Vektörleri filtrelemek\nEğer istersek, vektörler içerisinde işlem de yapabiliriz. Mesela yaprak uzunluğu 3’den büyük olan bitkileri geri döndürelim:\n\nyaprak_uzunlugu > 3\n\n bitki1  bitki2  bitki3  bitki4  bitki5  bitki6  bitki7  bitki8  bitki9 bitki10 \n  FALSE    TRUE    TRUE   FALSE    TRUE      NA   FALSE    TRUE   FALSE      NA \n\n\nEğer - işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:\n\nyaprak_uzunlugu[-5]\n\n bitki1  bitki2  bitki3  bitki4  bitki6  bitki7  bitki8  bitki9 bitki10 \n    2.3     3.4     4.5     1.2      NA     1.8     6.3     2.1      NA \n\n\n\n\n\n\n\n\nDikkat\n\n\n\nDikkat edin, burada yaprak_uzunlugu vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü."
   },
   {
     "objectID": "02-veri-analizi/04-vektorler.html#sec-seq-fonksiyonu",
     "href": "02-veri-analizi/04-vektorler.html#sec-seq-fonksiyonu",
     "title": "8  Vektörler",
-    "section": "\n8.5 seq fonksiyonu ile çalışmalar",
-    "text": "8.5 seq fonksiyonu ile çalışmalar\nBu fonksiyon sayesinde iki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.\nMesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:\n\nseq(2,16)\n\n [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\nYa da kısaca bu şekilde de oluşturabiliriz:\n\n2:16\n\n [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\nArtış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:\n\nseq(2, 16, 2)\n\n[1]  2  4  6  8 10 12 14 16"
+    "section": "\n8.6 seq fonksiyonu ile çalışmalar",
+    "text": "8.6 seq fonksiyonu ile çalışmalar\nBu fonksiyon sayesinde iki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.\nMesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:\n\nseq(2,16)\n\n [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\nYa da kısaca bu şekilde de oluşturabiliriz:\n\n2:16\n\n [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16\n\n\nArtış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:\n\nseq(2, 16, 2)\n\n[1]  2  4  6  8 10 12 14 16"
   },
   {
     "objectID": "02-veri-analizi/04-vektorler.html#sonuç",
     "href": "02-veri-analizi/04-vektorler.html#sonuç",
     "title": "8  Vektörler",
-    "section": "\n8.6 Sonuç",
-    "text": "8.6 Sonuç\nBu kısım kapsamında aşağıdaki konular önemlidir:\n\nBir vektör oluşturmak için c() fonksiyonunu kullanırız, ve vektör elemanlarını , ile ayırırız\nBir vektörün uzunluğunu öğrenmek için length() fonksiyonunu kullanırız\nVektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız yaprak_uzunlugu[5]\n\n\nseq fonksiyonu kullanımı"
+    "section": "\n8.7 Sonuç",
+    "text": "8.7 Sonuç\nBu kısım kapsamında aşağıdaki konular önemlidir:\n\nBir vektör oluşturmak için c() fonksiyonunu kullanırız, ve vektör elemanlarını , ile ayırırız\nBir vektörün uzunluğunu öğrenmek için length() fonksiyonunu kullanırız\nVektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız yaprak_uzunlugu[5]\n\n\nseq fonksiyonu kullanımı"
   },
   {
     "objectID": "references.html",
