@@ -2,7 +2,8 @@ on:
   workflow_dispatch:
   push:
     branches: main
-name: Quarto Publish
+
+name: Publish quarto website
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -16,21 +17,22 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: false
-      - uses: r-lib/actions/setup-r@v2
+      
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - name: Setup packages
+      - name: Setup R packages
         uses: r-lib/actions/setup-r-dependencies@v2
-          
-          
+           
       #- name: Render Quarto Project
       #  uses: quarto-dev/quarto-actions/render@v2
       #  with:
       #    path: source-folder
       #    to: html
      
-      - name: Render to html
+      - name: Render book to html
         # Add any command line argument needed
         run: |
           quarto render --to html
@@ -39,11 +41,11 @@ jobs:
         run: |
           quarto render 00-sunumlar/*/*.qmd
       
-      - name: Copy presentations
+      - name: Copy presentations to book
         run: |
           mkdir -p _book/00-sunumlar; cp 00-sunumlar/*/*.html _book/00-sunumlar
 
-      - name: Render and Publish
+      - name: Publish book
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
