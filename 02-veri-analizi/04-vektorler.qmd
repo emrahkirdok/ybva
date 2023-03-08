@@ -30,7 +30,6 @@ vektor4 <- factor(c("karanlik", "aydinlik", "karanlik", "aydinlik"))
 
 Dikkat ederseniz önce `c()` fonskiyonu ile vektör oluşturduk, ardından `factor` fonksiyonu ile faktör'e çevirdik.
 
-
 İstersek iki farklı vektörü birleştirebiliriz. Önce iki farklı vektör oluşturalım:
 
 ```{r}
@@ -46,11 +45,9 @@ yeni_vektor <- c(x, y)
 
 Bu vektörü ekrana yazdıralım:
 
-
 ```{r}
 yeni_vektor
 ```
-
 
 Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `_` ile ayırdık. Siz de buna dikkat edin lütfen.
 
@@ -79,7 +76,6 @@ bitki_ismi <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", "bitki6")
 
 Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım:
 
-
 ```{r}
 yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 2.5)
 ```
@@ -96,7 +92,7 @@ Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:
 str(deney_kosullari)
 ```
 
-Oluşturduğumuz vektörün uzunluğunu elde etmek için ise `len` fonksiyonunu kullanabiliriz:
+Oluşturduğumuz vektörün uzunluğunu elde etmek için ise `length` fonksiyonunu kullanabiliriz:
 
 ```{r}
 length(yaprak_uzunlugu)
@@ -116,7 +112,8 @@ yaprak_uzunlugu[2]
 yaprak_uzunlugu[2:4]
 ```
 
-::: note
+::: {.callout-note}
+## Sayı sırası oluşturalım
 `:` operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur:
 
 ```{r}
@@ -130,10 +127,10 @@ Eğer `-` işareti ile eksi indis verirsek, o elemanı vektörden çıkartabilir
 yaprak_uzunlugu[-5]
 ```
 
-::: note
+::: {.callout-tip}
+## Dikkat
 Dikkat edin, burada `yaprak_uzunlugu` vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.
 :::
-
 
 ## Sonuç
 
