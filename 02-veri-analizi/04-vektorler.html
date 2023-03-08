@@ -266,10 +266,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul>
 </li>
   <li><a href="#vekt%C3%B6r-elemanlar%C4%B1na-isim-eklemek" id="toc-vektör-elemanlarına-isim-eklemek" class="nav-link" data-scroll-target="#vekt%C3%B6r-elemanlar%C4%B1na-isim-eklemek"><span class="toc-section-number">8.3</span>  Vektör elemanlarına isim eklemek</a></li>
-  <li><a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">8.4</span>  Vektörlerde indis kullanımı</a></li>
-  <li><a href="#vekt%C3%B6rleri-filtrelemek" id="toc-vektörleri-filtrelemek" class="nav-link" data-scroll-target="#vekt%C3%B6rleri-filtrelemek"><span class="toc-section-number">8.5</span>  Vektörleri filtrelemek</a></li>
-  <li><a href="#sec-seq-fonksiyonu" id="toc-sec-seq-fonksiyonu" class="nav-link" data-scroll-target="#sec-seq-fonksiyonu"><span class="toc-section-number">8.6</span>  <code>seq</code> fonksiyonu ile çalışmalar</a></li>
-  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">8.7</span>  Sonuç</a></li>
+  <li>
+<a href="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1" id="toc-vektörlerde-indis-kullanımı" class="nav-link" data-scroll-target="#vekt%C3%B6rlerde-indis-kullan%C4%B1m%C4%B1"><span class="toc-section-number">8.4</span>  Vektörlerde indis kullanımı</a>
+  <ul class="collapse">
+<li><a href="#vekt%C3%B6rleri-filtrelemek" id="toc-vektörleri-filtrelemek" class="nav-link" data-scroll-target="#vekt%C3%B6rleri-filtrelemek"><span class="toc-section-number">8.4.1</span>  Vektörleri filtrelemek</a></li>
+  <li><a href="#vekt%C3%B6rlerden-eleman-%C3%A7%C4%B1kartmak" id="toc-vektörlerden-eleman-çıkartmak" class="nav-link" data-scroll-target="#vekt%C3%B6rlerden-eleman-%C3%A7%C4%B1kartmak"><span class="toc-section-number">8.4.2</span>  Vektörlerden eleman çıkartmak</a></li>
+  </ul>
+</li>
+  <li><a href="#sec-seq-fonksiyonu" id="toc-sec-seq-fonksiyonu" class="nav-link" data-scroll-target="#sec-seq-fonksiyonu"><span class="toc-section-number">8.5</span>  <code>seq</code> fonksiyonu ile çalışmalar</a></li>
+  <li><a href="#sonu%C3%A7" id="toc-sonuç" class="nav-link" data-scroll-target="#sonu%C3%A7"><span class="toc-section-number">8.6</span>  Sonuç</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -499,7 +504,7 @@ Sayı sırası oluşturalım
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>:</code> operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur (daha ayrıntılı bilgi için <a href="#sec-seq-fonksiyonu"><span>Bölüm&nbsp;8.6</span></a>):</p>
+<p><code>:</code> operatörü, iki sayı arasındaki sayılardan bir vektör oluşturur (daha ayrıntılı bilgi için <a href="#sec-seq-fonksiyonu"><span>Bölüm&nbsp;8.5</span></a>):</p>
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -516,8 +521,8 @@ Sayı sırası oluşturalım
    3.4 </code></pre>
 </div>
 </div>
-</section><section id="vektörleri-filtrelemek" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="vektörleri-filtrelemek">
-<span class="header-section-number">8.5</span> Vektörleri filtrelemek</h2>
+<section id="vektörleri-filtrelemek" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="vektörleri-filtrelemek">
+<span class="header-section-number">8.4.1</span> Vektörleri filtrelemek</h3>
 <p>Eğer istersek, vektörler içerisinde işlem de yapabiliriz. Mesela yaprak uzunluğu 3’den büyük olan bitkileri geri döndürelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&gt;</span> <span class="fl">3</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -526,9 +531,18 @@ Sayı sırası oluşturalım
   FALSE    TRUE    TRUE   FALSE    TRUE      NA   FALSE    TRUE   FALSE      NA </code></pre>
 </div>
 </div>
+<p>Bir mantıksal vektör elde ettik. İstersek bu vektörü, başka bir vektöre indis olarak da kullanabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span><span class="op">[</span><span class="va">yaprak_uzunlugu</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "bitki2" "bitki3" "bitki5" NA       "bitki8" NA      </code></pre>
+</div>
+</div>
+</section><section id="vektörlerden-eleman-çıkartmak" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="vektörlerden-eleman-çıkartmak">
+<span class="header-section-number">8.4.2</span> Vektörlerden eleman çıkartmak</h3>
 <p>Eğer <code>-</code> işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="op">-</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> bitki1  bitki2  bitki3  bitki4  bitki6  bitki7  bitki8  bitki9 bitki10 
     2.3     3.4     4.5     1.2      NA     1.8     6.3     2.1      NA </code></pre>
@@ -547,32 +561,32 @@ Dikkat
 <p>Dikkat edin, burada <code>yaprak_uzunlugu</code> vektörünün beşinci elemanı doğrudan çıkartılmadı, sadece beşinci elemanı çıkartılmış bir vektör geri döndürüldü.</p>
 </div>
 </div>
-</section><section id="sec-seq-fonksiyonu" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="sec-seq-fonksiyonu">
-<span class="header-section-number">8.6</span> <code>seq</code> fonksiyonu ile çalışmalar</h2>
+</section></section><section id="sec-seq-fonksiyonu" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="sec-seq-fonksiyonu">
+<span class="header-section-number">8.5</span> <code>seq</code> fonksiyonu ile çalışmalar</h2>
 <p>Bu fonksiyon sayesinde iki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.</p>
 <p>Mesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">16</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">16</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16</code></pre>
 </div>
 </div>
 <p>Ya da kısaca bu şekilde de oluşturabiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2</span><span class="op">:</span><span class="fl">16</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2</span><span class="op">:</span><span class="fl">16</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16</code></pre>
 </div>
 </div>
 <p>Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">16</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">16</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  4  6  8 10 12 14 16</code></pre>
 </div>
 </div>
-</section><section id="sonuç" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="sonuç">
-<span class="header-section-number">8.7</span> Sonuç</h2>
+</section><section id="sonuç" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="sonuç">
+<span class="header-section-number">8.6</span> Sonuç</h2>
 <p>Bu kısım kapsamında aşağıdaki konular önemlidir:</p>
 <ul>
 <li>Bir vektör oluşturmak için <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanırız, ve vektör elemanlarını <code>,</code> ile ayırırız</li>
