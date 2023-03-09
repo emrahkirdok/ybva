@@ -42,6 +42,7 @@ jobs:
           quarto render 00-sunumlar/01-veri-analizi/01-00-preface.qmd;
           quarto render 00-sunumlar/01-veri-analizi/01-01-r-giris.qmd
           quarto render 00-sunumlar/01-veri-analizi/01-02-vektorler.qmd
+          quarto render 00-sunumlar/02-bilgisayarli-dusunme/02-01-ileri-seviye-r-01.qmd
       
       - name: Copy presentations to book
         run: |
