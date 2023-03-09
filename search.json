@@ -301,6 +301,55 @@
     "text": "9.3 Farklı yapıları birleştirelim\nŞimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nElimizde artık iki tane koşul olsun:\n\nEğer eleman 5’den büyük veya eşitse, elemana 5 ekle ve ikiye böl\nEğer eleman 5’den küçükse, elemana 10 ekle ve 3’e böl\n\nYine örneğimiz biraz rastgele oldu. Böyle bir senaryo için if-else yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:\n\nfor (eleman in yaprak_uzunlugu){\n    if (eleman >= 5){\n        sonuc <- (eleman+5)/2\n        cat(\"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:\", sonuc, \"\\n\")\n    } else {\n        sonuc <- (eleman+10)/3\n        cat(\"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:\", sonuc, \"\\n\")\n    }\n}\n\nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.1 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.833333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.733333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.333333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.933333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5.65 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 \n\n\nŞimdi bu yapıyı daha iyi anlamak için görselleşirelim (Şekil 9.3)\n\n\n\n\n\ng\n\n\neleman\n\nBirinci elemanı seç\nkontrol\n\n5’den büyük  veya  5’e eşit mi?\neleman->kontrol\n\n\nilk\n\nBirinci formülü uygulaSonucu ekrana yazdır\nkontrol->ilk\n\nTRUE\nikinci\n\nİkinci formülü uygulaSonucu ekrana yazdır\nkontrol->ikinci\n\nFALSE\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemanı seç\nson->devam\n\nFALSE\nDöngüyü sonlandır.\n\nDöngüyü sonlandır.\nson->Döngüyü sonlandır.\n\nTRUE\nilk->son\n\n\nikinci->son\n\n\ndevam->kontrol\n\n\nBaşla\n\nBaşla\nBaşla->eleman\n\n\nŞekil 9.3: İki kontrol yapısını da birleştirmek"
   },
   {
+    "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
+    "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
+    "title": "\n10  Vektörler Ödevi\n",
+    "section": "\n10.1 Soru 1",
+    "text": "10.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
+    "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
+    "title": "\n10  Vektörler Ödevi\n",
+    "section": "\n10.2 Soru 2",
+    "text": "10.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
+    "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
+    "title": "\n10  Vektörler Ödevi\n",
+    "section": "\n10.3 Soru 3",
+    "text": "10.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
+    "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
+    "title": "\n10  Vektörler Ödevi\n",
+    "section": "\n10.4 Soru 4",
+    "text": "10.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
+    "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
+    "title": "\n10  Vektörler Ödevi\n",
+    "section": "\n10.5 Soru 5",
+    "text": "10.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
+    "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
+    "title": "\n10  Vektörler Ödevi\n",
+    "section": "\n10.6 Soru 6",
+    "text": "10.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+  },
+  {
+    "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html",
+    "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html",
+    "title": "\n11  DNA transkripsiyon\n",
+    "section": "",
+    "text": "Aşağıdaki DNA dizisi bir karakter vektörü olarak tanımlanmıştır.\n\nDizi: ATCTCGATC\n\n\ndna <- c(\"A\", \"T\", \"C\", \",T\", \"C\", \"G\", \"A\", \"T\", \"C\")\ndna\n\n[1] \"A\"  \"T\"  \"C\"  \",T\" \"C\"  \"G\"  \"A\"  \"T\"  \"C\" \n\n\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız. Kodunuzda for ve if-else yapılarını kullanınıza.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "Kaynakça",

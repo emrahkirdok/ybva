@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 4&nbsp; Klasör İşlemleri</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 11&nbsp; DNA transkripsiyon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,25 +82,25 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../02-veri-analizi/01-veri-bilimine-giris.html" rel="next">
-<link href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" rel="prev">
-<link href="../images/ybva.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../references.html" rel="next">
+<link href="../../04-pratikler/01-veri-analizi/01-vektorler.html" rel="prev">
+<link href="../../images/ybva.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -124,7 +124,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></h1>
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -132,10 +134,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
+      <a href="../../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/emrahkirdok/ybva/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -155,12 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Önsöz</a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Önsöz</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">Katkı Sunma</a>
+  <a href="../../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">Katkı Sunma</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -173,22 +175,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a>
+  <a href="../../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a>
+  <a href="../../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
+  <a href="../../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  <a href="../../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
   </div>
 </li>
       </ul>
@@ -203,22 +205,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
+  <a href="../../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bilimsel Yöntem</span></a>
+  <a href="../../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bilimsel Yöntem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  <a href="../../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  <a href="../../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
   </div>
 </li>
       </ul>
@@ -233,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R üzerinde kontrol yapıları</span></a>
+  <a href="../../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R üzerinde kontrol yapıları</span></a>
   </div>
 </li>
       </ul>
@@ -248,12 +250,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></a>
+  <a href="../../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span></a>
+  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span></a>
   </div>
 </li>
       </ul>
@@ -263,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">Kaynakça</a>
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">Kaynakça</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -276,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></a>
+  <a href="../../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></a>
   </div>
 </li>
       </ul>
@@ -284,19 +286,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
-   
-  <ul>
-<li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede" id="toc-çalışma-klasörümüz-nerede" class="nav-link active" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BCm%C3%BCz-nerede"><span class="toc-section-number">4.1</span>  Çalışma klasörümüz nerede?</a></li>
-  <li><a href="#kullan%C4%B1c%C4%B1-ismi" id="toc-kullanıcı-ismi" class="nav-link" data-scroll-target="#kullan%C4%B1c%C4%B1-ismi"><span class="toc-section-number">4.2</span>  Kullanıcı ismi</a></li>
-  <li><a href="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir" id="toc-çalışma-klasörü-içindekiler-nedir" class="nav-link" data-scroll-target="#%C3%A7al%C4%B1%C5%9Fma-klas%C3%B6r%C3%BC-i%C3%A7indekiler-nedir"><span class="toc-section-number">4.3</span>  Çalışma klasörü içindekiler nedir?</a></li>
-  <li><a href="#klas%C3%B6rlerde-gezinmek" id="toc-klasörlerde-gezinmek" class="nav-link" data-scroll-target="#klas%C3%B6rlerde-gezinmek"><span class="toc-section-number">4.4</span>  Klasörlerde gezinmek</a></li>
-  <li><a href="#proje-olu%C5%9Fturmak" id="toc-proje-oluşturmak" class="nav-link" data-scroll-target="#proje-olu%C5%9Fturmak"><span class="toc-section-number">4.5</span>  Proje oluşturmak</a></li>
-  </ul></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-klasor" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></span></h1>
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span>
+</h1>
 </div>
 
 
@@ -309,79 +305,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Deneysel çalışmalar yapan bir araştırmacının ekipmanları laboratuvar malzemeleridir. Bu araştırmacıları, laboratuvar ekipmanları ve cihazlarının nasıl çalıştıklarını ayrtıntılı bir şekilde bilirler.</p>
-<p>Bir veri bilimcinin temel ekipmanı da bilgisayarıdır. Bilgisayarımızın nasıl çalıştığını en ince ayrıntısına kadar bilmeli ve hakim olmalıyız.</p>
-<p>R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımıza yazabiliriz.</p>
-<p>Bu belge bu amaçla hazırlandı.</p>
-<section id="çalışma-klasörümüz-nerede" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="çalışma-klasörümüz-nerede">
-<span class="header-section-number">4.1</span> Çalışma klasörümüz nerede?</h2>
-<p>İlk olarak <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> komutunu konsola yazalım ve çıktıyı inceleylim:</p>
+</header><p>Aşağıdaki DNA dizisi bir karakter vektörü olarak tanımlanmıştır.</p>
+<ul>
+<li>Dizi: ATCTCGATC</li>
+</ul>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">",T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span><span class="op">)</span></span>
+<span><span class="va">dna</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/runner/work/ybva/ybva/01-kurulum"</code></pre>
+<pre><code>[1] "A"  "T"  "C"  ",T" "C"  "G"  "A"  "T"  "C" </code></pre>
 </div>
 </div>
-<p>Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü gösterir. Bu döküman, aslında yerini bilmediğim bir sunucuda derlendi. O yüzden buradaki bilgi biraz gerçeği yansıtmıyor.</p>
-<p>Ama kişisel MAC bilgisyarımda şöyle bir çıktı alacağım:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/quatta/Akademia/Lectures/ybva</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ofiste bulunan Windows bilgisayarımda ise şuna benzer bir çıktı alacağım:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:/Users/User/Akademia/Lectures/ybva</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Linux bilgisayarda ise şöyle olacaktı:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/quatta/Akademia/Lectures/ybva</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bu bilgi aslında bize, o sıradaki çalışma klasörümüzün nerede olduğunu gösteriyor.</p>
-</section><section id="kullanıcı-ismi" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="kullanıcı-ismi">
-<span class="header-section-number">4.2</span> Kullanıcı ismi</h2>
-<p>Kullanıcı ismi nedir? Kullancı ismi, her bilgisayarda bulunan ve sizin bilgilerinizin depolandığı klasördür.</p>
-<p>Unix (mesela macbooklar) ve Linux tabanlı işletim sistemlerinde bu konu önemlidir. Çünkü bu sistemler çok kullanıcılı olması için optimize edilmiştir.</p>
-<p>Ancak Windows bilgisayarlarında bu konu çok anlaşılamamış bir olgudur. Genelde, bilgisayarı aldığınız yerde rastgele bir kullanıcı adı atanır.</p>
-<p>Windows sistemlerinde kullanıcı klasörleri <code>C:/Users/</code> içerisinde bulunur.</p>
-<p>Mac sistemlerde <code>/Users/</code> içerisinde.</p>
-<p>Linux sistemlerde ise <code>/home/</code> içinde bulunur.</p>
-<p>Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.</p>
-<p>Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar <code>C:/</code> ile <code>c:/</code> arasındaki farkı anlamıyor. O yüzden hata alıyorsunuz.</p>
-</section><section id="çalışma-klasörü-içindekiler-nedir" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="çalışma-klasörü-içindekiler-nedir">
-<span class="header-section-number">4.3</span> Çalışma klasörü içindekiler nedir?</h2>
-<p>Peki bu klasör içinde neler var? <code><a href="https://rdrr.io/r/base/list.files.html">dir()</a></code> fonksiyonu bu işe yarar. Klasördeki dosyaları size gösterir:</p>
-<div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "01-r-rstudio-kurulum.html"     "01-r-rstudio-kurulum.qmd"     
-[3] "02-ilk-kurallar.html"          "02-ilk-kurallar.qmd"          
-[5] "03-r-rstudio-ilk-adimlar.html" "03-r-rstudio-ilk-adimlar.qmd" 
-[7] "04-klasor-islemleri.qmd"       "04-klasor-islemleri.rmarkdown"
-[9] "images"                       </code></pre>
-</div>
-</div>
-</section><section id="klasörlerde-gezinmek" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="klasörlerde-gezinmek">
-<span class="header-section-number">4.4</span> Klasörlerde gezinmek</h2>
-<p>Eğer klasörler içerisinde gezinmek istiyorsanız, her klasörü ya da belgeyi <code>/</code> işareti ile ayırmalısınız.</p>
-<p>Türkçe karakterler kullanmamaya dikkat edin.</p>
-<p>Klasör isimlerinde boşluk kullanmayın. Hata alma şansınız yüksek. Genel olara komut satırında çalışırken kullandığınız boşluk (space) karakteri, yazdığınız şeyin bittiği anlamına geliyor ve bilgisayar sizden yeni bir cümle yazmanınızı bekliyor.</p>
-<p>Bu nedenle hata alabilirsiniz.</p>
-</section><section id="proje-oluşturmak" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="proje-oluşturmak">
-<span class="header-section-number">4.5</span> Proje oluşturmak</h2>
-<p>Eğer proje oluşturursanız, hayatınız daha kolaylaşır.</p>
-<p>Proje oluşturun ve proje klasörünüzün içerisine <code>data</code> isimli bir klasör daha oluşturun.</p>
-<p>Artık verilerinizi rahatlıkla bu klasör içerisinde saklayabilirsiniz.</p>
-<p>Proje klasörü oluşturduğunuzda, artık güncel çalışma klasörünüz burası olarak belirlenir.</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/runner/work/ybva/ybva/01-kurulum"</code></pre>
-</div>
-</div>
-<p>Bu klasör içerisinde <code>data</code> isimli verilerin saklandığı bir klasör daha bulunmakta. Onun içinde neler var?</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-</div>
-<p>Artık R içerisinde bir dosya okumak isterseniz <code>data/sinif.txt</code> yazarak, rahatlıkla bu dosyayı okuyabilirsiniz.</p>
+<p>Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız. Kodunuzda <code>for</code> ve <code>if-else</code> yapılarını kullanınıza.</p>
+<p>Oluşturacağınız kod, <code>rna</code> isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -514,13 +454,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></span>
+      <a href="../../04-pratikler/01-veri-analizi/01-vektorler.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../references.html" class="pagination-link">
+        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
