@@ -91,7 +91,8 @@ for (eleman in yaprak_uzunlugu){
 Gördüğünüz iki `for` döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (@fig-for-loop).
 
 ```{dot}
-#| label: fig-for-loop
+//| label: fig-for-loop
+//| fig-cap: "`for` döngüsü hakkındaki diyagram"
 
 digraph for{
     ilk [label = "Birinci elemanı\nseç", shape = box];
@@ -117,7 +118,9 @@ Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5'ten büyük veya eşit is
 @fig-if-else-1 bize bu işlemi şematize edecektir.
 
 ```{dot}
-#| label: fig-if-else-1
+//| label: fig-if-else-1
+//| fig-cap: "`if-else` döngüsü hakkındaki diyagram"
+
 digraph g {
     sayi [label = "Sayı", shape = box];
     kontrol [label = "5'den büyük \n veya \n 5'e eşit", shape = diamond];
@@ -201,7 +204,8 @@ for (eleman in yaprak_uzunlugu){
 Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (@fig-all-loop)
 
 ```{dot}
-#| label: fig-all-loop
+//| label: fig-all-loop
+//| fig-cap: "İki kontrol yapısını da birleştirmek"
 digraph g{
     eleman [label = "Birinci elemanı seç", shape = box];
     kontrol [label = "5'den büyük \n veya \n 5'e eşit mi?", shape = diamond];
