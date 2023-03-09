@@ -39,7 +39,8 @@ jobs:
 
       - name: Render presentations
         run: |
-          quarto render 00-sunumlar/*/*.qmd
+          quarto render 00-sunumlar/01-veri-analizi/01-00-preface.qmd;
+          quarto render 00-sunumlar/01-veri-analizi/01-01-r-giris.qmd
       
       - name: Copy presentations to book
         run: |
