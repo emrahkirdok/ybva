@@ -232,3 +232,7 @@ digraph g{
     {rank = same; kontrol; ilk};
 }
 ```
+
+## Ödev
+
+Burada öğrendiklerimizi pekiştirmek için @sec-odev-dna-islemler'de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.
