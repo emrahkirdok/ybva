@@ -79,7 +79,16 @@ O işlem bitince, `i` değerine ikinci elemanı atanıyor ve bu sefer `i <- 2` i
 
 Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
 
-Bunu şu şekile görselleştirebiliriz [@fig-for-loop].
+Bir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise  `i` yerine `eleman` isimli bir değişken oluşturalım: 
+
+```{r}
+for (eleman in yaprak_uzunlugu){
+    sonuc <- (eleman+5)/2
+    print(sonuc)
+}
+```
+
+Gördüğünüz iki `for` döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (@fig-for-loop).
 
 ```{dot}
 #| label: fig-for-loop
@@ -163,7 +172,7 @@ if (sayi >= 5) {
 
 ## Farklı yapıları birleştirelim
 
-Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim
+Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.
 
 ```{r}
 yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
@@ -178,32 +187,44 @@ Elimizde artık iki tane koşul olsun:
 Yine örneğimiz biraz rastgele oldu. Böyle bir senaryo için `if-else` yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:
 
 ```{r}
-for (i in 1:length(yaprak_uzunlugu)){
-    if (yaprak_uzunlugu[i] >= 5){
-        sonuc <- (yaprak_uzunlugu[i]+5)/2
+for (eleman in yaprak_uzunlugu){
+    if (eleman >= 5){
+        sonuc <- (eleman+5)/2
         cat("yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:", sonuc, "\n")
     } else {
-        sonuc <- (yaprak_uzunlugu[i]+10)/3
+        sonuc <- (eleman+10)/3
         cat("yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:", sonuc, "\n")
     }
 }
 ```
 
-Şimdi bu yapıyı daha iyi anlamak için görselleşirelim:
-
+Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (@fig-all-loop)
 
 ```{dot}
+#| label: fig-all-loop
 digraph g{
-    i [label = "i'yi seç", shape = box];
-    kontrol [label = "5'den büyük \n veya \n 5'e eşit", shape = diamond];
+    eleman [label = "Birinci elemanı seç", shape = box];
+    kontrol [label = "5'den büyük \n veya \n 5'e eşit mi?", shape = diamond];
+    
     son [label = "Son i'yi alana kadar devam et"];
-    ilk [label = "Birinci formülü uygula\nSonucu ekrana yazdır", shape = box];
-    ikinci [label = "İkinci formülü uygula\nSonucu ekrana yazdır", shape = box];
-    "Başla" -> i -> kontrol;
+    
+    ilk [label = "Birinci formülü uygula\nSonucu ekrana yazdır"];
+    ikinci [label = "İkinci formülü uygula\nSonucu ekrana yazdır"];
+    
+    son [label = "Son eleman mı?", shape = diamond];
+    devam [label = "Sonraki elemanı seç", shape = box]
+    
+    "Başla" -> eleman -> kontrol;
+
     kontrol -> ilk [label = "TRUE"];
     kontrol -> ikinci [label = "FALSE"];
+
+    {ilk; ikinci} -> son;
+    son -> devam [label = "FALSE"];
+    devam -> kontrol;
+
+    son -> "Döngüyü sonlandır." [label = "TRUE"]
+    {rank = same; eleman; devam}
     {rank = same; kontrol; ilk};
-    {ilk; ikinci} -> son -> i;
-    son -> "Döngüyü sonlandır."
 }
 ```
