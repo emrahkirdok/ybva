@@ -1,0 +1,257 @@
+---
+title: "Vektörler"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "09-03-2023"
+execute: 
+  echo: true
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+# Vektörler
+
+## Vektör oluşturma
+
++ Bir vektör oluşturmak istiyorsanız `c()` fonksiyonunu kullanmanız gerekmektedir:
+
+```{r}
+vektor1 <- c(12, 43, 45)
+```
+
+Oluşturduğunuz `vektor1` isimli vektör:
+
++ Üç tane elemana sahiptir. 
++ Bu elemanları `,` ile ayırdık.
+
+## Vektör oluşturma
+
++ İsterseniz karakter vektörleri de oluşturabilirsiniz:
+
+```{r}
+vektor2 <- c("bitki1", "bitki2", "bitki3")
+```
+
+## Vektör oluşturma
+
+Ya da mantıksal vektörler:
+
+```{r}
+vektor3 <- c(TRUE, FALSE, TRUE, FALSE)
+```
+
+## Vektör oluşturma
+
+Ya da faktör vektörleri:
+
+```{r}
+vektor4 <- factor(c("karanlik", "aydinlik", "karanlik", "aydinlik"))
+```
+
++ Önce `c()` fonskiyonu ile vektör oluşturduk
++ Ardından `factor` fonksiyonu ile faktör'e çevirdik.
+
+## Vektör oluşturma
+
+İstersek iki farklı vektörü birleştirebiliriz. Önce iki farklı vektör oluşturalım:
+
+```{r}
+x <- c(12, 34, 56)
+y <- c(39, 45, 67)
+```
+
++ Şimdi bu iki vektörü birleştirelim:
+
+```{r}
+yeni_vektor <- c(x, y)
+yeni_vektor
+```
+
+## Vektör oluşturma
+
++ Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `_` ile ayırdık. Siz de buna dikkat edin lütfen.
+
+## Vektörler sadece bir veri tipine sahiptir
+
++ Acaba iki farklı tipte vektörü birleştiriseniz ne olur? 
++Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
+
+```{r}
+vektor <- c("bitki1", "bitki2", 12, 45)
+str(vektor)
+```
+
+## Vektör oluşturma üzerine örnekler
+
+| Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
+|:-----------|---------------------:|:----------------|
+| bitki1     | 2.3                  | Karanlık        |
+| bitki2     | 3.4                  | Aydınlık        |
+| bitki3     | 4.5                  | Aydınlık        |
+| bitki4     | 1.2                  | Karanlık        |
+| bitki5     | 3.4                  | Aydınlık        |
+| bitki6     | -                    | Karanlık        |
+| bitki7     | 1.8                  | Karanlık        |
+| bitki8     | 6.3                  | Aydinlik        |
+| bitki9     | 2.1                  | Karanlık        |
+| bitki10    | -                    | Karanlık        |
+
+: Hayali veri setimizdeki bitkiler
+
+## Vektör oluşturma üzerine örnekler
+
+Öncelikle bitki isimleri için bir karakter vektörü oluşturalım:
+
+```{r}
+bitki_ismi <- c("bitki1", "bitki2", 
+                "bitki3", "bitki4", 
+                "bitki5", "bitki6", 
+                "bitki7","bitki8", 
+                "bitki9", "bitki10")
+```
+
+## Vektör oluşturma üzerine örnekler
+
+Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım. Burada dikkat ediniz, belirlenemyen ölçümlere `NA` ekliyoruz.
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    NA, 1.8, 6.3, 2.1, NA)
+```
+
+## Vektör oluşturma üzerine örnekler
+
++ Deney koşulları vektörü
++ Deney koşulları aslında bir kategori ifade ediyor. 
++ Faktör vektörü olmalı oluşturmalıyız
+
+```{r}
+deney_kosullari <- factor(c("karanlik", "aydinlik",
+                            "aydinlik", "karanlik", 
+                            "aydinlik", "karanlik",
+                            "karanlik", "aydinlik", 
+                            "karanlik", "karanlik"))
+```
+
+## Vektör oluşturma üzerine örnekler
+
+```{r}
+str(deney_kosullari)
+```
+
+Burada levels aslında faktör vektöründeki seviyeleri gösterir
++ `aydinlik` ve `karanlik` olmak üzere iki farklı seviye 
++ Bu seviyeler `1` ve `2` olarak kodlanmış
++ R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır. 
+
+## Vektörün uzunluğunu öğrenmek
+
+Oluşturduğumuz vektörün uzunluğunu elde etmek için ise `length` fonksiyonunu kullanabiliriz:
+
+```{r}
+length(yaprak_uzunlugu)
+```
+
+## Vektör elemanlarına isim eklemek
+
+Eğer istersek, her vektör elemanına bir isim atayabiliriz. 
+
+```{r}
+names(yaprak_uzunlugu) <- bitki_ismi
+``` 
+
+Atanmış isimleri elde edebiliriz:
+
+```{r}
+names(yaprak_uzunlugu)
+```
+
+## Vektörlerde indis kullanımı
+
+Peki vektör içerisindeki elemanlara nasıl erişiriz? 
+
++ Bunun için indisler kullanmamız gereklidir.
+
+```{r}
+yaprak_uzunlugu[2]
+```
+
+Şimdi de ikinci ve dördüncü elemanlar arasındaki verileri geri döndürelim:
+
+```{r}
+yaprak_uzunlugu[2:4]
+```
+
+## Vektörlerde indis kullanımı
+
+Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz.
+
+```{r}
+yaprak_uzunlugu["bitki2"]
+```
+
+## Vektörleri filtrelemek
+
++ Eğer istersek, vektörler içerisinde işlem de yapabiliriz. 
++ Mesela yaprak uzunluğu 3'den büyük olan bitkileri geri döndürelim:
+
+```{r}
+yaprak_uzunlugu > 3
+```
+
+## Vektörleri filtrelemek
+
++ Bir mantıksal vektör elde ettik. 
++ İstersek bu vektörü, başka bir vektöre indis olarak da kullanabiliriz:
+
+```{r}
+bitki_ismi[yaprak_uzunlugu > 3]
+```
+
+## Vektörlerden eleman çıkartmak
+
+Eğer `-` işareti ile eksi indis verirsek, o elemanı vektörden çıkartabiliriz:
+
+```{r}
+yaprak_uzunlugu[-5]
+```
+
+## `seq` fonksiyonu
+
++ İki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.
++ Mesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:
+
+```{r}
+seq(2,16)
+```
+
+## `seq` fonksiyonu
+
+Ya da kısaca bu şekilde de oluşturabiliriz:
+
+```{r}
+2:16
+```
+
+## `seq` fonksiyonu
+
+Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:
+
+```{r}
+seq(2, 16, 2)
+```
+
+## Sonuç
+
+Bu kısım kapsamında aşağıdaki konular önemlidir:
+
++ Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız, ve vektör elemanlarını `,` ile ayırırız
++ Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız
++ Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
++ `seq` fonksiyonu kullanımı 
