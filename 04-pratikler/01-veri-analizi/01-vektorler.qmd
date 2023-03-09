@@ -1,4 +1,4 @@
-# Vektörler Ödevi
+# Vektörler Ödevi {#sec-odev-vektorler}
 Bu belge, birinci ödeviniz için çözmeniz gereken soruları içermektedir. Başarılar.
 
 Cevaplarınızı, R kod blokları içerisinde yazacaksınız.

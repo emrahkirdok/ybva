@@ -230,3 +230,7 @@ Bu kısım kapsamında aşağıdaki konular önemlidir:
 + Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız
 + Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
 + `seq` fonksiyonu kullanımı 
+
+## Ödev
+
+Bu derste öğrendiklerimizi pekiştirmek için @sec-odev-vektorler'de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.
