@@ -272,7 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#d%C3%B6ng%C3%BCler-for-d%C3%B6ng%C3%BCs%C3%BC" id="toc-döngüler-for-döngüsü" class="nav-link active" data-scroll-target="#d%C3%B6ng%C3%BCler-for-d%C3%B6ng%C3%BCs%C3%BC"><span class="toc-section-number">9.1</span>  Döngüler (<code>for</code> döngüsü)</a></li>
+<li><a href="#d%C3%B6ng%C3%BCler-for" id="toc-döngüler-for" class="nav-link active" data-scroll-target="#d%C3%B6ng%C3%BCler-for"><span class="toc-section-number">9.1</span>  Döngüler (<code>for</code>)</a></li>
   <li><a href="#kontrol-yap%C4%B1s%C4%B1-if-else" id="toc-kontrol-yapısı-if-else" class="nav-link" data-scroll-target="#kontrol-yap%C4%B1s%C4%B1-if-else"><span class="toc-section-number">9.2</span>  Kontrol yapısı (<code>if-else</code>)</a></li>
   <li><a href="#farkl%C4%B1-yap%C4%B1lar%C4%B1-birle%C5%9Ftirelim" id="toc-farklı-yapıları-birleştirelim" class="nav-link" data-scroll-target="#farkl%C4%B1-yap%C4%B1lar%C4%B1-birle%C5%9Ftirelim"><span class="toc-section-number">9.3</span>  Farklı yapıları birleştirelim</a></li>
   </ul></nav>
@@ -294,24 +294,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Bu ders kapsamında ileri seviye R kullanımına başlayacağız. Veri Analizi kısmında daha çok R ile veri analizi üzerine çalışmalar yapıldı. Bu kısımda ise R ile programlama adımlarını incelemeye başlayacağız.</p>
-<p>Kontrol yapıları, gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır.</p>
+</header><p>Bu kısımda ileri seviye R kullanımına başlayacağız. Veri Analizi dersi kapsamında daha çok R ile veri analizi üzerine çalışmalar yapıldı. Bu kısımda ise R ile programlama adımlarını incelemeye başlayacağız.</p>
+<p>Kontrol yapıları, gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede, karmaşık verisetlerinde farklı analiz adımları gerçekleştirebiliriz.</p>
 <p>Küçük bir örnekle bunu açıklamaya çalışalım. Elimizde aşağıdaki gibi bir vektör olsun:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
 <span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Bu vektörde bulunan her elemana farklı işlemler uygulamak istediğimizi düşünelim. R üzerinde kullanacağımız döngü yapıları (<code>for</code> döngüsü), bize bu vektördeki her elemana erişip, o elemanla işlem yapma şansı sağlamaktadır.</p>
+<p>Bu vektörde bulunan her elemana belirli bir fonksiyonu uygulamak istediğimizi düşünelim. Şu ana kadar öğrendiğimiz bilgilerle, bu vektör içerisindeki elemanları manuel olarak seçerek bu işlemleri gerçekleştirebiliyoruz.</p>
+<p>Ancak R üzerinde kullanacağımız döngü yapısı (<code>for</code> döngüsü), bize bu vektördeki her elemana erişip, o elemanla işlem yapma şansı sağlamaktadır.</p>
 <p>Peki, 5’den büyük ve küçük olan elemanlara farklı işlemler yapmak istersek? O zaman da <code>if-else</code> kontrol yapısı bize yardımcı olacaktır. Bu sayede bir elemanın 5’den büyük veya küçük olma koşulunu inceleyerek, ona göre işlemler gerçekleştirebilriz.</p>
-<section id="döngüler-for-döngüsü" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="döngüler-for-döngüsü">
-<span class="header-section-number">9.1</span> Döngüler (<code>for</code> döngüsü)</h2>
-<p>Veri ile çalışırken, çoğunukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.</p>
+<section id="döngüler-for" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="döngüler-for">
+<span class="header-section-number">9.1</span> Döngüler (<code>for</code>)</h2>
+<p>Veri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.</p>
 <p>Basit bir örnek verelim. Önce bir sayı vektörü oluşturalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
 <span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Bu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.</p>
+<p>Bu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimiz düşünelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.</p>
 <p>Önce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz <a href="../02-veri-analizi/04-vektorler.html"><span>Bölüm&nbsp;8</span></a>’i tekrar gözden geçirebilirsiniz.</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -328,10 +329,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Dikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla <code>for</code> döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.</p>
 <p>Öncelikle <code>for</code> döngüsünün genel yapısına bakalım:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( DÖNGÜ ){</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( ÇALIŞILACAK ELEMAN KÜMESİ ){</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    YAPILACAK İŞ</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Burada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. <code>for</code> döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli YAPILACAK İŞ adımı çalıştırılıyor.</p>
+<p>Burada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. <code>for</code> döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli <strong>YAPILACAK İŞ</strong> adımı çalıştırılıyor.</p>
 <p>Ancak bu yapıyı yukarıdaki gibi kullanmalıyız.</p>
 <p>Şimdi döngümüzü yazalım:</p>
 <div class="cell">
@@ -353,6 +354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.</p>
+<p><code>i in 1:length(yaprak_uzunlugu)</code> cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -362,65 +364,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For döngüsü ise <code>i</code> adından bir değişken oluşturuyor. Önce <code>i</code> değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.</p>
 <p>O işlem bitince, <code>i</code> değerine ikinci elemanı atanıyor ve bu sefer <code>i &lt;- 2</code> için işlemi gerçekleştiriyor.</p>
 <p>Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.</p>
-</section><section id="kontrol-yapısı-if-else" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="kontrol-yapısı-if-else">
-<span class="header-section-number">9.2</span> Kontrol yapısı (<code>if-else</code>)</h2>
-<p>Eğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, <code>if-else</code> yapısını kullanıyoruz.</p>
-<p>Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.</p>
-<p>Önce bunu bir diyagram ile açıklayalım:</p>
+<p>Bir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise <code>i</code> yerine <code>eleman</code> isimli bir değişken oluşturalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.65
+[1] 4.2
+[1] 4.75
+[1] 3.1
+[1] 4.2
+[1] 4
+[1] 3.4
+[1] 5.65
+[1] 3.55
+[1] 5</code></pre>
+</div>
+</div>
+<p>Gördüğünüz iki <code>for</code> döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (<span class="quarto-unresolved-ref">?fig-for-loop</span>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <p>
-<svg width="672" height="480" viewbox="0.00 0.00 325.60 286.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 282.6)"><title>
-g
+<svg width="672" height="480" viewbox="0.00 0.00 337.39 284.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 280.4)"><title>
+for
 </title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-282.6 321.6,-282.6 321.6,4 -4,4"></polygon><!-- sayi --><g id="node1" class="node"><title>
-sayi
-</title>
-<polygon fill="none" stroke="black" points="114.74,-278.6 60.74,-278.6 60.74,-242.6 114.74,-242.6 114.74,-278.6"></polygon><text text-anchor="middle" x="87.74" y="-256.4" font-family="Times,serif" font-size="14.00">Sayı</text></g><!-- kontrol --><g id="node2" class="node"><title>
-kontrol
-</title>
-<polygon fill="none" stroke="black" points="87.74,-205.5 -0.24,-147.2 87.74,-88.9 175.71,-147.2 87.74,-205.5"></polygon><text text-anchor="middle" x="87.74" y="-159.8" font-family="Times,serif" font-size="14.00">5’den büyük </text><text text-anchor="middle" x="87.74" y="-143" font-family="Times,serif" font-size="14.00"> veya </text><text text-anchor="middle" x="87.74" y="-126.2" font-family="Times,serif" font-size="14.00"> 5’e eşit</text></g><!-- sayi&#45;&gt;kontrol --><g id="edge1" class="edge"><title>
-sayi-&gt;kontrol
-</title>
-<path fill="none" stroke="black" d="M87.74,-242.19C87.74,-234.75 87.74,-225.53 87.74,-215.8"></path><polygon fill="black" stroke="black" points="91.24,-215.53 87.74,-205.53 84.24,-215.53 91.24,-215.53"></polygon></g><!-- ilk --><g id="node3" class="node"><title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-280.4 333.39,-280.4 333.39,4 -4,4"></polygon><!-- ilk --><g id="node1" class="node"><title>
 ilk
 </title>
-<polygon fill="none" stroke="black" points="317.47,-176.6 230,-176.6 230,-117.8 317.47,-117.8 317.47,-176.6"></polygon><text text-anchor="middle" x="273.74" y="-159.8" font-family="Times,serif" font-size="14.00">5’den büyük </text><text text-anchor="middle" x="273.74" y="-143" font-family="Times,serif" font-size="14.00"> veya </text><text text-anchor="middle" x="273.74" y="-126.2" font-family="Times,serif" font-size="14.00"> 5’e eşit</text></g><!-- kontrol&#45;&gt;ilk --><g id="edge2" class="edge"><title>
+<polygon fill="none" stroke="black" points="169.5,-276.2 63.89,-276.2 63.89,-235 169.5,-235 169.5,-276.2"></polygon><text text-anchor="middle" x="116.69" y="-259.8" font-family="Times,serif" font-size="14.00">Birinci elemanı</text><text text-anchor="middle" x="116.69" y="-243" font-family="Times,serif" font-size="14.00">seç</text></g><!-- islem --><g id="node4" class="node"><title>
+islem
+</title>
+<ellipse fill="none" stroke="black" cx="116.69" cy="-179.8" rx="116.89" ry="18"></ellipse><text text-anchor="middle" x="116.69" y="-175.6" font-family="Times,serif" font-size="14.00">İstenen işlemi gerçekleştir</text></g><!-- ilk&#45;&gt;islem --><g id="edge1" class="edge"><title>
+ilk-&gt;islem
+</title>
+<path fill="none" stroke="black" d="M116.69,-234.82C116.69,-226.69 116.69,-217.13 116.69,-208.33"></path><polygon fill="black" stroke="black" points="120.19,-208.12 116.69,-198.12 113.19,-208.12 120.19,-208.12"></polygon></g><!-- son --><g id="node2" class="node"><title>
+son
+</title>
+<polygon fill="none" stroke="black" points="192.69,-124.8 85.93,-106.8 192.69,-88.8 299.46,-106.8 192.69,-124.8"></polygon><text text-anchor="middle" x="192.69" y="-102.6" font-family="Times,serif" font-size="14.00">Son eleman mı?</text></g><!-- devam --><g id="node3" class="node"><title>
+devam
+</title>
+<polygon fill="none" stroke="black" points="329.59,-273.6 195.79,-273.6 195.79,-237.6 329.59,-237.6 329.59,-273.6"></polygon><text text-anchor="middle" x="262.69" y="-251.4" font-family="Times,serif" font-size="14.00">Sonraki elemana geç</text></g><!-- son&#45;&gt;devam --><g id="edge3" class="edge"><title>
+son-&gt;devam
+</title>
+<path fill="none" stroke="black" d="M210.07,-122.11C221.06,-132.11 234.67,-146.38 242.69,-161.8 253.29,-182.18 258.28,-207.89 260.62,-227.07"></path><polygon fill="black" stroke="black" points="257.17,-227.68 261.7,-237.26 264.13,-226.94 257.17,-227.68"></polygon><text text-anchor="middle" x="276.09" y="-175.6" font-family="Times,serif" font-size="14.00">FALSE</text></g><!-- sonlandır --><g id="node5" class="node"><title>
+sonlandır
+</title>
+<polygon fill="none" stroke="black" points="256.02,-36 129.37,-36 129.37,0 256.02,0 256.02,-36"></polygon><text text-anchor="middle" x="192.69" y="-13.8" font-family="Times,serif" font-size="14.00">Döngüyü sonlandır</text></g><!-- son&#45;&gt;sonlandır --><g id="edge5" class="edge"><title>
+son-&gt;sonlandır
+</title>
+<path fill="none" stroke="black" d="M192.69,-88.65C192.69,-76.52 192.69,-60.02 192.69,-46.12"></path><polygon fill="black" stroke="black" points="196.19,-46.11 192.69,-36.11 189.19,-46.11 196.19,-46.11"></polygon><text text-anchor="middle" x="210.97" y="-58.2" font-family="Times,serif" font-size="14.00">TRUE</text></g><!-- devam&#45;&gt;islem --><g id="edge4" class="edge"><title>
+devam-&gt;islem
+</title>
+<path fill="none" stroke="black" d="M228.83,-237.48C207.8,-226.85 180.63,-213.12 158.29,-201.83"></path><polygon fill="black" stroke="black" points="159.87,-198.7 149.37,-197.32 156.71,-204.95 159.87,-198.7"></polygon></g><!-- islem&#45;&gt;son --><g id="edge2" class="edge"><title>
+islem-&gt;son
+</title>
+<path fill="none" stroke="black" d="M134.7,-161.97C145.19,-152.18 158.51,-139.73 169.74,-129.24"></path><polygon fill="black" stroke="black" points="172.21,-131.73 177.12,-122.34 167.43,-126.61 172.21,-131.73"></polygon></g></g></svg></p>
+</div>
+</div>
+</div>
+</section><section id="kontrol-yapısı-if-else" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="kontrol-yapısı-if-else">
+<span class="header-section-number">9.2</span> Kontrol yapısı (<code>if-else</code>)</h2>
+<p>Eğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, <code>if-else</code> yapısını kullanıyoruz.</p>
+<p>Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.</p>
+<p><span class="quarto-unresolved-ref">?fig-if-else-1</span> bize bu işlemi şematize edecektir.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="672" height="480" viewbox="0.00 0.00 381.24 382.43" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 378.43)"><title>
+g
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-378.43 377.24,-378.43 377.24,4 -4,4"></polygon><!-- sayi --><g id="node1" class="node"><title>
+sayi
+</title>
+<polygon fill="none" stroke="black" points="114.74,-374.43 60.74,-374.43 60.74,-338.43 114.74,-338.43 114.74,-374.43"></polygon><text text-anchor="middle" x="87.74" y="-352.23" font-family="Times,serif" font-size="14.00">Sayı</text></g><!-- kontrol --><g id="node2" class="node"><title>
+kontrol
+</title>
+<polygon fill="none" stroke="black" points="87.74,-301.33 -0.24,-243.03 87.74,-184.73 175.71,-243.03 87.74,-301.33"></polygon><text text-anchor="middle" x="87.74" y="-255.63" font-family="Times,serif" font-size="14.00">5’den büyük </text><text text-anchor="middle" x="87.74" y="-238.83" font-family="Times,serif" font-size="14.00"> veya </text><text text-anchor="middle" x="87.74" y="-222.03" font-family="Times,serif" font-size="14.00"> 5’e eşit</text></g><!-- sayi&#45;&gt;kontrol --><g id="edge1" class="edge"><title>
+sayi-&gt;kontrol
+</title>
+<path fill="none" stroke="black" d="M87.74,-338.03C87.74,-330.58 87.74,-321.36 87.74,-311.63"></path><polygon fill="black" stroke="black" points="91.24,-311.36 87.74,-301.36 84.24,-311.36 91.24,-311.36"></polygon></g><!-- ilk --><g id="node3" class="node"><title>
+ilk
+</title>
+<ellipse fill="none" stroke="black" cx="301.74" cy="-243.03" rx="71.51" ry="53.35"></ellipse><text text-anchor="middle" x="301.74" y="-264.03" font-family="Times,serif" font-size="14.00">Ekrana yazdır:</text><text text-anchor="middle" x="301.74" y="-247.23" font-family="Times,serif" font-size="14.00">5’den büyük </text><text text-anchor="middle" x="301.74" y="-230.43" font-family="Times,serif" font-size="14.00"> veya </text><text text-anchor="middle" x="301.74" y="-213.63" font-family="Times,serif" font-size="14.00"> 5’e eşit</text></g><!-- kontrol&#45;&gt;ilk --><g id="edge2" class="edge"><title>
 kontrol-&gt;ilk
 </title>
-<path fill="none" stroke="black" d="M175.56,-147.2C190.55,-147.2 205.72,-147.2 219.51,-147.2"></path><polygon fill="black" stroke="black" points="219.76,-150.7 229.76,-147.2 219.76,-143.7 219.76,-150.7"></polygon><text text-anchor="middle" x="202.67" y="-154.4" font-family="Times,serif" font-size="14.00">TRUE</text></g><!-- ikinci --><g id="node4" class="node"><title>
+<path fill="none" stroke="black" d="M175.7,-243.03C190.27,-243.03 205.32,-243.03 219.73,-243.03"></path><polygon fill="black" stroke="black" points="220.09,-246.53 230.09,-243.03 220.09,-239.53 220.09,-246.53"></polygon><text text-anchor="middle" x="202.85" y="-250.23" font-family="Times,serif" font-size="14.00">TRUE</text></g><!-- ikinci --><g id="node4" class="node"><title>
 ikinci
 </title>
-<polygon fill="none" stroke="black" points="129.97,-36 45.5,-36 45.5,0 129.97,0 129.97,-36"></polygon><text text-anchor="middle" x="87.74" y="-13.8" font-family="Times,serif" font-size="14.00">5’den küçük</text></g><!-- kontrol&#45;&gt;ikinci --><g id="edge3" class="edge"><title>
+<ellipse fill="none" stroke="black" cx="172.74" cy="-102.42" rx="71.51" ry="29.33"></ellipse><text text-anchor="middle" x="172.74" y="-106.62" font-family="Times,serif" font-size="14.00">Ekrana yazdır:</text><text text-anchor="middle" x="172.74" y="-89.82" font-family="Times,serif" font-size="14.00">5’den küçük</text></g><!-- kontrol&#45;&gt;ikinci --><g id="edge3" class="edge"><title>
 kontrol-&gt;ikinci
 </title>
-<path fill="none" stroke="black" d="M87.74,-88.55C87.74,-73.81 87.74,-58.64 87.74,-46.24"></path><polygon fill="black" stroke="black" points="91.24,-46.14 87.74,-36.14 84.24,-46.14 91.24,-46.14"></polygon><text text-anchor="middle" x="109.13" y="-58.2" font-family="Times,serif" font-size="14.00">FALSE</text></g></g></svg></p>
+<path fill="none" stroke="black" d="M112.78,-201.19C124.7,-181.75 138.84,-158.69 150.39,-139.85"></path><polygon fill="black" stroke="black" points="153.43,-141.6 155.67,-131.25 147.46,-137.94 153.43,-141.6"></polygon><text text-anchor="middle" x="165.13" y="-154.03" font-family="Times,serif" font-size="14.00">FALSE</text></g><!-- sonlandir --><g id="node5" class="node"><title>
+sonlandir
+</title>
+<polygon fill="none" stroke="black" points="286.33,-36 173.14,-36 173.14,0 286.33,0 286.33,-36"></polygon><text text-anchor="middle" x="229.74" y="-13.8" font-family="Times,serif" font-size="14.00">İşlemi sonlandır</text></g><!-- ilk&#45;&gt;sonlandir --><g id="edge4" class="edge"><title>
+ilk-&gt;sonlandir
+</title>
+<path fill="none" stroke="black" d="M289.1,-190.39C280.34,-156.61 267.76,-111.72 253.74,-73 250.44,-63.89 246.3,-54.15 242.4,-45.49"></path><polygon fill="black" stroke="black" points="245.51,-43.87 238.15,-36.25 239.16,-46.8 245.51,-43.87"></polygon></g><!-- ikinci&#45;&gt;sonlandir --><g id="edge5" class="edge"><title>
+ikinci-&gt;sonlandir
+</title>
+<path fill="none" stroke="black" d="M191.72,-73.97C198.29,-64.46 205.64,-53.85 212.1,-44.5"></path><polygon fill="black" stroke="black" points="215.17,-46.22 217.98,-36 209.41,-42.24 215.17,-46.22"></polygon></g></g></svg></p>
 </div>
 </div>
 </div>
 <p>İlk olarak bir sayı belirleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>İlk koşulu çalıştıralım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&gt;=</span> <span class="fl">5</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&gt;=</span> <span class="fl">5</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>Bu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5’e eşit veya 5’den büyük. Ama asla 5’den küçük değil.</p>
 <p>Şimdi <code>if-else</code> yapısına bakalım:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( KOŞUL ){</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( KOŞUL ){</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>İlk önce bir koşul belirliyoruz (sayını 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.</p>
 <p>Şimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
 <span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="va">sayi</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"bu sayi bese esit veya besten buyuktur"</span><span class="op">)</span></span>
@@ -433,9 +505,9 @@ kontrol-&gt;ikinci
 </div>
 </section><section id="farklı-yapıları-birleştirelim" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="farklı-yapıları-birleştirelim">
 <span class="header-section-number">9.3</span> Farklı yapıları birleştirelim</h2>
-<p>Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim</p>
+<p>Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
 <span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Elimizde artık iki tane koşul olsun:</p>
@@ -445,12 +517,12 @@ kontrol-&gt;ikinci
 </ul>
 <p>Yine örneğimiz biraz rastgele oldu. Böyle bir senaryo için <code>if-else</code> yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
-<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span><span class="op">{</span></span>
-<span>        <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">eleman</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:"</span>, <span class="va">sonuc</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
-<span>        <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">+</span><span class="fl">10</span><span class="op">)</span><span class="op">/</span><span class="fl">3</span></span>
+<span>        <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">10</span><span class="op">)</span><span class="op">/</span><span class="fl">3</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:"</span>, <span class="va">sonuc</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
 <span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -467,60 +539,66 @@ yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333
 yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 </code></pre>
 </div>
 </div>
-<p>Şimdi bu yapıyı daha iyi anlamak için görselleşirelim:</p>
+<p>Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (<span class="quarto-unresolved-ref">?fig-all-loop</span>)</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <p>
-<svg width="672" height="480" viewbox="0.00 0.00 435.33 511.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 507.2)"><title>
+<svg width="672" height="480" viewbox="0.00 0.00 543.91 544.23" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 540.23)"><title>
 g
 </title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-507.2 431.33,-507.2 431.33,4 -4,4"></polygon><!-- i --><g id="node1" class="node"><title>
-i
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-540.23 539.91,-540.23 539.91,4 -4,4"></polygon><!-- eleman --><g id="node1" class="node"><title>
+eleman
 </title>
-<polygon fill="none" stroke="black" points="273.7,-430.2 217.77,-430.2 217.77,-394.2 273.7,-394.2 273.7,-430.2"></polygon><text text-anchor="middle" x="245.74" y="-408" font-family="Times,serif" font-size="14.00">i’yi seç</text></g><!-- kontrol --><g id="node2" class="node"><title>
+<polygon fill="none" stroke="black" points="278.28,-463.23 150.35,-463.23 150.35,-427.23 278.28,-427.23 278.28,-463.23"></polygon><text text-anchor="middle" x="214.32" y="-441.03" font-family="Times,serif" font-size="14.00">Birinci elemanı seç</text></g><!-- kontrol --><g id="node2" class="node"><title>
 kontrol
 </title>
-<polygon fill="none" stroke="black" points="87.74,-357.1 -0.24,-298.8 87.74,-240.5 175.71,-298.8 87.74,-357.1"></polygon><text text-anchor="middle" x="87.74" y="-311.4" font-family="Times,serif" font-size="14.00">5’den büyük </text><text text-anchor="middle" x="87.74" y="-294.6" font-family="Times,serif" font-size="14.00"> veya </text><text text-anchor="middle" x="87.74" y="-277.8" font-family="Times,serif" font-size="14.00"> 5’e eşit</text></g><!-- i&#45;&gt;kontrol --><g id="edge2" class="edge"><title>
-i-&gt;kontrol
+<polygon fill="none" stroke="black" points="188.32,-390.13 100.34,-331.83 188.32,-273.53 276.29,-331.83 188.32,-390.13"></polygon><text text-anchor="middle" x="188.32" y="-344.43" font-family="Times,serif" font-size="14.00">5’den büyük </text><text text-anchor="middle" x="188.32" y="-327.63" font-family="Times,serif" font-size="14.00"> veya </text><text text-anchor="middle" x="188.32" y="-310.83" font-family="Times,serif" font-size="14.00"> 5’e eşit mi?</text></g><!-- eleman&#45;&gt;kontrol --><g id="edge2" class="edge"><title>
+eleman-&gt;kontrol
 </title>
-<path fill="none" stroke="black" d="M221.4,-394.04C199.27,-378.44 165.93,-354.93 138.09,-335.3"></path><polygon fill="black" stroke="black" points="139.83,-332.25 129.64,-329.35 135.8,-337.97 139.83,-332.25"></polygon></g><!-- ilk --><g id="node4" class="node"><title>
+<path fill="none" stroke="black" d="M210.25,-426.83C208.07,-417.46 205.23,-405.29 202.32,-392.83"></path><polygon fill="black" stroke="black" points="205.67,-391.77 199.99,-382.83 198.85,-393.36 205.67,-391.77"></polygon></g><!-- ilk --><g id="node4" class="node"><title>
 ilk
 </title>
-<polygon fill="none" stroke="black" points="375.33,-319.4 230.15,-319.4 230.15,-278.2 375.33,-278.2 375.33,-319.4"></polygon><text text-anchor="middle" x="302.74" y="-303" font-family="Times,serif" font-size="14.00">Birinci formülü uygula</text><text text-anchor="middle" x="302.74" y="-286.2" font-family="Times,serif" font-size="14.00">Sonucu ekrana yazdır</text></g><!-- kontrol&#45;&gt;ilk --><g id="edge3" class="edge"><title>
+<ellipse fill="none" stroke="black" cx="433.32" cy="-331.83" rx="102.69" ry="29.33"></ellipse><text text-anchor="middle" x="433.32" y="-336.03" font-family="Times,serif" font-size="14.00">Birinci formülü uygula</text><text text-anchor="middle" x="433.32" y="-319.23" font-family="Times,serif" font-size="14.00">Sonucu ekrana yazdır</text></g><!-- kontrol&#45;&gt;ilk --><g id="edge3" class="edge"><title>
 kontrol-&gt;ilk
 </title>
-<path fill="none" stroke="black" d="M175.5,-298.8C190.07,-298.8 205.15,-298.8 219.6,-298.8"></path><polygon fill="black" stroke="black" points="220.01,-302.3 230.01,-298.8 220.01,-295.3 220.01,-302.3"></polygon><text text-anchor="middle" x="202.83" y="-306" font-family="Times,serif" font-size="14.00">TRUE</text></g><!-- ikinci --><g id="node5" class="node"><title>
+<path fill="none" stroke="black" d="M276.08,-331.83C290.36,-331.83 305.32,-331.83 320.11,-331.83"></path><polygon fill="black" stroke="black" points="320.3,-335.33 330.3,-331.83 320.3,-328.33 320.3,-335.33"></polygon><text text-anchor="middle" x="303.39" y="-339.03" font-family="Times,serif" font-size="14.00">TRUE</text></g><!-- ikinci --><g id="node5" class="node"><title>
 ikinci
 </title>
-<polygon fill="none" stroke="black" points="245.44,-187.4 104.04,-187.4 104.04,-146.2 245.44,-146.2 245.44,-187.4"></polygon><text text-anchor="middle" x="174.74" y="-171" font-family="Times,serif" font-size="14.00">İkinci formülü uygula</text><text text-anchor="middle" x="174.74" y="-154.2" font-family="Times,serif" font-size="14.00">Sonucu ekrana yazdır</text></g><!-- kontrol&#45;&gt;ikinci --><g id="edge4" class="edge"><title>
+<ellipse fill="none" stroke="black" cx="194.32" cy="-191.22" rx="99.69" ry="29.33"></ellipse><text text-anchor="middle" x="194.32" y="-195.42" font-family="Times,serif" font-size="14.00">İkinci formülü uygula</text><text text-anchor="middle" x="194.32" y="-178.62" font-family="Times,serif" font-size="14.00">Sonucu ekrana yazdır</text></g><!-- kontrol&#45;&gt;ikinci --><g id="edge4" class="edge"><title>
 kontrol-&gt;ikinci
 </title>
-<path fill="none" stroke="black" d="M114.31,-258.09C127.71,-238.07 143.65,-214.26 155.79,-196.11"></path><polygon fill="black" stroke="black" points="158.76,-197.96 161.42,-187.7 152.95,-194.07 158.76,-197.96"></polygon><text text-anchor="middle" x="171.13" y="-209.8" font-family="Times,serif" font-size="14.00">FALSE</text></g><!-- son --><g id="node3" class="node"><title>
+<path fill="none" stroke="black" d="M190.74,-274.85C191.37,-260.27 192.04,-244.86 192.62,-231.36"></path><polygon fill="black" stroke="black" points="196.14,-231.13 193.07,-220.99 189.14,-230.82 196.14,-231.13"></polygon><text text-anchor="middle" x="212.71" y="-242.83" font-family="Times,serif" font-size="14.00">FALSE</text></g><!-- son --><g id="node3" class="node"><title>
 son
 </title>
-<ellipse fill="none" stroke="black" cx="302.74" cy="-91" rx="124.69" ry="18"></ellipse><text text-anchor="middle" x="302.74" y="-86.8" font-family="Times,serif" font-size="14.00">Son i’yi alana kadar devam et</text></g><!-- son&#45;&gt;i --><g id="edge7" class="edge"><title>
-son-&gt;i
+<polygon fill="none" stroke="black" points="194.32,-124.8 87.55,-106.8 194.32,-88.8 301.08,-106.8 194.32,-124.8"></polygon><text text-anchor="middle" x="194.32" y="-102.6" font-family="Times,serif" font-size="14.00">Son eleman mı?</text></g><!-- devam --><g id="node6" class="node"><title>
+devam
 </title>
-<path fill="none" stroke="black" d="M317.31,-109.02C353.54,-153.47 440.8,-275.27 384.74,-357.2 362.24,-390.07 316.58,-402.94 283.72,-407.97"></path><polygon fill="black" stroke="black" points="282.99,-404.54 273.55,-409.34 283.93,-411.47 282.99,-404.54"></polygon></g><!-- Döngüyü sonlandır. --><g id="node7" class="node"><title>
+<polygon fill="none" stroke="black" points="132.45,-463.23 0.18,-463.23 0.18,-427.23 132.45,-427.23 132.45,-463.23"></polygon><text text-anchor="middle" x="66.32" y="-441.03" font-family="Times,serif" font-size="14.00">Sonraki elemanı seç</text></g><!-- son&#45;&gt;devam --><g id="edge7" class="edge"><title>
+son-&gt;devam
+</title>
+<path fill="none" stroke="black" d="M151.9,-117.67C128.22,-125.51 100.51,-139.06 85.32,-161.8 32.08,-241.48 48.92,-363.64 59.97,-417.34"></path><polygon fill="black" stroke="black" points="56.55,-418.09 62.08,-427.13 63.4,-416.62 56.55,-418.09"></polygon><text text-anchor="middle" x="76.71" y="-242.83" font-family="Times,serif" font-size="14.00">FALSE</text></g><!-- Döngüyü sonlandır. --><g id="node8" class="node"><title>
 Döngüyü sonlandır.
 </title>
-<ellipse fill="none" stroke="black" cx="302.74" cy="-18" rx="89.79" ry="18"></ellipse><text text-anchor="middle" x="302.74" y="-13.8" font-family="Times,serif" font-size="14.00">Döngüyü sonlandır.</text></g><!-- son&#45;&gt;Döngüyü sonlandır. --><g id="edge8" class="edge"><title>
+<ellipse fill="none" stroke="black" cx="194.32" cy="-18" rx="89.79" ry="18"></ellipse><text text-anchor="middle" x="194.32" y="-13.8" font-family="Times,serif" font-size="14.00">Döngüyü sonlandır.</text></g><!-- son&#45;&gt;Döngüyü sonlandır. --><g id="edge9" class="edge"><title>
 son-&gt;Döngüyü sonlandır.
 </title>
-<path fill="none" stroke="black" d="M302.74,-72.81C302.74,-64.79 302.74,-55.05 302.74,-46.07"></path><polygon fill="black" stroke="black" points="306.24,-46.03 302.74,-36.03 299.24,-46.03 306.24,-46.03"></polygon></g><!-- ilk&#45;&gt;son --><g id="edge5" class="edge"><title>
+<path fill="none" stroke="black" d="M194.32,-88.65C194.32,-76.52 194.32,-60.02 194.32,-46.12"></path><polygon fill="black" stroke="black" points="197.82,-46.11 194.32,-36.11 190.82,-46.11 197.82,-46.11"></polygon><text text-anchor="middle" x="212.59" y="-58.2" font-family="Times,serif" font-size="14.00">TRUE</text></g><!-- ilk&#45;&gt;son --><g id="edge5" class="edge"><title>
 ilk-&gt;son
 </title>
-<path fill="none" stroke="black" d="M302.74,-278.07C302.74,-241.05 302.74,-161.13 302.74,-119.1"></path><polygon fill="black" stroke="black" points="306.24,-119.04 302.74,-109.04 299.24,-119.04 306.24,-119.04"></polygon></g><!-- ikinci&#45;&gt;son --><g id="edge6" class="edge"><title>
+<path fill="none" stroke="black" d="M417.17,-302.5C395.26,-266.08 353.1,-202.68 303.32,-161.8 283.5,-145.53 257.97,-132.54 236.59,-123.39"></path><polygon fill="black" stroke="black" points="237.68,-120.05 227.1,-119.46 235,-126.52 237.68,-120.05"></polygon></g><!-- ikinci&#45;&gt;son --><g id="edge6" class="edge"><title>
 ikinci-&gt;son
 </title>
-<path fill="none" stroke="black" d="M209.04,-146.02C226.32,-136.06 247.31,-123.96 265.04,-113.74"></path><polygon fill="black" stroke="black" points="267.06,-116.61 273.97,-108.58 263.56,-110.55 267.06,-116.61"></polygon></g><!-- Başla --><g id="node6" class="node"><title>
+<path fill="none" stroke="black" d="M194.32,-161.39C194.32,-152.9 194.32,-143.65 194.32,-135.25"></path><polygon fill="black" stroke="black" points="197.82,-135.2 194.32,-125.2 190.82,-135.2 197.82,-135.2"></polygon></g><!-- devam&#45;&gt;kontrol --><g id="edge8" class="edge"><title>
+devam-&gt;kontrol
+</title>
+<path fill="none" stroke="black" d="M85.11,-427.07C100.76,-412.78 123.67,-391.86 143.94,-373.36"></path><polygon fill="black" stroke="black" points="146.53,-375.73 151.55,-366.4 141.81,-370.56 146.53,-375.73"></polygon></g><!-- Başla --><g id="node7" class="node"><title>
 Başla
 </title>
-<ellipse fill="none" stroke="black" cx="245.74" cy="-485.2" rx="33.62" ry="18"></ellipse><text text-anchor="middle" x="245.74" y="-481" font-family="Times,serif" font-size="14.00">Başla</text></g><!-- Başla&#45;&gt;i --><g id="edge1" class="edge"><title>
-Başla-&gt;i
+<ellipse fill="none" stroke="black" cx="214.32" cy="-518.23" rx="33.62" ry="18"></ellipse><text text-anchor="middle" x="214.32" y="-514.03" font-family="Times,serif" font-size="14.00">Başla</text></g><!-- Başla&#45;&gt;eleman --><g id="edge1" class="edge"><title>
+Başla-&gt;eleman
 </title>
-<path fill="none" stroke="black" d="M245.74,-467.01C245.74,-458.99 245.74,-449.25 245.74,-440.27"></path><polygon fill="black" stroke="black" points="249.24,-440.23 245.74,-430.23 242.24,-440.23 249.24,-440.23"></polygon></g></g></svg></p>
+<path fill="none" stroke="black" d="M214.32,-500.04C214.32,-492.02 214.32,-482.28 214.32,-473.3"></path><polygon fill="black" stroke="black" points="217.82,-473.26 214.32,-463.26 210.82,-473.26 217.82,-473.26"></polygon></g></g></svg></p>
 </div>
 </div>
 </div>
