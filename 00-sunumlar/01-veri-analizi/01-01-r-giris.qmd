@@ -16,7 +16,7 @@ format:
 ---
 
 
-# R ve Rstudio ile çalışma {#sec-r-giris}
+# R ve Rstudio ile çalışma
 
 ## Değişken atama
 
