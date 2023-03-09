@@ -1,0 +1,14 @@
+# DNA transkripsiyon
+
+Aşağıdaki DNA dizisi bir karakter vektörü olarak tanımlanmıştır.
+
++ Dizi: ATCTCGATC
+
+```{r}
+dna <- c("A", "T", "C", ",T", "C", "G", "A", "T", "C")
+dna
+```
+
+Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız. Kodunuzda `for` ve `if-else` yapılarını kullanınıza.
+
+Oluşturacağınız kod, `rna` isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır. 
