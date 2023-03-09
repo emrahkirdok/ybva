@@ -1,0 +1,273 @@
+---
+title: "R Üzerinde Kontrol Yapıları"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "09-03-2023"
+execute: 
+  echo: true
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+# Kontrol Yapıları
+
+## Neden?
+
++ Veri analizi adımları karmaşık olabilir
++ Çok uzun bir vektördeki bütün elemanlara bir fonkisyon uygulamak isteyebilirsiniz
++ Farklı özelliklere sahip elemanlara, farklı fonkisyonlar uygulamak isteyebilirsiniz
+
+## Bir örnek
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    3, 1.8, 6.3, 2.1, 5)
+```
+
++ Döngü yapısı `for`
+    + Aynı işlemi farklı elemanlara uygulama
++ Kontrol yapısı `if-else` 
+    + Belirlenen özelliklere göre farklı uygulama
+    + 5'e eşit veya 5'den büyük olanlara farklı bir işlem
+    + 5'den küçük olanlara farklı bir işlem
+
+## `for` döngüsü
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    3, 1.8, 6.3, 2.1, 5)
+```
+
+İşlem:
++ Her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimizi düşünelim. 
+
+Önce ilk eleman için yapalım:
+
+```{r}
+(yaprak_uzunlugu[1]+5)/2
+```
+
+## `for` döngüsü
+
+Şimdi ise ikinci eleman için bunu yapalım:
+
+```{r}
+(yaprak_uzunlugu[2]+5)/2
+```
+
+Dikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla `for` döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.
+
+## `for` döngüsü
+
+Öncelikle `for` döngüsünün genel yapısına bakalım:
+
+```r
+for ( ÇALIŞILACAK ELEMAN KÜMESİ ){
+    YAPILACAK İŞ
+}
+```
+## `for` döngüsü
+
+Yazalım:
+
+```{r}
+for (i in 1:length(yaprak_uzunlugu)){
+    sonuc <- (yaprak_uzunlugu[i]+5)/2
+    print(sonuc)
+}
+```
+
+## `for` döngüsü
+
++ Önce bir sayı vektörü oluşturuyoruz. 
++ Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. 
++ Yani elimizde 1'den `r length(yaprak_uzunlugu)`'a kadar bir sayı dizisi oluştuyor. 
+
+## `for` döngüsü
+
+```{r}
+1:length(yaprak_uzunlugu)
+```
+
++ `i in 1:length(yaprak_uzunlugu)` cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.
+
+## `for` döngüsü
+
++ `i` adından bir değişken oluşturuluyor
++ Önce `i` değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.
++ O işlem bitince, `i` değerine ikinci elemanı atanıyor ve bu sefer `i <- 2` için işlemi gerçekleştiriyor.
++ Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
+
+## `for` döngüsü
+
++ İstersek, doğrudan vektördeki elemanları da kullanabiliriz. 
++ Bunun için ise  `i` yerine `eleman` isimli bir değişken oluşturalım: 
+
+```{r}
+for (eleman in yaprak_uzunlugu){
+    sonuc <- (eleman+5)/2
+    print(sonuc)
+}
+```
+
+## `for` döngüsü
+
+```{dot}
+//| label: fig-for-loop
+//| echo: false
+//| fig-cap: "`for` döngüsü hakkındaki diyagram"
+
+digraph for{
+    ilk [label = "Birinci elemanı\nseç", shape = box];
+    son [label = "Son eleman mı?", shape = diamond];
+    devam [label = "Sonraki elemana geç", shape = box];
+    islem [label = "İstenen işlemi gerçekleştir"];
+    sonlandır [label = "Döngüyü sonlandır", shape = box];
+    {rank = same; ilk; devam}
+    ilk -> islem -> son;
+    son -> devam [label = "FALSE"];
+    devam -> islem;
+    son -> sonlandır [label = "TRUE"];
+}
+
+```
+
+## `if-else` Kontrol yapısı
+
++ Veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse kullanabiliriz
+
++ Elimizde bir sayımız olsun. 
++ Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5'den büyük veya eşittir" yazsın. 
++ Eğer 5'den küçük ise, "Bu sayı 5'den küçüktür" yazsın.
+
+## `if-else` Kontrol yapısı
+
+```{dot}
+//| label: fig-if-else-1
+//| echo: false
+//| fig-cap: "`if-else` döngüsü hakkındaki diyagram"
+
+digraph g {
+    sayi [label = "Sayı", shape = box];
+    kontrol [label = "5'den büyük \n veya \n 5'e eşit", shape = diamond];
+    ilk [label = "Ekrana yazdır:\n5'den büyük \n veya \n 5'e eşit"];
+    ikinci [label = "Ekrana yazdır:\n5'den küçük"];
+    sonlandir [label = "İşlemi sonlandır", shape = box];
+    sayi -> kontrol;
+    kontrol -> ilk [label = "TRUE"];
+    kontrol -> ikinci [label = "FALSE"];
+    {rank = same; kontrol; ilk};
+    {ilk; ikinci} -> sonlandir;
+}
+```
+
+## `if-else` Kontrol yapısı
+
+İlk olarak bir sayı belirleyelim:
+
+```{r}
+sayi <- 12
+```
+
+İlk koşulu çalıştıralım:
+
+```{r}
+sayi >= 5
+```
+
++ Bu işlemin sonucunda TRUE değeri geri döndürüldü.
++ Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5'e eşit veya 5'den büyük. 
++ Ama asla 5'den küçük değil.
+
+## `if-else` Kontrol yapısı
+
+```r
+if ( KOŞUL ){
+    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR
+} else {
+    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR
+}
+```
+
+## `if-else` Kontrol yapısı
+
+```{r}
+sayi <- 12
+
+if (sayi >= 5) {
+  print("bu sayi bese esit veya besten buyuktur")
+} else{
+  print("bu sayi besten kucuktur")
+}
+```
+
+## Farklı yapıları birleştirelim
+
++ Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim
++ Bu sefer her elemana farklı işlemler uygulamaya çalışalım.
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    3, 1.8, 6.3, 2.1, 5)
+```
+
+## Farklı yapıları birleştirelim
+
+Elimizde artık iki tane koşul olsun:
+
++ Eğer eleman 5'den büyük veya eşitse, elemana 5 ekle ve ikiye böl
++ Eğer eleman 5'den küçükse, elemana 10 ekle ve 3'e böl
+
+## Farklı yapıları birleştirelim
+
+```{r}
+for (eleman in yaprak_uzunlugu){
+    if (eleman >= 5){
+        sonuc <- (eleman+5)/2
+        cat("yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:", sonuc, "\n")
+    } else {
+        sonuc <- (eleman+10)/3
+        cat("yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:", sonuc, "\n")
+    }
+}
+```
+
+## Farklı yapıları birleştirelim
+
+```{dot}
+//| label: fig-all-loop
+//| echo: false
+//| fig-cap: "İki kontrol yapısını da birleştirmek"
+
+digraph g{
+    eleman [label = "Birinci elemanı seç", shape = box];
+    kontrol [label = "5'den büyük \n veya \n 5'e eşit mi?", shape = diamond];
+    
+    son [label = "Son i'yi alana kadar devam et"];
+    
+    ilk [label = "Birinci formülü uygula\nSonucu ekrana yazdır"];
+    ikinci [label = "İkinci formülü uygula\nSonucu ekrana yazdır"];
+    
+    son [label = "Son eleman mı?", shape = diamond];
+    devam [label = "Sonraki elemanı seç", shape = box];
+    
+    "Başla" -> eleman -> kontrol;
+
+    kontrol -> ilk [label = "TRUE"];
+    kontrol -> ikinci [label = "FALSE"];
+
+    {ilk; ikinci} -> son;
+    son -> devam [label = "FALSE"];
+    devam -> kontrol;
+
+    son -> "Döngüyü sonlandır." [label = "TRUE"]
+    {rank = same; eleman; devam};
+    {rank = same; kontrol; ilk};
+}
+```

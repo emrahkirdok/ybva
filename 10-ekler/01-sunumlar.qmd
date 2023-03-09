@@ -5,3 +5,7 @@
 + [02/03/2023 Tanıtım Dersi](../00-sunumlar/01-00-preface.html)
 + [09/03/2023 R Giriş](../00-sunumlar/01-01-r-giris.html)
 + [09/03/2023 Vektörler](../00-sunumlar/01-02-vektorler.html)
+
+## Bilgisayarlı Düşünme
+
++ [09/03/2023 R Üzerinde Kontrol Yapıları](../00-sunumlar/02-01-ileri-seviye-r-01.html)
