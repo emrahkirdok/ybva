@@ -41,6 +41,7 @@ jobs:
         run: |
           quarto render 00-sunumlar/01-veri-analizi/01-00-preface.qmd;
           quarto render 00-sunumlar/01-veri-analizi/01-01-r-giris.qmd
+          quarto render 00-sunumlar/01-veri-analizi/01-02-vektorler.qmd
       
       - name: Copy presentations to book
         run: |
