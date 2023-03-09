@@ -1,0 +1,155 @@
+---
+title: "R ve Rstudio ile çalışma"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "09-03-2023"
+execute: 
+  echo: true
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+
+# R ve Rstudio ile çalışma {#sec-r-giris}
+
+## Değişken atama
+
++ Değişken atama operatörü `<-`
++ Veri bir değişkenle ifade edilir
++ Tekrar tekrar kullanabilirsiniz
+
+```{r}
+sayi1 <- 12
+```
+
+## Değişken atama
+
+Bu işlemin aynısını şu şekilde de yapabiliriz. Önemli olan okun yönü:
+
+```{r}
+12 -> sayi1
+```
+
++ Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde görebilirsiniz. 
+
+## Değişken atama
+
+```{r}
+sayi2 <- 23
+```
+
++ Değişkenleri kullanabiliriz
+
+```{r}
+sayi1 + sayi2
+```
+
+## Veri tipleri
+
+R içerisinde dört temel veri tipimiz bulunmaktadır:
+
++ Sayı (*numeric*, `num`) 
++ Karakter (*character*, `chr`)
++ Mantıksal (*logical*, `logi`)
++ Kategori/faktör (*factor*, `fac`)
++ Kayıp veri (`NA`)
+
+## Veri tipleri
+
++ Bir verinin tipini öğrenmek istiyorsanız, basit olarak `str` fonksiyonunu kullanabilirsiniz:
+
+```{r}
+str(12)
+```
+
+## Veri tipleri
+
++ Karakterleri de kullanabiliriz. 
++ Karakterle çalışmak istiyorsanız, mutlaka tırnak işareti `"` kullanmalısınız:
+
+```{r}
+"karakter"
+```
+
+## Veri tipleri
+
++ Peki bu karakterin tipine bakalım:
+
+```{r}
+str("karakter")
+```
+
+Şimdi ise başka bir örnek verelim. Bir sayıyı, `"` işaretleri arasına alırsak ne olur?
+
+```{r}
+str("12")
+```
+
+## Veri tipleri
+
++ Mantıksal değişkenler 
+    + *Evet*
+    + *Hayır*
++ R içerisinde tanımlı olarak gelirler
+    + `TRUE` veya `T`
+    + `FALSE` veya `F`
+
+Mesela bir tanesinin tipine bakalım:
+
+```{r}
+str(TRUE)
+```
+
+## Veri tipleri
+
++ Kategori ya da faktörler
++ Faktör değişkenleri, gruplandırma işlevi görmektedir. + Farklı deney koşullarını faktör olarak gösterebiliriz.+ `factor` fonksiyonu kullanılur
+
+```{r}
+factor("karanlik")
+```
+
+İsterseniz bir de bu faktörün tipine bakalım:
+
+```{r}
+str(factor("karanlik"))
+```
+
+## Kayıp veri
+
++ Deneyler her zaman sonuç vermeyebilir
++ `NA` karakteri sayesinde olmayan bilgileri işaretleyebilirsiniz
++ Mantıksal bir değişken
+
+```{r}
+str(NA)
+```
+
+## Veri tipi dönüşümleri
+
++ Elimizde bir sayı olduğunu ve bunu karaktere dönüştüreceğimizi düşünelim:
+
+```{r}
+as.character(12)
+```
+
+## Veri tipi dönüşümleri
+
++ Yanlışlıkla karakter haline çevrilmiş bir sayıyı tekrar sayı haline dönüştürelim:
+
+```{r}
+as.numeric(12)
+```
+
+## Veri tipi dönüşümleri
+
+Kullanılabilecek diğer dönüşümler:
+
++ Faktör verisi: `as.factor()`
++ Mantıksal veri: `as.logical()` 

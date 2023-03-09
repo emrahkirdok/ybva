@@ -1,11 +1,6 @@
 # Ders sunumları
 
-Giriş sunumu:
+## Veri Analizi
 
-<div>
-
-```{=html}
-<iframe class="slide-deck" src="../00-sunumlar/01-00-preface.html"></iframe>
-```
-
-</div>
++ [02/03/2023 Tanıtım Dersi](../00-sunumlar/01-00-preface.html)
++ [02/03/2023 R Giriş](../00-sunumlar/01-01-r-giris.html)
