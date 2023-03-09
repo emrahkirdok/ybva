@@ -61,9 +61,9 @@ book:
 #        - metin_asamali_azalis.Rmd
 #        - metin_amphiBIO_calisma.Rmd
     
-    - part: "Uygulamalar"
-#      chapters:
-#        - metin_03_pratik.Rmd
+    - part: "Pratikler - Ödevler"
+      chapters:
+        - 04-pratikler/01-veri-analizi/01-vektorler.qmd
 #        - metin_03_vektorler_pratik.Rmd
 #        - metin_04_pratik.Rmd
 #        - metin_ggplot2_pratik.Rmd

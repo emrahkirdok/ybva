@@ -1,15 +1,4 @@
----
-title: "Ödev 1"
-author: ""
-number: ""
-date: ""
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
+# Vektörler Ödevi
 Bu belge, birinci ödeviniz için çözmeniz gereken soruları içermektedir. Başarılar.
 
 Cevaplarınızı, R kod blokları içerisinde yazacaksınız.
@@ -47,7 +36,7 @@ Bu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vekt
 
 ## Soru 2
 
-Sepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:
+Oluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:
 
 ```{r}
 # cevabinizi buraya yaziniz
@@ -56,7 +45,7 @@ Sepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:
 
 ## Soru 3
 
-Petal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:
+Sepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:
 
 ```{r}
 # cevabinizi buraya yaziniz
@@ -65,7 +54,7 @@ Petal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri ger
 
 ## Soru 4
 
-Petal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3'den büyük olan değerleri geri döndürebilir misiniz?
+Petal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi buraya yaziniz
@@ -74,7 +63,7 @@ Petal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3'den büyük olan
 
 ## Soru 5
 
-Sepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2'den büyük olan türleri geri döndüren kodu yazabilir misiniz?
+Petal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3'den büyük olan değerleri geri döndürebilir misiniz?
 
 ```{r}
 # cevabinizi buraya yaziniz
@@ -83,16 +72,7 @@ Sepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2'den büyük olan t
 
 ## Soru 6
 
-Peki, yukarıdaki tabloyu kullanarak, bir veri çerçevesi oluşturabilir misiniz? Oluşturduğunuz veri çerçevesinin ismi `yaprak_uzunlugu` olsun.
-
-```{r}
-# cevabinizi buraya yaziniz
-
-```
-
-## Soru 7
-
-Bu veri çerçevesinin satır ve sütun sayılarını gösteren kodu yazabilir misiniz?
+Sepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2'den büyük olan türleri geri döndüren kodu yazabilir misiniz?
 
 ```{r}
 # cevabinizi buraya yaziniz
