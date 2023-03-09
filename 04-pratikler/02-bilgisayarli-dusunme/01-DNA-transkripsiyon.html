@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 11&nbsp; DNA transkripsiyon</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 11&nbsp; DNA üzerinde işlemler</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,9 +124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span>
-</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -255,7 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span></a>
+  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></a>
   </div>
 </li>
       </ul>
@@ -286,13 +284,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
+   
+  <ul>
+<li><a href="#soru-1" id="toc-soru-1" class="nav-link active" data-scroll-target="#soru-1"><span class="toc-section-number">11.1</span>  Soru 1</a></li>
+  <li><a href="#soru-2" id="toc-soru-2" class="nav-link" data-scroll-target="#soru-2"><span class="toc-section-number">11.2</span>  Soru 2</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA transkripsiyon</span>
-</h1>
+<h1 class="title"><span id="sec-odev-dna-islemler" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></h1>
 </div>
 
 
@@ -310,18 +311,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Dizi: ATCTCGATC</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">",T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span><span class="op">)</span></span>
 <span><span class="va">dna</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "A"  "T"  "C"  ",T" "C"  "G"  "A"  "T"  "C" </code></pre>
+<pre><code>[1] "A" "T" "C" "T" "C" "G" "A" "T" "C"</code></pre>
 </div>
 </div>
-<p>Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız. Kodunuzda <code>for</code> ve <code>if-else</code> yapılarını kullanınıza.</p>
+<p>Bu bilgiye göre aşağıdaki soruları cevaplayan kodları yazınız. Kodunuzda <code>for</code> ve <code>if-else</code> yapılarını kullanınız.</p>
+<section id="soru-1" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="soru-1">
+<span class="header-section-number">11.1</span> Soru 1</h2>
+<p>Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız.</p>
 <p>Oluşturacağınız kod, <code>rna</code> isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır.</p>
+</section><section id="soru-2" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="soru-2">
+<span class="header-section-number">11.2</span> Soru 2</h2>
+<p>Bu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.</p>
+<p>Oluşturacağınız kod, <code>complementary</code> isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır.</p>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
