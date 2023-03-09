@@ -75,6 +75,25 @@ O işlem bitince, `i` değerine ikinci elemanı atanıyor ve bu sefer `i <- 2` i
 
 Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
 
+Bunu şu şekild görselleştirebiliriz [@fig-for-loop].
+
+```{dot}
+#| label: fig-for-loop
+
+digraph for{
+    ilk [label = "Birinci elemanı\nseç", shape = box];
+    son [label = "Son eleman mı?", shape = diamond];
+    devam [label = "Sonraki elemana geç", shape = box];
+    islem [label = "İstenen işlemi gerçekleştir"];
+    sonlandır [label = "Döngüyü sonlandır", shape = box];
+    {rank = same; ilk; devam}
+    ilk -> islem -> son;
+    son -> devam [label = "FALSE"];
+    devam -> islem;
+    son -> sonlandır [label = "TRUE"];
+}
+
+```
 ## Kontrol yapısı (`if-else`)
 
 Eğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, `if-else` yapısını kullanıyoruz. 
