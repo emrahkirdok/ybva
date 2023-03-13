@@ -52,12 +52,17 @@ ncol(ornek_matris)
 
 ## Satır ve Sütün isimleri
 
-İstersek matrislerimize satır ve sütun isimleri atayabiliriz. Buradaki örnek oldukça rastgele oldu ancak konunun anlaşılması için önemli:
+İstersek matrislerimize satır ve sütun isimleri atayabiliriz. Buradaki örnek oldukça rastgele oldu ancak konunun anlaşılması için önemli.
+
+Bunun için ise iki farklı fonksiyon daha kullanıyoruz:
+
++ `rownames`
++ `colnames`  
 
 ```{r}
-colnames(ornek_matris) <- c("Satir1", "Satir2", "Satir3", "Satir4", "Satir5")
+rownames(ornek_matris) <- c("Satir1", "Satir2", "Satir3", "Satir4", "Satir5")
 
-rownames(ornek_matris) <- c("Sutun1", "Sutun2")
+coldnames(ornek_matris) <- c("Sutun1", "Sutun2")
 
 ornek_matris
 ```
