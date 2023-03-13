@@ -1,0 +1,130 @@
+# Matrisler
+
+Hatırlarsanız vektörler (@sec-vektorler), sadece tek bir veri tipini içeren bir boyutlu veri yapılarıydı.
+
+Ancak gerçek veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir. Mesela verimiz, satır ve sütünlardan oluşabilir.
+
+Bu durumda matris veri yapılarını kullanıyoruz. Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir. Aşağıda örnek bir matris görebilirsiniz (@tbl-matrix1).
+
+```{r}
+#| label: tbl-matrix1
+head(state.x77)
+```
+
+Bir önceki derste kullandığımız `yaprak_uzunlugu` isimli vektörden bir matris oluşturalım.
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    3, 1.8, 6.3, 2.1, 5)
+```
+
+Bu vektörden bir matris oluşturmak istersek öncelikle ``matrix()` fonksiyonunu kullanarak, satır (`nrow`) ve sütun (`ncol`) sayılarını belirlememiz gereklidir.
+
+```{r}
+matrix(yaprak_uzunlugu, nrow=5, ncol=2)
+```
+
+Evet, sonuç olarak 5 satır ve iki sütundan oluşan ilk matrisinizi oluşturdunuz. 
+
+::: {.callout-important}
+## Satır ve Sütun sayılarına dikkat!
+
+Satır ve sütun sayılarının çarpımı, vektörün uzunluğunu vermeli. Yani 10 tane elemana sahip bir vektörden, 2x5 ya da 5x2 boyutlarında matrisler elde edebilirsiniz.
+:::
+
+## Matris boyutları
+
+Matris boyutlarını öğrenmek için üç farklı fonksiyon kullanabilirsiniz:
+
++ `dim` bir matrisin satır ve sütun sayılarını geri döndürür
++ `nrow` sadece satır sayısını geri döndürür
++ `ncol` sadece sütun sayısını geri döndürür
+
+Şu şekilde:
+
+```{r}
+ornek_matris <- matrix(yaprak_uzunlugu, nrow=5, ncol=2)
+
+dim(ornek_matris)
+nrow(ornek_matris)
+ncol(ornek_matris)
+```
+
+## Satır ve Sütün isimleri
+
+İstersek matrislerimize satır ve sütun isimleri atayabiliriz. Buradaki örnek oldukça rastgele oldu ancak konunun anlaşılması için önemli:
+
+```{r}
+colnames(ornek_matris) <- c("Satir1", "Satir2", "Satir3", "Satir4", "Satir5")
+
+rownames(ornek_matris) <- c("Sutun1", "Sutun2")
+
+ornek_matris
+```
+
+## Matrislerle çalışmak
+
+Matrisler'de de indis kullanabiliriz. Bu sayede matris içerisindeki elemanlara erişebiliriz. Ancak burada iki tane eleman kullanmamız gerekecek. Bir tanesi satır için, diğeri ise sütun için.
+
+Mesela, örnek matirisimizde 4. satır 2. elemana erişmek isteyelim:
+
+```{r}
+ornek_matris[4,2]
+```
+
+Birinci eleman satır sayısını, ikinci eleman ise sütun sayısını ifade etmektedir.
+
+Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek?
+
+```{r}
+ornek_matris[2:4,2]
+```
+
+Dikkat ederseniz bu örnekte `2:4` yapısını kullandık. Bu bize `r 2:4` vektörünü geri döndürecektir. Sütun için ise sadece 2 kullandık.
+
+Sadece 4. satırı geri döndürmek için:
+
+```{r}
+ornek_matris[2,]
+```
+
+Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.
+
+Sadece birinci sürunu geri döndürmek için ise:
+
+```{r}
+ornek_matris[,1]
+```
+
+## Matrislerde mantıksal işlemler
+
+Vektörlerde yaptığımız mantıksal işlemleri, matrislerde de yapabiliriz.
+
+Mesela ikinci sütunda, 5'den büyük satırları geri döndürelim:
+
+```{r}
+ornek_matris[,2] > 5
+```
+
+Dikkat ederseniz, 5'den büyük olan değerleri bize `TRUE` olarak gösterdi. Bu mantıksal vektörü tekrar bir indis olarak verelim:
+
+```{r}
+
+ornek_matris[ornek_matris[,2] > 5, 1]
+```
+
+Dikkat edin, mantıksal vektörü sadece satır indisi olarak kullandık. Yoksa hata alırız.
+
+Ya da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matris içinde 3'den büyük olan değerleri geri döndürelim:
+
+```{r}
+ornek_matris > 3
+```
+
+Bunu tekrar bir indis olarak geri kullanalaım
+
+```{r}
+ornek_matris[ornek_matris > 3]
+```
+
+Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgü. 
