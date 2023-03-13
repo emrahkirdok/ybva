@@ -62,7 +62,7 @@ Bunun için ise iki farklı fonksiyon daha kullanıyoruz:
 ```{r}
 rownames(ornek_matris) <- c("Satir1", "Satir2", "Satir3", "Satir4", "Satir5")
 
-coldnames(ornek_matris) <- c("Sutun1", "Sutun2")
+colnames(ornek_matris) <- c("Sutun1", "Sutun2")
 
 ornek_matris
 ```
