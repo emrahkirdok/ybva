@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 3&nbsp; İlk adımlar</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 10&nbsp; Veri Çerçeveleri</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,8 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-kurulum/04-klasor-islemleri.html" rel="next">
-<link href="../01-kurulum/02-ilk-kurallar.html" rel="prev">
+<link href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" rel="next">
+<link href="../02-veri-analizi/05-matrisler.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -118,13 +118,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "İptal et",
     "search-submit-button-title": "Göndermek"
   }
-}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></h1>
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -183,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
+  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -228,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/06-veri-cerceveleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span></a>
+  <a href="../02-veri-analizi/06-veri-cerceveleri.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span></a>
   </div>
 </li>
       </ul>
@@ -297,14 +299,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#dik-bir-%C3%B6%C4%9Frenme-e%C4%9Frisi" id="toc-dik-bir-öğrenme-eğrisi" class="nav-link active" data-scroll-target="#dik-bir-%C3%B6%C4%9Frenme-e%C4%9Frisi"><span class="toc-section-number">3.1</span>  Dik bir öğrenme eğrisi</a></li>
-  <li><a href="#genel-g%C3%B6r%C3%BCn%C3%BCm" id="toc-genel-görünüm" class="nav-link" data-scroll-target="#genel-g%C3%B6r%C3%BCn%C3%BCm"><span class="toc-section-number">3.2</span>  Genel görünüm</a></li>
-  <li><a href="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma" id="toc-komut-satırı-üzerinde-çalışma" class="nav-link" data-scroll-target="#komut-sat%C4%B1r%C4%B1-%C3%BCzerinde-%C3%A7al%C4%B1%C5%9Fma"><span class="toc-section-number">3.3</span>  Komut satırı üzerinde çalışma</a></li>
+<li><a href="#veri-%C3%A7er%C3%A7evesi-boyutlar%C4%B1" id="toc-veri-çerçevesi-boyutları" class="nav-link active" data-scroll-target="#veri-%C3%A7er%C3%A7evesi-boyutlar%C4%B1"><span class="toc-section-number">10.1</span>  Veri Çerçevesi boyutları</a></li>
+  <li><a href="#s%C3%BCtun-ve-sat%C4%B1r-isimleri" id="toc-sütun-ve-satır-isimleri" class="nav-link" data-scroll-target="#s%C3%BCtun-ve-sat%C4%B1r-isimleri"><span class="toc-section-number">10.2</span>  Sütun ve satır isimleri</a></li>
+  <li><a href="#veri-%C3%A7er%C3%A7evesi-i%C5%9Flemleri" id="toc-veri-çerçevesi-işlemleri" class="nav-link" data-scroll-target="#veri-%C3%A7er%C3%A7evesi-i%C5%9Flemleri"><span class="toc-section-number">10.3</span>  Veri çerçevesi işlemleri</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-ilk-adimlar" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></span></h1>
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span>
+</h1>
 </div>
 
 
@@ -317,82 +321,188 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Şu anda kadar büyük ihtimalle grafiksel arabilimleri olan Microsoft Word ve Microsoft Excel gibi ofis programları ile çalıştınız muhtemelen. Bu programalar bir çok noktada işe yarasa da, ilerleyen kısımlarda göreceğimiz üzere, büyük kapasiteli verilerle çalışmaya uygun değildir.</p>
-<p>Bu ders boyunca, yeni bir çalışma sistemi ile haşır neşir olacağız. Eski bilgilerimizin ve eski alışkanlıklarımızın bazılarını unutmamız ve yenilerine yer açmamız gerekecektir.</p>
-<section id="dik-bir-öğrenme-eğrisi" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="dik-bir-öğrenme-eğrisi">
-<span class="header-section-number">3.1</span> Dik bir öğrenme eğrisi</h2>
-<p>Kullanacağımız programların dik bir öğrenme eğrisi bulunmaktadır. Yani, gerçekten işe yarar bir şeyler yapabilmeniz için bir süre boyunca (3 - 4 hafta kadar) yoğun bir çalışma yapmanız ve kullanılan programların mantıklarını kavramanız gerekir.</p>
-<p>Ancak bir kere bu çalışma sistemini kavradığınızda, sonraki adımlar daha kolay hale gelecektir. Mesela <a href="#fig-curve-1">Şekil&nbsp;<span>3.1</span></a>, anlattıklarımın bir özeti aslında. Biraz gözünüzü korkuttum kabul ediyorum…</p>
-<div id="fig-curve-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/learning-curve-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;3.1: Veri analizi araçlarından R ve Python programlarının öğrenme eğrisi siyah olarak gösterilmiştir.</figcaption><p></p>
-</figure>
-</div>
-<p>Ancak her işe iyi tarafından bakalım. Veri analizi, yoğun bir biçimde döküman formatı değiştirme ve tekrarlı işlemler içeren bir işlemler bütünüdür. Microsoft Excel gibi bir araçlar bu analiz adımlarını ancak belli bir noktaya kadar sürdürebilirsiniz. Özellikle <a href="../02-veri-analizi/01-veri-bilimine-giris.html"><span>Bölüm&nbsp;5</span></a>’de belirtileceği üzere, yaşam bilimlerindeki veri miktarı artık küçük çaplı araçların altından kalkamayacağı bir seviyeye gelmiş bulunmaktadır. Bir noktadan sonra, tekrarlı işler için harcayacağınız zaman gitgide artacaktır (<a href="#fig-curve-2">Şekil&nbsp;<span>3.2</span></a>).</p>
-<div id="fig-curve-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/learning-curve-2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;3.2: Bu grafikte <span class="math inline">\(x\)</span> ekseni yapılan veri analiz işleminin boyutunu, <span class="math inline">\(y\)</span> ekseni ise o işi yapmak için gerekli zamanı göstermektedir. Kırmızı çizgi, R gibi bir programla yapılan veri analzi sürecini ifade ederken, siyah çizgi ise manuel yollarla yapılan bir işlemi göstermektedir. R ile yapılan işlemler belli bir noktaya kadar karmaşık olsa da, işin boyutu arttıkça, harcanan zaman sabit kalmaya başlamıştır.</figcaption><p></p>
-</figure>
-</div>
-<p>Kafanız biraz karıştı farkediyorum. Ancak sürece güvenin. Unutmayın, hayatta önemli olan aslında süreçtir…</p>
-</section><section id="genel-görünüm" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="genel-görünüm">
-<span class="header-section-number">3.2</span> Genel görünüm</h2>
-<p>Eğer <a href="01-r-rstudio-kurulum.html"><span>Bölüm&nbsp;1</span></a> bölümündeki adımları tam olarak takip ettiyseniz, R ve Rstudio programlarını kurmuş olmanız gerek. Eğer programları kurmadıysanız şimdi <a href="01-r-rstudio-kurulum.html"><span>Bölüm&nbsp;1</span></a> kısmına geri dönerek, gerekli işlemleri yapınız.</p>
-<p>Programları tam olarak kurduysanız, <a href="#fig-r1">Şekil&nbsp;<span>3.3</span></a>’da göreceğiniz bir ekran karşınıza çıkmalı. Gelin bu ekranı inceleyelim:</p>
-<ul>
-<li>Pencere 1: Burada komut satırı karşınıza çıkmakta. R ile komut satırı üzerinden etkileşeceksiniz.</li>
-<li>Pencere 2: Bu kısımda ise iki temel sekme var:
-<ul>
-<li>
-<em>Environment (Çevre)</em>: Bu sekmede, R üzerinde oluşturduğumuz değişkenler bulunmaktadır</li>
-<li>
-<em>History (Tarihçe)</em>: Kullandığımız komutlar burada saklanır. İstediğimiz zaman geriye dönebiliriz.</li>
-</ul>
-</li>
-<li>Pencere 3: Bu kısımda 3 farklı temel sekme bulunmaktadır:
-<ul>
-<li>
-<em>Files (Dosyalar)</em>: R çalışma klasörümüzdeki dosyalar burada bulunur.</li>
-<li>
-<em>Plots (Grafikler)</em>: Veri analizi sırasında oluşturacağımız grafiklerin burada görüntülenecektir</li>
-<li>
-<em>Help (Yardım)</em>: R üzerinde paket bilgilerinin görüntülendiği yer.</li>
-</ul>
-</li>
-</ul>
-<div id="fig-r1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/r1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Şekil&nbsp;3.3: RStudio karşılama ekranı</figcaption><p></p>
-</figure>
-</div>
-<p>**<em>Yanıp sönen imleç artık komutunuzu bekliyor!</em></p>
-</section><section id="komut-satırı-üzerinde-çalışma" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="komut-satırı-üzerinde-çalışma">
-<span class="header-section-number">3.3</span> Komut satırı üzerinde çalışma</h2>
-<p>Komut satırı ekranında yanıp sönen bir imleç var. O imleç sizin komutunuzu bekliyor artık. R ile bu pencere üzerinden etkileşeceğiz. Siz bir komut yazacaksınız, R bu komutu işleyecek, ve sonucu geri döndürecek.</p>
-<p>Eğer imleç yanıp sönmüyorsa, R o sırada bir işle uğraşıyor demektir. İşin bitmesini bekleyiniz.</p>
-<p>Komut satırı ekranını mesela bir hesap makinası olarak kullanabilirsiniz. Mesela:</p>
+</header><p>Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (<a href="04-vektorler.html"><span>Bölüm&nbsp;8</span></a>), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktadı.</p>
+<p>Veri çerçeveleri aslında bu farklı veri tiplerini bir arada toplayabilme kabiliyetine sahiptir.</p>
+<p>Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmultur. Kullandığımız vektörlerin uzunluklarının aynı olması gerekldir. Gelin şimdi <a href="04-vektorler.html"><span>Bölüm&nbsp;8</span></a>’de işlediğimiz <a href="04-vektorler.html#tbl-bitkiler">Tablo&nbsp;<span>8.1</span></a> versini veri çerçevesine çevirelim.</p>
+<p>Hatırlarsanız öncelikle vektörler tanımlamıştık.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
+<span>                <span class="st">"bitki6"</span>, <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<span>                    <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">deney_kosullari</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>,</span>
+<span>                            <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Şimdi ise bu vektörleri bir veri çerçevesi içerisinde birleştirelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">34</span> <span class="op">+</span> <span class="fl">45</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>bitki_ismi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, </span>
+<span>                                    <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, </span>
+<span>                                    <span class="st">"bitki5"</span>, <span class="st">"bitki6"</span>, </span>
+<span>                                    <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, </span>
+<span>                                    <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span>,</span>
+<span>                    yaprak_uzunlugu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<span>                                            <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                    deney_kosullari <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, </span>
+<span>                                                    <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, </span>
+<span>                                                    <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, </span>
+<span>                                                    <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, </span>
+<span>                                                    <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Şimdi gelin <code>str</code> fonksiyonu ile oluştruduğumuz veri çerçevesini inceleuelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 79</code></pre>
+<pre><code>'data.frame':   10 obs. of  3 variables:
+ $ bitki_ismi     : chr  "bitki1" "bitki2" "bitki3" "bitki4" ...
+ $ yaprak_uzunlugu: num  2.3 3.4 4.5 1.2 3.4 NA 1.8 6.3 2.1 NA
+ $ deney_kosullari: Factor w/ 2 levels "aydinlik","karanlik": 2 1 1 2 1 2 2 1 2 2</code></pre>
 </div>
 </div>
-<p>R, bu işlemi yapar ve sonucu ekrana yazdırır.</p>
-<p>İsterseniz başka işlemler de yapabilirsiniz:</p>
+<p>Dikkat ederseniz her sütun artık farklı bir tipe sahip.</p>
+<section id="veri-çerçevesi-boyutları" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="veri-çerçevesi-boyutları">
+<span class="header-section-number">10.1</span> Veri Çerçevesi boyutları</h2>
+<p>Elimizdeki veri çerçevesinin boyutlarını aynı matrisler gibi öğrenebiliriz.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">12</span><span class="op">/</span><span class="fl">4</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10  3</code></pre>
+</div>
+</div>
+<p>Satır sayısı:</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>Parantezli işlemler deneyelim:</p>
+</section><section id="sütun-ve-satır-isimleri" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="sütun-ve-satır-isimleri">
+<span class="header-section-number">10.2</span> Sütun ve satır isimleri</h2>
+<p>Her veri çerçevesinin bir sütun ismi olması gerekir. Sütun isimlerini <code>colnames</code> fonksiyonu ile öğrenebiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="op">(</span><span class="fl">6</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">12</span><span class="op">+</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">4</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 49.5</code></pre>
+<pre><code>[1] "bitki_ismi"      "yaprak_uzunlugu" "deney_kosullari"</code></pre>
 </div>
 </div>
-<p>Tebrikler! R üzerinde ilk komutlarınızı yazdınız!</p>
+<p>Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da <code>rownames</code> ile öğrenebiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"</code></pre>
+</div>
+</div>
+<p>İstersek, satır ve sütun isimlerini değiştirebiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"isim"</span>, <span class="st">"uzunluk"</span>, <span class="st">"kosul"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
+<span>                        <span class="st">"bitki6"</span>, <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Dikkat!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Satır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte, satır isimlerinde iki tane <code>bitki8</code> yazma şansımız yoktur. Yoksa hata alırsınız.</p>
+</div>
+</div>
+<p>Şimdi tekrar veri çerçevesini ekrana yazdıralım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           isim uzunluk    kosul
+bitki1   bitki1     2.3 karanlik
+bitki2   bitki2     3.4 aydinlik
+bitki3   bitki3     4.5 aydinlik
+bitki4   bitki4     1.2 karanlik
+bitki5   bitki5     3.4 aydinlik
+bitki6   bitki6      NA karanlik
+bitki7   bitki7     1.8 karanlik
+bitki8   bitki8     6.3 aydinlik
+bitki9   bitki9     2.1 karanlik
+bitki10 bitki10      NA karanlik</code></pre>
+</div>
+</div>
+<p>Elimizdeki veri çerçeveleri çok uzun olabilir, bu yüzden verinin hepsini ekrana yazdırmak istemeyebiliriz. <code>head</code> komutu, bize veri çerçevesinin ilk bir kaç satırını ekrana yazdırma şansı verir:</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         isim uzunluk    kosul
+bitki1 bitki1     2.3 karanlik
+bitki2 bitki2     3.4 aydinlik
+bitki3 bitki3     4.5 aydinlik
+bitki4 bitki4     1.2 karanlik
+bitki5 bitki5     3.4 aydinlik
+bitki6 bitki6      NA karanlik</code></pre>
+</div>
+</div>
+</section><section id="veri-çerçevesi-işlemleri" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="veri-çerçevesi-işlemleri">
+<span class="header-section-number">10.3</span> Veri çerçevesi işlemleri</h2>
+<p>Bir veri çerçevesinde, aynı matris gibi hareket edebiliriz. Mesela ikinci satırın üçüncü sütunundaki veriyi elde edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] aydinlik
+Levels: aydinlik karanlik</code></pre>
+</div>
+</div>
+<p>Şimdi sadece ikinci sütunu elde edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2.3 3.4 4.5 1.2 3.4  NA 1.8 6.3 2.1  NA</code></pre>
+</div>
+</div>
+<p>Şimdi de üçünücü satırı elde edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">3</span>,<span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         isim uzunluk    kosul
+bitki3 bitki3     4.5 aydinlik</code></pre>
+</div>
+</div>
+<p>İstersek sadece sütun isimlerini de kullanabiliriz. Önce sütun isimlerine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "isim"    "uzunluk" "kosul"  </code></pre>
+</div>
+</div>
+<p>Sadece yaprak uzunluklarına bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2.3 3.4 4.5 1.2 3.4  NA 1.8 6.3 2.1  NA</code></pre>
+</div>
+</div>
+<p>Eğer <code>$</code> işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. Bu bize bir vektör geri döndürdü.</p>
+<p>Peki, yaprak uzunlukları vektöründeki 5. elemanı elde etmek istesek:</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.4</code></pre>
+</div>
+</div>
+<p>Bunu şu şekilde de yapabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.4</code></pre>
+</div>
+</div>
+<p>Bu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimiz kullanabiliriz.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -528,13 +638,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../01-kurulum/02-ilk-kurallar.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span>
+      <a href="../02-veri-analizi/05-matrisler.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-kurulum/04-klasor-islemleri.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">R üzerinde kontrol yapıları</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

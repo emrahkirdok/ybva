@@ -284,7 +284,7 @@
     "href": "02-veri-analizi/04-vektorler.html#ödev",
     "title": "8  Vektörler",
     "section": "\n8.7 Ödev",
-    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 11’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 12’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "02-veri-analizi/05-matrisler.html#matris-boyutları",
@@ -315,88 +315,109 @@
     "text": "9.4 Matrislerde mantıksal işlemler\nVektörlerde yaptığımız mantıksal işlemleri, matrislerde de yapabiliriz.\nMesela ikinci sütunda, 5’den büyük satırları geri döndürelim:\n\nornek_matris[,2] > 5\n\nSatir1 Satir2 Satir3 Satir4 Satir5 \n FALSE  FALSE   TRUE  FALSE  FALSE \n\n\nDikkat ederseniz, 5’den büyük olan değerleri bize TRUE olarak gösterdi. Bu mantıksal vektörü tekrar bir indis olarak verelim:\n\nornek_matris[ornek_matris[,2] > 5, 1]\n\n[1] 4.5\n\n\nDikkat edin, mantıksal vektörü sadece satır indisi olarak kullandık. Yoksa hata alırız.\nYa da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matris içinde 3’den büyük olan değerleri geri döndürelim:\n\nornek_matris > 3\n\n       Sutun1 Sutun2\nSatir1  FALSE  FALSE\nSatir2   TRUE  FALSE\nSatir3   TRUE   TRUE\nSatir4  FALSE  FALSE\nSatir5   TRUE   TRUE\n\n\nBunu tekrar bir indis olarak geri kullanalaım\n\nornek_matris[ornek_matris > 3]\n\n[1] 3.4 4.5 3.4 6.3 5.0\n\n\nGördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgü."
   },
   {
+    "objectID": "02-veri-analizi/06-veri-cerceveleri.html#veri-çerçevesi-boyutları",
+    "href": "02-veri-analizi/06-veri-cerceveleri.html#veri-çerçevesi-boyutları",
+    "title": "\n10  Veri Çerçeveleri\n",
+    "section": "\n10.1 Veri Çerçevesi boyutları",
+    "text": "10.1 Veri Çerçevesi boyutları\nElimizdeki veri çerçevesinin boyutlarını aynı matrisler gibi öğrenebiliriz.\n\ndim(veri)\n\n[1] 10  3\n\n\nSatır sayısı:\n\nnrow(veri)\n\n[1] 10\n\n\n\nncol(veri)\n\n[1] 3"
+  },
+  {
+    "objectID": "02-veri-analizi/06-veri-cerceveleri.html#sütun-ve-satır-isimleri",
+    "href": "02-veri-analizi/06-veri-cerceveleri.html#sütun-ve-satır-isimleri",
+    "title": "\n10  Veri Çerçeveleri\n",
+    "section": "\n10.2 Sütun ve satır isimleri",
+    "text": "10.2 Sütun ve satır isimleri\nHer veri çerçevesinin bir sütun ismi olması gerekir. Sütun isimlerini colnames fonksiyonu ile öğrenebiliriz:\n\ncolnames(veri)\n\n[1] \"bitki_ismi\"      \"yaprak_uzunlugu\" \"deney_kosullari\"\n\n\nAynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da rownames ile öğrenebiliriz:\n\nrownames(veri)\n\n [1] \"1\"  \"2\"  \"3\"  \"4\"  \"5\"  \"6\"  \"7\"  \"8\"  \"9\"  \"10\"\n\n\nİstersek, satır ve sütun isimlerini değiştirebiliriz:\n\ncolnames(veri) <- c(\"isim\", \"uzunluk\", \"kosul\")\nrownames(veri) <- c(\"bitki1\", \"bitki2\", \"bitki3\", \"bitki4\", \"bitki5\", \n                        \"bitki6\", \"bitki7\",\"bitki8\", \"bitki9\", \"bitki10\")\n\n\n\n\n\n\n\nDikkat!\n\n\n\nSatır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte, satır isimlerinde iki tane bitki8 yazma şansımız yoktur. Yoksa hata alırsınız.\n\n\nŞimdi tekrar veri çerçevesini ekrana yazdıralım:\n\nveri\n\n           isim uzunluk    kosul\nbitki1   bitki1     2.3 karanlik\nbitki2   bitki2     3.4 aydinlik\nbitki3   bitki3     4.5 aydinlik\nbitki4   bitki4     1.2 karanlik\nbitki5   bitki5     3.4 aydinlik\nbitki6   bitki6      NA karanlik\nbitki7   bitki7     1.8 karanlik\nbitki8   bitki8     6.3 aydinlik\nbitki9   bitki9     2.1 karanlik\nbitki10 bitki10      NA karanlik\n\n\nElimizdeki veri çerçeveleri çok uzun olabilir, bu yüzden verinin hepsini ekrana yazdırmak istemeyebiliriz. head komutu, bize veri çerçevesinin ilk bir kaç satırını ekrana yazdırma şansı verir:\n\nhead(veri)\n\n         isim uzunluk    kosul\nbitki1 bitki1     2.3 karanlik\nbitki2 bitki2     3.4 aydinlik\nbitki3 bitki3     4.5 aydinlik\nbitki4 bitki4     1.2 karanlik\nbitki5 bitki5     3.4 aydinlik\nbitki6 bitki6      NA karanlik"
+  },
+  {
+    "objectID": "02-veri-analizi/06-veri-cerceveleri.html#veri-çerçevesi-işlemleri",
+    "href": "02-veri-analizi/06-veri-cerceveleri.html#veri-çerçevesi-işlemleri",
+    "title": "\n10  Veri Çerçeveleri\n",
+    "section": "\n10.3 Veri çerçevesi işlemleri",
+    "text": "10.3 Veri çerçevesi işlemleri\nBir veri çerçevesinde, aynı matris gibi hareket edebiliriz. Mesela ikinci satırın üçüncü sütunundaki veriyi elde edelim:\n\nveri[2,3]\n\n[1] aydinlik\nLevels: aydinlik karanlik\n\n\nŞimdi sadece ikinci sütunu elde edelim:\n\nveri[,2]\n\n [1] 2.3 3.4 4.5 1.2 3.4  NA 1.8 6.3 2.1  NA\n\n\nŞimdi de üçünücü satırı elde edelim:\n\nveri[3,]\n\n         isim uzunluk    kosul\nbitki3 bitki3     4.5 aydinlik\n\n\nİstersek sadece sütun isimlerini de kullanabiliriz. Önce sütun isimlerine bakalım:\n\ncolnames(veri)\n\n[1] \"isim\"    \"uzunluk\" \"kosul\"  \n\n\nSadece yaprak uzunluklarına bakalım:\n\nveri$uzunluk\n\n [1] 2.3 3.4 4.5 1.2 3.4  NA 1.8 6.3 2.1  NA\n\n\nEğer $ işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. Bu bize bir vektör geri döndürdü.\nPeki, yaprak uzunlukları vektöründeki 5. elemanı elde etmek istesek:\n\nveri$uzunluk[5]\n\n[1] 3.4\n\n\nBunu şu şekilde de yapabiliriz:\n\nveri[5,2]\n\n[1] 3.4\n\n\nBu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimiz kullanabiliriz."
+  },
+  {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#döngüler-for",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#döngüler-for",
-    "title": "\n10  R üzerinde kontrol yapıları\n",
-    "section": "\n10.1 Döngüler (for)",
-    "text": "10.1 Döngüler (for)\nVeri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.\nBasit bir örnek verelim. Önce bir sayı vektörü oluşturalım:\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nBu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimiz düşünelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.\nÖnce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz Bölüm 8’i tekrar gözden geçirebilirsiniz.\n\n(yaprak_uzunlugu[1]+5)/2\n\n[1] 3.65\n\n\nŞimdi ise ikinci eleman için bunu yapalım:\n\n(yaprak_uzunlugu[2]+5)/2\n\n[1] 4.2\n\n\nDikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla for döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.\nÖncelikle for döngüsünün genel yapısına bakalım:\nfor ( ÇALIŞILACAK ELEMAN KÜMESİ ){\n    YAPILACAK İŞ\n}\nBurada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. for döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli YAPILACAK İŞ adımı çalıştırılıyor.\nAncak bu yapıyı yukarıdaki gibi kullanmalıyız.\nŞimdi döngümüzü yazalım:\n\nfor (i in 1:length(yaprak_uzunlugu)){\n    sonuc <- (yaprak_uzunlugu[i]+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nBu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.\ni in 1:length(yaprak_uzunlugu) cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.\n\n1:length(yaprak_uzunlugu)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nFor döngüsü ise i adından bir değişken oluşturuyor. Önce i değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.\nO işlem bitince, i değerine ikinci elemanı atanıyor ve bu sefer i <- 2 için işlemi gerçekleştiriyor.\nBu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.\nBir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise i yerine eleman isimli bir değişken oluşturalım:\n\nfor (eleman in yaprak_uzunlugu){\n    sonuc <- (eleman+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nGördüğünüz iki for döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (Şekil 10.1).\n\n\n\n\n\nfor\n\n\nilk\n\nBirinci elemanıseç\nislem\n\nİstenen işlemi gerçekleştir\nilk->islem\n\n\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemana geç\nson->devam\n\nFALSE\nsonlandır\n\nDöngüyü sonlandır\nson->sonlandır\n\nTRUE\ndevam->islem\n\n\nislem->son\n\n\nŞekil 10.1: for döngüsü hakkındaki diyagram"
+    "title": "\n11  R üzerinde kontrol yapıları\n",
+    "section": "\n11.1 Döngüler (for)",
+    "text": "11.1 Döngüler (for)\nVeri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.\nBasit bir örnek verelim. Önce bir sayı vektörü oluşturalım:\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nBu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimiz düşünelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.\nÖnce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz Bölüm 8’i tekrar gözden geçirebilirsiniz.\n\n(yaprak_uzunlugu[1]+5)/2\n\n[1] 3.65\n\n\nŞimdi ise ikinci eleman için bunu yapalım:\n\n(yaprak_uzunlugu[2]+5)/2\n\n[1] 4.2\n\n\nDikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla for döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.\nÖncelikle for döngüsünün genel yapısına bakalım:\nfor ( ÇALIŞILACAK ELEMAN KÜMESİ ){\n    YAPILACAK İŞ\n}\nBurada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. for döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli YAPILACAK İŞ adımı çalıştırılıyor.\nAncak bu yapıyı yukarıdaki gibi kullanmalıyız.\nŞimdi döngümüzü yazalım:\n\nfor (i in 1:length(yaprak_uzunlugu)){\n    sonuc <- (yaprak_uzunlugu[i]+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nBu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.\ni in 1:length(yaprak_uzunlugu) cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.\n\n1:length(yaprak_uzunlugu)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nFor döngüsü ise i adından bir değişken oluşturuyor. Önce i değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.\nO işlem bitince, i değerine ikinci elemanı atanıyor ve bu sefer i <- 2 için işlemi gerçekleştiriyor.\nBu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.\nBir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise i yerine eleman isimli bir değişken oluşturalım:\n\nfor (eleman in yaprak_uzunlugu){\n    sonuc <- (eleman+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nGördüğünüz iki for döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (Şekil 11.1).\n\n\n\n\n\nfor\n\n\nilk\n\nBirinci elemanıseç\nislem\n\nİstenen işlemi gerçekleştir\nilk->islem\n\n\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemana geç\nson->devam\n\nFALSE\nsonlandır\n\nDöngüyü sonlandır\nson->sonlandır\n\nTRUE\ndevam->islem\n\n\nislem->son\n\n\nŞekil 11.1: for döngüsü hakkındaki diyagram"
   },
   {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#kontrol-yapısı-if-else",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#kontrol-yapısı-if-else",
-    "title": "\n10  R üzerinde kontrol yapıları\n",
-    "section": "\n10.2 Kontrol yapısı (if-else)",
-    "text": "10.2 Kontrol yapısı (if-else)\nEğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, if-else yapısını kullanıyoruz.\nMesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.\nŞekil 10.2 bize bu işlemi şematize edecektir.\n\n\n\n\n\ng\n\n\nsayi\n\nSayı\nkontrol\n\n5’den büyük  veya  5’e eşit\nsayi->kontrol\n\n\nilk\n\nEkrana yazdır:5’den büyük  veya  5’e eşit\nkontrol->ilk\n\nTRUE\nikinci\n\nEkrana yazdır:5’den küçük\nkontrol->ikinci\n\nFALSE\nsonlandir\n\nİşlemi sonlandır\nilk->sonlandir\n\n\nikinci->sonlandir\n\n\nŞekil 10.2: if-else döngüsü hakkındaki diyagram\n\n\n\n\nİlk olarak bir sayı belirleyelim:\n\nsayi <- 12\n\nİlk koşulu çalıştıralım:\n\nsayi >= 5\n\n[1] TRUE\n\n\nBu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5’e eşit veya 5’den büyük. Ama asla 5’den küçük değil.\nŞimdi if-else yapısına bakalım:\nif ( KOŞUL ){\n    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR\n} else {\n    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR\n}\nİlk önce bir koşul belirliyoruz (sayını 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.\nŞimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:\n\nsayi <- 12\n\nif (sayi >= 5) {\n  print(\"bu sayi bese esit veya besten buyuktur\")\n} else{\n  print(\"bu sayi besten kucuktur\")\n}\n\n[1] \"bu sayi bese esit veya besten buyuktur\""
+    "title": "\n11  R üzerinde kontrol yapıları\n",
+    "section": "\n11.2 Kontrol yapısı (if-else)",
+    "text": "11.2 Kontrol yapısı (if-else)\nEğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, if-else yapısını kullanıyoruz.\nMesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.\nŞekil 11.2 bize bu işlemi şematize edecektir.\n\n\n\n\n\ng\n\n\nsayi\n\nSayı\nkontrol\n\n5’den büyük  veya  5’e eşit\nsayi->kontrol\n\n\nilk\n\nEkrana yazdır:5’den büyük  veya  5’e eşit\nkontrol->ilk\n\nTRUE\nikinci\n\nEkrana yazdır:5’den küçük\nkontrol->ikinci\n\nFALSE\nsonlandir\n\nİşlemi sonlandır\nilk->sonlandir\n\n\nikinci->sonlandir\n\n\nŞekil 11.2: if-else döngüsü hakkındaki diyagram\n\n\n\n\nİlk olarak bir sayı belirleyelim:\n\nsayi <- 12\n\nİlk koşulu çalıştıralım:\n\nsayi >= 5\n\n[1] TRUE\n\n\nBu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5’e eşit veya 5’den büyük. Ama asla 5’den küçük değil.\nŞimdi if-else yapısına bakalım:\nif ( KOŞUL ){\n    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR\n} else {\n    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR\n}\nİlk önce bir koşul belirliyoruz (sayını 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.\nŞimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:\n\nsayi <- 12\n\nif (sayi >= 5) {\n  print(\"bu sayi bese esit veya besten buyuktur\")\n} else{\n  print(\"bu sayi besten kucuktur\")\n}\n\n[1] \"bu sayi bese esit veya besten buyuktur\""
   },
   {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#farklı-yapıları-birleştirelim",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#farklı-yapıları-birleştirelim",
-    "title": "\n10  R üzerinde kontrol yapıları\n",
-    "section": "\n10.3 Farklı yapıları birleştirelim",
-    "text": "10.3 Farklı yapıları birleştirelim\nŞimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nElimizde artık iki tane koşul olsun:\n\nEğer eleman 5’den büyük veya eşitse, elemana 5 ekle ve ikiye böl\nEğer eleman 5’den küçükse, elemana 10 ekle ve 3’e böl\n\nYine örneğimiz biraz rastgele oldu. Böyle bir senaryo için if-else yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:\n\nfor (eleman in yaprak_uzunlugu){\n    if (eleman >= 5){\n        sonuc <- (eleman+5)/2\n        cat(\"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:\", sonuc, \"\\n\")\n    } else {\n        sonuc <- (eleman+10)/3\n        cat(\"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:\", sonuc, \"\\n\")\n    }\n}\n\nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.1 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.833333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.733333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.333333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.933333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5.65 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 \n\n\nŞimdi bu yapıyı daha iyi anlamak için görselleşirelim (Şekil 10.3)\n\n\n\n\n\ng\n\n\neleman\n\nBirinci elemanı seç\nkontrol\n\n5’den büyük  veya  5’e eşit mi?\neleman->kontrol\n\n\nilk\n\nBirinci formülü uygulaSonucu ekrana yazdır\nkontrol->ilk\n\nTRUE\nikinci\n\nİkinci formülü uygulaSonucu ekrana yazdır\nkontrol->ikinci\n\nFALSE\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemanı seç\nson->devam\n\nFALSE\nDöngüyü sonlandır.\n\nDöngüyü sonlandır.\nson->Döngüyü sonlandır.\n\nTRUE\nilk->son\n\n\nikinci->son\n\n\ndevam->kontrol\n\n\nBaşla\n\nBaşla\nBaşla->eleman\n\n\nŞekil 10.3: İki kontrol yapısını da birleştirmek"
+    "title": "\n11  R üzerinde kontrol yapıları\n",
+    "section": "\n11.3 Farklı yapıları birleştirelim",
+    "text": "11.3 Farklı yapıları birleştirelim\nŞimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nElimizde artık iki tane koşul olsun:\n\nEğer eleman 5’den büyük veya eşitse, elemana 5 ekle ve ikiye böl\nEğer eleman 5’den küçükse, elemana 10 ekle ve 3’e böl\n\nYine örneğimiz biraz rastgele oldu. Böyle bir senaryo için if-else yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:\n\nfor (eleman in yaprak_uzunlugu){\n    if (eleman >= 5){\n        sonuc <- (eleman+5)/2\n        cat(\"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:\", sonuc, \"\\n\")\n    } else {\n        sonuc <- (eleman+10)/3\n        cat(\"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:\", sonuc, \"\\n\")\n    }\n}\n\nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.1 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.833333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.733333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.333333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.933333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5.65 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 \n\n\nŞimdi bu yapıyı daha iyi anlamak için görselleşirelim (Şekil 11.3)\n\n\n\n\n\ng\n\n\neleman\n\nBirinci elemanı seç\nkontrol\n\n5’den büyük  veya  5’e eşit mi?\neleman->kontrol\n\n\nilk\n\nBirinci formülü uygulaSonucu ekrana yazdır\nkontrol->ilk\n\nTRUE\nikinci\n\nİkinci formülü uygulaSonucu ekrana yazdır\nkontrol->ikinci\n\nFALSE\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemanı seç\nson->devam\n\nFALSE\nDöngüyü sonlandır.\n\nDöngüyü sonlandır.\nson->Döngüyü sonlandır.\n\nTRUE\nilk->son\n\n\nikinci->son\n\n\ndevam->kontrol\n\n\nBaşla\n\nBaşla\nBaşla->eleman\n\n\nŞekil 11.3: İki kontrol yapısını da birleştirmek"
   },
   {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
-    "title": "\n10  R üzerinde kontrol yapıları\n",
-    "section": "\n10.4 Ödev",
-    "text": "10.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 12’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "title": "\n11  R üzerinde kontrol yapıları\n",
+    "section": "\n11.4 Ödev",
+    "text": "11.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 13’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
-    "title": "11  Vektörler Ödevi",
-    "section": "\n11.1 Soru 1",
-    "text": "11.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+    "title": "12  Vektörler Ödevi",
+    "section": "\n12.1 Soru 1",
+    "text": "12.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
-    "title": "11  Vektörler Ödevi",
-    "section": "\n11.2 Soru 2",
-    "text": "11.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "12  Vektörler Ödevi",
+    "section": "\n12.2 Soru 2",
+    "text": "12.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
-    "title": "11  Vektörler Ödevi",
-    "section": "\n11.3 Soru 3",
-    "text": "11.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "12  Vektörler Ödevi",
+    "section": "\n12.3 Soru 3",
+    "text": "12.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
-    "title": "11  Vektörler Ödevi",
-    "section": "\n11.4 Soru 4",
-    "text": "11.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "12  Vektörler Ödevi",
+    "section": "\n12.4 Soru 4",
+    "text": "12.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
-    "title": "11  Vektörler Ödevi",
-    "section": "\n11.5 Soru 5",
-    "text": "11.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "12  Vektörler Ödevi",
+    "section": "\n12.5 Soru 5",
+    "text": "12.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
-    "title": "11  Vektörler Ödevi",
-    "section": "\n11.6 Soru 6",
-    "text": "11.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "12  Vektörler Ödevi",
+    "section": "\n12.6 Soru 6",
+    "text": "12.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "12  DNA üzerinde işlemler",
-    "section": "\n12.1 Soru 1",
-    "text": "12.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "13  DNA üzerinde işlemler",
+    "section": "\n13.1 Soru 1",
+    "text": "13.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "12  DNA üzerinde işlemler",
-    "section": "\n12.2 Soru 2",
-    "text": "12.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "13  DNA üzerinde işlemler",
+    "section": "\n13.2 Soru 2",
+    "text": "13.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
