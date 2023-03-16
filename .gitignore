@@ -8,3 +8,4 @@ _book
 *Rproj
 .Rbuildignore
 /.quarto/
+*.html
