@@ -98,7 +98,7 @@ Bu fonksiyonu kullanalım şimdi:
 kelvin_donusturucu(derece = 30)
 ```
 
-## Şimdi siz düşünün!
+## Şimdi siz düşünün!
 
 + Aklınız gelen örnekleri Discord üzerinden paylaşın
 + En iyi örneğin fonksiyonunu birlikte yazalım
