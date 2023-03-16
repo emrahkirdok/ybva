@@ -115,7 +115,7 @@ ornek_matris[4,]
 ```
 
 + Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.
-+ Sadece birinci sürunu geri döndürmek için ise:
++ Sadece birinci sütunu geri döndürmek için ise:
 
 ```{r}
 ornek_matris[,1]
