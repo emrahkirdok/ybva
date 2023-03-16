@@ -133,7 +133,7 @@ ornek_matris[,2] > 5
 + Mantıksal vektörü tekrar indis olarak kullanalım
 
 ```{r}
-ornek_matris[ornek_matris[,2] > 5, 1]
+ornek_matris[ornek_matris[,2] > 5, 2]
 ```
 
 ## Matrislerle çalışmak
