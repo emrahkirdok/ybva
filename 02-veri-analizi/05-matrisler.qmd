@@ -72,7 +72,7 @@ ornek_matris
 
 Matrisler'de de indis kullanabiliriz. Bu sayede matris içerisindeki elemanlara erişebiliriz. Ancak burada iki tane eleman kullanmamız gerekecek. Bir tanesi satır için, diğeri ise sütun için.
 
-Mesela, örnek matirisimizde 4. satır 2. elemana erişmek isteyelim:
+Mesela, örnek matirisimizde 4. satır 2. sütundaki elemana erişmek isteyelim:
 
 ```{r}
 ornek_matris[4,2]
