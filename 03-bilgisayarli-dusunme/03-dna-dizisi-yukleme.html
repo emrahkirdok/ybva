@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 13&nbsp; DNA dizileri yükleme</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 13&nbsp; DNA ile çalışma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">DNA dizileri yükleme</span>
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -255,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">DNA dizileri yükleme</span></a>
+  <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></a>
   </div>
 </li>
       </ul>
@@ -311,7 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">DNA dizileri yükleme</span>
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span>
 </h1>
 </div>
 
@@ -334,11 +334,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://seqinr.r-forge.r-project.org/">seqinr</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Öncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:</p>
-<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna">https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna</a></p>
-<p>Şimdi de veriyi inceleyelim:</p>
+<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna">Örnek DNA verisi</a></p>
+<p>Öncelikle veriyi okuyalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/seqinr/man/read.fasta.html">read.fasta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data/example.fna"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Verim nerede?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Benim verimi indirdiğim yer, projemin çalışma klasörü içerisindeki <code>data</code> isimli klasör. Siz alıştırmayı yaparken, <code>file</code> kısmına kendi bilgisayarınızdaki veriyi verin. Yoksa hata alırsınız.</p>
+</div>
+</div>
+<p>Bu işlemin soncunda elimize bir liste geçti. İsterseniz <code>names</code> fonksiyonu ile bu listedeki dizilerin fasta isimlerini inceleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">dna</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ENA|BAA20512|BAA20512.1" "ENA|CAA23748|CAA23748.1"
+[3] "ENA|CAA24095|CAA24095.1" "ENA|CAA28435|CAA28435.1"</code></pre>
+</div>
+</div>
+<p>Şimdi birinci elemanı inceleyelim kısaca. Listelerde indisleme yapmayı hatırlayın. Liste içerisindeki elemanlara erişmek için <code>[[</code> fonksiyonunu kullanmamız gerekir:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "a" "t" "g" "a" "g" "t" "c" "t" "c" "t" "c" "t" "g" "a" "t" "a" "a" "g"
+ [19] "g" "a" "c" "a" "a" "g" "g" "c" "t" "g" "c" "t" "g" "t" "g" "a" "a" "a"
+ [37] "g" "c" "c" "c" "t" "a" "t" "g" "g" "g" "c" "t" "a" "a" "g" "a" "t" "c"
+ [55] "a" "g" "c" "c" "c" "c" "a" "a" "a" "g" "c" "c" "g" "a" "t" "g" "a" "t"
+ [73] "a" "t" "c" "g" "g" "c" "g" "c" "t" "g" "a" "a" "g" "c" "t" "c" "t" "c"
+ [91] "g" "g" "c" "a" "g" "a" "a" "t" "g" "c" "t" "g" "a" "c" "c" "g" "t" "c"
+[109] "t" "a" "c" "c" "c" "t" "c" "a" "g" "a" "c" "c" "a" "a" "g" "a" "c" "c"
+[127] "t" "a" "c" "t" "t" "c" "g" "c" "t" "c" "a" "c" "t" "g" "g" "g" "a" "t"
+[145] "g" "a" "c" "c" "t" "g" "a" "g" "c" "c" "c" "t" "g" "g" "g" "t" "c" "c"
+[163] "g" "g" "t" "c" "c" "t" "g" "t" "g" "a" "a" "g" "a" "a" "g" "c" "a" "t"
+[181] "g" "g" "c" "a" "a" "g" "g" "t" "t" "a" "t" "c" "a" "t" "g" "g" "g" "t"
+[199] "g" "c" "a" "g" "t" "g" "g" "c" "c" "g" "a" "t" "g" "c" "c" "g" "t" "t"
+[217] "t" "c" "a" "a" "a" "a" "a" "t" "a" "g" "a" "c" "g" "a" "c" "c" "t" "t"
+[235] "g" "t" "g" "g" "g" "a" "g" "g" "t" "c" "t" "g" "g" "c" "c" "t" "c" "c"
+[253] "c" "t" "g" "a" "g" "c" "g" "a" "a" "c" "t" "t" "c" "a" "t" "g" "c" "t"
+[271] "t" "c" "c" "a" "a" "g" "c" "t" "g" "c" "g" "t" "g" "t" "t" "g" "a" "c"
+[289] "c" "c" "g" "g" "c" "c" "a" "a" "c" "t" "t" "c" "a" "a" "g" "a" "t" "c"
+[307] "c" "t" "c" "g" "c" "a" "c" "a" "c" "a" "a" "t" "g" "t" "c" "a" "t" "c"
+[325] "g" "t" "g" "g" "t" "c" "a" "t" "c" "g" "g" "c" "a" "t" "g" "c" "t" "c"
+[343] "t" "t" "c" "c" "c" "t" "g" "g" "a" "g" "a" "c" "t" "t" "c" "c" "c" "c"
+[361] "c" "c" "a" "g" "a" "g" "g" "t" "t" "c" "a" "c" "a" "t" "g" "t" "c" "a"
+[379] "g" "t" "t" "g" "a" "c" "a" "a" "g" "t" "t" "t" "t" "t" "c" "c" "a" "g"
+[397] "a" "a" "c" "t" "t" "g" "g" "c" "t" "c" "t" "g" "g" "c" "t" "c" "t" "c"
+[415] "t" "c" "t" "g" "a" "g" "a" "a" "g" "t" "a" "c" "c" "g" "c" "t" "a" "a"
+attr(,"name")
+[1] "ENA|BAA20512|BAA20512.1"
+attr(,"Annot")
+[1] "&gt;ENA|BAA20512|BAA20512.1 Cyprinus carpio (common carp) alpha-globin "
+attr(,"class")
+[1] "SeqFastadna"</code></pre>
+</div>
+</div>
+<p>Bu aslında bir vektör. Her DNA nükletoditi, vektörün bir elemanı olarak ifade edilmektedir.</p>
+<p>Artık bir fasta dizisini, R içersisine aktarmayı biliyorsunuz. Tebrikler.</p>
 
 
 
