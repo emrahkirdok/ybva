@@ -9,3 +9,6 @@ _book
 .Rbuildignore
 /.quarto/
 *.html
+*.css
+*.js
+*.woff
