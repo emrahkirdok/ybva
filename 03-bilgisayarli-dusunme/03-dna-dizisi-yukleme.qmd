@@ -1,0 +1,22 @@
+# DNA dizileri yükleme
+
+R üzerinde DNA dizileri ile çalışabiliriz. Bunun için `seqinr` paketini yüklemelisiniz.
+
+```{r, eval = false}
+install.packages("seqinr")
+```
+
+Daha sonra R oturumunza eklemelisniz:
+
+```{r}
+library(seqinr)
+```
+
+Öncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna)
+
+Şimdi de veriyi inceleyelim:
+
+```{r}
+dna <- read.fasta(file = "data/example.fna")

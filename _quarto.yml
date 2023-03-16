@@ -58,6 +58,7 @@ book:
       chapters:
         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
         - 03-bilgisayarli-dusunme/02-ileri-seviye-r-02.qmd
+        - 03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.qmd
 #        - metin_asamali_azalis.Rmd
 #        - metin_amphiBIO_calisma.Rmd
     
