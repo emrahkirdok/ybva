@@ -1,0 +1,89 @@
+# Fonksiyonlar
+
+R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde, veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.
+
+Aynı kod bloğunu tekrar tekrar yazmak yerine, bir fonksiyon oluşturusanız, o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.
+
+Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.
+
+Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon, işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (@fig-fonksiyon)
+
+```{dot}
+//| label: fig-fonksiyon
+//| fig-cap: "Bir fonksiyon, belirli parametreler varlığı altında bir girdiyi alır ve işleyerek çıktı haline dönüştürür"
+digraph fonksiyon {
+    girdi [label = "Girdi", shape = "box"];
+    fonksiyon [label = "Fonksiyon"];
+    cikti [label = "Çıktı", shape = "box"];
+    parametre [label = "Parametre", shape = "parallelogram"];
+    {rank = same; parametre; fonksiyon}
+    girdi -> fonksiyon -> cikti;
+    parametre -> fonksiyon;
+}
+
+```
+
+## Örnek fonksiyon
+
+İlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!
+
+Fonksiyonumuz iki tane girdiye sahip olsun:
+
++ `a`
++ `b`
+
+Çıktısı ise `sonuc` olsun.
+
+Fonksiyon ismi ise `toplam` olsun.
+
+```{r}
+toplam <- function(a,b){
+    sonuc <- a + b
+    return(sonuc)
+}
+```
+
+Önce fonksiyon ismini  `toplam` yazdık ve `function` komutu ile, R'a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (`a` ve `b`). 
+
+Daha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve `sonuc` değişkenini oluşturduk. Bu sonuç değişkenini ise, `return` komutu ile geri döndürdük.
+
+Her fonksiyonda mutlaka bir değer geri döndürmelisiniz.
+
+Şimdi fonksiyonu kullanalım:
+
+```{r}
+toplam(a = 5, b = 12)
+```
+
+:::{.callout-warning}
+## Önemli
+
+Fonkisyonları kullanmadan önce mutlaka tanımlamalısınız! Eğer fonksiyonu tanımlamazsanız, kullanamazsınız.
+::: 
+
+Şimdi başka iki örnek kullanalım:
+
+```{r}
+toplam(a = 12, b = 45)
+```
+
+## Başka bir fonksiyon
+
+Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin'e çevirelim.
+
+Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.
+
+Yazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
+
+```{r}
+kelvin_donusturucu <- function(derece){
+    sonuc <- derece + 273.15
+    return(sonuc)
+}
+```
+
+Bu fonksiyonu kullanalım şimdi:
+
+```{r}
+kelvin_donusturucu(derece = 30)
+```
