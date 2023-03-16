@@ -1,4 +1,4 @@
-# R üzerinde kontrol yapıları
+# Kontrol yapıları 
 
 Bu kısımda ileri seviye R kullanımına başlayacağız. Veri Analizi dersi kapsamında daha çok R ile veri analizi üzerine çalışmalar yapıldı. Bu kısımda ise R ile programlama adımlarını incelemeye başlayacağız.
 
