@@ -1363,15 +1363,15 @@ Satir5    3.4    5.0</code></pre>
 <h2>Matrislerle çalışmak</h2>
 <p>Sadece 4. satırı geri döndürmek için:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>ornek_matris[<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>ornek_matris[<span class="dv">4</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sutun1 Sutun2 
-   3.4    1.8 </code></pre>
+   1.2    2.1 </code></pre>
 </div>
 </div>
 <ul>
 <li>Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.</li>
-<li>Sadece birinci sürunu geri döndürmek için ise:</li>
+<li>Sadece birinci sütunu geri döndürmek için ise:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>ornek_matris[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1398,9 +1398,9 @@ Satir5    3.4    5.0</code></pre>
 <li>Mantıksal vektörü tekrar indis olarak kullanalım</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>ornek_matris[ornek_matris[,<span class="dv">2</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>ornek_matris[ornek_matris[,<span class="dv">2</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.5</code></pre>
+<pre><code>[1] 6.3</code></pre>
 </div>
 </div>
 </section>

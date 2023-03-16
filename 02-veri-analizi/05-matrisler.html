@@ -434,7 +434,7 @@ Satir5    3.4    5.0</code></pre>
 </section><section id="matrislerle-çalışmak" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="matrislerle-çalışmak">
 <span class="header-section-number">9.3</span> Matrislerle çalışmak</h2>
 <p>Matrisler’de de indis kullanabiliriz. Bu sayede matris içerisindeki elemanlara erişebiliriz. Ancak burada iki tane eleman kullanmamız gerekecek. Bir tanesi satır için, diğeri ise sütun için.</p>
-<p>Mesela, örnek matirisimizde 4. satır 2. elemana erişmek isteyelim:</p>
+<p>Mesela, örnek matirisimizde 4. satır 2. sütundaki elemana erişmek isteyelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -453,10 +453,10 @@ Satir5    3.4    5.0</code></pre>
 <p>Dikkat ederseniz bu örnekte <code>2:4</code> yapısını kullandık. Bu bize 2, 3, 4 vektörünü geri döndürecektir. Sütun için ise sadece 2 kullandık.</p>
 <p>Sadece 4. satırı geri döndürmek için:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sutun1 Sutun2 
-   3.4    1.8 </code></pre>
+   1.2    2.1 </code></pre>
 </div>
 </div>
 <p>Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.</p>
