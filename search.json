@@ -284,7 +284,7 @@
     "href": "02-veri-analizi/04-vektorler.html#ödev",
     "title": "8  Vektörler",
     "section": "\n8.7 Ödev",
-    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 12’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 13’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "02-veri-analizi/05-matrisler.html#matris-boyutları",
@@ -361,63 +361,77 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n11  R üzerinde kontrol yapıları\n",
     "section": "\n11.4 Ödev",
-    "text": "11.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 13’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "11.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 14’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+  },
+  {
+    "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
+    "href": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
+    "title": "\n12  Fonksiyonlar\n",
+    "section": "\n12.1 Örnek fonksiyon",
+    "text": "12.1 Örnek fonksiyon\nİlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!\nFonksiyonumuz iki tane girdiye sahip olsun:\n\na\nb\n\nÇıktısı ise sonuc olsun.\nFonksiyon ismi ise toplam olsun.\n\ntoplam <- function(a,b){\n    sonuc <- a + b\n    return(sonuc)\n}\n\nÖnce fonksiyon ismini toplam yazdık ve function komutu ile, R’a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (a ve b).\nDaha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve sonuc değişkenini oluşturduk. Bu sonuç değişkenini ise, return komutu ile geri döndürdük.\nHer fonksiyonda mutlaka bir değer geri döndürmelisiniz.\nŞimdi fonksiyonu kullanalım:\n\ntoplam(a = 5, b = 12)\n\n[1] 17\n\n\n\n\n\n\n\n\nÖnemli\n\n\n\nFonkisyonları kullanmadan önce mutlaka tanımlamalısınız! Eğer fonksiyonu tanımlamazsanız, kullanamazsınız.\n\n\nŞimdi başka iki örnek kullanalım:\n\ntoplam(a = 12, b = 45)\n\n[1] 57"
+  },
+  {
+    "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#başka-bir-fonksiyon",
+    "href": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#başka-bir-fonksiyon",
+    "title": "\n12  Fonksiyonlar\n",
+    "section": "\n12.2 Başka bir fonksiyon",
+    "text": "12.2 Başka bir fonksiyon\nŞimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.\nBu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.\nYazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise kelvin_donusturucu olsun.\n\nkelvin_donusturucu <- function(derece){\n    sonuc <- derece + 273.15\n    return(sonuc)\n}\n\nBu fonksiyonu kullanalım şimdi:\n\nkelvin_donusturucu(derece = 30)\n\n[1] 303.15"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
-    "title": "12  Vektörler Ödevi",
-    "section": "\n12.1 Soru 1",
-    "text": "12.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+    "title": "13  Vektörler Ödevi",
+    "section": "\n13.1 Soru 1",
+    "text": "13.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
-    "title": "12  Vektörler Ödevi",
-    "section": "\n12.2 Soru 2",
-    "text": "12.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "13  Vektörler Ödevi",
+    "section": "\n13.2 Soru 2",
+    "text": "13.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
-    "title": "12  Vektörler Ödevi",
-    "section": "\n12.3 Soru 3",
-    "text": "12.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "13  Vektörler Ödevi",
+    "section": "\n13.3 Soru 3",
+    "text": "13.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
-    "title": "12  Vektörler Ödevi",
-    "section": "\n12.4 Soru 4",
-    "text": "12.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "13  Vektörler Ödevi",
+    "section": "\n13.4 Soru 4",
+    "text": "13.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
-    "title": "12  Vektörler Ödevi",
-    "section": "\n12.5 Soru 5",
-    "text": "12.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "13  Vektörler Ödevi",
+    "section": "\n13.5 Soru 5",
+    "text": "13.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
-    "title": "12  Vektörler Ödevi",
-    "section": "\n12.6 Soru 6",
-    "text": "12.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "13  Vektörler Ödevi",
+    "section": "\n13.6 Soru 6",
+    "text": "13.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "13  DNA üzerinde işlemler",
-    "section": "\n13.1 Soru 1",
-    "text": "13.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "14  DNA üzerinde işlemler",
+    "section": "\n14.1 Soru 1",
+    "text": "14.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "13  DNA üzerinde işlemler",
-    "section": "\n13.2 Soru 2",
-    "text": "13.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "14  DNA üzerinde işlemler",
+    "section": "\n14.2 Soru 2",
+    "text": "14.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
@@ -431,13 +445,13 @@
     "href": "10-ekler/01-sunumlar.html#veri-analizi",
     "title": "Appendix A — Ders sunumları",
     "section": "A.1 Veri Analizi",
-    "text": "A.1 Veri Analizi\n\n02/03/2023 Tanıtım Dersi\n09/03/2023 R Giriş\n09/03/2023 Vektörler\n16/03/2023 Vektörler\n16/03/2023 Vektörler"
+    "text": "A.1 Veri Analizi\n\n02/03/2023 Tanıtım Dersi\n09/03/2023 R Giriş\n09/03/2023 Vektörler\n16/03/2023 Matrisler\n16/03/2023 Veri çerçeveleri"
   },
   {
     "objectID": "10-ekler/01-sunumlar.html#bilgisayarlı-düşünme",
     "href": "10-ekler/01-sunumlar.html#bilgisayarlı-düşünme",
     "title": "Appendix A — Ders sunumları",
     "section": "A.2 Bilgisayarlı Düşünme",
-    "text": "A.2 Bilgisayarlı Düşünme\n\n09/03/2023 R Üzerinde Kontrol Yapıları"
+    "text": "A.2 Bilgisayarlı Düşünme\n\n09/03/2023 R Üzerinde Kontrol Yapıları\n16/03/2023 Fonksiyonlar"
   }
 ]
