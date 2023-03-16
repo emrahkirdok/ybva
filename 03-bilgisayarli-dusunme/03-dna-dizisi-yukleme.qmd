@@ -21,3 +21,4 @@ library(seqinr)
 
 ```{r}
 dna <- read.fasta(file = "data/example.fna")
+```
