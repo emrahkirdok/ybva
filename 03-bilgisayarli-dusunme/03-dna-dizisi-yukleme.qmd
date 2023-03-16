@@ -2,7 +2,8 @@
 
 R üzerinde DNA dizileri ile çalışabiliriz. Bunun için `seqinr` paketini yüklemelisiniz.
 
-```{r, eval = false}
+```{r}
+#| eval: false
 install.packages("seqinr")
 ```
 
