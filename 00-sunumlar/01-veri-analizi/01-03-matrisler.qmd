@@ -1,0 +1,153 @@
+---
+title: "Matrisler"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "16-03-2023"
+execute: 
+  echo: true
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+# Matrisler
+
+## Matrisler
+
++ Veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir.
++ Bu durumda matris veri yapılarını kullanıyoruz. 
++ Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir
+
+```{r}
+#| label: tbl-matrix1
+#| fig-cap: "R üzerinde hazı gelen bir matrisin gösterimi"
+ 
+head(state.x77)
+```
+
+## Matris oluşturalım
+
++ `yaprak_uzunlugu` isimli vektörden bir matris oluşturalım.
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    3, 1.8, 6.3, 2.1, 5)
+```
+
+## Matris oluşturalım
+
++ `matrix()` fonksiyonunu kullanmalıyız
++ satır (`nrow`) 
++ sütun (`ncol`) 
+
+```{r}
+matrix(yaprak_uzunlugu, nrow=5, ncol=2)
+```
+
+## Matris boyutları
+
+Matris boyutlarını öğrenmek için üç farklı fonksiyon kullanabilirsiniz:
+
++ `dim` bir matrisin satır ve sütun sayılarını geri döndürür
++ `nrow` sadece satır sayısını geri döndürür
++ `ncol` sadece sütun sayısını geri döndürür
+
+```{r}
+#| output-location: slide
+ 
+ornek_matris <- matrix(yaprak_uzunlugu, nrow=5, ncol=2)
+
+dim(ornek_matris)
+nrow(ornek_matris)
+ncol(ornek_matris)
+```
+
+## Satır ve Sütün isimleri
+
+İki fonksion kullanıyoruz:
+
++ `rownames`
++ `colnames`  
+
+```{r}
+
+rownames(ornek_matris) <- c("Satir1", "Satir2", "Satir3", 
+                    "Satir4", "Satir5")
+
+colnames(ornek_matris) <- c("Sutun1", "Sutun2")
+
+ornek_matris
+```
+
+## Matrislerle çalışmak
+
+İki tane indis kullanmalıyız:
+
++ Satır (birinci indis)
++ Sütun (ikinci indis)
++ Dördüncü satır ikinci elemana erişelim
+
+```{r}
+ornek_matris[4,2]
+```
+
+## Matrislerle çalışmak
+
+Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek?
+
+```{r}
+ornek_matris[2:4,2]
+```
+
++ `2:4` yapısı bize `r 2:4` vektörünü geri döndürecektir
+
+## Matrislerle çalışmak
+
+Sadece 4. satırı geri döndürmek için:
+
+```{r}
+ornek_matris[2,]
+```
+
++ Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.
++ Sadece birinci sürunu geri döndürmek için ise:
+
+```{r}
+ornek_matris[,1]
+```
+
+## Matrislerde mantıksal işlemler
+
++ Mesela ikinci sütunda, 5'den büyük satırları geri döndürelim:
+
+```{r}
+ornek_matris[,2] > 5
+```
+
++ 5'den büyük olan değerleri bize `TRUE` olarak gösterdi.
++ Mantıksal vektörü tekrar indis olarak kullanalım
+
+```{r}
+ornek_matris[ornek_matris[,2] > 5, 1]
+```
+
+## Matrislerle çalışmak
+
++ Bütün matriste karşılaştırma yapalım:
+
+```{r}
+ornek_matris > 3
+```
+
+Bunu tekrar bir indis olarak geri kullanalaım
+
+```{r}
+ornek_matris[ornek_matris > 3]
+```
+
+Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgü. 
