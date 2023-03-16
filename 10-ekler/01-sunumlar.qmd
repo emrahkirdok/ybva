@@ -5,7 +5,7 @@
 + [02/03/2023 Tanıtım Dersi](../00-sunumlar/01-00-preface.html)
 + [09/03/2023 R Giriş](../00-sunumlar/01-01-r-giris.html)
 + [09/03/2023 Vektörler](../00-sunumlar/01-02-vektorler.html)
-+ [16/03/2023 Vektörler](../00-sunumlar/01-03-matrisler.html)
++ [16/03/2023 Matrisler](../00-sunumlar/01-03-matrisler.html)
 + [16/03/2023 Veri çerçeveleri](../00-sunumlar/01-04-veri-cerceveleri.html)
 
 ## Bilgisayarlı Düşünme
