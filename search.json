@@ -382,7 +382,7 @@
     "href": "03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html",
     "title": "\n13  DNA dizileri yükleme\n",
     "section": "",
-    "text": "R üzerinde DNA dizileri ile çalışabiliriz. Bunun için seqinr paketini yüklemelisiniz.\n\ninstall.packages(\"seqinr\")\n\nDaha sonra R oturumunza eklemelisniz:\n\nlibrary(seqinr)\n\nÖncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:\nhttps://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna\nŞimdi de veriyi inceleyelim:\ndna <- read.fasta(file = “data/example.fna”)"
+    "text": "R üzerinde DNA dizileri ile çalışabiliriz. Bunun için seqinr paketini yüklemelisiniz.\n\ninstall.packages(\"seqinr\")\n\nDaha sonra R oturumunza eklemelisniz:\n\nlibrary(seqinr)\n\nÖncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:\nhttps://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna\nŞimdi de veriyi inceleyelim:\n\ndna <- read.fasta(file = \"data/example.fna\")"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
