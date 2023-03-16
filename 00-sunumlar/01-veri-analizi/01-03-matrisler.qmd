@@ -111,7 +111,7 @@ ornek_matris[2:4,2]
 Sadece 4. satırı geri döndürmek için:
 
 ```{r}
-ornek_matris[2,]
+ornek_matris[4,]
 ```
 
 + Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.
