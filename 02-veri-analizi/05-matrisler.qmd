@@ -8,6 +8,7 @@ Bu durumda matris veri yapılarını kullanıyoruz. Matrisler de aynı vektörle
 
 ```{r}
 #| label: tbl-matrix1
+#| fig-cap: "R üzerinde öntanımlı olarak gelen bir veri setinin incelenmesi"
 head(state.x77)
 ```
 
