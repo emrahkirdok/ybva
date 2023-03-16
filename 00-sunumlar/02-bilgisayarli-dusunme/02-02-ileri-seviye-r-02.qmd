@@ -1,0 +1,104 @@
+---
+title: "Fonksiyonlar"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "16-03-2023"
+execute: 
+  echo: true
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+# Fonksiyonlar
+
+## Fonksiyonlar
+
+R üzerinde fonksiyonlar:
+
++ Belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. 
++ Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.
++ En az bir girdisi
++ Bir de çıktısı olmalıdır
+
+## Fonksiyonlar
+
+```{dot}
+//| label: fig-fonksiyon
+//| fig-cap: "Bir fonksiyon, belirli parametreler varlığı altında bir girdiyi alır ve işleyerek çıktı haline dönüştürür"
+//| echo: false
+
+digraph fonksiyon {
+    girdi [label = "Girdi", shape = "box"];
+    fonksiyon [label = "Fonksiyon"];
+    cikti [label = "Çıktı", shape = "box"];
+    parametre [label = "Parametre", shape = "parallelogram"];
+    {rank = same; parametre; fonksiyon}
+    girdi -> fonksiyon -> cikti;
+    parametre -> fonksiyon;
+}
+
+```
+
+## Örnek fonksiyon
+
++ İlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!
++ Fonksiyonumuz iki tane girdiye sahip olsun:
+
++ `a`
++ `b`
+
+Çıktısı ise `sonuc` olsun.
+
+Fonksiyon ismi ise `toplam` olsun.
+
+```{r}
+toplam <- function(a,b){
+    sonuc <- a + b
+    return(sonuc)
+}
+```
+
+## Örnek fonksiyon
+
++ Şimdi fonksiyonu kullanalım:
+
+```{r}
+toplam(a = 5, b = 12)
+```
+
++ Şimdi başka iki örnek kullanalım:
+
+```{r}
+toplam(a = 12, b = 45)
+```
+
+## Santigrad'ı Kelvin'e çevirelim
+
++ Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.
++ Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
+
+```{r}
+kelvin_donusturucu <- function(derece){
+    sonuc <- derece + 273.15
+    return(sonuc)
+}
+```
+
+## Santigrad'ı Kelvin'e çevirelim
+
+Bu fonksiyonu kullanalım şimdi:
+
+```{r}
+kelvin_donusturucu(derece = 30)
+```
+
+## Şimdi siz düşünün!
+
++ Aklınız gelen örnekleri Discord üzerinden paylaşın
++ En iyi örneğin fonksiyonunu birlikte yazalım

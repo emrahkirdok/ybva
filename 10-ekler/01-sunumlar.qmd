@@ -11,3 +11,4 @@
 ## Bilgisayarlı Düşünme
 
 + [09/03/2023 R Üzerinde Kontrol Yapıları](../00-sunumlar/02-01-ileri-seviye-r-01.html)
++ [16/03/2023 Fonksiyonlar](../00-sunumlar/02-02-ileri-seviye-r-02.html)
