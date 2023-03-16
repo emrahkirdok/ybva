@@ -1,150 +1,153 @@
----
-title: "Matrisler ve Veri Çerçeveleri"
-author: "Emrah Kırdök, Ph. D."
-date: "Mart 09, 2020"
-output: ioslides_presentation
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, comment=NA, prompt=FALSE)
-knitr::opts_knit$set(width=85)
-options(width=85)
-agirlik <- c(60, 72, 57, 90, 95, 72)
-```
-
-## R üzerindeki basit objeler
-+ Farklı **veri tipleri** bulunmaktadır:
-    + sayı, karakter, mantıksal, faktör
-+ Farklı **veri yapıları**
-    + vektörler
-    + matrisler
-    + veri çerçeveleri
-    + listeler
-+ Veri yapılarında her elemente **indis** ile erişilebiir
-    + sayı vektörleri (pozitif veya negatif)
-    + mantıksal vektörler
-    + karakter vektörleri
-
-# Matrisler
-
-## Örnek matris
-```{r}
-head(state.x77)
-```
-
-## Matrisler
-
-Vektörler gibi, ama iki boyutlu
-
-```{r}
-agirlik
-matrix(agirlik, nrow=2, ncol=3)
-```
-
-
-## Matris boyutları
-```{r}
-M <- matrix(agirlik, nrow=2, ncol=3)
-dim(M)
-nrow(M)
-ncol(M)
-```
-
-## Satır ve Sütün isimleri
-```{r}
-colnames(M) <- c("A", "B", "C")
-rownames(M) <- c("x", "y")
-M
-```
-
-## Matrislerle çalışmak
-
-+  İster *vektör* ister *matris* olsun, indis kullanılabilir
-+  Eğer bir indis yazılmazsa, o eksendeki bütün elemanlar döndürülür
-
-```{r}
-M[2,  ]
-M[ , 3]
-```
-
-## Matrislerle çalışmak
-
-Vektörlerle yaptığımız bütün indisleme işlerini yapabiliriz:
-
-```{r}
-M[ , 2:3]
-M[ , 3]
-```
-
-## Sıra sizde
-`state.x77` matrisininin ilk 6 satırını  `mat` matrisi içerisinde saklayın
-```{r}
-mat <- state.x77[1:6, ]
-mat
-```
-
-## Egzersiz
-
-+ Üçüncü sütun, dördüncü satırdaki değeri bulun
-+ Beşinci sütunu içeren bir vektör elde edin
-+ Colarado'daki nüfus ne kadar?
-    + Sıfır yapabilir misiniz?
-+ Sütun isimlerini Türkçe'ye çevirin (Türkçe karakter kullanmadan)
-
 # Veri Çerçeveleri
 
-## Veri Çerçeveleri 
+Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (@sec-vektorler), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktadı.
 
-+ Matrisler gibi iki boyutlu yapıdalar
-+ Her sütun farklı tipte olabilir, ama aynı uzunlukta olmalı
-+ Her sütunun bir de ismi olmalı
+Veri çerçeveleri aslında bu farklı veri tiplerini bir arada toplayabilme kabiliyetine sahiptir. 
 
-```{r}
-sinif <- data.frame(agirlik=c(60, 72, 57, 90, 95, 72),
-               boy=c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91),
-               isimler=c("Ali", "Deniz", "Fatma", "Emre",
-                       "Volkan", "Onur"),
-               cinsiyet=factor(c("M","F","F","M","M","M")))
+Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmultur. Kullandığımız vektörlerin uzunluklarının aynı olması gerekldir. Gelin şimdi @sec-vektorler'de işlediğimiz @tbl-bitkiler versini veri çerçevesine çevirelim.
+
+Hatırlarsanız öncelikle vektörler tanımlamıştık.
+
+```r
+bitki_ismi <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", 
+                "bitki6", "bitki7","bitki8", "bitki9", "bitki10")
+
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    NA, 1.8, 6.3, 2.1, NA)
+
+
+deney_kosullari <- factor(c("karanlik", "aydinlik", "aydinlik", "karanlik", "aydinlik",
+                            "karanlik", "karanlik", "aydinlik", "karanlik", "karanlik"))
 ```
 
-## Veri Çerçevesi
-```{r}
-sinif
-```
-
-## Her sütun bir vektör!
-
-Eğer `sinif` bir *veri çerçevesi* ise `sinif[[1]]` ise *vekör* olur.
-
-+ Her vektör aynı veri tipine sahip elemanlardan oluşur
-+ Farklı sütunlar farklı veri tiplerine sahip olabilir
-    + *matris*'de ise aynı veri tipi olmalı!
-+ Bütün sütünlar aynı boyutta olmalı
-    + Ancak *liste* veri tipi içerisinde, istediğiniz uzunlukta vektör yerleştirebilirsiniz!
-
-## Sütunlara erişim
-
-Dört şekilde erişebilirsiniz:
+Şimdi ise bu vektörleri bir veri çerçevesi içerisinde birleştirelim:
 
 ```{r}
-sinif[[1]]
-sinif[["agirlik"]]
-sinif$agirlik
-sinif[,1]
+veri <- data.frame(bitki_ismi = c("bitki1", "bitki2", 
+                                    "bitki3", "bitki4", 
+                                    "bitki5", "bitki6", 
+                                    "bitki7","bitki8", 
+                                    "bitki9", "bitki10"),
+                    yaprak_uzunlugu = c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                                            NA, 1.8, 6.3, 2.1, NA),
+                    deney_kosullari = factor(c("karanlik", "aydinlik", 
+                                                    "aydinlik", "karanlik", 
+                                                    "aydinlik", "karanlik", 
+                                                    "karanlik", "aydinlik", 
+                                                    "karanlik", "karanlik"))
+)
 ```
 
-## Veri çerçevesi boyutları
+Şimdi gelin `str` fonksiyonu ile oluştruduğumuz veri çerçevesini inceleuelim:
 
 ```{r}
-dim(sinif)
-nrow(sinif)
-ncol(sinif)
+str(veri)
 ```
 
-## Satır ve sütun isimleri
+Dikkat ederseniz her sütun artık farklı bir tipe sahip.
+
+## Veri Çerçevesi boyutları
+
+Elimizdeki veri çerçevesinin boyutlarını aynı matrisler gibi öğrenebiliriz.
+
 ```{r}
-colnames(sinif)
-rownames(sinif)
+dim(veri)
 ```
 
-# Bol bol alıştırma yapalım!
+Satır sayısı:
+
+```{r}
+nrow(veri)
+```
+
+```{r}
+ncol(veri)
+```
+
+## Sütun ve satır isimleri
+
+Her veri çerçevesinin bir sütun ismi olması gerekir. Sütun isimlerini `colnames` fonksiyonu ile öğrenebiliriz:
+
+```{r}
+colnames(veri)
+```
+
+Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da `rownames` ile öğrenebiliriz:
+
+```{r}
+rownames(veri)
+```
+
+İstersek, satır ve sütun isimlerini değiştirebiliriz:
+
+```{r}
+colnames(veri) <- c("isim", "uzunluk", "kosul")
+rownames(veri) <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", 
+                        "bitki6", "bitki7","bitki8", "bitki9", "bitki10")
+```
+
+:::{.callout-warning}
+## Dikkat!
+
+Satır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte, satır isimlerinde iki tane `bitki8` yazma şansımız yoktur. Yoksa hata alırsınız.
+:::
+
+Şimdi tekrar veri çerçevesini ekrana yazdıralım:
+
+```{r}
+veri
+```
+
+Elimizdeki veri çerçeveleri çok uzun olabilir, bu yüzden verinin hepsini ekrana yazdırmak istemeyebiliriz. `head` komutu, bize veri çerçevesinin ilk bir kaç satırını ekrana yazdırma şansı verir:
+
+```{r}
+head(veri)
+```
+
+## Veri çerçevesi işlemleri
+
+Bir veri çerçevesinde, aynı matris gibi hareket edebiliriz. Mesela ikinci satırın üçüncü sütunundaki veriyi elde edelim:
+
+```{r}
+veri[2,3]
+```
+
+Şimdi sadece ikinci sütunu elde edelim:
+
+```{r}
+veri[,2]
+```
+
+Şimdi de üçünücü satırı elde edelim:
+
+```{r}
+veri[3,]
+```
+
+İstersek sadece sütun isimlerini de kullanabiliriz. Önce sütun isimlerine bakalım:
+
+```{r}
+colnames(veri)
+```
+
+Sadece yaprak uzunluklarına bakalım:
+
+```{r}
+veri$uzunluk
+```
+
+Eğer `$` işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. Bu bize bir vektör geri döndürdü.
+
+Peki, yaprak uzunlukları vektöründeki 5. elemanı elde etmek istesek:
+
+```{r}
+veri$uzunluk[5]
+```
+
+Bunu şu şekilde de yapabiliriz:
+
+```{r}
+veri[5,2]
+```
+
+Bu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimiz kullanabiliriz.

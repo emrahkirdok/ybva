@@ -41,8 +41,8 @@ book:
         - 02-veri-analizi/03-r-giris.qmd
         - 02-veri-analizi/04-vektorler.qmd
         - 02-veri-analizi/05-matrisler.qmd
+        - 02-veri-analizi/06-veri-cerceveleri.qmd
 #        - 02-veri-analizi/06-Rmarkdown.qmd
-#        - 02-veri-analizi/07-veri-cerceveleri.qmd
 #        - 02-veri-analizi/08-tibble.qmd
 #        - 02-veri-analizi/09-listeler.qmd
 #        - 02-veri-analizi/10-veri-cercevesi-vs-tibble.qmd
