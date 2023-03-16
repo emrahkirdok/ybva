@@ -1,0 +1,179 @@
+---
+title: "Veri Çerçeveleri"
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "16-03-2023"
+execute: 
+  echo: true
+
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
+
+# Veri Çerçeveleri
+
+## Veri Çerçeveleri
+
+Veri çerçeveleri: 
+
++ farklı veri tiplerine sahip vektörlerden oluşan matrisler 
++ Vektörlerin uzunluklarının aynı olması gerekldir.
+Hatırlarsanız öncelikle vektörler tanımlamıştık.
+
+## Veri çerçevesi oluşturalım
+
+Gelin @tbl-veri'den bir veri çerçevesi oluşturalım
+
+| Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
+|:-----------|---------------------:|:----------------|
+| bitki1     | 2.3                  | Karanlık        |
+| bitki2     | 3.4                  | Aydınlık        |
+| bitki3     | 4.5                  | Aydınlık        |
+| bitki4     | 1.2                  | Karanlık        |
+| bitki5     | 3.4                  | Aydınlık        |
+| bitki6     | -                    | Karanlık        |
+| bitki7     | 1.8                  | Karanlık        |
+| bitki8     | 6.3                  | Aydinlik        |
+| bitki9     | 2.1                  | Karanlık        |
+| bitki10    | -                    | Karanlık        |
+
+: Hayali veri setimizdeki bitkiler {#tbl-veri}
+
+## Veri çerçevesi oluşturalım
+
+```{r}
+#| output-location: slide
+
+veri <- data.frame(bitki_ismi = c("bitki1", "bitki2", 
+                                    "bitki3", "bitki4", 
+                                    "bitki5", "bitki6", 
+                                    "bitki7","bitki8", 
+                                    "bitki9", "bitki10"),
+                    yaprak_uzunlugu = c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                                            NA, 1.8, 6.3, 2.1, NA),
+                    deney_kosullari = factor(c("karanlik", "aydinlik", 
+                                                    "aydinlik", "karanlik", 
+                                                    "aydinlik", "karanlik", 
+                                                    "karanlik", "aydinlik", 
+                                                    "karanlik", "karanlik"))
+)
+
+veri
+```
+
+## Veri çerçevesi oluşturalım
+
+Şimdi gelin `str` fonksiyonu ile oluştruduğumuz veri çerçevesini inceleyelim:
+
+```{r}
+str(veri)
+```
+
+## Veri Çerçevesi boyutları
+
+Elimizdeki veri çerçevesinin boyutlarını aynı matrisler gibi öğrenebiliriz.
+
+```{r}
+dim(veri)
+```
+
+Satır sayısı:
+
+```{r}
+nrow(veri)
+```
+
+```{r}
+ncol(veri)
+```
+
+## Sütun ve satır isimleri
+
++ `colnames`  ve `rownames `fonksiyonları ile ile öğrenebiliriz ve değiştirebiliriz
+
+```{r}
+colnames(veri)
+```
+
+```{r}
+rownames(veri)
+```
+
+```{r}
+colnames(veri) <- c("isim", "uzunluk", "kosul")
+rownames(veri) <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", 
+                        "bitki6", "bitki7","bitki8", "bitki9", "bitki10")
+```
+
+## Sütun ve satır isimleri
+
+Şimdi tekrar veri çerçevesini ekrana yazdıralım:
+
+```{r}
+veri
+```
+
+## Veri çerçevesi işlemleri
+
++ `head` komutu, bize veri çerçevesinin ilk bir kaç satırını ekrana yazdırma şansı verir:
+
+```{r}
+head(veri)
+```
+
+## Veri çerçevesi işlemleri
+
++ ikinci satırın üçüncü sütunundaki veriyi elde edelim:
+
+```{r}
+veri[2,3]
+```
+
++ Sadece ikinci sütunu elde edelim:
+
+```{r}
+veri[,2]
+```
+
++ Sadece üçünücü satırı elde edelim:
+
+```{r}
+veri[3,]
+```
+
+## Veri çerçevesi işlemleri
+
+İstersek sadece sütun isimlerini de kullanabiliriz. Önce sütun isimlerine bakalım:
+
+```{r}
+colnames(veri)
+```
+
+Sadece yaprak uzunluklarına bakalım:
+
+```{r}
+veri$uzunluk
+```
+
+## Veri çerçevesi işlemleri
+
++ `$` işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. 
+
+Peki, yaprak uzunlukları vektöründeki 5. elemanı elde etmek istesek:
+
+```{r}
+veri$uzunluk[5]
+```
+
+Bunu şu şekilde de yapabiliriz:
+
+```{r}
+veri[5,2]
+```
+
++ Aynı sonucu verir
