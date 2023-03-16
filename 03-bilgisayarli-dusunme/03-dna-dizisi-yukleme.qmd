@@ -1,4 +1,4 @@
-# DNA dizileri yükleme
+# DNA ile çalışma
 
 R üzerinde DNA dizileri ile çalışabiliriz. Bunun için `seqinr` paketini yüklemelisiniz.
 
@@ -15,10 +15,32 @@ library(seqinr)
 
 Öncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:
 
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna)
+[Örnek DNA verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna)
 
-Şimdi de veriyi inceleyelim:
+Öncelikle veriyi okuyalım:
 
 ```{r}
 dna <- read.fasta(file = "data/example.fna")
 ```
+
+:::{.callout-important}
+## Verim nerede?
+
+Benim verimi indirdiğim yer, projemin çalışma klasörü içerisindeki `data` isimli klasör. Siz alıştırmayı yaparken, `file` kısmına kendi bilgisayarınızdaki veriyi verin. Yoksa hata alırsınız.
+:::
+
+Bu işlemin soncunda elimize bir liste geçti. İsterseniz `names` fonksiyonu ile bu listedeki dizilerin fasta isimlerini inceleyelim:
+
+```{r}
+names(dna)
+```
+
+Şimdi birinci elemanı inceleyelim kısaca. Listelerde indisleme yapmayı hatırlayın. Liste içerisindeki elemanlara erişmek için `[[` fonksiyonunu kullanmamız gerekir:
+
+```{r}
+dna[[1]]
+```
+
+Bu aslında bir vektör. Her DNA nükletoditi, vektörün bir elemanı olarak ifade edilmektedir.
+
+Artık bir fasta dizisini, R içersisine aktarmayı biliyorsunuz. Tebrikler.
