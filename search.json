@@ -284,7 +284,7 @@
     "href": "02-veri-analizi/04-vektorler.html#ödev",
     "title": "8  Vektörler",
     "section": "\n8.7 Ödev",
-    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 13’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 14’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "02-veri-analizi/05-matrisler.html#matris-boyutları",
@@ -361,7 +361,7 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n11  Kontrol yapıları\n",
     "section": "\n11.4 Ödev",
-    "text": "11.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 14’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "11.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 15’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
@@ -378,60 +378,67 @@
     "text": "12.2 Başka bir fonksiyon\nŞimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.\nBu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.\nYazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise kelvin_donusturucu olsun.\n\nkelvin_donusturucu <- function(derece){\n    sonuc <- derece + 273.15\n    return(sonuc)\n}\n\nBu fonksiyonu kullanalım şimdi:\n\nkelvin_donusturucu(derece = 30)\n\n[1] 303.15"
   },
   {
+    "objectID": "03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html",
+    "href": "03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html",
+    "title": "\n13  DNA dizileri yükleme\n",
+    "section": "",
+    "text": "R üzerinde DNA dizileri ile çalışabiliriz. Bunun için seqinr paketini yüklemelisiniz.\n\ninstall.packages(\"seqinr\")\n\nDaha sonra R oturumunza eklemelisniz:\n\nlibrary(seqinr)\n\nÖncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:\nhttps://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna\nŞimdi de veriyi inceleyelim:\ndna <- read.fasta(file = “data/example.fna”)"
+  },
+  {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
-    "title": "13  Vektörler Ödevi",
-    "section": "\n13.1 Soru 1",
-    "text": "13.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+    "title": "14  Vektörler Ödevi",
+    "section": "\n14.1 Soru 1",
+    "text": "14.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
-    "title": "13  Vektörler Ödevi",
-    "section": "\n13.2 Soru 2",
-    "text": "13.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "14  Vektörler Ödevi",
+    "section": "\n14.2 Soru 2",
+    "text": "14.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
-    "title": "13  Vektörler Ödevi",
-    "section": "\n13.3 Soru 3",
-    "text": "13.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "14  Vektörler Ödevi",
+    "section": "\n14.3 Soru 3",
+    "text": "14.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
-    "title": "13  Vektörler Ödevi",
-    "section": "\n13.4 Soru 4",
-    "text": "13.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "14  Vektörler Ödevi",
+    "section": "\n14.4 Soru 4",
+    "text": "14.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
-    "title": "13  Vektörler Ödevi",
-    "section": "\n13.5 Soru 5",
-    "text": "13.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "14  Vektörler Ödevi",
+    "section": "\n14.5 Soru 5",
+    "text": "14.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
-    "title": "13  Vektörler Ödevi",
-    "section": "\n13.6 Soru 6",
-    "text": "13.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "14  Vektörler Ödevi",
+    "section": "\n14.6 Soru 6",
+    "text": "14.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "14  DNA üzerinde işlemler",
-    "section": "\n14.1 Soru 1",
-    "text": "14.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "15  DNA üzerinde işlemler",
+    "section": "\n15.1 Soru 1",
+    "text": "15.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "14  DNA üzerinde işlemler",
-    "section": "\n14.2 Soru 2",
-    "text": "14.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "15  DNA üzerinde işlemler",
+    "section": "\n15.2 Soru 2",
+    "text": "15.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
