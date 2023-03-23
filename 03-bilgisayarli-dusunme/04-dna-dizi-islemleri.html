@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.475">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 17&nbsp; DNA üzerinde işlemler</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 15&nbsp; DNA ile çalışma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,25 +82,25 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../references.html" rel="next">
-<link href="../../04-pratikler/01-veri-analizi/01-vektorler.html" rel="prev">
-<link href="../../images/ybva.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../04-pratikler/01-veri-analizi/01-vektorler.html" rel="next">
+<link href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" rel="prev">
+<link href="../images/ybva.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -118,13 +118,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "İptal et",
     "search-submit-button-title": "Göndermek"
   }
-}</script>
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></h1>
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">15</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -132,10 +134,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Yaşam Bilimlerinde Veri Analizi</a> 
+      <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/emrahkirdok/ybva/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -155,12 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">Önsöz</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Önsöz</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">Katkı Sunma</a>
+  <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">Katkı Sunma</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -173,22 +175,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a>
+  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a>
+  <a href="../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
+  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
+  <a href="../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></a>
   </div>
 </li>
       </ul>
@@ -203,37 +205,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
+  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bilimsel Yöntem</span></a>
+  <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bilimsel Yöntem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
+  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
+  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/05-matrisler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></a>
+  <a href="../02-veri-analizi/05-matrisler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/06-veri-cerceveleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span></a>
+  <a href="../02-veri-analizi/06-veri-cerceveleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/07-listeler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Listeler</span></a>
+  <a href="../02-veri-analizi/07-listeler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Listeler</span></a>
   </div>
 </li>
       </ul>
@@ -248,22 +250,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></a>
+  <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a>
+  <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></a>
+  <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></a>
+  <a href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></a>
   </div>
 </li>
       </ul>
@@ -278,12 +280,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></a>
+  <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></a>
+  <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></a>
   </div>
 </li>
       </ul>
@@ -293,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../references.html" class="sidebar-item-text sidebar-link">Kaynakça</a>
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Kaynakça</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -306,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></a>
+  <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></a>
   </div>
 </li>
       </ul>
@@ -317,13 +319,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#soru-1" id="toc-soru-1" class="nav-link active" data-scroll-target="#soru-1"><span class="toc-section-number">17.1</span>  Soru 1</a></li>
-  <li><a href="#soru-2" id="toc-soru-2" class="nav-link" data-scroll-target="#soru-2"><span class="toc-section-number">17.2</span>  Soru 2</a></li>
+<li><a href="#soru-1" id="toc-soru-1" class="nav-link active" data-scroll-target="#soru-1"><span class="toc-section-number">15.1</span>  Soru 1</a></li>
+  <li><a href="#soru-2-gc-oran%C4%B1-bulma" id="toc-soru-2-gc-oranı-bulma" class="nav-link" data-scroll-target="#soru-2-gc-oran%C4%B1-bulma"><span class="toc-section-number">15.2</span>  Soru 2: G+C oranı bulma</a></li>
+  <li><a href="#soru-3-protein-ipli%C4%9Fi" id="toc-soru-3-protein-ipliği" class="nav-link" data-scroll-target="#soru-3-protein-ipli%C4%9Fi"><span class="toc-section-number">15.3</span>  Soru 3: Protein İpliği</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-odev-dna-islemler" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></h1>
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">15</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span>
+</h1>
 </div>
 
 
@@ -336,26 +341,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Aşağıdaki DNA dizisi bir karakter vektörü olarak tanımlanmıştır.</p>
-<ul>
-<li>Dizi: ATCTCGATC</li>
-</ul>
+</header><p>Öncelikle <code>seqinr</code> paketini çalışma alanımıza yükleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span><span class="op">)</span></span>
-<span><span class="va">dna</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://seqinr.r-forge.r-project.org/">"seqinr"</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Öncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:</p>
+<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna">Örnek DNA verisi</a></p>
+<p>Öncelikle veriyi okuyalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/seqinr/man/read.fasta.html">read.fasta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data/example.fna"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="soru-1" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="soru-1">
+<span class="header-section-number">15.1</span> Soru 1</h2>
+<p>Bu dosya içerisindeki birinci DNA dizisinin komplementer ipliğini, bir vektör olarak geri döndüren fonksiyonu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tamamlayici</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dna</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="co"># once bos bir vektor olusturalim</span></span>
+<span>  <span class="va">complementary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># DNA dizinin hepsini buyuk karaktere cevirelim</span></span>
+<span>  <span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">dna</span><span class="op">)</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span> <span class="va">baz</span> <span class="kw">in</span> <span class="va">dna</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="co"># her baz icin asagidaki kosullari test et</span></span>
+<span>    <span class="co"># eger kosul uygunsa, complementary vektorune uygun bazi ekle</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">baz</span> <span class="op">==</span> <span class="st">"A"</span><span class="op">)</span><span class="op">{</span><span class="va">complementary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">complementary</span>, <span class="st">"T"</span><span class="op">)</span><span class="op">}</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">baz</span> <span class="op">==</span> <span class="st">"T"</span><span class="op">)</span><span class="op">{</span><span class="va">complementary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">complementary</span>, <span class="st">"A"</span><span class="op">)</span><span class="op">}</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">baz</span> <span class="op">==</span> <span class="st">"G"</span><span class="op">)</span><span class="op">{</span><span class="va">complementary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">complementary</span>, <span class="st">"C"</span><span class="op">)</span><span class="op">}</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">baz</span> <span class="op">==</span> <span class="st">"C"</span><span class="op">)</span><span class="op">{</span><span class="va">complementary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">complementary</span>, <span class="st">"G"</span><span class="op">)</span><span class="op">}</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">complementary</span><span class="op">)</span></span>
+<span><span class="op">}</span>  </span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Şimdi fonksiyonu test edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tamamlayici</span><span class="op">(</span><span class="va">dna</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "A" "T" "C" "T" "C" "G" "A" "T" "C"</code></pre>
+<pre><code>  [1] "T" "A" "C" "T" "C" "A" "G" "A" "G" "A" "G" "A" "C" "T" "A" "T" "T" "C"
+ [19] "C" "T" "G" "T" "T" "C" "C" "G" "A" "C" "G" "A" "C" "A" "C" "T" "T" "T"
+ [37] "C" "G" "G" "G" "A" "T" "A" "C" "C" "C" "G" "A" "T" "T" "C" "T" "A" "G"
+ [55] "T" "C" "G" "G" "G" "G" "T" "T" "T" "C" "G" "G" "C" "T" "A" "C" "T" "A"
+ [73] "T" "A" "G" "C" "C" "G" "C" "G" "A" "C" "T" "T" "C" "G" "A" "G" "A" "G"
+ [91] "C" "C" "G" "T" "C" "T" "T" "A" "C" "G" "A" "C" "T" "G" "G" "C" "A" "G"
+[109] "A" "T" "G" "G" "G" "A" "G" "T" "C" "T" "G" "G" "T" "T" "C" "T" "G" "G"
+[127] "A" "T" "G" "A" "A" "G" "C" "G" "A" "G" "T" "G" "A" "C" "C" "C" "T" "A"
+[145] "C" "T" "G" "G" "A" "C" "T" "C" "G" "G" "G" "A" "C" "C" "C" "A" "G" "G"
+[163] "C" "C" "A" "G" "G" "A" "C" "A" "C" "T" "T" "C" "T" "T" "C" "G" "T" "A"
+[181] "C" "C" "G" "T" "T" "C" "C" "A" "A" "T" "A" "G" "T" "A" "C" "C" "C" "A"
+[199] "C" "G" "T" "C" "A" "C" "C" "G" "G" "C" "T" "A" "C" "G" "G" "C" "A" "A"
+[217] "A" "G" "T" "T" "T" "T" "T" "A" "T" "C" "T" "G" "C" "T" "G" "G" "A" "A"
+[235] "C" "A" "C" "C" "C" "T" "C" "C" "A" "G" "A" "C" "C" "G" "G" "A" "G" "G"
+[253] "G" "A" "C" "T" "C" "G" "C" "T" "T" "G" "A" "A" "G" "T" "A" "C" "G" "A"
+[271] "A" "G" "G" "T" "T" "C" "G" "A" "C" "G" "C" "A" "C" "A" "A" "C" "T" "G"
+[289] "G" "G" "C" "C" "G" "G" "T" "T" "G" "A" "A" "G" "T" "T" "C" "T" "A" "G"
+[307] "G" "A" "G" "C" "G" "T" "G" "T" "G" "T" "T" "A" "C" "A" "G" "T" "A" "G"
+[325] "C" "A" "C" "C" "A" "G" "T" "A" "G" "C" "C" "G" "T" "A" "C" "G" "A" "G"
+[343] "A" "A" "G" "G" "G" "A" "C" "C" "T" "C" "T" "G" "A" "A" "G" "G" "G" "G"
+[361] "G" "G" "T" "C" "T" "C" "C" "A" "A" "G" "T" "G" "T" "A" "C" "A" "G" "T"
+[379] "C" "A" "A" "C" "T" "G" "T" "T" "C" "A" "A" "A" "A" "A" "G" "G" "T" "C"
+[397] "T" "T" "G" "A" "A" "C" "C" "G" "A" "G" "A" "C" "C" "G" "A" "G" "A" "G"
+[415] "A" "G" "A" "C" "T" "C" "T" "T" "C" "A" "T" "G" "G" "C" "G" "A" "T" "T"</code></pre>
 </div>
 </div>
-<p>Bu bilgiye göre aşağıdaki soruları cevaplayan kodları yazınız. Kodunuzda <code>for</code> ve <code>if-else</code> yapılarını kullanınız.</p>
-<section id="soru-1" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="soru-1">
-<span class="header-section-number">17.1</span> Soru 1</h2>
-<p>Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız.</p>
-<p>Oluşturacağınız kod, <code>rna</code> isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır.</p>
-</section><section id="soru-2" class="level2" data-number="17.2"><h2 data-number="17.2" class="anchored" data-anchor-id="soru-2">
-<span class="header-section-number">17.2</span> Soru 2</h2>
-<p>Bu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.</p>
-<p>Oluşturacağınız kod, <code>complementary</code> isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır.</p>
+</section><section id="soru-2-gc-oranı-bulma" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="soru-2-gc-oranı-bulma">
+<span class="header-section-number">15.2</span> Soru 2: G+C oranı bulma</h2>
+<p>Bir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz.</p>
+<p><span class="math display">\[
+GC = \frac{G+C}{A+G+C+G}
+\]</span> Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız.</p>
+</section><section id="soru-3-protein-ipliği" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="soru-3-protein-ipliği">
+<span class="header-section-number">15.3</span> Soru 3: Protein İpliği</h2>
+<p>Şu <a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt">dosyaya</a> sağ tıklayı farklı kaydete basınız.</p>
+<p>Bu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -491,13 +547,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../04-pratikler/01-veri-analizi/01-vektorler.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span>
+      <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../references.html" class="pagination-link">
-        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
