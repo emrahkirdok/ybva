@@ -1,4 +1,4 @@
-# Matrisler
+# Matrisler {#sec-matrisler}
 
 Hatırlarsanız vektörler (@sec-vektorler), sadece tek bir veri tipini içeren bir boyutlu veri yapılarıydı.
 

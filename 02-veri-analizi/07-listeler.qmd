@@ -1,0 +1,221 @@
+# Listeler
+
+Matrisler (@sec-matrisler) ve veri çerçeveleri (@sec-veri-cerceveleri) derslerinde gördüğümüz veri yapıları, belirli bir düzende oluşturaliliyordu. Yani bu veri yapılarının, belirli kısıtları bulunmaktadydı. Mesela bir grup vektörden veri çerçevesi oluşturmak istiyorsanız, vektörlerin uzunluklarının aynı olması gerkeiyordu.
+
+Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip. 
+
+## Liste oluşturma
+
+Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım, ve bir liste içerisinde saklayalım.
+
+Hayali veri setimizi şuraya bırakalım yine (@tbl-bitkiler).
+
+| Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
+|:-----------|---------------------:|:----------------|
+| bitki1     | 2.3                  | Karanlık        |
+| bitki2     | 3.4                  | Aydınlık        |
+| bitki3     | 4.5                  | Aydınlık        |
+| bitki4     | 1.2                  | Karanlık        |
+| bitki5     | 3.4                  | Aydınlık        |
+| bitki6     | -                    | Karanlık        |
+| bitki7     | 1.8                  | Karanlık        |
+| bitki8     | 6.3                  | Aydinlik        |
+| bitki9     | 2.1                  | Karanlık        |
+| bitki10    | -                    | Karanlık        |
+
+: Hayali veri setimizdeki bitkiler {#tbl-bitkiler}
+
+Öncelikle bir veri çerçevesi oluşturalım:
+
+```{r}
+veri <- data.frame(bitki_ismi = c("bitki1", "bitki2", 
+                                    "bitki3", "bitki4", 
+                                    "bitki5", "bitki6", 
+                                    "bitki7","bitki8", 
+                                    "bitki9", "bitki10"),
+                    yaprak_uzunlugu = c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                                            NA, 1.8, 6.3, 2.1, NA),
+                    deney_kosullari = factor(c("karanlik", "aydinlik", 
+                                                    "aydinlik", "karanlik", 
+                                                    "aydinlik", "karanlik", 
+                                                    "karanlik", "aydinlik", 
+                                                    "karanlik", "karanlik"))
+)
+```
+
+Şimdi de, matrisler (@sec-matrisler) dersinde oluşturduğumuz matrisi oluşturalım tekrar:
+
+```{r}
+yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
+                    3, 1.8, 6.3, 2.1, 5)
+
+ornek_matris <- matrix(yaprak_uzunlugu, nrow=5, ncol=2)
+```
+
+Ek olarak bir tane de vektör oluşturalım:
+
+```{r}
+isimler <- c("Ali", "Deniz", "Fatma", "Emre", "Volkan", "Onur")
+```
+
+Şimdi bütün bu bilgileri bir liste içerisinde toplayalım:
+
+```{r}
+liste <- list(veri, ornek_matris, isimler)
+```
+
+Şimdi listeye bakalım:
+
+```{r}
+liste
+```
+
+## Listelerde indisleme
+
+Listelerde indisleme biraz farklıdır.
+
+Öncelikle elimizdeki listenin kaç tane eleman içerdiğine bakalım:
+
+```{r}
+length(liste)
+```
+
+İstersek, liste öğelerinin isimlerini inceleyebiliriz ya da isim atayabiliriz:
+
+```{r}
+names(list)
+```
+
+```{r}
+liste <- list(veri=veri, ornek_matris = ornek_matris, isimler = isimler)
+```
+
+```{r}
+names(liste)
+```
+
+Ya da şu şekilde atayabiliriz:
+
+```{r}
+names(liste) <- c("veri", "ornek_matris", "isimler")
+```
+
+Listelerde indisleme yaparken iki farklı şekilde çalışabilirisniz. Ancak bu iki yöntem farklı veri yapıları geri döndürür:
+
++ Liste içindeki elemana erişim: `[[]]` doğrudan liste elemanını geri döndürür
++ Liste'den yeni bir liste geri döndürmek: `[]` bize bir alt liste geri döndürdü
+
+### Liste içindeki elemana erişme
+
+İlk yöntem bize liste elemanlarına erişim, ve bu elemanlar içinde işlem yapma olanağı sağlar.
+
+```{r}
+liste[[3]]
+```
+
+Şimdi ise doğrudan vektörü geri döndürdük. Bu vektör içinde işlem yapabiliriz artık. Mesela bu vektörün ikinci elemanına erişebiliriz.
+
+```{r}
+liste[[3]][2]
+```
+
+Bu sayede, liste içindeki elemana ulaştık.
+
+Şimdi birinci elemana erişelim:
+
+```{r}
+liste[[1]]
+```
+
+İstersek bu veri çerçevesi içinde işlemler yapabiliriz:
+
+```{r}
+liste[[1]][4,2]
+```
+
+Eğer listemizi isimleri varsa, doğruda bu isimleri kullanabiliriz:
+
+```{r}
+liste$veri
+```
+
+Bakın, tekrar liste elemanına doğrudan eriştik. İstersek yukarıdaki işlemin aynısını yapabiliriz:
+
+```{r}
+liste$veri[4,2]
+```
+
+### Alt liste geri döndürme
+
+Bu yöntemde, elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani, indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.
+
+```{r}
+liste[3]
+```
+
+Bu bize bir alt liste geri döndürdü. Ancak, üçünücü eleman olan vektöre erişemiyoruz şu anda:
+
+```{r}
+liste[3][2]
+```
+
+Bakın hata mesajı aldık. Çünkü elimizde bir alt liste var.
+
+İstersek, birden fazla liste elemanını seçebiliriz:
+
+```{r}
+liste[1:2]
+```
+
+Şu örnekleri deneyin mutlaka:
+
+Try these
+```{r eval=FALSE}
+liste[[2]]
+liste[2]
+liste[[2]][3]
+liste[2][3]
+liste[[1:3]]
+liste[1:3]
+liste[["isimler"]]
+liste$isimler
+liste["isimler"]
+```
+
+## Sonuçlar
+
+```{r}
+liste[[2]]
+```
+
+```{r}
+liste[2]
+```
+
+```{r}
+liste[[2]][3]
+```
+
+```{r}
+liste[2][3]
+```
+
+```{r}
+liste[[1:3]]
+```
+
+```{r}
+liste[1:3]
+```
+
+```{r}
+liste[["isimler"]]
+```
+
+```{r}
+liste$isimler
+```
+
+```{r}
+liste["isimler"]
+```

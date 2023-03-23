@@ -1,4 +1,4 @@
-# Veri Çerçeveleri
+# Veri Çerçeveleri {#sec-veri-cerceveleri}
 
 Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (@sec-vektorler), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktadı.
 
