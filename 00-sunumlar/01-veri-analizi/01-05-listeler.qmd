@@ -1,5 +1,5 @@
 ---
-title: "Veri Çerçeveleri"
+title: "Listeler"
 subtitle: "Yaşam Bilimlerinde Veri Analizi"
 author: "Emrah Kırdök, Ph.D."
 date: "16-03-2023"
