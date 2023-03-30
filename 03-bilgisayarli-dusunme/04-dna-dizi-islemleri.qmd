@@ -54,7 +54,7 @@ GC = \frac{G+C}{A+G+C+G}
 $$
 Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız.
 
-## Soru 3: Protein İpliği
+## Soru 3: Amino asit birincil ipliği oluşturma
 
 Şu [dosyaya](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt) sağ tıklayı farklı kaydete basınız.
 
