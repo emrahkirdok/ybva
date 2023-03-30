@@ -1,0 +1,107 @@
+---
+title: "Rmarkdown Kullanımı"
+author: "Emrah Kırdök"
+date: "2023-03-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Giriş
+
+Bu döküman kapsamında Rmarkdown kullanımı anlatılacaktır. İlk defa Rmarkdown kullanacaksanız öncelikle programı R içerisine kurmanız gerekecektir. Bu işlemi R otomatik olarak da yapailir. Eğer otomatik kurmadıysanız, aşağıkdai satırı komut satırına yazmanız gereklidir. Bu işlemi bir kere yapsanız yeter.
+
+```{r eval = FALSE}
+install.packages("rmarkdown")
+```
+
+Bu döküman kapsamında, Rmarkdown ile yazımın incelikleri gösterilecektir. Bu dosyanın ham haline aşağıdaki bağlantıdan ulaşarak kendi bilgisayarınıza indirebilirsiniz:
+
+Bu iki dökümanı karşı karşıya inceleyerek, stil tiplerinin nasıl kullanıldığının farkına varınız.
+
+## YAML üst bilgisi
+
+İlk olarak `yaml` olarak ifade edilen döküman üst bilgisini ekliyoruz:
+
+```
+---
+title: "Rmarkdown Kullanımı"
+author: "Emrah Kırdök"
+date: "2023-03-23"
+output: html_document
+---
+```
+
+## Paragraflar
+
+Normal bir paragraf yazmak istiyorsanız, hiç bir işaret kullanmayınız.
+
+# Birinci seviye başlık
+
+Birinci seviye başlık için `#` karakterini kullanınız.
+
+## İkinci seviye başlık
+
+İkinci seviye başlık için `##` karakterini kullanınız.
+
+### Üçüncü seviye başlık
+
+Bu işaretin miktarı(`#`), başlık seviyesini belirtir.
+
+## Liste oluşturma
+
+Eğer liste oluşturmak istiyorsanız `+` karakterini kullanmalısınız:
+
++ liste1
++ liste 2
+  + alt liste 1
+  + alt liste 2
++ liste 3
+
+Bir liste öğesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturduk.
+
+## Vurgular
+
+Eğer *italik* yazmak isterseniz `*` tuşlarını kullanmalısınız. **Kalın harflerle** yazmak isterseniz iki tane `**` kullanmalısınız.
+
+## Tablo oluşturma
+
+Boru karakteri oluşturma: `Sağ Alt Gr tuşu + < : | `
+
+|   bitki ismi | yaprak uzunluğu | koşul    |
+|--------------|-----------------|----------|
+|    bitki 1   |        2.4      | aydinlik |
+|    bitki 2   |        3.4      | karanlik |
+|    bitki 3   |        5        | karanlik |
+
+Tabloları yukarıdaki gibi oluşturabilirsiniz.
+
+## Şekil ekleme
+
+Şekil eklemek için aşağıdaki notasyonu kullanmalısınız:
+
+![Şeklin ismini buraya yazınız](images/4panes.png)
+
+Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten her hangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisniz.
+
+![İnternetten eklenmiş şekil](https://www.publicdomainpictures.net/pictures/290000/nahled/clouds-1553569446EXG.jpg)
+
+## Bağlantı eklemek
+
+Örnek olarak üniversite adresinin [bağlantısı](https://www.mersin.edu.tr/).
+
+## R kodu eklemek
+
+Rmarkdown'un en önemli özelliği, R kodunu kullanabilmeniz. R kodunu aşağıdaki şekilde yazınız.
+
+```{r}
+bitki_ismi <- c("bitki 1", "bitki 2", "bitki 3")
+
+bitki_ismi[2]
+```
+
+R size bu kodu çalıştıracak, ve çıktsını da dökümanınız içerisinde ekleyecektir.
+
+İlerleyen derslerde grafikler oluşturarak bu özelliği kullanacağız.
