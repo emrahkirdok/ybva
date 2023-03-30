@@ -284,7 +284,7 @@
     "href": "02-veri-analizi/04-vektorler.html#ödev",
     "title": "8  Vektörler",
     "section": "\n8.7 Ödev",
-    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 16’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 18’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "02-veri-analizi/05-matrisler.html#matris-boyutları",
@@ -350,130 +350,214 @@
     "text": "11.2 Sonuçlar\n\nliste[[2]]\n\n     [,1] [,2]\n[1,]  2.3  3.0\n[2,]  3.4  1.8\n[3,]  4.5  6.3\n[4,]  1.2  2.1\n[5,]  3.4  5.0\n\n\n\nliste[2]\n\n$ornek_matris\n     [,1] [,2]\n[1,]  2.3  3.0\n[2,]  3.4  1.8\n[3,]  4.5  6.3\n[4,]  1.2  2.1\n[5,]  3.4  5.0\n\n\n\nliste[[2]][3]\n\n[1] 4.5\n\n\n\nliste[2][3]\n\n$<NA>\nNULL\n\n\n\nliste[[1:3]]\n\n[1] 4.5\n\n\n\nliste[1:3]\n\n$veri\n   bitki_ismi yaprak_uzunlugu deney_kosullari\n1      bitki1             2.3        karanlik\n2      bitki2             3.4        aydinlik\n3      bitki3             4.5        aydinlik\n4      bitki4             1.2        karanlik\n5      bitki5             3.4        aydinlik\n6      bitki6              NA        karanlik\n7      bitki7             1.8        karanlik\n8      bitki8             6.3        aydinlik\n9      bitki9             2.1        karanlik\n10    bitki10              NA        karanlik\n\n$ornek_matris\n     [,1] [,2]\n[1,]  2.3  3.0\n[2,]  3.4  1.8\n[3,]  4.5  6.3\n[4,]  1.2  2.1\n[5,]  3.4  5.0\n\n$isimler\n[1] \"Ali\"    \"Deniz\"  \"Fatma\"  \"Emre\"   \"Volkan\" \"Onur\"  \n\n\n\nliste[[\"isimler\"]]\n\n[1] \"Ali\"    \"Deniz\"  \"Fatma\"  \"Emre\"   \"Volkan\" \"Onur\"  \n\n\n\nliste$isimler\n\n[1] \"Ali\"    \"Deniz\"  \"Fatma\"  \"Emre\"   \"Volkan\" \"Onur\"  \n\n\n\nliste[\"isimler\"]\n\n$isimler\n[1] \"Ali\"    \"Deniz\"  \"Fatma\"  \"Emre\"   \"Volkan\" \"Onur\""
   },
   {
+    "objectID": "02-veri-analizi/08-dosya-okuma.html#bilgisayarımızdaki-dosyayı-okuma",
+    "href": "02-veri-analizi/08-dosya-okuma.html#bilgisayarımızdaki-dosyayı-okuma",
+    "title": "\n12  Dosya okuma\n",
+    "section": "\n12.1 Bilgisayarımızdaki dosyayı okuma",
+    "text": "12.1 Bilgisayarımızdaki dosyayı okuma\nBilgisayarımızdaki dosyayı okumak için read.table fonksiyonunu kullanıyoruz.\n\nveri <- read.table(file = \"data/iris.txt\", header = T, sep = \"\\t\")\n\nBurada dikkat ederseniz bazı opsiyonlar var. Gelin onlara bakalım:\n\n\nfile opsiyonu bize o dosyayı okuyacağımız yolu gösterir.\n\nheader opsiyonu ise, ilk satırın başlık satırı olduğunu gösterir\n\nsep ise, dosyada kullanılan ayraç karakterini belirtir. Bizim dosyamızda \\t karakteri (tab)\n\n\n\n\n\n\n\nDosya okuma hataları\n\n\n\nBu derste en çok zorlandığımız konu dosya okumak. Bir dosyayı okumak istiyorsanız, o dosyanın yolunu belirtmeniz gerek. Bunu iki farklı şekilde yapabilirsiniz:\n\nTam yol: O dosyanın tam okuma yolunu gösterirsiniz C:/Users/User/Documents/Veri-Analizi/veri.txt gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz\nGöreceli yol: Bir R projesi kullandığınızda, dosyalarınız o proje içerisine yüklerseniz, tam yolu göstermeden kullanabilirsiniz.\n\n\n\nBunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek için konsola ?read.table() yazınız."
+  },
+  {
+    "objectID": "02-veri-analizi/08-dosya-okuma.html#internet-üzerinden-okuma",
+    "href": "02-veri-analizi/08-dosya-okuma.html#internet-üzerinden-okuma",
+    "title": "\n12  Dosya okuma\n",
+    "section": "\n12.2 İnternet üzerinden okuma",
+    "text": "12.2 İnternet üzerinden okuma\nEğer dosyanın tam internet adresini biliyorsak, onu da doğrudan okuyabiliriz. Aynı komutu yazacağız, ancak bu sefer file opsiyonuna, o dosyanın internet adresini girmeliyiz:\n\nveri <- read.table(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt\", header = T, sep = \"\\t\")\n\nBu iki yöntemi de kullanabilirsiniz.\n## Dosyayı inceleyelim\nElimizdeki dosya aslında normal bir veri çerçevesi. Bütün veri çerçevesi işlemlerini yapabiliriz artık.\nVeri çerçevesindeki sütun isimleri:\n\ncolnames(veri)\n\n[1] \"Sepal_Uzunlugu\"  \"Sepal_Genisliği\" \"Petal_Uzunlugu\"  \"Petal_Genisligi\"\n[5] \"Tur\"            \n\n\nVeri çerçevesindeki satır ve sütun sayısı:\n\ndim(veri)\n\n[1] 50  5\n\n\n## Farklı dosyalara bakalım\nŞimdi gelin farklı verilerin biçimlerini inceleyelim:\n\nSRA veri tabanı istatistikleri\n[]"
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html",
+    "href": "02-veri-analizi/09-rmarkdown.html",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "",
+    "text": "14 Giriş\nBu döküman kapsamında Rmarkdown kullanımı anlatılacaktır. İlk defa Rmarkdown kullanacaksanız öncelikle programı R içerisine kurmanız gerekecektir. Bu işlemi R otomatik olarak da yapailir. Eğer otomatik kurmadıysanız, aşağıkdai satırı komut satırına yazmanız gereklidir. Bu işlemi bir kere yapsanız yeter.\nBu döküman kapsamında, Rmarkdown ile yazımın incelikleri gösterilecektir. Bu dosyanın ham haline aşağıdaki bağlantıdan ulaşarak kendi bilgisayarınıza indirebilirsiniz:\nBu sayfanın Rmarkdown hali\nBu iki dökümanı karşı karşıya inceleyerek, stil tiplerinin nasıl kullanıldığının farkına varınız.\nBirinci seviye başlık için # karakterini kullanınız."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#yaml-üst-bilgisi",
+    "href": "02-veri-analizi/09-rmarkdown.html#yaml-üst-bilgisi",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n14.1 YAML üst bilgisi",
+    "text": "14.1 YAML üst bilgisi\nİlk olarak yaml olarak ifade edilen döküman üst bilgisini ekliyoruz:\n---\ntitle: \"Rmarkdown Kullanımı\"\nauthor: \"Emrah Kırdök\"\ndate: \"2023-03-23\"\noutput: html_document\n---"
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#paragraflar",
+    "href": "02-veri-analizi/09-rmarkdown.html#paragraflar",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n14.2 Paragraflar",
+    "text": "14.2 Paragraflar\nNormal bir paragraf yazmak istiyorsanız, hiç bir işaret kullanmayınız."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#ikinci-seviye-başlık",
+    "href": "02-veri-analizi/09-rmarkdown.html#ikinci-seviye-başlık",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.1 İkinci seviye başlık",
+    "text": "15.1 İkinci seviye başlık\nİkinci seviye başlık için ## karakterini kullanınız.\n\n15.1.1 Üçüncü seviye başlık\nBu işaretin miktarı(#), başlık seviyesini belirtir."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#liste-oluşturma",
+    "href": "02-veri-analizi/09-rmarkdown.html#liste-oluşturma",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.2 Liste oluşturma",
+    "text": "15.2 Liste oluşturma\nEğer liste oluşturmak istiyorsanız + karakterini kullanmalısınız:\n\nliste1\nliste 2\n\nalt liste 1\nalt liste 2\n\n\nliste 3\n\nBir liste öğesinin alt elemanlarını belirlemek istiyorsanız, tab tuşuna basarak bir satır girinti oluşturduk."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#vurgular",
+    "href": "02-veri-analizi/09-rmarkdown.html#vurgular",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.3 Vurgular",
+    "text": "15.3 Vurgular\nEğer italik yazmak isterseniz * tuşlarını kullanmalısınız. Kalın harflerle yazmak isterseniz iki tane ** kullanmalısınız."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#tablo-oluşturma",
+    "href": "02-veri-analizi/09-rmarkdown.html#tablo-oluşturma",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.4 Tablo oluşturma",
+    "text": "15.4 Tablo oluşturma\nBoru karakteri oluşturma: Sağ Alt Gr tuşu + < : |\n\n\nbitki ismi\nyaprak uzunluğu\nkoşul\n\n\n\nbitki 1\n2.4\naydinlik\n\n\nbitki 2\n3.4\nkaranlik\n\n\nbitki 3\n5\nkaranlik\n\n\n\nTabloları yukarıdaki gibi oluşturabilirsiniz."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#şekil-ekleme",
+    "href": "02-veri-analizi/09-rmarkdown.html#şekil-ekleme",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.5 Şekil ekleme",
+    "text": "15.5 Şekil ekleme\nŞekil eklemek için aşağıdaki notasyonu kullanmalısınız:\n\n\nŞeklin ismini buraya yazınız\n\n\nAncak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten her hangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisniz.\n\n\nİnternetten eklenmiş şekil"
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#bağlantı-eklemek",
+    "href": "02-veri-analizi/09-rmarkdown.html#bağlantı-eklemek",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.6 Bağlantı eklemek",
+    "text": "15.6 Bağlantı eklemek\nÖrnek olarak üniversite adresinin bağlantısı."
+  },
+  {
+    "objectID": "02-veri-analizi/09-rmarkdown.html#r-kodu-eklemek",
+    "href": "02-veri-analizi/09-rmarkdown.html#r-kodu-eklemek",
+    "title": "\n13  Rmarkdown Kullanımı\n",
+    "section": "\n15.7 R kodu eklemek",
+    "text": "15.7 R kodu eklemek\nRmarkdown’un en önemli özelliği, R kodunu kullanabilmeniz. R kodunu aşağıdaki şekilde yazınız.\n\nbitki_ismi <- c(\"bitki 1\", \"bitki 2\", \"bitki 3\")\n\nbitki_ismi[2]\n\n[1] \"bitki 2\"\n\n\nR size bu kodu çalıştıracak, ve çıktsını da dökümanınız içerisinde ekleyecektir.\nİlerleyen derslerde grafikler oluşturarak bu özelliği kullanacağız."
+  },
+  {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#döngüler-for",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#döngüler-for",
-    "title": "\n12  Kontrol yapıları\n",
-    "section": "\n12.1 Döngüler (for)",
-    "text": "12.1 Döngüler (for)\nVeri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.\nBasit bir örnek verelim. Önce bir sayı vektörü oluşturalım:\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nBu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimiz düşünelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.\nÖnce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz Bölüm 8’i tekrar gözden geçirebilirsiniz.\n\n(yaprak_uzunlugu[1]+5)/2\n\n[1] 3.65\n\n\nŞimdi ise ikinci eleman için bunu yapalım:\n\n(yaprak_uzunlugu[2]+5)/2\n\n[1] 4.2\n\n\nDikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla for döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.\nÖncelikle for döngüsünün genel yapısına bakalım:\nfor ( ÇALIŞILACAK ELEMAN KÜMESİ ){\n    YAPILACAK İŞ\n}\nBurada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. for döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli YAPILACAK İŞ adımı çalıştırılıyor.\nAncak bu yapıyı yukarıdaki gibi kullanmalıyız.\nŞimdi döngümüzü yazalım:\n\nfor (i in 1:length(yaprak_uzunlugu)){\n    sonuc <- (yaprak_uzunlugu[i]+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nBu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.\ni in 1:length(yaprak_uzunlugu) cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.\n\n1:length(yaprak_uzunlugu)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nFor döngüsü ise i adından bir değişken oluşturuyor. Önce i değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.\nO işlem bitince, i değerine ikinci elemanı atanıyor ve bu sefer i <- 2 için işlemi gerçekleştiriyor.\nBu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.\nBir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise i yerine eleman isimli bir değişken oluşturalım:\n\nfor (eleman in yaprak_uzunlugu){\n    sonuc <- (eleman+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nGördüğünüz iki for döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (Şekil 12.1).\n\n\n\n\n\nfor\n\n\nilk\n\nBirinci elemanıseç\nislem\n\nİstenen işlemi gerçekleştir\nilk->islem\n\n\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemana geç\nson->devam\n\nFALSE\nsonlandır\n\nDöngüyü sonlandır\nson->sonlandır\n\nTRUE\ndevam->islem\n\n\nislem->son\n\n\nŞekil 12.1: for döngüsü hakkındaki diyagram"
+    "title": "\n14  Kontrol yapıları\n",
+    "section": "\n14.1 Döngüler (for)",
+    "text": "14.1 Döngüler (for)\nVeri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.\nBasit bir örnek verelim. Önce bir sayı vektörü oluşturalım:\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nBu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimiz düşünelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.\nÖnce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz Bölüm 8’i tekrar gözden geçirebilirsiniz.\n\n(yaprak_uzunlugu[1]+5)/2\n\n[1] 3.65\n\n\nŞimdi ise ikinci eleman için bunu yapalım:\n\n(yaprak_uzunlugu[2]+5)/2\n\n[1] 4.2\n\n\nDikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla for döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.\nÖncelikle for döngüsünün genel yapısına bakalım:\nfor ( ÇALIŞILACAK ELEMAN KÜMESİ ){\n    YAPILACAK İŞ\n}\nBurada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. for döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli YAPILACAK İŞ adımı çalıştırılıyor.\nAncak bu yapıyı yukarıdaki gibi kullanmalıyız.\nŞimdi döngümüzü yazalım:\n\nfor (i in 1:length(yaprak_uzunlugu)){\n    sonuc <- (yaprak_uzunlugu[i]+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nBu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.\ni in 1:length(yaprak_uzunlugu) cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.\n\n1:length(yaprak_uzunlugu)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nFor döngüsü ise i adından bir değişken oluşturuyor. Önce i değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.\nO işlem bitince, i değerine ikinci elemanı atanıyor ve bu sefer i <- 2 için işlemi gerçekleştiriyor.\nBu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.\nBir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise i yerine eleman isimli bir değişken oluşturalım:\n\nfor (eleman in yaprak_uzunlugu){\n    sonuc <- (eleman+5)/2\n    print(sonuc)\n}\n\n[1] 3.65\n[1] 4.2\n[1] 4.75\n[1] 3.1\n[1] 4.2\n[1] 4\n[1] 3.4\n[1] 5.65\n[1] 3.55\n[1] 5\n\n\nGördüğünüz iki for döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (Şekil 14.1).\n\n\n\n\n\nfor\n\n\nilk\n\nBirinci elemanıseç\nislem\n\nİstenen işlemi gerçekleştir\nilk->islem\n\n\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemana geç\nson->devam\n\nFALSE\nsonlandır\n\nDöngüyü sonlandır\nson->sonlandır\n\nTRUE\ndevam->islem\n\n\nislem->son\n\n\nŞekil 14.1: for döngüsü hakkındaki diyagram"
   },
   {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#kontrol-yapısı-if-else",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#kontrol-yapısı-if-else",
-    "title": "\n12  Kontrol yapıları\n",
-    "section": "\n12.2 Kontrol yapısı (if-else)",
-    "text": "12.2 Kontrol yapısı (if-else)\nEğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, if-else yapısını kullanıyoruz.\nMesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.\nŞekil 12.2 bize bu işlemi şematize edecektir.\n\n\n\n\n\ng\n\n\nsayi\n\nSayı\nkontrol\n\n5’den büyük  veya  5’e eşit\nsayi->kontrol\n\n\nilk\n\nEkrana yazdır:5’den büyük  veya  5’e eşit\nkontrol->ilk\n\nTRUE\nikinci\n\nEkrana yazdır:5’den küçük\nkontrol->ikinci\n\nFALSE\nsonlandir\n\nİşlemi sonlandır\nilk->sonlandir\n\n\nikinci->sonlandir\n\n\nŞekil 12.2: if-else döngüsü hakkındaki diyagram\n\n\n\n\nİlk olarak bir sayı belirleyelim:\n\nsayi <- 12\n\nİlk koşulu çalıştıralım:\n\nsayi >= 5\n\n[1] TRUE\n\n\nBu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5’e eşit veya 5’den büyük. Ama asla 5’den küçük değil.\nŞimdi if-else yapısına bakalım:\nif ( KOŞUL ){\n    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR\n} else {\n    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR\n}\nİlk önce bir koşul belirliyoruz (sayını 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.\nŞimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:\n\nsayi <- 12\n\nif (sayi >= 5) {\n  print(\"bu sayi bese esit veya besten buyuktur\")\n} else{\n  print(\"bu sayi besten kucuktur\")\n}\n\n[1] \"bu sayi bese esit veya besten buyuktur\""
+    "title": "\n14  Kontrol yapıları\n",
+    "section": "\n14.2 Kontrol yapısı (if-else)",
+    "text": "14.2 Kontrol yapısı (if-else)\nEğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, if-else yapısını kullanıyoruz.\nMesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.\nŞekil 14.2 bize bu işlemi şematize edecektir.\n\n\n\n\n\ng\n\n\nsayi\n\nSayı\nkontrol\n\n5’den büyük  veya  5’e eşit\nsayi->kontrol\n\n\nilk\n\nEkrana yazdır:5’den büyük  veya  5’e eşit\nkontrol->ilk\n\nTRUE\nikinci\n\nEkrana yazdır:5’den küçük\nkontrol->ikinci\n\nFALSE\nsonlandir\n\nİşlemi sonlandır\nilk->sonlandir\n\n\nikinci->sonlandir\n\n\nŞekil 14.2: if-else döngüsü hakkındaki diyagram\n\n\n\n\nİlk olarak bir sayı belirleyelim:\n\nsayi <- 12\n\nİlk koşulu çalıştıralım:\n\nsayi >= 5\n\n[1] TRUE\n\n\nBu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5’e eşit veya 5’den büyük. Ama asla 5’den küçük değil.\nŞimdi if-else yapısına bakalım:\nif ( KOŞUL ){\n    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR\n} else {\n    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR\n}\nİlk önce bir koşul belirliyoruz (sayını 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.\nŞimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:\n\nsayi <- 12\n\nif (sayi >= 5) {\n  print(\"bu sayi bese esit veya besten buyuktur\")\n} else{\n  print(\"bu sayi besten kucuktur\")\n}\n\n[1] \"bu sayi bese esit veya besten buyuktur\""
   },
   {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#farklı-yapıları-birleştirelim",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#farklı-yapıları-birleştirelim",
-    "title": "\n12  Kontrol yapıları\n",
-    "section": "\n12.3 Farklı yapıları birleştirelim",
-    "text": "12.3 Farklı yapıları birleştirelim\nŞimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nElimizde artık iki tane koşul olsun:\n\nEğer eleman 5’den büyük veya eşitse, elemana 5 ekle ve ikiye böl\nEğer eleman 5’den küçükse, elemana 10 ekle ve 3’e böl\n\nYine örneğimiz biraz rastgele oldu. Böyle bir senaryo için if-else yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:\n\nfor (eleman in yaprak_uzunlugu){\n    if (eleman >= 5){\n        sonuc <- (eleman+5)/2\n        cat(\"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:\", sonuc, \"\\n\")\n    } else {\n        sonuc <- (eleman+10)/3\n        cat(\"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:\", sonuc, \"\\n\")\n    }\n}\n\nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.1 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.833333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.733333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.333333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.933333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5.65 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 \n\n\nŞimdi bu yapıyı daha iyi anlamak için görselleşirelim (Şekil 12.3)\n\n\n\n\n\ng\n\n\neleman\n\nBirinci elemanı seç\nkontrol\n\n5’den büyük  veya  5’e eşit mi?\neleman->kontrol\n\n\nilk\n\nBirinci formülü uygulaSonucu ekrana yazdır\nkontrol->ilk\n\nTRUE\nikinci\n\nİkinci formülü uygulaSonucu ekrana yazdır\nkontrol->ikinci\n\nFALSE\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemanı seç\nson->devam\n\nFALSE\nDöngüyü sonlandır.\n\nDöngüyü sonlandır.\nson->Döngüyü sonlandır.\n\nTRUE\nilk->son\n\n\nikinci->son\n\n\ndevam->kontrol\n\n\nBaşla\n\nBaşla\nBaşla->eleman\n\n\nŞekil 12.3: İki kontrol yapısını da birleştirmek"
+    "title": "\n14  Kontrol yapıları\n",
+    "section": "\n14.3 Farklı yapıları birleştirelim",
+    "text": "14.3 Farklı yapıları birleştirelim\nŞimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.\n\nyaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, \n                    3, 1.8, 6.3, 2.1, 5)\n\nElimizde artık iki tane koşul olsun:\n\nEğer eleman 5’den büyük veya eşitse, elemana 5 ekle ve ikiye böl\nEğer eleman 5’den küçükse, elemana 10 ekle ve 3’e böl\n\nYine örneğimiz biraz rastgele oldu. Böyle bir senaryo için if-else yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:\n\nfor (eleman in yaprak_uzunlugu){\n    if (eleman >= 5){\n        sonuc <- (eleman+5)/2\n        cat(\"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:\", sonuc, \"\\n\")\n    } else {\n        sonuc <- (eleman+10)/3\n        cat(\"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:\", sonuc, \"\\n\")\n    }\n}\n\nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.1 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.833333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.733333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.333333 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 3.933333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5.65 \nyaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333 \nyaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 \n\n\nŞimdi bu yapıyı daha iyi anlamak için görselleşirelim (Şekil 14.3)\n\n\n\n\n\ng\n\n\neleman\n\nBirinci elemanı seç\nkontrol\n\n5’den büyük  veya  5’e eşit mi?\neleman->kontrol\n\n\nilk\n\nBirinci formülü uygulaSonucu ekrana yazdır\nkontrol->ilk\n\nTRUE\nikinci\n\nİkinci formülü uygulaSonucu ekrana yazdır\nkontrol->ikinci\n\nFALSE\nson\n\nSon eleman mı?\ndevam\n\nSonraki elemanı seç\nson->devam\n\nFALSE\nDöngüyü sonlandır.\n\nDöngüyü sonlandır.\nson->Döngüyü sonlandır.\n\nTRUE\nilk->son\n\n\nikinci->son\n\n\ndevam->kontrol\n\n\nBaşla\n\nBaşla\nBaşla->eleman\n\n\nŞekil 14.3: İki kontrol yapısını da birleştirmek"
   },
   {
     "objectID": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
-    "title": "\n12  Kontrol yapıları\n",
-    "section": "\n12.4 Ödev",
-    "text": "12.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 17’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "title": "\n14  Kontrol yapıları\n",
+    "section": "\n14.4 Ödev",
+    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 19’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
     "href": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
-    "title": "\n13  Fonksiyonlar\n",
-    "section": "\n13.1 Örnek fonksiyon",
-    "text": "13.1 Örnek fonksiyon\nİlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!\nFonksiyonumuz iki tane girdiye sahip olsun:\n\na\nb\n\nÇıktısı ise sonuc olsun.\nFonksiyon ismi ise toplam olsun.\n\ntoplam <- function(a,b){\n    sonuc <- a + b\n    return(sonuc)\n}\n\nÖnce fonksiyon ismini toplam yazdık ve function komutu ile, R’a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (a ve b).\nDaha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve sonuc değişkenini oluşturduk. Bu sonuç değişkenini ise, return komutu ile geri döndürdük.\nHer fonksiyonda mutlaka bir değer geri döndürmelisiniz.\nŞimdi fonksiyonu kullanalım:\n\ntoplam(a = 5, b = 12)\n\n[1] 17\n\n\n\n\n\n\n\n\nÖnemli\n\n\n\nFonkisyonları kullanmadan önce mutlaka tanımlamalısınız! Eğer fonksiyonu tanımlamazsanız, kullanamazsınız.\n\n\nŞimdi başka iki örnek kullanalım:\n\ntoplam(a = 12, b = 45)\n\n[1] 57"
+    "title": "\n15  Fonksiyonlar\n",
+    "section": "\n15.1 Örnek fonksiyon",
+    "text": "15.1 Örnek fonksiyon\nİlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!\nFonksiyonumuz iki tane girdiye sahip olsun:\n\na\nb\n\nÇıktısı ise sonuc olsun.\nFonksiyon ismi ise toplam olsun.\n\ntoplam <- function(a,b){\n    sonuc <- a + b\n    return(sonuc)\n}\n\nÖnce fonksiyon ismini toplam yazdık ve function komutu ile, R’a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (a ve b).\nDaha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve sonuc değişkenini oluşturduk. Bu sonuç değişkenini ise, return komutu ile geri döndürdük.\nHer fonksiyonda mutlaka bir değer geri döndürmelisiniz.\nŞimdi fonksiyonu kullanalım:\n\ntoplam(a = 5, b = 12)\n\n[1] 17\n\n\n\n\n\n\n\n\nÖnemli\n\n\n\nFonkisyonları kullanmadan önce mutlaka tanımlamalısınız! Eğer fonksiyonu tanımlamazsanız, kullanamazsınız.\n\n\nŞimdi başka iki örnek kullanalım:\n\ntoplam(a = 12, b = 45)\n\n[1] 57"
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#başka-bir-fonksiyon",
     "href": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#başka-bir-fonksiyon",
-    "title": "\n13  Fonksiyonlar\n",
-    "section": "\n13.2 Başka bir fonksiyon",
-    "text": "13.2 Başka bir fonksiyon\nŞimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.\nBu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.\nYazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise kelvin_donusturucu olsun.\n\nkelvin_donusturucu <- function(derece){\n    sonuc <- derece + 273.15\n    return(sonuc)\n}\n\nBu fonksiyonu kullanalım şimdi:\n\nkelvin_donusturucu(derece = 30)\n\n[1] 303.15"
+    "title": "\n15  Fonksiyonlar\n",
+    "section": "\n15.2 Başka bir fonksiyon",
+    "text": "15.2 Başka bir fonksiyon\nŞimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.\nBu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.\nYazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise kelvin_donusturucu olsun.\n\nkelvin_donusturucu <- function(derece){\n    sonuc <- derece + 273.15\n    return(sonuc)\n}\n\nBu fonksiyonu kullanalım şimdi:\n\nkelvin_donusturucu(derece = 30)\n\n[1] 303.15"
   },
   {
     "objectID": "03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html",
     "href": "03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html",
-    "title": "\n14  DNA ile çalışma\n",
+    "title": "\n16  DNA ile çalışma\n",
     "section": "",
     "text": "R üzerinde DNA dizileri ile çalışabiliriz. Bunun için seqinr paketini yüklemelisiniz.\n\ninstall.packages(\"seqinr\")\n\nDaha sonra R oturumunza eklemelisniz:\n\nlibrary(seqinr)\n\nÖncelikle şu bağlantıya sağ tıklayıp farklı kaydete basalım:\nÖrnek DNA verisi\nÖncelikle veriyi okuyalım:\n\ndna <- read.fasta(file = \"data/example.fna\")\n\n\n\n\n\n\n\nVerim nerede?\n\n\n\nBenim verimi indirdiğim yer, projemin çalışma klasörü içerisindeki data isimli klasör. Siz alıştırmayı yaparken, file kısmına kendi bilgisayarınızdaki veriyi verin. Yoksa hata alırsınız.\n\n\nBu işlemin soncunda elimize bir liste geçti. İsterseniz names fonksiyonu ile bu listedeki dizilerin fasta isimlerini inceleyelim:\n\nnames(dna)\n\n[1] \"ENA|BAA20512|BAA20512.1\" \"ENA|CAA23748|CAA23748.1\"\n[3] \"ENA|CAA24095|CAA24095.1\" \"ENA|CAA28435|CAA28435.1\"\n\n\nŞimdi birinci elemanı inceleyelim kısaca. Listelerde indisleme yapmayı hatırlayın. Liste içerisindeki elemanlara erişmek için [[ fonksiyonunu kullanmamız gerekir:\n\ndna[[1]]\n\n  [1] \"a\" \"t\" \"g\" \"a\" \"g\" \"t\" \"c\" \"t\" \"c\" \"t\" \"c\" \"t\" \"g\" \"a\" \"t\" \"a\" \"a\" \"g\"\n [19] \"g\" \"a\" \"c\" \"a\" \"a\" \"g\" \"g\" \"c\" \"t\" \"g\" \"c\" \"t\" \"g\" \"t\" \"g\" \"a\" \"a\" \"a\"\n [37] \"g\" \"c\" \"c\" \"c\" \"t\" \"a\" \"t\" \"g\" \"g\" \"g\" \"c\" \"t\" \"a\" \"a\" \"g\" \"a\" \"t\" \"c\"\n [55] \"a\" \"g\" \"c\" \"c\" \"c\" \"c\" \"a\" \"a\" \"a\" \"g\" \"c\" \"c\" \"g\" \"a\" \"t\" \"g\" \"a\" \"t\"\n [73] \"a\" \"t\" \"c\" \"g\" \"g\" \"c\" \"g\" \"c\" \"t\" \"g\" \"a\" \"a\" \"g\" \"c\" \"t\" \"c\" \"t\" \"c\"\n [91] \"g\" \"g\" \"c\" \"a\" \"g\" \"a\" \"a\" \"t\" \"g\" \"c\" \"t\" \"g\" \"a\" \"c\" \"c\" \"g\" \"t\" \"c\"\n[109] \"t\" \"a\" \"c\" \"c\" \"c\" \"t\" \"c\" \"a\" \"g\" \"a\" \"c\" \"c\" \"a\" \"a\" \"g\" \"a\" \"c\" \"c\"\n[127] \"t\" \"a\" \"c\" \"t\" \"t\" \"c\" \"g\" \"c\" \"t\" \"c\" \"a\" \"c\" \"t\" \"g\" \"g\" \"g\" \"a\" \"t\"\n[145] \"g\" \"a\" \"c\" \"c\" \"t\" \"g\" \"a\" \"g\" \"c\" \"c\" \"c\" \"t\" \"g\" \"g\" \"g\" \"t\" \"c\" \"c\"\n[163] \"g\" \"g\" \"t\" \"c\" \"c\" \"t\" \"g\" \"t\" \"g\" \"a\" \"a\" \"g\" \"a\" \"a\" \"g\" \"c\" \"a\" \"t\"\n[181] \"g\" \"g\" \"c\" \"a\" \"a\" \"g\" \"g\" \"t\" \"t\" \"a\" \"t\" \"c\" \"a\" \"t\" \"g\" \"g\" \"g\" \"t\"\n[199] \"g\" \"c\" \"a\" \"g\" \"t\" \"g\" \"g\" \"c\" \"c\" \"g\" \"a\" \"t\" \"g\" \"c\" \"c\" \"g\" \"t\" \"t\"\n[217] \"t\" \"c\" \"a\" \"a\" \"a\" \"a\" \"a\" \"t\" \"a\" \"g\" \"a\" \"c\" \"g\" \"a\" \"c\" \"c\" \"t\" \"t\"\n[235] \"g\" \"t\" \"g\" \"g\" \"g\" \"a\" \"g\" \"g\" \"t\" \"c\" \"t\" \"g\" \"g\" \"c\" \"c\" \"t\" \"c\" \"c\"\n[253] \"c\" \"t\" \"g\" \"a\" \"g\" \"c\" \"g\" \"a\" \"a\" \"c\" \"t\" \"t\" \"c\" \"a\" \"t\" \"g\" \"c\" \"t\"\n[271] \"t\" \"c\" \"c\" \"a\" \"a\" \"g\" \"c\" \"t\" \"g\" \"c\" \"g\" \"t\" \"g\" \"t\" \"t\" \"g\" \"a\" \"c\"\n[289] \"c\" \"c\" \"g\" \"g\" \"c\" \"c\" \"a\" \"a\" \"c\" \"t\" \"t\" \"c\" \"a\" \"a\" \"g\" \"a\" \"t\" \"c\"\n[307] \"c\" \"t\" \"c\" \"g\" \"c\" \"a\" \"c\" \"a\" \"c\" \"a\" \"a\" \"t\" \"g\" \"t\" \"c\" \"a\" \"t\" \"c\"\n[325] \"g\" \"t\" \"g\" \"g\" \"t\" \"c\" \"a\" \"t\" \"c\" \"g\" \"g\" \"c\" \"a\" \"t\" \"g\" \"c\" \"t\" \"c\"\n[343] \"t\" \"t\" \"c\" \"c\" \"c\" \"t\" \"g\" \"g\" \"a\" \"g\" \"a\" \"c\" \"t\" \"t\" \"c\" \"c\" \"c\" \"c\"\n[361] \"c\" \"c\" \"a\" \"g\" \"a\" \"g\" \"g\" \"t\" \"t\" \"c\" \"a\" \"c\" \"a\" \"t\" \"g\" \"t\" \"c\" \"a\"\n[379] \"g\" \"t\" \"t\" \"g\" \"a\" \"c\" \"a\" \"a\" \"g\" \"t\" \"t\" \"t\" \"t\" \"t\" \"c\" \"c\" \"a\" \"g\"\n[397] \"a\" \"a\" \"c\" \"t\" \"t\" \"g\" \"g\" \"c\" \"t\" \"c\" \"t\" \"g\" \"g\" \"c\" \"t\" \"c\" \"t\" \"c\"\n[415] \"t\" \"c\" \"t\" \"g\" \"a\" \"g\" \"a\" \"a\" \"g\" \"t\" \"a\" \"c\" \"c\" \"g\" \"c\" \"t\" \"a\" \"a\"\nattr(,\"name\")\n[1] \"ENA|BAA20512|BAA20512.1\"\nattr(,\"Annot\")\n[1] \">ENA|BAA20512|BAA20512.1 Cyprinus carpio (common carp) alpha-globin \"\nattr(,\"class\")\n[1] \"SeqFastadna\"\n\n\nBu aslında bir vektör. Her DNA nükletoditi, vektörün bir elemanı olarak ifade edilmektedir.\nArtık bir fasta dizisini, R içersisine aktarmayı biliyorsunuz. Tebrikler."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-1",
     "href": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-1",
-    "title": "\n15  DNA ile çalışma\n",
-    "section": "\n15.1 Soru 1",
-    "text": "15.1 Soru 1\nBu dosya içerisindeki birinci DNA dizisinin komplementer ipliğini, bir vektör olarak geri döndüren fonksiyonu yazınız:\n\ntamamlayici <- function(dna){\n  # once bos bir vektor olusturalim\n  complementary <- c()\n  \n  # DNA dizinin hepsini buyuk karaktere cevirelim\n  dna <- toupper(dna)\n  for ( baz in dna){\n    # her baz icin asagidaki kosullari test et\n    # eger kosul uygunsa, complementary vektorune uygun bazi ekle\n    if (baz == \"A\"){complementary <- c(complementary, \"T\")}\n    if (baz == \"T\"){complementary <- c(complementary, \"A\")}\n    if (baz == \"G\"){complementary <- c(complementary, \"C\")}\n    if (baz == \"C\"){complementary <- c(complementary, \"G\")}\n  }\n  return(complementary)\n}  \n\nŞimdi fonksiyonu test edelim:\n\ntamamlayici(dna[[1]])\n\n  [1] \"T\" \"A\" \"C\" \"T\" \"C\" \"A\" \"G\" \"A\" \"G\" \"A\" \"G\" \"A\" \"C\" \"T\" \"A\" \"T\" \"T\" \"C\"\n [19] \"C\" \"T\" \"G\" \"T\" \"T\" \"C\" \"C\" \"G\" \"A\" \"C\" \"G\" \"A\" \"C\" \"A\" \"C\" \"T\" \"T\" \"T\"\n [37] \"C\" \"G\" \"G\" \"G\" \"A\" \"T\" \"A\" \"C\" \"C\" \"C\" \"G\" \"A\" \"T\" \"T\" \"C\" \"T\" \"A\" \"G\"\n [55] \"T\" \"C\" \"G\" \"G\" \"G\" \"G\" \"T\" \"T\" \"T\" \"C\" \"G\" \"G\" \"C\" \"T\" \"A\" \"C\" \"T\" \"A\"\n [73] \"T\" \"A\" \"G\" \"C\" \"C\" \"G\" \"C\" \"G\" \"A\" \"C\" \"T\" \"T\" \"C\" \"G\" \"A\" \"G\" \"A\" \"G\"\n [91] \"C\" \"C\" \"G\" \"T\" \"C\" \"T\" \"T\" \"A\" \"C\" \"G\" \"A\" \"C\" \"T\" \"G\" \"G\" \"C\" \"A\" \"G\"\n[109] \"A\" \"T\" \"G\" \"G\" \"G\" \"A\" \"G\" \"T\" \"C\" \"T\" \"G\" \"G\" \"T\" \"T\" \"C\" \"T\" \"G\" \"G\"\n[127] \"A\" \"T\" \"G\" \"A\" \"A\" \"G\" \"C\" \"G\" \"A\" \"G\" \"T\" \"G\" \"A\" \"C\" \"C\" \"C\" \"T\" \"A\"\n[145] \"C\" \"T\" \"G\" \"G\" \"A\" \"C\" \"T\" \"C\" \"G\" \"G\" \"G\" \"A\" \"C\" \"C\" \"C\" \"A\" \"G\" \"G\"\n[163] \"C\" \"C\" \"A\" \"G\" \"G\" \"A\" \"C\" \"A\" \"C\" \"T\" \"T\" \"C\" \"T\" \"T\" \"C\" \"G\" \"T\" \"A\"\n[181] \"C\" \"C\" \"G\" \"T\" \"T\" \"C\" \"C\" \"A\" \"A\" \"T\" \"A\" \"G\" \"T\" \"A\" \"C\" \"C\" \"C\" \"A\"\n[199] \"C\" \"G\" \"T\" \"C\" \"A\" \"C\" \"C\" \"G\" \"G\" \"C\" \"T\" \"A\" \"C\" \"G\" \"G\" \"C\" \"A\" \"A\"\n[217] \"A\" \"G\" \"T\" \"T\" \"T\" \"T\" \"T\" \"A\" \"T\" \"C\" \"T\" \"G\" \"C\" \"T\" \"G\" \"G\" \"A\" \"A\"\n[235] \"C\" \"A\" \"C\" \"C\" \"C\" \"T\" \"C\" \"C\" \"A\" \"G\" \"A\" \"C\" \"C\" \"G\" \"G\" \"A\" \"G\" \"G\"\n[253] \"G\" \"A\" \"C\" \"T\" \"C\" \"G\" \"C\" \"T\" \"T\" \"G\" \"A\" \"A\" \"G\" \"T\" \"A\" \"C\" \"G\" \"A\"\n[271] \"A\" \"G\" \"G\" \"T\" \"T\" \"C\" \"G\" \"A\" \"C\" \"G\" \"C\" \"A\" \"C\" \"A\" \"A\" \"C\" \"T\" \"G\"\n[289] \"G\" \"G\" \"C\" \"C\" \"G\" \"G\" \"T\" \"T\" \"G\" \"A\" \"A\" \"G\" \"T\" \"T\" \"C\" \"T\" \"A\" \"G\"\n[307] \"G\" \"A\" \"G\" \"C\" \"G\" \"T\" \"G\" \"T\" \"G\" \"T\" \"T\" \"A\" \"C\" \"A\" \"G\" \"T\" \"A\" \"G\"\n[325] \"C\" \"A\" \"C\" \"C\" \"A\" \"G\" \"T\" \"A\" \"G\" \"C\" \"C\" \"G\" \"T\" \"A\" \"C\" \"G\" \"A\" \"G\"\n[343] \"A\" \"A\" \"G\" \"G\" \"G\" \"A\" \"C\" \"C\" \"T\" \"C\" \"T\" \"G\" \"A\" \"A\" \"G\" \"G\" \"G\" \"G\"\n[361] \"G\" \"G\" \"T\" \"C\" \"T\" \"C\" \"C\" \"A\" \"A\" \"G\" \"T\" \"G\" \"T\" \"A\" \"C\" \"A\" \"G\" \"T\"\n[379] \"C\" \"A\" \"A\" \"C\" \"T\" \"G\" \"T\" \"T\" \"C\" \"A\" \"A\" \"A\" \"A\" \"A\" \"G\" \"G\" \"T\" \"C\"\n[397] \"T\" \"T\" \"G\" \"A\" \"A\" \"C\" \"C\" \"G\" \"A\" \"G\" \"A\" \"C\" \"C\" \"G\" \"A\" \"G\" \"A\" \"G\"\n[415] \"A\" \"G\" \"A\" \"C\" \"T\" \"C\" \"T\" \"T\" \"C\" \"A\" \"T\" \"G\" \"G\" \"C\" \"G\" \"A\" \"T\" \"T\""
+    "title": "\n17  DNA ile çalışma\n",
+    "section": "\n17.1 Soru 1",
+    "text": "17.1 Soru 1\nBu dosya içerisindeki birinci DNA dizisinin komplementer ipliğini, bir vektör olarak geri döndüren fonksiyonu yazınız:\n\ntamamlayici <- function(dna){\n  # once bos bir vektor olusturalim\n  complementary <- c()\n  \n  # DNA dizinin hepsini buyuk karaktere cevirelim\n  dna <- toupper(dna)\n  for ( baz in dna){\n    # her baz icin asagidaki kosullari test et\n    # eger kosul uygunsa, complementary vektorune uygun bazi ekle\n    if (baz == \"A\"){complementary <- c(complementary, \"T\")}\n    if (baz == \"T\"){complementary <- c(complementary, \"A\")}\n    if (baz == \"G\"){complementary <- c(complementary, \"C\")}\n    if (baz == \"C\"){complementary <- c(complementary, \"G\")}\n  }\n  return(complementary)\n}  \n\nŞimdi fonksiyonu test edelim:\n\ntamamlayici(dna[[1]])\n\n  [1] \"T\" \"A\" \"C\" \"T\" \"C\" \"A\" \"G\" \"A\" \"G\" \"A\" \"G\" \"A\" \"C\" \"T\" \"A\" \"T\" \"T\" \"C\"\n [19] \"C\" \"T\" \"G\" \"T\" \"T\" \"C\" \"C\" \"G\" \"A\" \"C\" \"G\" \"A\" \"C\" \"A\" \"C\" \"T\" \"T\" \"T\"\n [37] \"C\" \"G\" \"G\" \"G\" \"A\" \"T\" \"A\" \"C\" \"C\" \"C\" \"G\" \"A\" \"T\" \"T\" \"C\" \"T\" \"A\" \"G\"\n [55] \"T\" \"C\" \"G\" \"G\" \"G\" \"G\" \"T\" \"T\" \"T\" \"C\" \"G\" \"G\" \"C\" \"T\" \"A\" \"C\" \"T\" \"A\"\n [73] \"T\" \"A\" \"G\" \"C\" \"C\" \"G\" \"C\" \"G\" \"A\" \"C\" \"T\" \"T\" \"C\" \"G\" \"A\" \"G\" \"A\" \"G\"\n [91] \"C\" \"C\" \"G\" \"T\" \"C\" \"T\" \"T\" \"A\" \"C\" \"G\" \"A\" \"C\" \"T\" \"G\" \"G\" \"C\" \"A\" \"G\"\n[109] \"A\" \"T\" \"G\" \"G\" \"G\" \"A\" \"G\" \"T\" \"C\" \"T\" \"G\" \"G\" \"T\" \"T\" \"C\" \"T\" \"G\" \"G\"\n[127] \"A\" \"T\" \"G\" \"A\" \"A\" \"G\" \"C\" \"G\" \"A\" \"G\" \"T\" \"G\" \"A\" \"C\" \"C\" \"C\" \"T\" \"A\"\n[145] \"C\" \"T\" \"G\" \"G\" \"A\" \"C\" \"T\" \"C\" \"G\" \"G\" \"G\" \"A\" \"C\" \"C\" \"C\" \"A\" \"G\" \"G\"\n[163] \"C\" \"C\" \"A\" \"G\" \"G\" \"A\" \"C\" \"A\" \"C\" \"T\" \"T\" \"C\" \"T\" \"T\" \"C\" \"G\" \"T\" \"A\"\n[181] \"C\" \"C\" \"G\" \"T\" \"T\" \"C\" \"C\" \"A\" \"A\" \"T\" \"A\" \"G\" \"T\" \"A\" \"C\" \"C\" \"C\" \"A\"\n[199] \"C\" \"G\" \"T\" \"C\" \"A\" \"C\" \"C\" \"G\" \"G\" \"C\" \"T\" \"A\" \"C\" \"G\" \"G\" \"C\" \"A\" \"A\"\n[217] \"A\" \"G\" \"T\" \"T\" \"T\" \"T\" \"T\" \"A\" \"T\" \"C\" \"T\" \"G\" \"C\" \"T\" \"G\" \"G\" \"A\" \"A\"\n[235] \"C\" \"A\" \"C\" \"C\" \"C\" \"T\" \"C\" \"C\" \"A\" \"G\" \"A\" \"C\" \"C\" \"G\" \"G\" \"A\" \"G\" \"G\"\n[253] \"G\" \"A\" \"C\" \"T\" \"C\" \"G\" \"C\" \"T\" \"T\" \"G\" \"A\" \"A\" \"G\" \"T\" \"A\" \"C\" \"G\" \"A\"\n[271] \"A\" \"G\" \"G\" \"T\" \"T\" \"C\" \"G\" \"A\" \"C\" \"G\" \"C\" \"A\" \"C\" \"A\" \"A\" \"C\" \"T\" \"G\"\n[289] \"G\" \"G\" \"C\" \"C\" \"G\" \"G\" \"T\" \"T\" \"G\" \"A\" \"A\" \"G\" \"T\" \"T\" \"C\" \"T\" \"A\" \"G\"\n[307] \"G\" \"A\" \"G\" \"C\" \"G\" \"T\" \"G\" \"T\" \"G\" \"T\" \"T\" \"A\" \"C\" \"A\" \"G\" \"T\" \"A\" \"G\"\n[325] \"C\" \"A\" \"C\" \"C\" \"A\" \"G\" \"T\" \"A\" \"G\" \"C\" \"C\" \"G\" \"T\" \"A\" \"C\" \"G\" \"A\" \"G\"\n[343] \"A\" \"A\" \"G\" \"G\" \"G\" \"A\" \"C\" \"C\" \"T\" \"C\" \"T\" \"G\" \"A\" \"A\" \"G\" \"G\" \"G\" \"G\"\n[361] \"G\" \"G\" \"T\" \"C\" \"T\" \"C\" \"C\" \"A\" \"A\" \"G\" \"T\" \"G\" \"T\" \"A\" \"C\" \"A\" \"G\" \"T\"\n[379] \"C\" \"A\" \"A\" \"C\" \"T\" \"G\" \"T\" \"T\" \"C\" \"A\" \"A\" \"A\" \"A\" \"A\" \"G\" \"G\" \"T\" \"C\"\n[397] \"T\" \"T\" \"G\" \"A\" \"A\" \"C\" \"C\" \"G\" \"A\" \"G\" \"A\" \"C\" \"C\" \"G\" \"A\" \"G\" \"A\" \"G\"\n[415] \"A\" \"G\" \"A\" \"C\" \"T\" \"C\" \"T\" \"T\" \"C\" \"A\" \"T\" \"G\" \"G\" \"C\" \"G\" \"A\" \"T\" \"T\""
   },
   {
     "objectID": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-2-gc-oranı-bulma",
     "href": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-2-gc-oranı-bulma",
-    "title": "\n15  DNA ile çalışma\n",
-    "section": "\n15.2 Soru 2: G+C oranı bulma",
-    "text": "15.2 Soru 2: G+C oranı bulma\nBir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz.\n\\[\nGC = \\frac{G+C}{A+G+C+G}\n\\] Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız."
+    "title": "\n17  DNA ile çalışma\n",
+    "section": "\n17.2 Soru 2: G+C oranı bulma",
+    "text": "17.2 Soru 2: G+C oranı bulma\nBir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz.\n\\[\nGC = \\frac{G+C}{A+G+C+G}\n\\] Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-protein-ipliği",
     "href": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-protein-ipliği",
-    "title": "\n15  DNA ile çalışma\n",
-    "section": "\n15.3 Soru 3: Protein İpliği",
-    "text": "15.3 Soru 3: Protein İpliği\nŞu dosyaya sağ tıklayı farklı kaydete basınız.\nBu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız."
+    "title": "\n17  DNA ile çalışma\n",
+    "section": "\n17.3 Soru 3: Protein İpliği",
+    "text": "17.3 Soru 3: Protein İpliği\nŞu dosyaya sağ tıklayı farklı kaydete basınız.\nBu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız."
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
-    "title": "16  Vektörler Ödevi",
-    "section": "\n16.1 Soru 1",
-    "text": "16.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+    "title": "18  Vektörler Ödevi",
+    "section": "\n18.1 Soru 1",
+    "text": "18.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
-    "title": "16  Vektörler Ödevi",
-    "section": "\n16.2 Soru 2",
-    "text": "16.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "18  Vektörler Ödevi",
+    "section": "\n18.2 Soru 2",
+    "text": "18.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
-    "title": "16  Vektörler Ödevi",
-    "section": "\n16.3 Soru 3",
-    "text": "16.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "18  Vektörler Ödevi",
+    "section": "\n18.3 Soru 3",
+    "text": "18.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
-    "title": "16  Vektörler Ödevi",
-    "section": "\n16.4 Soru 4",
-    "text": "16.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "18  Vektörler Ödevi",
+    "section": "\n18.4 Soru 4",
+    "text": "18.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
-    "title": "16  Vektörler Ödevi",
-    "section": "\n16.5 Soru 5",
-    "text": "16.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "18  Vektörler Ödevi",
+    "section": "\n18.5 Soru 5",
+    "text": "18.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
-    "title": "16  Vektörler Ödevi",
-    "section": "\n16.6 Soru 6",
-    "text": "16.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "18  Vektörler Ödevi",
+    "section": "\n18.6 Soru 6",
+    "text": "18.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "17  DNA üzerinde işlemler",
-    "section": "\n17.1 Soru 1",
-    "text": "17.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "19  DNA üzerinde işlemler",
+    "section": "\n19.1 Soru 1",
+    "text": "19.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "17  DNA üzerinde işlemler",
-    "section": "\n17.2 Soru 2",
-    "text": "17.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "19  DNA üzerinde işlemler",
+    "section": "\n19.2 Soru 2",
+    "text": "19.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
