@@ -494,7 +494,7 @@
     "href": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-2-gc-oranı-bulma",
     "title": "\n17  DNA ile çalışma\n",
     "section": "\n17.2 Soru 2: G+C oranı bulma",
-    "text": "17.2 Soru 2: G+C oranı bulma\nBir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz.\n\\[\nGC = \\frac{G+C}{A+G+C+G}\n\\] Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız."
+    "text": "17.2 Soru 2: G+C oranı bulma\nBir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz.\n\\[\nGC = \\frac{G+C}{A+G+C+T}\n\\] Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-amino-asit-birincil-ipliği-oluşturma",
