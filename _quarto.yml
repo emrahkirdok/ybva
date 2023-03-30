@@ -43,7 +43,7 @@ book:
         - 02-veri-analizi/05-matrisler.qmd
         - 02-veri-analizi/06-veri-cerceveleri.qmd
         - 02-veri-analizi/07-listeler.qmd
-        - 02-veri-analizi/09-dosya-okuma.qmd
+        - 02-veri-analizi/08-dosya-okuma.qmd
         - 02-veri-analizi/09-rmarkdown.Rmd
 #        - 02-veri-analizi/06-Rmarkdown.qmd
 #        - 02-veri-analizi/08-tibble.qmd
