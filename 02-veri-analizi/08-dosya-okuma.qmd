@@ -1,0 +1,50 @@
+# Dosya okuma
+
+Şu ana kadar kendi verimizi R üzerinde oluşturduk. Ancak genel bir veri analizi sürecinde, hazır bir veriyi R içerisine aktarıyoruz.
+
+Bir dosyayı okumak için o dosyanın ya bilgisayarımızda olması gerekir, ya da internet üzerinde erişilebilir bir adreste olması gerekir.
+
+Şimdi, aşağıda belirtilen dosyaya sağ tıklayıp "Farklı Kaydet" tuşuna basalım ve bilgisyarımıza kaydedelim:
+
+[iris bitki dosyası]()
+
+Bu dosyayı incelerseniz, farklı sütunlardan oluştuğunu göreceksiiz. Genelde veri dosyaları sütunlar tarafından ayrılmaktador. Farklı ayraçlar kullanılabilir:
+
++ Tab işareti `\t`
++ Noktalı Virgül `;`
++ Virgül `,` 
+
+Ayrıca, ilk satır ise başlıkları göstermekte. Bunlar bizim için önemli bilgiler.
+
+## Bilgisayarımızdaki dosyayı okuma
+
+Bilgisayarımızdaki dosyayı okumak için `read.table` fonksiyonunu kullanıyoruz.
+
+```{r}
+veri <- read.table(file = "data/iris.txt", header = T, sep = "\t")
+```
+
+Burada dikkat ederseniz bazı opsiyonlar var. Gelin onlara bakalım:
+
++ `file` opsiyonu bize o dosyayı okuyacağımız yolu gösterir.
++ `header` opsiyonu ise, ilk satırın başlık satırı olduğunu gösterir
++ `sep` ise, dosyada kullanılan ayraç karakterini belirtir. Bizim dosyamızda `\t` karakteri (tab)
+
+::: {.callout-warning} 
+## Dosya okuma hataları
+
+Bu derste en çok zorlandığımız konu dosya okumak. Bir dosyayı okumak istiyorsanız, o dosyanın yolunu belirtmeniz gerek. Bunu iki farklı şekilde yapabilirsiniz:
+
++ Tam yol: O dosyanın tam okuma yolunu gösterirsiniz `C:/Users/User/Documents/Veri-Analizi/veri.txt` gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz
++ Göreceli yol: Bir R projesi kullandığınızda, dosyalarınız o proje içerisine yüklerseniz, tam yolu göstermeden kullanabilirsiniz.
+:::
+
+Bunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek için konsola `?read.table()` yazınız.
+
+## İnternet üzerinden okuma
+
+Eğer dosyanın tam internet adresini biliyorsak, onu da doğrudan okuyabiliriz. Aynı komutu yazacağız, ancak bu sefer `file` opsiyonuna, o dosyanın internet adresini girmeliyiz:
+
+```{r}
+veri <- read.table(file = "data/iris.txt", header = T, sep = "\t")
+```
