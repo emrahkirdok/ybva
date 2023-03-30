@@ -50,7 +50,7 @@ tamamlayici(dna[[1]])
 Bir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz. 
 
 $$
-GC = \frac{G+C}{A+G+C+G}
+GC = \frac{G+C}{A+G+C+T}
 $$
 Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız.
 
