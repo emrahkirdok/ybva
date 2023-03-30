@@ -1,4 +1,4 @@
-Sepal_Uzunlugu	Sepal_Genisliği	Petal_Uzunlugu	Petal_Genisligi	Tur
+Sepal_Uzunlugu	Sepal_Genisligi	Petal_Uzunlugu	Petal_Genisligi	Tur
 6.5	3	5.2	2	virginica
 6.4	2.9	4.3	1.3	versicolor
 6.1	3	4.6	1.4	versicolor
