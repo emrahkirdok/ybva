@@ -6,7 +6,7 @@ Bir dosyayı okumak için o dosyanın ya bilgisayarımızda olması gerekir, ya 
 
 Şimdi, aşağıda belirtilen dosyaya sağ tıklayıp "Farklı Kaydet" tuşuna basalım ve bilgisyarımıza kaydedelim:
 
-[iris bitki dosyası]()
+[iris bitki dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt)
 
 Bu dosyayı incelerseniz, farklı sütunlardan oluştuğunu göreceksiiz. Genelde veri dosyaları sütunlar tarafından ayrılmaktador. Farklı ayraçlar kullanılabilir:
 
@@ -46,5 +46,23 @@ Bunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek i
 Eğer dosyanın tam internet adresini biliyorsak, onu da doğrudan okuyabiliriz. Aynı komutu yazacağız, ancak bu sefer `file` opsiyonuna, o dosyanın internet adresini girmeliyiz:
 
 ```{r}
-veri <- read.table(file = "data/iris.txt", header = T, sep = "\t")
+veri <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt", header = T, sep = "\t")
+```
+
+Bu iki yöntemi de kullanabilirsiniz.
+
+## Dosyayı inceleyelim
+
+Elimizdeki dosya aslında normal bir veri çerçevesi. Bütün veri çerçevesi işlemlerini yapabiliriz artık.
+
+Veri çerçevesindeki sütun isimleri:
+
+```{r}
+colnames(veri)
+```
+
+Veri çerçevesindeki satır ve sütun sayısı:
+
+```{r}
+dim(veri)
 ```
