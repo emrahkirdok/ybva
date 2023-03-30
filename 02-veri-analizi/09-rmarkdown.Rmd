@@ -19,6 +19,8 @@ install.packages("rmarkdown")
 
 Bu döküman kapsamında, Rmarkdown ile yazımın incelikleri gösterilecektir. Bu dosyanın ham haline aşağıdaki bağlantıdan ulaşarak kendi bilgisayarınıza indirebilirsiniz:
 
+[Bu sayfanın Rmarkdown hali](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/09-rmarkdown.Rmd)
+
 Bu iki dökümanı karşı karşıya inceleyerek, stil tiplerinin nasıl kullanıldığının farkına varınız.
 
 ## YAML üst bilgisi
