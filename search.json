@@ -497,11 +497,11 @@
     "text": "17.2 Soru 2: G+C oranı bulma\nBir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz.\n\\[\nGC = \\frac{G+C}{A+G+C+G}\n\\] Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiyonu yazınız."
   },
   {
-    "objectID": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-protein-ipliği",
-    "href": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-protein-ipliği",
+    "objectID": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-amino-asit-birincil-ipliği-oluşturma",
+    "href": "03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html#soru-3-amino-asit-birincil-ipliği-oluşturma",
     "title": "\n17  DNA ile çalışma\n",
-    "section": "\n17.3 Soru 3: Protein İpliği",
-    "text": "17.3 Soru 3: Protein İpliği\nŞu dosyaya sağ tıklayı farklı kaydete basınız.\nBu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız."
+    "section": "\n17.3 Soru 3: Amino asit birincil ipliği oluşturma",
+    "text": "17.3 Soru 3: Amino asit birincil ipliği oluşturma\nŞu dosyaya sağ tıklayı farklı kaydete basınız.\nBu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız."
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
