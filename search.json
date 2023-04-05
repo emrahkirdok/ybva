@@ -459,7 +459,7 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n14  Kontrol yapıları\n",
     "section": "\n14.4 Ödev",
-    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 19’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 20’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
@@ -546,18 +546,46 @@
     "text": "18.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
+    "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
+    "href": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
+    "title": "\n19  Pratik 2023-04-06\n",
+    "section": "\n19.1 Vektörler",
+    "text": "19.1 Vektörler\nBu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nTür vekktöründeki 5. elemanı geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nGaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
+    "href": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
+    "title": "\n19  Pratik 2023-04-06\n",
+    "section": "\n19.2 Matrisler",
+    "text": "19.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nOluşturduüunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
+    "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
+    "title": "\n19  Pratik 2023-04-06\n",
+    "section": "\n19.3 Veri çerçeveleri",
+    "text": "19.3 Veri çerçeveleri\nDökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi penguenler olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nOluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nSadece beşinci satırı geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nSadece ikinci sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nSadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nBu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nBu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nBu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)"
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
+    "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
+    "title": "\n19  Pratik 2023-04-06\n",
+    "section": "\n19.4 Veri okuma",
+    "text": "19.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)"
+  },
+  {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "19  DNA üzerinde işlemler",
-    "section": "\n19.1 Soru 1",
-    "text": "19.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "20  DNA üzerinde işlemler",
+    "section": "\n20.1 Soru 1",
+    "text": "20.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "19  DNA üzerinde işlemler",
-    "section": "\n19.2 Soru 2",
-    "text": "19.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "20  DNA üzerinde işlemler",
+    "section": "\n20.2 Soru 2",
+    "text": "20.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
