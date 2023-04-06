@@ -22,7 +22,7 @@ Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyon
 
 Bu tabloya göre aşağıdaki soruları cevaplayınız. 
 
-Elinizdeki dökümanın `Rmd` dosyası [şu bağlantıda]() bulunmaktadır. Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
+Elinizdeki dökümanın `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/02-pratik.Rmd) bulunmaktadır. Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
 
 ## Vektörler
 
