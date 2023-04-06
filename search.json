@@ -571,7 +571,7 @@
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
     "title": "\n20  Pratik 2023-04-06\n",
     "section": "\n20.2 Matrisler",
-    "text": "20.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduüunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
+    "text": "20.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
