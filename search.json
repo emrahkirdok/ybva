@@ -284,7 +284,7 @@
     "href": "02-veri-analizi/04-vektorler.html#ödev",
     "title": "8  Vektörler",
     "section": "\n8.7 Ödev",
-    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 18’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 19’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "02-veri-analizi/05-matrisler.html#matris-boyutları",
@@ -459,7 +459,7 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n14  Kontrol yapıları\n",
     "section": "\n14.4 Ödev",
-    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 20’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 21’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
@@ -504,95 +504,109 @@
     "text": "17.3 Soru 3: Amino asit birincil ipliği oluşturma\nŞu dosyaya sağ tıklayı farklı kaydete basınız.\nBu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız."
   },
   {
+    "objectID": "03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html#hamming-uzaklığı",
+    "href": "03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html#hamming-uzaklığı",
+    "title": "\n18  DNA dizi işlemleri - 3\n",
+    "section": "\n18.1 Hamming uzaklığı",
+    "text": "18.1 Hamming uzaklığı\nİki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji’de filogenetik analizler ya da mikrodizin teknolojisi (Mohammadi-Kambs vd. 2017) gibi farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında, DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de, DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.\nAşağıdaki iki farklı diziyi inceleyelim:\nA T G C T A T C\nA G G C T T A C\nAcaba kaç tane tek nükleotid farklılığı var? Sadece üç pozisyonda eşleşme yok.\nHamming uzaklığı, eşit uzunluğa sahip iki karakter vektörünün sembolleri arasında gözlenen toplam pozisyonel farklılıklardır.\nBu bilgiyi kullanarak aşağıdaki iki dizi arasındaki tek nükleotid farklılıklarını geri döndüren fonksiyonu yazınız. Fonksiyonun ismi hamming_uzakligi olsun. Bu fonksiyonu oluştururken for ve if-else yapılarını kullanınız.\n\ndizi1 <- c(\"G\", \"A\", \"G\", \"C\", \"C\", \"T\", \"A\", \"C\", \"T\", \"A\", \"A\", \"T\", \"G\", \"G\", \"G\", \"A\", \"T\")\n  \ndizi2 <- c(\"C\", \"A\", \"T\", \"C\", \"C\", \"T\", \"G\", \"C\", \"T\", \"G\", \"C\", \"C\", \"G\", \"G\", \"G\", \"G\", \"T\")\n\n\n\n\n\n\n\nİpucu\n\n\n\nİki farklı karakter birbirine eşit olmadığı sorgusunu yapmak için != (eşit değil mi?) yapısını kullanabilirsiniz. Eğer karakterler eşit değilse TRUE değeri geri döndürülecektir.\n\n\"A\" != \"T\"\n\n[1] TRUE\n\n\n\n\n\n\n\n\n\n\nNot\n\n\n\nBu fonksiyonu for ve if-else yapılarını kullanmadan da yazabilirsiniz. Ancak amacımız şu anda bu yapıların kullanımını öğrenmek olduğu için kendinizi biraz zorlayın."
+  },
+  {
+    "objectID": "03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html#gc-kayması",
+    "href": "03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html#gc-kayması",
+    "title": "\n18  DNA dizi işlemleri - 3\n",
+    "section": "\n18.2 GC kayması",
+    "text": "18.2 GC kayması\nNormalde, nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir (Lu 2020). Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA’nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur.\nBu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.\nGC kaymasını aşağıdaki formüle göre hesaplayabilriz:\n\\[\nGC = \\frac{G-C}{G+C}\n\\]\nBu formül uyarınca, aşağıdaki DNA dizisinin GC kayma değerini hesaplayan fonksiyonu yazınız. Fonksiyonun ismi GC_kaymasi olsun.\n\ndizi <- c(\"G\", \"A\", \"G\", \"C\", \"C\", \"T\", \"A\", \"C\", \"T\", \"A\", \"A\", \"T\", \"G\", \"G\", \"G\", \"A\", \"T\", \"C\", \"A\", \"T\", \"C\", \"C\", \"T\", \"G\", \"C\", \"T\", \"G\", \"C\", \"C\", \"G\", \"G\", \"G\", \"G\", \"T\")\n\n\n\n\n\n\n\nİpucu\n\n\n\nÖnceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.\n\n\n\n\n\n\nLu, Steven L., Jennifer AND Salzberg. 2020. “SkewIT: The Skew Index Test for large-scale GC Skew analysis of bacterial genomes”. PLOS Computational Biology 16 (12): 1-16. https://doi.org/10.1371/journal.pcbi.1008439.\n\n\nMohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, ve Albrecht Ott. 2017. “Hamming Distance as a Concept in DNA Molecular Recognition”. ACS Omega 2 (4): 1302-8. https://doi.org/10.1021/acsomega.7b00053."
+  },
+  {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
-    "title": "18  Vektörler Ödevi",
-    "section": "\n18.1 Soru 1",
-    "text": "18.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+    "title": "19  Vektörler Ödevi",
+    "section": "\n19.1 Soru 1",
+    "text": "19.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
-    "title": "18  Vektörler Ödevi",
-    "section": "\n18.2 Soru 2",
-    "text": "18.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "19  Vektörler Ödevi",
+    "section": "\n19.2 Soru 2",
+    "text": "19.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
-    "title": "18  Vektörler Ödevi",
-    "section": "\n18.3 Soru 3",
-    "text": "18.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "19  Vektörler Ödevi",
+    "section": "\n19.3 Soru 3",
+    "text": "19.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
-    "title": "18  Vektörler Ödevi",
-    "section": "\n18.4 Soru 4",
-    "text": "18.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "19  Vektörler Ödevi",
+    "section": "\n19.4 Soru 4",
+    "text": "19.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
-    "title": "18  Vektörler Ödevi",
-    "section": "\n18.5 Soru 5",
-    "text": "18.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "19  Vektörler Ödevi",
+    "section": "\n19.5 Soru 5",
+    "text": "19.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
-    "title": "18  Vektörler Ödevi",
-    "section": "\n18.6 Soru 6",
-    "text": "18.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "19  Vektörler Ödevi",
+    "section": "\n19.6 Soru 6",
+    "text": "19.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
-    "title": "\n19  Pratik 2023-04-06\n",
-    "section": "\n19.1 Vektörler",
-    "text": "19.1 Vektörler\nBu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nTür vekktöründeki 5. elemanı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nGaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
+    "title": "\n20  Pratik 2023-04-06\n",
+    "section": "\n20.1 Vektörler",
+    "text": "20.1 Vektörler\nBu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nTür vekktöründeki 5. elemanı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nGaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
-    "title": "\n19  Pratik 2023-04-06\n",
-    "section": "\n19.2 Matrisler",
-    "text": "19.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduüunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
+    "title": "\n20  Pratik 2023-04-06\n",
+    "section": "\n20.2 Matrisler",
+    "text": "20.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduüunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
-    "title": "\n19  Pratik 2023-04-06\n",
-    "section": "\n19.3 Veri çerçeveleri",
-    "text": "19.3 Veri çerçeveleri\nDökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi penguenler olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece beşinci satırı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece ikinci sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
+    "title": "\n20  Pratik 2023-04-06\n",
+    "section": "\n20.3 Veri çerçeveleri",
+    "text": "20.3 Veri çerçeveleri\nDökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi penguenler olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece beşinci satırı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece ikinci sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
-    "title": "\n19  Pratik 2023-04-06\n",
-    "section": "\n19.4 Veri okuma",
-    "text": "19.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nDosyayı okurken aşağıdaki noktalara dikkat ediniz:\n\nAyraç karakteri olarak ; kullanılmıştır\nİlk satır, sütun isimleri olarak tanımlanmıştır\n\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
+    "title": "\n20  Pratik 2023-04-06\n",
+    "section": "\n20.4 Veri okuma",
+    "text": "20.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nDosyayı okurken aşağıdaki noktalara dikkat ediniz:\n\nAyraç karakteri olarak ; kullanılmıştır\nİlk satır, sütun isimleri olarak tanımlanmıştır\n\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "20  DNA üzerinde işlemler",
-    "section": "\n20.1 Soru 1",
-    "text": "20.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "21  DNA üzerinde işlemler",
+    "section": "\n21.1 Soru 1",
+    "text": "21.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "20  DNA üzerinde işlemler",
-    "section": "\n20.2 Soru 2",
-    "text": "20.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "21  DNA üzerinde işlemler",
+    "section": "\n21.2 Soru 2",
+    "text": "21.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
     "href": "references.html",
     "title": "Kaynakça",
     "section": "",
-    "text": "Knapp, Michael, and Michael Hofreiter. 2010. “Next\nGeneration Sequencing of Ancient\nDNA: Requirements, Strategies and\nPerspectives.” Genes 1 (2): 227–43. https://doi.org/10.3390/genes1020227.\n\n\nPopper, Karl R. 1984. Bilimsel Araştırmanın\nMantığı. 8th ed. Yapı Kredi Yayınları."
+    "text": "Knapp, Michael, and Michael Hofreiter. 2010. “Next\nGeneration Sequencing of Ancient\nDNA: Requirements, Strategies and\nPerspectives.” Genes 1 (2): 227–43. https://doi.org/10.3390/genes1020227.\n\n\nLu, Steven L., Jennifer AND Salzberg. 2020. “SkewIT: The Skew\nIndex Test for Large-Scale GC Skew Analysis of Bacterial\nGenomes.” PLOS Computational Biology 16 (12): 1–16. https://doi.org/10.1371/journal.pcbi.1008439.\n\n\nMohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, and Albrecht Ott.\n2017. “Hamming Distance as a Concept in DNA Molecular\nRecognition.” ACS Omega 2 (4): 1302–8. https://doi.org/10.1021/acsomega.7b00053.\n\n\nPopper, Karl R. 1984. Bilimsel Araştırmanın\nMantığı. 8th ed. Yapı Kredi Yayınları."
   },
   {
     "objectID": "10-ekler/01-sunumlar.html#veri-analizi",
