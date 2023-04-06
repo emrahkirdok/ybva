@@ -27,35 +27,35 @@ Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vek
 + `cinsiyet`
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Gaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
@@ -67,7 +67,7 @@ Kanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir mat
 Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
@@ -96,56 +96,56 @@ Dökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde edin
 + `cinsiyet`
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Oluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Sadece beşinci satırı geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Sadece ikinci sütunu geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Sadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Bu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Bu veri çerçevesinde gaga uzunluğu 50'den büyük olan satırları geri döndürünüz:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Bu veri çerçevesinde kanat uzunluğu 150'den büyük olan satırları geri döndürünüz:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
@@ -153,17 +153,22 @@ Bu veri çerçevesinde kanat uzunluğu 150'den büyük olan satırları geri dö
 
 [Şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv) verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).
 
+Dosyayı okurken aşağıdaki noktalara dikkat ediniz:
+
++ Ayraç karakteri olarak `;` kullanılmıştır
++ İlk satır, sütun isimleri olarak tanımlanmıştır
+
 Okuduğunuz verinin ismi `sinav` olsun:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
 Okuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
-# kodlarınızı aşağıda yazınız (# işaretini kullanmadan)
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
