@@ -1,0 +1,181 @@
+---
+title: "Pratik 2023-04-06"
+author: ""
+date: ""
+output: html_document
+---
+
+Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
+
+|   Tür      | Gaga Uzunluğu (mm)  |  Kanat Uzunluğu (mm)   |   Cinsiyet  |
+|------------|---------------------|------------------------|-------------|
+| Chinstrap  |        49           |        212             |     erkek   |
+| Adelie     |        35.3         |        187             |     dişi    |  
+| Adelie     |        40.6         |        183             |     erkek   |  
+| Chinstrap  |        52           |        201             |     erkek   |  
+| Adelie     |        39           |        191             |     dişi    |
+| Chinstrap  |        51.7         |        194             |     erkek   |  
+| Adelie     |        38.9         |        190             |     dişi    |
+| Gentoo     |        50.5         |        216             |     dişi    |
+| Gentoo     |        47.8         |        215             |     erkek   |   
+| Gentoo     |        41.7         |        210             |     dişi    |
+
+Bu tabloya göre aşağıdaki soruları cevaplayınız. 
+
+Elinizdeki dökümanın `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/02-pratik.Rmd) bulunmaktadır. Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
+
+## Vektörler
+
+Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.
+
++ `tur`
++ `gaga_uzunlugu`
++ `kanat_uzunlugu`
++ `cinsiyet`
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Gaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+
+## Matrisler
+
+Kanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi `ornek_matris` olsun:
+
+Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Oluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.
+
+Sütun isimleri:
+
++ A
++ B
+
+Satır isimleri:
+
++ X
++ Y
++ Z
++ T
++ U
+
+## Veri çerçeveleri
+
+Dökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi `penguenler` olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:
+
++ `tur`
++ `gaga_uzunlugu`
++ `kanat_uzunlugu`
++ `cinsiyet`
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Oluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Sadece beşinci satırı geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Sadece ikinci sütunu geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Sadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Bu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Bu veri çerçevesinde gaga uzunluğu 50'den büyük olan satırları geri döndürünüz:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Bu veri çerçevesinde kanat uzunluğu 150'den büyük olan satırları geri döndürünüz:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+## Veri okuma
+
+[Şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv) verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).
+
+Dosyayı okurken aşağıdaki noktalara dikkat ediniz:
+
++ Ayraç karakteri olarak `;` kullanılmıştır
++ İlk satır, sütun isimleri olarak tanımlanmıştır
+
+Okuduğunuz verinin ismi `sinav` olsun:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
+Okuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodlarınızı asagiya yazınız (# isaretini kullanmadan)
+
+```
+
