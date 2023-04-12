@@ -78,7 +78,8 @@ Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük ol
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+ornek_matris <- matrix(kanat_uzunlugu, nrow=5, ncol=2)
+ornek_matris[ornek_matris > 192]
 ```
 
 Oluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.
@@ -95,6 +96,12 @@ Satır isimleri:
 + Z
 + T
 + U
+
+```{r}
+rownames(ornek_matris) <- c("X", "Y", "Z", "T", "U")
+colnames(ornek_matris) <- c("A", "B")
+ornek_matris
+```
 
 ## Veri çerçeveleri
 
