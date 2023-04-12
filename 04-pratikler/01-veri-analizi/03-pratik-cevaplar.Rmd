@@ -182,13 +182,13 @@ Okuduğunuz verinin ismi `sinav` olsun:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+sinav <- read.table(file = "sinav.csv", header = T, sep = ";")
 ```
 
 Okuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+dim(sinav)
 ```
 
