@@ -35,35 +35,38 @@ Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vek
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+tur <- c("chinstrap", "adelie","adelie", "chinstrap", "adelie", "chinstrap", "adelie", "gentoo", "gentoo", "gentoo")
+gaga_uzunlugu <- c(49, 35.3, 40.6, 52, 39, 51.7, 38.9, 50.5, 47.8, 41.7)
+kanat_uzunlugu <- c(212, 187, 183, 201, 191, 194, 190, 216, 215, 210)
+cinsiyet <- c("erkek", "disi", "erkek", "erkek", "disi", "erkek", "disi", "disi", "erkek", "disi")
 ```
 
 Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+tur[5]
 ```
 
 Gaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+gaga_uzunlugu[gaga_uzunlugu > 50]
 ```
 
 Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+kanat_uzunlugu[kanat_uzunlugu > 192]
 ```
 
 Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+tur[kanat_uzunlugu > 192]
 ```
 
 
