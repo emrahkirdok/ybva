@@ -114,56 +114,59 @@ Dökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde edin
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler <- data.frame(tur = c("chinstrap", "adelie","adelie", "chinstrap", "adelie", "chinstrap", "adelie", "gentoo", "gentoo", "gentoo"),
+                         gaga_uzunlugu = c(49, 35.3, 40.6, 52, 39, 51.7, 38.9, 50.5, 47.8, 41.7),
+                         kanat_uzunlugu = c(212, 187, 183, 201, 191, 194, 190, 216, 215, 210),
+                         cinsiyet = c("erkek", "disi", "erkek", "erkek", "disi", "erkek", "disi", "disi", "erkek", "disi"))
 ```
 
 Oluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+dim(penguenler)
 ```
 
 Sadece beşinci satırı geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler[5,]
 ```
 
 Sadece ikinci sütunu geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler[,2]
 ```
 
 Sadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler$tur
 ```
 
 Bu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler[2:4,]
 ```
 
 Bu veri çerçevesinde gaga uzunluğu 50'den büyük olan satırları geri döndürünüz:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler[penguenler$gaga_uzunlugu > 50, ]
 ```
 
 Bu veri çerçevesinde kanat uzunluğu 150'den büyük olan satırları geri döndürünüz:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-
+penguenler[penguenler$kanat_uzunlugu > 150, ]
 ```
 
 ## Veri okuma
