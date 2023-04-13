@@ -168,9 +168,10 @@ translasyon <- function(dna, kodon){
 Fonksiyonu tekrar çalıştıralım:
 
 ```{r}
-fasta <- read.fasta(file = "example.fna", forceDNAtolower = FALSE)
 
-kodon <- read.table(file = "codon.txt", sep = "\t", header = TRUE)
+fasta <- read.fasta(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna", forceDNAtolower = FALSE)
+
+kodon <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt", sep = "\t", header = TRUE)
 
 translasyon(dna = fasta[[2]], kodon = kodon)
 ```
