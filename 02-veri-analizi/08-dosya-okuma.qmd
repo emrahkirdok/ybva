@@ -1,4 +1,4 @@
-# Dosya okuma
+# Dosya okuma {#sec-dosya-okuma}
 
 Şu ana kadar kendi verimizi R üzerinde oluşturduk. Ancak genel bir veri analizi sürecinde, hazır bir veriyi R içerisine aktarıyoruz.
 

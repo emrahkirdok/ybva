@@ -1,0 +1,183 @@
+# Translasyon fonksiyonu anlatımı
+
+Bu dersteki amacımız, bir DNA ipliğini, amino asit dizisine çevirmek olacak. Bunun için `codon.txt` isimli kodon tablosunu ve, `example.fna` içinde bulunan birinci DNA dizisini kullanacağız.
+
+DNA dizisini okumak için, `seqinr` paketini kullanacağız. Eğer bu paketi daha önce kurmadıysanız, konsola `install.packages("seqinr")` yazmalınız.
+
+Paket kurduysanız, öncelikle çalışma alanımıza yükleyelim:
+
+```{r}
+library(seqinr)
+```
+
+## Ön bilgileri yükleyelim
+
+Burada internet sitesinin `github` sayfasında bulunan dosyalar, internet üzerinden yüklenmektedir. Dosyaları bu şekilde de yükleyebilirsiniz. Ayrıntılı bilgi için: {@sec-dosya-okuma}
+
+Şimdi DNA dizisini yükleyelim:
+
+```{r}
+fasta <- read.fasta(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna", forceDNAtolower = FALSE)
+```
+
+Bir sonraki adımda, kodon dosyamızı yükleyelim:
+
+```{r}
+kodon <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt", sep = "\t", header = TRUE)
+```
+
+## Bir kodonu nasıl seçebiliriz?
+
+Önce örnek bir DNA verisi oluşturalım:
+
+```{r}
+ornek <- c("A", "T", "G", "A", "C" , "G", "A", "T", "T", "T", "G", "A")
+```
+
+Birinci kodon:
+
+```{r}
+ornek[1:3]
+```
+
+İkinci kodon:
+
+```{r}
+ornek[4:6]
+```
+
+Şimdi başlangıç pozisyonlarını oluşturalım:
+
+```{r}
+baslangic <- seq(1,(length(ornek)-2), 3)
+```
+
+Şimdi kodonları tek tek seçelim:
+
+```{r}
+for (i in baslangic){
+  secilen_kodon <- ornek[i:(i+2)]
+  cat("Secilen kodon: ", secilen_kodon, "\n")
+}
+```
+
+Ancak geri döndürdüğümüz `secilen_kodon` değeri aslında bir vektör. Kodon tablosunda arama yapmak için, bunu vektöre çevirmeliyiz. Bir örnek:
+
+```{r}
+paste(ornek[4:6], collapse="")
+```
+Şimdi bunu da `for` döngümüze ekleyelim:
+
+```{r}
+for (i in baslangic){
+  secilen_kodon <- ornek[i:(i+2)]
+  secilen_kodon <- paste(secilen_kodon, collapse = "")
+  cat("Secilen kodon: ", secilen_kodon, "\n")
+}
+```
+
+Artık, `kodon` veri setinde bulunan kodon listesi içerisinde arama yapabiliriz. Şimdi seçtiğimiz kodona uygun amino asiti geri döndürelim:
+
+```{r}
+for (i in baslangic){
+  secilen_kodon <- ornek[i:(i+2)]
+  secilen_kodon <- paste(secilen_kodon, collapse = "")
+  aa <- kodon[kodon$Codon == secilen_kodon, 2]
+  
+  cat("Secilen kodon:", secilen_kodon, "kodona karsilik gelen amino asit:", aa, "\n")
+}
+```
+Peki amino asit ipliğini nasıl oluşturabilriz?
+
+```{r}
+aa_ipligi <- c()
+
+for (i in baslangic){
+  secilen_kodon <- ornek[i:(i+2)]
+  secilen_kodon <- paste(secilen_kodon, collapse = "")
+  aa <- kodon[kodon$Codon == secilen_kodon, 2]
+  aa_ipligi <- c(aa_ipligi, aa)
+  cat("Secilen kodon:", secilen_kodon, "kodona karsilik gelen amino asit:", aa, "\n")
+}
+cat(aa_ipligi)
+```
+
+## Bunu bir fonksiyona dönüştürelim
+
+```{r}
+translasyon <- function(ornek, kodon){
+  aa_ipligi <- c()
+  baslangic <- seq(1,(length(ornek)-2), 3)
+  
+  for (i in baslangic){
+    secilen_kodon <- ornek[i:(i+2)]
+    secilen_kodon <- paste(secilen_kodon, collapse = "")
+    aa <- kodon[kodon$Codon == secilen_kodon, 2]
+    aa_ipligi <- c(aa_ipligi, aa)
+    cat("Secilen kodon:", secilen_kodon, "kodona karsilik gelen amino asit:", aa, "\n")
+  }
+  return(aa_ipligi)
+}
+```
+
+
+Şimdi bu fonksiyonu kullanalım:
+
+```{r}
+translasyon(ornek = ornek, kodon = kodon)
+```
+Derste kullandığımız DNA dizilerini kullanalım:
+
+```{r}
+translasyon(ornek = fasta[[1]], kodon = kodon)
+```
+
+## Fonksiyonu biraz daha güzelleştirelim
+
+Genel olarak kodlama yaparken şu noktalara dikkat edelim:
+
++ Değişken isimleri anlaşılır olmalı
++ Kodlara açıklama ekleyelim
+
+```{r}
+translasyon <- function(dna, kodon){
+  # oncelikle bos bir amino asit iplik vektoru olusturalim
+  aa_ipligi <- c()
+  
+  # kodon baslangic pozisyonlarini belirleylim
+  baslangic <- seq(1,(length(dna)-2), 3)
+  
+  # her baslangic pozisyonunu tek tek alalim
+  for (i in baslangic){
+    # o baslangic pozisyonuna gore kodon secelim
+    secilen_kodon <- dna[i:(i+2)]
+    # kodon vektorunu metine donusturelim
+    secilen_kodon <- paste(secilen_kodon, collapse = "")
+    # o kodona karsilik gelen amino asidi alalım
+    aa <- kodon[kodon$Codon == secilen_kodon, 2]
+    # bu amino asidi, amino asit iplik vektorune ekleyelim
+    aa_ipligi <- c(aa_ipligi, aa)
+    # her adimi yazalim
+    #cat("Secilen kodon:", secilen_kodon, "kodona karsilik gelen amino asit:", aa, "\n")
+  }
+  # amino asit ipligini geri dondurelim
+  return(aa_ipligi)
+}
+```
+
+Fonksiyonu tekrar çalıştıralım:
+
+```{r}
+fasta <- read.fasta(file = "example.fna", forceDNAtolower = FALSE)
+
+kodon <- read.table(file = "codon.txt", sep = "\t", header = TRUE)
+
+translasyon(dna = fasta[[2]], kodon = kodon)
+```
+
+
+
+
+
+
+

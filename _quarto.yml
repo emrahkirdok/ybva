@@ -64,6 +64,7 @@ book:
         - 03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.qmd
         - 03-bilgisayarli-dusunme/04-dna-dizi-islemleri.qmd
         - 03-bilgisayarli-dusunme/05-dna-dizi-islemleri.qmd
+        - 03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.qmd
 #        - metin_asamali_azalis.Rmd
 #        - metin_amphiBIO_calisma.Rmd
     
