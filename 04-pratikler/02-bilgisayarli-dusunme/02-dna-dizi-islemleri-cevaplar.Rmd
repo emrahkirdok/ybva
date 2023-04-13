@@ -1,11 +1,11 @@
 ---
-title: "Pratik 2023-04-06"
+title: ""
 author: ""
 date: ""
 output: html_document
 ---
 
-# DNA dizi işlemleri - 3
+# DNA dizi işlemleri
 
 ## Hamming uzaklığı
 
