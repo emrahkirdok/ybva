@@ -63,19 +63,14 @@ hamming_uzakligi_2(dizi1 = dizi1, dizi2 = dizi2)
 
 ```
 
-::: {.callout-tip}
 # İpucu
 İki farklı karakter birbirine eşit olmadığı sorgusunu yapmak için `!=` (eşit değil mi?) yapısını kullanabilirsiniz. Eğer karakterler eşit değilse `TRUE` değeri geri döndürülecektir. 
 ```{r}
 "A" != "T"
 ```
-:::
-
-::: {.callout-note}
 ## Not
 https://github.com/kursatozer/ybva.git
 Bu fonksiyonu `for` ve `if-else` yapılarını kullanmadan da yazabilirsiniz. Ancak amacımız şu anda bu yapıların kullanımını öğrenmek olduğu için kendinizi biraz zorlayın.
-:::
 
 ## GC kayması
 
@@ -95,10 +90,8 @@ Bu formül uyarınca, aşağıdaki DNA dizisinin GC kayma değerini hesaplayan f
 dizi <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", "G", "A", "T", "C", "A", "T", "C", "C", "T", "G", "C", "T", "G", "C", "C", "G", "G", "G", "G", "T")
 ``` 
 
-::: {.callout-tip}
 # İpucu
 Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.
-:::
 
 ```{r}
 GC_kaymasi <- function(dizi){
