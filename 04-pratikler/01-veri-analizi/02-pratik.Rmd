@@ -5,6 +5,10 @@ date: ""
 output: html_document
 ---
 
+Bu pratiğin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:
+
+[Pratik 2023-04-06 pratiği cevapları](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/03-pratik-cevaplar.Rmd)
+
 Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
 
 |   Tür      | Gaga Uzunluğu (mm)  |  Kanat Uzunluğu (mm)   |   Cinsiyet  |

@@ -41,7 +41,7 @@ kanat_uzunlugu <- c(212, 187, 183, 201, 191, 194, 190, 216, 215, 210)
 cinsiyet <- c("erkek", "disi", "erkek", "erkek", "disi", "erkek", "disi", "disi", "erkek", "disi")
 ```
 
-Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:
+Tür vektöründeki 5. elemanı geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
