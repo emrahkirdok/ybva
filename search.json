@@ -284,7 +284,7 @@
     "href": "02-veri-analizi/04-vektorler.html#ödev",
     "title": "8  Vektörler",
     "section": "\n8.7 Ödev",
-    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 19’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "8.7 Ödev\nBu derste öğrendiklerimizi pekiştirmek için Bölüm 20’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "02-veri-analizi/05-matrisler.html#matris-boyutları",
@@ -352,14 +352,14 @@
   {
     "objectID": "02-veri-analizi/08-dosya-okuma.html#bilgisayarımızdaki-dosyayı-okuma",
     "href": "02-veri-analizi/08-dosya-okuma.html#bilgisayarımızdaki-dosyayı-okuma",
-    "title": "\n12  Dosya okuma\n",
+    "title": "12  Dosya okuma",
     "section": "\n12.1 Bilgisayarımızdaki dosyayı okuma",
     "text": "12.1 Bilgisayarımızdaki dosyayı okuma\nBilgisayarımızdaki dosyayı okumak için read.table fonksiyonunu kullanıyoruz.\n\nveri <- read.table(file = \"data/iris.txt\", header = T, sep = \"\\t\")\n\nBurada dikkat ederseniz bazı opsiyonlar var. Gelin onlara bakalım:\n\n\nfile opsiyonu bize o dosyayı okuyacağımız yolu gösterir.\n\nheader opsiyonu ise, ilk satırın başlık satırı olduğunu gösterir\n\nsep ise, dosyada kullanılan ayraç karakterini belirtir. Bizim dosyamızda \\t karakteri (tab)\n\n\n\n\n\n\n\nDosya okuma hataları\n\n\n\nBu derste en çok zorlandığımız konu dosya okumak. Bir dosyayı okumak istiyorsanız, o dosyanın yolunu belirtmeniz gerek. Bunu iki farklı şekilde yapabilirsiniz:\n\nTam yol: O dosyanın tam okuma yolunu gösterirsiniz C:/Users/User/Documents/Veri-Analizi/veri.txt gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz\nGöreceli yol: Bir R projesi kullandığınızda, dosyalarınız o proje içerisine yüklerseniz, tam yolu göstermeden kullanabilirsiniz.\n\n\n\nBunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek için konsola ?read.table() yazınız."
   },
   {
     "objectID": "02-veri-analizi/08-dosya-okuma.html#internet-üzerinden-okuma",
     "href": "02-veri-analizi/08-dosya-okuma.html#internet-üzerinden-okuma",
-    "title": "\n12  Dosya okuma\n",
+    "title": "12  Dosya okuma",
     "section": "\n12.2 İnternet üzerinden okuma",
     "text": "12.2 İnternet üzerinden okuma\nEğer dosyanın tam internet adresini biliyorsak, onu da doğrudan okuyabiliriz. Aynı komutu yazacağız, ancak bu sefer file opsiyonuna, o dosyanın internet adresini girmeliyiz:\n\nveri <- read.table(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt\", header = T, sep = \"\\t\")\n\nBu iki yöntemi de kullanabilirsiniz.\n## Dosyayı inceleyelim\nElimizdeki dosya aslında normal bir veri çerçevesi. Bütün veri çerçevesi işlemlerini yapabiliriz artık.\nVeri çerçevesindeki sütun isimleri:\n\ncolnames(veri)\n\n[1] \"Sepal_Uzunlugu\"  \"Sepal_Genisligi\" \"Petal_Uzunlugu\"  \"Petal_Genisligi\"\n[5] \"Tur\"            \n\n\nVeri çerçevesindeki satır ve sütun sayısı:\n\ndim(veri)\n\n[1] 50  5\n\n\n## Farklı dosyalara bakalım\nŞimdi gelin farklı verilerin biçimlerini inceleyelim:\n\nSRA veri tabanı istatistikleri\n[]"
   },
@@ -459,7 +459,7 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n14  Kontrol yapıları\n",
     "section": "\n14.4 Ödev",
-    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 21’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 22’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
@@ -518,88 +518,116 @@
     "text": "18.2 GC kayması\nNormalde, nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir (Lu 2020). Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA’nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur.\nBu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.\nGC kaymasını aşağıdaki formüle göre hesaplayabilriz:\n\\[\nGC = \\frac{G-C}{G+C}\n\\]\nBu formül uyarınca, aşağıdaki DNA dizisinin GC kayma değerini hesaplayan fonksiyonu yazınız. Fonksiyonun ismi GC_kaymasi olsun.\n\ndizi <- c(\"G\", \"A\", \"G\", \"C\", \"C\", \"T\", \"A\", \"C\", \"T\", \"A\", \"A\", \"T\", \"G\", \"G\", \"G\", \"A\", \"T\", \"C\", \"A\", \"T\", \"C\", \"C\", \"T\", \"G\", \"C\", \"T\", \"G\", \"C\", \"C\", \"G\", \"G\", \"G\", \"G\", \"T\")\n\n\n\n\n\n\n\nİpucu\n\n\n\nÖnceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.\n\n\n\n\n\n\nLu, Steven L., Jennifer AND Salzberg. 2020. “SkewIT: The Skew Index Test for large-scale GC Skew analysis of bacterial genomes”. PLOS Computational Biology 16 (12): 1-16. https://doi.org/10.1371/journal.pcbi.1008439.\n\n\nMohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, ve Albrecht Ott. 2017. “Hamming Distance as a Concept in DNA Molecular Recognition”. ACS Omega 2 (4): 1302-8. https://doi.org/10.1021/acsomega.7b00053."
   },
   {
+    "objectID": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#ön-bilgileri-yükleyelim",
+    "href": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#ön-bilgileri-yükleyelim",
+    "title": "\n19  Translasyon fonksiyonu anlatımı\n",
+    "section": "\n19.1 Ön bilgileri yükleyelim",
+    "text": "19.1 Ön bilgileri yükleyelim\nBurada internet sitesinin github sayfasında bulunan dosyalar, internet üzerinden yüklenmektedir. Dosyaları bu şekilde de yükleyebilirsiniz. Ayrıntılı bilgi için: {Bölüm 12}\nŞimdi DNA dizisini yükleyelim:\n\nfasta <- read.fasta(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna\", forceDNAtolower = FALSE)\n\nBir sonraki adımda, kodon dosyamızı yükleyelim:\n\nkodon <- read.table(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt\", sep = \"\\t\", header = TRUE)"
+  },
+  {
+    "objectID": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#bir-kodonu-nasıl-seçebiliriz",
+    "href": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#bir-kodonu-nasıl-seçebiliriz",
+    "title": "\n19  Translasyon fonksiyonu anlatımı\n",
+    "section": "\n19.2 Bir kodonu nasıl seçebiliriz?",
+    "text": "19.2 Bir kodonu nasıl seçebiliriz?\nÖnce örnek bir DNA verisi oluşturalım:\n\nornek <- c(\"A\", \"T\", \"G\", \"A\", \"C\" , \"G\", \"A\", \"T\", \"T\", \"T\", \"G\", \"A\")\n\nBirinci kodon:\n\nornek[1:3]\n\n[1] \"A\" \"T\" \"G\"\n\n\nİkinci kodon:\n\nornek[4:6]\n\n[1] \"A\" \"C\" \"G\"\n\n\nŞimdi başlangıç pozisyonlarını oluşturalım:\n\nbaslangic <- seq(1,(length(ornek)-2), 3)\n\nŞimdi kodonları tek tek seçelim:\n\nfor (i in baslangic){\n  secilen_kodon <- ornek[i:(i+2)]\n  cat(\"Secilen kodon: \", secilen_kodon, \"\\n\")\n}\n\nSecilen kodon:  A T G \nSecilen kodon:  A C G \nSecilen kodon:  A T T \nSecilen kodon:  T G A \n\n\nAncak geri döndürdüğümüz secilen_kodon değeri aslında bir vektör. Kodon tablosunda arama yapmak için, bunu vektöre çevirmeliyiz. Bir örnek:\n\npaste(ornek[4:6], collapse=\"\")\n\n[1] \"ACG\"\n\n\nŞimdi bunu da for döngümüze ekleyelim:\n\nfor (i in baslangic){\n  secilen_kodon <- ornek[i:(i+2)]\n  secilen_kodon <- paste(secilen_kodon, collapse = \"\")\n  cat(\"Secilen kodon: \", secilen_kodon, \"\\n\")\n}\n\nSecilen kodon:  ATG \nSecilen kodon:  ACG \nSecilen kodon:  ATT \nSecilen kodon:  TGA \n\n\nArtık, kodon veri setinde bulunan kodon listesi içerisinde arama yapabiliriz. Şimdi seçtiğimiz kodona uygun amino asiti geri döndürelim:\n\nfor (i in baslangic){\n  secilen_kodon <- ornek[i:(i+2)]\n  secilen_kodon <- paste(secilen_kodon, collapse = \"\")\n  aa <- kodon[kodon$Codon == secilen_kodon, 2]\n  \n  cat(\"Secilen kodon:\", secilen_kodon, \"kodona karsilik gelen amino asit:\", aa, \"\\n\")\n}\n\nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: ACG kodona karsilik gelen amino asit: Thr \nSecilen kodon: ATT kodona karsilik gelen amino asit: Ile \nSecilen kodon: TGA kodona karsilik gelen amino asit: Stp \n\n\nPeki amino asit ipliğini nasıl oluşturabilriz?\n\naa_ipligi <- c()\n\nfor (i in baslangic){\n  secilen_kodon <- ornek[i:(i+2)]\n  secilen_kodon <- paste(secilen_kodon, collapse = \"\")\n  aa <- kodon[kodon$Codon == secilen_kodon, 2]\n  aa_ipligi <- c(aa_ipligi, aa)\n  cat(\"Secilen kodon:\", secilen_kodon, \"kodona karsilik gelen amino asit:\", aa, \"\\n\")\n}\n\nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: ACG kodona karsilik gelen amino asit: Thr \nSecilen kodon: ATT kodona karsilik gelen amino asit: Ile \nSecilen kodon: TGA kodona karsilik gelen amino asit: Stp \n\ncat(aa_ipligi)\n\nMet Thr Ile Stp"
+  },
+  {
+    "objectID": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#bunu-bir-fonksiyona-dönüştürelim",
+    "href": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#bunu-bir-fonksiyona-dönüştürelim",
+    "title": "\n19  Translasyon fonksiyonu anlatımı\n",
+    "section": "\n19.3 Bunu bir fonksiyona dönüştürelim",
+    "text": "19.3 Bunu bir fonksiyona dönüştürelim\n\ntranslasyon <- function(ornek, kodon){\n  aa_ipligi <- c()\n  baslangic <- seq(1,(length(ornek)-2), 3)\n  \n  for (i in baslangic){\n    secilen_kodon <- ornek[i:(i+2)]\n    secilen_kodon <- paste(secilen_kodon, collapse = \"\")\n    aa <- kodon[kodon$Codon == secilen_kodon, 2]\n    aa_ipligi <- c(aa_ipligi, aa)\n    cat(\"Secilen kodon:\", secilen_kodon, \"kodona karsilik gelen amino asit:\", aa, \"\\n\")\n  }\n  return(aa_ipligi)\n}\n\nŞimdi bu fonksiyonu kullanalım:\n\ntranslasyon(ornek = ornek, kodon = kodon)\n\nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: ACG kodona karsilik gelen amino asit: Thr \nSecilen kodon: ATT kodona karsilik gelen amino asit: Ile \nSecilen kodon: TGA kodona karsilik gelen amino asit: Stp \n\n\n[1] \"Met\" \"Thr\" \"Ile\" \"Stp\"\n\n\nDerste kullandığımız DNA dizilerini kullanalım:\n\ntranslasyon(ornek = fasta[[1]], kodon = kodon)\n\nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: AGT kodona karsilik gelen amino asit: Ser \nSecilen kodon: CTC kodona karsilik gelen amino asit: Leu \nSecilen kodon: TCT kodona karsilik gelen amino asit: Ser \nSecilen kodon: GAT kodona karsilik gelen amino asit: Asp \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: GTG kodona karsilik gelen amino asit: Val \nSecilen kodon: AAA kodona karsilik gelen amino asit: Lys \nSecilen kodon: GCC kodona karsilik gelen amino asit: Ala \nSecilen kodon: CTA kodona karsilik gelen amino asit: Leu \nSecilen kodon: TGG kodona karsilik gelen amino asit: Trp \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: ATC kodona karsilik gelen amino asit: Ile \nSecilen kodon: AGC kodona karsilik gelen amino asit: Ser \nSecilen kodon: CCC kodona karsilik gelen amino asit: Pro \nSecilen kodon: AAA kodona karsilik gelen amino asit: Lys \nSecilen kodon: GCC kodona karsilik gelen amino asit: Ala \nSecilen kodon: GAT kodona karsilik gelen amino asit: Asp \nSecilen kodon: GAT kodona karsilik gelen amino asit: Asp \nSecilen kodon: ATC kodona karsilik gelen amino asit: Ile \nSecilen kodon: GGC kodona karsilik gelen amino asit: Gly \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: GAA kodona karsilik gelen amino asit: Glu \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: CTC kodona karsilik gelen amino asit: Leu \nSecilen kodon: GGC kodona karsilik gelen amino asit: Gly \nSecilen kodon: AGA kodona karsilik gelen amino asit: Arg \nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: CTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: ACC kodona karsilik gelen amino asit: Thr \nSecilen kodon: GTC kodona karsilik gelen amino asit: Val \nSecilen kodon: TAC kodona karsilik gelen amino asit: Tyr \nSecilen kodon: CCT kodona karsilik gelen amino asit: Pro \nSecilen kodon: CAG kodona karsilik gelen amino asit: Gln \nSecilen kodon: ACC kodona karsilik gelen amino asit: Thr \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: ACC kodona karsilik gelen amino asit: Thr \nSecilen kodon: TAC kodona karsilik gelen amino asit: Tyr \nSecilen kodon: TTC kodona karsilik gelen amino asit: Phe \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: CAC kodona karsilik gelen amino asit: His \nSecilen kodon: TGG kodona karsilik gelen amino asit: Trp \nSecilen kodon: GAT kodona karsilik gelen amino asit: Asp \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: CTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: AGC kodona karsilik gelen amino asit: Ser \nSecilen kodon: CCT kodona karsilik gelen amino asit: Pro \nSecilen kodon: GGG kodona karsilik gelen amino asit: Gly \nSecilen kodon: TCC kodona karsilik gelen amino asit: Ser \nSecilen kodon: GGT kodona karsilik gelen amino asit: Gly \nSecilen kodon: CCT kodona karsilik gelen amino asit: Pro \nSecilen kodon: GTG kodona karsilik gelen amino asit: Val \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: CAT kodona karsilik gelen amino asit: His \nSecilen kodon: GGC kodona karsilik gelen amino asit: Gly \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: GTT kodona karsilik gelen amino asit: Val \nSecilen kodon: ATC kodona karsilik gelen amino asit: Ile \nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: GGT kodona karsilik gelen amino asit: Gly \nSecilen kodon: GCA kodona karsilik gelen amino asit: Ala \nSecilen kodon: GTG kodona karsilik gelen amino asit: Val \nSecilen kodon: GCC kodona karsilik gelen amino asit: Ala \nSecilen kodon: GAT kodona karsilik gelen amino asit: Asp \nSecilen kodon: GCC kodona karsilik gelen amino asit: Ala \nSecilen kodon: GTT kodona karsilik gelen amino asit: Val \nSecilen kodon: TCA kodona karsilik gelen amino asit: Ser \nSecilen kodon: AAA kodona karsilik gelen amino asit: Lys \nSecilen kodon: ATA kodona karsilik gelen amino asit: Ile \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: CTT kodona karsilik gelen amino asit: Leu \nSecilen kodon: GTG kodona karsilik gelen amino asit: Val \nSecilen kodon: GGA kodona karsilik gelen amino asit: Gly \nSecilen kodon: GGT kodona karsilik gelen amino asit: Gly \nSecilen kodon: CTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: GCC kodona karsilik gelen amino asit: Ala \nSecilen kodon: TCC kodona karsilik gelen amino asit: Ser \nSecilen kodon: CTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: AGC kodona karsilik gelen amino asit: Ser \nSecilen kodon: GAA kodona karsilik gelen amino asit: Glu \nSecilen kodon: CTT kodona karsilik gelen amino asit: Leu \nSecilen kodon: CAT kodona karsilik gelen amino asit: His \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: TCC kodona karsilik gelen amino asit: Ser \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: CTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: CGT kodona karsilik gelen amino asit: Arg \nSecilen kodon: GTT kodona karsilik gelen amino asit: Val \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: CCG kodona karsilik gelen amino asit: Pro \nSecilen kodon: GCC kodona karsilik gelen amino asit: Ala \nSecilen kodon: AAC kodona karsilik gelen amino asit: Asn \nSecilen kodon: TTC kodona karsilik gelen amino asit: Phe \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: ATC kodona karsilik gelen amino asit: Ile \nSecilen kodon: CTC kodona karsilik gelen amino asit: Leu \nSecilen kodon: GCA kodona karsilik gelen amino asit: Ala \nSecilen kodon: CAC kodona karsilik gelen amino asit: His \nSecilen kodon: AAT kodona karsilik gelen amino asit: Asn \nSecilen kodon: GTC kodona karsilik gelen amino asit: Val \nSecilen kodon: ATC kodona karsilik gelen amino asit: Ile \nSecilen kodon: GTG kodona karsilik gelen amino asit: Val \nSecilen kodon: GTC kodona karsilik gelen amino asit: Val \nSecilen kodon: ATC kodona karsilik gelen amino asit: Ile \nSecilen kodon: GGC kodona karsilik gelen amino asit: Gly \nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: CTC kodona karsilik gelen amino asit: Leu \nSecilen kodon: TTC kodona karsilik gelen amino asit: Phe \nSecilen kodon: CCT kodona karsilik gelen amino asit: Pro \nSecilen kodon: GGA kodona karsilik gelen amino asit: Gly \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: TTC kodona karsilik gelen amino asit: Phe \nSecilen kodon: CCC kodona karsilik gelen amino asit: Pro \nSecilen kodon: CCA kodona karsilik gelen amino asit: Pro \nSecilen kodon: GAG kodona karsilik gelen amino asit: Glu \nSecilen kodon: GTT kodona karsilik gelen amino asit: Val \nSecilen kodon: CAC kodona karsilik gelen amino asit: His \nSecilen kodon: ATG kodona karsilik gelen amino asit: Met \nSecilen kodon: TCA kodona karsilik gelen amino asit: Ser \nSecilen kodon: GTT kodona karsilik gelen amino asit: Val \nSecilen kodon: GAC kodona karsilik gelen amino asit: Asp \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: TTT kodona karsilik gelen amino asit: Phe \nSecilen kodon: TTC kodona karsilik gelen amino asit: Phe \nSecilen kodon: CAG kodona karsilik gelen amino asit: Gln \nSecilen kodon: AAC kodona karsilik gelen amino asit: Asn \nSecilen kodon: TTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: CTG kodona karsilik gelen amino asit: Leu \nSecilen kodon: GCT kodona karsilik gelen amino asit: Ala \nSecilen kodon: CTC kodona karsilik gelen amino asit: Leu \nSecilen kodon: TCT kodona karsilik gelen amino asit: Ser \nSecilen kodon: GAG kodona karsilik gelen amino asit: Glu \nSecilen kodon: AAG kodona karsilik gelen amino asit: Lys \nSecilen kodon: TAC kodona karsilik gelen amino asit: Tyr \nSecilen kodon: CGC kodona karsilik gelen amino asit: Arg \nSecilen kodon: TAA kodona karsilik gelen amino asit: Stp \n\n\n  [1] \"Met\" \"Ser\" \"Leu\" \"Ser\" \"Asp\" \"Lys\" \"Asp\" \"Lys\" \"Ala\" \"Ala\" \"Val\" \"Lys\"\n [13] \"Ala\" \"Leu\" \"Trp\" \"Ala\" \"Lys\" \"Ile\" \"Ser\" \"Pro\" \"Lys\" \"Ala\" \"Asp\" \"Asp\"\n [25] \"Ile\" \"Gly\" \"Ala\" \"Glu\" \"Ala\" \"Leu\" \"Gly\" \"Arg\" \"Met\" \"Leu\" \"Thr\" \"Val\"\n [37] \"Tyr\" \"Pro\" \"Gln\" \"Thr\" \"Lys\" \"Thr\" \"Tyr\" \"Phe\" \"Ala\" \"His\" \"Trp\" \"Asp\"\n [49] \"Asp\" \"Leu\" \"Ser\" \"Pro\" \"Gly\" \"Ser\" \"Gly\" \"Pro\" \"Val\" \"Lys\" \"Lys\" \"His\"\n [61] \"Gly\" \"Lys\" \"Val\" \"Ile\" \"Met\" \"Gly\" \"Ala\" \"Val\" \"Ala\" \"Asp\" \"Ala\" \"Val\"\n [73] \"Ser\" \"Lys\" \"Ile\" \"Asp\" \"Asp\" \"Leu\" \"Val\" \"Gly\" \"Gly\" \"Leu\" \"Ala\" \"Ser\"\n [85] \"Leu\" \"Ser\" \"Glu\" \"Leu\" \"His\" \"Ala\" \"Ser\" \"Lys\" \"Leu\" \"Arg\" \"Val\" \"Asp\"\n [97] \"Pro\" \"Ala\" \"Asn\" \"Phe\" \"Lys\" \"Ile\" \"Leu\" \"Ala\" \"His\" \"Asn\" \"Val\" \"Ile\"\n[109] \"Val\" \"Val\" \"Ile\" \"Gly\" \"Met\" \"Leu\" \"Phe\" \"Pro\" \"Gly\" \"Asp\" \"Phe\" \"Pro\"\n[121] \"Pro\" \"Glu\" \"Val\" \"His\" \"Met\" \"Ser\" \"Val\" \"Asp\" \"Lys\" \"Phe\" \"Phe\" \"Gln\"\n[133] \"Asn\" \"Leu\" \"Ala\" \"Leu\" \"Ala\" \"Leu\" \"Ser\" \"Glu\" \"Lys\" \"Tyr\" \"Arg\" \"Stp\""
+  },
+  {
+    "objectID": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#fonksiyonu-biraz-daha-güzelleştirelim",
+    "href": "03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html#fonksiyonu-biraz-daha-güzelleştirelim",
+    "title": "\n19  Translasyon fonksiyonu anlatımı\n",
+    "section": "\n19.4 Fonksiyonu biraz daha güzelleştirelim",
+    "text": "19.4 Fonksiyonu biraz daha güzelleştirelim\nGenel olarak kodlama yaparken şu noktalara dikkat edelim:\n\nDeğişken isimleri anlaşılır olmalı\nKodlara açıklama ekleyelim\n\n\ntranslasyon <- function(dna, kodon){\n  # oncelikle bos bir amino asit iplik vektoru olusturalim\n  aa_ipligi <- c()\n  \n  # kodon baslangic pozisyonlarini belirleylim\n  baslangic <- seq(1,(length(dna)-2), 3)\n  \n  # her baslangic pozisyonunu tek tek alalim\n  for (i in baslangic){\n    # o baslangic pozisyonuna gore kodon secelim\n    secilen_kodon <- dna[i:(i+2)]\n    # kodon vektorunu metine donusturelim\n    secilen_kodon <- paste(secilen_kodon, collapse = \"\")\n    # o kodona karsilik gelen amino asidi alalım\n    aa <- kodon[kodon$Codon == secilen_kodon, 2]\n    # bu amino asidi, amino asit iplik vektorune ekleyelim\n    aa_ipligi <- c(aa_ipligi, aa)\n    # her adimi yazalim\n    #cat(\"Secilen kodon:\", secilen_kodon, \"kodona karsilik gelen amino asit:\", aa, \"\\n\")\n  }\n  # amino asit ipligini geri dondurelim\n  return(aa_ipligi)\n}\n\nFonksiyonu tekrar çalıştıralım:\n\nfasta <- read.fasta(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna\", forceDNAtolower = FALSE)\n\nkodon <- read.table(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt\", sep = \"\\t\", header = TRUE)\n\ntranslasyon(dna = fasta[[2]], kodon = kodon)\n\n  [1] \"Met\" \"Val\" \"Leu\" \"Ser\" \"Pro\" \"Ala\" \"Asp\" \"Lys\" \"Thr\" \"Asn\" \"Val\" \"Lys\"\n [13] \"Ala\" \"Ala\" \"Trp\" \"Gly\" \"Lys\" \"Val\" \"Gly\" \"Ala\" \"His\" \"Ala\" \"Gly\" \"Glu\"\n [25] \"Tyr\" \"Gly\" \"Ala\" \"Glu\" \"Ala\" \"Leu\" \"Glu\" \"Arg\" \"Met\" \"Phe\" \"Leu\" \"Ser\"\n [37] \"Phe\" \"Pro\" \"Thr\" \"Thr\" \"Lys\" \"Thr\" \"Tyr\" \"Phe\" \"Pro\" \"His\" \"Phe\" \"Asp\"\n [49] \"Leu\" \"Ser\" \"His\" \"Gly\" \"Ser\" \"Ala\" \"Gln\" \"Val\" \"Lys\" \"Gly\" \"His\" \"Gly\"\n [61] \"Lys\" \"Lys\" \"Val\" \"Ala\" \"Asp\" \"Ala\" \"Leu\" \"Thr\" \"Asn\" \"Ala\" \"Val\" \"Ala\"\n [73] \"His\" \"Val\" \"Asp\" \"Asp\" \"Met\" \"Pro\" \"Asn\" \"Ala\" \"Leu\" \"Ser\" \"Ala\" \"Leu\"\n [85] \"Ser\" \"Asp\" \"Leu\" \"His\" \"Ala\" \"His\" \"Lys\" \"Leu\" \"Arg\" \"Val\" \"Asp\" \"Pro\"\n [97] \"Val\" \"Asn\" \"Phe\" \"Lys\" \"Leu\" \"Leu\" \"Ser\" \"His\" \"Cys\" \"Leu\" \"Leu\" \"Val\"\n[109] \"Thr\" \"Leu\" \"Ala\" \"Ala\" \"His\" \"Leu\" \"Pro\" \"Ala\" \"Glu\" \"Phe\" \"Thr\" \"Pro\"\n[121] \"Ala\" \"Val\" \"His\" \"Ala\" \"Ser\" \"Leu\" \"Asp\" \"Lys\" \"Phe\" \"Leu\" \"Ala\" \"Ser\"\n[133] \"Val\" \"Ser\" \"Thr\" \"Val\" \"Leu\" \"Thr\" \"Ser\" \"Lys\" \"Tyr\" \"Arg\" \"Stp\""
+  },
+  {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-1",
-    "title": "19  Vektörler Ödevi",
-    "section": "\n19.1 Soru 1",
-    "text": "19.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
+    "title": "20  Vektörler Ödevi",
+    "section": "\n20.1 Soru 1",
+    "text": "20.1 Soru 1\nBu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:\n\nsepal_uzunlugu\npetal_uzunlugu\ntur\n\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-2",
-    "title": "19  Vektörler Ödevi",
-    "section": "\n19.2 Soru 2",
-    "text": "19.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "20  Vektörler Ödevi",
+    "section": "\n20.2 Soru 2",
+    "text": "20.2 Soru 2\nOluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-3",
-    "title": "19  Vektörler Ödevi",
-    "section": "\n19.3 Soru 3",
-    "text": "19.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "20  Vektörler Ödevi",
+    "section": "\n20.3 Soru 3",
+    "text": "20.3 Soru 3\nSepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-4",
-    "title": "19  Vektörler Ödevi",
-    "section": "\n19.4 Soru 4",
-    "text": "19.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
+    "title": "20  Vektörler Ödevi",
+    "section": "\n20.4 Soru 4",
+    "text": "20.4 Soru 4\nPetal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-5",
-    "title": "19  Vektörler Ödevi",
-    "section": "\n19.5 Soru 5",
-    "text": "19.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "20  Vektörler Ödevi",
+    "section": "\n20.5 Soru 5",
+    "text": "20.5 Soru 5\nPetal uzunluğu vektörünü kullanarak, petal uzunlukları 3.3’den büyük olan değerleri geri döndürebilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
     "href": "04-pratikler/01-veri-analizi/01-vektorler.html#soru-6",
-    "title": "19  Vektörler Ödevi",
-    "section": "\n19.6 Soru 6",
-    "text": "19.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
+    "title": "20  Vektörler Ödevi",
+    "section": "\n20.6 Soru 6",
+    "text": "20.6 Soru 6\nSepal uzunluğu verilerini kullanarak, sepal uzunlukları 5.2’den büyük olan türleri geri döndüren kodu yazabilir misiniz?\n\n# cevabinizi buraya yaziniz"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
-    "title": "\n20  Pratik 2023-04-06\n",
-    "section": "\n20.1 Vektörler",
-    "text": "20.1 Vektörler\nBu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nTür vekktöründeki 5. elemanı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nGaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
+    "title": "\n21  Pratik 2023-04-06\n",
+    "section": "\n21.1 Vektörler",
+    "text": "21.1 Vektörler\nBu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nTür vekktöründeki 5. elemanı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nGaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
-    "title": "\n20  Pratik 2023-04-06\n",
-    "section": "\n20.2 Matrisler",
-    "text": "20.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
+    "title": "\n21  Pratik 2023-04-06\n",
+    "section": "\n21.2 Matrisler",
+    "text": "21.2 Matrisler\nKanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
-    "title": "\n20  Pratik 2023-04-06\n",
-    "section": "\n20.3 Veri çerçeveleri",
-    "text": "20.3 Veri çerçeveleri\nDökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi penguenler olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece beşinci satırı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece ikinci sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
+    "title": "\n21  Pratik 2023-04-06\n",
+    "section": "\n21.3 Veri çerçeveleri",
+    "text": "21.3 Veri çerçeveleri\nDökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi penguenler olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece beşinci satırı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece ikinci sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
-    "title": "\n20  Pratik 2023-04-06\n",
-    "section": "\n20.4 Veri okuma",
-    "text": "20.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nDosyayı okurken aşağıdaki noktalara dikkat ediniz:\n\nAyraç karakteri olarak ; kullanılmıştır\nİlk satır, sütun isimleri olarak tanımlanmıştır\n\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
+    "title": "\n21  Pratik 2023-04-06\n",
+    "section": "\n21.4 Veri okuma",
+    "text": "21.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nDosyayı okurken aşağıdaki noktalara dikkat ediniz:\n\nAyraç karakteri olarak ; kullanılmıştır\nİlk satır, sütun isimleri olarak tanımlanmıştır\n\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "21  DNA üzerinde işlemler",
-    "section": "\n21.1 Soru 1",
-    "text": "21.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "22  DNA üzerinde işlemler",
+    "section": "\n22.1 Soru 1",
+    "text": "22.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "21  DNA üzerinde işlemler",
-    "section": "\n21.2 Soru 2",
-    "text": "21.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "22  DNA üzerinde işlemler",
+    "section": "\n22.2 Soru 2",
+    "text": "22.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
