@@ -1,0 +1,116 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+
+# DNA dizi işlemleri
+
+## Hamming uzaklığı
+
+İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında, DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de, DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
+
+Aşağıdaki iki farklı diziyi inceleyelim:
+
+```
+A T G C T A T C
+A G G C T T A C
+```
+
+Acaba kaç tane tek nükleotid farklılığı var? Sadece üç pozisyonda eşleşme yok.
+
+[Hamming uzaklığı](https://en.wikipedia.org/wiki/Hamming_distance), eşit uzunluğa sahip iki karakter vektörünün sembolleri arasında gözlenen toplam pozisyonel farklılıklardır.
+
+Bu bilgiyi kullanarak aşağıdaki iki dizi arasındaki tek nükleotid farklılıklarını geri döndüren fonksiyonu yazınız. Fonksiyonun ismi `hamming_uzakligi` olsun. Bu fonksiyonu oluştururken `for` ve `if-else` yapılarını kullanınız.
+
+```{r}
+dizi1 <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", "G", "A", "T")
+  
+dizi2 <- c("C", "A", "T", "C", "C", "T", "G", "C", "T", "G", "C", "C", "G", "G", "G", "G", "T")
+```
+
+Birinci çözüm:
+
+```{r}
+hamming_uzakligi <- function(dizi1, dizi2){
+    # once hamming uzakligini sifir olarak belirleyelim
+    hamming <- 0
+    # simdi her dizi elemanini kontrol edelim
+    # burada diziler esit uzunlukta oldugu icin, istediginiz diziiyi kullanabilirsiniz
+    for (i in 1:length(dizi1)){
+        # eger sectigimiz nukleotidler esit degilse, hamming'e bir ekle
+        if (dizi1[i] != dizi2[i]){
+            hamming <- hamming + 1
+            }
+    }
+    return(hamming)
+}
+
+hamming_uzakligi(dizi1 = dizi1, dizi2 = dizi2)
+
+```
+
+İkinci çözüm (temel R bilgisi):
+
+```{r}
+hamming_uzakligi_2 <- function(dizi1, dizi2){
+    hamming <- sum(dizi1 != dizi2)
+    return(hamming)
+}
+
+hamming_uzakligi_2(dizi1 = dizi1, dizi2 = dizi2)
+
+```
+
+# İpucu
+İki farklı karakter birbirine eşit olmadığı sorgusunu yapmak için `!=` (eşit değil mi?) yapısını kullanabilirsiniz. Eğer karakterler eşit değilse `TRUE` değeri geri döndürülecektir. 
+```{r}
+"A" != "T"
+```
+## Not
+https://github.com/kursatozer/ybva.git
+Bu fonksiyonu `for` ve `if-else` yapılarını kullanmadan da yazabilirsiniz. Ancak amacımız şu anda bu yapıların kullanımını öğrenmek olduğu için kendinizi biraz zorlayın.
+
+## GC kayması
+
+Normalde, nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir [@Salzberg]. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA'nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur. 
+
+Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.
+
+GC kaymasını aşağıdaki formüle göre hesaplayabilriz:
+
+$$
+GC = \frac{G-C}{G+C}
+$$
+
+Bu formül uyarınca, aşağıdaki DNA dizisinin GC kayma değerini hesaplayan fonksiyonu yazınız. Fonksiyonun ismi `GC_kaymasi` olsun.
+
+```{r}
+dizi <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", "G", "A", "T", "C", "A", "T", "C", "C", "T", "G", "C", "T", "G", "C", "C", "G", "G", "G", "G", "T")
+``` 
+
+# İpucu
+Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.
+
+```{r}
+GC_kaymasi <- function(dizi){
+    # once G ve C miktarlarini belirlemek icin degiskenleri olusturalim
+    G_miktari <- 0
+    C_miktari <- 0
+
+    for (nukleotid in dizi){
+        # eger nukleotid G ise, G'ye bir ekle
+        if(nukleotid == "G"){G_miktari <- G_miktari +1}    
+        # eger nukleotid C ise, C'ye bir ekle
+        if(nukleotid == "C"){C_miktari <- C_miktari +1}
+    }
+    # sonucu hesapla
+    sonuc <- (G_miktari - C_miktari)/(G_miktari + C_miktari)
+    # sonucu geri dondur
+    return(sonuc)
+}
+
+GC_kaymasi(dizi = dizi)
+
+```
