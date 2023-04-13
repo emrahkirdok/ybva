@@ -1,5 +1,9 @@
 # DNA dizi işlemleri - 3
 
+Bu derste yapılan pratiklerin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:
+
+[2023-04-06 günü derste yapılan pratik cevapları](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/02-bilgisayarli-dusunme/02-dna-dizi-islemleri-cevaplar.Rmd)
+
 ## Hamming uzaklığı
 
 İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında, DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de, DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
