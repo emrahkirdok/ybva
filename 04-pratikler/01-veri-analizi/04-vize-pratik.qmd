@@ -186,6 +186,18 @@ Ekte verilen `gumus_agaci.txt` isimli dosyayı okuyunuz ve `gumus_agaci` ismini 
 gumus_agaci <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt", header = TRUE, sep =  "\t")
 ```
 
+:::{.callout-note}
+## Dosya okurken farklı yöntemlerin kullanılması
+
+Okumak istediğim `gumus.agaci.txt` isimli dosya zaten internet sitesinde olduğu için, doğrudan bu dosyanın adresini kullandım. Ancak siz bu dosyayı indirdiğiniz için bilgisyarınızdan okumanız gereklidir. Yani, dosyanın nerede olduğu önemli.
+
+```{r eval = FALSE}
+# cevabinizi asagiya yaziniz
+gumus_agaci <- read.table(file = "gumus_agaci.txt", header = TRUE, sep =  "\t")
+```
+:::
+
+
 Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
