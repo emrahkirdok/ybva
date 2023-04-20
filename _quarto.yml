@@ -72,8 +72,8 @@ book:
       chapters:
         - 04-pratikler/01-veri-analizi/01-vektorler.qmd
         - 04-pratikler/01-veri-analizi/02-pratik.Rmd
-        - 04-pratikler/01-veri-analizi/02-pratik.qmd
-        - 04-pratikler/01-veri-analizi/03-vize-pratik.qmd
+        #- 04-pratikler/01-veri-analizi/02-pratik.qmd
+        - 04-pratikler/01-veri-analizi/04-vize-pratik.qmd
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
 #        - metin_03_vektorler_pratik.Rmd
 #        - metin_04_pratik.Rmd
