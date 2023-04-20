@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.475">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 23&nbsp; DNA üzerinde işlemler</title>
+<meta name="author" content="">
+<title>Yaşam Bilimlerinde Veri Analizi - 22&nbsp; pratik-2023-04-19</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,8 +90,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../references.html" rel="next">
-<link href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" rel="prev">
+<link href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" rel="next">
+<link href="../../04-pratikler/01-veri-analizi/02-pratik.html" rel="prev">
 <link href="../../images/ybva.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -118,13 +119,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "İptal et",
     "search-submit-button-title": "Göndermek"
   }
-}</script>
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></h1>
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">22</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -308,12 +311,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span></a>
+  <a href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></a>
+  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></a>
   </div>
 </li>
       </ul>
@@ -344,16 +347,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
-   
-  <ul>
-<li><a href="#soru-1" id="toc-soru-1" class="nav-link active" data-scroll-target="#soru-1"><span class="toc-section-number">23.1</span>  Soru 1</a></li>
-  <li><a href="#soru-2" id="toc-soru-2" class="nav-link" data-scroll-target="#soru-2"><span class="toc-section-number">23.2</span>  Soru 2</a></li>
-  </ul></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-odev-dna-islemler" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></h1>
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">22</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span>
+</h1>
 </div>
 
 
@@ -366,29 +366,293 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Aşağıdaki DNA dizisi bir karakter vektörü olarak tanımlanmıştır.</p>
+</header><p>Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak, aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:</p>
 <ul>
-<li>Dizi: ATCTCGATC</li>
+<li>isimler</li>
+<li>boy</li>
+<li>kilo</li>
+<li>cinsiyet</li>
 </ul>
+<p>Unutmayın, cinsiyet vektörü faktör olmalı.</p>
+<table class="table">
+<thead><tr class="header">
+<th>İsimler</th>
+<th>Boy</th>
+<th>Kilo</th>
+<th>Yaş</th>
+<th>Cinsiyet</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Aslı</td>
+<td>1.76</td>
+<td>67</td>
+<td>35</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td>Sibel</td>
+<td>1.72</td>
+<td>66</td>
+<td>66</td>
+<td>f</td>
+</tr>
+<tr class="odd">
+<td>Tarkan</td>
+<td>1.65</td>
+<td>65</td>
+<td>26</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td>Sezen</td>
+<td>1.62</td>
+<td>80</td>
+<td>32</td>
+<td>m</td>
+</tr>
+<tr class="odd">
+<td>Ali</td>
+<td>1.94</td>
+<td>59</td>
+<td>58</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td>Barış</td>
+<td>1.94</td>
+<td>53</td>
+<td>34</td>
+<td>f</td>
+</tr>
+<tr class="odd">
+<td>Şebnem</td>
+<td>1.75</td>
+<td>70</td>
+<td>23</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td>Funda</td>
+<td>2.00</td>
+<td>75</td>
+<td>24</td>
+<td>m</td>
+</tr>
+<tr class="odd">
+<td>Murat</td>
+<td>1.75</td>
+<td>51</td>
+<td>64</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td>Arda</td>
+<td>1.70</td>
+<td>73</td>
+<td>18</td>
+<td>m</td>
+</tr>
+</tbody>
+</table>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span><span class="op">)</span></span>
-<span><span class="va">dna</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span></span>
+<span><span class="va">isimler</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Aslı"</span>, <span class="st">"Sibel"</span> ,<span class="st">"Tarkan"</span> ,<span class="st">"Sezen"</span> ,<span class="st">"Ali"</span> ,<span class="st">"Barış"</span> ,<span class="st">"Şebnem"</span> ,<span class="st">"Funda"</span> ,<span class="st">"Murat"</span> ,<span class="st">"Arda"</span><span class="op">)</span></span>
+<span><span class="va">boy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.76</span>,<span class="fl">1.72</span>,<span class="fl">1.65</span>,<span class="fl">1.62</span>,<span class="fl">1.94</span>,<span class="fl">1.94</span>,<span class="fl">1.75</span>,<span class="fl">2.00</span>,<span class="fl">1.75</span>,<span class="fl">1.70</span><span class="op">)</span></span>
+<span><span class="va">kilo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">67</span>,<span class="fl">66</span>,<span class="fl">65</span>,<span class="fl">80</span>,<span class="fl">59</span>,<span class="fl">53</span>,<span class="fl">70</span>,<span class="fl">75</span>,<span class="fl">51</span>,<span class="fl">73</span><span class="op">)</span></span>
+<span><span class="va">yas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">35</span>,<span class="fl">66</span>,<span class="fl">26</span>,<span class="fl">32</span>,<span class="fl">58</span>,<span class="fl">34</span>,<span class="fl">23</span>,<span class="fl">24</span>,<span class="fl">64</span>,<span class="fl">18</span><span class="op">)</span></span>
+<span><span class="va">cinsiyet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m"</span>,<span class="st">"f"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"f"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>İsimler vektöründeki 6. elemanı geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">isimler</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "A" "T" "C" "T" "C" "G" "A" "T" "C"</code></pre>
+<pre><code>[1] "Barış"</code></pre>
 </div>
 </div>
-<p>Bu bilgiye göre aşağıdaki soruları cevaplayan kodları yazınız. Kodunuzda <code>for</code> ve <code>if-else</code> yapılarını kullanınız.</p>
-<section id="soru-1" class="level2" data-number="23.1"><h2 data-number="23.1" class="anchored" data-anchor-id="soru-1">
-<span class="header-section-number">23.1</span> Soru 1</h2>
-<p>Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız.</p>
-<p>Oluşturacağınız kod, <code>rna</code> isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır.</p>
-</section><section id="soru-2" class="level2" data-number="23.2"><h2 data-number="23.2" class="anchored" data-anchor-id="soru-2">
-<span class="header-section-number">23.2</span> Soru 2</h2>
-<p>Bu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.</p>
-<p>Oluşturacağınız kod, <code>complementary</code> isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır.</p>
+<p>Boy vektörünü kullanarak,1.60’dan uzun olan değerleri geri döndüren kodu yazınız</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">boy</span><span class="op">[</span><span class="va">boy</span> <span class="op">&gt;</span><span class="fl">1.60</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70</code></pre>
+</div>
+</div>
+<p>Yukarıda verilen verileri kullanarak <code>isimler</code>, <code>boy</code>, <code>kilo</code>, <code>yas</code> ve <code>cinsiyet</code> vektörlerini içeren <code>ekip</code> isimli bir veri çerçevesi oluşturunuz</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">isimler</span>,<span class="va">cinsiyet</span>,<span class="va">boy</span>,<span class="va">kilo</span>,<span class="va">yas</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Veri çerçevesi Rmarkdown’da yazdırmayalım
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız, veriyi ekrana yazdırmış olursunuz. Bu da <code>html</code> dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">isimler</span>,<span class="va">cinsiyet</span>,<span class="va">boy</span>,<span class="va">kilo</span>,<span class="va">yas</span><span class="op">)</span></span>
+<span><span class="va">ekip</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">ekip</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10  5</code></pre>
+</div>
+</div>
+<p>Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ekip</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "isimler"  "cinsiyet" "boy"      "kilo"     "yas"     </code></pre>
+</div>
+</div>
+<p>İkinci satırı geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span><span class="op">[</span><span class="fl">2</span>, <span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  isimler cinsiyet  boy kilo yas
+2   Sibel        f 1.72   66  66</code></pre>
+</div>
+</div>
+<p>Bu veri çerçevesinde, 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span><span class="op">[</span>,<span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    boy kilo yas
+1  1.76   67  35
+2  1.72   66  66
+3  1.65   65  26
+4  1.62   80  32
+5  1.94   59  58
+6  1.94   53  34
+7  1.75   70  23
+8  2.00   75  24
+9  1.75   51  64
+10 1.70   73  18</code></pre>
+</div>
+</div>
+<p>Bu veri çerçevesindeki, kilo değerlerini geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span><span class="op">$</span><span class="va">kilo</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 67 66 65 80 59 53 70 75 51 73</code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Veya o sütunun numarası:</span></span>
+<span></span>
+<span><span class="va">ekip</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70</code></pre>
+</div>
+</div>
+<p>Vücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:</p>
+<p><span class="math display">\[
+vki = \frac{kilo}{boy^2}
+\]</span> Bu formülü kullanarak, bu sınıftaki herkesin vki değerini hesaplayınız ve <code>vki</code> isimli vektörü oluştrunuz.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">vki</span> <span class="op">&lt;-</span> <span class="va">ekip</span><span class="op">$</span><span class="va">kilo</span><span class="op">/</span><span class="va">ekip</span><span class="op">$</span><span class="va">boy</span><span class="op">^</span><span class="fl">2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Vektörel işlemler
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. <code>ekip$kilo/ekip$boy^2</code> işlemini yaptığınızda geriye bir vektör döndürülür. Dolayısıyla <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanmaya gerek yok.</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">vki</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ekip</span><span class="op">$</span><span class="va">kilo</span><span class="op">/</span><span class="va">ekip</span><span class="op">$</span><span class="va">boy</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Şimdi, <code>ekip</code> vektörü içerisinde vücut kitle endeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span><span class="op">$</span><span class="va">isimler</span><span class="op">[</span><span class="va">vki</span> <span class="op">&gt;</span> <span class="fl">25</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Sezen" "Arda" </code></pre>
+</div>
+</div>
+<p>0luşturduğunuz <code>vke</code> isimli vektörü <code>ekip</code> veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi <code>vke</code> olsun) :</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span><span class="op">$</span><span class="va">vki</span> <span class="op">&lt;-</span> <span class="va">vki</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Veri çerçevesinde sütun oluşturmak
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Veri çerçevesinde yeni bir sütun oluşturmak için doğrudan <code>$</code> fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">ekip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">isimler</span>, <span class="va">cinsiyet</span>, <span class="va">boy</span>, <span class="va">kilo</span>, <span class="va">yas</span>, <span class="va">vki</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Ekipteki 25 yaş altı kişilerin isimlerini kapsayan <code>gencler</code> isimli yeni bir vektör olusturnuz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">gencler</span> <span class="op">&lt;-</span> <span class="va">ekip</span><span class="op">$</span><span class="va">isimler</span><span class="op">[</span><span class="va">ekip</span><span class="op">$</span><span class="va">yas</span> <span class="op">&lt;</span> <span class="fl">25</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ekipteki 1.80 üzerindeki kişilerin isimlerini kapsayan <code>uzunlar</code> isimli bir vektör oluşturunuz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">uzunlar</span> <span class="op">&lt;-</span> <span class="va">ekip</span><span class="op">$</span><span class="va">isimler</span><span class="op">[</span><span class="va">ekip</span><span class="op">$</span><span class="va">boy</span> <span class="op">&gt;</span> <span class="fl">1.80</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ekte verilen <code>gumus_agaci.txt</code> isimli dosyayı okuyunuz ve <code>gumus_agaci</code> ismini kullanarak R içerisine aktarınız. Verinin ilk satırı sütun isimleri olarak belirlenmiştir. Sütunlar tab (<code>\t</code>) karakteri ile ayrılmıştır.</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="va">gumus_agaci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt"</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span>  <span class="st">"\t"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">gumus_agaci</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1534    8</code></pre>
+</div>
+</div>
+<p>Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">gumus_agaci</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Inokulasyondan_sonra_gecen_sure" "Kulturleme_kosulu"              
+[3] "Patojen"                         "Bitki_numarasi"                 
+[5] "Tekil_bitki_numarasi"            "Gozlem"                         
+[7] "Fotosentez"                      "Iletkenlik"                     </code></pre>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -521,13 +785,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span></span>
+      <a href="../../04-pratikler/01-veri-analizi/02-pratik.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Pratik 2023-04-06</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../references.html" class="pagination-link">
-        <span class="nav-page-text">Kaynakça</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -18,7 +18,7 @@
     "href": "index.html#katkıda-bulunan-yazarlar",
     "title": "Yaşam Bilimlerinde Veri Analizi",
     "section": "Katkıda bulunan yazarlar",
-    "text": "Katkıda bulunan yazarlar\nBu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda alfabetik olarak sıralanmıştır:\n\nAnıl Yalçıner\nCemil Bayraktar\nMerve Akküp\nTanya Beril Korkmaz\n\nEğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları inceleyebilirsiniz."
+    "text": "Katkıda bulunan yazarlar\nBu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda alfabetik olarak sıralanmıştır:\n\nAnıl Yalçıner\nCemil Bayraktar\nFurkan Kürşat Özer\nMerve Akküp\nNursena Kocatürk\nTanya Beril Korkmaz\n\nEğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları inceleyebilirsiniz."
   },
   {
     "objectID": "index.html#bu-siteyi-nasıl-takip-etmeniz-gerek",
@@ -459,7 +459,7 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n14  Kontrol yapıları\n",
     "section": "\n14.4 Ödev",
-    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 22’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
+    "text": "14.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 23’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım."
   },
   {
     "objectID": "03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html#örnek-fonksiyon",
@@ -616,18 +616,25 @@
     "text": "21.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nDosyayı okurken aşağıdaki noktalara dikkat ediniz:\n\nAyraç karakteri olarak ; kullanılmıştır\nİlk satır, sütun isimleri olarak tanımlanmıştır\n\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)"
   },
   {
+    "objectID": "04-pratikler/01-veri-analizi/04-vize-pratik.html",
+    "href": "04-pratikler/01-veri-analizi/04-vize-pratik.html",
+    "title": "\n22  pratik-2023-04-19\n",
+    "section": "",
+    "text": "Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak, aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:\n\nisimler\nboy\nkilo\ncinsiyet\n\nUnutmayın, cinsiyet vektörü faktör olmalı.\n\n\nİsimler\nBoy\nKilo\nYaş\nCinsiyet\n\n\n\nAslı\n1.76\n67\n35\nm\n\n\nSibel\n1.72\n66\n66\nf\n\n\nTarkan\n1.65\n65\n26\nm\n\n\nSezen\n1.62\n80\n32\nm\n\n\nAli\n1.94\n59\n58\nm\n\n\nBarış\n1.94\n53\n34\nf\n\n\nŞebnem\n1.75\n70\n23\nm\n\n\nFunda\n2.00\n75\n24\nm\n\n\nMurat\n1.75\n51\n64\nm\n\n\nArda\n1.70\n73\n18\nm\n\n\n\n\n# cevabinizi asagiya yaziniz\n\nisimler <- c(\"Aslı\", \"Sibel\" ,\"Tarkan\" ,\"Sezen\" ,\"Ali\" ,\"Barış\" ,\"Şebnem\" ,\"Funda\" ,\"Murat\" ,\"Arda\")\nboy <- c(1.76,1.72,1.65,1.62,1.94,1.94,1.75,2.00,1.75,1.70)\nkilo <- c(67,66,65,80,59,53,70,75,51,73)\nyas <- c(35,66,26,32,58,34,23,24,64,18)\ncinsiyet <- factor(c(\"m\",\"f\",\"m\",\"m\",\"m\",\"f\",\"m\",\"m\",\"m\",\"m\"))\n\nİsimler vektöründeki 6. elemanı geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nisimler[6]\n\n[1] \"Barış\"\n\n\nBoy vektörünü kullanarak,1.60’dan uzun olan değerleri geri döndüren kodu yazınız\n\n# cevabinizi asagiya yaziniz\nboy[boy >1.60]\n\n [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70\n\n\nYukarıda verilen verileri kullanarak isimler, boy, kilo, yas ve cinsiyet vektörlerini içeren ekip isimli bir veri çerçevesi oluşturunuz\n\n# cevabinizi asagiya yaziniz\nekip <- data.frame(isimler,cinsiyet,boy,kilo,yas)\n\n\n\n\n\n\n\nVeri çerçevesi Rmarkdown’da yazdırmayalım\n\n\n\nBazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız, veriyi ekrana yazdırmış olursunuz. Bu da html dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:\n\n# cevabinizi asagiya yaziniz\nekip <- data.frame(isimler,cinsiyet,boy,kilo,yas)\nekip\n\n\n\nOluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız.\n\n# cevabinizi asagiya yaziniz\ndim(ekip)\n\n[1] 10  5\n\n\nBu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın.\n\n# cevabinizi asagiya yaziniz\ncolnames(ekip)\n\n[1] \"isimler\"  \"cinsiyet\" \"boy\"      \"kilo\"     \"yas\"     \n\n\nİkinci satırı geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip[2, ]\n\n  isimler cinsiyet  boy kilo yas\n2   Sibel        f 1.72   66  66\n\n\nBu veri çerçevesinde, 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip[,3:5]\n\n    boy kilo yas\n1  1.76   67  35\n2  1.72   66  66\n3  1.65   65  26\n4  1.62   80  32\n5  1.94   59  58\n6  1.94   53  34\n7  1.75   70  23\n8  2.00   75  24\n9  1.75   51  64\n10 1.70   73  18\n\n\nBu veri çerçevesindeki, kilo değerlerini geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip$kilo\n\n [1] 67 66 65 80 59 53 70 75 51 73\n\n# Veya o sütunun numarası:\n\nekip[,3]\n\n [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70\n\n\nVücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:\n\\[\nvki = \\frac{kilo}{boy^2}\n\\] Bu formülü kullanarak, bu sınıftaki herkesin vki değerini hesaplayınız ve vki isimli vektörü oluştrunuz.\n\n# cevabinizi asagiya yaziniz\nvki <- ekip$kilo/ekip$boy^2\n\n\n\n\n\n\n\nVektörel işlemler\n\n\n\nBazı arkadaşlar bir önceki soruya şöyle cevap vermişler. ekip$kilo/ekip$boy^2 işlemini yaptığınızda geriye bir vektör döndürülür. Dolayısıyla c() fonksiyonunu kullanmaya gerek yok.\n\n# cevabinizi asagiya yaziniz\nvki <- c(ekip$kilo/ekip$boy^2)\n\n\n\nŞimdi, ekip vektörü içerisinde vücut kitle endeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip$isimler[vki > 25]\n\n[1] \"Sezen\" \"Arda\" \n\n\n0luşturduğunuz vke isimli vektörü ekip veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi vke olsun) :\n\n# cevabinizi asagiya yaziniz\nekip$vki <- vki\n\n\n\n\n\n\n\nVeri çerçevesinde sütun oluşturmak\n\n\n\nVeri çerçevesinde yeni bir sütun oluşturmak için doğrudan $ fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil\n\n# cevabinizi asagiya yaziniz\nekip <- data.frame(isimler, cinsiyet, boy, kilo, yas, vki)\n\n\n\nEkipteki 25 yaş altı kişilerin isimlerini kapsayan gencler isimli yeni bir vektör olusturnuz:\n\n# cevabinizi asagiya yaziniz\ngencler <- ekip$isimler[ekip$yas < 25]\n\nEkipteki 1.80 üzerindeki kişilerin isimlerini kapsayan uzunlar isimli bir vektör oluşturunuz:\n\n# cevabinizi asagiya yaziniz\nuzunlar <- ekip$isimler[ekip$boy > 1.80]\n\nEkte verilen gumus_agaci.txt isimli dosyayı okuyunuz ve gumus_agaci ismini kullanarak R içerisine aktarınız. Verinin ilk satırı sütun isimleri olarak belirlenmiştir. Sütunlar tab (\\t) karakteri ile ayrılmıştır.\n\n# cevabinizi asagiya yaziniz\ngumus_agaci <- read.table(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt\", header = TRUE, sep =  \"\\t\")\n\nBu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\ndim(gumus_agaci)\n\n[1] 1534    8\n\n\nBu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\ncolnames(gumus_agaci)\n\n[1] \"Inokulasyondan_sonra_gecen_sure\" \"Kulturleme_kosulu\"              \n[3] \"Patojen\"                         \"Bitki_numarasi\"                 \n[5] \"Tekil_bitki_numarasi\"            \"Gozlem\"                         \n[7] \"Fotosentez\"                      \"Iletkenlik\""
+  },
+  {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-1",
-    "title": "22  DNA üzerinde işlemler",
-    "section": "\n22.1 Soru 1",
-    "text": "22.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
+    "title": "23  DNA üzerinde işlemler",
+    "section": "\n23.1 Soru 1",
+    "text": "23.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır."
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "22  DNA üzerinde işlemler",
-    "section": "\n22.2 Soru 2",
-    "text": "22.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
+    "title": "23  DNA üzerinde işlemler",
+    "section": "\n23.2 Soru 2",
+    "text": "23.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır."
   },
   {
     "objectID": "references.html",
