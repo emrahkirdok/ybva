@@ -1,0 +1,24 @@
+amino_asit	kod	molekul_agirligi
+alanine	A	71.0779
+arginine	R	156.18568
+asparagine	N	114.10264
+aspartic acid	D	115.0874
+cysteine	C	103.1429
+glutamic acid	E	129.11398
+glutamine	Q	128.12922
+glycine	G	57.05132
+histidine	H	137.13928
+isoleucine	I	113.15764
+leucine	L	113.15764
+lysine	K	128.17228
+methionine	M	131.19606
+phenylalanine	F	147.17386
+proline	P	97.11518
+serine	S	87.0773
+threonine	T	101.10388
+tryptophan	W	186.2099
+tyrosine	Y	163.17326
+valine	V	99.13106
+pyrrolysine	O	237.29816
+cysteine	C	103.1429
+selenocysteine	U	150.0379
