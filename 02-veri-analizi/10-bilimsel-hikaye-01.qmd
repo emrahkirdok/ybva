@@ -1,52 +1,28 @@
----
-author: "Emrah Kırdök, Ph. D."
-date: '2022-03-21'
-output:
-  pdf_document:
-    template: /Users/quatta/pk/pandoc-latex-template/eisvogel.tex
-    keep_md: true
-    pandoc_args: ["--listings"]
-subtitle: Tanımlayıcı İstatistikler - 1
-title: "Bilimsel Hikaye Anlatıcılığına Giriş"
-
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Bilimsel Hikaye Anlatımı
 
 Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler, ve veri çerçevelerini öğrendik. Hatta, bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?
 
 Veri analizi aslında bilimsel bir hikaye anlatıcılığıdır. Nasıl bir hikaye anlatıcısı üslubuyla, benzetmeleriyle, kelime oyunlarıyla bize bir öykü anlatıyorsa; biz de tablolarımızla, grafiklerimizle, ve istatsisitk bilgimizle okuyuculara bilimsel bir öykü anlatıyoruz. Bu öykü anlatıcılığındaki ilk adım ise, elimizdeki verinin ne olduğunu tanımlamak. İşte bunu tanımlayıcı istatistik olarak isimlendiriyoruz.
 
-Bir önceki derste kullandığımız veri setini tekrar R programına yükleyelim:
+Öncelikle, R üzerinde gelen öntanımlı `iris` veri setini kullanarak işe başlayalım. 
 
-```{r read}
-sinif <- read.table("data/sinif.txt", header = TRUE, stringsAsFactors = FALSE)
-sinif <- read.table("data/sinif.txt", header = TRUE, stringsAsFactors = FALSE)
-sinif <- read.table("data/sinif.txt", header = TRUE, stringsAsFactors = FALSE)
-```
-
-Hatırlarsanız bu komut, `sinif.txt` ismindeki dosyayı okuyup, ilk satırı sütun isimleri olarak atayıp, `sinif` olarak tanımlanan bir veri çerçevesi geri döndürüyordu.
-
-Dikkat ederseiz, `stringsAsFactors = FALSE` opsiyonunu kullandığım için, bütün karakter vektörlerini olduğu gibi aktardı. Dolayısıyla burada `cinsiyet` ve `el` vektörlerinin faktör olmasını istiyorum. Çünkü bunlar gruplama değişkenleri ve ilerleyen adımlarda verimi özetlememde yardımcı olacak:
+Bu veri çerçevesinin sütun isimlerini elde edelim:
 
 ```{r}
-sinif$cinsiyet <- factor(sinif$cinsiyet)
-sinif$el <- factor(sinif$el)
+colnames(iris)
 ```
+
+Bu veri seti, iris biktisinin üç farklı türüne ait sepal uzunluğu, sepal genişliği, petal uzunluğu, petal genişliği ve tür isimleri gibi farklı değişkenleri barındıryor.
 
 Bu adımdan sonra kullanacağımız ilk fonksiyon `summary` olacak. Bir dosya okuduktan sonra her zaman bu fonksiyonla elde ettiğiniz veri çerçevesini özetlemenizi tavsiye ederim. Bu sayede elinizdeki verinin içeriğini öğrenmiş olacaksınız:
 
 ```{r}
-summary(sinif)
+summary(iris)
 ```
 
-Bu komut sonucunda, her sütunun sahip olduğu veri tiplerini ve özelliklerini elde ettik. Mesela `isimler` sütünu bir karakter vektörü, `cinsiyet` sütunu bir faktör vektörü, `boy` ve `kilo` sütunları rakam vektörleri, ve `el` sütunu ise bir faktör vektörü olduğu görülüyor.
+Bu komut sonucunda, her sütuna ait farklı istatistik bilgiler elde ettik.
 
-Peki bundan sonra ne olacak? Bu verilerle ne yapabilirim?
+Peki bundan sonra ne olacak? Bu verilerle ne yapabiliriz?
 
 1. Kaç tane var?
 2. Neredeler?
@@ -55,6 +31,8 @@ Peki bundan sonra ne olacak? Bu verilerle ne yapabilirim?
 Sıra sıra gidelim...
 
 ## Tanımlayıcı istatistikler
+
+Tanımlayıcı istatistikler, genel olarak bir verideye üstten bir bakış atmamızı sağlar. Aslında bu veri içerisindeki ilişkileri, çıkarımsal olmayan bir şekilde görselleştirmeyi hedefliyoruz.
 
 Veri çerçevesinde kaç eleman var?
 
@@ -70,66 +48,55 @@ Ya da vektörlerin boyutlarını hesaplayabiliriz:
 length(sinif$boy)
 ```
 
-## Frekans tabloları
+### Frekans tabloları
 
-Mesela sağlak veya solaklar için frekans tablosu oluşturalım. Bunun için `table` fonksiyonunu kullanacağız:
-
-```{r}
-table(sinif$el)
-```
-
-Sonuç olarak bu sinifta 6 kişi sağlak, ve 4 kişi de solak. Peki iki farklı değişkeni hesaplayabilir miyiz?
+Mesela bu veri çerçevesindeki tür isimleri için frekans tablosu oluşturalım. Bunun için `table` fonksiyonunu kullanacağız:
 
 ```{r}
-table(sinif$cinsiyet, sinif$el)
+table(iris$Species)
 ```
 
 Peki şimdi rakam vektörlerinde kullanalım:
 
 ```{r}
-table(sinif$boy)
+table(iris$Sepal.Length)
 ```
 
-Sanırım bu fonkisyon rakam vektörleri için kullanışlı değil. Rakam vektörleri için ayrı bir sistem gerek.
-
-Mesela belli bir boynun üstündeki insanları sayalım:
-
-```{r}
-sum(sinif$boy>1.80)
-```
-
-Peki bu vektörü nasıl ifade edebiliriz?
+Sanırım bu fonkisyon rakam vektörleri için kullanışlı değil. Rakam vektörleri için ayrı bir sistem gerek. Peki bu vektörü nasıl ifade edebiliriz?
 
 ## Ortalama, ortanca ve dağılım
 
 İlk seçeneğimiz *aritmetik ortalama* hesaplamak:
 
 ```{r}
-mean(sinif$boy)
+mean(iris$Sepal.Length)
 ```
 
 İkinci seçeneğimiz *ortanca* değeri hesaplamak:
 
 ```{r}
-median(sinif$boy)
+median(iris$Sepal.Length)
 ```
 
-Bu değer bize şunu ifade ediyor:
+Ortanca ve ortalama iki farklı istatistik aslında. Aritmetik ortalama, örneklem boyutuna bağlıdır. Bir $x$ vektörünün aritmetik ortalaması ($\overline{x} $), aşağıdaki gibi hesaplanabilir:
 
-- elimizdeki rakamların yarısı ortancadan fazla
-- yarısı ortancadan az
+$$
+\overline{x} = \frac{\sum_{i=i}^{n} x_{i}}{n} 
+$$
+
+Ortanca değer ise, bir vektörü küçükten büyüğe doğru sıraladığınzda, en ortada elde edilen değerdir. Elemanların yarısı bu değerin altında, diğer yarısı ise bu değerin üzerinde bulunur.
 
 Peki, verimizin sınırları ne? Bunun için tekrar `summary` fonksiyonuna bakalım:
 
 ```{r}
-summary(sinif$boy)
+summary(iris$Sepal.Length)
 ```
 
 Elde ettiğimiz ilk değer, en küçük elemanı gösteriyor. En sonraki değer ise en büyük elemanı. Aynı zamanda bu şekilde de hesaplayabiliriz:
 
 ```{r}
-min(sinif$boy)
-max(sinif$boy)
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
 ```
 
 Aynı zamanda ortanca (median), ve aritmetik ortalama (mean) değerleri de hesaplanmış. Peki, 1st Qu. ve 3rd Qu. nedir?
@@ -137,33 +104,33 @@ Aynı zamanda ortanca (median), ve aritmetik ortalama (mean) değerleri de hesap
 Bu değerler *çeyreklik* olarak isimlendirilir. Elimizdeki veriyi, her bir parça toplam rakamların %25'ini içerecek şekilde 4 parçaya böldüğümüzde, elde ettiğimiz her bölge çeyreklik olarak isimlendirilir. Bu değerleri daha iyi anlamak için `quantile` fonksiyonunu kullanalım:
 
 ```{r}
-quantile(sinif$boy)
+quantile(iris$Sepal.Length)
 ```
 
-0% aslında en küçük değeri, 100% ise en büyük değeri gösteriyor. 1.64' e kadar ilk çeyreklik kısım, 1.72'ye kadar ikinci çeyreklik, 1.83'e kadar üçüncü çeyreklik ve 1.96'ya kadar ise son çeyreklik kısım bulunur. İsterseniz rakamları sıralamamızı sağlayan `sort` fonksiyonu ile daha rahat görebiliriz:
+0% aslında en küçük değeri, 100% ise en büyük değeri gösteriyor. 4.3' e kadar ilk çeyreklik kısım, 5.1'ye kadar ikinci çeyreklik, 6.4'e kadar üçüncü çeyreklik ve 7.9'ya kadar ise son çeyreklik kısım bulunur. İsterseniz rakamları sıralamamızı sağlayan `sort` fonksiyonu ile daha rahat görebiliriz:
 
 ```{r}
-sort(sinif$boy)
+sort(iris$Sepal.Length)
 ```
 
 Tam olmasa da, yaklaşık olarak eşit sayıda gruplar olduğu görülmekte. 
 
-Son olarak `cut` isimli fonksiyonlar benzer bir çalışma yapabiliriz. Bu fonksiyon, elimizdeki bir rakam vektörünü, istediğimiz aralıklarla bölmemizi sağlar. Mesela `boy` vektörünü, en küçük elemanı koruyacak şekilde 4 parçaya ayıralım:
+Son olarak `cut` isimli fonksiyonlar benzer bir çalışma yapabiliriz. Bu fonksiyon, elimizdeki bir rakam vektörünü, istediğimiz aralıklarla bölmemizi sağlar. Mesela `Sepal.Length` vektörünü, en küçük elemanı koruyacak şekilde 4 parçaya ayıralım:
 
 ```{r}
-cut(sinif$boy, 4, include.lowest = TRUE)
+cut(iris$Sepal.Length, 4, include.lowest = TRUE)
 ```
 
 Bu işlem, vektörü 4 parçaya böldü ve her elemanı bir gruba dahil eden bir faktör vektörü geri döndürdü. Şimdi ise `quantile` fonksiyonunun çıktısını, kesim noktaları olarak tanımlayalım:
 
 ```{r}
-cut(sinif$boy, quantile(sinif$boy), include.lowest = TRUE)
+cut(iris$Sepal.Length, quantile(iris$Sepal.Length), include.lowest = TRUE)
 ```
 
 Son olarak elde ettiğimiz faktör vektörünün frekans tablosunu elde edelim:
 
 ```{r}
-table(cut(sinif$boy, quantile(sinif$boy), include.lowest = TRUE))
+table(cut(iris$Sepal.Length, quantile(iris$Sepal.Length), include.lowest = TRUE))
 ```
 
 Yaklaşık olarak eşit gruplar elde ettik. Sonuç olarak verimizin dağılımı bu şekilde
@@ -175,7 +142,7 @@ R bize aynı zamanda bu dağılımı görselleştirme imkanı da sunuyor. Mesela
 Burada kullandığımız `outline` opsiyonu, outlier değerlerin gösterilmemesi gerektiğini belirtmektedir.
 
 ```{r}
-boxplot(sinif$boy, outline = FALSE)
+boxplot(iris$Sepal.Length, outline = FALSE)
 ```
 
 Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir. Ortadaki kalın çizgi bize ortanca değeri gösterir. 
@@ -188,30 +155,43 @@ Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir. Orta
 İsterseniz siniftaki insanların ağırlıklarını da tanımlayıcı istatistik yöntemleriyle inceleyelim:
 
 ```{r}
-summary(sinif$kilo)
+summary(iris$Sepal.Length)
 ```
 
-En hafif kişi 60 kilo, en ağır kişi ise 100 kiloymuş. 
+En küçük değer 4.3, en büyük ise 7.9 oluyor. İstersek, petal uzunlukları için de aynısını gerçekleştirebiliriz.
 
 ```{r}
-boxplot(sinif$kilo)
+boxplot(iris$Petal.Length)
 ```
+
+### Bağlantıları kurmak: Hikaye anlatımı
 
 Peki, siniftaki insanların boy dağılımı cinsiyete göre nasıl değişim gösteriyor? İşte faktör veri sınıfını kullanacağımız yere geldik!
 
 ```{r}
-boxplot(sinif$boy~sinif$cinsiyet)
+boxplot(iris$Sepal.Length~iris$Species)
 ```
 
 Burada `~` işareti (sağ alt tuşu + ü), **soldaki değeri, sağdaki değere göre ifade et** şeklinde özetlenebilir. Aslında bir değişkeni, başka bir değişken kullanarak modelliyoruz. Bu konuya ilerleyen derslerde geleceğiz.
 
-Dikkat ederseniz bu sınıftaki kadınlar, erkeklerden çok uzun. Siz de bilgisayarlarınızda aynısını, kişilerin kiloları için yapın. Ne sonuç bulacaksınız?
+:::{.callout-note}
+## Soru
 
-## GGplot2!
+Acaba bu grafikte ne dikkatinizi çekti? Derse 5 dakika ara veriniz ve sohbet kısmından yorumlarınızı yazınız.
+
+:::
+
+## `ggplot2`: İleri seviye görselleştirme
 
 Buraya kadar normal R grafiklerini gördük. Ancak R üzerinde başka görselleştirme kütüphaneleri de mevcuttur. Bunlardan bir tanesi de `ggplot2`.
 
-Önce kütüphaneyi yükleyelim:
+Bu kütüphaneyi kullanmak için öncelikle, R içerisine yükleme yapmalyız:
+
+```{r eval = FALSE}
+install.packages("ggplot2")
+```
+
+Şimdi yüklediğimiz kütüphaneyi, R içerisine aktaralım:
 
 ```{r}
 library(ggplot2)
@@ -220,8 +200,7 @@ library(ggplot2)
 Kutu grafiğini yapalım:
 
 ```{r}
-ggplot(data = sinif, aes(x = cinsiyet, y = boy)) + geom_boxplot()
+ggplot(data = iris, aes(x = Sepal.Length, y = Species)) + geom_boxplot()
 ```
 
-
-
+Haftaya daha ayrıntılı işleyeceğiz!
