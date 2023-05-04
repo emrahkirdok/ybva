@@ -37,15 +37,15 @@ Tanımlayıcı istatistikler, genel olarak bir verideye üstten bir bakış atma
 Veri çerçevesinde kaç eleman var?
 
 ```{r}
-dim(sinif)
-nrow(sinif)
-ncol(sinif)
+dim(iris)
+nrow(iris)
+ncol(iris)
 ```
 
 Ya da vektörlerin boyutlarını hesaplayabiliriz:
 
 ```{r}
-length(sinif$boy)
+length(iris$Sepal.Length)
 ```
 
 ### Frekans tabloları
@@ -152,8 +152,6 @@ Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir. Orta
 - kutu içerisinde ikinci ve üçüncü çeyreklik kısımlar ortanca değer ile ayrılır
 - en üstteki değerle kutunun arasındaki kesikli çizgi ise dördüncü çeyrekliği gösterir
 
-İsterseniz siniftaki insanların ağırlıklarını da tanımlayıcı istatistik yöntemleriyle inceleyelim:
-
 ```{r}
 summary(iris$Sepal.Length)
 ```
@@ -166,7 +164,7 @@ boxplot(iris$Petal.Length)
 
 ### Bağlantıları kurmak: Hikaye anlatımı
 
-Peki, siniftaki insanların boy dağılımı cinsiyete göre nasıl değişim gösteriyor? İşte faktör veri sınıfını kullanacağımız yere geldik!
+Peki, Sepal uzunluğunun türler ile olan ilişkisi nasıldır?
 
 ```{r}
 boxplot(iris$Sepal.Length~iris$Species)
