@@ -76,6 +76,8 @@ book:
         #- 04-pratikler/01-veri-analizi/02-pratik.qmd
         - 04-pratikler/01-veri-analizi/04-vize-pratik.qmd
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
+        - 04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.qmd
+        
 #        - metin_03_vektorler_pratik.Rmd
 #        - metin_04_pratik.Rmd
 #        - metin_ggplot2_pratik.Rmd

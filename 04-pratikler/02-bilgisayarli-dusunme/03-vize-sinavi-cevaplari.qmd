@@ -1,0 +1,196 @@
+Merhabalar. Bilgisayarlı Düşünme dersi vize ödevini bu Rmarkdown dosyası içerisine cevaplayacaksınız. Ödevi tamamladıktan sonra, **Knit to HTML** yaparak, belgenizi `html` formatına çevirmeniz beklenmektedir. Ödevinize mutlaka isim ve tarih yazmayı ihmal etmeyiniz. Başarılar.
+
+## Soru 1 (20 puan)
+
+Aşağıda verilen fonksiyonu dikkatlice inceleyeiniz:
+
+``` r
+f <- function(x){
+  if (x > 5){
+    return(x^2)
+  } else {
+  return(x)
+}
+}
+```
+
+Bu fonksiyon uyarınca, `f(x = 5)`'yı çalıştırınca elde edeceğiniz değeri, aşağıdaki kod bloğuna yazınız.
+
+Bu fonksiyonu çalıştırınca:
+
+```
+şu değeri: 5
+```
+
+elde ederiz.
+
+
+## Soru 2
+
+Aşağıda verilen formülü dikkatlice inceleyiniz ve aşağıdaki iki soruyu çözünüz.
+
+$$
+y = \frac{2x+5}{12}
+$$
+
+### Soru 2.1 (20 puan)
+
+Bu işlemi gerçekleştirecek `y` isimli bir fonksiyon yazınız.
+
+```{r}
+# cevabınızı asagiya yaziniz (# isaretini kullanmadan)
+
+y <- function(x){
+  return((2*x+5)/12)
+}
+```
+
+### Soru 2.2 (10 puan)
+
+Bu fonksiyonu kullanarak `y(x = 12)` işleminin sonucunu geri döndürünüz:
+
+```{r}
+# cevabınızı asagiya yaziniz (# isaretini kullanmadan)
+y(x = 12)
+```
+
+
+## Soru 3
+
+Bir amino asit ipliğinin toplam kütlesi, o ipliği oluşturan amino asitlerin ortalama moleküler ağırlıklarının toplamıdır. Örnek olarak, elimizde `A-R-N-E` dizilimine sahip bir amino asit ipliği olsun. Bu ipliğin toplam kütlesini bulmak için, *A*, *R*, *N*, ve *E* amino asitlerinin ortalama molekül ağırlıklarını toplamamız gerekir.
+
+| Amino Asit    | Kod | Ortalama Kütle |
+|---------------|-----|----------------|
+| Alanin        | A   | 129.11398      |
+| Arjinin       | R   | 156.18568      |
+| Asparajin     | N   | 114.10264      |
+| Glutamik Asit | E   | 129.11398      |
+
+Bu tablo uyarınca aşağıdaki hesaplamayı yapmalıyız:
+
+```{r}
+129.11398 + 156.18568 + 114.10264 + 129.11398
+```
+
+Ekte verilen `amino-acid-mass.txt` isimli dosya, bütün amino asitlerin sahip oldukları molekül ağırlıklarını içermektedir.
+
+Bu bilgilere göre aşağıdaki soruları çözünüz
+
+### Soru 3.1 (20 puan)
+
+Ekte verilen `amino-acid-mass.txt` dosyasını okuyarak, bir amino asit ipliğinin toplam kütlesini hesaplayan, `protein_kutle_hesapla` isimli bir fonksiyon yazınız.
+
+:::{.callout-tip}
+## İpucu
+Oluşturacağınız fonksiyonda `for` döngüsünü kullanınız.
+:::
+
+#### Cevap 3.2
+
+Bu soruyu cevaplamak için, öncelikle `amino-acid-mass.txt` isimli dosyayı yüklemeliyiz. Amino asitlerin kütleleri bu tablo içindedir.
+
+```{r}
+# cevabinizi asagiya yaziniz (# isaretini kullanmadan)
+
+# once kutle tablosu dosyasini yukleyelim:
+
+kutle_tablosu <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/amino-acid-mass.txt", sep ="\t", header=T)
+
+# kutle tablosunun ilk satirlarini inceleyelim:
+
+head(kutle_tablosu)
+```
+
+Şimdi, fonkisyonumuzu yazabiliriz:
+
+```{r}
+# once fonksiyonu olusturmak icin gerekli komutlari yazalim. Fonksiyonun, iki tane girdisi olacaktir. 
+# birinci girdi, amino asit dizisi
+# ikinci girdi, amino asitlerin kutlelerinin oldugu kutle kutle_tablosu
+# ancak bu kutle tablosunun mutlaka daha once yuklenmis olması gereklidir
+
+protein_kutle_hesapla <- function(iplik, kutle_tablosu){
+  # oncelikle bir agirlik degeri olsturalim
+  agirlik <- 0
+  # iplik icerisindeki her amino asit icin bir dongu olusturmamiz gereklidir
+
+  for (aa in iplik){
+      # once o amino asite karsilik gelen agirligi alalim
+      # buradaki satiri, farkli sekillerde yazabilirsiniz. 
+      aa_agirlik <- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == aa]
+      # buradaki satiri, farkli sekillerde yazabilirsiniz. 
+      # aa_agirlik <- molekul_agirligi[kutle_tablosu$kod == aa, 3]
+
+      # aa_agirlik <- subset(kutle_tablosu, subset = kod == aa, select = molekul_agirligi)
+      cat ("Secilen amino asit ve agirligi", aa, aa_agirlik, "\n")
+      # daha sonra, olusturdugumuz agirlik degerine, bu amino asitin kutlesini ekleyelim
+      agirlik <- agirlik + aa_agirlik
+  }
+  # en son olarak agirlik degerini dondurelim
+  return(agirlik)
+}
+```
+
+### Soru 3.2 (10 puan)
+
+Daha sonra yazdığınız fonksiyonu kullanarak, aşağıdaki protein ipliğinin kütlesini hesaplayınız:
+
+```{r}
+protein_ipligi <- c("O", "T", "Q", "E", "G", "I", "W")
+```
+
+Fonksiyonun uygulamasını ise aşağıdaki kod bloğuna yazınız:
+
+```{r}
+# cevabınızı asagiya yaziniz (# isaretini kullanmadan)
+# oncelikle kutle tablosunu yukledigimizden emin olalim
+# fonksiyona, kutle tabolosunu vermemiz gerekli
+# o yuzden oncelikle kutle tablosunu yuklemeliyiz
+
+kutle_tablosu <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/amino-acid-mass.txt", sep ="\t", header=T)
+
+protein_kutle_hesapla(iplik = protein_ipligi, kutle_tablosu = kutle_tablosu)
+```
+
+## Soru 4 (20 puan)
+
+Aşağda verilen `for` döngüsünü, ve bu döngünün çıktısını dikkatlice inceleyiniz: 
+
+```{r}
+dna <- c("A", "T", "G", "C", "G", "C", "A")
+komplementer <- c()
+for (nukleotid in dna){
+  if (nukleotid == "A"){komplementer <- c(komplementer, "T")}
+  if (nukleotid == "T"){komplementer <- c(komplementer, "A")}
+  if (nukleotid == "C"){komplementer <- c(komplementer, "G")}
+  if (nukleotid == "G"){komplementer <- c(komplementer, "C")}
+}
+```
+
+Bu kod bloğu nasıl çalışmaktadır? Bu kod bloğunun nasıl çalıştığını satır satır çözümleyerek, kendi cümlelerinizle anlatınız (Cevabınızı, **Cevap 4 isimli başlığın altına yazınız**):
+
+### Cevap 4
+
++ İlk olarak `dna` isminde, yedi tane nükleotid içeren bir vektör tanımlanır
++ `komplementer` isminde boş bir vektör tanımlanır
++ `dna` vektörü içerisindeki her elemanı, tek tek `nukleotid` değişkeni içerisine aktaran bir `for` döngüsü ifade edilmiştir
++ Elde edilen her `nukleotid` için dört farklı koşul çalıştırlır:
+  + Eğer nükleotid `A` ise, `komplementer` vektörü içerisine `T` eklenir
+  + Eğer nükleotid `T` ise, `komplementer` vektörü içerisine `A` eklenir
+  + Eğer nükleotid `C` ise, `komplementer` vektörü içerisine `G` eklenir
+  + Eğer nükleotid `G` ise, `komplementer` vektörü içerisine `C` eklenir
+
+:::{.callout-tip}
+## İpucu
+Bu soruda istediğim şey, verilen kod bloğundaki her kodun ne işe yaradığını açlıklamanız. Aşağıdaki kodu inceleyelim:
+
+```{r}
+veri <- data.frame(bitki = c("setosa", "versicolor"), 
+                   petal_uzunlugu = c(1.4, 2.3))
+```
+
+Açıklaması:
+
+Bu kod bloğundaki birinci satır, `veri` isminde bir veri çerçevesi oluşturmaktadır. Bu veri çerçevesinin içinde bitki ve petal uzunluğu isminde iki farklı sütun bulunmaktadır.
+
+:::
