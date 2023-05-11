@@ -2,118 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emrahkirdok.github.io/ybva/index.html</loc>
-    <lastmod>2023-05-11T11:41:54.721Z</lastmod>
+    <lastmod>2023-05-11T12:03:35.938Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/CONTRIBUTING.html</loc>
-    <lastmod>2023-05-11T11:41:54.749Z</lastmod>
+    <lastmod>2023-05-11T12:03:35.954Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/01-kurulum/01-r-rstudio-kurulum.html</loc>
-    <lastmod>2023-05-11T11:41:54.761Z</lastmod>
+    <lastmod>2023-05-11T12:03:35.966Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/01-kurulum/02-ilk-kurallar.html</loc>
-    <lastmod>2023-05-11T11:41:54.777Z</lastmod>
+    <lastmod>2023-05-11T12:03:35.978Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/01-kurulum/03-r-rstudio-ilk-adimlar.html</loc>
-    <lastmod>2023-05-11T11:41:54.789Z</lastmod>
+    <lastmod>2023-05-11T12:03:35.986Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/01-kurulum/04-klasor-islemleri.html</loc>
-    <lastmod>2023-05-11T11:41:54.801Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.006Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/01-veri-bilimine-giris.html</loc>
-    <lastmod>2023-05-11T11:41:54.825Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.014Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/02-bilimsel-yontem.html</loc>
-    <lastmod>2023-05-11T11:41:54.837Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.026Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/03-r-giris.html</loc>
-    <lastmod>2023-05-11T11:41:54.853Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.038Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/04-vektorler.html</loc>
-    <lastmod>2023-05-11T11:41:54.889Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.066Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/05-matrisler.html</loc>
-    <lastmod>2023-05-11T11:41:54.905Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.082Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/06-veri-cerceveleri.html</loc>
-    <lastmod>2023-05-11T11:41:54.937Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.106Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/07-listeler.html</loc>
-    <lastmod>2023-05-11T11:41:54.961Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.126Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/08-dosya-okuma.html</loc>
-    <lastmod>2023-05-11T11:41:54.973Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.134Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/09-rmarkdown.html</loc>
-    <lastmod>2023-05-11T11:41:54.993Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.154Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/10-bilimsel-hikaye-01.html</loc>
-    <lastmod>2023-05-11T11:41:55.017Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/11-bilimsel-hikaye-02.html</loc>
+    <lastmod>2023-05-11T12:03:36.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emrahkirdok.github.io/ybva/02-veri-analizi/12-bilimsel-hikaye-03.html</loc>
+    <lastmod>2023-05-11T12:03:36.218Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html</loc>
-    <lastmod>2023-05-11T11:41:55.041Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.246Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html</loc>
-    <lastmod>2023-05-11T11:41:55.069Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.258Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html</loc>
-    <lastmod>2023-05-11T11:41:55.077Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.266Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html</loc>
-    <lastmod>2023-05-11T11:41:55.093Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.286Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html</loc>
-    <lastmod>2023-05-11T11:41:55.113Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.298Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html</loc>
-    <lastmod>2023-05-11T11:41:55.141Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.318Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/04-pratikler/01-veri-analizi/01-vektorler.html</loc>
-    <lastmod>2023-05-11T11:41:55.153Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.338Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/04-pratikler/01-veri-analizi/02-pratik.html</loc>
-    <lastmod>2023-05-11T11:41:55.177Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.350Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/04-pratikler/01-veri-analizi/04-vize-pratik.html</loc>
-    <lastmod>2023-05-11T11:41:55.201Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.366Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html</loc>
-    <lastmod>2023-05-11T11:41:55.213Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.382Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html</loc>
-    <lastmod>2023-05-11T11:41:55.245Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.402Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/references.html</loc>
-    <lastmod>2023-05-11T11:41:55.257Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.410Z</lastmod>
   </url>
   <url>
     <loc>https://emrahkirdok.github.io/ybva/10-ekler/01-sunumlar.html</loc>
-    <lastmod>2023-05-11T11:41:55.265Z</lastmod>
+    <lastmod>2023-05-11T12:03:36.418Z</lastmod>
   </url>
 </urlset>
