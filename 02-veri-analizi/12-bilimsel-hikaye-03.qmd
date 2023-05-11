@@ -1,16 +1,4 @@
----
-title: "Ders"
-author: "Anil"
-date: '2022-04-03'
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Giriş
-
+# Bilimsel Hikaye Anlatımı 3
 
 İlk olarak library fonksiyonunu kullanarak "ggplot2" yi yüklüyoruz.
 

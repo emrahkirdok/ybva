@@ -1,37 +1,4 @@
----
-title: "GGplot2 ile grafik dilbilgisi"
-author: "Emrah Kırdök, Ph. D."
-date: "23/03/2022"
-output:
-  bookdown::html_document2:
-    css: "templates/scholarly.css"
-  bookdown::pdf_document2:
-    template: templates/eisvogel.tex
-    keep_md: yes
-    toc: false
-    keep_tex: true
-    pandoc_args:
-    - --filter
-    - ~/miniconda3/bin/pandoc-latex-environment
-bibliography: bibliography.bib
-lang: tr
-header-includes: |
-  ```{=latex}
-  \usepackage{awesomebox}
-  ```
-pandoc-latex-environment:
-  noteblock: [note]
-  tipblock: [tip]
-  warningblock: [warning]
-  cautionblock: [caution]
-  importantblock: [important]
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Giriş
+# Bilimsel Hikaye Anlatımı 2
 
 Bugün derste `ggplot2` ile grafik dilbilgisi hakkında çalışmalar yaptık.
 

@@ -1,4 +1,4 @@
-# Bilimsel Hikaye Anlatımı
+# Bilimsel Hikaye Anlatımı 1
 
 Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler, ve veri çerçevelerini öğrendik. Hatta, bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?
 
