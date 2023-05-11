@@ -46,6 +46,8 @@ book:
         - 02-veri-analizi/08-dosya-okuma.qmd
         - 02-veri-analizi/09-rmarkdown.Rmd
         - 02-veri-analizi/10-bilimsel-hikaye-01.qmd
+        - 02-veri-analizi/11-bilimsel-hikaye-02.qmd
+        - 02-veri-analizi/12-bilimsel-hikaye-03.qmd
 #        - 02-veri-analizi/06-Rmarkdown.qmd
 #        - 02-veri-analizi/08-tibble.qmd
 #        - 02-veri-analizi/09-listeler.qmd
