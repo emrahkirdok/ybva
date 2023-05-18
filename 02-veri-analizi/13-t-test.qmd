@@ -1,15 +1,4 @@
----
-title: "T-test"
-author: "Emrah Kırdök, Ph. D."
-date: "4/6/2022"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Giriş
+# T-Test
 
 Bu döküman kapsamında R üzerinde t-test ile ile ilgili bilgiler verilecektir.
 
