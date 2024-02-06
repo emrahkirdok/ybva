@@ -19,7 +19,7 @@ yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4,
                     3, 1.8, 6.3, 2.1, 5)
 ```
 
-Bu vektörden bir matris oluşturmak istersek öncelikle ``matrix()` fonksiyonunu kullanarak, satır (`nrow`) ve sütun (`ncol`) sayılarını belirlememiz gereklidir.
+Bu vektörden bir matris oluşturmak istersek öncelikle `matrix()` fonksiyonunu kullanarak, satır `(nrow)` ve sütun `(ncol)` sayılarını belirlememiz gereklidir.
 
 ```{r}
 matrix(yaprak_uzunlugu, nrow=5, ncol=2)
@@ -28,6 +28,7 @@ matrix(yaprak_uzunlugu, nrow=5, ncol=2)
 Evet, sonuç olarak 5 satır ve iki sütundan oluşan ilk matrisinizi oluşturdunuz. 
 
 ::: {.callout-important}
+
 ## Satır ve Sütun sayılarına dikkat!
 
 Satır ve sütun sayılarının çarpımı, vektörün uzunluğunu vermeli. Yani 10 tane elemana sahip bir vektörden, 2x5 ya da 5x2 boyutlarında matrisler elde edebilirsiniz.
@@ -37,9 +38,9 @@ Satır ve sütun sayılarının çarpımı, vektörün uzunluğunu vermeli. Yani
 
 Matris boyutlarını öğrenmek için üç farklı fonksiyon kullanabilirsiniz:
 
-+ `dim` bir matrisin satır ve sütun sayılarını geri döndürür
-+ `nrow` sadece satır sayısını geri döndürür
-+ `ncol` sadece sütun sayısını geri döndürür
++ `dim` bir matrisin satır ve sütun sayılarını geri döndürür.
++ `nrow` sadece satır sayısını geri döndürür.
++ `ncol` sadece sütun sayısını geri döndürür.
 
 Şu şekilde:
 
@@ -80,7 +81,7 @@ ornek_matris[4,2]
 
 Birinci eleman satır sayısını, ikinci eleman ise sütun sayısını ifade etmektedir.
 
-Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek?
+Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek:
 
 ```{r}
 ornek_matris[2:4,2]
@@ -112,14 +113,14 @@ Mesela ikinci sütunda, 5'den büyük satırları geri döndürelim:
 ornek_matris[,2] > 5
 ```
 
-Dikkat ederseniz, 5'den büyük olan değerleri bize `TRUE` olarak gösterdi. Bu mantıksal vektörü tekrar bir indis olarak verelim:
+Dikkat ederseniz 5'den büyük olan değerleri bize `TRUE` olarak gösterdi. Bu mantıksal vektörü tekrar bir indis olarak verelim:
 
 ```{r}
 
 ornek_matris[ornek_matris[,2] > 5, 1]
 ```
 
-Dikkat edin, mantıksal vektörü sadece satır indisi olarak kullandık. Yoksa hata alırız.
+Dikkat edin mantıksal vektörü sadece satır indisi olarak kullandık! Yoksa hata alırız.
 
 Ya da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matris içinde 3'den büyük olan değerleri geri döndürelim:
 
@@ -127,10 +128,10 @@ Ya da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matr
 ornek_matris > 3
 ```
 
-Bunu tekrar bir indis olarak geri kullanalaım
+Bunu tekrar bir indis olarak geri kullanalım
 
 ```{r}
 ornek_matris[ornek_matris > 3]
 ```
 
-Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgü. 
+Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgüdür. 
