@@ -75,12 +75,12 @@ yeni_vektor
 
 ## Vektör oluşturma
 
-+ Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `_` ile ayırdık. Siz de buna dikkat edin lütfen.
++ Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `_` ile ayırdık. Siz de buna dikkat edin lütfen!
 
 ## Vektörler sadece bir veri tipine sahiptir
 
 + Acaba iki farklı tipte vektörü birleştiriseniz ne olur? 
-+Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
++ Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
 
 ```{r}
 vektor <- c("bitki1", "bitki2", 12, 45)
@@ -118,7 +118,7 @@ bitki_ismi <- c("bitki1", "bitki2",
 
 ## Vektör oluşturma üzerine örnekler
 
-Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım. Burada dikkat ediniz, belirlenemyen ölçümlere `NA` ekliyoruz.
+Şimdi ise yaprak uzunluğu için bir sayı vektörü oluşturalım. Burada dikkat ediniz, belirlenemyen ölçümlere `NA` ekliyoruz!
 
 ```{r}
 yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
@@ -251,7 +251,7 @@ seq(2, 16, 2)
 
 Bu kısım kapsamında aşağıdaki konular önemlidir:
 
-+ Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız, ve vektör elemanlarını `,` ile ayırırız
-+ Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız
-+ Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
-+ `seq` fonksiyonu kullanımı 
++ Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız ve vektör elemanlarını `,` ile ayırırız.
++ Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız.
++ Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız: `yaprak_uzunlugu[5]`
++ `seq` fonksiyonu kullanımı
