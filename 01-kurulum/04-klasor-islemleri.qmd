@@ -1,10 +1,10 @@
 # Klasör İşlemleri {#sec-klasor}
 
-Deneysel çalışmalar yapan bir araştırmacının ekipmanları laboratuvar malzemeleridir. Bu araştırmacıları, laboratuvar ekipmanları ve cihazlarının nasıl çalıştıklarını ayrtıntılı bir şekilde bilirler.
+Deneysel çalışmalar yapan bir araştırmacının ekipmanları laboratuvar malzemeleridir. Bu araştırmacılar, laboratuvar ekipmanları ve cihazlarının nasıl çalıştıklarını ayrtıntılı bir şekilde bilirler.
 
 Bir veri bilimcinin temel ekipmanı da bilgisayarıdır. Bilgisayarımızın nasıl çalıştığını en ince ayrıntısına kadar bilmeli ve hakim olmalıyız.
 
-R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz, ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımıza yazabiliriz.
+R üzerinde yönümüzü tayin etmek çok önemli! Bu sayede metin dosyalarını okuyabiliriz ya da işlediğimiz veriler ve oluşturduğumuz grafikleri bilgisayarımıza yazabiliriz.
 
 Bu belge bu amaçla hazırlandı.
 
