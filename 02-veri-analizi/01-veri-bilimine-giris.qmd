@@ -44,7 +44,4 @@ ggplot(data = sra,
 
 ```
 
-Peki bu veri bütünlüğünün içinde neler var? Kişisel gözlemlerim neticesinde
-
-
-Bu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.
+Peki bu veri bütünlüğünün içinde neler var? Kişisel gözlemlerim neticesinde bu veri bütünlüğüyle çalışmak için yeni yöntemler geliştirilmesi gerekmektedir.
