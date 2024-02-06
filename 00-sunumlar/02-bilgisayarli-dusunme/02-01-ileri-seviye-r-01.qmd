@@ -19,9 +19,9 @@ format:
 
 ## Neden?
 
-+ Veri analizi adımları karmaşık olabilir
-+ Çok uzun bir vektördeki bütün elemanlara bir fonkisyon uygulamak isteyebilirsiniz
-+ Farklı özelliklere sahip elemanlara, farklı fonkisyonlar uygulamak isteyebilirsiniz
++ Veri analizi adımları karmaşık olabilir.
++ Çok uzun bir vektördeki bütün elemanlara bir fonkisyon uygulamak isteyebilirsiniz.
++ Farklı özelliklere sahip elemanlara, farklı fonkisyonlar uygulamak isteyebilirsiniz.
 
 ## Bir örnek
 
@@ -140,8 +140,7 @@ digraph for{
 
 ## `if-else` Kontrol yapısı
 
-+ Veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse kullanabiliriz
-
++ Veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse kullanabiliriz.
 + Elimizde bir sayımız olsun. 
 + Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5'den büyük veya eşittir" yazsın. 
 + Eğer 5'den küçük ise, "Bu sayı 5'den küçüktür" yazsın.
@@ -209,7 +208,7 @@ if (sayi >= 5) {
 
 ## Farklı yapıları birleştirelim
 
-+ Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim
++ Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim.
 + Bu sefer her elemana farklı işlemler uygulamaya çalışalım.
 
 ```{r}
@@ -221,8 +220,8 @@ yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4,
 
 Elimizde artık iki tane koşul olsun:
 
-+ Eğer eleman 5'den büyük veya eşitse, elemana 5 ekle ve ikiye böl
-+ Eğer eleman 5'den küçükse, elemana 10 ekle ve 3'e böl
++ Eğer eleman 5'den büyük veya eşitse, elemana 5 ekle ve ikiye böl.
++ Eğer eleman 5'den küçükse, elemana 10 ekle ve 3'e böl.
 
 ## Farklı yapıları birleştirelim
 
