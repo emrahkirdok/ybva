@@ -21,7 +21,7 @@ format:
 
 + Veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir.
 + Bu durumda matris veri yapılarını kullanıyoruz. 
-+ Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir
++ Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir.
 
 ```{r}
 #| label: tbl-matrix1
@@ -104,7 +104,7 @@ Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek?
 ornek_matris[2:4,2]
 ```
 
-+ `2:4` yapısı bize `r 2:4` vektörünü geri döndürecektir
++ `2:4` yapısı bize `r 2:4` vektörünü geri döndürecektir.
 
 ## Matrislerle çalışmak
 
@@ -130,7 +130,7 @@ ornek_matris[,2] > 5
 ```
 
 + 5'den büyük olan değerleri bize `TRUE` olarak gösterdi.
-+ Mantıksal vektörü tekrar indis olarak kullanalım
++ Mantıksal vektörü tekrar indis olarak kullanalım:
 
 ```{r}
 ornek_matris[ornek_matris[,2] > 5, 2]
@@ -144,10 +144,10 @@ ornek_matris[ornek_matris[,2] > 5, 2]
 ornek_matris > 3
 ```
 
-Bunu tekrar bir indis olarak geri kullanalaım
+Bunu tekrar bir indis olarak geri kullanalım:
 
 ```{r}
 ornek_matris[ornek_matris > 3]
 ```
 
-Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgü. 
+Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgüdür. 
