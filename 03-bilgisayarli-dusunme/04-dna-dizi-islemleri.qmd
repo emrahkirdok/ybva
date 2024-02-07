@@ -47,7 +47,7 @@ tamamlayici(dna[[1]])
 
 ## Soru 2: G+C oranı bulma
 
-Bir DNA dizisindeki G + C nükleotidi oranını aşağıdaki şekilde bulabilirsiniz. 
+Bir DNA dizisindeki *G + C nükleotidi oranını* aşağıdaki şekilde bulabilirsiniz. 
 
 $$
 GC = \frac{G+C}{A+G+C+T}
@@ -56,6 +56,6 @@ Yüklediğimiz fasta dosyasında, birinci DNA dizinin GC oranını bulan fonksiy
 
 ## Soru 3: Amino asit birincil ipliği oluşturma
 
-Şu [dosyaya](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt) sağ tıklayı farklı kaydete basınız.
+Şu [dosyaya](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt) sağ tıklayıp farklı kaydete basınız.
 
-Bu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak, fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız. 
+Bu dosyada DNA kodon tablosu bulunmaktadır. Bu dosyayı kullanarak fasta dosyasında bulunan birinci DNA dizisini bir amino asit vektörü olarak geri döndüren fonksiyonu yazınız. 
