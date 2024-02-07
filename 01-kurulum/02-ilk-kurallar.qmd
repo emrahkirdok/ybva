@@ -16,7 +16,7 @@ Son yıllarda [UTF-8](https://en.wikipedia.org/wiki/UTF-8) karakter kodlama sist
 
 UTF-8, şu anda yaygın bir kodlama sistemi olsa da, Windows bu kodlama sistemini son yıllarda kullanmaya başladı ve Hâlâ bu yüzden sorunlar yaşıyoruz. Önceki yıllarda bu kodlama sorunları yüzünden öğrenci ödevlerini düzgün bir şekilde görüntüleyemedim.
 
-Bu yüzde ders kapsamında yapacağınız **kodlamaları** sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler - ve kendi alfabenizdeki İngilizce dışındaki karakterler - YASAK!
+Bu yüzden ders kapsamında yapacağınız **kodlamaları** sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler - ve kendi alfabenizdeki İngilizce dışındaki karakterler - YASAK!
 
 ::: {.callout-important}
 
