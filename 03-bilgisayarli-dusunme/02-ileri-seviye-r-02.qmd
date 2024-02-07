@@ -1,12 +1,12 @@
 # Fonksiyonlar
 
-R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde, veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.
+R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.
 
-Aynı kod bloğunu tekrar tekrar yazmak yerine, bir fonksiyon oluşturusanız, o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.
+Aynı kod bloğunu tekrar tekrar yazmak yerine bir fonksiyon oluşturusanız o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.
 
 Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.
 
-Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon, işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (@fig-fonksiyon)
+Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (@fig-fonksiyon).
 
 ```{dot}
 //| label: fig-fonksiyon
@@ -73,7 +73,7 @@ toplam(a = 12, b = 45)
 
 Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.
 
-Yazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
+Yazacağımız fonksiyon santigrad cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
 
 ```{r}
 kelvin_donusturucu <- function(derece){
