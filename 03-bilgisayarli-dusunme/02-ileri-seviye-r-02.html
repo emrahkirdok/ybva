@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Yaşam Bilimlerinde Veri Analizi - 19&nbsp; Fonksiyonlar</title>
 <style>
@@ -19,7 +19,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -77,7 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Sonuç yok",
     "search-matching-documents-text": "eşleşen belgeler",
@@ -86,8 +92,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "bu belgede daha fazla eşleşme",
     "search-more-matches-text": "bu belgede daha fazla eşleşmeler",
     "search-clear-button-title": "Temizle",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "İptal et",
-    "search-submit-button-title": "Göndermek"
+    "search-submit-button-title": "Göndermek",
+    "search-label": "Aramak"
   }
 }</script>
 </head>
@@ -95,25 +103,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Aramak" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/emrahkirdok/ybva/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/emrahkirdok/ybva/" title="Kaynak Kodu" class="quarto-navigation-tool px-1" aria-label="Kaynak Kodu"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Okuyucu modunu değiştir">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -382,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
@@ -393,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
 <span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span>
 </h1>
@@ -409,41 +417,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header><p>R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde, veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.</p>
 <p>Aynı kod bloğunu tekrar tekrar yazmak yerine, bir fonksiyon oluşturusanız, o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.</p>
 <p>Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.</p>
-<p>Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon, işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (<a href="#fig-fonksiyon">Şekil&nbsp;<span>19.1</span></a>)</p>
-<div class="cell">
+<p>Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon, işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (<a href="#fig-fonksiyon" class="quarto-xref">Şekil&nbsp;<span>19.1</span></a>)</p>
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-fonksiyon" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><div>
-<svg width="672" height="480" viewbox="0.00 0.00 276.39 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)"><title>
-fonksiyon
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 272.39,-184 272.39,4 -4,4"></polygon><!-- girdi --><g id="node1" class="node"><title>
-girdi
-</title>
-<polygon fill="none" stroke="black" points="243.57,-180 189.57,-180 189.57,-144 243.57,-144 243.57,-180"></polygon><text text-anchor="middle" x="216.57" y="-157.8" font-family="Times,serif" font-size="14.00">Girdi</text></g><!-- fonksiyon --><g id="node2" class="node"><title>
-fonksiyon
-</title>
-<ellipse fill="none" stroke="black" cx="216.57" cy="-90" rx="51.64" ry="18"></ellipse><text text-anchor="middle" x="216.57" y="-85.8" font-family="Times,serif" font-size="14.00">Fonksiyon</text></g><!-- girdi&#45;&gt;fonksiyon --><g id="edge1" class="edge"><title>
-girdi-&gt;fonksiyon
-</title>
-<path fill="none" stroke="black" d="M216.57,-143.7C216.57,-135.98 216.57,-126.71 216.57,-118.11"></path><polygon fill="black" stroke="black" points="220.07,-118.1 216.57,-108.1 213.07,-118.1 220.07,-118.1"></polygon></g><!-- cikti --><g id="node3" class="node"><title>
-cikti
-</title>
-<polygon fill="none" stroke="black" points="243.57,-36 189.57,-36 189.57,0 243.57,0 243.57,-36"></polygon><text text-anchor="middle" x="216.57" y="-13.8" font-family="Times,serif" font-size="14.00">Çıktı</text></g><!-- fonksiyon&#45;&gt;cikti --><g id="edge2" class="edge"><title>
-fonksiyon-&gt;cikti
-</title>
-<path fill="none" stroke="black" d="M216.57,-71.7C216.57,-63.98 216.57,-54.71 216.57,-46.11"></path><polygon fill="black" stroke="black" points="220.07,-46.1 216.57,-36.1 213.07,-46.1 220.07,-46.1"></polygon></g><!-- parametre --><g id="node4" class="node"><title>
-parametre
-</title>
-<polygon fill="none" stroke="black" points="147.21,-108 30.07,-108 -0.07,-72 117.08,-72 147.21,-108"></polygon><text text-anchor="middle" x="73.57" y="-85.8" font-family="Times,serif" font-size="14.00">Parametre</text></g><!-- parametre&#45;&gt;fonksiyon --><g id="edge3" class="edge"><title>
-parametre-&gt;fonksiyon
-</title>
+<div id="fig-fonksiyon" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fonksiyon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 276.39 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)"><title>fonksiyon</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 272.39,-184 272.39,4 -4,4"></polygon><!-- girdi --><g id="node1" class="node"><title>girdi</title>
+<polygon fill="none" stroke="black" points="243.57,-180 189.57,-180 189.57,-144 243.57,-144 243.57,-180"></polygon><text text-anchor="middle" x="216.57" y="-157.8" font-family="Times,serif" font-size="14.00">Girdi</text></g><!-- fonksiyon --><g id="node2" class="node"><title>fonksiyon</title>
+<ellipse fill="none" stroke="black" cx="216.57" cy="-90" rx="51.64" ry="18"></ellipse><text text-anchor="middle" x="216.57" y="-85.8" font-family="Times,serif" font-size="14.00">Fonksiyon</text></g><!-- girdi&#45;&gt;fonksiyon --><g id="edge1" class="edge"><title>girdi-&gt;fonksiyon</title>
+<path fill="none" stroke="black" d="M216.57,-143.7C216.57,-135.98 216.57,-126.71 216.57,-118.11"></path><polygon fill="black" stroke="black" points="220.07,-118.1 216.57,-108.1 213.07,-118.1 220.07,-118.1"></polygon></g><!-- cikti --><g id="node3" class="node"><title>cikti</title>
+<polygon fill="none" stroke="black" points="243.57,-36 189.57,-36 189.57,0 243.57,0 243.57,-36"></polygon><text text-anchor="middle" x="216.57" y="-13.8" font-family="Times,serif" font-size="14.00">Çıktı</text></g><!-- fonksiyon&#45;&gt;cikti --><g id="edge2" class="edge"><title>fonksiyon-&gt;cikti</title>
+<path fill="none" stroke="black" d="M216.57,-71.7C216.57,-63.98 216.57,-54.71 216.57,-46.11"></path><polygon fill="black" stroke="black" points="220.07,-46.1 216.57,-36.1 213.07,-46.1 220.07,-46.1"></polygon></g><!-- parametre --><g id="node4" class="node"><title>parametre</title>
+<polygon fill="none" stroke="black" points="147.21,-108 30.07,-108 -0.07,-72 117.08,-72 147.21,-108"></polygon><text text-anchor="middle" x="73.57" y="-85.8" font-family="Times,serif" font-size="14.00">Parametre</text></g><!-- parametre&#45;&gt;fonksiyon --><g id="edge3" class="edge"><title>parametre-&gt;fonksiyon</title>
 <path fill="none" stroke="black" d="M132.22,-90C139.62,-90 147.02,-90 154.42,-90"></path><polygon fill="black" stroke="black" points="154.51,-93.5 164.51,-90 154.51,-86.5 154.51,-93.5"></polygon></g></g></svg>
 </div>
-<figcaption class="figure-caption">Şekil&nbsp;19.1: Bir fonksiyon, belirli parametreler varlığı altında bir girdiyi alır ve işleyerek çıktı haline dönüştürür</figcaption></figure>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fonksiyon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Şekil&nbsp;19.1: Bir fonksiyon, belirli parametreler varlığı altında bir girdiyi alır ve işleyerek çıktı haline dönüştürür
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -592,10 +589,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -605,8 +601,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -619,6 +624,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -662,6 +786,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -687,6 +812,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -746,23 +897,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link">
+      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link  aria-label=" yap="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="pagination-link">
+      <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="pagination-link" aria-label="<span class='chapter-number'>20</span>&nbsp; <span class='chapter-title'>DNA ile çalışma</span>">
         <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</div>   
+    <div class="nav-footer-left">
+<p>Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Bu kitap Veri Analizi, İstatistiksel Öğrenme, ve Yaşam Bilimlerinde Veri Analizi Dersleri için kaynak olarak kullanılacaktır.</div>
+    <div class="nav-footer-right">
+<p>Bu kitap Veri Analizi, İstatistiksel Öğrenme, ve Yaşam Bilimlerinde Veri Analizi Dersleri için kaynak olarak kullanılacaktır.</p>
+</div>
   </div>
 </footer>
 
