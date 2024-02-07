@@ -6,7 +6,7 @@ Bu derste yapılan pratiklerin cevaplarına aşağıdaki dosyadan ulaşabilirsin
 
 ## Hamming uzaklığı
 
-İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında, DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de, DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
+İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
 
 Aşağıdaki iki farklı diziyi inceleyelim:
 
@@ -17,7 +17,7 @@ A G G C T T A C
 
 Acaba kaç tane tek nükleotid farklılığı var? Sadece üç pozisyonda eşleşme yok.
 
-[Hamming uzaklığı](https://en.wikipedia.org/wiki/Hamming_distance), eşit uzunluğa sahip iki karakter vektörünün sembolleri arasında gözlenen toplam pozisyonel farklılıklardır.
+[Hamming uzaklığı](https://en.wikipedia.org/wiki/Hamming_distance) eşit uzunluğa sahip iki karakter vektörünün sembolleri arasında gözlenen toplam pozisyonel farklılıklardır.
 
 Bu bilgiyi kullanarak aşağıdaki iki dizi arasındaki tek nükleotid farklılıklarını geri döndüren fonksiyonu yazınız. Fonksiyonun ismi `hamming_uzakligi` olsun. Bu fonksiyonu oluştururken `for` ve `if-else` yapılarını kullanınız.
 
@@ -43,7 +43,7 @@ Bu fonksiyonu `for` ve `if-else` yapılarını kullanmadan da yazabilirsiniz. An
 
 ## GC kayması
 
-Normalde, nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir [@Salzberg]. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA'nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur. 
+Normalde nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir [@Salzberg]. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA'nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur. 
 
 Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.
 
