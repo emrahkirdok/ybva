@@ -1,10 +1,10 @@
 # Translasyon fonksiyonu anlatımı
 
-Bu dersteki amacımız, bir DNA ipliğini, amino asit dizisine çevirmek olacak. Bunun için `codon.txt` isimli kodon tablosunu ve, `example.fna` içinde bulunan birinci DNA dizisini kullanacağız.
+Bu dersteki amacımız, bir DNA ipliğini amino asit dizisine çevirmek olacak. Bunun için `codon.txt` isimli kodon tablosunu ve `example.fna` içinde bulunan birinci DNA dizisini kullanacağız.
 
 DNA dizisini okumak için, `seqinr` paketini kullanacağız. Eğer bu paketi daha önce kurmadıysanız, konsola `install.packages("seqinr")` yazmalınız.
 
-Paket kurduysanız, öncelikle çalışma alanımıza yükleyelim:
+Paket kurduysanız öncelikle çalışma alanımıza yükleyelim:
 
 ```{r}
 library(seqinr)
@@ -12,7 +12,7 @@ library(seqinr)
 
 ## Ön bilgileri yükleyelim
 
-Burada internet sitesinin `github` sayfasında bulunan dosyalar, internet üzerinden yüklenmektedir. Dosyaları bu şekilde de yükleyebilirsiniz. Ayrıntılı bilgi için: {@sec-dosya-okuma}
+Burada internet sitesinin `github` sayfasında bulunan dosyalar internet üzerinden yüklenmektedir. Dosyaları bu şekilde de yükleyebilirsiniz. Ayrıntılı bilgi için: {@sec-dosya-okuma}
 
 Şimdi DNA dizisini yükleyelim:
 
