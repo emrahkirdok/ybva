@@ -2,7 +2,7 @@
 
 Bu kısımda ileri seviye R kullanımına başlayacağız. Veri Analizi dersi kapsamında daha çok R ile veri analizi üzerine çalışmalar yapıldı. Bu kısımda ise R ile programlama adımlarını incelemeye başlayacağız.
 
-Kontrol yapıları, gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede, karmaşık verisetlerinde farklı analiz adımları gerçekleştirebiliriz.
+Kontrol yapıları gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede karmaşık verisetlerinde farklı analiz adımları gerçekleştirebiliriz.
 
 Küçük bir örnekle bunu açıklamaya çalışalım. Elimizde aşağıdaki gibi bir vektör olsun:
 
@@ -19,7 +19,7 @@ Peki, 5'den büyük ve küçük olan elemanlara farklı işlemler yapmak isterse
 
 ## Döngüler (`for`)
 
-Veri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.
+Veri ile çalışırken çoğunlukla belirli fonksiyonları art arda, farklı verilere uygulamamız gerekir. Dolayısıyla aynı işi döngü halinde yapmalıyız.
 
 Basit bir örnek verelim. Önce bir sayı vektörü oluşturalım:
 
@@ -52,7 +52,7 @@ for ( ÇALIŞILACAK ELEMAN KÜMESİ ){
 }
 ```
 
-Burada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. `for` döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli **YAPILACAK İŞ** adımı çalıştırılıyor.
+Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. `for` döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli **YAPILACAK İŞ** adımı çalıştırılıyor.
 
 Ancak bu yapıyı yukarıdaki gibi kullanmalıyız.
 
@@ -65,9 +65,9 @@ for (i in 1:length(yaprak_uzunlugu)){
 }
 ```
 
-Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1'den `r length(yaprak_uzunlugu)`'a kadar bir sayı dizisi oluştuyor. 
+Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1'den `r length(yaprak_uzunlugu)`'a kadar bir sayı dizisi oluştuyor. 
 
-`i in 1:length(yaprak_uzunlugu)` cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.
+`i in 1:length(yaprak_uzunlugu)` cümlesini kullandığımızda R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.
 
 ```{r}
 1:length(yaprak_uzunlugu)
@@ -77,9 +77,9 @@ For döngüsü ise `i` adından bir değişken oluşturuyor. Önce `i` değişke
 
 O işlem bitince, `i` değerine ikinci elemanı atanıyor ve bu sefer `i <- 2` için işlemi gerçekleştiriyor.
 
-Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
+Bu işlem oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
 
-Bir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise  `i` yerine `eleman` isimli bir değişken oluşturalım: 
+Bir önceki örnekte vektördeki eleman sırasını kullandık. İstersek doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise  `i` yerine `eleman` isimli bir değişken oluşturalım: 
 
 ```{r}
 for (eleman in yaprak_uzunlugu){
@@ -111,7 +111,7 @@ digraph for{
 
 ## Kontrol yapısı (`if-else`)
 
-Eğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, `if-else` yapısını kullanıyoruz. 
+Eğer yapacağımız analiz adımında veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse `if-else` yapısını kullanıyoruz. 
 
 Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5'den büyük veya eşittir" yazsın. Eğer 5'den küçük ise, "Bu sayı 5'den küçüktür" yazsın.
 
@@ -159,7 +159,7 @@ if ( KOŞUL ){
 }
 ```
 
-İlk önce bir koşul belirliyoruz (sayını 5'e eşit veya 5'den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.
+İlk önce bir koşul belirliyoruz (sayının 5'e eşit veya 5'den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.
 
 Şimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:
 
@@ -184,8 +184,8 @@ yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4,
 
 Elimizde artık iki tane koşul olsun:
 
-+ Eğer eleman 5'den büyük veya eşitse, elemana 5 ekle ve ikiye böl
-+ Eğer eleman 5'den küçükse, elemana 10 ekle ve 3'e böl
++ Eğer eleman 5'den büyük veya eşitse elemana 5 ekle ve ikiye böl.
++ Eğer eleman 5'den küçükse elemana 10 ekle ve 3'e böl.
 
 Yine örneğimiz biraz rastgele oldu. Böyle bir senaryo için `if-else` yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:
 
@@ -201,7 +201,7 @@ for (eleman in yaprak_uzunlugu){
 }
 ```
 
-Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (@fig-all-loop)
+Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (@fig-all-loop):
 
 ```{dot}
 //| label: fig-all-loop
