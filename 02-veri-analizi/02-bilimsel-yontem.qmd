@@ -51,11 +51,11 @@ Burada önemli olan anahtar kelimeler: **örneklem** ve **rastgele** olacaktır.
 **Rastgele örneklem:** Geniş bir popülasyonu, yanlılık içermeden temsil eden alt popülasyon. Dolayısıyla, elde ettiğimiz alt popülasyondaki her bir örneğin bulunma frekansı, ana popülasyondaki örneklerin bulunma frekanslarına yakınsayacaktır. Bu sayede, rastgele örneklem kullanarak, daha büyük bir popülasyon hakkında yargılara varabiliriz - ya da varabileceğimizi düşünürüz.
 :::
 
-Kuğu örneğine geri dönelim o zaman. Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu **yanlı** bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır.
+Kuğu örneğine geri dönelim o zaman: Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu **yanlı** bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır.
 
 ## Bilimin temel prensiplerinden bir tanesi: Tümevarım
 
-Peki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabilirz - ya da biz şimdilik öyle kabul ediyoruz.
+Peki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - Ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabiliriz. - Ya da biz şimdilik öyle kabul ediyoruz.
 
 ::: important
 **Tümevarım (indüksiyon, induction) ilkesi:** Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlaya  felsefi bir ilke. Bilim özeline bu ilkeyi uygularsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.
@@ -77,7 +77,7 @@ Karl Popper, yine aynı kitabında bu sorun üzerine eğiliyor. Ne kadar iyi ör
 
 Dolayısıyla, modern bilim genel olarak yanlışlanabilirlik ilkesine göre çalışır. Bu ilkeye göre, tümevarımsal çıkarımlarımız aslında belirli bir olasılık düzeyine göre doğru kabul edilir (*p*-değeri) ve yanlışlanana kadar doğrudur.
 
-Yine kuğu örneğine geri dönecek olursa, bütün kuğular beyaz olarak kabul edilirken, 1967 yılında Hollanda'da bir tane siyah kuğu keşfedilmiştir. Dolayısıyla artık bütün kuğular beyaz olmadığı gösterilmiştir.
+Yine kuğu örneğine geri dönülecek olursa, bütün kuğular beyaz olarak kabul edilirken, 1967 yılında Hollanda'da bir tane siyah kuğu keşfedilmiştir. Dolayısıyla artık bütün kuğular beyaz olmadığı gösterilmiştir.
 
 :::important
 Yanlışlanabilirlik ilkesine göre tümevarım çıkımları, yanlışlanana kadar doğru kabul edilir.
@@ -131,12 +131,12 @@ Eğer matematiksel bir notasyon kullanmak istersek, şekilde görülen çizgiyi 
 
 $$ Y = f(X) + \epsilon $$
 
-```{r mtcars, warning = FALSE, message = FALSE, fig.cap="Örnek veri seti kullanılarak oluşturulmuş bir doğrusal model. Bu model bize, y eksenindeki değerlerin, x eksenindeki değerlerle olan ilişkisini açıklıyor. Ya da başka bir tanımla, x eksenindeki değerleri kullanarak, y eksenindeki değerleri ne kadar doğrulukla tahmin edebiliriz?"}
+```{r mtcars, warning = FALSE, message = FALSE, fig.cap="Örnek veri seti kullanılarak oluşturulmuş bir doğrusal model. Bu model bize y eksenindeki değerlerin x eksenindeki değerlerle olan ilişkisini açıklıyor. Ya da başka bir tanımla, x eksenindeki değerleri kullanarak y eksenindeki değerleri ne kadar doğrulukla tahmin edebiliriz?"}
 ggplot(data=mtcars, aes(x=drat, y=mpg)) + geom_point() + 
   xlab("X") + ylab("Y") + geom_smooth(method = "lm") + theme_bw()
 ```
 
-Tabi, şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşağıdaki konular üzerinden giderek R ve Rstüdyo programlarını kullanarak veri bilimine giriş yapacağız:
+Tabi şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşağıdaki konular üzerinden giderek R ve Rstüdyo programlarını kullanarak veri bilimine giriş yapacağız:
 
 1. R ve RStüdyo kurulumu
 2. R üzerinde bulunan temel veri yapıları

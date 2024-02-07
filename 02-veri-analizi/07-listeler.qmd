@@ -1,6 +1,6 @@
 # Listeler
 
-Matrisler (@sec-matrisler) ve veri çerçeveleri (@sec-veri-cerceveleri) derslerinde gördüğümüz veri yapıları, belirli bir düzende oluşturaliliyordu. Yani bu veri yapılarının, belirli kısıtları bulunmaktadydı. Mesela bir grup vektörden veri çerçevesi oluşturmak istiyorsanız, vektörlerin uzunluklarının aynı olması gerkeiyordu.
+Matrisler (@sec-matrisler) ve veri çerçeveleri (@sec-veri-cerceveleri) derslerinde gördüğümüz veri yapıları, belirli bir düzende oluşturulabiliyordu. Yani bu veri yapılarının, belirli kısıtları bulunmaktaydı. Mesela bir grup vektörden veri çerçevesi oluşturmak istiyorsanız, vektörlerin uzunluklarının aynı olması gerekiyordu.
 
 Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip. 
 
@@ -102,8 +102,8 @@ names(liste) <- c("veri", "ornek_matris", "isimler")
 
 Listelerde indisleme yaparken iki farklı şekilde çalışabilirisniz. Ancak bu iki yöntem farklı veri yapıları geri döndürür:
 
-+ Liste içindeki elemana erişim: `[[]]` doğrudan liste elemanını geri döndürür
-+ Liste'den yeni bir liste geri döndürmek: `[]` bize bir alt liste geri döndürdü
++ Liste içindeki elemana erişim: `[[]]` doğrudan liste elemanını geri döndürür.
++ Liste'den yeni bir liste geri döndürmek: `[]` bize bir alt liste geri döndürdü.
 
 ### Liste içindeki elemana erişme
 

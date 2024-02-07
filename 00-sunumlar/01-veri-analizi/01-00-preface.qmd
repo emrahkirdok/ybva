@@ -17,26 +17,26 @@ format:
 
 ## Ders hakkında bilgi
 
-+ Dersimiz çevrimiçi olarak Microsoft Teams platformu üzerinde işlenecek
-+ Video kayıtları Teams platormunda ve Uzaktan Eğitim sisteminde paylaşılacak
++ Dersimiz çevrimiçi olarak Microsoft Teams platformu üzerinde işlenecek.
++ Video kayıtları Teams platormunda ve Uzaktan Eğitim sisteminde paylaşılacak.
 + Dersin internet sitesi: [https://emrahkirdok.github.io/ybva/](https://emrahkirdok.github.io/ybva/)
-+ Sınavlar hakkında açıklama ilerleyen haftalarda yapılacak
++ Sınavlar hakkında açıklama ilerleyen haftalarda yapılacak.
 
 ## Ders hakkında bilgi
 
-+ Dersler video üzerinden anlatılacak
++ Dersler video üzerinden anlatılacak.
 + Sorular Discord üzerinden!
 + Uzaktan eğitim sisteminde sorumluluk sizde!
-+ R ve Rstudio programları kullanılacak
++ R ve Rstudio programları kullanılacak.
 
 # Neden YBVA
 
 ## Yaşam Bilimlerinde Veri Analizi
 
-+ Yaşam bilimleri alanında hızlı bir gelişme var
-+ Dizileme teknolojileri sayesinde büyük miktarda veri üretildi
-+ Ancak bu veriyi analiz edebilecek insan sayısı kısıtlı
-+ Biz bu noktaya odaklanıyoruz
++ Yaşam bilimleri alanında hızlı bir gelişme var.
++ Dizileme teknolojileri sayesinde büyük miktarda veri üretildi.
++ Ancak bu veriyi analiz edebilecek insan sayısı kısıtlı.
++ Biz bu noktaya odaklanıyoruz.
 
 ## Örnek: Dizileme verisi
 
@@ -44,14 +44,14 @@ format:
 
 ::: {.notes}
 
-Örnek vermek gerekirse NCBI SRA veri tabanı. Bu veri tabanında dizileme teknolojileri sayesinde elde edilmiş veriler bulunmaktadır. Dikkat ederseniz, hızlı büyümeyi görebilirsiniz. Özellikle 2010'lu yıllarda bu büyüme başlamış ve halen de artan bir hızla devam etmekte.
+Örnek vermek gerekirse NCBI SRA veri tabanı. Bu veri tabanında dizileme teknolojileri sayesinde elde edilmiş veriler bulunmaktadır. Dikkat ederseniz, hızlı büyümeyi görebilirsiniz. Özellikle 2010'lu yıllarda bu büyüme başlamış ve halen de artan bir hızla devam etmektedir.
 
 :::
 
 ## Örnek: Türkiye deprem verisi
 
-+ Sadece biyolojik veri olmasına gerek yok
-+ Artık bir veri dünyasında yaşıyoruz
++ Sadece biyolojik veri olmasına gerek yok.
++ Artık bir veri dünyasında yaşıyoruz.
 + Mesela Türkiye ve çevresindeki depremleri incelemek ister misiniz?
 
 ## Örnek: Türkiye deprem verisi
@@ -62,21 +62,21 @@ format:
 
 ## Yeni bir bakış açısı
 
-+ Artan veri miktarı yeni bir bakış açısını gerekli kıldı
-+ Artık veri üzerinde çalışıyoruz
++ Artan veri miktarı yeni bir bakış açısını gerekli kıldı.
++ Artık veri üzerinde çalışıyoruz.
 
 ## Kısıt!
 
 + Ancak bu kadar veriyi analiz edecek insan sayısı az!
-+ Geleceğin mesleği (on yıl sonra yerini başka bir geleceğin mesleğine devretmek üzere!)
++ Geleceğin mesleği (On yıl sonra yerini başka bir geleceğin mesleğine devretmek üzere!)
 
 # Neden Veri Bilimi?
 
 ## Verinin sakladığı gizemler
 
-- Bilimsel yöntem genelde gözlemden sonuca gider
+- Bilimsel yöntem genelde gözlemden sonuca gider.
 - Ancak artık sonuçtan gözleme gidiyoruz!
-- Ancak özel ekipman kullanmamız gerekli
+- Ancak özel ekipman kullanmamız gerekli.
 
 ## Havalı bir meslek!
 
@@ -90,16 +90,16 @@ format:
 
 ## Bilgisayarlar
 
-- Adı üstünde bilgi sayar
-- Temel işi saymak
-- Sadece sayısal bilgi işleyebilir
-- Genelde sayılar birşeyleri temsil eder
+- Adı üstünde bilgi sayar.
+- Temel işi saymak.
+- Sadece sayısal bilgi işleyebilir.
+- Genelde sayılar bir şeyleri temsil eder
 
 ## Sayılar neyi temsil eder?
 
 Harfleri:
 
-- A, B, C, d, e
+- A, B, C, d, e...
 
 Notaları
 
@@ -137,9 +137,9 @@ NAQLTWTYYW
 
 ## Bilgisayarlar bu verilerle ne yapar?
 
-Veriler bilgisayarlar yardımıyla işlenir
+Veriler bilgisayarlar yardımıyla işlenir.
 
-Bir konumdan başka bir konuma iletilir ve ve dönüştürülmesi
+Bir konumdan başka bir konuma iletilir ve ve dönüştürülür.
 
 Verilerin uzun süreli depolanması
 
@@ -152,7 +152,7 @@ Verilerin uzun süreli depolanması
 
 Bilgisayarın temel bilgi işleme birimi.
 
-Bütün parçalar arasındaki koordinasyonu sağlamaktan sorumlu
+Bütün parçalar arasındaki koordinasyonu sağlamaktan sorumludur. 
 
 **Bir orkestra şefi gibi**
 
@@ -217,12 +217,12 @@ Temel olarak iki tip dosya var:
   - Anlaşılabilir
   
 - İkili dosyalar
-  - Sayısal bilginin ikili şekilde düzenlenmiş hali
-  - ses, resim dosylaları
+  - Sayısal bilginin ikili şekilde düzenlenmiş hali.
+  - Ses, resim dosylaları.
 
 ## Metni ifade etmek
 
-En basit metin gösterim metodu her bir karakteri tek bir bit ile ifade etmek
+En basit metin gösterim metodu her bir karakteri tek bir bit ile ifade etmek.
 
 İngilizce için ASCII isimli bir kodlama var
 
@@ -248,7 +248,7 @@ Sıfır - 127 arasındak her numara bir *sembol* veya bir *sinyal* olarak ifade 
  8|\&| 0| :| D| N| X| b| l | v | |
  9| ´| 1| ;| E| O| Y| c| m | w | |
 
-Non-English languages use numbers between 128 and 255 for symbols like "Ç", "Ö", "É", "Ñ"
+Non-English languages use numbers between 128 and 255 for symbols like "Ç", "Ö", "É", "Ñ". *(İngilizce dışındaki dillerde "Ç", "Ö", "É", "Ñ" gibi semboller için 128 ile 255 arasındaki sayılar kullanılır)*
 
 ## Metin dosyaları
 

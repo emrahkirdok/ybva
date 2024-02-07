@@ -23,8 +23,8 @@ R üzerinde fonksiyonlar:
 
 + Belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. 
 + Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.
-+ En az bir girdisi
-+ Bir de çıktısı olmalıdır
++ En az bir girdisi,
++ Bir de çıktısı olmalıdır.
 
 ## Fonksiyonlar
 
@@ -100,5 +100,5 @@ kelvin_donusturucu(derece = 30)
 
 ## Şimdi siz düşünün!
 
-+ Aklınız gelen örnekleri Discord üzerinden paylaşın
-+ En iyi örneğin fonksiyonunu birlikte yazalım
++ Aklınız gelen örnekleri Discord üzerinden paylaşın!
++ En iyi örneğin fonksiyonunu birlikte yazalım!

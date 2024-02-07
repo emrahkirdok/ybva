@@ -1,10 +1,10 @@
 # Veri Çerçeveleri {#sec-veri-cerceveleri}
 
-Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (@sec-vektorler), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktadı.
+Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (@sec-vektorler), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktaydı.
 
 Veri çerçeveleri aslında bu farklı veri tiplerini bir arada toplayabilme kabiliyetine sahiptir. 
 
-Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmultur. Kullandığımız vektörlerin uzunluklarının aynı olması gerekldir. Gelin şimdi @sec-vektorler'de işlediğimiz @tbl-bitkiler versini veri çerçevesine çevirelim.
+Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmuştur. Kullandığımız vektörlerin uzunluklarının aynı olması gerekldir. Gelin şimdi @sec-vektorler'de işlediğimiz @tbl-bitkiler versini veri çerçevesine çevirelim.
 
 Hatırlarsanız öncelikle vektörler tanımlamıştık.
 
@@ -38,7 +38,7 @@ veri <- data.frame(bitki_ismi = c("bitki1", "bitki2",
 )
 ```
 
-Şimdi gelin `str` fonksiyonu ile oluştruduğumuz veri çerçevesini inceleuelim:
+Şimdi gelin `str` fonksiyonu ile oluştruduğumuz veri çerçevesini inceleyelim:
 
 ```{r}
 str(veri)

@@ -19,7 +19,7 @@ format:
 
 ## Liste oluşturma
 
-Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım, ve bir liste içerisinde saklayalım.
+Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım, ve bir liste içerisinde saklayalım:
 
 | Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
 |:-----------|---------------------:|:----------------|
@@ -90,7 +90,7 @@ Listelerde indisleme biraz farklıdır.
 length(liste)
 ```
 
-İstersek, liste öğelerinin isimlerini inceleyebiliriz ya da isim atayabiliriz:
+İstersek, liste ögelerinin isimlerini inceleyebiliriz ya da isim atayabiliriz:
 
 ```{r}
 names(list)
@@ -114,13 +114,13 @@ names(liste) <- c("veri", "ornek_matris", "isimler")
 
 ## Liste içindeki elemana erişme `[[]]`
 
-İlk yöntem bize liste elemanlarına erişim, ve bu elemanlar içinde işlem yapma olanağı sağlar.
+İlk yöntem bize liste elemanlarına erişim ve bu elemanlar içinde işlem yapma olanağı sağlar.
 
 ```{r}
 liste[[3]]
 ```
 
-Şimdi ise doğrudan vektörü geri döndürdük. Bu vektör içinde işlem yapabiliriz artık. Mesela bu vektörün ikinci elemanına erişebiliriz.
+Şimdi ise doğrudan vektörü geri döndürdük. Bu vektör içinde işlem yapabiliriz artık. Mesela bu vektörün ikinci elemanına erişebiliriz:
 
 ```{r}
 liste[[3]][2]

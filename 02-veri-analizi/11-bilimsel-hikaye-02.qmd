@@ -16,7 +16,7 @@ library("ggplot2")
 
 ## Grafik dilbilgisi
 
-Bir grafiği gözünüzün önüne getirin, acaba hangi öğeler var?
+Bir grafiği gözünüzün önüne getirin, acaba hangi ögeler var?
 
 + Kullanılacak veri 
 + Grafik düzlemi

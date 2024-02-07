@@ -62,7 +62,7 @@ Eğer liste oluşturmak istiyorsanız `+` karakterini kullanmalısınız:
   + alt liste 2
 + liste 3
 
-Bir liste öğesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturduk.
+Bir liste ögesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturabilirsiniz. 
 
 ## Vurgular
 

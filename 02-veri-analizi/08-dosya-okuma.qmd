@@ -8,7 +8,7 @@ Bir dosyayı okumak için o dosyanın ya bilgisayarımızda olması gerekir, ya 
 
 [iris bitki dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt)
 
-Bu dosyayı incelerseniz, farklı sütunlardan oluştuğunu göreceksiiz. Genelde veri dosyaları sütunlar tarafından ayrılmaktador. Farklı ayraçlar kullanılabilir:
+Bu dosyayı incelerseniz, farklı sütunlardan oluştuğunu göreceksiniz. Genelde veri dosyaları sütunlar tarafından ayrılmaktadır. Farklı ayraçlar kullanılabilir:
 
 + Tab işareti `\t`
 + Noktalı Virgül `;`
@@ -35,8 +35,8 @@ Burada dikkat ederseniz bazı opsiyonlar var. Gelin onlara bakalım:
 
 Bu derste en çok zorlandığımız konu dosya okumak. Bir dosyayı okumak istiyorsanız, o dosyanın yolunu belirtmeniz gerek. Bunu iki farklı şekilde yapabilirsiniz:
 
-+ Tam yol: O dosyanın tam okuma yolunu gösterirsiniz `C:/Users/User/Documents/Veri-Analizi/veri.txt` gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz
-+ Göreceli yol: Bir R projesi kullandığınızda, dosyalarınız o proje içerisine yüklerseniz, tam yolu göstermeden kullanabilirsiniz.
++ *Tam yol:* O dosyanın tam okuma yolunu gösterirsiniz `C:/Users/User/Documents/Veri-Analizi/veri.txt` gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz
++ *Göreceli yol:* Bir R projesi kullandığınızda, dosyalarınız o proje içerisine yüklerseniz, tam yolu göstermeden kullanabilirsiniz.
 :::
 
 Bunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek için konsola `?read.table()` yazınız.

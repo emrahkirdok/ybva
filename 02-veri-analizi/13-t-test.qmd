@@ -58,7 +58,7 @@ P value bizim için önemli bir değer. T testi sonunda elde ettiğimiz p-değer
 test$p.value
 ```
 
-Dikkat ederseniz bu değer çok düşük. Bu sonuç aslında, bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.
+Dikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.
 
 ## Hipotez testi
 
