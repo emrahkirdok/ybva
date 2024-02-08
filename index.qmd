@@ -6,7 +6,7 @@ Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince olu
 
 [Eski siteye buradan ulaşabilirsiniz](old-site/index.html)
 
-Dersler sürekli güncellenmektedir, dolayısıyla dönemin sonuna doğru eski site kullanımdan kaldırılacaktır ancak şu an için dersin internet sitesini sürekli takip etmeniz iyi olacaktır.
+Dersler sürekli güncellenmektedir. Dolayısıyla dönemin sonuna doğru eski site kullanımdan kaldırılacaktır ancak şu an için dersin internet sitesini sürekli takip etmeniz iyi olacaktır.
 
 ## Dersin işlenme şekli {.unnumbered}
 
@@ -14,7 +14,7 @@ Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir. Çevrimiç
 
 Ders videoları da yine Teams platformu üzerinden tekrar izlenmeye açık olacaktır.
 
-Biyoteknoloji Bölümü Discord sunucusu ise temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları sunucuda cevaplayacağım. Dolayısıyla platforma üye olmanızı tavsiye edilir.
+Biyoteknoloji Bölümü Discord sunucusu ise temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları sunucuda cevaplayacağım. Dolayısıyla platforma üye olmanız tavsiye edilir.
 
 ## Katkıda bulunan yazarlar {.unnumbered}
 
@@ -33,7 +33,7 @@ Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları ince
 
 Kitap kapsamında altı farklı bölüm olması planlanmıştır:
 
-Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilirsiniz. Derslere başlamadan önce bu kısmı bitirmiş olduğunuzdan emin olun. Yoksa ilerleyen adımlarda sorunlarla karşılaşabilirsiniz.
+Eğer bu dersi ilk defa alıyorsanız ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilirsiniz. Derslere başlamadan önce bu kısmı bitirmiş olduğunuzdan emin olun. Yoksa ilerleyen adımlarda sorunlarla karşılaşabilirsiniz.
 
 @sec-sistem R ve Rstüdyo programlarının kurulumu hakkında bilgileri içermektedir. Ardından @sec-onemli ise, R ve RStudio ile çalışırken dikkat edilmesi gereken noktaları içermektedir. Burada yazan küçük ayıntılara dikkat ederseniz, gereksiz bir şekilde yaşayacağınız vakit kaybının önüne geçebilirsiniz. @sec-ilk-adimlar, R ve Rstudio programları ile çalışmaya başlamanız için gerekli bilgileri anlatmaktdır. @sec-klasor'de, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
 
@@ -41,11 +41,11 @@ Eğer bu dersi ilk defa alıyorsanız, ilk olarak **Derse Hazırlık** kısmın�
 
 **Bilgisayarlı düşünme** kısmında ise R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ileri seviye doğrusal modeller işlenecektir. 
 
-**Pratik** kısmında, bu iki derse ait pratikler olacaktır. Aynı zamanda bu pratiklerin, çözümleri de **Ekler** kısmında verilecektir. 
+**Pratik** kısmında, bu iki derse ait pratikler olacaktır. Aynı zamanda bu pratiklerin çözümleri de **Ekler** kısmında verilecektir. 
 
-**Uygulamalar** kısmında, tüm ders kapsamında işlenen konuların biyolojik veriler üzerinden uygulaması yapılacaktır. Şu an için RNA dizileme ve mikrodizin verisi analizi üzerine pratikler bulunmaktadır.
+**Uygulamalar** kısmında tüm ders kapsamında işlenen konuların biyolojik veriler üzerinden uygulaması yapılacaktır. Şu an için RNA dizileme ve mikrodizin verisi analizi üzerine pratikler bulunmaktadır.
 
-Son olarak, **Türkiye'nin verisi** kısmında ise, Türkiye sınırları içerisinde elde edilmiş açık kaynaklı veriler hakkında uygulamalar yapılacaktır.
+Son olarak, **Türkiye'nin verisi** kısmında ise Türkiye sınırları içerisinde elde edilmiş açık kaynaklı veriler hakkında uygulamalar yapılacaktır.
 
 ## Önemli noktalar
 
@@ -54,25 +54,25 @@ Bir çok yerde dikkat etmeniz gereken özel noktalar size belirtilecektir.
 ::: {.callout-note}
 ## Not
 
-Eğer böyle bir uyarıya denk gelirseniz, bunu not etmeniz sizin için faydalı olabilir.
+Eğer böyle bir uyarıya denk gelirseniz bunu not etmeniz sizin için faydalı olabilir.
 :::
 
 :::{.callout-tip}
 ## İpucu
 
-R üzerinde bir işi yapmanın birden fazla yolu bulunmaktadır. Eğer böyle bir uyarıya denk gelirseniz, alternatif bir yol izleyebilirsiniz.
+R üzerinde bir işi yapmanın birden fazla yolu bulunmaktadır. Eğer böyle bir uyarıya denk gelirseniz alternatif bir yol izleyebilirsiniz.
 
 :::
 
 :::{.callout-important}
 ## Önemli
 
-Burada yazan bilgiler, o işin gerçekleştirilmesi için önem arz etmektedir.
+Burada yazan bilgiler o işin gerçekleştirilmesi için önem arz etmektedir.
 :::
 
 :::{.callout-caution}
 ## Dikkat!
 
-Eğer bu kutududaki bilgilere dikkat etmezseniz, bir hatayla karşılaşma ihtimaliniz oldukça yüksektir.
+Eğer bu kutududaki bilgilere dikkat etmezseniz bir hatayla karşılaşma ihtimaliniz oldukça yüksektir.
 
 :::
