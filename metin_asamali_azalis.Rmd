@@ -29,11 +29,11 @@ pandoc-latex-environment:
 
 # Giriş
 
-Bu belge kapsamında, aşamalı alçalış kullanarak nasıl doğrusal modelleme gerçekleştirilebileceği irdelenecektir. Bu belgede genel olarak [Alex Beacher](https://www.alexbaecher.com/post/gradient-descent/) tarafından yazılmış blog yazısını temel alacaktır.
+Bu belge kapsamında aşamalı alçalış kullanarak nasıl doğrusal modelleme gerçekleştirilebileceği irdelenecektir. Bu belgede genel olarak [Alex Beacher](https://www.alexbaecher.com/post/gradient-descent/) tarafından yazılmış blog yazısını temel alacaktır.
 
 ## Aşamalı alçalış
 
-Bir öncek belgede basit kareler toplamı ismindek metodu kullanarak doğrusal modelleme yaptık. Ancak bu ders kapsamında biz istatistiksel öğrenmenin temellerini incelemek istiyoruz. Bu açıdan baktığımızda, bu soruyu basit bir örnek üzerinden irdelemek güzel olacaktır.
+Bir öncek belgede basit kareler toplamı ismindek metodu kullanarak doğrusal modelleme yaptık. Ancak bu ders kapsamında biz istatistiksel öğrenmenin temellerini incelemek istiyoruz. Bu açıdan baktığımızda bu soruyu basit bir örnek üzerinden irdelemek güzel olacaktır.
 
 ## Veri
 
@@ -70,7 +70,7 @@ alpha <- 0.01
 num_iters <- 1000
 ```
 
-Şimdi ise, maliyet fonksiyonumuzdan elde ettiğimiz çıktıyı ve katsayıları depolayacağımız listeleri hazırlayalım:
+Şimdi ise maliyet fonksiyonumuzdan elde ettiğimiz çıktıyı ve katsayıları depolayacağımız listeleri hazırlayalım:
 
 ```{r}
 cost_history <- double(num_iters)
@@ -83,7 +83,7 @@ X <- cbind(1, matrix(x))
 
 Burada `theta` olarak belirlediğimiz veri aslında bizim başlangıç katsayılarımız. Aslıbda $\beta_{0}$ ve $\beta_{1}$ katsayılarımız bunlar.
 
-Peki bu katasyılar bize nasıl bir doğru çiziyor? Bakalım hemen. Burada gördüğümüz kırmızı çizgi aslında bizim başlangıç kastasıylarımız ifade eden denklem. Biz bu noktadan başlayarak, bu veri en iyi açıklayan doğruyu tahmin etmeye çalışacağız.
+Peki bu katasyılar bize nasıl bir doğru çiziyor? Bakalım hemen. Burada gördüğümüz kırmızı çizgi aslında bizim başlangıç kastasıylarımız ifade eden denklem. Biz bu noktadan başlayarak bu veri en iyi açıklayan doğruyu tahmin etmeye çalışacağız.
 
 ```{r}
 plot(y~x)
@@ -114,7 +114,7 @@ Katsayılara bakalım:
 head(theta_history)
 ```
 
-Peki, şimdi grafiği oluşturalım:
+Peki şimdi grafiği oluşturalım:
 
 ```{r}
 iters <- c((1:31)^2, 1000)
