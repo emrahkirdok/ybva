@@ -418,10 +418,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde, veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.</p>
-<p>Aynı kod bloğunu tekrar tekrar yazmak yerine, bir fonksiyon oluşturusanız, o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.</p>
+</header><p>R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.</p>
+<p>Aynı kod bloğunu tekrar tekrar yazmak yerine bir fonksiyon oluşturusanız o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.</p>
 <p>Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.</p>
-<p>Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon, işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (<a href="#fig-fonksiyon" class="quarto-xref">Şekil&nbsp;<span>19.1</span></a>)</p>
+<p>Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (<a href="#fig-fonksiyon" class="quarto-xref">Şekil&nbsp;<span>19.1</span></a>).</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-fonksiyon" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -494,7 +494,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">19.2</span> Başka bir fonksiyon</h2>
 <p>Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.</p>
 <p>Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.</p>
-<p>Yazacağımız fonksiyon, santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise <code>kelvin_donusturucu</code> olsun.</p>
+<p>Yazacağımız fonksiyon santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise <code>kelvin_donusturucu</code> olsun.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kelvin_donusturucu</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">derece</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">derece</span> <span class="op">+</span> <span class="fl">273.15</span></span>

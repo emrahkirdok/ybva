@@ -421,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>Bu kısımda ileri seviye R kullanımına başlayacağız. Veri Analizi dersi kapsamında daha çok R ile veri analizi üzerine çalışmalar yapıldı. Bu kısımda ise R ile programlama adımlarını incelemeye başlayacağız.</p>
-<p>Kontrol yapıları, gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede, karmaşık verisetlerinde farklı analiz adımları gerçekleştirebiliriz.</p>
+<p>Kontrol yapıları gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede karmaşık verisetlerinde farklı analiz adımları gerçekleştirebiliriz.</p>
 <p>Küçük bir örnekle bunu açıklamaya çalışalım. Elimizde aşağıdaki gibi bir vektör olsun:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
@@ -432,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Peki, 5’den büyük ve küçük olan elemanlara farklı işlemler yapmak istersek? O zaman da <code>if-else</code> kontrol yapısı bize yardımcı olacaktır. Bu sayede bir elemanın 5’den büyük veya küçük olma koşulunu inceleyerek, ona göre işlemler gerçekleştirebilriz.</p>
 <section id="döngüler-for" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="döngüler-for">
 <span class="header-section-number">18.1</span> Döngüler (<code>for</code>)</h2>
-<p>Veri ile çalışırken, çoğunlukla belirli fonksiyonları ard arda, farklı verilere uygulamamız gerekir. Dolayısıyla, aynı işi döngü halinde yapmalıyız.</p>
+<p>Veri ile çalışırken çoğunlukla belirli fonksiyonları art arda, farklı verilere uygulamamız gerekir. Dolayısıyla aynı işi döngü halinde yapmalıyız.</p>
 <p>Basit bir örnek verelim. Önce bir sayı vektörü oluşturalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( ÇALIŞILACAK ELEMAN KÜMESİ ){</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    YAPILACAK İŞ</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Burada DÖNGÜ ile belirtilen kısma, hangi elemanlarıdan bir döngü oluşturacağımızı yazıyoruz. <code>for</code> döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli <strong>YAPILACAK İŞ</strong> adımı çalıştırılıyor.</p>
+<p>Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. <code>for</code> döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli <strong>YAPILACAK İŞ</strong> adımı çalıştırılıyor.</p>
 <p>Ancak bu yapıyı yukarıdaki gibi kullanmalıyız.</p>
 <p>Şimdi döngümüzü yazalım:</p>
 <div class="cell">
@@ -479,8 +479,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] 5</code></pre>
 </div>
 </div>
-<p>Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü, kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.</p>
-<p><code>i in 1:length(yaprak_uzunlugu)</code> cümlesini kullandığımızda, R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.</p>
+<p>Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.</p>
+<p><code>i in 1:length(yaprak_uzunlugu)</code> cümlesini kullandığımızda R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -489,8 +489,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>For döngüsü ise <code>i</code> adından bir değişken oluşturuyor. Önce <code>i</code> değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.</p>
 <p>O işlem bitince, <code>i</code> değerine ikinci elemanı atanıyor ve bu sefer <code>i &lt;- 2</code> için işlemi gerçekleştiriyor.</p>
-<p>Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.</p>
-<p>Bir önceki örnekte, vektördeki eleman sırasını kullandık. İstersek, doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise <code>i</code> yerine <code>eleman</code> isimli bir değişken oluşturalım:</p>
+<p>Bu işlem oluşturduğumuz sayı vektörü bitene kadar devam ediyor.</p>
+<p>Bir önceki örnekte vektördeki eleman sırasını kullandık. İstersek doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise <code>i</code> yerine <code>eleman</code> isimli bir değişken oluşturalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
@@ -537,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section><section id="kontrol-yapısı-if-else" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="kontrol-yapısı-if-else">
 <span class="header-section-number">18.2</span> Kontrol yapısı (<code>if-else</code>)</h2>
-<p>Eğer yapacağımız analiz adımında, veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse, <code>if-else</code> yapısını kullanıyoruz.</p>
+<p>Eğer yapacağımız analiz adımında veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse <code>if-else</code> yapısını kullanıyoruz.</p>
 <p>Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.</p>
 <p><a href="#fig-if-else-1" class="quarto-xref">Şekil&nbsp;<span>18.2</span></a> bize bu işlemi şematize edecektir.</p>
 <div class="cell" data-layout-align="default">
@@ -583,7 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>İlk önce bir koşul belirliyoruz (sayını 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.</p>
+<p>İlk önce bir koşul belirliyoruz (sayının 5’e eşit veya 5’den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.</p>
 <p>Şimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
@@ -606,8 +606,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Elimizde artık iki tane koşul olsun:</p>
 <ul>
-<li>Eğer eleman 5’den büyük veya eşitse, elemana 5 ekle ve ikiye böl</li>
-<li>Eğer eleman 5’den küçükse, elemana 10 ekle ve 3’e böl</li>
+<li>Eğer eleman 5’den büyük veya eşitse elemana 5 ekle ve ikiye böl.</li>
+<li>Eğer eleman 5’den küçükse elemana 10 ekle ve 3’e böl.</li>
 </ul>
 <p>Yine örneğimiz biraz rastgele oldu. Böyle bir senaryo için <code>if-else</code> yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:</p>
 <div class="cell">
@@ -633,7 +633,7 @@ yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333
 yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 </code></pre>
 </div>
 </div>
-<p>Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (<a href="#fig-all-loop" class="quarto-xref">Şekil&nbsp;<span>18.3</span></a>)</p>
+<p>Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (<a href="#fig-all-loop" class="quarto-xref">Şekil&nbsp;<span>18.3</span></a>):</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-all-loop" class="quarto-figure quarto-figure-center quarto-float anchored">

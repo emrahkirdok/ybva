@@ -439,14 +439,14 @@ window.Quarto = {
   
 
 
-</header><p>Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak, aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:</p>
+</header><p>Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:</p>
 <ul>
 <li>isimler</li>
 <li>boy</li>
 <li>kilo</li>
 <li>cinsiyet</li>
 </ul>
-<p>Unutmayın, cinsiyet vektörü faktör olmalı.</p>
+<p>Unutmayın, cinsiyet vektörü faktör olmalı!</p>
 <table class="table">
 <thead><tr class="header">
 <th>İsimler</th>
@@ -545,7 +545,7 @@ window.Quarto = {
 <pre><code>[1] "Barış"</code></pre>
 </div>
 </div>
-<p>Boy vektörünü kullanarak,1.60’dan uzun olan değerleri geri döndüren kodu yazınız</p>
+<p>Boy vektörünü kullanarak,1.60’dan uzun olan değerleri geri döndüren kodu yazınız:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">boy</span><span class="op">[</span><span class="va">boy</span> <span class="op">&gt;</span><span class="fl">1.60</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -553,7 +553,7 @@ window.Quarto = {
 <pre><code> [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70</code></pre>
 </div>
 </div>
-<p>Yukarıda verilen verileri kullanarak <code>isimler</code>, <code>boy</code>, <code>kilo</code>, <code>yas</code> ve <code>cinsiyet</code> vektörlerini içeren <code>ekip</code> isimli bir veri çerçevesi oluşturunuz</p>
+<p>Yukarıda verilen verileri kullanarak <code>isimler</code>, <code>boy</code>, <code>kilo</code>, <code>yas</code> ve <code>cinsiyet</code> vektörlerini içeren <code>ekip</code> isimli bir veri çerçevesi oluşturunuz:</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">ekip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">isimler</span>,<span class="va">cinsiyet</span>,<span class="va">boy</span>,<span class="va">kilo</span>,<span class="va">yas</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,7 +568,7 @@ Veri çerçevesi Rmarkdown’da yazdırmayalım
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız, veriyi ekrana yazdırmış olursunuz. Bu da <code>html</code> dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:</p>
+<p>Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız veriyi ekrana yazdırmış olursunuz. Bu da <code>html</code> dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">ekip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">isimler</span>,<span class="va">cinsiyet</span>,<span class="va">boy</span>,<span class="va">kilo</span>,<span class="va">yas</span><span class="op">)</span></span>
@@ -576,7 +576,7 @@ Veri çerçevesi Rmarkdown’da yazdırmayalım
 </div>
 </div>
 </div>
-<p>Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız.</p>
+<p>Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız:</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">ekip</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -584,7 +584,7 @@ Veri çerçevesi Rmarkdown’da yazdırmayalım
 <pre><code>[1] 10  5</code></pre>
 </div>
 </div>
-<p>Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın.</p>
+<p>Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın:</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ekip</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -601,7 +601,7 @@ Veri çerçevesi Rmarkdown’da yazdırmayalım
 2   Sibel        f 1.72   66  66</code></pre>
 </div>
 </div>
-<p>Bu veri çerçevesinde, 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:</p>
+<p>Bu veri çerçevesinde 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">ekip</span><span class="op">[</span>,<span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -619,7 +619,7 @@ Veri çerçevesi Rmarkdown’da yazdırmayalım
 10 1.70   73  18</code></pre>
 </div>
 </div>
-<p>Bu veri çerçevesindeki, kilo değerlerini geri döndüren kodu yazınız:</p>
+<p>Bu veri çerçevesindeki kilo değerlerini geri döndüren kodu yazınız:</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">ekip</span><span class="op">$</span><span class="va">kilo</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -636,7 +636,7 @@ Veri çerçevesi Rmarkdown’da yazdırmayalım
 <p>Vücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:</p>
 <p><span class="math display">\[
 vki = \frac{kilo}{boy^2}
-\]</span> Bu formülü kullanarak, bu sınıftaki herkesin vki değerini hesaplayınız ve <code>vki</code> isimli vektörü oluştrunuz.</p>
+\]</span> Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve <code>vki</code> isimli vektörü oluştrunuz.</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">vki</span> <span class="op">&lt;-</span> <span class="va">ekip</span><span class="op">$</span><span class="va">kilo</span><span class="op">/</span><span class="va">ekip</span><span class="op">$</span><span class="va">boy</span><span class="op">^</span><span class="fl">2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -681,7 +681,7 @@ Veri çerçevesinde sütun oluşturmak
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Veri çerçevesinde yeni bir sütun oluşturmak için doğrudan <code>$</code> fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil</p>
+<p>Veri çerçevesinde yeni bir sütun oluşturmak için doğrudan <code>$</code> fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil.</p>
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">ekip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">isimler</span>, <span class="va">cinsiyet</span>, <span class="va">boy</span>, <span class="va">kilo</span>, <span class="va">yas</span>, <span class="va">vki</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -713,7 +713,7 @@ Dosya okurken farklı yöntemlerin kullanılması
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Okumak istediğim <code>gumus.agaci.txt</code> isimli dosya zaten internet sitesinde olduğu için, doğrudan bu dosyanın adresini kullandım. Ancak siz bu dosyayı indirdiğiniz için bilgisyarınızdan okumanız gereklidir. Yani, dosyanın nerede olduğu önemli.</p>
+<p>Okumak istediğim <code>gumus.agaci.txt</code> isimli dosya zaten internet sitesinde olduğu için, doğrudan bu dosyanın adresini kullandım. Ancak siz bu dosyayı indirdiğiniz için bilgisyarınızdan okumanız gereklidir. Yani dosyanın nerede olduğu önemli.</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cevabinizi asagiya yaziniz</span></span>
 <span><span class="va">gumus_agaci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"gumus_agaci.txt"</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span>  <span class="st">"\t"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
