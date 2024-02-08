@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Bilimsel hikaye
 
-Bir araştırma grubundaki araştırmacılar; *Gümüş ağacı* bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında, fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.
+Bir araştırma grubundaki araştırmacılar, *Gümüş ağacı* bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.
 
 Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.
 
@@ -22,7 +22,7 @@ Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulu
 
 Bu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.
 
-Bitkileri, dört farklı patojen (`Patojen` değişkeni) uygulamasına maruz bırakıyorlar:
+Bitkileri dört farklı patojen (`Patojen` değişkeni) uygulamasına maruz bırakıyorlar:
 
 + `Kontrol` (Patojen inoküle edilmemiş, sağlıklı)
 + `P. cinnamomi`
@@ -34,14 +34,14 @@ Ardından bu bitkileri 37 güne kadar  iki farklı kültürleme koşulunda (`Kul
 + `Kurak`
 + `Nemli`
 
-Bu süre boyunca, kültürlenen bitkilerde iki farklı ölçüm yapıyorlar:
+Bu süre boyunca kültürlenen bitkilerde iki farklı ölçüm yapıyorlar:
 
 + `Fotosentez`: Bitkide gözlenen Fotosentez hızı
 + `Iletkenlik`: Bitkinin sahip olduğu iletkenlik değeri
 
 # Veri yükleme
 
-Uzaktan eğitim sistemine yüklenen veriyi indirip, R içerisine yükleyiniz:
+Uzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -136,7 +136,7 @@ Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Ku
 
 ## Patojen inokülasyonu ve Fotosentez hızında görülen değişim
 
-Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin, Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
+Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -163,14 +163,14 @@ Bu kısımda ise kontrol bitkileri ve patojen uygulanmış bitkilerin iletkenlik
 
 ## Kültürleme koşulları ve iletkenlik
 
-Acaba farklı kültürleme koşullarının, bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?
+Acaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
 
 ```
 
-Kurak kültürleme koşulları, iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:
+Kurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:
 
 > Cevabınızı bu satırlara yazınız
 >
@@ -178,7 +178,7 @@ Kurak kültürleme koşulları, iletkenlik değerine nasıl bir etki gösteriyor
 
 ## Patojen inokülasyonun iletkenlik değerlerine etkisi
 
-Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin, iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
+Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -187,7 +187,7 @@ Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açm�
 
 # Fotosentez hızının kontrol örneklerinde incelenmesi
 
-Bu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının, kurak ve nemli koşullardaki değişimini inceleyeceğiz.
+Bu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının kurak ve nemli koşullardaki değişimini inceleyeceğiz.
 
 Sadece `Kontrol` örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir misiniz?
 
@@ -196,7 +196,7 @@ Sadece `Kontrol` örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir 
 
 ```
 
-Şimdi ise, oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:
+Şimdi ise oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:
 
 ```{r}
 # Cevabinizi buraya yaziniz
