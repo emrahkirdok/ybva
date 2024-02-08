@@ -17,16 +17,16 @@ knitr::opts_chunk$set(echo = TRUE)
 - Matrisler
 - Veri çerçeveleri
 
-Bu derste ise listeleri göreceğiz. Vektörler ve matrisler sadece tek bir veri tipine sahiptir. Veri çerçeveleri ise, farklı veri tiplerine sahip vektörlerden oluşabiliyordu.
+Bu derste ise listeleri göreceğiz. Vektörler ve matrisler sadece tek bir veri tipine sahiptir. Veri çerçeveleri ise farklı veri tiplerine sahip vektörlerden oluşabiliyordu.
 
 Listelerin ise farklı bir özelliği bulunmaktadır:
 
-+ Hem farklı tiplere sahip vektörleri yapısına katabilir
-+ Hem de matris ya da veri çervesi gibi veri yapılarını da saklayabilirsiniz
++ Hem farklı tiplere sahip vektörleri yapısına katabilir.
++ Hem de matris ya da veri çervesi gibi veri yapılarını da saklayabilirsiniz.
 
 ## Liste oluşturmak
 
-Aşağıda, bir önceki derste kullandığımız tabloyu görebilirsiniz. Gelin bu tablodan bir liste oluşturalım.
+Aşağıda bir önceki derste kullandığımız tabloyu görebilirsiniz. Gelin bu tablodan bir liste oluşturalım.
 
 | Karat |  Kesim  | Derinlik |
 |------:|:--------|---------:|
@@ -48,26 +48,26 @@ elmaslar <- list(c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52),
 
 ```
 
-Peki bu listedeki elemanlara nasıl erişebiliriz? Eğer çift köşeli parantez kullanıp, istediğiniz indisi yazarsanız, o elemana erişebilirsiniz:
+Peki bu listedeki elemanlara nasıl erişebiliriz? Eğer çift köşeli parantez kullanıp istediğiniz indisi yazarsanız o elemana erişebilirsiniz:
 
 ```{r}
 elmaslar[[1]]
 ```
 
-Ancak tek köşeli parantez kullanırsanız, bu işlem size bir alt liste geri döndürecektir:
+Ancak tek köşeli parantez kullanırsanız bu işlem size bir alt liste geri döndürecektir:
 
 
 ```{r}
 elmaslar[1]
 ```
 
-İsterseniz, listedeki elemanlara isim verebilirsiniz:
+İsterseniz listedeki elemanlara isim verebilirsiniz:
 
 ```{r}
 names(elmaslar) <- c("Karat", "Kesim", "Derinlik")
 ```
 
-Bu isimleri kullanarak da, liste eleömanlarına erişebiliriz:
+Bu isimleri kullanarak da liste elemanlarına erişebiliriz:
 
 ```{r}
 elmaslar[["Karat"]]
@@ -79,15 +79,15 @@ Peki tek köşeli parantez kullanalım:
 elmaslar["Karat"]
 ```
 
-Şimdi ise, bir alt liste geri döndü.
+Şimdi ise bir alt liste geri döndü.
 
-İsterseniz, veri çerçevelerinde olduğu gibi de liste elemanlarına erişebiliriz:
+İsterseniz veri çerçevelerinde olduğu gibi de liste elemanlarına erişebiliriz:
 
 ```{r}
 elmaslar$Karat
 ```
 
-Peki, birden fazla elemana erişebilir miyiz?
+Peki birden fazla elemana erişebilir miyiz?
 
 ```{r}
 elmaslar[1:2]
@@ -108,7 +108,7 @@ elmaslar[[1]] <- NULL
 elmaslar
 ```
 
-Şimdilik orjinal listeyi tekrar yükleyelim.
+Şimdilik orjinal listeyi tekrar yükleyelim:
 
 ```{r}
 elmaslar <- list(c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52), 
@@ -151,7 +151,7 @@ Peki şimdi listeye bakalım:
 elmaslar
 ```
 
-Peki, listeler içerisindeki elemanlarda bulunan öğelere nasıl erişebililirz? Mesela Karat vektörü içindeki 5 numaralı elemana nasıl erişebiliriz:
+Peki listeler içerisindeki elemanlarda bulunan öğelere nasıl erişebililirz? Mesela Karat vektörü içindeki 5 numaralı elemana nasıl erişebiliriz:
 
 
 ```{r}
