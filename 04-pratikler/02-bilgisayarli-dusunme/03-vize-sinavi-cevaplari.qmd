@@ -63,7 +63,7 @@ y(x = 12)
 
 ## Soru 3
 
-Bir amino asit ipliğinin toplam kütlesi, o ipliği oluşturan amino asitlerin ortalama moleküler ağırlıklarının toplamıdır. Örnek olarak, elimizde `A-R-N-E` dizilimine sahip bir amino asit ipliği olsun. Bu ipliğin toplam kütlesini bulmak için, *A*, *R*, *N*, ve *E* amino asitlerinin ortalama molekül ağırlıklarını toplamamız gerekir.
+Bir amino asit ipliğinin toplam kütlesi, o ipliği oluşturan amino asitlerin ortalama moleküler ağırlıklarının toplamıdır. Örnek olarak, elimizde `A-R-N-E` dizilimine sahip bir amino asit ipliği olsun. Bu ipliğin toplam kütlesini bulmak için; *A*, *R*, *N*, ve *E* amino asitlerinin ortalama molekül ağırlıklarını toplamamız gerekir.
 
 | Amino Asit    | Kod | Ortalama Kütle |
 |---------------|-----|----------------|
@@ -84,7 +84,7 @@ Bu bilgilere göre aşağıdaki soruları çözünüz
 
 ### Soru 3.1
 
-Ekte verilen `amino-acid-mass.txt` dosyasını okuyarak, bir amino asit ipliğinin toplam kütlesini hesaplayan, `protein_kutle_hesapla` isimli bir fonksiyon yazınız.
+Ekte verilen `amino-acid-mass.txt` dosyasını okuyarak bir amino asit ipliğinin toplam kütlesini hesaplayan, `protein_kutle_hesapla` isimli bir fonksiyon yazınız.
 
 :::{.callout-tip}
 ## İpucu
@@ -109,7 +109,7 @@ kutle_tablosu <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/
 head(kutle_tablosu)
 ```
 
-Yani, bir amino asitin kütlesini öğrenmek istersek, bu dosyaydan faydalanabiliriz. Mesela, Asparajin (`N`) amino asitinin kütlesini şu şekilde öğrenebiliriz:
+Yani, bir amino asitin kütlesini öğrenmek isterse bu dosyaydan faydalanabiliriz. Mesela, Asparajin (`N`) amino asitinin kütlesini şu şekilde öğrenebiliriz:
 
 ```{r}
 aa_agirlik <- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == "N"]
@@ -208,6 +208,6 @@ veri <- data.frame(bitki = c("setosa", "versicolor"),
 
 Açıklaması:
 
-Bu kod bloğundaki birinci satır, `veri` isminde bir veri çerçevesi oluşturmaktadır. Bu veri çerçevesinin içinde bitki ve petal uzunluğu isminde iki farklı sütun bulunmaktadır.
+Bu kod bloğundaki birinci satır `veri` isminde bir veri çerçevesi oluşturmaktadır. Bu veri çerçevesinin içinde bitki ve petal uzunluğu isminde iki farklı sütun bulunmaktadır.
 
 :::

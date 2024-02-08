@@ -9,14 +9,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak, aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
+Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
 
 + isimler
 + boy
 + kilo
 + cinsiyet 
 
-Unutmayın, cinsiyet vektörü faktör olmalı.
+Unutmayın, cinsiyet vektörü faktör olmalı!
 
 | İsimler |  Boy | Kilo | Yaş | Cinsiyet |
 |---------|------|------|-----|----------|
@@ -48,14 +48,14 @@ cinsiyet <- factor(c("m","f","m","m","m","f","m","m","m","m"))
 isimler[6]
 ```
 
-Boy vektörünü kullanarak,1.60'dan uzun olan değerleri geri döndüren kodu yazınız
+Boy vektörünü kullanarak,1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
 boy[boy >1.60]
 ```
 
-Yukarıda verilen verileri kullanarak `isimler`, `boy`, `kilo`, `yas` ve `cinsiyet` vektörlerini içeren `ekip` isimli bir veri çerçevesi oluşturunuz
+Yukarıda verilen verileri kullanarak `isimler`, `boy`, `kilo`, `yas` ve `cinsiyet` vektörlerini içeren `ekip` isimli bir veri çerçevesi oluşturunuz:
 
 
 ```{r}
@@ -66,7 +66,7 @@ ekip <- data.frame(isimler,cinsiyet,boy,kilo,yas)
 :::{.callout-note}
 ## Veri çerçevesi Rmarkdown'da yazdırmayalım
 
-Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız, veriyi ekrana yazdırmış olursunuz. Bu da `html` dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:
+Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız veriyi ekrana yazdırmış olursunuz. Bu da `html` dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:
 
 ```{r eval = FALSE}
 # cevabinizi asagiya yaziniz
@@ -75,14 +75,14 @@ ekip
 ```
 :::
 
-Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız.
+Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
 dim(ekip)
 ```
 
-Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın.
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın:
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -96,14 +96,14 @@ colnames(ekip)
 ekip[2, ]
 ```
 
-Bu veri çerçevesinde, 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:
+Bu veri çerçevesinde 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
 ekip[,3:5]
 ```
 
-Bu veri çerçevesindeki, kilo değerlerini geri döndüren kodu yazınız:
+Bu veri çerçevesindeki kilo değerlerini geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -120,7 +120,7 @@ karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle g
 $$
 vki = \frac{kilo}{boy^2}
 $$
-Bu formülü kullanarak, bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz.
+Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz.
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -156,7 +156,7 @@ ekip$vki <- vki
 :::{.callout-note}
 ## Veri çerçevesinde sütun oluşturmak
 
-Veri çerçevesinde yeni bir sütun oluşturmak için doğrudan `$` fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil
+Veri çerçevesinde yeni bir sütun oluşturmak için doğrudan `$` fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil.
 
 ```{r eval = FALSE}
 # cevabinizi asagiya yaziniz
@@ -188,8 +188,7 @@ gumus_agaci <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/
 
 :::{.callout-note}
 ## Dosya okurken farklı yöntemlerin kullanılması
-
-Okumak istediğim `gumus.agaci.txt` isimli dosya zaten internet sitesinde olduğu için, doğrudan bu dosyanın adresini kullandım. Ancak siz bu dosyayı indirdiğiniz için bilgisyarınızdan okumanız gereklidir. Yani, dosyanın nerede olduğu önemli.
+Okumak istediğim `gumus.agaci.txt` isimli dosya zaten internet sitesinde olduğu için, doğrudan bu dosyanın adresini kullandım. Ancak siz bu dosyayı indirdiğiniz için bilgisyarınızdan okumanız gereklidir. Yani dosyanın nerede olduğu önemli.
 
 ```{r eval = FALSE}
 # cevabinizi asagiya yaziniz

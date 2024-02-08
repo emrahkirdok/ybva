@@ -35,10 +35,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Bu kısım kapsamında kullanılacak veri setlerinin ve fonksiyonlar için iki farklı kütüphane gereklidir:
 
-+ `MASS` (R içerisinde gelmektedir)
-+ `ISLR2` (Bu kütüphanenin yüklenmesi gerekidir)
++ `MASS` (R içerisinde gelmektedir.)
++ `ISLR2` (Bu kütüphanenin yüklenmesi gerekidir.)
 
-Eğer daha önce `ISLR2` paketini yüklemediyseniz, öncelikle aşağıdaki gibi bu paketi yüklemelisiniz:
+Eğer daha önce `ISLR2` paketini yüklemediyseniz öncelikle aşağıdaki gibi bu paketi yüklemelisiniz:
 
 ```{r eval = FALSE}
 install.packages("ISLR2")
@@ -53,20 +53,20 @@ library("ISLR2")
 
 ## Basit doğrusal regresyon
 
-Bu uygulama kapsamında, `ISLR2` paketi içerisindeki `Boston` veri setini kullancağız. Öncelikle veri setinin ilk beş satırını inceleyelim:
+Bu uygulama kapsamında `ISLR2` paketi içerisindeki `Boston` veri setini kullancağız. Öncelikle veri setinin ilk beş satırını inceleyelim:
 
 ```{r}
 head(Boston)
 ```
 
-Bu veriseti Boston'un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:
+Bu veri seti Boston'un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:
 
-+ `medv`: ortanca ev fiyatı, her bölgedeki ortanca ev fiyatını belirtmektedir
-+ `lstat`: her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı
++ `medv`: ortanca ev fiyatı, her bölgedeki ortanca ev fiyatını belirtmektedir.
++ `lstat`: her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı.
 
 Bu veri seti hakkında daha fazla bilgi almak için [bu bağlantıya tıklayınız](https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html).
 
-Bu çalışma kapsamında, `medv` ve `lstat` değişkenleri arasındaki ilişkiyi, doğrusal regresyon ile modellemeye çalışacağız. Acaba bir mahallenin sosyoekonomik statüsü, mahalledeki evlerin fiyatını etkiliyor mu?
+Bu çalışma kapsamında `medv` ve `lstat` değişkenleri arasındaki ilişkiyi doğrusal regresyon ile modellemeye çalışacağız. Acaba bir mahallenin sosyoekonomik statüsü, mahalledeki evlerin fiyatını etkiliyor mu?
 
 Öncelikle bu iki değişken arasındaki ilişkiyi görselleştirelim. Bunun için basitçe bir grafik kullanabiliriz (Şekil \@ref(fig:bostonplot)):
 
@@ -86,9 +86,9 @@ attach(Boston)
 plot(medv~lstat)
 ```
 
-Burada kullandığımız `attach` foknsiyonu, bahsi geçen veri setinde bulunan sütunları doğrudan kullanmamızı sağlar. Dolayısıyla, veri setini bir kere `attach` foksiyonu ile bağladık mı, sütun isimlerini doğrudan kullabiliriz.
+Burada kullandığımız `attach` foknsiyonu, bahsi geçen veri setinde bulunan sütunları doğrudan kullanmamızı sağlar. Dolayısıyla, veri setini bir kere `attach` foksiyonu ile bağladık mı sütun isimlerini doğrudan kullabiliriz.
 
-Ancak, kodlarımızın daha açık ve okunabilir olması açısından ben aşağıdaki tarzı tercih edeceğim:
+Ancak kodlarımızın daha açık ve okunabilir olması açısından ben aşağıdaki tarzı tercih edeceğim:
 
 ```{r eval = FALSE}
 plot(medv~lstat, data = Boston)
@@ -96,9 +96,9 @@ plot(medv~lstat, data = Boston)
 
 :::
 
-Sizce bu şekil ne anlatıyor? Sosyoekonomik seviye düşüşü, ev fiyatlarını sizce nasıl etkiliyor olabilir? Bu noktada bir durup düşünün.
+Sizce bu şekil ne anlatıyor? Sosyoekonomik seviye düşüşü ev fiyatlarını sizce nasıl etkiliyor olabilir? Bu noktada bir durup düşünün.
 
-Peki, bu iki değişken arasındaki ilişkiyi doğrusal regresyon ile nasıl modelleyebilriz?
+Peki bu iki değişken arasındaki ilişkiyi doğrusal regresyon ile nasıl modelleyebilriz?
 
 ```{r}
 lm.fit <- lm(medv ~ lstat, data = Boston)
@@ -110,7 +110,7 @@ Modelin sahip olduğu bilgileri almak için `summary` fonksiyonunu kullanabiliri
 summary(lm.fit)
 ```
 
-Modeldeki isimleri elde etmek için
+Modeldeki isimleri elde etmek için;
 
 ```{r}
 names(lm.fit)
@@ -136,16 +136,16 @@ Güven aralıkları kısmı tekrar yazılacaktır!
 
 :::
 
-Eğer Şekil \@ref(fig:bostonplot)'i dikkatle incelerseniz, iki değişken arasında doğrusal olmayan bir ilişki görebilme imkanınız var. Derslerde de belirttiğimiz gibi, aslında mükemmel bir doğrusal ilişki bulma imkanınız yok. Bizim burada yaptığımız ise, aslında iki değişken arasındaki ilişkiyi en iyi ifade eden doğrusal modeli elde etmek.
+Eğer Şekil \@ref(fig:bostonplot)'i dikkatle incelerseniz, iki değişken arasında doğrusal olmayan bir ilişki görebilme imkanınız var. Derslerde de belirttiğimiz gibi aslında mükemmel bir doğrusal ilişki bulma imkanınız yok. Bizim burada yaptığımız ise, aslında iki değişken arasındaki ilişkiyi en iyi ifade eden doğrusal modeli elde etmek.
 
-Bunu daha iyi olarak, doğrusal modeli çizerek gösterebiliriz (Şekil \@ref(fig:lm)).
+Bunu daha iyi olarak doğrusal modeli çizerek gösterebiliriz (Şekil \@ref(fig:lm)).
 
 ```{r lm, fig.cap = "Boston veri setinden oluştruğdumuz doğrusal modelin grafik üzerinde gösterilmesi"}
 plot(medv~lstat, data=Boston)
 abline(lm.fit, col = "red")
 ```
 
-Son olarak, R bize farklı grafikler ile, oluşturduğumuz model hakkında daha fazla bilgi vermektedir (Şekil \@ref(fig:diagnostic)). Burada dikkat etmemiz gereken grafik, sol üstteki *Residuals cs Fitted* grafiği. Derste, artıklardan bahsetmiştik. Bu artık değerlerinin homojen bir şekilde doğrusal modelin etrafında dağıması ideal olacaktır. Aslında x eksenindeki girdi ile, artıklar arasında hiç bir ilişkinin olmaması gerekir.
+Son olarak R bize farklı grafikler ile oluşturduğumuz model hakkında daha fazla bilgi vermektedir (Şekil \@ref(fig:diagnostic)). Burada dikkat etmemiz gereken grafik sol üstteki *Residuals cs Fitted* grafiği. Derste, artıklardan bahsetmiştik. Bu artık değerlerinin homojen bir şekilde doğrusal modelin etrafında dağıması ideal olacaktır. Aslında x eksenindeki girdi ile, artıklar arasında hiç bir ilişkinin olmaması gerekir.
 
 ```{r diagnostic, fig.cap = "R içerisinde gelen doğrusal modelleme fonksiyonundaki çıktılar. Burada en önemlisi bizim sol üstteki grafiğimiz. Burada artık değerleri ile $x$ ekseni arasındaki ilişki irdeleniyor. Artıkların, x ekseni ile az da olsa bir ilişkisi var"}
 opar <- par(no.readonly = TRUE)  # copy of current settings
@@ -153,15 +153,15 @@ par(mfrow = c(2, 2))             # 2 * 2
 plot(lm.fit)
 ```
 
-İdeal olarak baktığımızda, artık değerlerinin aslında çizdiğimiz doğrusal model etrafında homojen bir şekilde dağılmasını bekleriz. Bu bize aslında artık değerleriyle, $x$ eksenindeki değişken arasında bir ilişki olmamasını beraberinde getirir. 
+İdeal olarak baktığımızda artık değerlerinin aslında çizdiğimiz doğrusal model etrafında homojen bir şekilde dağılmasını bekleriz. Bu bize aslında artık değerleriyle $x$ eksenindeki değişken arasında bir ilişki olmamasını beraberinde getirir. 
 
-Ancak grafiğe baktığımızda, artıklar ile x arasında az da olsa bir ilişki var. Bu çok istenen bir durum değildir. Benim bu noktadaki yorumum şu olur:
+Ancak grafiğe baktığımızda artıklar ile x arasında az da olsa bir ilişki var. Bu çok istenen bir durum değildir. Benim bu noktadaki yorumum şu olur:
 
-> Elimizdeki değişkenler arasında doğrusal bir ilişki olmadığı için, artıklar doğrusal model etrafında homojen bir şekilde dağılmamıştır. 
+> Elimizdeki değişkenler arasında doğrusal bir ilişki olmadığı için artıklar doğrusal model etrafında homojen bir şekilde dağılmamıştır. 
 
 ## Ekstralar: `ggplot` ile denemeler
 
-Eğer buraya kadar geldiyseniz, `ggplot2`'yi mutlaka denemelisiniz. Şimdi aynı grafikleri ggplot2 ile tekrarlayalım (Şekil \@ref(fig:try)). R üzerinde harka görselleştirme araçları mevcuttur. Bununla ilgili görselleştirmeleri internet sitesinde paylaştım.
+Eğer buraya kadar geldiyseniz `ggplot2`'yi mutlaka denemelisiniz. Şimdi aynı grafikleri ggplot2 ile tekrarlayalım (Şekil \@ref(fig:try)). R üzerinde harka görselleştirme araçları mevcuttur. Bununla ilgili görselleştirmeleri internet sitesinde paylaştım.
 
 ```{r try, fig.cap = "ggplot2 ile oluşturulmuş bir grafik"}
 library(ggplot2)

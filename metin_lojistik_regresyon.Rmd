@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Giriş
 
-Bu çalışmada, programda mevcut olan Smarket veri seti (borsa ile alakalı veriler bulunmaktadır) üzerinden lojistik regresyon testi gerçekleştirilmiştir. Mevcut borsa verileri kullanılarak model oluşturulup tahminler yapılacaktır ve bu tahminlerin güvenilirliği test edilecektir.
+Bu çalışmada, programda mevcut olan Smarket veri seti (Borsa ile alakalı veriler bulunmaktadır.) üzerinden lojistik regresyon testi gerçekleştirilmiştir. Mevcut borsa verileri kullanılarak model oluşturulup tahminler yapılacaktır ve bu tahminlerin güvenilirliği test edilecektir.
  s
 Öncelikle veri setinin olduğu kütüphaneyi çağıralım:
 
@@ -31,7 +31,7 @@ summary(Smarket)
 attach(Smarket)
 ```
 
-Burada `attach` fonksiyonu ile verimizi R çevresine bağlayabiliyoruz. Bu sayede, veri çerçevesi içindeki sütun isimlerine doğrudan erişebiliriz.
+Burada `attach` fonksiyonu ile verimizi R çevresine bağlayabiliyoruz. Bu sayede veri çerçevesi içindeki sütun isimlerine doğrudan erişebiliriz.
 
 
 + `Year` Ölçümlerin alındığı yıl değişkeni
@@ -46,9 +46,9 @@ Burada `attach` fonksiyonu ile verimizi R çevresine bağlayabiliyoruz. Bu sayed
     + `Up`
     + `Down`
 
-Bu modelleme çalışmasındaki amacımız, borsanın o günkü seyrini (`Direction` değişkeni), son beş gün boyunca borsa kapanışı ve o günkü alış satış hacmini kullanarak tahmin etmeye çalışıyoruz.
+Bu modelleme çalışmasındaki amacımız borsanın o günkü seyrini (`Direction` değişkeni), son beş gün boyunca borsa kapanışı ve o günkü alış satış hacmini kullanarak tahmin etmeye çalışıyoruz.
 
-Verilerle bir model oluşturalım. modeli setteki Directionc verisine göre kurup, modelin özetini inceleyelim, modele, modeli tanımlayacak bir isim atayarak glm fonksiyonu ile oluşturduk.
+Verilerle bir model oluşturalım. modeli setteki Directionc verisine göre kurup modelin özetini inceleyelim; modele, modeli tanımlayacak bir isim atayarak glm fonksiyonu ile oluşturduk.
 
 ```{r}
 glm.fits <- glm(data = Smarket, Direction~Lag1 + Lag2 +Lag3+ Lag4+ Lag5+ Volume, family = binomial)
@@ -61,9 +61,9 @@ Predict fonksiyonu ile modelimizin ilk 10 parametresini tahmin edelim:
 predict(glm.fits, type = "response")[1:10]
 ```
 
-Tahminleri, yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece tahmin üzerinden işlem yapabiliriz.
+Tahminleri yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece tahmin üzerinden işlem yapabiliriz.
 
-Öncelikle, tahmin ettiğimiz Direction verilerinin olasılık değerlerini alalım:
+Öncelikle tahmin ettiğimiz Direction verilerinin olasılık değerlerini alalım:
 
 ```{r}
 glm_prob <- predict(glm.fits, type = "response")
@@ -75,15 +75,15 @@ Yeni oluşturduğumuz tahmin veri setinin ilk 6 elemanını inceleyelim:
 head(glm_prob)
 ```
 
-Ve tahmin veri setimizin histogramını oluşturduktan sonra, tahmin veri seti için olasılık veri seti oluşturalım: 
+Ve tahmin veri setimizin histogramını oluşturduktan sonra tahmin veri seti için olasılık veri seti oluşturalım: 
 
 ```{r}
 hist(glm_prob)
 ```
 
-Sadece histograma baktığımızda, tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz. 
+Sadece histograma baktığımızda tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz. 
 
-`sum` fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında, dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir. 
+`sum` fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir. 
 
 Kaç tane tahmin olaslığı 0.5'den büyük?
 
@@ -97,7 +97,7 @@ Kaç tanesi 0.5'den küçük?
 sum(glm_prob < 0.5)
 ```
 
-Şimdi aynı histogramın, 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:
+Şimdi aynı histogramın 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:
 
 ```{r}
 hist(glm_prob)
@@ -105,7 +105,7 @@ hist(glm_prob)
 abline(v=0.5, col="red", lwd=10)
 ```
 
-Şimdi bu değerleri, *Aşağı (Down)* ve *Yukarı (Up)* olarak tanımlayalım.
+Şimdi bu değerleri *Aşağı (Down)* ve *Yukarı (Up)* olarak tanımlayalım.
 
 ```{r}
 
@@ -195,9 +195,9 @@ Peki bu öğrendiklerimizi neye ölçekleyebiliriz?
 
 Yeni bir hastalık tanı kiti oluşturduğumuzu düşünelim ve bu kitin performansını test etmek istiyoruz.
 
-Sizce ne yapabiliriz? İlk olarak hasta ve sağlıklı olduklarından emin olduğumuz bir grup kişi ile çalışmaya başlayabiliriz. Sonra bu kişilerden alınan örnekleri, geliştirdiğimiz kit ile test ederek bir tahmin elde edebiliriz.
+Sizce ne yapabiliriz? İlk olarak hasta ve sağlıklı olduklarından emin olduğumuz bir grup kişi ile çalışmaya başlayabiliriz. Sonra bu kişilerden alınan örnekleri geliştirdiğimiz kit ile test ederek bir tahmin elde edebiliriz.
 
 Elde edeceğimiz sonuç ya hasta ya da sağlıklı olacaktır. 
 
-Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir. Modelmizin ya da test kitimizin *Doğruluk* değer ne kadar yüksekse, o kadar iyi çalışan bir kitimiz var demektir.
+Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir. Modelmizin ya da test kitimizin *Doğruluk* değer ne kadar yüksekse o kadar iyi çalışan bir kitimiz var demektir.
 

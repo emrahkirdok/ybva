@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Matrisler
 
-Matrisler, vektörler gibi sadece tek bir tip veri içermelidir. Yani, ya sayısal, ya karakter, ya mantıksal ya da faktör verisi içermelidir.
+Matrisler, vektörler gibi sadece tek bir tip veri içermelidir. Yani ya sayısal, ya karakter, ya mantıksal ya da faktör verisi içermelidir.
 
 Öncelikle rastgele bir vektör oluşturalım:
 
@@ -84,7 +84,7 @@ mat <- matris[1:3, 1:3]
 
 ## Matrislerde satır ve sütun isimleri
 
-İki farklı fonksiyon ile, satır ve sütun isimleri atayabiliriz:
+İki farklı fonksiyon ile satır ve sütun isimleri atayabiliriz:
 
 - `colnames` ile sütun isimleri
 - `rownames` ile de satır isimleri
@@ -104,7 +104,7 @@ rownames(matris)
 
 ## Veri Çerçeveleri
 
-Veri çerçevelerinde ise, farklı tipte veri bulunan vektörleri birleştirebiliriz. Örnek olarak aşağıda bir tablo bulunmaktadır.
+Veri çerçevelerinde ise farklı tipte veri bulunan vektörleri birleştirebiliriz. Örnek olarak aşağıda bir tablo bulunmaktadır.
 
 
 | Karat |  Kesim  | Derinlik |
@@ -120,7 +120,7 @@ Veri çerçevelerinde ise, farklı tipte veri bulunan vektörleri birleştirebil
 | 0.52  | Cok iyi | 61.2     |
 
 
-Bu tabloya bakarsanız, hem sayı hem de karakter değerleri bulunmtaktadır. Her birisi için bir vektör oluşturalım:
+Bu tabloya bakarsanız hem sayı hem de karakter değerleri bulunmtaktadır. Her birisi için bir vektör oluşturalım:
 
 ```{r}
 Karat <- c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52)
@@ -142,7 +142,7 @@ Acaba bu veri tiplerine baksak olur mu?
 str(elmaslar)
 ```
 
-Dikkat ederseniz Kesim sütunu, otomatik olarak faktör olmuş. R, öntanımlı olarak, karakterleri faktörlere çevirir. Eğer bunun olmasını istemiyorsanız, `stringsAsFactors = FALSE` olarak seçmeniz gerekir.
+Dikkat ederseniz Kesim sütunu otomatik olarak faktör olmuş. R, öntanımlı olarak, karakterleri faktörlere çevirir. Eğer bunun olmasını istemiyorsanız `stringsAsFactors = FALSE` olarak seçmeniz gerekir.
 
 ```{r}
 elmaslar <- data.frame(Karat = Karat, Kesim = Kesim, Derinlik = Derinlik, stringsAsFactors = FALSE)
@@ -151,7 +151,7 @@ str(elmaslar)
 
 ## Satır ve sütun isimleri
 
-Matrislerde nasıl satır ve sütun isimleri ile çalışabiliyorsanız, vektörlerde de aynı şekilde çalışabilirsiniz:
+Matrislerde nasıl satır ve sütun isimleri ile çalışabiliyorsanız vektörlerde de aynı şekilde çalışabilirsiniz:
 
 ```{r}
 colnames(elmaslar)
@@ -161,7 +161,7 @@ rownames(elmaslar)
 
 ## Veri çerçeveleride hareket
 
-Matrisler'de nasıl hareket ediyorsak, veri çerçevelerinde de aynı şekilde hareket edebilirsiniz:
+Matrisler'de nasıl hareket ediyorsak veri çerçevelerinde de aynı şekilde hareket edebilirsiniz:
 
 
 ```{r}

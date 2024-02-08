@@ -82,7 +82,7 @@ summary(lm(medv ~ lstat * age, data = Boston))
 
 ## Girdilere doğrusal olmayan dönüşüm uygulama
 
-Eğer incelenen değişkenler arasında doğrusal olmayan bir ilişki varsa, bunu da doğrusal model içerisinde belirtme imkanımız var. Örnek verelim,$X$ girdisi varlığı altında $X^2$ değişkenini `I(X^2)` notasyonu ile ifade edebiliriz.
+Eğer incelenen değişkenler arasında doğrusal olmayan bir ilişki varsa bunu da doğrusal model içerisinde belirtme imkanımız var. Örnek verelim,$X$ girdisi varlığı altında $X^2$ değişkenini `I(X^2)` notasyonu ile ifade edebiliriz.
 
 Burada `I()` fonksiyonunun özel bir işlevi bulunmaktadır. Normalde `^` karakteri üssel sayıları belirtir. Ancak bizim amacımız sembolik bir notasyon yazmak. Böyle olunca bu sembolu kullanmamız gerekidir.
 
@@ -91,7 +91,7 @@ lm.fit2 <- lm(medv ~ lstat + I(lstat^2), data = Boston)
 summary(lm.fit2)
 ```
 
-Dikkat edersek kuadratik terim (`lstat^2`) artık çok düşük bir $p-değeri$ ile belirtildi. Yani, burada kuadratik bir fonksiyon yazmamız, daha iyi bir model elde etmemizi olanaklı kıldı.
+Dikkat edersek kuadratik terim (`lstat^2`) artık çok düşük bir $p-değeri$ ile belirtildi. Yani burada kuadratik bir fonksiyon yazmamız daha iyi bir model elde etmemizi olanaklı kıldı.
 
 Daha fazla üssel terim eklemek ve polinom fonksiyonumuzun derecesini arttırmak istersek aşağıdaki şekilde yazma imkanımız var:
 
@@ -106,8 +106,9 @@ lm.fit5 <- lm(medv ~ poly(lstat, 5), data = Boston)
 summary(lm.fit5)
 ```
 
-This suggests that including additional  polynomial terms, up to fifth order, leads to an improvement in the model fit! However, further investigation of the data reveals that no polynomial terms beyond fifth order have significant $p$-values
-in a regression fit.
+This suggests that including additional  polynomial terms, up to fifth order, leads to an improvement in the model fit! However, further investigation of the data reveals that no polynomial terms beyond fifth order have significant $p$-values in a regression fit. 
+
+***Bu, beşinci sıraya kadar ek polinom terimlerinin eklenmesinin model uyumunda bir iyileşmeye yol açtığını göstermektedir! Bununla birlikte, verilerin daha fazla araştırılması, beşinci derecenin ötesinde hiçbir polinom teriminin bir regresyon uyumunda anlamlı $p$ değerlerine sahip olmadığını ortaya koymaktadır.***
 
 Peki bu üç modeli grafik üzerinden karşılaştırabilir miyiz?
 

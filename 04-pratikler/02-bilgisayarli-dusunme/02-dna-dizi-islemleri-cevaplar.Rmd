@@ -9,7 +9,7 @@ output: html_document
 
 ## Hamming uzaklığı
 
-İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında, DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de, DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
+İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıklar  Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
 
 Aşağıdaki iki farklı diziyi inceleyelim:
 
@@ -74,7 +74,7 @@ Bu fonksiyonu `for` ve `if-else` yapılarını kullanmadan da yazabilirsiniz. An
 
 ## GC kayması
 
-Normalde, nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir [@Salzberg]. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA'nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur. 
+Normalde nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir [@Salzberg]. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA'nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur. 
 
 Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.
 

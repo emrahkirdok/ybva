@@ -67,7 +67,7 @@ Dosyayi okuyalım:
 sinif <- read.table("data/sinif.txt", header=T)
 ```
 
-Veriyi inceleyelim
+Veriyi inceleyelim.
 
 ## Sütunların seçimi
 
@@ -79,7 +79,7 @@ colnames(sinif)
 
 ## Sütunların seçimi
 
-Her sütun bir vektördür
+Her sütun bir vektördür.
 ```{r}
 sinif$isimler
 ```
@@ -94,7 +94,7 @@ sinif$el=="sol"
 
 ## Bazı satırların seçimi
 
-Hatırlarsak, mantıksal karşılaştırma vektörlerini indis olarak kullanabiliyorduk:
+Hatırlarsak mantıksal karşılaştırma vektörlerini indis olarak kullanabiliyorduk:
 
 ```{r}
 sinif[sinif$el=="sol",]
@@ -106,18 +106,18 @@ sinif[sinif$el=="sol", "isimler"]
 sinif$isimler[sinif$el=="sol"]
 ```
 
-İkisi de aynı sonucu verir
+İkisi de aynı sonucu verir.
 
 ## Özet istatistikler
 
-Metin dosyası okuma fonksiyonunu (`read.table`) her kullandığınızda
+Metin dosyası okuma fonksiyonunu (`read.table`) her kullandığınızda:
 ```{r summary}
 summary(sinif)
 ```
 
 ## `summary()`
 
-Sonuç, incelenen sütüna göre 
+Sonuç, incelenen sütüna göre ;
 
 Mesela `boy` vektörünün sonucu:
 ```{r}
@@ -126,12 +126,12 @@ summary(sinif$boy)
 
 ## Satır ve sütunlar
 
-Satır sayısı
+Satır sayısı:
 ```{r}
 nrow(sinif)
 ```
 
-Hem satır hem de sütun sayısı
+Hem satır hem de sütun sayısı:
 ```{r}
 dim(sinif)
 ```

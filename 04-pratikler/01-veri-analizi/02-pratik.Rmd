@@ -49,21 +49,21 @@ Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:
 
 ```
 
-Gaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
+Gaga uzunluğu vektörünü kullanarak gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
-Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
+Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
 
-Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
+Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
@@ -73,9 +73,9 @@ Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük ol
 
 ## Matrisler
 
-Kanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi `ornek_matris` olsun:
+Kanat uzunluğu vektörünü kullanarak 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi `ornek_matris` olsun:
 
-Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
+Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
@@ -166,8 +166,8 @@ Bu veri çerçevesinde kanat uzunluğu 150'den büyük olan satırları geri dö
 
 Dosyayı okurken aşağıdaki noktalara dikkat ediniz:
 
-+ Ayraç karakteri olarak `;` kullanılmıştır
-+ İlk satır, sütun isimleri olarak tanımlanmıştır
++ Ayraç karakteri olarak `;` kullanılmıştır.
++ İlk satır, sütun isimleri olarak tanımlanmıştır.
 
 Okuduğunuz verinin ismi `sinav` olsun:
 
