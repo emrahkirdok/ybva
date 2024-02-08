@@ -11,11 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Giriş
 
-Bu dökümanda, amfibi takımlarının özelliklerinin araştırıldığı ve gruplandırmalarının yapıldığı AmphiBIO projesi ve projeye ait veri seti üzerinde alıştırmalara yer verilmiştir. Amfibilerin belirli morfolojik özellikleri ve aralarındaki bağlantılar incelenip yorumlanacaktır.
+Bu dökümanda, amfibi takımlarının özelliklerinin araştırıldığı ve gruplandırılmalarının yapıldığı AmphiBIO projesi ve projeye ait veri seti üzerinde alıştırmalara yer verilmiştir. Amfibilerin belirli morfolojik özellikleri ve aralarındaki bağlantılar incelenip yorumlanacaktır.
 
 ## Başlangıç
 
-Ders materyallerinin paylaşıldığı siteden, AmphiBIO veri setininin linkine sağ tıklayıp **Bağlantıyı farklı kaydet** seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
+Ders materyallerinin paylaşıldığı siteden AmphiBIO veri setininin linkine sağ tıklayıp **Bağlantıyı farklı kaydet** seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
 
 Öncelikle çalışma yaptığımız klasör konumuna bakalım, veri setini yüklemek için bu bilgiye ihtiyacımız olacak. 
 
@@ -58,16 +58,16 @@ colnames(amph_veri)
 
 ```
 
-Çalışmak istediğimiz veri gruplarını bir araya getirmek istiyoruz. Bu nedenle öncelikle verileri bu programa tanımlatalım. Bu şekilde program veri setindeki *sütun isimlerini* tanıyıp, yazım sırasında otomatik olarak tanımlayacaktır.
+Çalışmak istediğimiz veri gruplarını bir araya getirmek istiyoruz. Bu nedenle öncelikle verileri bu programa tanımlatalım. Bu şekilde program veri setindeki *sütun isimlerini* tanıyıp yazım sırasında otomatik olarak tanımlayacaktır.
 
 ```{r}
 attach(amph_veri)
 
 ```
 
-Devamında veri seti içerisinde çalışmak istediğimiz veri gruplarını yani morfolojik özellikleri seçip bir araya getirelim, daha kolay çalışmak için veri setimizi küçültelim. Bunun için birçok yöntem mevcuttur. Verilen ilk örnek çalışmanın devamında kullanılacaktır. Daha rahat incelenmesi için her örnekte farklı isim atanmıştır, sizler istediğiniz isimle istediğiniz kodu kullanarak alt veri seti oluşturabilirsiniz.
+Devamında veri seti içerisinde çalışmak istediğimiz veri gruplarını yani morfolojik özellikleri seçip bir araya getirelim, daha kolay çalışmak için veri setimizi küçültelim. Bunun için birçok yöntem mevcuttur. Verilen ilk örnek çalışmanın devamında kullanılacaktır. Daha rahat incelenmesi için her örnekte farklı isim atanmıştır. Sizler istediğiniz isimle istediğiniz kodu kullanarak alt veri seti oluşturabilirsiniz.
 
-Bu daha **klasik** bir yöntemdir. Başta attach fonksiyonu ile veri setini programa tanıtmamış olsaydık, her sütun adını \"  \" içinde yazmamız gerekirdi.
+Bu daha **klasik** bir yöntemdir. Başta attach fonksiyonu ile veri setini programa tanıtmamış olsaydık her sütun adını \"  \" içinde yazmamız gerekirdi.
 
 ```{r}
 amph_sub_veri <- data.frame(Longevity_max_y, Body_size_mm, Body_mass_g, Size_at_maturity_max_mm, Size_at_maturity_min_mm)
@@ -140,7 +140,7 @@ plot(data=amph_sub_veri, log(Longevity_max_y)~log(Body_mass_g))
 
 Artık grafiğimiz daha güzel görünüyor. Bunun yerine oluşturduğumuz alt veriyi tek tek log cinsinde tanımlamak yerine, alt veri setinin tamamını log cinsine çevirelim:
 
-> Burada dikkat etmeniz gereken şey şu, elimizde sadece sayısal veri olduğu için bütün veri çerçevesini `log` fonksiyonu ile modifiye edebildik. Eğer elimizda karakter verileri de olsaydı, tek tek sütunları dönüştürmek durumunda kalacaktık.
+> Burada dikkat etmeniz gereken şey şu, elimizde sadece sayısal veri olduğu için bütün veri çerçevesini `log` fonksiyonu ile modifiye edebildik. Eğer elimizda karakter verileri de olsaydı tek tek sütunları dönüştürmek durumunda kalacaktık.
 
 ```{r}
 amph_log <- log(amph_sub_veri)
@@ -170,7 +170,7 @@ hist(amph_log$Body_mass_g)
 
 ## Modelleme aşaması
 
-Veri setindeki bir veri ile model oluşturalım,
+Veri setindeki bir veri ile model oluşturalım:
 
 ```{r}
 model <- lm(data=amph_log, Longevity_max_y~.)
@@ -190,7 +190,7 @@ summary(model)
 model_1 <- lm(data=amph_log, Longevity_max_y~Body_mass_g*Body_size_mm + Body_size_mm)
 
 ```
-Şimdi bu yeni modeli özetleyerek inceleyip, yapmaya çalıştığımız şeyin etkisini kontrol edebiliriz.
+Şimdi bu yeni modeli özetleyerek inceleyip yapmaya çalıştığımız şeyin etkisini kontrol edebiliriz.
 
 ```{r}
 summary(model_1)
@@ -204,7 +204,7 @@ amph_log$order <- amph_veri$Order
 
 ```
 
-Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim (`ggplot2` paketi tekrar tekrar yüklenmesin diye R kod bloğuna `eval = FALSE` opsiyonunu ekledik):
+Şimdi bu incelemeyi görselleştirelim. Öncelikle programa ggplot2 aracını yükleyelim (`ggplot2` paketi tekrar tekrar yüklenmesin diye R kod bloğuna `eval = FALSE` opsiyonunu ekledik.):
 
 ```{r eval=FALSE}
 install.packages("ggplot2")
