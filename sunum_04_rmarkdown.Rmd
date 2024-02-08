@@ -30,7 +30,7 @@ knitr::include_graphics("images/new-document-menu.png")
 
 Bu işlemin sonucunda bir metin editörü açılacak.
 
-Metin editörleri, yazılan metni hiçbir format değişimine bağlı kalmadan kaydeder.
+Metin editörleri yazılan metni hiçbir format değişimine bağlı kalmadan kaydeder.
 
 Her karakter tek bir *bit* uzunluğa sahip olur 
 
@@ -66,13 +66,13 @@ knitr::include_graphics("images/artikel.png")
 
 Genelde metin editörleri WYSIWYG (Gördüğünü Al) felsefesine göre çalışır.
 
-Yani düzenleyici, metin boyutunu, renkleri ve diğer özelikleri belirleme hakkına sahiptir.
+Yani düzenleyici metin boyutunu, renkleri ve diğer özelikleri belirleme hakkına sahiptir.
 
 ## Metin İçeriğinin ve Stilin Ayrılması
 
 Hem yazıp hem de metin düzenlemek çok vakit alır.
 
-Bunun yerine ilk önce içeriği düz bir metin dosyasında yazıp, metni yayımlamadan önce stil işleriyle uğraşmaktadır.
+Bunun yerine ilk önce içeriği düz bir metin dosyasında yazıp metni yayımlamadan önce stil işleriyle uğraşmaktadır.
 
 + WYSIWYG: Gördüğün gibi al
     + Microsoft Word
@@ -112,7 +112,7 @@ Bunun yerine ilk önce içeriği düz bir metin dosyasında yazıp, metni yayım
 
 ## Markdown
 
-Metin yazımı için alternatif bir yol. Bu sistemde metni yazarken, belirli stil elementlerini özel işaretlerle belirliyoruz.
+Metin yazımı için alternatif bir yol. Bu sistemde metni yazarken belirli stil elementlerini özel işaretlerle belirliyoruz.
 
 Bu sayede metinler istenen her bilgisayarda okunabilir!
 
@@ -314,5 +314,5 @@ Bu derste öğrendiklerinizi Rmarkdown olarak yazın lütfen.
 
 ## Teşekkür
 
-- Sunumlarından faydalanmama izin veren Dr. Andres Aravena'ya teşekkürler
+- Sunumlarından faydalanmama izin veren Dr. Andres Aravena'ya teşekkürler!
 
