@@ -1,0 +1,191 @@
+---
+title: "bva_naive_bayes_pratik_2"
+author: "Tanya Beril Korkmaz, Emrah Kırdök"
+format: html
+editor: visual
+---
+
+# Naive Bayes Pratiği
+
+Araçları yükleyelim:
+
+```{r eval = FALSE}
+install.packages('tidyverse')
+install.packages('ggplot2')
+install.packages('caret')
+install.packages('caretEnsemble')
+install.packages('psych')
+install.packages('Amelia')
+install.packages('mice')
+install.packages('GGally')
+install.packages('rpart')
+install.packages('randomForest')
+install.packages("ranger")
+install.packages("corrplot")
+install.packages("ggplot2")
+install.packages("gridExtra")
+```
+
+Kütüphaneleri çalıştıralım (bunları konsolda yaparsanız daha güzel bir çıktı alabilirsiniz)
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(caret)
+library(caretEnsemble)
+library(psych)
+library(Amelia)
+library(mice)
+library(GGally)
+library(rpart)
+library(randomForest)
+library(e1071)
+library(ranger)
+library(corrplot)
+library(ggplot2)
+library(gridExtra)
+```
+
+
+Kullanılan tutorial:
+
+[https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis](https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis)
+
+Veri setimizi alalım (Siz buraya kendi dosya yolunuzu yazacaksınız). Veri seti link: <https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis/input>
+
+```{r}
+bc_data <- read.csv("data.csv")
+```
+
+Teşhisi faktör olarak düzenleyelim (M:malign tümör, B:benign tümör) ve veri setini inceleyelim
+
+```{r}
+bc_data$diagnosis <- as.factor(bc_data$diagnosis)
+bc_data[,33] <- NULL
+summary(bc_data)
+```
+
+Teşhis bilgisine bakalım
+
+```{r}
+prop.table(table(bc_data$diagnosis))
+```
+
+Veri setini inceleyelim.
+
+```{r}
+describe(bc_data)
+```
+
+Korelasyon matrixi ile ilişkili olan verileri inceleyelim
+
+```{r}
+corr_mat <- cor(bc_data[,3:ncol(bc_data)])
+corrplot(corr_mat, order = "hclust", tl.cex = 1, addrect = 8)
+```
+
+Etkenlerden birini seçip plotlayalım
+
+```{r}
+# ggplot(bc_data, aes(Age)) +
+# geom_density(alpha=0.5, aes(fill=Outcome)) + labs(title="Age_Distribution_by_Outcome")
+```
+
+Hepsini birlikte deneyelim
+
+```{r}
+# ggpairs(bc_data)
+```
+
+Şimdi yavaşça işin makine öğrenmesi kısmına başlıyoruz. Burada veri setimiz rastgele olarak iki parçaya bölünüyor: Makineye "öğreten" training set ve bunu test eden testing set.
+
+```{r}
+set.seed(1234)
+data_index <- createDataPartition(bc_data$diagnosis, p=0.7, list = FALSE)
+train_data <- bc_data[data_index, -1]
+test_data <- bc_data[-data_index, -1]
+```
+
+şimdi de bu bölünen kısımların oranlarına bakalım:
+
+Veri setimiz:
+
+```{r}
+prop.table(table(bc_data$diagnosis)) * 100
+```
+
+Training setimiz:
+
+```{r}
+prop.table(table(train_data$diagnosis)) * 100
+```
+
+Testing setimiz:
+
+```{r}
+prop.table(table(test_data$diagnosis)) * 100
+```
+
+Verilerimizi görselleştirelim:
+
+```{r}
+pca_res <- prcomp(bc_data[,3:ncol(bc_data)], center = TRUE, scale = TRUE)
+plot(pca_res, type="l")
+summary(pca_res)
+```
+
+Teşhis bilgisinin temel bileşen analizini yapalım:
+
+```{r}
+pca_df <- as.data.frame(pca_res$x)
+ggplot(pca_df, aes(x=PC1, y=PC2, col=bc_data$diagnosis)) + geom_point(alpha=0.5)
+```
+
+Teşhis bilgisi için her bileşeni ayrıca inceleyelim:
+
+```{r}
+g_pc1 <- ggplot(pca_df, aes(x=PC1, fill=bc_data$diagnosis)) + geom_density(alpha=0.25)  
+g_pc2 <- ggplot(pca_df, aes(x=PC2, fill=bc_data$diagnosis)) + geom_density(alpha=0.25)  
+grid.arrange(g_pc1, g_pc2, ncol=2)
+```
+
+Etkenlerden birini seçip plotlayalım
+
+```{r}
+# ggplot(bc_data, aes(Age)) +
+# geom_density(alpha=0.5, aes(fill=Outcome)) + labs(title="Age_Distribution_by_Outcome")
+```
+
+Hepsini birlikte deneyelim
+
+```{r}
+# ggpairs(bc_data)
+```
+
+Modeli oluşturalım ve görüntüleyelim:
+
+```{r}
+fitControl <- trainControl(method="cv", number = 5, preProcOptions = list(thresh = 0.99), classProbs = TRUE, summaryFunction = twoClassSummary)
+
+model_nb <- train(diagnosis~., train_data, method="nb", metric="ROC", preProcess=c('center', 'scale'), trace=FALSE, trControl=fitControl)
+
+# pred_nb <- predict(model_nb, test_data)
+# cm_nb <- confusionMatrix(pred_nb, test_data$diagnosis, positive = "M")
+# cm_nb
+```
+
+Modeli test edelim ve inceleyelim (bunu aslında yukarıda da yaptık)
+
+```{r}
+Predict <- predict(model_nb,newdata = test_data)
+confusionMatrix(Predict, test_data$diagnosis)
+```
+
+Her tahmin yürütücü değişkenin outcome/çıktı üzerindeki etkilerini kıyaslayalım:
+
+```{r}
+X <- varImp(model_nb)
+plot(X)
+```
+
+Yorum artık sizde, yukarıdaki grafiğe bakarak bir kişiye meme kanseri teşhisi konmasındaki en önemli etkenler hangileri olarak görünüyor?
