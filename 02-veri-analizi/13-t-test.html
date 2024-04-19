@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Yaşam Bilimlerinde Veri Analizi - 17&nbsp; T-Test</title>
 <style>
@@ -500,13 +500,13 @@ window.Quarto = {
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -67.021, df = 1997.6, p-value &lt; 2.2e-16
+t = -66.706, df = 1988.9, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.012847 -2.841537
+ -3.079826 -2.903905
 sample estimates:
 mean of x mean of y 
- 2.042437  4.969629 </code></pre>
+ 2.010982  5.002847 </code></pre>
 </div>
 </div>
 <p>Burada dikkat etmemiz gereken iki nokta var:</p>
@@ -560,13 +560,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -67.021, df = 1997.6, p-value &lt; 2.2e-16
+t = -66.706, df = 1988.9, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.012847 -2.841537
+ -3.079826 -2.903905
 sample estimates:
 mean of x mean of y 
- 2.042437  4.969629 </code></pre>
+ 2.010982  5.002847 </code></pre>
 </div>
 </div>
 <p>Şu satıra bakalım:</p>
@@ -613,13 +613,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -0.74571, df = 1991.7, p-value = 0.4559
+t = 1.3228, df = 1997.4, p-value = 0.1861
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -0.1236080  0.0555027
+ -0.02858111  0.14702695
 sample estimates:
 mean of x mean of y 
- 2.047337  2.081390 </code></pre>
+ 2.042274  1.983051 </code></pre>
 </div>
 </div>
 <p>Bu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?</p>
@@ -759,6 +759,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/emrahkirdok\.github\.io\/ybva\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -793,7 +811,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1067,12 +1089,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../02-veri-analizi/12-bilimsel-hikaye-03.html" class="pagination-link  aria-label=" hikaye="" anlat="">
+      <a href="../02-veri-analizi/12-bilimsel-hikaye-03.html" class="pagination-link" aria-label="Bilimsel Hikaye Anlatımı 3">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Bilimsel Hikaye Anlatımı 3</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link" aria-label="<span class='chapter-number'>18</span>&nbsp; <span class='chapter-title'>Kontrol yapıları</span>">
+      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link" aria-label="Kontrol yapıları">
         <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
