@@ -58,7 +58,7 @@ summary(glm.fits)
 Predict fonksiyonu ile modelimizin ilk 10 parametresini tahmin edelim:
 
 ```{r}
-predict(glm.fits, type = "response")[1:10]
+predict.glm(glm.fits, type = "response")[1:10]
 ```
 
 Tahminleri yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece tahmin üzerinden işlem yapabiliriz.
@@ -66,7 +66,7 @@ Tahminleri yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece ta
 Öncelikle tahmin ettiğimiz Direction verilerinin olasılık değerlerini alalım:
 
 ```{r}
-glm_prob <- predict(glm.fits, type = "response")
+glm_prob <- predict.glm(glm.fits, type = "response")
 ```
 
 Yeni oluşturduğumuz tahmin veri setinin ilk 6 elemanını inceleyelim:
