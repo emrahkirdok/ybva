@@ -1,33 +1,4 @@
----
-title: "Aşamalı alçalış"
-author: "Emrah Kırdök, Ph. D."
-date: "16/10/2022"
-output:
-  bookdown::pdf_document2:
-    template: templates/eisvogel.tex
-    toc: false
-    pandoc_args:
-    - --filter
-    - ~/miniconda3/bin/pandoc-latex-environment
-  bookdown::html_document2:
-    css: "templates/scholarly.css"
-bibliography: bibliography.bib
-lang: tr
-header-includes: |
-  ```{=latex}
-  \usepackage{awesomebox}
-  ```
-pandoc-latex-environment:
-  noteblock: [note]
-  tipblock: [tip]
-  warningblock: [warning]
-  cautionblock: [caution]
-  importantblock: [important]
----
-
-> Maalesef belge daha tamamlanmadı. Bugün yarın biter :)
-
-# Giriş
+# Aşamalı alçalış
 
 Bu belge kapsamında aşamalı alçalış kullanarak nasıl doğrusal modelleme gerçekleştirilebileceği irdelenecektir. Bu belgede genel olarak [Alex Beacher](https://www.alexbaecher.com/post/gradient-descent/) tarafından yazılmış blog yazısını temel alacaktır.
 
