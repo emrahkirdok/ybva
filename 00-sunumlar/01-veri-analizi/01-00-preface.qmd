@@ -17,16 +17,10 @@ format:
 
 ## Ders hakkında bilgi
 
-+ Dersimiz çevrimiçi olarak Microsoft Teams platformu üzerinde işlenecek.
-+ Video kayıtları Teams platormunda ve Uzaktan Eğitim sisteminde paylaşılacak.
 + Dersin internet sitesi: [https://emrahkirdok.github.io/ybva/](https://emrahkirdok.github.io/ybva/)
-+ Sınavlar hakkında açıklama ilerleyen haftalarda yapılacak.
 
 ## Ders hakkında bilgi
 
-+ Dersler video üzerinden anlatılacak.
-+ Sorular Discord üzerinden!
-+ Uzaktan eğitim sisteminde sorumluluk sizde!
 + R ve Rstudio programları kullanılacak.
 
 # Neden YBVA
@@ -44,7 +38,7 @@ format:
 
 ::: {.notes}
 
-Örnek vermek gerekirse NCBI SRA veri tabanı. Bu veri tabanında dizileme teknolojileri sayesinde elde edilmiş veriler bulunmaktadır. Dikkat ederseniz, hızlı büyümeyi görebilirsiniz. Özellikle 2010'lu yıllarda bu büyüme başlamış ve halen de artan bir hızla devam etmektedir.
+Örnek vermek gerekirse NCBI SRA veri tabanı. Bu veri tabanında dizileme teknolojileri sayesinde elde edilmiş veriler bulunmaktadır. Dikkat ederseniz, hızlı büyümeyi görebilirsiniz. Bu büyüme özellikle 2010'lu yıllarda başlamıştır ve halen de artan bir hızla devam etmektedir.
 
 :::
 
@@ -93,13 +87,13 @@ format:
 - Adı üstünde bilgi sayar.
 - Temel işi saymak.
 - Sadece sayısal bilgi işleyebilir.
-- Genelde sayılar bir şeyleri temsil eder
+- Genelde sayılar bir şeyleri temsil eder.
 
 ## Sayılar neyi temsil eder?
 
 Harfleri:
 
-- A, B, C, d, e...
+- A, B, C, D, E...
 
 Notaları
 
@@ -139,9 +133,9 @@ NAQLTWTYYW
 
 Veriler bilgisayarlar yardımıyla işlenir.
 
-Bir konumdan başka bir konuma iletilir ve ve dönüştürülür.
+Bir konumdan başka bir konuma iletilir ve dönüştürülür.
 
-Verilerin uzun süreli depolanması
+Verilerin uzun süreli depolanmasını sağlar.
 
 ## Bilgisayarlar
 
@@ -150,7 +144,7 @@ Verilerin uzun süreli depolanması
 
 ## CPU
 
-Bilgisayarın temel bilgi işleme birimi.
+Bilgisayarın temel bilgi işleme birimidir.
 
 Bütün parçalar arasındaki koordinasyonu sağlamaktan sorumludur. 
 
@@ -160,9 +154,9 @@ Bütün parçalar arasındaki koordinasyonu sağlamaktan sorumludur.
 
 Rastgele hafıza erişimi (Random Access Memory).
 
-Bilgisayardaki birincil hafıza birimi. Sadece aktif olarak kullanılan veriler depolanır.
+Bilgisayardaki birincil hafıza birimidir. Sadece aktif olarak kullanılan veriler depolanır.
 
-Ancak kısa süreldir ve kalıcılığı yoktur. Enerji kesildiğinde silinir.
+Ancak kısa sürelidir ve kalıcılığı yoktur. Enerji kesildiğinde silinir.
 
 ## Harddisk
 
@@ -170,27 +164,27 @@ Ancak kısa süreldir ve kalıcılığı yoktur. Enerji kesildiğinde silinir.
 
 Uzun süreli bir depolama sağlar. 
 
-Ucuz ancak yavaş bir depolama birimi.
+Ucuz ancak yavaş bir depolama birimidir.
 
 ## Dosyalar
 
 Sayıları depoladığımız listeler. Her dosyanın:
 
-- ismi
-- oluşturulma tarihi
-- boyutu
+- ismi,
+- oluşturulma tarihi,
+- boyutu,
 - kullanım hakları
 
 bulunur
 
 ## Dosya isimleri
 
-Bir karakter listesi:
+Bir karakter listesinde:
 
-- harfler
-- numaralar
-- semboller
-- 250 karater uzunluğunda olabilir
+- harfler,
+- numaralar,
+- semboller bulunabilir
+- ve 250 karater uzunluğunda olabilir
 
 Aşağıdakiler hariç:
 
@@ -203,34 +197,34 @@ Unix/Linux sistemlerde büyük ve küçük harfler farklıdır.
 
 Her dosyanın uzantısı vardır (zorunlu değil ama anlaşılmayı kolaylaştırır):
 
-- exe
-- jpg
-- doc
-- txt
+- .exe
+- .jpg
+- .doc
+- .txt
 
 ## Dosya tipleri
 
 Temel olarak iki tip dosya var:
 
 - Metin dosyaları
-  - Sadece düz metin içerirler
-  - Anlaşılabilir
+  - Sadece düz metin içerirler.
+  - Anlaşılabilirdir.
   
 - İkili dosyalar
-  - Sayısal bilginin ikili şekilde düzenlenmiş hali.
+  - Sayısal bilginin ikili şekilde düzenlenmiş halidir.
   - Ses, resim dosylaları.
 
 ## Metni ifade etmek
 
 En basit metin gösterim metodu her bir karakteri tek bir bit ile ifade etmek.
 
-İngilizce için ASCII isimli bir kodlama var
+İngilizce için ASCII isimli bir kodlama var.
 
 Sıfır - 127 arasındak her numara bir *sembol* veya bir *sinyal* olarak ifade edilir:
 
 + Yeni satır
 + Tab
-+ boşluk
++ Boşluk
 + Silme tuşu
 
 ## ASCII code
