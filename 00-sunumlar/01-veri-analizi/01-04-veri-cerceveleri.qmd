@@ -1,17 +1,8 @@
 ---
 title: "Veri Çerçeveleri"
 subtitle: "Yaşam Bilimlerinde Veri Analizi"
-author: "Emrah Kırdök, Ph.D."
-date: "16-03-2023"
-execute: 
-  echo: true
-
-format: 
-    revealjs:
-        slide-number: true
-        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
-        footer: "Yaşam Bilimlerinde Veri Analizi"
-        embed-resources: true
+author: "Fatma Nur Pırnaz"
+date: "15-05-2024"
 
 ---
 
@@ -21,7 +12,7 @@ format:
 
 Veri çerçeveleri: 
 
-+ Farklı veri tiplerine sahip vektörlerden oluşan matrisler 
++ Farklı veri tiplerine sahip vektörlerden oluşan matrislerdir.
 + Vektörlerin uzunluklarının aynı olması gereklidir.
 
 Hatırlarsanız öncelikle vektörleri tanımlamıştık.
@@ -95,7 +86,7 @@ ncol(veri)
 
 ## Sütun ve satır isimleri
 
-+ `colnames`  ve `rownames `fonksiyonları ile ile öğrenebiliriz ve değiştirebiliriz:
++ `colnames`  ve `rownames ` fonksiyonları ile ile öğrenebiliriz ve değiştirebiliriz:
 
 ```{r}
 colnames(veri)
