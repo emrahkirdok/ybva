@@ -42,8 +42,8 @@ yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4,
 ## Matris oluşturalım
 
 + `matrix()` fonksiyonunu kullanmalıyız
-+ satır (`nrow`) 
-+ sütun (`ncol`) 
++ `nrow` satır
++ `ncol` sütun 
 
 ```{r}
 matrix(yaprak_uzunlugu, nrow=5, ncol=2)
@@ -53,9 +53,9 @@ matrix(yaprak_uzunlugu, nrow=5, ncol=2)
 
 Matris boyutlarını öğrenmek için üç farklı fonksiyon kullanabilirsiniz:
 
-+ `dim` bir matrisin satır ve sütun sayılarını geri döndürür
-+ `nrow` sadece satır sayısını geri döndürür
-+ `ncol` sadece sütun sayısını geri döndürür
++ `dim` bir matrisin satır ve sütun sayılarını geri döndürür.
++ `nrow` sadece satır sayısını geri döndürür.
++ `ncol` sadece sütun sayısını geri döndürür.
 
 ```{r}
 #| output-location: slide
@@ -69,7 +69,7 @@ ncol(ornek_matris)
 
 ## Satır ve Sütün isimleri
 
-İki fonksion kullanıyoruz:
+İki fonksiyon kullanıyoruz:
 
 + `rownames`
 + `colnames`  
@@ -90,7 +90,7 @@ ornek_matris
 
 + Satır (birinci indis)
 + Sütun (ikinci indis)
-+ Dördüncü satır ikinci elemana erişelim
++ Dördüncü satır ikinci elemana erişelim:
 
 ```{r}
 ornek_matris[4,2]

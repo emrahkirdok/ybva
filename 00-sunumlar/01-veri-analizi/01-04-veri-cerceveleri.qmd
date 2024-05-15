@@ -22,9 +22,9 @@ format:
 Veri çerçeveleri: 
 
 + Farklı veri tiplerine sahip vektörlerden oluşan matrisler 
-+ Vektörlerin uzunluklarının aynı olması gerekldir.
++ Vektörlerin uzunluklarının aynı olması gereklidir.
 
-Hatırlarsanız öncelikle vektörler tanımlamıştık.
+Hatırlarsanız öncelikle vektörleri tanımlamıştık.
 
 ## Veri çerçevesi oluşturalım
 
@@ -39,7 +39,7 @@ Gelin @tbl-veri'den bir veri çerçevesi oluşturalım:
 | bitki5     | 3.4                  | Aydınlık        |
 | bitki6     | -                    | Karanlık        |
 | bitki7     | 1.8                  | Karanlık        |
-| bitki8     | 6.3                  | Aydinlik        |
+| bitki8     | 6.3                  | Aydınlık        |
 | bitki9     | 2.1                  | Karanlık        |
 | bitki10    | -                    | Karanlık        |
 

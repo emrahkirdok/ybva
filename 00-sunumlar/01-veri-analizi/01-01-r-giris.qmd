@@ -20,9 +20,9 @@ format:
 
 ## Değişken atama
 
-+ Değişken atama operatörü `<-`
-+ Veri bir değişkenle ifade edilir
-+ Tekrar tekrar kullanabilirsiniz
++ Değişken atama operatörü : `<-`
++ Veri bir değişkenle ifade edilir.
++ Tekrar tekrar kullanabilirsiniz.
 
 ```{r}
 sayi1 <- 12
@@ -44,7 +44,7 @@ Bu işlemin aynısını şu şekilde de yapabiliriz. Önemli olan okun yönü:
 sayi2 <- 23
 ```
 
-+ Değişkenleri kullanabiliriz
++ Değişkenleri kullanabiliriz.
 
 ```{r}
 sayi1 + sayi2
@@ -108,8 +108,10 @@ str(TRUE)
 
 ## Veri tipleri
 
-+ Kategori ya da faktörler
-+ Faktör değişkenleri, gruplandırma işlevi görmektedir. + Farklı deney koşullarını faktör olarak gösterebiliriz.+ `factor` fonksiyonu kullanılur
++ Kategori ya da faktörler.
++ Faktör değişkenleri, gruplandırma işlevi görmektedir. 
++ Farklı deney koşullarını faktör olarak gösterebiliriz.
++ `factor` fonksiyonu kullanılır
 
 ```{r}
 factor("karanlik")
@@ -123,9 +125,9 @@ str(factor("karanlik"))
 
 ## Kayıp veri
 
-+ Deneyler her zaman sonuç vermeyebilir
-+ `NA` karakteri sayesinde olmayan bilgileri işaretleyebilirsiniz
-+ Mantıksal bir değişken
++ Deneyler her zaman sonuç vermeyebilir.
++ `NA` karakteri sayesinde olmayan bilgileri işaretleyebilirsiniz.
++ Mantıksal bir değişkendir.
 
 ```{r}
 str(NA)
