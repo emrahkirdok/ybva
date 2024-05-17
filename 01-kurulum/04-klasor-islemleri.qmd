@@ -10,7 +10,7 @@ Bu belge bu amaçla hazırlandı.
 
 ## Çalışma klasörümüz nerede?
 
-İlk olarak `getwd()` komutunu konsola yazalım ve çıktıyı inceleylim:
+İlk olarak `getwd()` komutunu konsola yazalım ve çıktıyı inceleyelim:
 
 ```{r}
 getwd()
@@ -20,19 +20,19 @@ Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü g
 
 Ama kişisel MAC bilgisyarımda şöyle bir çıktı alacağım:
 
-```bash
+```{bash}
 /Users/quatta/Akademia/Lectures/ybva
 ```
 
 Ofiste bulunan Windows bilgisayarımda ise şuna benzer bir çıktı alacağım:
 
-```bash
+```{bash}
 C:/Users/User/Akademia/Lectures/ybva
 ```
 
 Linux bilgisayarda ise şöyle olacaktı:
 
-```bash
+```{bash}
 /home/quatta/Akademia/Lectures/ybva
 ```
 
@@ -54,7 +54,7 @@ Linux sistemlerde ise `/home/` içinde bulunur.
 
 Kullanıcı isminizi, bu klasörlerden sonra gelen ilk klasör olarak düşünebilirisiz.
 
-Önemli nokta ise, büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyorsunuz.
+Önemli nokta ise büyük küçük harflere dikkat etmeniz. Bazı arkadaşlar `C:/` ile `c:/` arasındaki farkı anlamıyor. O yüzden hata alıyorsunuz.
 
 ## Çalışma klasörü içindekiler nedir?
 
@@ -70,7 +70,7 @@ Eğer klasörler içerisinde gezinmek istiyorsanız, her klasörü ya da belgeyi
 
 Türkçe karakterler kullanmamaya dikkat edin.
 
-Klasör isimlerinde boşluk kullanmayın. Hata alma şansınız yüksek. Genel olara komut satırında çalışırken kullandığınız boşluk (space) karakteri, yazdığınız şeyin bittiği anlamına geliyor ve bilgisayar sizden yeni bir cümle yazmanınızı bekliyor.
+Klasör isimlerinde boşluk kullanmayın. Hata alma şansınız yüksek. Genel olarak komut satırında çalışırken kullandığınız boşluk (space) karakteri, yazdığınız şeyin bittiği anlamına geliyor ve bilgisayar sizden yeni bir cümle yazmanızı bekliyor.
 
 Bu nedenle hata alabilirsiniz.
 
