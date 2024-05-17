@@ -1,18 +1,8 @@
 ---
 title: "Fonksiyonlar"
 subtitle: "Yaşam Bilimlerinde Veri Analizi"
-author: "Emrah Kırdök, Ph.D."
-date: "16-03-2023"
-execute: 
-  echo: true
-
-format: 
-    revealjs:
-        slide-number: true
-        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
-        footer: "Yaşam Bilimlerinde Veri Analizi"
-        embed-resources: true
-
+author: "Fatma Nur Pırnaz"
+date: "17-05-24"
 ---
 
 # Fonksiyonlar
