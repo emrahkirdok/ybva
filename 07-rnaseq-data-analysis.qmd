@@ -1,0 +1,90 @@
+## RNA Dizileme
+
+Önce `ggplot2` yükleyelim
+
+```{r}
+counts <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/counts_drosophila.txt", header = T, sep = " ")
+
+counts <- as.matrix(counts)
+```
+
+Metadata yükleyelim
+
+```{r}
+metadata <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sample_info_drosophila.txt", header = T)
+```
+
+RNASeq matrisi boyutuna bakalım:
+
+```{r}
+dim(counts)
+```
+
+Sütun isimleri:
+
+```{r}
+colnames(counts)
+```
+
+Örnekler
+
+```{r}
+metadata
+```
+
+```{r}
+boxplot(counts)
+```
+
+Önemli olan normalizasyon
+
+```{r}
+counts <- log2(counts)
+```
+
+```{r}
+boxplot(counts)
+```
+
+hclust
+
+
+```{r}
+plot(hclust(dist(t(counts))), labels = metadata$Grup)
+```
+
+
+Birinci gene bakalım:
+
+```{r}
+kontrol <- counts[1,metadata$Grup=="Kontrol"]
+uygulama <- counts[1,metadata$Grup=="Uygulama"]
+
+t.test(x = kontrol, y = uygulama)
+```
+
+Bu genin grafiğine bakalım mı?
+
+```{r}
+boxplot(counts[1,]~metadata$Grup)
+```
+
+Şimdi bütün genler için inceleme yapalım:
+
+```{r}
+p.value <- rep(0, nrow(counts))
+for (i in 1:nrow(counts)){
+  kontrol <- counts[i, metadata$Grup=="Kontrol"]
+  uygulama <- counts[i, metadata$Grup=="Uygulama"]
+
+  test <- t.test(x = kontrol, y = uygulama)
+  p.value[i] <- test$p.value
+}
+```
+
+Kaç tane gen anlamlı değişmiş? (0.05'e göre)
+
+```{r}
+sum(p.value < 0.05, na.rm = TRUE)
+```
+
