@@ -1,0 +1,124 @@
+---
+title: "Random Forest"
+editor: visual
+---
+
+
+Mikrobiyal çokluk verisini yükleyelim:
+
+```{r}
+abundance <- read.table(file = "data/microbial-abundance.txt", header = T, sep = "\t")
+```
+
+Metadata bilgisini yükleyelim:
+
+```{r}
+metadata <- read.table(file = "data/microbial-metadata.txt", header = T, stringsAsFactors = FALSE)
+```
+
+Elimizdeki veriyi transpoze edelim:
+
+```{r}
+r1<-data.frame(t(abundance))
+r1$Condition<-as.factor(metadata$condition)
+```
+
+Şimdi random forest modelini kuralım. Bunun için elimizdeki bütün verileri kullanalım öncelikle:
+
+```{r}
+model <- randomForest(Condition ~ ., data = r1, importance = TRUE)
+```
+
+Özet istatistiklerine bakalım:
+
+```{r}
+model
+```
+
+Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:
+
+```{r}
+head(imp[order(imp$MeanDecreaseGini, decreasing = T),],n = 10)
+```
+
+Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık:
+
+
+```{r}
+
+library(magrittr)
+library(dplyr)
+library(reshape2)
+
+data_o<-r1
+data_o$Condition<-r1$Condition
+errors <- c()
+sig_models <- c()
+models <- list()
+#data_o<-r1[1:22, 1:50]
+
+
+N<-ncol(data_o)-6
+
+for (i in 0:N){
+  if (i == 0){
+    cat("Recursive feature elemination script has started...\n")
+    cat("Turn:", i, "Remaining species:", (ncol(data_o)-1), "\n")
+    turn <- paste0("turn", i)
+    importance <- c()
+    for (j in 1:10){
+      model <- randomForest(Condition ~ ., data = data_o, importance = TRUE)
+      imp<-data.frame(model$importance)
+      imp$Feat<-rownames(imp)
+      importance <- rbind(importance, imp)
+      errors<-rbind(errors, c(turn,model$err.rate[nrow(model$err.rate),]))
+    }
+    a<-importance%>%group_by(Feat) %>% select(MeanDecreaseGini) %>% summarise(MDG=mean(MeanDecreaseGini))
+    least <- as.character(head(a[order(a$MDG),],n=1)[,1])
+  }
+  
+  if (i > 0) {
+    turn <- paste0("turn", i)
+    importance <- c()
+    cat("Turn:", i, " ")
+    data_o <- data_o[,-which(colnames(data_o) %in% least)]
+    cat("We eleminated the least informative feature:", least, " ")
+    cat("Remaining species:", (ncol(data_o)-1), "\n")
+    models[[i]] <- list()
+    for (j in 1:10){
+      
+      model <- randomForest(Condition ~ ., data = data_o, importance = TRUE)
+      
+      imp<-data.frame(model$importance)
+      imp$Feat<-rownames(imp)
+      importance <- rbind(importance, imp)
+      errors<-rbind(errors, c(turn,model$err.rate[nrow(model$err.rate),]))
+      
+      if (model$err.rate[nrow(model$err.rate),1] < 0.25) {
+        models[[i]][[j]]<-model
+        sig_models <- rbind(sig_models, c(i, j, model$err.rate[nrow(model$err.rate),1]))
+      }
+    }
+    least_old <- least
+    
+    a<-importance%>%group_by(Feat) %>% select(MeanDecreaseGini) %>% summarise(MDG=mean(MeanDecreaseGini))
+    least <- as.character(head(a[order(a$MDG),],n=1)[,1])
+    
+  }
+}
+
+errors <- data.frame(errors, stringsAsFactors = F)
+colnames(errors)[1] <- "Turn"
+errors[,2] <- as.numeric(errors[,2])
+errors[,3] <- as.numeric(errors[,3])
+errors[,4] <- as.numeric(errors[,4])
+
+errors_melt <- melt(errors)
+
+colnames(errors_melt)<-c("Turn", "Type", "Value")
+
+sig_models<-data.frame(sig_models, stringsAsFactors = F)
+colnames(sig_models) <- c("Turn", "Try", "OOB")
+```
+
+
