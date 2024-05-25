@@ -38,6 +38,7 @@ model
 Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:
 
 ```{r}
+imp <- data.frame(importance(model))
 head(imp[order(imp$MeanDecreaseGini, decreasing = T),],n = 10)
 ```
 
