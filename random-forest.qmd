@@ -26,6 +26,7 @@ r1$Condition<-as.factor(metadata$condition)
 Şimdi random forest modelini kuralım. Bunun için elimizdeki bütün verileri kullanalım öncelikle:
 
 ```{r}
+library(randomForest)
 model <- randomForest(Condition ~ ., data = r1, importance = TRUE)
 ```
 
