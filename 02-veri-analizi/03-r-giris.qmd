@@ -16,7 +16,7 @@ Bu işlemin aynısını şu şekilde de yapabiliriz. Önemli olan okun yönü:
 12 -> sayi1
 ```
 
-Bu işlemin sonucunda 12 değerini, `sayi1` değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde `sayi1` değişkenini kullanabiliriz.
+Bu işlemin sonucunda 12 değerini, `sayi1` değişkeni içerisinde atamış oluyoruz. Artık, 12'yi kullancağımız her yerde `sayi1` değişkenini kullanabiliriz.
 
 Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde görebilirsiniz. Artık değişkenimiz, hafıza içerisine alınmış ve tekrar tekrar kullanılmaya hazır bir şekilde beklemektedir.
 
@@ -26,7 +26,7 @@ Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde gör
 sayi2 <- 23
 ```
 
-Artık ikinci bir degisken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:
+Artık ikinci bir değişken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:
 
 ```{r}
 sayi1 + sayi2
@@ -74,9 +74,9 @@ str("karakter")
 str("12")
 ```
 
-Evet, bir sayıyı tırnak işareti içerisine alırsak artık onu karakter'e çevirmiş oluruz. Dolayısıyla artık sayı olarak kullanamayız.
+Evet, bir sayıyı tırnak işareti içerisine alırsak artık onu karaktere çevirmiş oluruz. Dolayısıyla artık sayı olarak kullanamayız.
 
-Mantıksal değişkenler ise *Evet* ya da *Hayır* durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç bulunmamaktadır:
+Mantıksal değişkenler ise *Evet* ya da *Hayır* durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç yoktur:
 
 - `TRUE` veya `T`
 - `FALSE` veya `F`
@@ -105,7 +105,7 @@ str(factor("karanlik"))
 
 ### Kayıp veri
 
-Veri analizi çalışmalarında sıklıkla kayıp verilerle uğraşacaksınız. Çünkü deneyler sonucunda her zaman sonuç alamayabilirsiniz. Ancak o deneyi yaptığınız için, bir şekilde veri setinizde bu çıkmayan sonucu belirmeniz gerekir. Eğer deneyinizin sonucunda çıkmayan bir veri varsa, bunu `NA` karakteri ile belirtebilirsiniz. Bu karakter aslında mantıksal bir değişkendir ve olduğu gibi kullanılmalıdır.
+Veri analizi çalışmalarında sıklıkla kayıp verilerle uğraşacaksınız. Çünkü deneyler sonucunda her zaman sonuç alamayabilirsiniz. Ancak o deneyi yaptığınız için, bir şekilde veri setinizde bu çıkmayan sonucu belirtmeniz gerekir. Eğer deneyinizin sonucunda çıkmayan bir veri varsa bunu `NA` karakteri ile belirtebilirsiniz. Bu karakter aslında mantıksal bir değişkendir ve olduğu gibi kullanılmalıdır.
 
 ```{r}
 str(NA)
