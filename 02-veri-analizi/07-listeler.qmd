@@ -6,9 +6,8 @@ Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme p
 
 ## Liste oluşturma
 
-Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım, ve bir liste içerisinde saklayalım.
+Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım ve bir liste içerisinde saklayalım.
 
-Hayali veri setimizi şuraya bırakalım yine (@tbl-bitkiler).
 
 | Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
 |:-----------|---------------------:|:----------------|
@@ -23,7 +22,7 @@ Hayali veri setimizi şuraya bırakalım yine (@tbl-bitkiler).
 | bitki9     | 2.1                  | Karanlık        |
 | bitki10    | -                    | Karanlık        |
 
-: Hayali veri setimizdeki bitkiler {#tbl-bitkiler}
+: Hayali veri setimizdeki bitkiler {@tbl-bitkiler}
 
 Öncelikle bir veri çerçevesi oluşturalım:
 
@@ -43,7 +42,7 @@ veri <- data.frame(bitki_ismi = c("bitki1", "bitki2",
 )
 ```
 
-Şimdi de, matrisler (@sec-matrisler) dersinde oluşturduğumuz matrisi oluşturalım tekrar:
+Şimdi de matrisler (@sec-matrisler) dersinde oluşturduğumuz matrisi oluşturalım tekrar:
 
 ```{r}
 yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4, 
@@ -80,7 +79,7 @@ Listelerde indisleme biraz farklıdır.
 length(liste)
 ```
 
-İstersek, liste öğelerinin isimlerini inceleyebiliriz ya da isim atayabiliriz:
+İstersek liste öğelerinin isimlerini inceleyebiliriz ya da isim atayabiliriz:
 
 ```{r}
 names(list)
@@ -103,11 +102,11 @@ names(liste) <- c("veri", "ornek_matris", "isimler")
 Listelerde indisleme yaparken iki farklı şekilde çalışabilirisniz. Ancak bu iki yöntem farklı veri yapıları geri döndürür:
 
 + Liste içindeki elemana erişim: `[[]]` doğrudan liste elemanını geri döndürür.
-+ Liste'den yeni bir liste geri döndürmek: `[]` bize bir alt liste geri döndürdü.
++ Liste'den yeni bir liste geri döndürmek: `[]` bize bir alt listeyi geri döndürdü.
 
 ### Liste içindeki elemana erişme
 
-İlk yöntem bize liste elemanlarına erişim, ve bu elemanlar içinde işlem yapma olanağı sağlar.
+İlk yöntem bize liste elemanlarına erişim ve bu elemanlar içinde işlem yapma olanağı sağlar.
 
 ```{r}
 liste[[3]]
@@ -119,7 +118,7 @@ liste[[3]]
 liste[[3]][2]
 ```
 
-Bu sayede, liste içindeki elemana ulaştık.
+Bu sayede liste içindeki elemana ulaştık.
 
 Şimdi birinci elemana erişelim:
 
@@ -133,13 +132,13 @@ liste[[1]]
 liste[[1]][4,2]
 ```
 
-Eğer listemizi isimleri varsa, doğruda bu isimleri kullanabiliriz:
+Eğer listemizin isimleri varsa doğruda bu isimleri kullanabiliriz:
 
 ```{r}
 liste$veri
 ```
 
-Bakın, tekrar liste elemanına doğrudan eriştik. İstersek yukarıdaki işlemin aynısını yapabiliriz:
+Bakın tekrar liste elemanına doğrudan eriştik. İstersek yukarıdaki işlemin aynısını yapabiliriz:
 
 ```{r}
 liste$veri[4,2]
@@ -147,13 +146,13 @@ liste$veri[4,2]
 
 ### Alt liste geri döndürme
 
-Bu yöntemde, elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani, indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.
+Bu yöntemde elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani, indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.
 
 ```{r}
 liste[3]
 ```
 
-Bu bize bir alt liste geri döndürdü. Ancak, üçünücü eleman olan vektöre erişemiyoruz şu anda:
+Bu bize bir alt liste geri döndürdü. Ancak üçünücü eleman olan vektöre erişemiyoruz şu anda:
 
 ```{r}
 liste[3][2]
@@ -161,7 +160,7 @@ liste[3][2]
 
 Bakın hata mesajı aldık. Çünkü elimizde bir alt liste var.
 
-İstersek, birden fazla liste elemanını seçebiliriz:
+İstersek birden fazla liste elemanını seçebiliriz:
 
 ```{r}
 liste[1:2]
