@@ -67,7 +67,7 @@ Dikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayı
 
 Öncelikle `for` döngüsünün genel yapısına bakalım:
 
-```{r}
+```r
 for ( ÇALIŞILACAK ELEMAN KÜMESİ ){
     YAPILACAK İŞ
 }
@@ -187,7 +187,7 @@ sayi >= 5
 
 ## `if-else` Kontrol yapısı
 
-```{r}
+```r
 if ( KOŞUL ){
     KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR
 } else {
