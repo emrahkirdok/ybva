@@ -20,19 +20,19 @@ Elde ettiğimiz çıktı bizim o sırada bulunduğumuz çalışma klasörünü g
 
 Ama kişisel MAC bilgisyarımda şöyle bir çıktı alacağım:
 
-```{bash}
+```bash
 /Users/quatta/Akademia/Lectures/ybva
 ```
 
 Ofiste bulunan Windows bilgisayarımda ise şuna benzer bir çıktı alacağım:
 
-```{bash}
+```bash
 C:/Users/User/Akademia/Lectures/ybva
 ```
 
 Linux bilgisayarda ise şöyle olacaktı:
 
-```{bash}
+```bash
 /home/quatta/Akademia/Lectures/ybva
 ```
 
