@@ -1264,7 +1264,7 @@ Emrah Kırdök, Ph.D.
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href></a>vektor4 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;karanlik&quot;</span>, <span class="st">&quot;aydinlik&quot;</span>, <span class="st">&quot;karanlik&quot;</span>, <span class="st">&quot;aydinlik&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>Önce <code>c()</code> fonskiyonu ile vektör oluşturduk</li>
+<li>Önce <code>c()</code> fonskiyonu ile vektör oluşturduk.</li>
 <li>Ardından <code>factor</code> fonksiyonu ile faktör’e çevirdik.</li>
 </ul>
 </section>
@@ -1296,7 +1296,7 @@ Emrah Kırdök, Ph.D.
 <h2>Vektörler sadece bir veri tipine sahiptir</h2>
 <ul>
 <li>Acaba iki farklı tipte vektörü birleştiriseniz ne olur?</li>
-<li>Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?</li>
+<li>Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeye denesiniz?</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href></a>vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;bitki1&quot;</span>, <span class="st">&quot;bitki2&quot;</span>, <span class="dv">12</span>, <span class="dv">45</span>)</span>
@@ -1356,7 +1356,7 @@ Emrah Kırdök, Ph.D.
 <tr class="even">
 <td style="text-align: left;">bitki8</td>
 <td style="text-align: right;">6.3</td>
-<td style="text-align: left;">Aydinlik</td>
+<td style="text-align: left;">Aydınlık</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bitki9</td>
@@ -1393,9 +1393,8 @@ Emrah Kırdök, Ph.D.
 <section id="vektör-oluşturma-üzerine-örnekler-3" class="slide level2">
 <h2>Vektör oluşturma üzerine örnekler</h2>
 <ul>
-<li>Deney koşulları vektörü</li>
 <li>Deney koşulları aslında bir kategori ifade ediyor.</li>
-<li>Faktör vektörü olmalı oluşturmalıyız</li>
+<li>Faktör vektörü olarak oluşturmalıyız.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href></a>deney_kosullari <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;karanlik&quot;</span>, <span class="st">&quot;aydinlik&quot;</span>,</span>
@@ -1413,7 +1412,7 @@ Emrah Kırdök, Ph.D.
 <pre><code> Factor w/ 2 levels &quot;aydinlik&quot;,&quot;karanlik&quot;: 2 1 1 2 1 2 2 1 2 2</code></pre>
 </div>
 </div>
-<p>Burada levels aslında faktör vektöründeki seviyeleri gösterir + <code>aydinlik</code> ve <code>karanlik</code> olmak üzere iki farklı seviye + Bu seviyeler <code>1</code> ve <code>2</code> olarak kodlanmış + R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır.</p>
+<p>Burada levels aslında faktör vektöründeki seviyeleri gösterir + <code>aydinlik</code> ve <code>karanlik</code> olmak üzere iki farklı seviye vardır. + Bu seviyeler <code>1</code> ve <code>2</code> olarak kodlanmıştır. + R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır.</p>
 </section>
 <section id="vektörün-uzunluğunu-öğrenmek" class="slide level2">
 <h2>Vektörün uzunluğunu öğrenmek</h2>
@@ -1427,7 +1426,7 @@ Emrah Kırdök, Ph.D.
 </section>
 <section id="vektör-elemanlarına-isim-eklemek" class="slide level2">
 <h2>Vektör elemanlarına isim eklemek</h2>
-<p>Eğer istersek, her vektör elemanına bir isim atayabiliriz.</p>
+<p>Eğer istersek, her vektör elemanına bir isim atayabiliriz:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href></a><span class="fu">names</span>(yaprak_uzunlugu) <span class="ot">&lt;-</span> bitki_ismi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1444,7 +1443,7 @@ Emrah Kırdök, Ph.D.
 <h2>Vektörlerde indis kullanımı</h2>
 <p>Peki vektör içerisindeki elemanlara nasıl erişiriz?</p>
 <ul>
-<li>Bunun için indisler kullanmamız gereklidir.</li>
+<li>Bunun için indisler kullanmamız gereklidir:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href></a>yaprak_uzunlugu[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1464,7 +1463,7 @@ Emrah Kırdök, Ph.D.
 </section>
 <section id="vektörlerde-indis-kullanımı-1" class="slide level2">
 <h2>Vektörlerde indis kullanımı</h2>
-<p>Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz.</p>
+<p>Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href></a>yaprak_uzunlugu[<span class="st">&quot;bitki2&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1515,7 +1514,7 @@ Emrah Kırdök, Ph.D.
 <h2><code>seq</code> fonksiyonu</h2>
 <ul>
 <li>İki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.</li>
-<li>Mesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:</li>
+<li>Mesela 2 ila 16 arasında 1 artış ile bir vektör oluşturalım:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href></a><span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

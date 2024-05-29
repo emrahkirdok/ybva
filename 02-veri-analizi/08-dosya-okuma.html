@@ -417,19 +417,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>Şu ana kadar kendi verimizi R üzerinde oluşturduk. Ancak genel bir veri analizi sürecinde, hazır bir veriyi R içerisine aktarıyoruz.</p>
-<p>Bir dosyayı okumak için o dosyanın ya bilgisayarımızda olması gerekir, ya da internet üzerinde erişilebilir bir adreste olması gerekir.</p>
-<p>Şimdi, aşağıda belirtilen dosyaya sağ tıklayıp “Farklı Kaydet” tuşuna basalım ve bilgisyarımıza kaydedelim:</p>
+<p>Bir dosyayı okumak için o dosyanın ya bilgisayarımızda olması gerekir ya da internet üzerinde erişilebilir bir adreste olması gerekir.</p>
+<p>Şimdi aşağıda belirtilen dosyaya sağ tıklayıp “Farklı Kaydet” tuşuna basalım ve bilgisyarımıza kaydedelim:</p>
 <p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt">iris bitki dosyası</a></p>
-<p>Bu dosyayı incelerseniz, farklı sütunlardan oluştuğunu göreceksiniz. Genelde veri dosyaları sütunlar tarafından ayrılmaktadır. Farklı ayraçlar kullanılabilir:</p>
+<p>Bu dosyayı incelerseniz farklı sütunlardan oluştuğunu göreceksiniz. Genelde veri dosyaları sütunlar tarafından ayrılmaktadır. Farklı ayraçlar kullanılabilir:</p>
 <ul>
 <li>Tab işareti <code>\t</code>
 </li>
-<li>Noktalı Virgül <code>;</code>
+<li>Noktalı virgül <code>;</code>
 </li>
 <li>Virgül <code>,</code>
 </li>
 </ul>
-<p>Ayrıca, ilk satır ise başlıkları göstermekte. Bunlar bizim için önemli bilgiler.</p>
+<p>Ayrıca ilk satır ise başlıkları göstermekte. Bunlar bizim için önemli bilgiler.</p>
 <section id="bilgisayarımızdaki-dosyayı-okuma" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="bilgisayarımızdaki-dosyayı-okuma">
 <span class="header-section-number">12.1</span> Bilgisayarımızdaki dosyayı okuma</h2>
 <p>Bilgisayarımızdaki dosyayı okumak için <code>read.table</code> fonksiyonunu kullanıyoruz.</p>
@@ -441,9 +441,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <code>file</code> opsiyonu bize o dosyayı okuyacağımız yolu gösterir.</li>
 <li>
-<code>header</code> opsiyonu ise, ilk satırın başlık satırı olduğunu gösterir</li>
+<code>header</code> opsiyonu ise ilk satırın başlık satırı olduğunu gösterir</li>
 <li>
-<code>sep</code> ise, dosyada kullanılan ayraç karakterini belirtir. Bizim dosyamızda <code>\t</code> karakteri (tab)</li>
+<code>sep</code> ise dosyada kullanılan ayraç karakterini belirtir. Bizim dosyamızda <code>\t</code> karakteri (tab)</li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -458,16 +458,16 @@ Dosya okuma hataları
 <p>Bu derste en çok zorlandığımız konu dosya okumak. Bir dosyayı okumak istiyorsanız, o dosyanın yolunu belirtmeniz gerek. Bunu iki farklı şekilde yapabilirsiniz:</p>
 <ul>
 <li>
-<em>Tam yol:</em> O dosyanın tam okuma yolunu gösterirsiniz <code>C:/Users/User/Documents/Veri-Analizi/veri.txt</code> gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz</li>
+<em>Tam yol:</em> O dosyanın tam okuma yolunu gösterirsiniz, <code>C:/Users/User/Documents/Veri-Analizi/veri.txt</code> gibi. Burada dosya yolunu kendi dosyanıza göre değiştiriniz.</li>
 <li>
 <em>Göreceli yol:</em> Bir R projesi kullandığınızda, dosyalarınız o proje içerisine yüklerseniz, tam yolu göstermeden kullanabilirsiniz.</li>
 </ul>
 </div>
 </div>
-<p>Bunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek için konsola <code>?read.table()</code> yazınız.</p>
+<p>Bunun dışında farklı opsiyonlar da bulunmakta. Bütun opsiyonlara erişmek için konsola <code><a href="https://rdrr.io/r/utils/read.table.html">read.table()</a></code> yazınız.</p>
 </section><section id="internet-üzerinden-okuma" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="internet-üzerinden-okuma">
 <span class="header-section-number">12.2</span> İnternet üzerinden okuma</h2>
-<p>Eğer dosyanın tam internet adresini biliyorsak, onu da doğrudan okuyabiliriz. Aynı komutu yazacağız, ancak bu sefer <code>file</code> opsiyonuna, o dosyanın internet adresini girmeliyiz:</p>
+<p>Eğer dosyanın tam internet adresine biliyorsak onu da doğrudan okuyabiliriz. Aynı komutu yazacağız ancak bu sefer <code>file</code> opsiyonuna o dosyanın internet adresini girmeliyiz:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/iris.txt"</span>, header <span class="op">=</span> <span class="cn">T</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

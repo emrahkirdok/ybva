@@ -417,10 +417,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (<a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktaydı.</p>
+</header><p>Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak vektörler bölümünde (<a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>), farklı veri tiplerini kullanmıştık. Yani gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktaydı.</p>
 <p>Veri çerçeveleri aslında bu farklı veri tiplerini bir arada toplayabilme kabiliyetine sahiptir.</p>
-<p>Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmuştur. Kullandığımız vektörlerin uzunluklarının aynı olması gerekldir. Gelin şimdi <a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>’de işlediğimiz <a href="07-listeler.html#tbl-bitkiler" class="quarto-xref">Tablo&nbsp;<span>11.1</span></a> versini veri çerçevesine çevirelim.</p>
+<p>Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmuştur. Kullandığımız vektörlerin uzunluklarının aynı olması gereklidir. Gelin şimdi <a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>’de işlediğimiz <a href="04-vektorler.html#tbl-bitkiler" class="quarto-xref">Tablo&nbsp;<span>8.1</span></a> versini veri çerçevesine çevirelim.</p>
 <p>Hatırlarsanız öncelikle vektörler tanımlamıştık.</p>
+<div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
 <span>                <span class="st">"bitki6"</span>, <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span></span>
 <span></span>
@@ -430,6 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span><span class="va">deney_kosullari</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>,</span>
 <span>                            <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Şimdi ise bu vektörleri bir veri çerçevesi içerisinde birleştirelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>bitki_ismi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, </span>
@@ -473,6 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 10</code></pre>
 </div>
 </div>
+<p>Sütun sayısı:</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -488,14 +491,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "bitki_ismi"      "yaprak_uzunlugu" "deney_kosullari"</code></pre>
 </div>
 </div>
-<p>Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da <code>rownames</code> ile öğrenebiliriz:</p>
+<p>Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da <code>rownames</code> fonksiyonu ile öğrenebiliriz:</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"</code></pre>
 </div>
 </div>
-<p>İstersek, satır ve sütun isimlerini değiştirebiliriz:</p>
+<p>İstersek satır ve sütun isimlerini değiştirebiliriz:</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"isim"</span>, <span class="st">"uzunluk"</span>, <span class="st">"kosul"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
@@ -511,7 +514,7 @@ Dikkat!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Satır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte, satır isimlerinde iki tane <code>bitki8</code> yazma şansımız yoktur. Yoksa hata alırsınız.</p>
+<p>Satır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte satır isimlerinde iki tane <code>bitki8</code> yazma şansımız yoktur. Yoksa hata alırsınız.</p>
 </div>
 </div>
 <p>Şimdi tekrar veri çerçevesini ekrana yazdıralım:</p>
@@ -584,7 +587,7 @@ bitki3 bitki3     4.5 aydinlik</code></pre>
 </div>
 </div>
 <p>Eğer <code>$</code> işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. Bu bize bir vektör geri döndürdü.</p>
-<p>Peki, yaprak uzunlukları vektöründeki 5. elemanı elde etmek istesek:</p>
+<p>Peki yaprak uzunlukları vektöründeki 5. elemanı elde etmek istersek:</p>
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -598,7 +601,7 @@ bitki3 bitki3     4.5 aydinlik</code></pre>
 <pre><code>[1] 3.4</code></pre>
 </div>
 </div>
-<p>Bu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimiz kullanabiliriz.</p>
+<p>Bu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimizi kullanabiliriz.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

@@ -480,7 +480,7 @@ Farklı veri tiplerini vektörde birleştirmek
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?</p>
+<p>Acaba iki farklı tipte vektörü birleştirirseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vektor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="fl">12</span>, <span class="fl">45</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">vektor</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -493,7 +493,7 @@ Farklı veri tiplerini vektörde birleştirmek
 </div>
 </section><section id="vektör-oluşturma-üzerine-örnekler" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="vektör-oluşturma-üzerine-örnekler">
 <span class="header-section-number">8.2</span> Vektör oluşturma üzerine örnekler</h2>
-<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba her sütundan bir vektör oluşturabilir miyiz? Bu örnek için <a href="07-listeler.html#tbl-bitkiler" class="quarto-xref">Tablo&nbsp;<span>11.1</span></a>’e bakınız. Dikkat edin, ölçüm alınamayan noktalar var.</p>
+<p>Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba her sütundan bir vektör oluşturabilir miyiz? Bu örnek için <a href="#tbl-bitkiler" class="quarto-xref">Tablo&nbsp;<span>8.1</span></a>’e bakınız. Dikkat edin ölçüm alınamayan noktalar var.</p>
 <div id="tbl-bitkiler" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bitkiler-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tablo&nbsp;8.1: Hayali veri setimizdeki bitkiler
@@ -588,7 +588,7 @@ NA karakterinin kullanımı
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">deney_kosullari</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>,</span>
 <span>                            <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:</p>
+<p>Gerçekten faktör vektörü oluşturmuşmuyuz kontrol edelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">deney_kosullari</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -722,7 +722,7 @@ Dikkat
 <pre><code> [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16</code></pre>
 </div>
 </div>
-<p>Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:</p>
+<p>Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 2 sayı artış olsun:</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">16</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -733,7 +733,7 @@ Dikkat
 <span class="header-section-number">8.6</span> Sonuç</h2>
 <p>Bu kısım kapsamında aşağıdaki konular önemlidir:</p>
 <ul>
-<li>Bir vektör oluşturmak için <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanırız, ve vektör elemanlarını <code>,</code> ile ayırırız.</li>
+<li>Bir vektör oluşturmak için <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> fonksiyonunu kullanırız ve vektör elemanlarını <code>,</code> ile ayırırız.</li>
 <li>Bir vektörün uzunluğunu öğrenmek için <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> fonksiyonunu kullanırız.</li>
 <li>Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız <code>yaprak_uzunlugu[5]</code>
 </li>

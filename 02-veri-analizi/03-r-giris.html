@@ -433,13 +433,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">12</span> <span class="op">-&gt;</span> <span class="va">sayi1</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Bu işlemin sonucunda 12 değerini, <code>sayi1</code> değişkeni içerisinde atamış oluyoruz. Artık, 12 kullancağımız her yerde <code>sayi1</code> değişkenini kullanabiliriz.</p>
+<p>Bu işlemin sonucunda 12 değerini, <code>sayi1</code> değişkeni içerisinde atamış oluyoruz. Artık, 12’yi kullancağımız her yerde <code>sayi1</code> değişkenini kullanabiliriz.</p>
 <p>Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde görebilirsiniz. Artık değişkenimiz, hafıza içerisine alınmış ve tekrar tekrar kullanılmaya hazır bir şekilde beklemektedir.</p>
 <p>İsterseniz ikinci bir değişken atayalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi2</span> <span class="op">&lt;-</span> <span class="fl">23</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Artık ikinci bir degisken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:</p>
+<p>Artık ikinci bir değişken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">+</span> <span class="va">sayi2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -499,8 +499,8 @@ Not
 <pre><code> chr "12"</code></pre>
 </div>
 </div>
-<p>Evet, bir sayıyı tırnak işareti içerisine alırsak artık onu karakter’e çevirmiş oluruz. Dolayısıyla artık sayı olarak kullanamayız.</p>
-<p>Mantıksal değişkenler ise <em>Evet</em> ya da <em>Hayır</em> durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç bulunmamaktadır:</p>
+<p>Evet, bir sayıyı tırnak işareti içerisine alırsak artık onu karaktere çevirmiş oluruz. Dolayısıyla artık sayı olarak kullanamayız.</p>
+<p>Mantıksal değişkenler ise <em>Evet</em> ya da <em>Hayır</em> durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç yoktur:</p>
 <ul>
 <li>
 <code>TRUE</code> veya <code>T</code>
@@ -546,7 +546,7 @@ Levels: karanlik</code></pre>
 </div>
 <section id="kayıp-veri" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="kayıp-veri">
 <span class="header-section-number">7.2.1</span> Kayıp veri</h3>
-<p>Veri analizi çalışmalarında sıklıkla kayıp verilerle uğraşacaksınız. Çünkü deneyler sonucunda her zaman sonuç alamayabilirsiniz. Ancak o deneyi yaptığınız için, bir şekilde veri setinizde bu çıkmayan sonucu belirmeniz gerekir. Eğer deneyinizin sonucunda çıkmayan bir veri varsa, bunu <code>NA</code> karakteri ile belirtebilirsiniz. Bu karakter aslında mantıksal bir değişkendir ve olduğu gibi kullanılmalıdır.</p>
+<p>Veri analizi çalışmalarında sıklıkla kayıp verilerle uğraşacaksınız. Çünkü deneyler sonucunda her zaman sonuç alamayabilirsiniz. Ancak o deneyi yaptığınız için, bir şekilde veri setinizde bu çıkmayan sonucu belirtmeniz gerekir. Eğer deneyinizin sonucunda çıkmayan bir veri varsa bunu <code>NA</code> karakteri ile belirtebilirsiniz. Bu karakter aslında mantıksal bir değişkendir ve olduğu gibi kullanılmalıdır.</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

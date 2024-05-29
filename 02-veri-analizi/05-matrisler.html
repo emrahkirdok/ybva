@@ -419,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>Hatırlarsanız vektörler (<a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>), sadece tek bir veri tipini içeren bir boyutlu veri yapılarıydı.</p>
-<p>Ancak gerçek veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir. Mesela verimiz, satır ve sütünlardan oluşabilir.</p>
+<p>Ancak gerçek veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir. Mesela verimiz satır ve sütünlardan oluşabilir.</p>
 <p>Bu durumda matris veri yapılarını kullanıyoruz. Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir. Aşağıda örnek bir matris görebilirsiniz (<a href="#tbl-matrix1" class="quarto-xref">Tablo&nbsp;<span>9.1</span></a>).</p>
 <div id="tbl-matrix1" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-matrix1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -549,7 +549,7 @@ Satir5    3.4    5.0</code></pre>
 </div>
 </div>
 <p>Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.</p>
-<p>Sadece birinci sürunu geri döndürmek için ise:</p>
+<p>Sadece birinci sütunu geri döndürmek için ise:</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -559,7 +559,7 @@ Satir5    3.4    5.0</code></pre>
 </div>
 </section><section id="matrislerde-mantıksal-işlemler" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="matrislerde-mantıksal-işlemler">
 <span class="header-section-number">9.4</span> Matrislerde mantıksal işlemler</h2>
-<p>Vektörlerde yaptığımız mantıksal işlemleri, matrislerde de yapabiliriz.</p>
+<p>Vektörlerde yaptığımız mantıksal işlemleri matrislerde de yapabiliriz.</p>
 <p>Mesela ikinci sütunda, 5’den büyük satırları geri döndürelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -588,7 +588,7 @@ Satir4  FALSE  FALSE
 Satir5   TRUE   TRUE</code></pre>
 </div>
 </div>
-<p>Bunu tekrar bir indis olarak geri kullanalım</p>
+<p>Bunu tekrar bir indis olarak geri kullanalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
