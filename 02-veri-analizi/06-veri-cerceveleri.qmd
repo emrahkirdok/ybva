@@ -1,14 +1,14 @@
 # Veri Çerçeveleri {#sec-veri-cerceveleri}
 
-Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak, vektrler bölümünde (@sec-vektorler), farklı veri tiplerini kullanmıştık. Yani, gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktaydı.
+Bir önceki derste matrisleri inceledik. Matrisler, tek bir veri tipine sahip iki boyutlu yapılardı. Ancak vektörler bölümünde (@sec-vektorler), farklı veri tiplerini kullanmıştık. Yani gerçek bir veri analizi senaryosunda aslında elimizde farklı tipte veriler bulunmaktaydı.
 
 Veri çerçeveleri aslında bu farklı veri tiplerini bir arada toplayabilme kabiliyetine sahiptir. 
 
-Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmuştur. Kullandığımız vektörlerin uzunluklarının aynı olması gerekldir. Gelin şimdi @sec-vektorler'de işlediğimiz @tbl-bitkiler versini veri çerçevesine çevirelim.
+Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmuştur. Kullandığımız vektörlerin uzunluklarının aynı olması gereklidir. Gelin şimdi @sec-vektorler'de işlediğimiz @tbl-bitkiler versini veri çerçevesine çevirelim.
 
 Hatırlarsanız öncelikle vektörler tanımlamıştık.
 
-```r
+```{r}
 bitki_ismi <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5", 
                 "bitki6", "bitki7","bitki8", "bitki9", "bitki10")
 
@@ -60,6 +60,8 @@ Satır sayısı:
 nrow(veri)
 ```
 
+Sütun sayısı:
+
 ```{r}
 ncol(veri)
 ```
@@ -72,13 +74,13 @@ Her veri çerçevesinin bir sütun ismi olması gerekir. Sütun isimlerini `coln
 colnames(veri)
 ```
 
-Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da `rownames` ile öğrenebiliriz:
+Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da `rownames` fonksiyonu ile öğrenebiliriz:
 
 ```{r}
 rownames(veri)
 ```
 
-İstersek, satır ve sütun isimlerini değiştirebiliriz:
+İstersek satır ve sütun isimlerini değiştirebiliriz:
 
 ```{r}
 colnames(veri) <- c("isim", "uzunluk", "kosul")
@@ -89,7 +91,7 @@ rownames(veri) <- c("bitki1", "bitki2", "bitki3", "bitki4", "bitki5",
 :::{.callout-warning}
 ## Dikkat!
 
-Satır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte, satır isimlerinde iki tane `bitki8` yazma şansımız yoktur. Yoksa hata alırsınız.
+Satır ve sütun isimleri mutlaka tekil olmalıdır. Yani her satır ismi ve her sütun ismi tek olmalı. Yukarıdaki örnekte satır isimlerinde iki tane `bitki8` yazma şansımız yoktur. Yoksa hata alırsınız.
 :::
 
 Şimdi tekrar veri çerçevesini ekrana yazdıralım:
@@ -138,7 +140,7 @@ veri$uzunluk
 
 Eğer `$` işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. Bu bize bir vektör geri döndürdü.
 
-Peki, yaprak uzunlukları vektöründeki 5. elemanı elde etmek istesek:
+Peki yaprak uzunlukları vektöründeki 5. elemanı elde etmek istersek:
 
 ```{r}
 veri$uzunluk[5]
@@ -150,4 +152,4 @@ Bunu şu şekilde de yapabiliriz:
 veri[5,2]
 ```
 
-Bu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimiz kullanabiliriz.
+Bu iki işlem de bize aynı sonucu verecektir. Dolayısıyla istediğimizi kullanabiliriz.
