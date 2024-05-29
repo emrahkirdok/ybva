@@ -1,6 +1,6 @@
 # Önsöz {.unnumbered}
 
-Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2022 - 2023 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli dersler ile ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
+Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2023 - 2024 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli dersler ile ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
 Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır.
 
@@ -10,11 +10,9 @@ Dersler sürekli güncellenmektedir. Dolayısıyla dönemin sonuna doğru eski s
 
 ## Dersin işlenme şekli {.unnumbered}
 
-Dersimiz, ikinci bir duyuruya kadar çevrimiçi olarak işlenecektir. Çevrimiçi dersler, Microsoft Teams platformu üzerinden verilecektir. Mersin Üniversitesi öğrencileri, öğrenci e-posta adresleri ile, Teams platformuna girerek derslere ulaşabilirlirler.
 
-Ders videoları da yine Teams platformu üzerinden tekrar izlenmeye açık olacaktır.
 
-Biyoteknoloji Bölümü Discord sunucusu ise temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları sunucuda cevaplayacağım. Dolayısıyla platforma üye olmanız tavsiye edilir.
+Biyoteknoloji Bölümü Discord sunucusu temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları sunucuda cevaplayacağım. Dolayısıyla platforma üye olmanız tavsiye edilir.
 
 ## Katkıda bulunan yazarlar {.unnumbered}
 
@@ -22,12 +20,13 @@ Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar
 
 + Anıl Yalçıner
 + Cemil Bayraktar
++ Fatma Nur Pırnaz
 + Furkan Kürşat Özer
 + Merve Akküp
 + Nursena Kocatürk
 + Tanya Beril Korkmaz
 
-Eğer siz de katkı sunmak isterseniz, bir sonraki kısmında yazılanları inceleyebilirsiniz.
+Eğer siz de katkı sunmak isterseniz, bir sonraki kısımnda yazılanları inceleyebilirsiniz.
 
 ## Bu siteyi nasıl takip etmeniz gerek?
 
@@ -35,9 +34,9 @@ Kitap kapsamında altı farklı bölüm olması planlanmıştır:
 
 Eğer bu dersi ilk defa alıyorsanız ilk olarak **Derse Hazırlık** kısmını inceleyerek kullanılacak sistemlerin kurulumu hakkında bilgi alabilirsiniz. Derslere başlamadan önce bu kısmı bitirmiş olduğunuzdan emin olun. Yoksa ilerleyen adımlarda sorunlarla karşılaşabilirsiniz.
 
-@sec-sistem R ve Rstüdyo programlarının kurulumu hakkında bilgileri içermektedir. Ardından @sec-onemli ise, R ve RStudio ile çalışırken dikkat edilmesi gereken noktaları içermektedir. Burada yazan küçük ayıntılara dikkat ederseniz, gereksiz bir şekilde yaşayacağınız vakit kaybının önüne geçebilirsiniz. @sec-ilk-adimlar, R ve Rstudio programları ile çalışmaya başlamanız için gerekli bilgileri anlatmaktdır. @sec-klasor'de, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
+@sec-sistem R ve Rstüdyo programlarının kurulumu hakkında bilgileri içermektedir. Ardından @sec-onemli ise, R ve RStudio ile çalışırken dikkat edilmesi gereken noktaları içermektedir. Burada yazan küçük ayrıntılara dikkat ederseniz, gereksiz bir şekilde yaşayacağınız vakit kaybının önüne geçebilirsiniz. @sec-ilk-adimlar, R ve Rstudio programları ile çalışmaya başlamanız için gerekli bilgileri anlatmaktdır. @sec-klasor'de, kullandığınız işletim sistemindeki klasör organizasyonu hakkında fikir alabilirsiniz.
 
-**Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi), ve doğrusal modeller işlenecektir. @sec-veri-01, veri analizine giriş hakkında bilgi alabilirsiniz. @sec-veri-02 ise, bilimsel yöntem hakkında bilgi vermeyi amaçlamıştır. Ardından @sec-r-giris ve @sec-vektorler'de ise R ve Rstudio kullanmaya başlayacağız.
+**Veri analizi** kısmında genel olarak R ve Rstüdyo programlarının kullanımı, ggplot2 paketi ile görselleşirme, temel istatistik testler (t-testi) ve doğrusal modeller işlenecektir. @sec-veri-01, veri analizine giriş hakkında bilgi alabilirsiniz. @sec-veri-02 ise, bilimsel yöntem hakkında bilgi vermeyi amaçlamıştır. Ardından @sec-r-giris ve @sec-vektorler'de ise R ve Rstudio kullanmaya başlayacağız.
 
 **Bilgisayarlı düşünme** kısmında ise R ile programlama, ileri seviye görselleştirme ve veri analiz yöntemleri, ileri seviye doğrusal modeller işlenecektir. 
 

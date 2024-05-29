@@ -1,20 +1,20 @@
 # Önemli Konular {#sec-onemli}
 
-R ve RStudio sistemi, şu ana kadar çalıştığınız programlara göre daha dik bir öğrenme eğrisine sahiptir. Yani, ilk öğrenme maliyeti çok yüksektir ancak bir kere öğrendiğinizde uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.
+R ve RStudio sistemi, şu ana kadar çalıştığınız programlara göre daha dik bir öğrenme eğrisine sahiptir. Yani ilk öğrenme maliyeti çok yüksektir ancak bir kere öğrendiğinizde uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.
 
-Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştım. Bu noktalara dikkat ederseniz öğrenme sürecini daha verimli geçirebilirsiniz.
+Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştık. Bu noktalara dikkat ederseniz öğrenme sürecini daha verimli geçirebilirsiniz.
 
 ## Karakter kodlama sorunları
 
-Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden, bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.
+Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.
 
-İlk geliştirilen kodlama sistemlerinden birisi olan [ASCII](https://en.wikipedia.org/wiki/ASCII) sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla, belirli sayıda karakter kullanma imkanımız vardı ve daha çok İngilizce alfabesinde bulunan latince karakterleri destekliyordu.
+İlk geliştirilen kodlama sistemlerinden birisi olan [ASCII](https://en.wikipedia.org/wiki/ASCII) sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla belirli sayıda karakter kullanma imkanımız vardı ve daha çok latince karakterleri destekliyordu.
 
-İlerleyen yıllarda farklı kodlama sistemleri kullanılmaya başlandı ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani, kodlama sistemleri değişse bile ASCII karakterleri aynı kodlarla belirtiliyordu.
+İlerleyen yıllarda farklı kodlama sistemleri kullanılmaya başlandı ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani kodlama sistemleri değişse bile ASCII karakterleri aynı kodlarla belirtiliyordu.
 
 Son yıllarda [UTF-8](https://en.wikipedia.org/wiki/UTF-8) karakter kodlama sistemi yaygın olarak kullanılmaktadır. Bu sistem sayesinde, farklı alfabelerdeki karakterler (mesela Türkçe'ye özgü karakterler) desteklenmeye başlandı.
 
-UTF-8, şu anda yaygın bir kodlama sistemi olsa da, Windows bu kodlama sistemini son yıllarda kullanmaya başladı ve Hâlâ bu yüzden sorunlar yaşıyoruz. Önceki yıllarda bu kodlama sorunları yüzünden öğrenci ödevlerini düzgün bir şekilde görüntüleyemedim.
+UTF-8, şu anda yaygın bir kodlama sistemi olsa da, Windows bu kodlama sistemini son yıllarda kullanmaya başladı ve hâlâ bu yüzden sorunlar yaşıyoruz. Önceki yıllarda bu kodlama sorunları yüzünden öğrenci ödevlerini düzgün bir şekilde görüntüleyemedim.
 
 Bu yüzden ders kapsamında yapacağınız **kodlamaları** sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler - ve kendi alfabenizdeki İngilizce dışındaki karakterler - YASAK!
 
@@ -26,7 +26,7 @@ Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanm
 ```
 Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö 
 ```
-Eğer sizin kullandığınız yerel dilinizde, İngilizce karakter seti dışında karakterler varsa onları da kullanmayın!
+Eğer sizin kullandığınız yerel dilinizde İngilizce karakter seti dışında karakterler varsa onları da kullanmayın!
 :::
 
 ### RStudio üzerinde karakter kodlaması

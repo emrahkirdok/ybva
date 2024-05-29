@@ -12,14 +12,13 @@ format:
         logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
         footer: "Yaşam Bilimlerinde Veri Analizi"
         embed-resources: true
-
 ---
 
 # Listeler
 
 ## Liste oluşturma
 
-Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım, ve bir liste içerisinde saklayalım:
+Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım ve bir liste içerisinde saklayalım:
 
 | Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
 |:-----------|---------------------:|:----------------|
@@ -142,7 +141,7 @@ liste[[1]][4,2]
 
 ## Liste içindeki elemana erişme `[[]]`
 
-Eğer listemizi isimleri varsa, doğruda bu isimleri kullanabiliriz:
+Eğer listemizin isimleri varsa, doğrudan bu isimleri kullanabiliriz:
 
 ```{r}
 liste$veri
@@ -158,13 +157,13 @@ liste$veri[4,2]
 
 ## Alt liste geri döndürme `[]`
 
-Bu yöntemde, elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani, indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.
+Bu yöntemde, elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir listedir.
 
 ```{r}
 liste[3]
 ```
 
-Bu bize bir alt liste geri döndürdü. Ancak, üçünücü eleman olan vektöre erişemiyoruz şu anda:
+Bu bize bir alt liste geri döndürdü. Ancak üçünücü eleman olan vektöre erişemiyoruz şu anda:
 
 ```{r}
 liste[3][2]

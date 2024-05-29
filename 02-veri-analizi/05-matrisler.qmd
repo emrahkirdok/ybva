@@ -2,7 +2,7 @@
 
 Hatırlarsanız vektörler (@sec-vektorler), sadece tek bir veri tipini içeren bir boyutlu veri yapılarıydı.
 
-Ancak gerçek veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir. Mesela verimiz, satır ve sütünlardan oluşabilir.
+Ancak gerçek veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir. Mesela verimiz satır ve sütünlardan oluşabilir.
 
 Bu durumda matris veri yapılarını kullanıyoruz. Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir. Aşağıda örnek bir matris görebilirsiniz (@tbl-matrix1).
 
@@ -97,7 +97,7 @@ ornek_matris[4,]
 
 Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.
 
-Sadece birinci sürunu geri döndürmek için ise:
+Sadece birinci sütunu geri döndürmek için ise:
 
 ```{r}
 ornek_matris[,1]
@@ -105,7 +105,7 @@ ornek_matris[,1]
 
 ## Matrislerde mantıksal işlemler
 
-Vektörlerde yaptığımız mantıksal işlemleri, matrislerde de yapabiliriz.
+Vektörlerde yaptığımız mantıksal işlemleri matrislerde de yapabiliriz.
 
 Mesela ikinci sütunda, 5'den büyük satırları geri döndürelim:
 
@@ -128,7 +128,7 @@ Ya da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matr
 ornek_matris > 3
 ```
 
-Bunu tekrar bir indis olarak geri kullanalım
+Bunu tekrar bir indis olarak geri kullanalım:
 
 ```{r}
 ornek_matris[ornek_matris > 3]

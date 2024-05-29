@@ -1,10 +1,10 @@
 # R ve RStudio {#sec-sistem}
 
-Bu ders kapsamında, açık kaynaklı olarak dağıtılan [R istatistik paketi](https://www.r-project.org/) ve bu paketin bütünleşik geliştirme platformu olan [RStudio](https://posit.co/download/rstudio-desktop/) masaüstü programını kullanacağız.
+Bu ders kapsamında, açık kaynaklı olarak dağıtılan [R istatistik paketi](https://www.r-project.org/) ve bu paketle bütünleşmiş geliştirme platformu olan [RStudio](https://posit.co/download/rstudio-desktop/) masaüstü programını kullanacağız.
 
-[R istatistik paketi](https://www.r-project.org/), son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta, biyolojik veri analizi için önemli olan R paketleri, [Bioconductor](https://www.bioconductor.org/) sistemi içerisinde sürekli bir şekilde güncellenmektedir.
+[R istatistik paketi](https://www.r-project.org/), son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta biyolojik veri analizi için önemli olan R paketleri, [Bioconductor](https://www.bioconductor.org/) sistemi içerisinde sürekli bir şekilde güncellenmektedir.
 
-R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimizi sağlayan ve R'a yeni işlevler kazandıran bir kabuk gibi düşünülebilir.
+R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimimizi sağlayan ve R'a yeni işlevler kazandıran bir kabuk gibi düşünülebilir.
 
 Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren [posit](https://posit.co/) şirketi tarafından sunulan [posit cloud](https://posit.co/products/cloud/cloud/) platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.
 

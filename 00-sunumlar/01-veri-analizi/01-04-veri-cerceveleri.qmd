@@ -21,10 +21,10 @@ format:
 
 Veri çerçeveleri: 
 
-+ Farklı veri tiplerine sahip vektörlerden oluşan matrisler 
-+ Vektörlerin uzunluklarının aynı olması gerekldir.
++ Farklı veri tiplerine sahip vektörlerden oluşan matrislerdir.
++ Vektörlerin uzunluklarının aynı olması gereklidir.
 
-Hatırlarsanız öncelikle vektörler tanımlamıştık.
+Hatırlarsanız öncelikle vektörleri tanımlamıştık.
 
 ## Veri çerçevesi oluşturalım
 
@@ -39,7 +39,7 @@ Gelin @tbl-veri'den bir veri çerçevesi oluşturalım:
 | bitki5     | 3.4                  | Aydınlık        |
 | bitki6     | -                    | Karanlık        |
 | bitki7     | 1.8                  | Karanlık        |
-| bitki8     | 6.3                  | Aydinlik        |
+| bitki8     | 6.3                  | Aydınlık        |
 | bitki9     | 2.1                  | Karanlık        |
 | bitki10    | -                    | Karanlık        |
 
@@ -95,7 +95,7 @@ ncol(veri)
 
 ## Sütun ve satır isimleri
 
-+ `colnames`  ve `rownames `fonksiyonları ile ile öğrenebiliriz ve değiştirebiliriz:
++ `colnames`  ve `rownames ` fonksiyonları ile ile öğrenebiliriz ve değiştirebiliriz:
 
 ```{r}
 colnames(veri)

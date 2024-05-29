@@ -56,7 +56,7 @@ Dikkat ederseniz, değişken isiminde birden fazla kelime varsa, bu kelimeleri `
 ::: {.callout-caution}
 ## Farklı veri tiplerini vektörde birleştirmek
 
-Acaba iki farklı tipte vektörü birleştiriseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
+Acaba iki farklı tipte vektörü birleştirirseniz ne olur? Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
 
 ```{r}
 vektor <- c("bitki1", "bitki2", 12, 45)
@@ -68,7 +68,7 @@ Dikkat ederseniz, artık bir karakter vektörümüz oldu. Farklı veri tiplerini
 
 ## Vektör oluşturma üzerine örnekler
 
-Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba her sütundan bir vektör oluşturabilir miyiz? Bu örnek için @tbl-bitkiler'e bakınız. Dikkat edin, ölçüm alınamayan noktalar var. 
+Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bitkinin, farklı ışık koşullarında yaprak uzunlukları ölçümleri alınmıştır. Acaba her sütundan bir vektör oluşturabilir miyiz? Bu örnek için @tbl-bitkiler'e bakınız. Dikkat edin ölçüm alınamayan noktalar var. 
 
 | Bitki İsmi | Yaprak Uzunluğu (cm) | Deney Koşulları | 
 |:-----------|---------------------:|:----------------|
@@ -112,7 +112,7 @@ deney_kosullari <- factor(c("karanlik", "aydinlik", "aydinlik", "karanlik", "ayd
                             "karanlik", "karanlik", "aydinlik", "karanlik", "karanlik"))
 ```
 
-Gerçekten faktör vektörü oluşturmuş muyuz kontrol edelim:
+Gerçekten faktör vektörü oluşturmuşmuyuz kontrol edelim:
 
 ```{r}
 str(deney_kosullari)
@@ -216,7 +216,7 @@ Ya da kısaca bu şekilde de oluşturabiliriz:
 2:16
 ```
 
-Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 4 sayı artış olsun:
+Artış mikarını kendimiz belirliyebiliriz. Mesela her adımda 2 sayı artış olsun:
 
 ```{r}
 seq(2, 16, 2)
@@ -226,7 +226,7 @@ seq(2, 16, 2)
 
 Bu kısım kapsamında aşağıdaki konular önemlidir:
 
-+ Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız, ve vektör elemanlarını `,` ile ayırırız.
++ Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız ve vektör elemanlarını `,` ile ayırırız.
 + Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız.
 + Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
 + `seq` fonksiyonu kullanımı 

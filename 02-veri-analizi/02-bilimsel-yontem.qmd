@@ -2,7 +2,7 @@
 
 Veri biliminin temellerini anladıktan sonra bilimsel araştırma hakkında konuşabiliriz. Çünkü her veri, aslında bilimsel bir araştırmanın ürünüdür. Kamuya açık veriler kullanılarak yapılan araştırmalarda da bilimsel araştırma yöntemlerini kullanmalıyız.
 
-Bu yüzden, temel bilimsl araştırma mantığını kavramalı, ve veri bilimi ile olan ilişkisini öğrenmeliyiz.
+Bu yüzden, temel bilimsel araştırma mantığını kavramalı ve veri bilimi ile olan ilişkisini öğrenmeliyiz.
 
 ## Bilimsel araştırmaya nasıl başlarız?
 
@@ -19,7 +19,7 @@ Peki nasıl işliyor? Genel bir çerçeve çizmek gerekirse:
 + Gözlem
 + Gözlemlere dayanarak hipotez kurulması
 + Deneysel metodoloji ve teorinin testi
-+ Deney sonucunda elde edilen bulguların tümevarmsal analizi
++ Deney sonucunda elde edilen bulguların tümevarımsal analizi
 
 ## Gözlem
 
@@ -31,11 +31,11 @@ Kuğular üzerinde yaptığınız bir gözlem sonucunda, bütün kuğuların bey
 
 Gözlem sürecinin ardından, hipotez oluşturma süreci ortaya giriyor. Yine kuğu örneğinden gidersek, bu gözlem sonucunda şöyle bir hipotez oluşturdunuz: Dünya üzerindeki bütün kuğular beyazdır. Peki gerçekten öyle mi?
 
-Artık üçüncü adımda geçmeye hazırsınız...
+Artık üçüncü adıma geçmeye hazırsınız...
 
 ## Teorinin deneysel yöntem ile test edilmesi 
 
-Artık bu teorinizle ilgili bir yönetm geliştirmeniz ve bu teoriniz test etmeniz gerkekir. Tabi kuğu örneği açısından bakarsak, yapmamız gereken şey aslında bir kuğu popülasyonu alarak, elinizdeki kuğuların renklerini tespit etmek. Peki burada sorulabilecek muhtemel bir soru:
+Artık bu teorinizle ilgili bir yönetm geliştirmeniz ve bu teoriniz test etmeniz gerekir. Tabi kuğu örneği açısından bakarsak, yapmamız gereken şey aslında bir kuğu popülasyonu alarak, elinizdeki kuğuların renklerini tespit etmek. Peki burada sorulabilecek muhtemel bir soru:
 
 ::: warning
 Acaba dünya üzerindeki bütün kuğuları tek tek inceleyerek renklerini gözlemleyebilir misiniz?
@@ -45,20 +45,20 @@ Ne kadar geniş bir arama yaparsanız yapın, eninde sonunda gözünüzden kaça
 
 Burada önemli olan anahtar kelimeler: **örneklem** ve **rastgele** olacaktır.
 
-Örneklem olarak tanımladığımız şey esasında, büyük bir popülasyonu temsil eden küçük bir alt popülasyonu tarif edecektir. Peki neden rastgele olmalı? İstatistik biliminde rastgele tanımı gelen olarak, hiç bir yanlılık içermeyen, tamamen körlemesine yapılan iş olarak tanımlanabilir.
+Örneklem olarak tanımladığımız şey esasında, büyük bir popülasyonu temsil eden küçük bir alt popülasyonu tarif edecektir. Peki neden rastgele olmalı? İstatistik biliminde rastgele tanımı genel olarak, hiç bir yanlılık içermeyen, tamamen körlemesine yapılan iş olarak tanımlanabilir.
 
 ::: important
 **Rastgele örneklem:** Geniş bir popülasyonu, yanlılık içermeden temsil eden alt popülasyon. Dolayısıyla, elde ettiğimiz alt popülasyondaki her bir örneğin bulunma frekansı, ana popülasyondaki örneklerin bulunma frekanslarına yakınsayacaktır. Bu sayede, rastgele örneklem kullanarak, daha büyük bir popülasyon hakkında yargılara varabiliriz - ya da varabileceğimizi düşünürüz.
 :::
 
-Kuğu örneğine geri dönelim o zaman: Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafik bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu **yanlı** bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır.
+Kuğu örneğine geri dönelim o zaman: Dünya üzerindeki geniş kuğu popülasyonundan rastgele bir örneklem almak isterseniz; her coğrafi bölgeden örnek aldığınıza emin olmalısınız. Mesela örnekleminizi sadece Türkiye içerisinden seçerseniz, bu **yanlış0** bir örneklemi temsil eder. Ama popülasyonunuzu bütün ülkelerden almaya çalışırsanız, bu daha iyi bir örneklem olacaktır.
 
 ## Bilimin temel prensiplerinden bir tanesi: Tümevarım
 
 Peki bu rastgele örneklem ne işimize yarayacak? Elde ettiğimiz bu rastgele örneklem, aslında geniş kuğu popülasyonunu temsil ediyor - Ya da biz şimdilik öyle kabul ediyoruz. Dolayısıyla, bu örneklem üzerinde yatpığımız deneyler sonucunda elde ettiğimzi bulguları, genel popülasyonu tanımlamak için kullanabiliriz. - Ya da biz şimdilik öyle kabul ediyoruz.
 
 ::: important
-**Tümevarım (indüksiyon, induction) ilkesi:** Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlaya  felsefi bir ilke. Bilim özeline bu ilkeyi uygularsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.
+**Tümevarım (indüksiyon, induction) ilkesi:** Özel bir önermeden, daha geniş bir sonucun çıkarılmasını tanımlayan felsefi bir ilke. Bilim özeline bu ilkeyi uyarlarsak, rastgele örneklem ile alınmış alt popülasyonumuzdan elde ettiğimiz önermeleri, büyük popülasyon hakkında bir yargıya varmak için kullanılması.
 :::
 
 Yine kuğu popülasyonuna dönecek olursak; rastgele örneklem ile elde ettiğimiz alt popülasyonu incelediğimizi düşünelim. Bu örneklem içerisindeki kuğuların hepsi beyaz. O zaman tümevarım ilkesini kullanarak, dünya üzerindeki bütün kuğuların beyaz olduğu sonucuna varabiliriz. 
@@ -85,9 +85,9 @@ Yanlışlanabilirlik ilkesine göre tümevarım çıkımları, yanlışlanana ka
 
 # Veri bilimi bu işin neresinde?
 
-Peki bu yazılanların derslerimizle olan ilgisi nedir? Geleneksel bilimsel yöntemin işleyişi genel olarak bir önceki kısımlarda yazdığımız güzergah üzerinde hareket etmektedi. Bu da genel olarka doğa gözlemlerine dayanır.
+Peki bu yazılanların derslerimizle olan ilgisi nedir? Geleneksel bilimsel yöntemin işleyişi genel olarak bir önceki kısımlarda yazdığımız güzergah üzerinde hareket etmektedir. Bu da genel olaraka doğa gözlemlerine dayanır.
 
-Örnek vermek gerekirse; antik çağ filozofoları, gözlem yeteneklerini sadece gözlem yeteneklerini kullanarak hipotezler gerliştimiş ve dünyayı kavramamızı sağlamıştır.
+Örnek vermek gerekirse; antik çağ filozofoları, gözlem yeteneklerini sadece gözlem yeteneklerini kullanarak hipotezler gerliştirmiş ve dünyayı kavramamızı sağlamıştır.
 
 Ancak, yaşam bilimlerinde yaşanan hızlı gelişme artık karşımıza farklı bir paradigma çıkarmıştır: **Veri üzerinden gözlem**
 
@@ -99,10 +99,10 @@ Bir önceki dönem Moleküler Biyoloji dersinde yaşamsal bilginin hem nasıl so
 
 ## Son yıllarda veri artışı var
 
-Yeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyır. DNA dizi verisi gene olarka veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil \@ref(fig:sra))
+Yeni nesil dizileme teknolojileri, güncel veri miktarını her gün kat be kat arttırıyor. DNA dizi verisi genel olarak veri tabanlarında tutuluyor. En güncel NCBI SRA veri tabanına baktığımızda bu artışın hızını anlayabiliriz (Şekil \@ref(fig:sra))
 
 
-Bu veri miktarı bize yeni artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor.
+Bu veri miktarı bize artık doğa yerine, veri üzerinden yeni gözlemler yapabilmemize olanak sağlıyor.
 
 ## Peki veri bilimi nasıl işliyor?
 
@@ -112,9 +112,9 @@ Geleneksel yöntemin aksine, artık çıkış noktamız veri. Örnek vermek gere
 2. Veri üzerinde incelemeler ve modelleme çalışmaları yapılması
 3. Oluşturulan modellerin, benzer veri üzerinde test edilmesi
 
-DNA veya RNA dizi versinin nasıl elde edileceğini gelecek sene **Biyoinformatik** dersinde daha ayrıntılı bir şekilde işleyeceğiz. Dolayısıyla, şimdilik daha çok ikinci nokta üzerinde duracağız.
+DNA veya RNA dizi versinin nasıl elde edileceğini gelecek sene **Biyoinformatik** dersinde daha ayrıntılı bir şekilde inceleyeceğiz. Dolayısıyla, şimdilik daha çok ikinci nokta üzerinde duracağız.
 
-### Verinin incelemesi ve modelleme çalışmaları
+### Verinin incelenmesi ve modelleme çalışmaları
 
 Bu amaçla R ve Rstudio platformlarını kullancağız. Bu platformlar bize veri analizi, görselleştirmesi ve modellenmesi konusunda harika imkanlar sağlıyor.
 
@@ -125,9 +125,9 @@ library(ggplot2)
 kableExtra::kable(x = head(mtcars), format = "latex", caption = "Örnek veri setinden oluşturulmuş tablo")
 ```
 
-Bu noktadan sonra amacımız, verinin sakladığı hikayeleri incelemek ve bu hikayeleri tanımlayan modeller oluşturmak olacak. Eğer Şekil \@ref(fig:mtcars)'e bakarsanız, örnek veri setindeki iki farklı değişken kullanılarak oluşturulmuş bir modeli görebilirsiniz. 
+Bu noktadan sonra amacımız, verinin sakladığı hikayeleri incelemek ve bu hikayeleri tanımlayan modeller oluşturmak olacak. Eğer şekil \@ref(fig:mtcars)'e bakarsanız, örnek veri setindeki iki farklı değişken kullanılarak oluşturulmuş bir modeli görebilirsiniz. 
 
-Eğer matematiksel bir notasyon kullanmak istersek, şekilde görülen çizgiyi aslında şu şekilde ifade edebiliriz:
+Eğer matematiksel bir rotasyon kullanmak istersek, şekilde görülen çizgiyi aslında şu şekilde ifade edebiliriz:
 
 $$ Y = f(X) + \epsilon $$
 
@@ -143,5 +143,5 @@ Tabi şu anda aklınız karışmış olabilir. Ancak ilerleyen haftalarda aşağ
 3. Veri çerçevleri, matrisler, listeler
 4. Tanımlayıcı istatistikler
 5. Temel istatistik analizler
-6. GGplot2 ile görlselleştirme
+6. Ggplot2 ile görselleştirme
 7. Doğrusal modeller

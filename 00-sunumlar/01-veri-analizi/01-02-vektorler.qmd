@@ -54,7 +54,7 @@ Ya da faktör vektörleri:
 vektor4 <- factor(c("karanlik", "aydinlik", "karanlik", "aydinlik"))
 ```
 
-+ Önce `c()` fonskiyonu ile vektör oluşturduk
++ Önce `c()` fonskiyonu ile vektör oluşturduk.
 + Ardından `factor` fonksiyonu ile faktör'e çevirdik.
 
 ## Vektör oluşturma
@@ -80,7 +80,7 @@ yeni_vektor
 ## Vektörler sadece bir veri tipine sahiptir
 
 + Acaba iki farklı tipte vektörü birleştiriseniz ne olur? 
-+ Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeyi deneseniz olur mu?
++ Mesela bir karakter vektörü ile bir sayı vektörünü birleştirmeye denesiniz?
 
 ```{r}
 vektor <- c("bitki1", "bitki2", 12, 45)
@@ -98,7 +98,7 @@ str(vektor)
 | bitki5     | 3.4                  | Aydınlık        |
 | bitki6     | -                    | Karanlık        |
 | bitki7     | 1.8                  | Karanlık        |
-| bitki8     | 6.3                  | Aydinlik        |
+| bitki8     | 6.3                  | Aydınlık        |
 | bitki9     | 2.1                  | Karanlık        |
 | bitki10    | -                    | Karanlık        |
 
@@ -127,9 +127,8 @@ yaprak_uzunlugu <- c(2.3, 3.4, 4.5, 1.2, 3.4,
 
 ## Vektör oluşturma üzerine örnekler
 
-+ Deney koşulları vektörü
 + Deney koşulları aslında bir kategori ifade ediyor. 
-+ Faktör vektörü olmalı oluşturmalıyız
++ Faktör vektörü olarak oluşturmalıyız.
 
 ```{r}
 deney_kosullari <- factor(c("karanlik", "aydinlik",
@@ -146,8 +145,8 @@ str(deney_kosullari)
 ```
 
 Burada levels aslında faktör vektöründeki seviyeleri gösterir
-+ `aydinlik` ve `karanlik` olmak üzere iki farklı seviye 
-+ Bu seviyeler `1` ve `2` olarak kodlanmış
++ `aydinlik` ve `karanlik` olmak üzere iki farklı seviye vardır.
++ Bu seviyeler `1` ve `2` olarak kodlanmıştır.
 + R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır. 
 
 ## Vektörün uzunluğunu öğrenmek
@@ -160,7 +159,7 @@ length(yaprak_uzunlugu)
 
 ## Vektör elemanlarına isim eklemek
 
-Eğer istersek, her vektör elemanına bir isim atayabiliriz. 
+Eğer istersek, her vektör elemanına bir isim atayabiliriz:
 
 ```{r}
 names(yaprak_uzunlugu) <- bitki_ismi
@@ -176,7 +175,7 @@ names(yaprak_uzunlugu)
 
 Peki vektör içerisindeki elemanlara nasıl erişiriz? 
 
-+ Bunun için indisler kullanmamız gereklidir.
++ Bunun için indisler kullanmamız gereklidir:
 
 ```{r}
 yaprak_uzunlugu[2]
@@ -190,7 +189,7 @@ yaprak_uzunlugu[2:4]
 
 ## Vektörlerde indis kullanımı
 
-Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz.
+Eğer vektörümüzdeki elemanların isimleri varsa, bu isimleri de indis olarak kullanabiliriz:
 
 ```{r}
 yaprak_uzunlugu["bitki2"]
@@ -225,7 +224,7 @@ yaprak_uzunlugu[-5]
 ## `seq` fonksiyonu
 
 + İki farklı sayı arasında, belirli aralıklara göre bir sayı vektörü oluşturulabilir.
-+ Mesela 2 ile 16 arasında 1 artışla bir vektör oluşturalım:
++ Mesela 2 ila 16 arasında 1 artış ile bir vektör oluşturalım:
 
 ```{r}
 seq(2,16)

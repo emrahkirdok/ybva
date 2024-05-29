@@ -67,11 +67,12 @@ Dikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayı
 
 Öncelikle `for` döngüsünün genel yapısına bakalım:
 
-```r
+```{r}
 for ( ÇALIŞILACAK ELEMAN KÜMESİ ){
     YAPILACAK İŞ
 }
 ```
+
 ## `for` döngüsü
 
 Yazalım:
@@ -99,14 +100,14 @@ for (i in 1:length(yaprak_uzunlugu)){
 
 ## `for` döngüsü
 
-+ `i` adından bir değişken oluşturuluyor
++ `i` adından bir değişken oluşturuluyor.
 + Önce `i` değişkenine birinci eleman olan 1 değerini atıyor ve belirtilen işlemi yapıyor.
 + O işlem bitince, `i` değerine ikinci elemanı atanıyor ve bu sefer `i <- 2` için işlemi gerçekleştiriyor.
 + Bu işlem, oluşturduğumuz sayı vektörü bitene kadar devam ediyor.
 
 ## `for` döngüsü
 
-+ İstersek, doğrudan vektördeki elemanları da kullanabiliriz. 
++ İstersek doğrudan vektördeki elemanları da kullanabiliriz. 
 + Bunun için ise  `i` yerine `eleman` isimli bir değişken oluşturalım: 
 
 ```{r}
@@ -142,7 +143,7 @@ digraph for{
 
 + Veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse kullanabiliriz.
 + Elimizde bir sayımız olsun. 
-+ Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5'den büyük veya eşittir" yazsın. 
++ Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5' ten büyük veya eşittir." yazsın. 
 + Eğer 5'den küçük ise, "Bu sayı 5'den küçüktür" yazsın.
 
 ## `if-else` Kontrol yapısı
@@ -186,7 +187,7 @@ sayi >= 5
 
 ## `if-else` Kontrol yapısı
 
-```r
+```{r}
 if ( KOŞUL ){
     KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR
 } else {

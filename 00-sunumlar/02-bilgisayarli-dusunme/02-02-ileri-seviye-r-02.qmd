@@ -12,7 +12,6 @@ format:
         logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
         footer: "Yaşam Bilimlerinde Veri Analizi"
         embed-resources: true
-
 ---
 
 # Fonksiyonlar
