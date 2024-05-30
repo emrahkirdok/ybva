@@ -888,7 +888,7 @@
     "href": "02-veri-analizi/13-t-test.html",
     "title": "\n17  T-Test\n",
     "section": "",
-    "text": "17.1 t.test()\nTanım olarak t-testi, iki grubun ortalamaları arasında anlamlı bir fark olup olmadığını test etmek için kullanılabilir.\nBunu göstermek için iki farklı dağlım simüle edelim.\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 5, sd = 1)\nHistogramlar ile bu dağılımları inceleyelim:\npar(mfrow=c(1,2))\nhist(dagilim1)\nhist(dagilim2)\nİstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\nDikkat ederseniz bu iki dağılımın ortalamarı birbirlerinden farklı. Peki bu fark anlamlı mı? Bunu tespit etmek için t.test kullanabiliriz:\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -67.352, df = 1996.5, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.135746 -2.958299\nsample estimates:\nmean of x mean of y \n 1.950086  4.997108\nBurada dikkat etmemiz gereken iki nokta var:\nP value bizim için önemli bir değer. T testi sonunda elde ettiğimiz p-değerini şu şekilde geri döndürebiliriz:\ntest$p.value\n\n[1] 0\nDikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.",
+    "text": "17.1 t.test()\nTanım olarak t-testi, iki grubun ortalamaları arasında anlamlı bir fark olup olmadığını test etmek için kullanılabilir.\nBunu göstermek için iki farklı dağlım simüle edelim.\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 5, sd = 1)\nHistogramlar ile bu dağılımları inceleyelim:\npar(mfrow=c(1,2))\nhist(dagilim1)\nhist(dagilim2)\nİstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\nDikkat ederseniz bu iki dağılımın ortalamarı birbirlerinden farklı. Peki bu fark anlamlı mı? Bunu tespit etmek için t.test kullanabiliriz:\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -68.222, df = 1996.3, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.164448 -2.987598\nsample estimates:\nmean of x mean of y \n 1.931632  5.007655\nBurada dikkat etmemiz gereken iki nokta var:\nP value bizim için önemli bir değer. T testi sonunda elde ettiğimiz p-değerini şu şekilde geri döndürebiliriz:\ntest$p.value\n\n[1] 0\nDikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.",
     "crumbs": [
       "Veri Analizi",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>T-Test</span>"
@@ -910,7 +910,7 @@
     "href": "02-veri-analizi/13-t-test.html#hipotez-testi",
     "title": "\n17  T-Test\n",
     "section": "\n17.2 Hipotez testi",
-    "text": "17.2 Hipotez testi\nBu kısım biraz kafa karıştırıcı. Eğer ilk dersleri hatırlarsanız, bilimde bir şeyi doğrudan kanıtlayamadığımızı hatırlarsınız. Bu nedenle bir hipotezi doğrudan kanıtlama imkanımız yoktur. Bir hipotezi, ancak onun karşıtını reddederek kabul edebiliriz.\nNasıl mı? Bir önceki örnekte iki dağılımın birbirinden farklı olduğu hipotezini ortaya atmıştık. Bu mantığa göre, bu hipotezi test etmenin yolu, bu hipotezin zıddını test etmekten geçer.\nYani aslında ortaya iki tane hipotez atıyoruz:\n\nH0 (sıfır hipotezi): Bu iki dağılımın ortamaları birbirine eşittir.\nHA (alternatif hipotez): Bu iki dağılımın ortalamarı birbirinden farklıdır.\n\nYapmaya çalıştığımız ise doğrudan sıfır hipotezini reddetmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.\nTestimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte, sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?\n\ntest$p.value\n\n[1] 0\n\n\nBu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli \\(alpha\\) değerleri kullanılır:\n\n0.001 (binde 1 hata olasılığı)\n0.01 (%1 hata olasılığı)\n0.05 (%5 hata olasığı)\n\nÖrnek vermek gerekirse, 0.0001 \\(alpha\\) değeri altında elde ettiğimiz sonuç anlamlı mı?\n\ntest$p.value &lt; 0.001\n\n[1] TRUE\n\n\nŞimdi tekrar örneğimize geri dönelim:\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -67.352, df = 1996.5, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.135746 -2.958299\nsample estimates:\nmean of x mean of y \n 1.950086  4.997108 \n\n\nŞu satıra bakalım:\n\nalternative hypothesis: true difference in means is not equal to 0\n\nBunun anlamı aslında şu: 0.0001 hata olasılığı durumunda, bu iki dağılımın ortalamaları anlamlı bir şekilde farklı! Yani sıfır hipotezini reddedip, alternatif hipotezi kabul ediyoruz!",
+    "text": "17.2 Hipotez testi\nBu kısım biraz kafa karıştırıcı. Eğer ilk dersleri hatırlarsanız, bilimde bir şeyi doğrudan kanıtlayamadığımızı hatırlarsınız. Bu nedenle bir hipotezi doğrudan kanıtlama imkanımız yoktur. Bir hipotezi, ancak onun karşıtını reddederek kabul edebiliriz.\nNasıl mı? Bir önceki örnekte iki dağılımın birbirinden farklı olduğu hipotezini ortaya atmıştık. Bu mantığa göre, bu hipotezi test etmenin yolu, bu hipotezin zıddını test etmekten geçer.\nYani aslında ortaya iki tane hipotez atıyoruz:\n\nH0 (sıfır hipotezi): Bu iki dağılımın ortamaları birbirine eşittir.\nHA (alternatif hipotez): Bu iki dağılımın ortalamarı birbirinden farklıdır.\n\nYapmaya çalıştığımız ise doğrudan sıfır hipotezini reddetmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.\nTestimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte, sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?\n\ntest$p.value\n\n[1] 0\n\n\nBu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli \\(alpha\\) değerleri kullanılır:\n\n0.001 (binde 1 hata olasılığı)\n0.01 (%1 hata olasılığı)\n0.05 (%5 hata olasığı)\n\nÖrnek vermek gerekirse, 0.0001 \\(alpha\\) değeri altında elde ettiğimiz sonuç anlamlı mı?\n\ntest$p.value &lt; 0.001\n\n[1] TRUE\n\n\nŞimdi tekrar örneğimize geri dönelim:\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -68.222, df = 1996.3, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.164448 -2.987598\nsample estimates:\nmean of x mean of y \n 1.931632  5.007655 \n\n\nŞu satıra bakalım:\n\nalternative hypothesis: true difference in means is not equal to 0\n\nBunun anlamı aslında şu: 0.0001 hata olasılığı durumunda, bu iki dağılımın ortalamaları anlamlı bir şekilde farklı! Yani sıfır hipotezini reddedip, alternatif hipotezi kabul ediyoruz!",
     "crumbs": [
       "Veri Analizi",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>T-Test</span>"
@@ -921,7 +921,7 @@
     "href": "02-veri-analizi/13-t-test.html#ikinci-bir-örnek",
     "title": "\n17  T-Test\n",
     "section": "\n17.3 İkinci bir örnek",
-    "text": "17.3 İkinci bir örnek\nŞimdi ise, birbirine çok benzer iki dağılım simüle edelim:\n\ndağılım1, örnek sayısı = 1000, ortalama = 2, standart sapma = 1\ndağılım2, örnek sayısı = 1000, ortalama = 2, standart sapma = 2\n\n\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\n\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\n\n\n\n\n\n\n\nDikkat ederseniz, bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?\n\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = 0.91697, df = 1997.3, p-value = 0.3593\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -0.04722482  0.13016825\nsample estimates:\nmean of x mean of y \n 2.019288  1.977816 \n\n\nBu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?\n\ntest$p.value&lt; 0.001\n\n[1] FALSE\n\n\nEğer 0.001 \\(alpha\\) değerini seçtiğimizde bu iki popülasyonun ortamalarının aynı olma ihtimalinin çok yüksek olduğunu görüyoruz. Bu nedenle sıfır hipotezini reddedmiyoruz.",
+    "text": "17.3 İkinci bir örnek\nŞimdi ise, birbirine çok benzer iki dağılım simüle edelim:\n\ndağılım1, örnek sayısı = 1000, ortalama = 2, standart sapma = 1\ndağılım2, örnek sayısı = 1000, ortalama = 2, standart sapma = 2\n\n\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\n\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\n\n\n\n\n\n\n\nDikkat ederseniz, bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?\n\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = 1.3852, df = 1997.8, p-value = 0.1661\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -0.02523803  0.14663898\nsample estimates:\nmean of x mean of y \n 2.037881  1.977180 \n\n\nBu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?\n\ntest$p.value&lt; 0.001\n\n[1] FALSE\n\n\nEğer 0.001 \\(alpha\\) değerini seçtiğimizde bu iki popülasyonun ortamalarının aynı olma ihtimalinin çok yüksek olduğunu görüyoruz. Bu nedenle sıfır hipotezini reddedmiyoruz.",
     "crumbs": [
       "Veri Analizi",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>T-Test</span>"
@@ -1249,287 +1249,287 @@
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html",
-    "title": "\n26  Pratik 2023-04-06\n",
+    "title": "\n26  Veri Analizi Pratik 2023-04-06\n",
     "section": "",
     "text": "26.1 Vektörler\nBu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\nTür vekktöründeki 5. elemanı geri döndüren kodu yazınız:\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\nGaga uzunluğu vektörünü kullanarak gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\nKanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\nKanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Pratik 2023-04-06</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Veri Analizi Pratik 2023-04-06</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#vektörler",
-    "title": "\n26  Pratik 2023-04-06\n",
+    "title": "\n26  Veri Analizi Pratik 2023-04-06\n",
     "section": "",
     "text": "tur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Pratik 2023-04-06</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Veri Analizi Pratik 2023-04-06</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#matrisler",
-    "title": "\n26  Pratik 2023-04-06\n",
+    "title": "\n26  Veri Analizi Pratik 2023-04-06\n",
     "section": "\n26.2 Matrisler",
     "text": "26.2 Matrisler\nKanat uzunluğu vektörünü kullanarak 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi ornek_matris olsun:\nKanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.\nSütun isimleri:\n\nA\nB\n\nSatır isimleri:\n\nX\nY\nZ\nT\nU",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Pratik 2023-04-06</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Veri Analizi Pratik 2023-04-06</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-çerçeveleri",
-    "title": "\n26  Pratik 2023-04-06\n",
+    "title": "\n26  Veri Analizi Pratik 2023-04-06\n",
     "section": "\n26.3 Veri çerçeveleri",
     "text": "26.3 Veri çerçeveleri\nDökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi penguenler olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:\n\ntur\ngaga_uzunlugu\nkanat_uzunlugu\ncinsiyet\n\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece beşinci satırı geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece ikinci sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nSadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nBu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Pratik 2023-04-06</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Veri Analizi Pratik 2023-04-06</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
     "href": "04-pratikler/01-veri-analizi/02-pratik.html#veri-okuma",
-    "title": "\n26  Pratik 2023-04-06\n",
+    "title": "\n26  Veri Analizi Pratik 2023-04-06\n",
     "section": "\n26.4 Veri okuma",
     "text": "26.4 Veri okuma\nŞu bağlantıda verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).\nDosyayı okurken aşağıdaki noktalara dikkat ediniz:\n\nAyraç karakteri olarak ; kullanılmıştır.\nİlk satır, sütun isimleri olarak tanımlanmıştır.\n\nOkuduğunuz verinin ismi sinav olsun:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)\n\nOkuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# kodlarınızı asagiya yazınız (# isaretini kullanmadan)",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Pratik 2023-04-06</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html",
-    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html",
-    "title": "\n27  Matrisler ve Veri Çerçeveleri Pratiği\n",
-    "section": "",
-    "text": "27.1 Matrisler\nMatrisler, vektörler gibi sadece tek bir tip veri içermelidir. Yani ya sayısal, ya karakter, ya mantıksal ya da faktör verisi içermelidir.\nÖncelikle rastgele bir vektör oluşturalım:\nvektor &lt;- sample(x = seq(1,100,0.1), size = 20, replace = TRUE)\nŞimdi vektörü 4 x 5’lik bir matrise çevirelim:\nmatris &lt;- matrix(data = vektor, nrow = 4, ncol = 5)\nBurada ncol sütun sayısını, nrow ise satır sayısını ifade etmektedir.\nMatris nasıl oldu acaba?\nmatris\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,] 45.6 84.0 80.2 29.6 92.4\n[2,] 36.9 26.8 39.2  7.3 88.1\n[3,] 97.2 22.2  5.2 33.1 53.1\n[4,] 80.9 39.7 49.3  9.2 77.0\nPeki bu matris’in boyutları nedir? Satır ve sütun sayısını elde etmek için dim fonksiyonunu kullanınız:\ndim(matris)\n\n[1] 4 5\nBununla birlikte, nrow ve ncol fonksiyonları da sırasıyla satır ve sütun sayılarını geri döndürecektir:\nnrow(matris)\n\n[1] 4\n\nncol(matris)\n\n[1] 5",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-hareket",
-    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-hareket",
-    "title": "\n27  Matrisler ve Veri Çerçeveleri Pratiği\n",
-    "section": "\n27.2 Matris’lerde hareket",
-    "text": "27.2 Matris’lerde hareket\nMatris’lerde harket etmek için indisleri kullanabiliriz. Mesela 2. satır ve 5. sütundaki veriye nasıl erişebiliriz?\n\nmatris[2, 5]\n\n[1] 88.1\n\n\nSadece ikinci sütuna erişmek istesek?\n\nmatris[ ,2]\n\n[1] 84.0 26.8 22.2 39.7\n\n\nPeki üçüncü satıra erişsek?\n\nmatris[3, ]\n\n[1] 97.2 22.2  5.2 33.1 53.1\n\n\nİstersek, vektör olarak bir sayı dizisi verebiliriz:\n\nmatris[1:3, 1:3]\n\n     [,1] [,2] [,3]\n[1,] 45.6 84.0 80.2\n[2,] 36.9 26.8 39.2\n[3,] 97.2 22.2  5.2\n\n\nBu sayede, 1. satır ve 3. satır arasındaki, ve 1. sütun ile 3. sütun arasındaki verilere erişebildik.\nSon olarak, yukarıda elde ettiğimiz matris, mat değişkeni içine atayalım:\n\nmat &lt;- matris[1:3, 1:3]",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-satır-ve-sütun-isimleri",
-    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-satır-ve-sütun-isimleri",
-    "title": "\n27  Matrisler ve Veri Çerçeveleri Pratiği\n",
-    "section": "\n27.3 Matrislerde satır ve sütun isimleri",
-    "text": "27.3 Matrislerde satır ve sütun isimleri\nİki farklı fonksiyon ile satır ve sütun isimleri atayabiliriz:\n\n\ncolnames ile sütun isimleri\n\nrownames ile de satır isimleri\n\n\ncolnames(matris) &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\")\nrownames(matris) &lt;- c(\"X\", \"Y\", \"Z\", \"T\")\n\nPeki gerçekten atayabilmiş miyiz?\n\ncolnames(matris)\n\n[1] \"A\" \"B\" \"C\" \"D\" \"E\"\n\nrownames(matris)\n\n[1] \"X\" \"Y\" \"Z\" \"T\"",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleri",
-    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleri",
-    "title": "\n27  Matrisler ve Veri Çerçeveleri Pratiği\n",
-    "section": "\n27.4 Veri Çerçeveleri",
-    "text": "27.4 Veri Çerçeveleri\nVeri çerçevelerinde ise farklı tipte veri bulunan vektörleri birleştirebiliriz. Örnek olarak aşağıda bir tablo bulunmaktadır.\n\n\nKarat\nKesim\nDerinlik\n\n\n\n0.41\nLuks\n59.7\n\n\n0.4\nIdeal\n61.5\n\n\n0.38\nIdeal\n60.9\n\n\n1.25\nCok iyi\n61\n\n\n0.71\nCok iyi\n60.2\n\n\n0.71\nIdeal\n62\n\n\n0.33\nIdeal\n63\n\n\n0.32\nCok iyi\n61.2\n\n\n0.52\nCok iyi\n61.2\n\n\n\nBu tabloya bakarsanız hem sayı hem de karakter değerleri bulunmtaktadır. Her birisi için bir vektör oluşturalım:\n\nKarat &lt;- c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52)\nKesim &lt;- c(\"Luks\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\")\nDerinlik &lt;- c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2)\n\nBir veri çerçevesi oluşturalım mı?\n\nelmaslar &lt;- data.frame(Karat = Karat, Kesim = Kesim, Derinlik = Derinlik)\n\nAcaba bu veri tiplerine baksak olur mu?\n\nstr(elmaslar)\n\n'data.frame':   9 obs. of  3 variables:\n $ Karat   : num  0.41 0.4 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n $ Kesim   : chr  \"Luks\" \"Ideal\" \"Ideal\" \"Cok iyi\" ...\n $ Derinlik: num  59.7 61.5 60.9 61 60.2 62 63 61.2 61.2\n\n\nDikkat ederseniz Kesim sütunu otomatik olarak faktör olmuş. R, öntanımlı olarak, karakterleri faktörlere çevirir. Eğer bunun olmasını istemiyorsanız stringsAsFactors = FALSE olarak seçmeniz gerekir.\n\nelmaslar &lt;- data.frame(Karat = Karat, Kesim = Kesim, Derinlik = Derinlik, stringsAsFactors = FALSE)\nstr(elmaslar)\n\n'data.frame':   9 obs. of  3 variables:\n $ Karat   : num  0.41 0.4 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n $ Kesim   : chr  \"Luks\" \"Ideal\" \"Ideal\" \"Cok iyi\" ...\n $ Derinlik: num  59.7 61.5 60.9 61 60.2 62 63 61.2 61.2",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#satır-ve-sütun-isimleri",
-    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#satır-ve-sütun-isimleri",
-    "title": "\n27  Matrisler ve Veri Çerçeveleri Pratiği\n",
-    "section": "\n27.5 Satır ve sütun isimleri",
-    "text": "27.5 Satır ve sütun isimleri\nMatrislerde nasıl satır ve sütun isimleri ile çalışabiliyorsanız vektörlerde de aynı şekilde çalışabilirsiniz:\n\ncolnames(elmaslar)\n\n[1] \"Karat\"    \"Kesim\"    \"Derinlik\"\n\nrownames(elmaslar)\n\n[1] \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleride-hareket",
-    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleride-hareket",
-    "title": "\n27  Matrisler ve Veri Çerçeveleri Pratiği\n",
-    "section": "\n27.6 Veri çerçeveleride hareket",
-    "text": "27.6 Veri çerçeveleride hareket\nMatrisler’de nasıl hareket ediyorsak veri çerçevelerinde de aynı şekilde hareket edebilirsiniz:\n\nelmaslar[2, 4]\n\nNULL\n\n\nPeki, sütunlara nasıl erişebiliriz? Mesela Derinlik sütununa erişelim:\nSadece sütun numarası ile:\n\nelmaslar[ ,3]\n\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nSütun ismi ile:\n\nelmaslar$Derinlik\n\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nYine sütun ismi ile:\n\nelmaslar[\"Derinlik\"]\n\n  Derinlik\n1     59.7\n2     61.5\n3     60.9\n4     61.0\n5     60.2\n6     62.0\n7     63.0\n8     61.2\n9     61.2\n\n\nSon olarak yine sütun numarası ile:\n\nelmaslar[[3]]\n\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nPeki, 0.5 karat’da büyük elmaslara ait bütün satırları nasıl elde edebiliriz?\n\nelmaslar[elmaslar$Karat&gt;0.5, ]\n\n  Karat   Kesim Derinlik\n4  1.25 Cok iyi     61.0\n5  0.71 Cok iyi     60.2\n6  0.71   Ideal     62.0\n9  0.52 Cok iyi     61.2\n\n\nAdım adım yapalım. Önce sadece Karat değeri 0.5’den büyük elemanları bulalım:\n\nelmaslar$Karat&gt;0.5\n\n[1] FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE\n\n\nDaha sonra bunu, veri çerçevesindeki satır indisi kısmına koyalım:\n\nelmaslar[elmaslar$Karat&gt;0.5, ]\n\n  Karat   Kesim Derinlik\n4  1.25 Cok iyi     61.0\n5  0.71 Cok iyi     60.2\n6  0.71   Ideal     62.0\n9  0.52 Cok iyi     61.2\n\n\nPeki, kesimleri İdeal olan elmaslarlara ait satırları nasıl elde edebiliriz?\n\nelmaslar[elmaslar$Kesim == \"Ideal\", ]\n\n  Karat Kesim Derinlik\n2  0.40 Ideal     61.5\n3  0.38 Ideal     60.9\n6  0.71 Ideal     62.0\n7  0.33 Ideal     63.0",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/liste-pratik.html",
-    "href": "04-pratikler/01-veri-analizi/liste-pratik.html",
-    "title": "\n28  Listeler pratiği\n",
-    "section": "",
-    "text": "28.1 Listeler\nŞu ana kadar gördüğümüz veri yapıları:\nBu derste ise listeleri göreceğiz. Vektörler ve matrisler sadece tek bir veri tipine sahiptir. Veri çerçeveleri ise farklı veri tiplerine sahip vektörlerden oluşabiliyordu.\nListelerin ise farklı bir özelliği bulunmaktadır:",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Listeler pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/liste-pratik.html#listeler",
-    "href": "04-pratikler/01-veri-analizi/liste-pratik.html#listeler",
-    "title": "\n28  Listeler pratiği\n",
-    "section": "",
-    "text": "Vektörler\nMatrisler\nVeri çerçeveleri\n\n\n\n\nHem farklı tiplere sahip vektörleri yapısına katabilir.\nHem de matris ya da veri çervesi gibi veri yapılarını da saklayabilirsiniz.",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Listeler pratiği</span>"
-    ]
-  },
-  {
-    "objectID": "04-pratikler/01-veri-analizi/liste-pratik.html#liste-oluşturmak",
-    "href": "04-pratikler/01-veri-analizi/liste-pratik.html#liste-oluşturmak",
-    "title": "\n28  Listeler pratiği\n",
-    "section": "\n28.2 Liste oluşturmak",
-    "text": "28.2 Liste oluşturmak\nAşağıda bir önceki derste kullandığımız tabloyu görebilirsiniz. Gelin bu tablodan bir liste oluşturalım.\n\n\nKarat\nKesim\nDerinlik\n\n\n\n0.41\nLuks\n59.7\n\n\n0.4\nIdeal\n61.5\n\n\n0.38\nIdeal\n60.9\n\n\n1.25\nCok iyi\n61\n\n\n0.71\nCok iyi\n60.2\n\n\n0.71\nIdeal\n62\n\n\n0.33\nIdeal\n63\n\n\n0.32\nCok iyi\n61.2\n\n\n0.52\nCok iyi\n61.2\n\n\n\n\nelmaslar &lt;- list(c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52), \n                 c(\"Luks\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\"), \n                 c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2))\n\nPeki bu listedeki elemanlara nasıl erişebiliriz? Eğer çift köşeli parantez kullanıp istediğiniz indisi yazarsanız o elemana erişebilirsiniz:\n\nelmaslar[[1]]\n\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nAncak tek köşeli parantez kullanırsanız bu işlem size bir alt liste geri döndürecektir:\n\nelmaslar[1]\n\n[[1]]\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nİsterseniz listedeki elemanlara isim verebilirsiniz:\n\nnames(elmaslar) &lt;- c(\"Karat\", \"Kesim\", \"Derinlik\")\n\nBu isimleri kullanarak da liste elemanlarına erişebiliriz:\n\nelmaslar[[\"Karat\"]]\n\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nPeki tek köşeli parantez kullanalım:\n\nelmaslar[\"Karat\"]\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nŞimdi ise bir alt liste geri döndü.\nİsterseniz veri çerçevelerinde olduğu gibi de liste elemanlarına erişebiliriz:\n\nelmaslar$Karat\n\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nPeki birden fazla elemana erişebilir miyiz?\n\nelmaslar[1:2]\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n\nPeki iki köşeli parantez kullansak?\n\nelmaslar[[1:3]]\n\nError in elmaslar[[1:3]]: recursive indexing failed at level 2\n\n\nListeden bir elemanı silebilir miyiz?\n\nelmaslar[[1]] &lt;- NULL\n\nelmaslar\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n$Derinlik\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nŞimdilik orjinal listeyi tekrar yükleyelim:\n\nelmaslar &lt;- list(c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52), \n                 c(\"Luks\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\"), \n                 c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2))\n\nnames(elmaslar) &lt;- c(\"Karat\", \"Kesim\", \"Derinlik\")\n\nPeki bu listeye yeni bir eleman ekleyebilir miyiz?\n\nelmaslar$Kontrol &lt;- TRUE \n\nBakalım:\n\nelmaslar\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n$Derinlik\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n$Kontrol\n[1] TRUE\n\n\nDikkat ederseniz, farklı boyutta bir eleman ekledik. Bu da listelerin bir başka güzel özelliğidir. Farklı boyutlardaki elemanları ekleyebiliriz.\nİsterseniz bir matris ekleyelim:\n\nvektor &lt;- sample(x = seq(1,100,0.1), size = 20, replace = TRUE)\nmatris &lt;- matrix(data = vektor, nrow = 4, ncol = 5)\n\nelmaslar$Matris &lt;- matris\n\nPeki şimdi listeye bakalım:\n\nelmaslar\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n$Derinlik\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n$Kontrol\n[1] TRUE\n\n$Matris\n     [,1] [,2] [,3] [,4] [,5]\n[1,]  8.6  4.4 73.7  1.3 53.6\n[2,] 81.5 69.3 20.3 63.0 58.2\n[3,] 17.8 72.0 31.3 83.3 92.6\n[4,] 23.6 17.3  7.1 71.0 33.8\n\n\nPeki listeler içerisindeki elemanlarda bulunan öğelere nasıl erişebililirz? Mesela Karat vektörü içindeki 5 numaralı elemana nasıl erişebiliriz:\n\nelmaslar[[1]][5]\n\n[1] 0.71\n\n\nKarat vektörünün 2 ve 6. elamanına erişmek istesek?\n\nelmaslar[[1]][2:6]\n\n[1] 0.40 0.38 1.25 0.71 0.71\n\n\nSon olarak, matris’e bakalım. Bu matristeki elemanlara nasıl erişebiliriz? Mesela matriste 2. satırda ve 4. sütunda bulunan öğeye nasıl erişebiliriz\n\nelmaslar[[5]][2,4]\n\n[1] 63",
-    "crumbs": [
-      "Pratikler - Ödevler",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Listeler pratiği</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Veri Analizi Pratik 2023-04-06</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/04-vize-pratik.html",
     "href": "04-pratikler/01-veri-analizi/04-vize-pratik.html",
-    "title": "\n29  pratik-2023-04-19\n",
+    "title": "\n27  Veri Analizi Pratik 2023-04-19”\n",
     "section": "",
     "text": "Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:\n\nisimler\nboy\nkilo\ncinsiyet\n\nUnutmayın, cinsiyet vektörü faktör olmalı!\n\n\nİsimler\nBoy\nKilo\nYaş\nCinsiyet\n\n\n\nAslı\n1.76\n67\n35\nm\n\n\nSibel\n1.72\n66\n66\nf\n\n\nTarkan\n1.65\n65\n26\nm\n\n\nSezen\n1.62\n80\n32\nm\n\n\nAli\n1.94\n59\n58\nm\n\n\nBarış\n1.94\n53\n34\nf\n\n\nŞebnem\n1.75\n70\n23\nm\n\n\nFunda\n2.00\n75\n24\nm\n\n\nMurat\n1.75\n51\n64\nm\n\n\nArda\n1.70\n73\n18\nm\n\n\n\n\n# cevabinizi asagiya yaziniz\n\nisimler &lt;- c(\"Aslı\", \"Sibel\" ,\"Tarkan\" ,\"Sezen\" ,\"Ali\" ,\"Barış\" ,\"Şebnem\" ,\"Funda\" ,\"Murat\" ,\"Arda\")\nboy &lt;- c(1.76,1.72,1.65,1.62,1.94,1.94,1.75,2.00,1.75,1.70)\nkilo &lt;- c(67,66,65,80,59,53,70,75,51,73)\nyas &lt;- c(35,66,26,32,58,34,23,24,64,18)\ncinsiyet &lt;- factor(c(\"m\",\"f\",\"m\",\"m\",\"m\",\"f\",\"m\",\"m\",\"m\",\"m\"))\n\nİsimler vektöründeki 6. elemanı geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nisimler[6]\n\n[1] \"Barış\"\n\n\nBoy vektörünü kullanarak,1.60’dan uzun olan değerleri geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nboy[boy &gt;1.60]\n\n [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70\n\n\nYukarıda verilen verileri kullanarak isimler, boy, kilo, yas ve cinsiyet vektörlerini içeren ekip isimli bir veri çerçevesi oluşturunuz:\n\n# cevabinizi asagiya yaziniz\nekip &lt;- data.frame(isimler,cinsiyet,boy,kilo,yas)\n\n\n\n\n\n\n\nVeri çerçevesi Rmarkdown’da yazdırmayalım\n\n\n\nBazı arkadaşlar bir önceki soruya şöyle cevap vermişler. Şüphesiz bu şekilde de yapılabilir. Ancak böyle yaparsanız veriyi ekrana yazdırmış olursunuz. Bu da html dosyasında kötü bir görünüş oluşturur. Özellikle veri içeriği fazla ise:\n\n# cevabinizi asagiya yaziniz\nekip &lt;- data.frame(isimler,cinsiyet,boy,kilo,yas)\nekip\n\n\n\nOluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\ndim(ekip)\n\n[1] 10  5\n\n\nBu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın:\n\n# cevabinizi asagiya yaziniz\ncolnames(ekip)\n\n[1] \"isimler\"  \"cinsiyet\" \"boy\"      \"kilo\"     \"yas\"     \n\n\nİkinci satırı geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip[2, ]\n\n  isimler cinsiyet  boy kilo yas\n2   Sibel        f 1.72   66  66\n\n\nBu veri çerçevesinde 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip[,3:5]\n\n    boy kilo yas\n1  1.76   67  35\n2  1.72   66  66\n3  1.65   65  26\n4  1.62   80  32\n5  1.94   59  58\n6  1.94   53  34\n7  1.75   70  23\n8  2.00   75  24\n9  1.75   51  64\n10 1.70   73  18\n\n\nBu veri çerçevesindeki kilo değerlerini geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip$kilo\n\n [1] 67 66 65 80 59 53 70 75 51 73\n\n# Veya o sütunun numarası:\n\nekip[,3]\n\n [1] 1.76 1.72 1.65 1.62 1.94 1.94 1.75 2.00 1.75 1.70\n\n\nVücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:\n\\[\nvki = \\frac{kilo}{boy^2}\n\\] Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve vki isimli vektörü oluştrunuz.\n\n# cevabinizi asagiya yaziniz\nvki &lt;- ekip$kilo/ekip$boy^2\n\n\n\n\n\n\n\nVektörel işlemler\n\n\n\nBazı arkadaşlar bir önceki soruya şöyle cevap vermişler. ekip$kilo/ekip$boy^2 işlemini yaptığınızda geriye bir vektör döndürülür. Dolayısıyla c() fonksiyonunu kullanmaya gerek yok.\n\n# cevabinizi asagiya yaziniz\nvki &lt;- c(ekip$kilo/ekip$boy^2)\n\n\n\nŞimdi, ekip vektörü içerisinde vücut kitle endeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\nekip$isimler[vki &gt; 25]\n\n[1] \"Sezen\" \"Arda\" \n\n\n0luşturduğunuz vke isimli vektörü ekip veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi vke olsun) :\n\n# cevabinizi asagiya yaziniz\nekip$vki &lt;- vki\n\n\n\n\n\n\n\nVeri çerçevesinde sütun oluşturmak\n\n\n\nVeri çerçevesinde yeni bir sütun oluşturmak için doğrudan $ fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil.\n\n# cevabinizi asagiya yaziniz\nekip &lt;- data.frame(isimler, cinsiyet, boy, kilo, yas, vki)\n\n\n\nEkipteki 25 yaş altı kişilerin isimlerini kapsayan gencler isimli yeni bir vektör olusturnuz:\n\n# cevabinizi asagiya yaziniz\ngencler &lt;- ekip$isimler[ekip$yas &lt; 25]\n\nEkipteki 1.80 üzerindeki kişilerin isimlerini kapsayan uzunlar isimli bir vektör oluşturunuz:\n\n# cevabinizi asagiya yaziniz\nuzunlar &lt;- ekip$isimler[ekip$boy &gt; 1.80]\n\nEkte verilen gumus_agaci.txt isimli dosyayı okuyunuz ve gumus_agaci ismini kullanarak R içerisine aktarınız. Verinin ilk satırı sütun isimleri olarak belirlenmiştir. Sütunlar tab (\\t) karakteri ile ayrılmıştır.\n\n# cevabinizi asagiya yaziniz\ngumus_agaci &lt;- read.table(file = \"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt\", header = TRUE, sep =  \"\\t\")\n\n\n\n\n\n\n\nDosya okurken farklı yöntemlerin kullanılması\n\n\n\nOkumak istediğim gumus.agaci.txt isimli dosya zaten internet sitesinde olduğu için, doğrudan bu dosyanın adresini kullandım. Ancak siz bu dosyayı indirdiğiniz için bilgisyarınızdan okumanız gereklidir. Yani dosyanın nerede olduğu önemli.\n\n# cevabinizi asagiya yaziniz\ngumus_agaci &lt;- read.table(file = \"gumus_agaci.txt\", header = TRUE, sep =  \"\\t\")\n\n\n\nBu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\ndim(gumus_agaci)\n\n[1] 1534    8\n\n\nBu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız:\n\n# cevabinizi asagiya yaziniz\ncolnames(gumus_agaci)\n\n[1] \"Inokulasyondan_sonra_gecen_sure\" \"Kulturleme_kosulu\"              \n[3] \"Patojen\"                         \"Bitki_numarasi\"                 \n[5] \"Tekil_bitki_numarasi\"            \"Gozlem\"                         \n[7] \"Fotosentez\"                      \"Iletkenlik\"",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>pratik-2023-04-19</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Veri Analizi Pratik 2023-04-19\"</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
     "section": "",
-    "text": "30.1 Bilimsel hikaye\nBir araştırma grubundaki araştırmacılar, Gümüş ağacı bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.\nMaalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.\nÇalışmada kullanılacak veriye aşağıdaki bağlantıdan ulaşabilirsiniz:\n[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt\nBu dökümanın Rmd versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:\nhttps://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd",
+    "text": "28.1 Bilimsel hikaye\nBir araştırma grubundaki araştırmacılar, Gümüş ağacı bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.\nMaalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.\nÇalışmada kullanılacak veriye aşağıdaki bağlantıdan ulaşabilirsiniz:\n[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt\nBu dökümanın Rmd versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:\nhttps://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bilimsel-hikaye",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bilimsel-hikaye",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
     "section": "",
-    "text": "30.1.1 Çalışma yöntemi\nBu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.\nBitkileri dört farklı patojen (Patojen değişkeni) uygulamasına maruz bırakıyorlar:\n\n\nKontrol (Patojen inoküle edilmemiş, sağlıklı)\nP. cinnamomi\nP. multivora\n\nPatojenler (Her iki patojen ile inoküle edilmiş bitkiler)\n\nArdından bu bitkileri 37 güne kadar iki farklı kültürleme koşulunda (Kulturleme_kosulu değişkeni) yetiştiriyorlar:\n\nKurak\nNemli\n\nBu süre boyunca kültürlenen bitkilerde iki farklı ölçüm yapıyorlar:\n\n\nFotosentez: Bitkide gözlenen Fotosentez hızı\n\nIletkenlik: Bitkinin sahip olduğu iletkenlik değeri",
+    "text": "28.1.1 Çalışma yöntemi\nBu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.\nBitkileri dört farklı patojen (Patojen değişkeni) uygulamasına maruz bırakıyorlar:\n\n\nKontrol (Patojen inoküle edilmemiş, sağlıklı)\nP. cinnamomi\nP. multivora\n\nPatojenler (Her iki patojen ile inoküle edilmiş bitkiler)\n\nArdından bu bitkileri 37 güne kadar iki farklı kültürleme koşulunda (Kulturleme_kosulu değişkeni) yetiştiriyorlar:\n\nKurak\nNemli\n\nBu süre boyunca kültürlenen bitkilerde iki farklı ölçüm yapıyorlar:\n\n\nFotosentez: Bitkide gözlenen Fotosentez hızı\n\nIletkenlik: Bitkinin sahip olduğu iletkenlik değeri",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-yükleme",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-yükleme",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.2 Veri yükleme",
-    "text": "30.2 Veri yükleme\nUzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.2 Veri yükleme",
+    "text": "28.2 Veri yükleme\nUzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-çerçevesi-inceleme",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-çerçevesi-inceleme",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.3 Veri çerçevesi inceleme",
-    "text": "30.3 Veri çerçevesi inceleme\nYüklediğiniz veri çerçevesinin satır ve sütun sayılarını geri döndürünüz:\n\n# Cevabinizi buraya yaziniz\n\nBu veri çerçevesindeki sütun isimlerini geri döndürebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nBU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (faktör) değişkeni olarak belirlenmesi gerekmektedir. Acaba bu sütunları faktöre çevirebilir misiniz?\n\nKulturleme_kosulu\nPatojen\n\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.3 Veri çerçevesi inceleme",
+    "text": "28.3 Veri çerçevesi inceleme\nYüklediğiniz veri çerçevesinin satır ve sütun sayılarını geri döndürünüz:\n\n# Cevabinizi buraya yaziniz\n\nBu veri çerçevesindeki sütun isimlerini geri döndürebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nBU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (faktör) değişkeni olarak belirlenmesi gerekmektedir. Acaba bu sütunları faktöre çevirebilir misiniz?\n\nKulturleme_kosulu\nPatojen\n\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#koşulların-belirlenmesi",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#koşulların-belirlenmesi",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.4 Koşulların belirlenmesi",
-    "text": "30.4 Koşulların belirlenmesi\nBu deney kapsamında yapılmış kültürleme koşullarını (Kurak veya Nemli) frekans tablosu haline getirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nBu deney kapsamında yapılmış patojen uygulamalarını frekans tablosu haline getirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nAcaba her farklı kültürleme koşuluna ait kaç farklı patojen uygulaması var? Birleşik bir frekans tablosu oluşturabilir misiniz?\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.4 Koşulların belirlenmesi",
+    "text": "28.4 Koşulların belirlenmesi\nBu deney kapsamında yapılmış kültürleme koşullarını (Kurak veya Nemli) frekans tablosu haline getirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nBu deney kapsamında yapılmış patojen uygulamalarını frekans tablosu haline getirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nAcaba her farklı kültürleme koşuluna ait kaç farklı patojen uygulaması var? Birleşik bir frekans tablosu oluşturabilir misiniz?\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızı-ve-iletkenlik-değerlerinin-dağılımları",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızı-ve-iletkenlik-değerlerinin-dağılımları",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.5 Fotosentez hızı ve iletkenlik değerlerinin dağılımları",
-    "text": "30.5 Fotosentez hızı ve iletkenlik değerlerinin dağılımları\nBu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmıştır. Bu değişkenlere ait histogramları ggplot2 paketi kullanarak çizebilir misiniz?\nİlk olarak Fotosentez hızı değişkeni:\n\n# Cevabinizi buraya yaziniz\n\nŞimdi de iletkenlik değerleri:\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.5 Fotosentez hızı ve iletkenlik değerlerinin dağılımları",
+    "text": "28.5 Fotosentez hızı ve iletkenlik değerlerinin dağılımları\nBu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmıştır. Bu değişkenlere ait histogramları ggplot2 paketi kullanarak çizebilir misiniz?\nİlk olarak Fotosentez hızı değişkeni:\n\n# Cevabinizi buraya yaziniz\n\nŞimdi de iletkenlik değerleri:\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızında-görülen-değişimlerin-incelenmesi",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızında-görülen-değişimlerin-incelenmesi",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.6 Fotosentez hızında görülen değişimlerin incelenmesi",
-    "text": "30.6 Fotosentez hızında görülen değişimlerin incelenmesi\nBu kısımda ise fotosentez hızında görülen değişimleri incelemeyi amaçladık.\n\n30.6.1 Kültürleme koşulları ve Fotosentez hızı\nAcaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına nasıl etki gösteriyor? Bunu kutu grafiği (boxplot) kullanarak görselleştirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nSizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşullaru, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:\n\nCevabınızı bu satırlara yazınız\n\n\n30.6.2 Patojen inokülasyonu ve Fotosentez hızında görülen değişim\nPatojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nYukarıda oluşturduğunuz grafiğe bakarak aşağıdaki soruları cevaplayınız:\nAcaba patojen uygulaması fotosentez hızında bir değişime yol açmış olabilir mi?\n\nCevabınızı bu satırlara yazınız\n\nAynı anda iki patojenin uygulanması, fotosentez hızını biraz daha fazla azaltmış olabilir mi?\n\nCevabınızı bu satırlara yazınız",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.6 Fotosentez hızında görülen değişimlerin incelenmesi",
+    "text": "28.6 Fotosentez hızında görülen değişimlerin incelenmesi\nBu kısımda ise fotosentez hızında görülen değişimleri incelemeyi amaçladık.\n\n28.6.1 Kültürleme koşulları ve Fotosentez hızı\nAcaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına nasıl etki gösteriyor? Bunu kutu grafiği (boxplot) kullanarak görselleştirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nSizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşullaru, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:\n\nCevabınızı bu satırlara yazınız\n\n\n28.6.2 Patojen inokülasyonu ve Fotosentez hızında görülen değişim\nPatojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nYukarıda oluşturduğunuz grafiğe bakarak aşağıdaki soruları cevaplayınız:\nAcaba patojen uygulaması fotosentez hızında bir değişime yol açmış olabilir mi?\n\nCevabınızı bu satırlara yazınız\n\nAynı anda iki patojenin uygulanması, fotosentez hızını biraz daha fazla azaltmış olabilir mi?\n\nCevabınızı bu satırlara yazınız",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-değerinde-görülen-değişimler",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-değerinde-görülen-değişimler",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.7 İletkenlik değerinde görülen değişimler",
-    "text": "30.7 İletkenlik değerinde görülen değişimler\nBu kısımda ise kontrol bitkileri ve patojen uygulanmış bitkilerin iletkenlik değerlerinde görülen değişimlerin incelenmesi amaçlanmıştır.\n\n30.7.1 Kültürleme koşulları ve iletkenlik\nAcaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nKurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:\n\nCevabınızı bu satırlara yazınız\n\n\n30.7.2 Patojen inokülasyonun iletkenlik değerlerine etkisi\nPatojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.7 İletkenlik değerinde görülen değişimler",
+    "text": "28.7 İletkenlik değerinde görülen değişimler\nBu kısımda ise kontrol bitkileri ve patojen uygulanmış bitkilerin iletkenlik değerlerinde görülen değişimlerin incelenmesi amaçlanmıştır.\n\n28.7.1 Kültürleme koşulları ve iletkenlik\nAcaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nKurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:\n\nCevabınızı bu satırlara yazınız\n\n\n28.7.2 Patojen inokülasyonun iletkenlik değerlerine etkisi\nPatojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızının-kontrol-örneklerinde-incelenmesi",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızının-kontrol-örneklerinde-incelenmesi",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.8 Fotosentez hızının kontrol örneklerinde incelenmesi",
-    "text": "30.8 Fotosentez hızının kontrol örneklerinde incelenmesi\nBu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının kurak ve nemli koşullardaki değişimini inceleyeceğiz.\nSadece Kontrol örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nŞimdi ise oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.8 Fotosentez hızının kontrol örneklerinde incelenmesi",
+    "text": "28.8 Fotosentez hızının kontrol örneklerinde incelenmesi\nBu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının kurak ve nemli koşullardaki değişimini inceleyeceğiz.\nSadece Kontrol örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir misiniz?\n\n# Cevabinizi buraya yaziniz\n\nŞimdi ise oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-ve-fotosentez-arasında-bir-ilişki-var-mı",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-ve-fotosentez-arasında-bir-ilişki-var-mı",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.9 İletkenlik ve Fotosentez arasında bir ilişki var mı?",
-    "text": "30.9 İletkenlik ve Fotosentez arasında bir ilişki var mı?\nPeki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki değişkeni x-y ekseninde nokta grafiği ile gösterebilir misiniz? Eksenleri aşağıdaki gibi belirleyiniz:\n\n\nx ekseni: İletkenlik\n\ny ekseni: Fotosentez hizi\n\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.9 İletkenlik ve Fotosentez arasında bir ilişki var mı?",
+    "text": "28.9 İletkenlik ve Fotosentez arasında bir ilişki var mı?\nPeki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki değişkeni x-y ekseninde nokta grafiği ile gösterebilir misiniz? Eksenleri aşağıdaki gibi belirleyiniz:\n\n\nx ekseni: İletkenlik\n\ny ekseni: Fotosentez hizi\n\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
     ]
   },
   {
     "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı",
     "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı",
-    "title": "\n30  Veri Analizi vize sınavı pratik 2024-05-30\n",
-    "section": "\n30.10 Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?",
-    "text": "30.10 Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?\nAcaba Kurak ve Nemli koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? t.test fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. p-value (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:\n\n# Cevabinizi buraya yaziniz",
+    "title": "\n28  Veri Analizi Pratik 2024-05-30\n",
+    "section": "\n28.10 Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?",
+    "text": "28.10 Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?\nAcaba Kurak ve Nemli koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? t.test fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. p-value (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:\n\n# Cevabinizi buraya yaziniz",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi Pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html",
+    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html",
+    "title": "\n29  Matrisler ve Veri Çerçeveleri Pratiği\n",
+    "section": "",
+    "text": "29.1 Matrisler\nMatrisler, vektörler gibi sadece tek bir tip veri içermelidir. Yani ya sayısal, ya karakter, ya mantıksal ya da faktör verisi içermelidir.\nÖncelikle rastgele bir vektör oluşturalım:\nvektor &lt;- sample(x = seq(1,100,0.1), size = 20, replace = TRUE)\nŞimdi vektörü 4 x 5’lik bir matrise çevirelim:\nmatris &lt;- matrix(data = vektor, nrow = 4, ncol = 5)\nBurada ncol sütun sayısını, nrow ise satır sayısını ifade etmektedir.\nMatris nasıl oldu acaba?\nmatris\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,] 36.7 66.4 74.7 59.5 69.1\n[2,] 15.1 25.3 17.7 35.9 52.4\n[3,] 99.8 70.7 54.9 74.9 73.6\n[4,] 16.5 20.0 11.6 45.6 54.0\nPeki bu matris’in boyutları nedir? Satır ve sütun sayısını elde etmek için dim fonksiyonunu kullanınız:\ndim(matris)\n\n[1] 4 5\nBununla birlikte, nrow ve ncol fonksiyonları da sırasıyla satır ve sütun sayılarını geri döndürecektir:\nnrow(matris)\n\n[1] 4\n\nncol(matris)\n\n[1] 5",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-hareket",
+    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-hareket",
+    "title": "\n29  Matrisler ve Veri Çerçeveleri Pratiği\n",
+    "section": "\n29.2 Matris’lerde hareket",
+    "text": "29.2 Matris’lerde hareket\nMatris’lerde harket etmek için indisleri kullanabiliriz. Mesela 2. satır ve 5. sütundaki veriye nasıl erişebiliriz?\n\nmatris[2, 5]\n\n[1] 52.4\n\n\nSadece ikinci sütuna erişmek istesek?\n\nmatris[ ,2]\n\n[1] 66.4 25.3 70.7 20.0\n\n\nPeki üçüncü satıra erişsek?\n\nmatris[3, ]\n\n[1] 99.8 70.7 54.9 74.9 73.6\n\n\nİstersek, vektör olarak bir sayı dizisi verebiliriz:\n\nmatris[1:3, 1:3]\n\n     [,1] [,2] [,3]\n[1,] 36.7 66.4 74.7\n[2,] 15.1 25.3 17.7\n[3,] 99.8 70.7 54.9\n\n\nBu sayede, 1. satır ve 3. satır arasındaki, ve 1. sütun ile 3. sütun arasındaki verilere erişebildik.\nSon olarak, yukarıda elde ettiğimiz matris, mat değişkeni içine atayalım:\n\nmat &lt;- matris[1:3, 1:3]",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-satır-ve-sütun-isimleri",
+    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#matrislerde-satır-ve-sütun-isimleri",
+    "title": "\n29  Matrisler ve Veri Çerçeveleri Pratiği\n",
+    "section": "\n29.3 Matrislerde satır ve sütun isimleri",
+    "text": "29.3 Matrislerde satır ve sütun isimleri\nİki farklı fonksiyon ile satır ve sütun isimleri atayabiliriz:\n\n\ncolnames ile sütun isimleri\n\nrownames ile de satır isimleri\n\n\ncolnames(matris) &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\")\nrownames(matris) &lt;- c(\"X\", \"Y\", \"Z\", \"T\")\n\nPeki gerçekten atayabilmiş miyiz?\n\ncolnames(matris)\n\n[1] \"A\" \"B\" \"C\" \"D\" \"E\"\n\nrownames(matris)\n\n[1] \"X\" \"Y\" \"Z\" \"T\"",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleri",
+    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleri",
+    "title": "\n29  Matrisler ve Veri Çerçeveleri Pratiği\n",
+    "section": "\n29.4 Veri Çerçeveleri",
+    "text": "29.4 Veri Çerçeveleri\nVeri çerçevelerinde ise farklı tipte veri bulunan vektörleri birleştirebiliriz. Örnek olarak aşağıda bir tablo bulunmaktadır.\n\n\nKarat\nKesim\nDerinlik\n\n\n\n0.41\nLuks\n59.7\n\n\n0.4\nIdeal\n61.5\n\n\n0.38\nIdeal\n60.9\n\n\n1.25\nCok iyi\n61\n\n\n0.71\nCok iyi\n60.2\n\n\n0.71\nIdeal\n62\n\n\n0.33\nIdeal\n63\n\n\n0.32\nCok iyi\n61.2\n\n\n0.52\nCok iyi\n61.2\n\n\n\nBu tabloya bakarsanız hem sayı hem de karakter değerleri bulunmtaktadır. Her birisi için bir vektör oluşturalım:\n\nKarat &lt;- c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52)\nKesim &lt;- c(\"Luks\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\")\nDerinlik &lt;- c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2)\n\nBir veri çerçevesi oluşturalım mı?\n\nelmaslar &lt;- data.frame(Karat = Karat, Kesim = Kesim, Derinlik = Derinlik)\n\nAcaba bu veri tiplerine baksak olur mu?\n\nstr(elmaslar)\n\n'data.frame':   9 obs. of  3 variables:\n $ Karat   : num  0.41 0.4 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n $ Kesim   : chr  \"Luks\" \"Ideal\" \"Ideal\" \"Cok iyi\" ...\n $ Derinlik: num  59.7 61.5 60.9 61 60.2 62 63 61.2 61.2\n\n\nDikkat ederseniz Kesim sütunu otomatik olarak faktör olmuş. R, öntanımlı olarak, karakterleri faktörlere çevirir. Eğer bunun olmasını istemiyorsanız stringsAsFactors = FALSE olarak seçmeniz gerekir.\n\nelmaslar &lt;- data.frame(Karat = Karat, Kesim = Kesim, Derinlik = Derinlik, stringsAsFactors = FALSE)\nstr(elmaslar)\n\n'data.frame':   9 obs. of  3 variables:\n $ Karat   : num  0.41 0.4 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n $ Kesim   : chr  \"Luks\" \"Ideal\" \"Ideal\" \"Cok iyi\" ...\n $ Derinlik: num  59.7 61.5 60.9 61 60.2 62 63 61.2 61.2",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#satır-ve-sütun-isimleri",
+    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#satır-ve-sütun-isimleri",
+    "title": "\n29  Matrisler ve Veri Çerçeveleri Pratiği\n",
+    "section": "\n29.5 Satır ve sütun isimleri",
+    "text": "29.5 Satır ve sütun isimleri\nMatrislerde nasıl satır ve sütun isimleri ile çalışabiliyorsanız vektörlerde de aynı şekilde çalışabilirsiniz:\n\ncolnames(elmaslar)\n\n[1] \"Karat\"    \"Kesim\"    \"Derinlik\"\n\nrownames(elmaslar)\n\n[1] \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleride-hareket",
+    "href": "04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html#veri-çerçeveleride-hareket",
+    "title": "\n29  Matrisler ve Veri Çerçeveleri Pratiği\n",
+    "section": "\n29.6 Veri çerçeveleride hareket",
+    "text": "29.6 Veri çerçeveleride hareket\nMatrisler’de nasıl hareket ediyorsak veri çerçevelerinde de aynı şekilde hareket edebilirsiniz:\n\nelmaslar[2, 4]\n\nNULL\n\n\nPeki, sütunlara nasıl erişebiliriz? Mesela Derinlik sütununa erişelim:\nSadece sütun numarası ile:\n\nelmaslar[ ,3]\n\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nSütun ismi ile:\n\nelmaslar$Derinlik\n\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nYine sütun ismi ile:\n\nelmaslar[\"Derinlik\"]\n\n  Derinlik\n1     59.7\n2     61.5\n3     60.9\n4     61.0\n5     60.2\n6     62.0\n7     63.0\n8     61.2\n9     61.2\n\n\nSon olarak yine sütun numarası ile:\n\nelmaslar[[3]]\n\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nPeki, 0.5 karat’da büyük elmaslara ait bütün satırları nasıl elde edebiliriz?\n\nelmaslar[elmaslar$Karat&gt;0.5, ]\n\n  Karat   Kesim Derinlik\n4  1.25 Cok iyi     61.0\n5  0.71 Cok iyi     60.2\n6  0.71   Ideal     62.0\n9  0.52 Cok iyi     61.2\n\n\nAdım adım yapalım. Önce sadece Karat değeri 0.5’den büyük elemanları bulalım:\n\nelmaslar$Karat&gt;0.5\n\n[1] FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE\n\n\nDaha sonra bunu, veri çerçevesindeki satır indisi kısmına koyalım:\n\nelmaslar[elmaslar$Karat&gt;0.5, ]\n\n  Karat   Kesim Derinlik\n4  1.25 Cok iyi     61.0\n5  0.71 Cok iyi     60.2\n6  0.71   Ideal     62.0\n9  0.52 Cok iyi     61.2\n\n\nPeki, kesimleri İdeal olan elmaslarlara ait satırları nasıl elde edebiliriz?\n\nelmaslar[elmaslar$Kesim == \"Ideal\", ]\n\n  Karat Kesim Derinlik\n2  0.40 Ideal     61.5\n3  0.38 Ideal     60.9\n6  0.71 Ideal     62.0\n7  0.33 Ideal     63.0",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Matrisler ve Veri Çerçeveleri Pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/liste-pratik.html",
+    "href": "04-pratikler/01-veri-analizi/liste-pratik.html",
+    "title": "\n30  Listeler pratiği\n",
+    "section": "",
+    "text": "30.1 Listeler\nŞu ana kadar gördüğümüz veri yapıları:\nBu derste ise listeleri göreceğiz. Vektörler ve matrisler sadece tek bir veri tipine sahiptir. Veri çerçeveleri ise farklı veri tiplerine sahip vektörlerden oluşabiliyordu.\nListelerin ise farklı bir özelliği bulunmaktadır:",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Listeler pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/liste-pratik.html#listeler",
+    "href": "04-pratikler/01-veri-analizi/liste-pratik.html#listeler",
+    "title": "\n30  Listeler pratiği\n",
+    "section": "",
+    "text": "Vektörler\nMatrisler\nVeri çerçeveleri\n\n\n\n\nHem farklı tiplere sahip vektörleri yapısına katabilir.\nHem de matris ya da veri çervesi gibi veri yapılarını da saklayabilirsiniz.",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Listeler pratiği</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/liste-pratik.html#liste-oluşturmak",
+    "href": "04-pratikler/01-veri-analizi/liste-pratik.html#liste-oluşturmak",
+    "title": "\n30  Listeler pratiği\n",
+    "section": "\n30.2 Liste oluşturmak",
+    "text": "30.2 Liste oluşturmak\nAşağıda bir önceki derste kullandığımız tabloyu görebilirsiniz. Gelin bu tablodan bir liste oluşturalım.\n\n\nKarat\nKesim\nDerinlik\n\n\n\n0.41\nLuks\n59.7\n\n\n0.4\nIdeal\n61.5\n\n\n0.38\nIdeal\n60.9\n\n\n1.25\nCok iyi\n61\n\n\n0.71\nCok iyi\n60.2\n\n\n0.71\nIdeal\n62\n\n\n0.33\nIdeal\n63\n\n\n0.32\nCok iyi\n61.2\n\n\n0.52\nCok iyi\n61.2\n\n\n\n\nelmaslar &lt;- list(c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52), \n                 c(\"Luks\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\"), \n                 c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2))\n\nPeki bu listedeki elemanlara nasıl erişebiliriz? Eğer çift köşeli parantez kullanıp istediğiniz indisi yazarsanız o elemana erişebilirsiniz:\n\nelmaslar[[1]]\n\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nAncak tek köşeli parantez kullanırsanız bu işlem size bir alt liste geri döndürecektir:\n\nelmaslar[1]\n\n[[1]]\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nİsterseniz listedeki elemanlara isim verebilirsiniz:\n\nnames(elmaslar) &lt;- c(\"Karat\", \"Kesim\", \"Derinlik\")\n\nBu isimleri kullanarak da liste elemanlarına erişebiliriz:\n\nelmaslar[[\"Karat\"]]\n\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nPeki tek köşeli parantez kullanalım:\n\nelmaslar[\"Karat\"]\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nŞimdi ise bir alt liste geri döndü.\nİsterseniz veri çerçevelerinde olduğu gibi de liste elemanlarına erişebiliriz:\n\nelmaslar$Karat\n\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n\nPeki birden fazla elemana erişebilir miyiz?\n\nelmaslar[1:2]\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n\nPeki iki köşeli parantez kullansak?\n\nelmaslar[[1:3]]\n\nError in elmaslar[[1:3]]: recursive indexing failed at level 2\n\n\nListeden bir elemanı silebilir miyiz?\n\nelmaslar[[1]] &lt;- NULL\n\nelmaslar\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n$Derinlik\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n\nŞimdilik orjinal listeyi tekrar yükleyelim:\n\nelmaslar &lt;- list(c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52), \n                 c(\"Luks\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\", \"Ideal\", \"Ideal\", \"Cok iyi\", \"Cok iyi\"), \n                 c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2))\n\nnames(elmaslar) &lt;- c(\"Karat\", \"Kesim\", \"Derinlik\")\n\nPeki bu listeye yeni bir eleman ekleyebilir miyiz?\n\nelmaslar$Kontrol &lt;- TRUE \n\nBakalım:\n\nelmaslar\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n$Derinlik\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n$Kontrol\n[1] TRUE\n\n\nDikkat ederseniz, farklı boyutta bir eleman ekledik. Bu da listelerin bir başka güzel özelliğidir. Farklı boyutlardaki elemanları ekleyebiliriz.\nİsterseniz bir matris ekleyelim:\n\nvektor &lt;- sample(x = seq(1,100,0.1), size = 20, replace = TRUE)\nmatris &lt;- matrix(data = vektor, nrow = 4, ncol = 5)\n\nelmaslar$Matris &lt;- matris\n\nPeki şimdi listeye bakalım:\n\nelmaslar\n\n$Karat\n[1] 0.41 0.40 0.38 1.25 0.71 0.71 0.33 0.32 0.52\n\n$Kesim\n[1] \"Luks\"    \"Ideal\"   \"Ideal\"   \"Cok iyi\" \"Cok iyi\" \"Ideal\"   \"Ideal\"  \n[8] \"Cok iyi\" \"Cok iyi\"\n\n$Derinlik\n[1] 59.7 61.5 60.9 61.0 60.2 62.0 63.0 61.2 61.2\n\n$Kontrol\n[1] TRUE\n\n$Matris\n     [,1] [,2] [,3] [,4] [,5]\n[1,] 31.2 72.3 71.3 81.5 79.0\n[2,] 11.7 18.4 98.1  1.3 11.3\n[3,] 45.1 71.9 63.8 43.6 80.9\n[4,] 48.7 40.1 24.5 87.9  9.3\n\n\nPeki listeler içerisindeki elemanlarda bulunan öğelere nasıl erişebililirz? Mesela Karat vektörü içindeki 5 numaralı elemana nasıl erişebiliriz:\n\nelmaslar[[1]][5]\n\n[1] 0.71\n\n\nKarat vektörünün 2 ve 6. elamanına erişmek istesek?\n\nelmaslar[[1]][2:6]\n\n[1] 0.40 0.38 1.25 0.71 0.71\n\n\nSon olarak, matris’e bakalım. Bu matristeki elemanlara nasıl erişebiliriz? Mesela matriste 2. satırda ve 4. sütunda bulunan öğeye nasıl erişebiliriz\n\nelmaslar[[5]][2,4]\n\n[1] 1.3",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Listeler pratiği</span>"
     ]
   },
   {
@@ -1647,7 +1647,7 @@
     "href": "05-istatistik/random-forest.html",
     "title": "\n34  Random Forest Uygulaması\n",
     "section": "",
-    "text": "Mikrobiyal çokluk verisini yükleyelim:\n\nabundance &lt;- read.table(file = \"../data/microbial-abundance.txt\", header = T, sep = \"\\t\")\n\nMetadata bilgisini yükleyelim:\n\nmetadata &lt;- read.table(file = \"../data/microbial-metadata.txt\", header = T, stringsAsFactors = FALSE)\n\nElimizdeki veriyi transpoze edelim:\n\nr1&lt;-data.frame(t(abundance))\nr1$Condition&lt;-as.factor(metadata$condition)\n\nŞimdi random forest modelini kuralım. Bunun için elimizdeki bütün verileri kullanalım öncelikle:\n\nlibrary(randomForest)\n\nrandomForest 4.7-1.1\n\n\nType rfNews() to see new features/changes/bug fixes.\n\nmodel &lt;- randomForest(Condition ~ ., data = r1, importance = TRUE)\n\nÖzet istatistiklerine bakalım:\n\nmodel\n\n\nCall:\n randomForest(formula = Condition ~ ., data = r1, importance = TRUE) \n               Type of random forest: classification\n                     Number of trees: 500\nNo. of variables tried at each split: 15\n\n        OOB estimate of  error rate: 31.82%\nConfusion matrix:\n              Healthy Periodontitis class.error\nHealthy            11             1  0.08333333\nPeriodontitis       6             4  0.60000000\n\n\nPeki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:\n\nimp &lt;- data.frame(importance(model))\nhead(imp[order(imp$MeanDecreaseGini, decreasing = T),],n = 10)\n\n                            Healthy Periodontitis MeanDecreaseAccuracy\nDialister_micraerophilus  3.5346275      3.075556            3.5452161\nActinomyces_johnsonii     2.0178463      1.737270            2.4287796\nTreponema_denticola       1.4027204      0.868902            1.4068665\nTreponema_putidum         1.5148424      1.352257            1.6778267\nSlackia_exigua            2.0153272      2.807364            2.2482615\nActinomyces_timonensis    2.4162830      2.869168            2.7651237\nParvimonas_micra         -0.3362574      1.954076            1.0050891\nStreptococcus_mitis       1.5426255      1.635940            2.1554499\nStreptococcus_pneumoniae  0.3028805      1.484486            0.9526538\nPrevotella_nanceiensis   -0.1817825     -1.043185           -0.5106758\n                         MeanDecreaseGini\nDialister_micraerophilus        0.2865248\nActinomyces_johnsonii           0.2324406\nTreponema_denticola             0.2242789\nTreponema_putidum               0.2067011\nSlackia_exigua                  0.1998619\nActinomyces_timonensis          0.1986081\nParvimonas_micra                0.1752566\nStreptococcus_mitis             0.1704135\nStreptococcus_pneumoniae        0.1667864\nPrevotella_nanceiensis          0.1666121\n\n\nBiz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.\nBu kod uzun sürdüğü için internet sitesi kapsamında çalıştırmadık.\n\nlibrary(magrittr)\nlibrary(dplyr)\nlibrary(reshape2)\n\ndata_o&lt;-r1\ndata_o$Condition&lt;-r1$Condition\nerrors &lt;- c()\nsig_models &lt;- c()\nmodels &lt;- list()\n#data_o&lt;-r1[1:22, 1:50]\n\n\nN&lt;-ncol(data_o)-6\n\nfor (i in 0:N){\n  if (i == 0){\n    cat(\"Recursive feature elemination script has started...\\n\")\n    cat(\"Turn:\", i, \"Remaining species:\", (ncol(data_o)-1), \"\\n\")\n    turn &lt;- paste0(\"turn\", i)\n    importance &lt;- c()\n    for (j in 1:10){\n      model &lt;- randomForest(Condition ~ ., data = data_o, importance = TRUE)\n      imp&lt;-data.frame(model$importance)\n      imp$Feat&lt;-rownames(imp)\n      importance &lt;- rbind(importance, imp)\n      errors&lt;-rbind(errors, c(turn,model$err.rate[nrow(model$err.rate),]))\n    }\n    a&lt;-importance%&gt;%group_by(Feat) %&gt;% select(MeanDecreaseGini) %&gt;% summarise(MDG=mean(MeanDecreaseGini))\n    least &lt;- as.character(head(a[order(a$MDG),],n=1)[,1])\n  }\n  \n  if (i &gt; 0) {\n    turn &lt;- paste0(\"turn\", i)\n    importance &lt;- c()\n    cat(\"Turn:\", i, \" \")\n    data_o &lt;- data_o[,-which(colnames(data_o) %in% least)]\n    cat(\"We eleminated the least informative feature:\", least, \" \")\n    cat(\"Remaining species:\", (ncol(data_o)-1), \"\\n\")\n    models[[i]] &lt;- list()\n    for (j in 1:10){\n      \n      model &lt;- randomForest(Condition ~ ., data = data_o, importance = TRUE)\n      \n      imp&lt;-data.frame(model$importance)\n      imp$Feat&lt;-rownames(imp)\n      importance &lt;- rbind(importance, imp)\n      errors&lt;-rbind(errors, c(turn,model$err.rate[nrow(model$err.rate),]))\n      \n      if (model$err.rate[nrow(model$err.rate),1] &lt; 0.25) {\n        models[[i]][[j]]&lt;-model\n        sig_models &lt;- rbind(sig_models, c(i, j, model$err.rate[nrow(model$err.rate),1]))\n      }\n    }\n    least_old &lt;- least\n    \n    a&lt;-importance%&gt;%group_by(Feat) %&gt;% select(MeanDecreaseGini) %&gt;% summarise(MDG=mean(MeanDecreaseGini))\n    least &lt;- as.character(head(a[order(a$MDG),],n=1)[,1])\n    \n  }\n}\n\nerrors &lt;- data.frame(errors, stringsAsFactors = F)\ncolnames(errors)[1] &lt;- \"Turn\"\nerrors[,2] &lt;- as.numeric(errors[,2])\nerrors[,3] &lt;- as.numeric(errors[,3])\nerrors[,4] &lt;- as.numeric(errors[,4])\n\nerrors_melt &lt;- melt(errors)\n\ncolnames(errors_melt)&lt;-c(\"Turn\", \"Type\", \"Value\")\n\nsig_models&lt;-data.frame(sig_models, stringsAsFactors = F)\ncolnames(sig_models) &lt;- c(\"Turn\", \"Try\", \"OOB\")",
+    "text": "Mikrobiyal çokluk verisini yükleyelim:\n\nabundance &lt;- read.table(file = \"../data/microbial-abundance.txt\", header = T, sep = \"\\t\")\n\nMetadata bilgisini yükleyelim:\n\nmetadata &lt;- read.table(file = \"../data/microbial-metadata.txt\", header = T, stringsAsFactors = FALSE)\n\nElimizdeki veriyi transpoze edelim:\n\nr1&lt;-data.frame(t(abundance))\nr1$Condition&lt;-as.factor(metadata$condition)\n\nŞimdi random forest modelini kuralım. Bunun için elimizdeki bütün verileri kullanalım öncelikle:\n\nlibrary(randomForest)\n\nrandomForest 4.7-1.1\n\n\nType rfNews() to see new features/changes/bug fixes.\n\nmodel &lt;- randomForest(Condition ~ ., data = r1, importance = TRUE)\n\nÖzet istatistiklerine bakalım:\n\nmodel\n\n\nCall:\n randomForest(formula = Condition ~ ., data = r1, importance = TRUE) \n               Type of random forest: classification\n                     Number of trees: 500\nNo. of variables tried at each split: 15\n\n        OOB estimate of  error rate: 36.36%\nConfusion matrix:\n              Healthy Periodontitis class.error\nHealthy            10             2   0.1666667\nPeriodontitis       6             4   0.6000000\n\n\nPeki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:\n\nimp &lt;- data.frame(importance(model))\nhead(imp[order(imp$MeanDecreaseGini, decreasing = T),],n = 10)\n\n                              Healthy Periodontitis MeanDecreaseAccuracy\nDialister_micraerophilus    4.2148180    4.22094115            4.7070700\nActinomyces_dentalis        2.1930379    1.75094280            2.3325118\nActinomyces_johnsonii       0.5599272    1.20721864            1.2113774\nActinomyces_timonensis      2.4787531    2.14627732            2.6833212\nTannerella_forsythia        1.3705880    1.42689975            1.3884265\nParvimonas_micra            1.3651755    0.47320804            1.2655095\nTreponema_putidum           1.0137069   -0.44047094            0.3165780\nSlackia_exigua              2.2901829   -0.09736225            1.2839048\nHaemophilus_sputorum        0.2625602    0.24748594            0.1653515\nTreponema_lecithinolyticum -0.9354710   -0.71110162           -1.0492127\n                           MeanDecreaseGini\nDialister_micraerophilus          0.4569405\nActinomyces_dentalis              0.2956921\nActinomyces_johnsonii             0.2700015\nActinomyces_timonensis            0.2472263\nTannerella_forsythia              0.2168691\nParvimonas_micra                  0.1846402\nTreponema_putidum                 0.1759200\nSlackia_exigua                    0.1731972\nHaemophilus_sputorum              0.1573721\nTreponema_lecithinolyticum        0.1557083\n\n\nBiz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.\nBu kod uzun sürdüğü için internet sitesi kapsamında çalıştırmadık.\n\nlibrary(magrittr)\nlibrary(dplyr)\nlibrary(reshape2)\n\ndata_o&lt;-r1\ndata_o$Condition&lt;-r1$Condition\nerrors &lt;- c()\nsig_models &lt;- c()\nmodels &lt;- list()\n#data_o&lt;-r1[1:22, 1:50]\n\n\nN&lt;-ncol(data_o)-6\n\nfor (i in 0:N){\n  if (i == 0){\n    cat(\"Recursive feature elemination script has started...\\n\")\n    cat(\"Turn:\", i, \"Remaining species:\", (ncol(data_o)-1), \"\\n\")\n    turn &lt;- paste0(\"turn\", i)\n    importance &lt;- c()\n    for (j in 1:10){\n      model &lt;- randomForest(Condition ~ ., data = data_o, importance = TRUE)\n      imp&lt;-data.frame(model$importance)\n      imp$Feat&lt;-rownames(imp)\n      importance &lt;- rbind(importance, imp)\n      errors&lt;-rbind(errors, c(turn,model$err.rate[nrow(model$err.rate),]))\n    }\n    a&lt;-importance%&gt;%group_by(Feat) %&gt;% select(MeanDecreaseGini) %&gt;% summarise(MDG=mean(MeanDecreaseGini))\n    least &lt;- as.character(head(a[order(a$MDG),],n=1)[,1])\n  }\n  \n  if (i &gt; 0) {\n    turn &lt;- paste0(\"turn\", i)\n    importance &lt;- c()\n    cat(\"Turn:\", i, \" \")\n    data_o &lt;- data_o[,-which(colnames(data_o) %in% least)]\n    cat(\"We eleminated the least informative feature:\", least, \" \")\n    cat(\"Remaining species:\", (ncol(data_o)-1), \"\\n\")\n    models[[i]] &lt;- list()\n    for (j in 1:10){\n      \n      model &lt;- randomForest(Condition ~ ., data = data_o, importance = TRUE)\n      \n      imp&lt;-data.frame(model$importance)\n      imp$Feat&lt;-rownames(imp)\n      importance &lt;- rbind(importance, imp)\n      errors&lt;-rbind(errors, c(turn,model$err.rate[nrow(model$err.rate),]))\n      \n      if (model$err.rate[nrow(model$err.rate),1] &lt; 0.25) {\n        models[[i]][[j]]&lt;-model\n        sig_models &lt;- rbind(sig_models, c(i, j, model$err.rate[nrow(model$err.rate),1]))\n      }\n    }\n    least_old &lt;- least\n    \n    a&lt;-importance%&gt;%group_by(Feat) %&gt;% select(MeanDecreaseGini) %&gt;% summarise(MDG=mean(MeanDecreaseGini))\n    least &lt;- as.character(head(a[order(a$MDG),],n=1)[,1])\n    \n  }\n}\n\nerrors &lt;- data.frame(errors, stringsAsFactors = F)\ncolnames(errors)[1] &lt;- \"Turn\"\nerrors[,2] &lt;- as.numeric(errors[,2])\nerrors[,3] &lt;- as.numeric(errors[,3])\nerrors[,4] &lt;- as.numeric(errors[,4])\n\nerrors_melt &lt;- melt(errors)\n\ncolnames(errors_melt)&lt;-c(\"Turn\", \"Type\", \"Value\")\n\nsig_models&lt;-data.frame(sig_models, stringsAsFactors = F)\ncolnames(sig_models) &lt;- c(\"Turn\", \"Try\", \"OOB\")",
     "crumbs": [
       "Biyoteknolojide Veri Analizi",
       "<span class='chapter-number'>34</span>  <span class='chapter-title'>Random Forest Uygulaması</span>"
