@@ -16,7 +16,8 @@ Imports:
     caret,
     ggpubr,
     klaR,
-    randomForest
+    randomForest,
+    ISLR2
 Suggests:
     downlit,
     htmltools,
