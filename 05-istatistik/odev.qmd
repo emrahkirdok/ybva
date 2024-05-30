@@ -1,0 +1,26 @@
+# Ders Ödevi
+
+Bu döküman kapsamında **Biyoteknolojide Veri Analizi** dersi için yapılacak ödev ile ilgili veriler bulunmaktadır.
+
+Bu çalışma kapsamında aşağıda verilmiş üç farklı veri setinin incelenmesi amaçlanmıştır. Veri setleri:
+
++ Vücüt yağ oranı hesaplama tahmini
+    + Veri seti:
++ İnme riski tahmini
+    + Veri seti:
++ Parkinson riski tahmini:
+    + Veri seti:
+
+## Metdoloji
+
+Derste gördüğümüz yöntemleri kullanarak, seçtiğiniz bir tane veri setinde aşağıdaki adımların yapılması amaçlanmıştır:
+
++ Verilerin tanımlayıcı analizleri
+    + Değişkenler nedir?
+    + Bu değişkenlerin dağılımları
++ Veri setin, kullanarak seçtiğiniz bir teknikler makine öğrenmesi modelleri oluşturulması
++ Bu modelin performans metriklerinin incelenmesi
+
+## Sunum
+
+Bir poster hazırlanacak.
