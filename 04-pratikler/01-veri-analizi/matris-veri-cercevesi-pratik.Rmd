@@ -1,13 +1,4 @@
----
-title: "Matrisler ve Veri Çerçeveleri"
-author: "Emrah Kırdök, Ph. D."
-date: "2/25/2021"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Matrisler ve Veri Çerçeveleri Pratiği
 
 ## Matrisler
 
