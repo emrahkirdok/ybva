@@ -888,7 +888,7 @@
     "href": "02-veri-analizi/13-t-test.html",
     "title": "\n17  T-Test\n",
     "section": "",
-    "text": "17.1 t.test()\nTanım olarak t-testi, iki grubun ortalamaları arasında anlamlı bir fark olup olmadığını test etmek için kullanılabilir.\nBunu göstermek için iki farklı dağlım simüle edelim.\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 5, sd = 1)\nHistogramlar ile bu dağılımları inceleyelim:\npar(mfrow=c(1,2))\nhist(dagilim1)\nhist(dagilim2)\nİstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\nDikkat ederseniz bu iki dağılımın ortalamarı birbirlerinden farklı. Peki bu fark anlamlı mı? Bunu tespit etmek için t.test kullanabiliriz:\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -66, df = 1997.5, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.086937 -2.908779\nsample estimates:\nmean of x mean of y \n 1.979900  4.977758\nBurada dikkat etmemiz gereken iki nokta var:\nP value bizim için önemli bir değer. T testi sonunda elde ettiğimiz p-değerini şu şekilde geri döndürebiliriz:\ntest$p.value\n\n[1] 0\nDikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.",
+    "text": "17.1 t.test()\nTanım olarak t-testi, iki grubun ortalamaları arasında anlamlı bir fark olup olmadığını test etmek için kullanılabilir.\nBunu göstermek için iki farklı dağlım simüle edelim.\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 5, sd = 1)\nHistogramlar ile bu dağılımları inceleyelim:\npar(mfrow=c(1,2))\nhist(dagilim1)\nhist(dagilim2)\nİstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\nDikkat ederseniz bu iki dağılımın ortalamarı birbirlerinden farklı. Peki bu fark anlamlı mı? Bunu tespit etmek için t.test kullanabiliriz:\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -68.535, df = 1993.3, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.107720 -2.934811\nsample estimates:\nmean of x mean of y \n 1.962444  4.983709\nBurada dikkat etmemiz gereken iki nokta var:\nP value bizim için önemli bir değer. T testi sonunda elde ettiğimiz p-değerini şu şekilde geri döndürebiliriz:\ntest$p.value\n\n[1] 0\nDikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.",
     "crumbs": [
       "Veri Analizi",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>T-Test</span>"
@@ -910,7 +910,7 @@
     "href": "02-veri-analizi/13-t-test.html#hipotez-testi",
     "title": "\n17  T-Test\n",
     "section": "\n17.2 Hipotez testi",
-    "text": "17.2 Hipotez testi\nBu kısım biraz kafa karıştırıcı. Eğer ilk dersleri hatırlarsanız, bilimde bir şeyi doğrudan kanıtlayamadığımızı hatırlarsınız. Bu nedenle bir hipotezi doğrudan kanıtlama imkanımız yoktur. Bir hipotezi, ancak onun karşıtını reddederek kabul edebiliriz.\nNasıl mı? Bir önceki örnekte iki dağılımın birbirinden farklı olduğu hipotezini ortaya atmıştık. Bu mantığa göre, bu hipotezi test etmenin yolu, bu hipotezin zıddını test etmekten geçer.\nYani aslında ortaya iki tane hipotez atıyoruz:\n\nH0 (sıfır hipotezi): Bu iki dağılımın ortamaları birbirine eşittir.\nHA (alternatif hipotez): Bu iki dağılımın ortalamarı birbirinden farklıdır.\n\nYapmaya çalıştığımız ise doğrudan sıfır hipotezini reddetmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.\nTestimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte, sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?\n\ntest$p.value\n\n[1] 0\n\n\nBu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli \\(alpha\\) değerleri kullanılır:\n\n0.001 (binde 1 hata olasılığı)\n0.01 (%1 hata olasılığı)\n0.05 (%5 hata olasığı)\n\nÖrnek vermek gerekirse, 0.0001 \\(alpha\\) değeri altında elde ettiğimiz sonuç anlamlı mı?\n\ntest$p.value &lt; 0.001\n\n[1] TRUE\n\n\nŞimdi tekrar örneğimize geri dönelim:\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -66, df = 1997.5, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.086937 -2.908779\nsample estimates:\nmean of x mean of y \n 1.979900  4.977758 \n\n\nŞu satıra bakalım:\n\nalternative hypothesis: true difference in means is not equal to 0\n\nBunun anlamı aslında şu: 0.0001 hata olasılığı durumunda, bu iki dağılımın ortalamaları anlamlı bir şekilde farklı! Yani sıfır hipotezini reddedip, alternatif hipotezi kabul ediyoruz!",
+    "text": "17.2 Hipotez testi\nBu kısım biraz kafa karıştırıcı. Eğer ilk dersleri hatırlarsanız, bilimde bir şeyi doğrudan kanıtlayamadığımızı hatırlarsınız. Bu nedenle bir hipotezi doğrudan kanıtlama imkanımız yoktur. Bir hipotezi, ancak onun karşıtını reddederek kabul edebiliriz.\nNasıl mı? Bir önceki örnekte iki dağılımın birbirinden farklı olduğu hipotezini ortaya atmıştık. Bu mantığa göre, bu hipotezi test etmenin yolu, bu hipotezin zıddını test etmekten geçer.\nYani aslında ortaya iki tane hipotez atıyoruz:\n\nH0 (sıfır hipotezi): Bu iki dağılımın ortamaları birbirine eşittir.\nHA (alternatif hipotez): Bu iki dağılımın ortalamarı birbirinden farklıdır.\n\nYapmaya çalıştığımız ise doğrudan sıfır hipotezini reddetmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.\nTestimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte, sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?\n\ntest$p.value\n\n[1] 0\n\n\nBu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli \\(alpha\\) değerleri kullanılır:\n\n0.001 (binde 1 hata olasılığı)\n0.01 (%1 hata olasılığı)\n0.05 (%5 hata olasığı)\n\nÖrnek vermek gerekirse, 0.0001 \\(alpha\\) değeri altında elde ettiğimiz sonuç anlamlı mı?\n\ntest$p.value &lt; 0.001\n\n[1] TRUE\n\n\nŞimdi tekrar örneğimize geri dönelim:\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -68.535, df = 1993.3, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -3.107720 -2.934811\nsample estimates:\nmean of x mean of y \n 1.962444  4.983709 \n\n\nŞu satıra bakalım:\n\nalternative hypothesis: true difference in means is not equal to 0\n\nBunun anlamı aslında şu: 0.0001 hata olasılığı durumunda, bu iki dağılımın ortalamaları anlamlı bir şekilde farklı! Yani sıfır hipotezini reddedip, alternatif hipotezi kabul ediyoruz!",
     "crumbs": [
       "Veri Analizi",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>T-Test</span>"
@@ -921,7 +921,7 @@
     "href": "02-veri-analizi/13-t-test.html#ikinci-bir-örnek",
     "title": "\n17  T-Test\n",
     "section": "\n17.3 İkinci bir örnek",
-    "text": "17.3 İkinci bir örnek\nŞimdi ise, birbirine çok benzer iki dağılım simüle edelim:\n\ndağılım1, örnek sayısı = 1000, ortalama = 2, standart sapma = 1\ndağılım2, örnek sayısı = 1000, ortalama = 2, standart sapma = 2\n\n\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\n\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\n\n\n\n\n\n\n\nDikkat ederseniz, bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?\n\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = -0.39576, df = 1998, p-value = 0.6923\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -0.10854233  0.07209072\nsample estimates:\nmean of x mean of y \n 1.966666  1.984892 \n\n\nBu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?\n\ntest$p.value&lt; 0.001\n\n[1] FALSE\n\n\nEğer 0.001 \\(alpha\\) değerini seçtiğimizde bu iki popülasyonun ortamalarının aynı olma ihtimalinin çok yüksek olduğunu görüyoruz. Bu nedenle sıfır hipotezini reddedmiyoruz.",
+    "text": "17.3 İkinci bir örnek\nŞimdi ise, birbirine çok benzer iki dağılım simüle edelim:\n\ndağılım1, örnek sayısı = 1000, ortalama = 2, standart sapma = 1\ndağılım2, örnek sayısı = 1000, ortalama = 2, standart sapma = 2\n\n\ndagilim1 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\ndagilim2 &lt;- rnorm(n = 1000, mean = 2, sd = 1)\n\nsim &lt;- data.frame(\n  dagilim = c(dagilim1, dagilim2), \n  seviye = c(\n    rep(\"dagilim1\", 1000), \n    rep(\"dagilim2\", 1000)\n    )\n  )\n\nlibrary(ggplot2)\n\nggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)\n\n\n\n\n\n\n\nDikkat ederseniz, bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?\n\ntest &lt;- t.test(x = dagilim1, y = dagilim2)\n\ntest\n\n\n    Welch Two Sample t-test\n\ndata:  dagilim1 and dagilim2\nt = 1.7978, df = 1997.5, p-value = 0.07236\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -0.007267801  0.167212692\nsample estimates:\nmean of x mean of y \n 2.035865  1.955893 \n\n\nBu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?\n\ntest$p.value&lt; 0.001\n\n[1] FALSE\n\n\nEğer 0.001 \\(alpha\\) değerini seçtiğimizde bu iki popülasyonun ortamalarının aynı olma ihtimalinin çok yüksek olduğunu görüyoruz. Bu nedenle sıfır hipotezini reddedmiyoruz.",
     "crumbs": [
       "Veri Analizi",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>T-Test</span>"
@@ -987,7 +987,7 @@
     "href": "03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html#ödev",
     "title": "\n18  Kontrol yapıları\n",
     "section": "\n18.4 Ödev",
-    "text": "18.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 28’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.",
+    "text": "18.4 Ödev\nBurada öğrendiklerimizi pekiştirmek için Bölüm 29’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.",
     "crumbs": [
       "Bilgisayarlı Düşünme",
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>Kontrol yapıları</span>"
@@ -1313,146 +1313,267 @@
     ]
   },
   {
-    "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html",
-    "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html",
-    "title": "28  DNA üzerinde işlemler",
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
     "section": "",
-    "text": "28.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır.",
+    "text": "28.1 Bilimsel hikaye\nBir araştırma grubundaki araştırmacılar, Gümüş ağacı bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.\nMaalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.\nÇalışmada kullanılacak veriye aşağıdaki bağlantıdan ulaşabilirsiniz:\nhttps://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>DNA üzerinde işlemler</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bilimsel-hikaye",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bilimsel-hikaye",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "",
+    "text": "28.1.1 Çalışma yöntemi\nBu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.\nBitkileri dört farklı patojen (Patojen değişkeni) uygulamasına maruz bırakıyorlar:\n\n\nKontrol (Patojen inoküle edilmemiş, sağlıklı)\nP. cinnamomi\nP. multivora\n\nPatojenler (Her iki patojen ile inoküle edilmiş bitkiler)\n\nArdından bu bitkileri 37 güne kadar iki farklı kültürleme koşulunda (Kulturleme_kosulu değişkeni) yetiştiriyorlar:\n\nKurak\nNemli\n\nBu süre boyunca kültürlenen bitkilerde iki farklı ölçüm yapıyorlar:\n\n\nFotosentez: Bitkide gözlenen Fotosentez hızı\n\nIletkenlik: Bitkinin sahip olduğu iletkenlik değeri",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-yükleme",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-yükleme",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.2 Veri yükleme",
+    "text": "28.2 Veri yükleme\nUzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-çerçevesi-inceleme",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#veri-çerçevesi-inceleme",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.3 Veri çerçevesi inceleme",
+    "text": "28.3 Veri çerçevesi inceleme\nYüklediğiniz veri çerçevesinin satır ve sütun sayılarını geri döndürünüz:\nBu veri çerçevesindeki sütun isimlerini geri döndürebilir misiniz?\nBU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (faktör) değişkeni olarak belirlenmesi gerekmektedir. Acaba bu sütunları faktöre çevirebilir misiniz?\n\nKulturleme_kosulu\nPatojen",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#koşulların-belirlenmesi",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#koşulların-belirlenmesi",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.4 Koşulların belirlenmesi",
+    "text": "28.4 Koşulların belirlenmesi\nBu deney kapsamında yapılmış kültürleme koşullarını (Kurak veya Nemli) frekans tablosu haline getirebilir misiniz?\nBu deney kapsamında yapılmış patojen uygulamalarını frekans tablosu haline getirebilir misiniz?\nAcaba her farklı kültürleme koşuluna ait kaç farklı patojen uygulaması var? Birleşik bir frekans tablosu oluşturabilir misiniz?",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızı-ve-iletkenlik-değerlerinin-dağılımları",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızı-ve-iletkenlik-değerlerinin-dağılımları",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.5 Fotosentez hızı ve iletkenlik değerlerinin dağılımları",
+    "text": "28.5 Fotosentez hızı ve iletkenlik değerlerinin dağılımları\nBu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmıştır. Bu değişkenlere ait histogramları ggplot2 paketi kullanarak çizebilir misiniz?\nİlk olarak Fotosentez hızı değişkeni:\nŞimdi de iletkenlik değerleri:",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızında-görülen-değişimlerin-incelenmesi",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızında-görülen-değişimlerin-incelenmesi",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.6 Fotosentez hızında görülen değişimlerin incelenmesi",
+    "text": "28.6 Fotosentez hızında görülen değişimlerin incelenmesi\nBu kısımda ise fotosentez hızında görülen değişimleri incelemeyi amaçladık.\n\n28.6.1 Kültürleme koşulları ve Fotosentez hızı\nAcaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına nasıl etki gösteriyor? Bunu kutu grafiği (boxplot) kullanarak görselleştirebilir misiniz?\nSizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşullaru, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:\n\nCevabınızı bu satırlara yazınız\n\n\n28.6.2 Patojen inokülasyonu ve Fotosentez hızında görülen değişim\nPatojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?\nYukarıda oluşturduğunuz grafiğe bakarak aşağıdaki soruları cevaplayınız:\nAcaba patojen uygulaması fotosentez hızında bir değişime yol açmış olabilir mi?\n\nCevabınızı bu satırlara yazınız\n\nAynı anda iki patojenin uygulanması, fotosentez hızını biraz daha fazla azaltmış olabilir mi?\n\nCevabınızı bu satırlara yazınız",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-değerinde-görülen-değişimler",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-değerinde-görülen-değişimler",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.7 İletkenlik değerinde görülen değişimler",
+    "text": "28.7 İletkenlik değerinde görülen değişimler\nBu kısımda ise kontrol bitkileri ve patojen uygulanmış bitkilerin iletkenlik değerlerinde görülen değişimlerin incelenmesi amaçlanmıştır.\n\n28.7.1 Kültürleme koşulları ve iletkenlik\nAcaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?\nKurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:\n\nCevabınızı bu satırlara yazınız\n\n\n28.7.2 Patojen inokülasyonun iletkenlik değerlerine etkisi\nPatojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızının-kontrol-örneklerinde-incelenmesi",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#fotosentez-hızının-kontrol-örneklerinde-incelenmesi",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.8 Fotosentez hızının kontrol örneklerinde incelenmesi",
+    "text": "28.8 Fotosentez hızının kontrol örneklerinde incelenmesi\nBu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının kurak ve nemli koşullardaki değişimini inceleyeceğiz.\nSadece Kontrol örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir misiniz?\nŞimdi ise oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-ve-fotosentez-arasında-bir-ilişki-var-mı",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#iletkenlik-ve-fotosentez-arasında-bir-ilişki-var-mı",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.9 İletkenlik ve Fotosentez arasında bir ilişki var mı?",
+    "text": "28.9 İletkenlik ve Fotosentez arasında bir ilişki var mı?\nPeki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki değişkeni x-y ekseninde nokta grafiği ile gösterebilir misiniz? Eksenleri aşağıdaki gibi belirleyiniz:\n\n\nx ekseni: İletkenlik\n\ny ekseni: Fotosentez hizi",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı",
+    "href": "04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html#bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı",
+    "title": "\n28  Veri Analizi vize sınavı pratik 2024-05-30\n",
+    "section": "\n28.10 Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?",
+    "text": "28.10 Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?\nAcaba Kurak ve Nemli koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? t.test fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. p-value (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Veri Analizi vize sınavı pratik 2024-05-30</span>"
+    ]
+  },
+  {
+    "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html",
+    "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html",
+    "title": "29  DNA üzerinde işlemler",
+    "section": "",
+    "text": "29.1 Soru 1\nBu DNA dizisini, RNA formuna dönüştüren kodu yazınız.\nOluşturacağınız kod, rna isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır.",
+    "crumbs": [
+      "Pratikler - Ödevler",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>DNA üzerinde işlemler</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html#soru-2",
-    "title": "28  DNA üzerinde işlemler",
-    "section": "\n28.2 Soru 2",
-    "text": "28.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır.",
+    "title": "29  DNA üzerinde işlemler",
+    "section": "\n29.2 Soru 2",
+    "text": "29.2 Soru 2\nBu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız.\nOluşturacağınız kod, complementary isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır.",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>DNA üzerinde işlemler</span>"
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>DNA üzerinde işlemler</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
     "section": "",
-    "text": "29.1 Soru 1\nAşağıda verilen fonksiyonu dikkatlice inceleyeiniz:\nBu fonksiyon uyarınca, f(x = 5)’yı çalıştırınca elde edeceğiniz değeri, aşağıdaki kod bloğuna yazınız.",
+    "text": "30.1 Soru 1\nAşağıda verilen fonksiyonu dikkatlice inceleyeiniz:\nBu fonksiyon uyarınca, f(x = 5)’yı çalıştırınca elde edeceğiniz değeri, aşağıdaki kod bloğuna yazınız.",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-1",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
     "section": "",
     "text": "f &lt;- function(x){\n  if (x &gt; 5){\n    return(x^2)\n  } else {\n  return(x)\n}\n}",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#cevap-1",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#cevap-1",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
-    "section": "\n29.2 Cevap 1",
-    "text": "29.2 Cevap 1\nBu fonksiyonu çalıştırınca:\nşu değeri: 5\nelde ederiz.",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
+    "section": "\n30.2 Cevap 1",
+    "text": "30.2 Cevap 1\nBu fonksiyonu çalıştırınca:\nşu değeri: 5\nelde ederiz.",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-2",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-2",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
-    "section": "\n29.3 Soru 2",
-    "text": "29.3 Soru 2\nAşağıda verilen formülü dikkatlice inceleyiniz ve aşağıdaki iki soruyu çözünüz.\n\\[\ny = \\frac{2x+5}{12}\n\\]\n\n29.3.1 Soru 2.1\nBu işlemi gerçekleştirecek y isimli bir fonksiyon yazınız.\n\n29.3.2 Cevap 2.1\n\n# cevabınızı asagiya yaziniz (# isaretini kullanmadan)\n\ny &lt;- function(x){\n  return((2*x+5)/12)\n}\n\n\n29.3.3 Soru 2.2\nBu fonksiyonu kullanarak y(x = 12) işleminin sonucunu geri döndürünüz:\n\n29.3.4 Cevap 2.2\n\n# cevabınızı asagiya yaziniz (# isaretini kullanmadan)\ny(x = 12)\n\n[1] 2.416667",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
+    "section": "\n30.3 Soru 2",
+    "text": "30.3 Soru 2\nAşağıda verilen formülü dikkatlice inceleyiniz ve aşağıdaki iki soruyu çözünüz.\n\\[\ny = \\frac{2x+5}{12}\n\\]\n\n30.3.1 Soru 2.1\nBu işlemi gerçekleştirecek y isimli bir fonksiyon yazınız.\n\n30.3.2 Cevap 2.1\n\n# cevabınızı asagiya yaziniz (# isaretini kullanmadan)\n\ny &lt;- function(x){\n  return((2*x+5)/12)\n}\n\n\n30.3.3 Soru 2.2\nBu fonksiyonu kullanarak y(x = 12) işleminin sonucunu geri döndürünüz:\n\n30.3.4 Cevap 2.2\n\n# cevabınızı asagiya yaziniz (# isaretini kullanmadan)\ny(x = 12)\n\n[1] 2.416667",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-3",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-3",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
-    "section": "\n29.4 Soru 3",
-    "text": "29.4 Soru 3\nBir amino asit ipliğinin toplam kütlesi, o ipliği oluşturan amino asitlerin ortalama moleküler ağırlıklarının toplamıdır. Örnek olarak, elimizde A-R-N-E dizilimine sahip bir amino asit ipliği olsun. Bu ipliğin toplam kütlesini bulmak için; A, R, N, ve E amino asitlerinin ortalama molekül ağırlıklarını toplamamız gerekir.\n\n\nAmino Asit\nKod\nOrtalama Kütle\n\n\n\nAlanin\nA\n129.11398\n\n\nArjinin\nR\n156.18568\n\n\nAsparajin\nN\n114.10264\n\n\nGlutamik Asit\nE\n129.11398\n\n\n\nBu tablo uyarınca aşağıdaki hesaplamayı yapmalıyız:\n\n129.11398 + 156.18568 + 114.10264 + 129.11398\n\n[1] 528.5163\n\n\nEkte verilen amino-acid-mass.txt isimli dosya, bütün amino asitlerin sahip oldukları molekül ağırlıklarını içermektedir.\nBu bilgilere göre aşağıdaki soruları çözünüz\n\n29.4.1 Soru 3.1\nEkte verilen amino-acid-mass.txt dosyasını okuyarak bir amino asit ipliğinin toplam kütlesini hesaplayan, protein_kutle_hesapla isimli bir fonksiyon yazınız.\n\n\n\n\n\n\nİpucu\n\n\n\nOluşturacağınız fonksiyonda for döngüsünü kullanınız.\n\n\n\n29.4.2 Cevap 3.1\nBu sorunun tek bir çözüm yolu yok. Ancak benim aklımdaki yol aşağıda. Daha ileri teknikleri kullanan arkadaşalr da var. O teknikleri anlatmamıştım, demek ki araştırarak öğrenmişler.\nBu soruyu cevaplamak için, öncelikle amino-acid-mass.txt isimli dosyayı yüklemeliyiz. Amino asitlerin kütleleri bu tablo içindedir.\n\n# cevabinizi asagiya yaziniz (# isaretini kullanmadan)\n\n# once kutle tablosu dosyasini yukleyelim:\n\nkutle_tablosu &lt;- read.table(\"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/amino-acid-mass.txt\", sep =\"\\t\", header=T)\n\n# kutle tablosunun ilk satirlarini inceleyelim:\n\nhead(kutle_tablosu)\n\n     amino_asit kod molekul_agirligi\n1       alanine   A          71.0779\n2      arginine   R         156.1857\n3    asparagine   N         114.1026\n4 aspartic acid   D         115.0874\n5      cysteine   C         103.1429\n6 glutamic acid   E         129.1140\n\n\nYani, bir amino asitin kütlesini öğrenmek isterse bu dosyaydan faydalanabiliriz. Mesela, Asparajin (N) amino asitinin kütlesini şu şekilde öğrenebiliriz:\n\naa_agirlik &lt;- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == \"N\"]\naa_agirlik\n\n[1] 114.1026\n\n\nŞimdi, fonkisyonumuzu yazabiliriz:\n\n# once fonksiyonu olusturmak icin gerekli komutlari yazalim. Fonksiyonun, iki tane girdisi olacaktir. \n# birinci girdi, amino asit dizisi\n# ikinci girdi, amino asitlerin kutlelerinin oldugu kutle kutle_tablosu\n# ancak bu kutle tablosunun mutlaka daha once yuklenmis olması gereklidir\n\nprotein_kutle_hesapla &lt;- function(iplik, kutle_tablosu){\n  # oncelikle bir agirlik degeri olsturalim\n  agirlik &lt;- 0\n  # iplik icerisindeki her amino asit icin bir dongu olusturmamiz gereklidir\n\n  for (aa in iplik){\n      # once o amino asite karsilik gelen agirligi alalim\n      # buradaki satiri, farkli sekillerde yazabilirsiniz. \n      aa_agirlik &lt;- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == aa]\n      # buradaki satiri, farkli sekillerde yazabilirsiniz. \n      # aa_agirlik &lt;- molekul_agirligi[kutle_tablosu$kod == aa, 3]\n\n      # aa_agirlik &lt;- subset(kutle_tablosu, subset = kod == aa, select = molekul_agirligi)\n      cat (\"Secilen amino asit ve agirligi\", aa, aa_agirlik, \"\\n\")\n      # daha sonra, olusturdugumuz agirlik degerine, bu amino asitin kutlesini ekleyelim\n      agirlik &lt;- agirlik + aa_agirlik\n  }\n  # en son olarak agirlik degerini dondurelim\n  return(agirlik)\n}\n\n\n29.4.3 Soru 3.2\nDaha sonra yazdığınız fonksiyonu kullanarak, aşağıdaki protein ipliğinin kütlesini hesaplayınız:\n\nprotein_ipligi &lt;- c(\"O\", \"T\", \"Q\", \"E\", \"G\", \"I\", \"W\")\n\nFonksiyonun uygulamasını ise aşağıdaki kod bloğuna yazınız:\n\n29.4.4 Cevap 3.2\n\n# cevabınızı asagiya yaziniz (# isaretini kullanmadan)\n# oncelikle kutle tablosunu yukledigimizden emin olalim\n# fonksiyona, kutle tablosunu vermemiz gerekli\n# o yuzden oncelikle kutle tablosunu yuklemeliyiz\n\nkutle_tablosu &lt;- read.table(\"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/amino-acid-mass.txt\", sep =\"\\t\", header=T)\n\nprotein_kutle_hesapla(iplik = protein_ipligi, kutle_tablosu = kutle_tablosu)\n\nSecilen amino asit ve agirligi O 237.2982 \nSecilen amino asit ve agirligi T 101.1039 \nSecilen amino asit ve agirligi Q 128.1292 \nSecilen amino asit ve agirligi E 129.114 \nSecilen amino asit ve agirligi G 57.05132 \nSecilen amino asit ve agirligi I 113.1576 \nSecilen amino asit ve agirligi W 186.2099 \n\n\n[1] 952.0641",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
+    "section": "\n30.4 Soru 3",
+    "text": "30.4 Soru 3\nBir amino asit ipliğinin toplam kütlesi, o ipliği oluşturan amino asitlerin ortalama moleküler ağırlıklarının toplamıdır. Örnek olarak, elimizde A-R-N-E dizilimine sahip bir amino asit ipliği olsun. Bu ipliğin toplam kütlesini bulmak için; A, R, N, ve E amino asitlerinin ortalama molekül ağırlıklarını toplamamız gerekir.\n\n\nAmino Asit\nKod\nOrtalama Kütle\n\n\n\nAlanin\nA\n129.11398\n\n\nArjinin\nR\n156.18568\n\n\nAsparajin\nN\n114.10264\n\n\nGlutamik Asit\nE\n129.11398\n\n\n\nBu tablo uyarınca aşağıdaki hesaplamayı yapmalıyız:\n\n129.11398 + 156.18568 + 114.10264 + 129.11398\n\n[1] 528.5163\n\n\nEkte verilen amino-acid-mass.txt isimli dosya, bütün amino asitlerin sahip oldukları molekül ağırlıklarını içermektedir.\nBu bilgilere göre aşağıdaki soruları çözünüz\n\n30.4.1 Soru 3.1\nEkte verilen amino-acid-mass.txt dosyasını okuyarak bir amino asit ipliğinin toplam kütlesini hesaplayan, protein_kutle_hesapla isimli bir fonksiyon yazınız.\n\n\n\n\n\n\nİpucu\n\n\n\nOluşturacağınız fonksiyonda for döngüsünü kullanınız.\n\n\n\n30.4.2 Cevap 3.1\nBu sorunun tek bir çözüm yolu yok. Ancak benim aklımdaki yol aşağıda. Daha ileri teknikleri kullanan arkadaşalr da var. O teknikleri anlatmamıştım, demek ki araştırarak öğrenmişler.\nBu soruyu cevaplamak için, öncelikle amino-acid-mass.txt isimli dosyayı yüklemeliyiz. Amino asitlerin kütleleri bu tablo içindedir.\n\n# cevabinizi asagiya yaziniz (# isaretini kullanmadan)\n\n# once kutle tablosu dosyasini yukleyelim:\n\nkutle_tablosu &lt;- read.table(\"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/amino-acid-mass.txt\", sep =\"\\t\", header=T)\n\n# kutle tablosunun ilk satirlarini inceleyelim:\n\nhead(kutle_tablosu)\n\n     amino_asit kod molekul_agirligi\n1       alanine   A          71.0779\n2      arginine   R         156.1857\n3    asparagine   N         114.1026\n4 aspartic acid   D         115.0874\n5      cysteine   C         103.1429\n6 glutamic acid   E         129.1140\n\n\nYani, bir amino asitin kütlesini öğrenmek isterse bu dosyaydan faydalanabiliriz. Mesela, Asparajin (N) amino asitinin kütlesini şu şekilde öğrenebiliriz:\n\naa_agirlik &lt;- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == \"N\"]\naa_agirlik\n\n[1] 114.1026\n\n\nŞimdi, fonkisyonumuzu yazabiliriz:\n\n# once fonksiyonu olusturmak icin gerekli komutlari yazalim. Fonksiyonun, iki tane girdisi olacaktir. \n# birinci girdi, amino asit dizisi\n# ikinci girdi, amino asitlerin kutlelerinin oldugu kutle kutle_tablosu\n# ancak bu kutle tablosunun mutlaka daha once yuklenmis olması gereklidir\n\nprotein_kutle_hesapla &lt;- function(iplik, kutle_tablosu){\n  # oncelikle bir agirlik degeri olsturalim\n  agirlik &lt;- 0\n  # iplik icerisindeki her amino asit icin bir dongu olusturmamiz gereklidir\n\n  for (aa in iplik){\n      # once o amino asite karsilik gelen agirligi alalim\n      # buradaki satiri, farkli sekillerde yazabilirsiniz. \n      aa_agirlik &lt;- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == aa]\n      # buradaki satiri, farkli sekillerde yazabilirsiniz. \n      # aa_agirlik &lt;- molekul_agirligi[kutle_tablosu$kod == aa, 3]\n\n      # aa_agirlik &lt;- subset(kutle_tablosu, subset = kod == aa, select = molekul_agirligi)\n      cat (\"Secilen amino asit ve agirligi\", aa, aa_agirlik, \"\\n\")\n      # daha sonra, olusturdugumuz agirlik degerine, bu amino asitin kutlesini ekleyelim\n      agirlik &lt;- agirlik + aa_agirlik\n  }\n  # en son olarak agirlik degerini dondurelim\n  return(agirlik)\n}\n\n\n30.4.3 Soru 3.2\nDaha sonra yazdığınız fonksiyonu kullanarak, aşağıdaki protein ipliğinin kütlesini hesaplayınız:\n\nprotein_ipligi &lt;- c(\"O\", \"T\", \"Q\", \"E\", \"G\", \"I\", \"W\")\n\nFonksiyonun uygulamasını ise aşağıdaki kod bloğuna yazınız:\n\n30.4.4 Cevap 3.2\n\n# cevabınızı asagiya yaziniz (# isaretini kullanmadan)\n# oncelikle kutle tablosunu yukledigimizden emin olalim\n# fonksiyona, kutle tablosunu vermemiz gerekli\n# o yuzden oncelikle kutle tablosunu yuklemeliyiz\n\nkutle_tablosu &lt;- read.table(\"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/amino-acid-mass.txt\", sep =\"\\t\", header=T)\n\nprotein_kutle_hesapla(iplik = protein_ipligi, kutle_tablosu = kutle_tablosu)\n\nSecilen amino asit ve agirligi O 237.2982 \nSecilen amino asit ve agirligi T 101.1039 \nSecilen amino asit ve agirligi Q 128.1292 \nSecilen amino asit ve agirligi E 129.114 \nSecilen amino asit ve agirligi G 57.05132 \nSecilen amino asit ve agirligi I 113.1576 \nSecilen amino asit ve agirligi W 186.2099 \n\n\n[1] 952.0641",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-4",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#soru-4",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
-    "section": "\n29.5 Soru 4",
-    "text": "29.5 Soru 4\nAşağda verilen for döngüsünü, ve bu döngünün çıktısını dikkatlice inceleyiniz:\n\ndna &lt;- c(\"A\", \"T\", \"G\", \"C\", \"G\", \"C\", \"A\")\nkomplementer &lt;- c()\nfor (nukleotid in dna){\n  if (nukleotid == \"A\"){komplementer &lt;- c(komplementer, \"T\")}\n  if (nukleotid == \"T\"){komplementer &lt;- c(komplementer, \"A\")}\n  if (nukleotid == \"C\"){komplementer &lt;- c(komplementer, \"G\")}\n  if (nukleotid == \"G\"){komplementer &lt;- c(komplementer, \"C\")}\n}\n\nBu kod bloğu nasıl çalışmaktadır? Bu kod bloğunun nasıl çalıştığını satır satır çözümleyerek, kendi cümlelerinizle anlatınız (Cevabınızı, Cevap 4 isimli başlığın altına yazınız):",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
+    "section": "\n30.5 Soru 4",
+    "text": "30.5 Soru 4\nAşağda verilen for döngüsünü, ve bu döngünün çıktısını dikkatlice inceleyiniz:\n\ndna &lt;- c(\"A\", \"T\", \"G\", \"C\", \"G\", \"C\", \"A\")\nkomplementer &lt;- c()\nfor (nukleotid in dna){\n  if (nukleotid == \"A\"){komplementer &lt;- c(komplementer, \"T\")}\n  if (nukleotid == \"T\"){komplementer &lt;- c(komplementer, \"A\")}\n  if (nukleotid == \"C\"){komplementer &lt;- c(komplementer, \"G\")}\n  if (nukleotid == \"G\"){komplementer &lt;- c(komplementer, \"C\")}\n}\n\nBu kod bloğu nasıl çalışmaktadır? Bu kod bloğunun nasıl çalıştığını satır satır çözümleyerek, kendi cümlelerinizle anlatınız (Cevabınızı, Cevap 4 isimli başlığın altına yazınız):",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#cevap-4",
     "href": "04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html#cevap-4",
-    "title": "\n29  Bilgisayarlı Düşünme Vize\n",
-    "section": "\n29.6 Cevap 4",
-    "text": "29.6 Cevap 4\n\nİlk olarak dna isminde, yedi tane nükleotid içeren bir vektör tanımlanır\n\nkomplementer isminde boş bir vektör tanımlanır\n\ndna vektörü içerisindeki her elemanı, tek tek nukleotid değişkeni içerisine aktaran bir for döngüsü ifade edilmiştir\nElde edilen her nukleotid için dört farklı koşul çalıştırlır:\n\nEğer nükleotid A ise, komplementer vektörü içerisine T eklenir\nEğer nükleotid T ise, komplementer vektörü içerisine A eklenir\nEğer nükleotid C ise, komplementer vektörü içerisine G eklenir\nEğer nükleotid G ise, komplementer vektörü içerisine C eklenir\n\n\n\n\n\n\n\n\n\nİpucu\n\n\n\nBu soruda istediğim şey, verilen kod bloğundaki her kodun ne işe yaradığını açlıklamanız. Aşağıdaki kodu inceleyelim:\n\nveri &lt;- data.frame(bitki = c(\"setosa\", \"versicolor\"), \n                   petal_uzunlugu = c(1.4, 2.3))\n\nAçıklaması:\nBu kod bloğundaki birinci satır veri isminde bir veri çerçevesi oluşturmaktadır. Bu veri çerçevesinin içinde bitki ve petal uzunluğu isminde iki farklı sütun bulunmaktadır.",
+    "title": "\n30  Bilgisayarlı Düşünme Vize\n",
+    "section": "\n30.6 Cevap 4",
+    "text": "30.6 Cevap 4\n\nİlk olarak dna isminde, yedi tane nükleotid içeren bir vektör tanımlanır\n\nkomplementer isminde boş bir vektör tanımlanır\n\ndna vektörü içerisindeki her elemanı, tek tek nukleotid değişkeni içerisine aktaran bir for döngüsü ifade edilmiştir\nElde edilen her nukleotid için dört farklı koşul çalıştırlır:\n\nEğer nükleotid A ise, komplementer vektörü içerisine T eklenir\nEğer nükleotid T ise, komplementer vektörü içerisine A eklenir\nEğer nükleotid C ise, komplementer vektörü içerisine G eklenir\nEğer nükleotid G ise, komplementer vektörü içerisine C eklenir\n\n\n\n\n\n\n\n\n\nİpucu\n\n\n\nBu soruda istediğim şey, verilen kod bloğundaki her kodun ne işe yaradığını açlıklamanız. Aşağıdaki kodu inceleyelim:\n\nveri &lt;- data.frame(bitki = c(\"setosa\", \"versicolor\"), \n                   petal_uzunlugu = c(1.4, 2.3))\n\nAçıklaması:\nBu kod bloğundaki birinci satır veri isminde bir veri çerçevesi oluşturmaktadır. Bu veri çerçevesinin içinde bitki ve petal uzunluğu isminde iki farklı sütun bulunmaktadır.",
     "crumbs": [
       "Pratikler - Ödevler",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Bilgisayarlı Düşünme Vize</span>"
     ]
   },
   {
     "objectID": "05-istatistik/naive-bayes.html",
     "href": "05-istatistik/naive-bayes.html",
-    "title": "\n30  Naive-Bayes ile Meme Kanser Veri Analizi\n",
+    "title": "\n31  Naive-Bayes ile Meme Kanser Veri Analizi\n",
     "section": "",
     "text": "İlk olarak aşağıda bulunan paketleri kurmanız gerekidir:\n\ninstall.packages(\"psych\")\ninstall.packages(\"corrplot\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"caret\")\ninstall.packages(\"ggpubr\")\ninstall.packages(\"klaR\")\n\nDaha sonra bu paketleri yükleyelim:\n\nlibrary(psych)\nlibrary(corrplot)\n\ncorrplot 0.92 loaded\n\nlibrary(ggplot2)\n\n\nAttaching package: 'ggplot2'\n\n\nThe following objects are masked from 'package:psych':\n\n    %+%, alpha\n\nlibrary(caret)\n\nLoading required package: lattice\n\nlibrary(ggpubr)\nlibrary(klaR)\n\nLoading required package: MASS\n\n\nBu çalışmada kullanılan tutorial:\nhttps://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis\nVeri setimizi alalım (Siz buraya kendi dosya yolunuzu yazacaksınız). Veri seti link: https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis/input\nİlk olarak verimizi yükleyelim:\n\nbc_data &lt;- read.csv(\"https://raw.githubusercontent.com/emrahkirdok/ybva/main/05-istatistik/data.csv\")\n\nTeşhisi faktör olarak düzenleyelim (M:malign tümör, B:benign tümör) ve veri setini inceleyelim:\n\nbc_data$diagnosis &lt;- as.factor(bc_data$diagnosis)\nbc_data[,33] &lt;- NULL\nsummary(bc_data)\n\n       id            diagnosis  radius_mean      texture_mean  \n Min.   :     8670   B:357     Min.   : 6.981   Min.   : 9.71  \n 1st Qu.:   869218   M:212     1st Qu.:11.700   1st Qu.:16.17  \n Median :   906024             Median :13.370   Median :18.84  \n Mean   : 30371831             Mean   :14.127   Mean   :19.29  \n 3rd Qu.:  8813129             3rd Qu.:15.780   3rd Qu.:21.80  \n Max.   :911320502             Max.   :28.110   Max.   :39.28  \n perimeter_mean     area_mean      smoothness_mean   compactness_mean \n Min.   : 43.79   Min.   : 143.5   Min.   :0.05263   Min.   :0.01938  \n 1st Qu.: 75.17   1st Qu.: 420.3   1st Qu.:0.08637   1st Qu.:0.06492  \n Median : 86.24   Median : 551.1   Median :0.09587   Median :0.09263  \n Mean   : 91.97   Mean   : 654.9   Mean   :0.09636   Mean   :0.10434  \n 3rd Qu.:104.10   3rd Qu.: 782.7   3rd Qu.:0.10530   3rd Qu.:0.13040  \n Max.   :188.50   Max.   :2501.0   Max.   :0.16340   Max.   :0.34540  \n concavity_mean    concave.points_mean symmetry_mean    fractal_dimension_mean\n Min.   :0.00000   Min.   :0.00000     Min.   :0.1060   Min.   :0.04996       \n 1st Qu.:0.02956   1st Qu.:0.02031     1st Qu.:0.1619   1st Qu.:0.05770       \n Median :0.06154   Median :0.03350     Median :0.1792   Median :0.06154       \n Mean   :0.08880   Mean   :0.04892     Mean   :0.1812   Mean   :0.06280       \n 3rd Qu.:0.13070   3rd Qu.:0.07400     3rd Qu.:0.1957   3rd Qu.:0.06612       \n Max.   :0.42680   Max.   :0.20120     Max.   :0.3040   Max.   :0.09744       \n   radius_se        texture_se      perimeter_se       area_se       \n Min.   :0.1115   Min.   :0.3602   Min.   : 0.757   Min.   :  6.802  \n 1st Qu.:0.2324   1st Qu.:0.8339   1st Qu.: 1.606   1st Qu.: 17.850  \n Median :0.3242   Median :1.1080   Median : 2.287   Median : 24.530  \n Mean   :0.4052   Mean   :1.2169   Mean   : 2.866   Mean   : 40.337  \n 3rd Qu.:0.4789   3rd Qu.:1.4740   3rd Qu.: 3.357   3rd Qu.: 45.190  \n Max.   :2.8730   Max.   :4.8850   Max.   :21.980   Max.   :542.200  \n smoothness_se      compactness_se      concavity_se     concave.points_se \n Min.   :0.001713   Min.   :0.002252   Min.   :0.00000   Min.   :0.000000  \n 1st Qu.:0.005169   1st Qu.:0.013080   1st Qu.:0.01509   1st Qu.:0.007638  \n Median :0.006380   Median :0.020450   Median :0.02589   Median :0.010930  \n Mean   :0.007041   Mean   :0.025478   Mean   :0.03189   Mean   :0.011796  \n 3rd Qu.:0.008146   3rd Qu.:0.032450   3rd Qu.:0.04205   3rd Qu.:0.014710  \n Max.   :0.031130   Max.   :0.135400   Max.   :0.39600   Max.   :0.052790  \n  symmetry_se       fractal_dimension_se  radius_worst   texture_worst  \n Min.   :0.007882   Min.   :0.0008948    Min.   : 7.93   Min.   :12.02  \n 1st Qu.:0.015160   1st Qu.:0.0022480    1st Qu.:13.01   1st Qu.:21.08  \n Median :0.018730   Median :0.0031870    Median :14.97   Median :25.41  \n Mean   :0.020542   Mean   :0.0037949    Mean   :16.27   Mean   :25.68  \n 3rd Qu.:0.023480   3rd Qu.:0.0045580    3rd Qu.:18.79   3rd Qu.:29.72  \n Max.   :0.078950   Max.   :0.0298400    Max.   :36.04   Max.   :49.54  \n perimeter_worst    area_worst     smoothness_worst  compactness_worst\n Min.   : 50.41   Min.   : 185.2   Min.   :0.07117   Min.   :0.02729  \n 1st Qu.: 84.11   1st Qu.: 515.3   1st Qu.:0.11660   1st Qu.:0.14720  \n Median : 97.66   Median : 686.5   Median :0.13130   Median :0.21190  \n Mean   :107.26   Mean   : 880.6   Mean   :0.13237   Mean   :0.25427  \n 3rd Qu.:125.40   3rd Qu.:1084.0   3rd Qu.:0.14600   3rd Qu.:0.33910  \n Max.   :251.20   Max.   :4254.0   Max.   :0.22260   Max.   :1.05800  \n concavity_worst  concave.points_worst symmetry_worst   fractal_dimension_worst\n Min.   :0.0000   Min.   :0.00000      Min.   :0.1565   Min.   :0.05504        \n 1st Qu.:0.1145   1st Qu.:0.06493      1st Qu.:0.2504   1st Qu.:0.07146        \n Median :0.2267   Median :0.09993      Median :0.2822   Median :0.08004        \n Mean   :0.2722   Mean   :0.11461      Mean   :0.2901   Mean   :0.08395        \n 3rd Qu.:0.3829   3rd Qu.:0.16140      3rd Qu.:0.3179   3rd Qu.:0.09208        \n Max.   :1.2520   Max.   :0.29100      Max.   :0.6638   Max.   :0.20750        \n\n\nTeşhis bilgisine bakalım:\n\nprop.table(table(bc_data$diagnosis))\n\n\n        B         M \n0.6274165 0.3725835 \n\n\nVeri setini inceleyelim:\n\ndescribe(bc_data)\n\n                        vars   n        mean           sd    median    trimmed\nid                         1 569 30371831.43 125020585.61 906024.00 7344332.77\ndiagnosis*                 2 569        1.37         0.48      1.00       1.34\nradius_mean                3 569       14.13         3.52     13.37      13.82\ntexture_mean               4 569       19.29         4.30     18.84      19.04\nperimeter_mean             5 569       91.97        24.30     86.24      89.74\narea_mean                  6 569      654.89       351.91    551.10     606.13\nsmoothness_mean            7 569        0.10         0.01      0.10       0.10\ncompactness_mean           8 569        0.10         0.05      0.09       0.10\nconcavity_mean             9 569        0.09         0.08      0.06       0.08\nconcave.points_mean       10 569        0.05         0.04      0.03       0.04\nsymmetry_mean             11 569        0.18         0.03      0.18       0.18\nfractal_dimension_mean    12 569        0.06         0.01      0.06       0.06\nradius_se                 13 569        0.41         0.28      0.32       0.36\ntexture_se                14 569        1.22         0.55      1.11       1.16\nperimeter_se              15 569        2.87         2.02      2.29       2.51\narea_se                   16 569       40.34        45.49     24.53      31.69\nsmoothness_se             17 569        0.01         0.00      0.01       0.01\ncompactness_se            18 569        0.03         0.02      0.02       0.02\nconcavity_se              19 569        0.03         0.03      0.03       0.03\nconcave.points_se         20 569        0.01         0.01      0.01       0.01\nsymmetry_se               21 569        0.02         0.01      0.02       0.02\nfractal_dimension_se      22 569        0.00         0.00      0.00       0.00\nradius_worst              23 569       16.27         4.83     14.97      15.73\ntexture_worst             24 569       25.68         6.15     25.41      25.39\nperimeter_worst           25 569      107.26        33.60     97.66     103.42\narea_worst                26 569      880.58       569.36    686.50     788.02\nsmoothness_worst          27 569        0.13         0.02      0.13       0.13\ncompactness_worst         28 569        0.25         0.16      0.21       0.23\nconcavity_worst           29 569        0.27         0.21      0.23       0.25\nconcave.points_worst      30 569        0.11         0.07      0.10       0.11\nsymmetry_worst            31 569        0.29         0.06      0.28       0.28\nfractal_dimension_worst   32 569        0.08         0.02      0.08       0.08\n                             mad     min          max        range skew\nid                      65567.98 8670.00 911320502.00 911311832.00 6.44\ndiagnosis*                  0.00    1.00         2.00         1.00 0.53\nradius_mean                 2.82    6.98        28.11        21.13 0.94\ntexture_mean                4.17    9.71        39.28        29.57 0.65\nperimeter_mean             18.84   43.79       188.50       144.71 0.99\narea_mean                 227.28  143.50      2501.00      2357.50 1.64\nsmoothness_mean             0.01    0.05         0.16         0.11 0.45\ncompactness_mean            0.05    0.02         0.35         0.33 1.18\nconcavity_mean              0.06    0.00         0.43         0.43 1.39\nconcave.points_mean         0.03    0.00         0.20         0.20 1.17\nsymmetry_mean               0.03    0.11         0.30         0.20 0.72\nfractal_dimension_mean      0.01    0.05         0.10         0.05 1.30\nradius_se                   0.16    0.11         2.87         2.76 3.07\ntexture_se                  0.47    0.36         4.88         4.52 1.64\nperimeter_se                1.14    0.76        21.98        21.22 3.43\narea_se                    13.63    6.80       542.20       535.40 5.42\nsmoothness_se               0.00    0.00         0.03         0.03 2.30\ncompactness_se              0.01    0.00         0.14         0.13 1.89\nconcavity_se                0.02    0.00         0.40         0.40 5.08\nconcave.points_se           0.01    0.00         0.05         0.05 1.44\nsymmetry_se                 0.01    0.01         0.08         0.07 2.18\nfractal_dimension_se        0.00    0.00         0.03         0.03 3.90\nradius_worst                3.65    7.93        36.04        28.11 1.10\ntexture_worst               6.42   12.02        49.54        37.52 0.50\nperimeter_worst            25.01   50.41       251.20       200.79 1.12\narea_worst                319.65  185.20      4254.00      4068.80 1.85\nsmoothness_worst            0.02    0.07         0.22         0.15 0.41\ncompactness_worst           0.13    0.03         1.06         1.03 1.47\nconcavity_worst             0.20    0.00         1.25         1.25 1.14\nconcave.points_worst        0.07    0.00         0.29         0.29 0.49\nsymmetry_worst              0.05    0.16         0.66         0.51 1.43\nfractal_dimension_worst     0.01    0.06         0.21         0.15 1.65\n                        kurtosis         se\nid                         41.66 5241135.60\ndiagnosis*                 -1.73       0.02\nradius_mean                 0.81       0.15\ntexture_mean                0.73       0.18\nperimeter_mean              0.94       1.02\narea_mean                   3.59      14.75\nsmoothness_mean             0.82       0.00\ncompactness_mean            1.61       0.00\nconcavity_mean              1.95       0.00\nconcave.points_mean         1.03       0.00\nsymmetry_mean               1.25       0.00\nfractal_dimension_mean      2.95       0.00\nradius_se                  17.45       0.01\ntexture_se                  5.26       0.02\nperimeter_se               21.12       0.08\narea_se                    48.59       1.91\nsmoothness_se              10.32       0.00\ncompactness_se              5.02       0.00\nconcavity_se               48.24       0.00\nconcave.points_se           5.04       0.00\nsymmetry_se                 7.78       0.00\nfractal_dimension_se       25.94       0.00\nradius_worst                0.91       0.20\ntexture_worst               0.20       0.26\nperimeter_worst             1.04       1.41\narea_worst                  4.32      23.87\nsmoothness_worst            0.49       0.00\ncompactness_worst           2.98       0.01\nconcavity_worst             1.57       0.01\nconcave.points_worst       -0.55       0.00\nsymmetry_worst              4.37       0.00\nfractal_dimension_worst     5.16       0.00\n\n\nKorelasyon matrixi ile ilişkili olan verileri inceleyelim:\n\ncorr_mat &lt;- cor(bc_data[,3:ncol(bc_data)])\ncorrplot(corr_mat, order = \"hclust\", tl.cex = 1, addrect = 8)\n\n\n\n\n\n\n\nEtkenlerden birini seçip plotlayalım:\n\nggplot(bc_data, aes(x=texture_mean)) + geom_density(alpha=0.5, aes(fill=diagnosis)) + labs(title=\"Texture distribution by outcome\")\n\n\n\n\n\n\n\nŞimdi yavaşça işin makine öğrenmesi kısmına başlıyoruz. Burada veri setimiz rastgele olarak iki parçaya bölünüyor: Makineye “öğreten” training set ve bunu test eden testing set.\n\nset.seed(1234)\ndata_index &lt;- createDataPartition(bc_data$diagnosis, p=0.7, list = FALSE)\ntrain_data &lt;- bc_data[data_index, -1]\ntest_data &lt;- bc_data[-data_index, -1]\n\nşimdi de bu bölünen kısımların oranlarına bakalım:\nVeri setimiz:\n\nprop.table(table(bc_data$diagnosis)) * 100\n\n\n       B        M \n62.74165 37.25835 \n\n\nTraining setimiz:\n\nprop.table(table(train_data$diagnosis)) * 100\n\n\n       B        M \n62.65664 37.34336 \n\n\nTesting setimiz:\n\nprop.table(table(test_data$diagnosis)) * 100\n\n\n       B        M \n62.94118 37.05882 \n\n\nVerilerimizi görselleştirelim:\n\npca_res &lt;- prcomp(bc_data[,3:ncol(bc_data)], center = TRUE, scale = TRUE)\nplot(pca_res, type=\"l\")\n\n\n\n\n\n\nsummary(pca_res)\n\nImportance of components:\n                          PC1    PC2     PC3     PC4     PC5     PC6     PC7\nStandard deviation     3.6444 2.3857 1.67867 1.40735 1.28403 1.09880 0.82172\nProportion of Variance 0.4427 0.1897 0.09393 0.06602 0.05496 0.04025 0.02251\nCumulative Proportion  0.4427 0.6324 0.72636 0.79239 0.84734 0.88759 0.91010\n                           PC8    PC9    PC10   PC11    PC12    PC13    PC14\nStandard deviation     0.69037 0.6457 0.59219 0.5421 0.51104 0.49128 0.39624\nProportion of Variance 0.01589 0.0139 0.01169 0.0098 0.00871 0.00805 0.00523\nCumulative Proportion  0.92598 0.9399 0.95157 0.9614 0.97007 0.97812 0.98335\n                          PC15    PC16    PC17    PC18    PC19    PC20   PC21\nStandard deviation     0.30681 0.28260 0.24372 0.22939 0.22244 0.17652 0.1731\nProportion of Variance 0.00314 0.00266 0.00198 0.00175 0.00165 0.00104 0.0010\nCumulative Proportion  0.98649 0.98915 0.99113 0.99288 0.99453 0.99557 0.9966\n                          PC22    PC23   PC24    PC25    PC26    PC27    PC28\nStandard deviation     0.16565 0.15602 0.1344 0.12442 0.09043 0.08307 0.03987\nProportion of Variance 0.00091 0.00081 0.0006 0.00052 0.00027 0.00023 0.00005\nCumulative Proportion  0.99749 0.99830 0.9989 0.99942 0.99969 0.99992 0.99997\n                          PC29    PC30\nStandard deviation     0.02736 0.01153\nProportion of Variance 0.00002 0.00000\nCumulative Proportion  1.00000 1.00000\n\n\nTeşhis bilgisinin temel bileşen analizini yapalım:\n\npca_df &lt;- as.data.frame(pca_res$x)\nggplot(pca_df, aes(x=PC1, y=PC2, col=bc_data$diagnosis)) + geom_point(alpha=0.5)\n\n\n\n\n\n\n\nTeşhis bilgisi için her bileşeni ayrıca inceleyelim:\n\ng_pc1 &lt;- ggplot(pca_df, aes(x=PC1, fill=bc_data$diagnosis)) + geom_density(alpha=0.25)  \ng_pc2 &lt;- ggplot(pca_df, aes(x=PC2, fill=bc_data$diagnosis)) + geom_density(alpha=0.25)  \nggarrange(g_pc1, g_pc2, ncol=2, common.legend = T)\n\n\n\n\n\n\n\nModeli oluşturalım ve görüntüleyelim:\n\nfitControl &lt;- trainControl(method=\"cv\", number = 5, preProcOptions = list(thresh = 0.99), classProbs = TRUE, summaryFunction = twoClassSummary)\n\nmodel_nb &lt;- train(diagnosis~., train_data, method=\"nb\", metric=\"ROC\", preProcess=c('center', 'scale'), trace=FALSE, trControl=fitControl)\n\nModeli test edelim ve inceleyelim (bunu aslında yukarıda da yaptık)\n\nPredict &lt;- predict(model_nb,newdata = test_data)\nconfusionMatrix(Predict, test_data$diagnosis)\n\nConfusion Matrix and Statistics\n\n          Reference\nPrediction   B   M\n         B 102  10\n         M   5  53\n                                          \n               Accuracy : 0.9118          \n                 95% CI : (0.8586, 0.9498)\n    No Information Rate : 0.6294          \n    P-Value [Acc &gt; NIR] : &lt;2e-16          \n                                          \n                  Kappa : 0.8077          \n                                          \n Mcnemar's Test P-Value : 0.3017          \n                                          \n            Sensitivity : 0.9533          \n            Specificity : 0.8413          \n         Pos Pred Value : 0.9107          \n         Neg Pred Value : 0.9138          \n             Prevalence : 0.6294          \n         Detection Rate : 0.6000          \n   Detection Prevalence : 0.6588          \n      Balanced Accuracy : 0.8973          \n                                          \n       'Positive' Class : B               \n                                          \n\n\nHer tahmin yürütücü değişkenin outcome/çıktı üzerindeki etkilerini kıyaslayalım:\n\nX &lt;- varImp(model_nb)\nplot(X)\n\n\n\n\n\n\n\nYorum artık sizde, yukarıdaki grafiğe bakarak bir kişiye meme kanseri teşhisi konmasındaki en önemli etkenler hangileri olarak görünüyor?",
     "crumbs": [
       "Biyoteknolojide Veri Analizi",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Naive-Bayes ile Meme Kanser Veri Analizi</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Naive-Bayes ile Meme Kanser Veri Analizi</span>"
     ]
   },
   {
     "objectID": "05-istatistik/odev.html",
     "href": "05-istatistik/odev.html",
-    "title": "31  Ders Ödevi",
+    "title": "32  Ders Ödevi",
     "section": "",
-    "text": "31.1 Metdoloji\nDerste gördüğümüz yöntemleri kullanarak, seçtiğiniz bir tane veri setinde aşağıdaki adımların yapılması amaçlanmıştır:",
+    "text": "32.1 Metdoloji\nDerste gördüğümüz yöntemleri kullanarak, seçtiğiniz bir tane veri setinde aşağıdaki adımların yapılması amaçlanmıştır:",
     "crumbs": [
       "Biyoteknolojide Veri Analizi",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Ders Ödevi</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Ders Ödevi</span>"
     ]
   },
   {
     "objectID": "05-istatistik/odev.html#metdoloji",
     "href": "05-istatistik/odev.html#metdoloji",
-    "title": "31  Ders Ödevi",
+    "title": "32  Ders Ödevi",
     "section": "",
     "text": "Verilerin tanımlayıcı analizleri\n\nDeğişkenler nedir?\nBu değişkenlerin dağılımları\n\nVeri setin, kullanarak seçtiğiniz bir teknikler makine öğrenmesi modelleri oluşturulması\nBu modelin performans metriklerinin incelenmesi",
     "crumbs": [
       "Biyoteknolojide Veri Analizi",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Ders Ödevi</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Ders Ödevi</span>"
     ]
   },
   {
     "objectID": "05-istatistik/odev.html#sunum",
     "href": "05-istatistik/odev.html#sunum",
-    "title": "31  Ders Ödevi",
-    "section": "31.2 Sunum",
-    "text": "31.2 Sunum\nBir poster hazırlanacak.",
+    "title": "32  Ders Ödevi",
+    "section": "32.2 Sunum",
+    "text": "32.2 Sunum\nBir poster hazırlanacak.",
     "crumbs": [
       "Biyoteknolojide Veri Analizi",
-      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Ders Ödevi</span>"
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Ders Ödevi</span>"
     ]
   },
   {
