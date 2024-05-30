@@ -15,7 +15,8 @@ Imports:
     corrplot,
     caret,
     ggpubr,
-    klaR
+    klaR,
+    randomForest
 Suggests:
     downlit,
     htmltools,
