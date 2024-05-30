@@ -1,6 +1,9 @@
-## RNA Dizileme
+# RNA Dizileme Veri analizi
 
-Önce `ggplot2` yükleyelim
+
+## Veri yükleme
+
+Öncelikle verileri yükleyelim. İlk olarak Drosophila canlısından elde edilen RNA sayı matrisini yükleyelim:
 
 ```{r}
 counts <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/counts_drosophila.txt", header = T, sep = " ")
@@ -8,7 +11,7 @@ counts <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/
 counts <- as.matrix(counts)
 ```
 
-Metadata yükleyelim
+Şimdi de örneklerin sahip oldukları metadata bilgilerini yükleyelim:
 
 ```{r}
 metadata <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sample_info_drosophila.txt", header = T)
@@ -20,59 +23,111 @@ RNASeq matrisi boyutuna bakalım:
 dim(counts)
 ```
 
-Sütun isimleri:
+Burada Sütun isimlerinin sırasına dikkat edelim:
 
 ```{r}
 colnames(counts)
 ```
 
-Örnekler
+Örnek metaverisine baktığımızda, örneklerin sahip olukları metaveri bilgilerini görebilirz. Burada iki tane koşul bulunmakta: `kontrol` ve `uygulama`
+
+Ayrıca, RNA sayı matrisindeki örnek sırası ile, bu veri çerçevesinde bulunan örneklerin sıralarının aynı olduğuna dikkat edelim:
 
 ```{r}
 metadata
 ```
 
+## Veri normalizasyonu
+
+Kutu grafiği ile elimizdeki veriye bakalım:
+
 ```{r}
 boxplot(counts)
 ```
 
-Önemli olan normalizasyon
+Şimdi de verinin histogramını oluşturalım:
+
+```{r}
+hist(counts)
+```
+
+Dikkat edersek veri karşılaştırılabilir değil. Öncelikle normalizasyon ile veriyi karşılaştırılabilir hale getirelim. Bunun için kullanılacak tekniklerden bir tanesi `log2` normalizasyonu:
 
 ```{r}
 counts <- log2(counts)
 ```
 
+Kutu grafiği ile veriyi inceleyelim:
+
 ```{r}
 boxplot(counts)
 ```
 
-hclust
+Şimdi de histogram ile:
 
+```{r}
+hist(counts)
+```
+
+Dikkat ederseniz, artık veri normalize edildi.
+
+Son olarak dendrogram oluşturup, elimizdeki koşulların birlikte gruplanıp gruplanmadıklarına bakalım:
 
 ```{r}
 plot(hclust(dist(t(counts))), labels = metadata$Grup)
 ```
 
+## Gen anlatım analizi
 
-Birinci gene bakalım:
+İlk olarak birinci geni inceleyelim. Acana bu gen anlatımında anlamlı bir farklılık var mı?
 
 ```{r}
 kontrol <- counts[1,metadata$Grup=="Kontrol"]
 uygulama <- counts[1,metadata$Grup=="Uygulama"]
 
-t.test(x = kontrol, y = uygulama)
+test <- t.test(x = kontrol, y = uygulama)
 ```
 
-Bu genin grafiğine bakalım mı?
+Peki bu genin anlatımında görülen değişim anlamlı mı? Bunu `0.05` anlamlılık seviyesine göre inceleyelim:
+
+```{r}
+test$p.value < 0.05
+```
+
+Evet, bu gen anlamı bir şekilde değişmiş. Şimdi de bu genin grafiğine bakalım:
 
 ```{r}
 boxplot(counts[1,]~metadata$Grup)
 ```
 
+Peki ikinci gende durum nedir?
+
+```{r}
+kontrol <- counts[2, metadata$Grup=="Kontrol"]
+uygulama <- counts[2, metadata$Grup=="Uygulama"]
+
+test <- t.test(x = kontrol, y = uygulama)
+```
+
+Peki bu genin anlatımında görülen değişim anlamlı mı? Bunu `0.05` anlamlılık seviyesine göre inceleyelim:
+
+```{r}
+test$p.value < 0.05
+```
+
+Bu genin anlatımı anlamlı bir şekilde değişmemiş. Şimdi de bu genin grafiğine bakalım:
+
+```{r}
+boxplot(counts[2,]~metadata$Grup)
+```
+
 Şimdi bütün genler için inceleme yapalım:
 
 ```{r}
+# once p degerlerini toplayacagimiz bir boş vektor oluşturalim
+
 p.value <- rep(0, nrow(counts))
+
 for (i in 1:nrow(counts)){
   kontrol <- counts[i, metadata$Grup=="Kontrol"]
   uygulama <- counts[i, metadata$Grup=="Uygulama"]
@@ -82,9 +137,8 @@ for (i in 1:nrow(counts)){
 }
 ```
 
-Kaç tane gen anlamlı değişmiş? (0.05'e göre)
+Kaç tane gen anlamlı değişmiş? (0.05'e göre):
 
 ```{r}
 sum(p.value < 0.05, na.rm = TRUE)
 ```
-
