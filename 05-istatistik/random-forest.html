@@ -350,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-19”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-19</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -501,11 +501,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 36.36%
+        OOB estimate of  error rate: 40.91%
 Confusion matrix:
               Healthy Periodontitis class.error
-Healthy            10             2   0.1666667
-Periodontitis       6             4   0.6000000</code></pre>
+Healthy             9             3        0.25
+Periodontitis       6             4        0.60</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -513,28 +513,28 @@ Periodontitis       6             4   0.6000000</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                              Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus    4.2148180    4.22094115            4.7070700
-Actinomyces_dentalis        2.1930379    1.75094280            2.3325118
-Actinomyces_johnsonii       0.5599272    1.20721864            1.2113774
-Actinomyces_timonensis      2.4787531    2.14627732            2.6833212
-Tannerella_forsythia        1.3705880    1.42689975            1.3884265
-Parvimonas_micra            1.3651755    0.47320804            1.2655095
-Treponema_putidum           1.0137069   -0.44047094            0.3165780
-Slackia_exigua              2.2901829   -0.09736225            1.2839048
-Haemophilus_sputorum        0.2625602    0.24748594            0.1653515
-Treponema_lecithinolyticum -0.9354710   -0.71110162           -1.0492127
-                           MeanDecreaseGini
-Dialister_micraerophilus          0.4569405
-Actinomyces_dentalis              0.2956921
-Actinomyces_johnsonii             0.2700015
-Actinomyces_timonensis            0.2472263
-Tannerella_forsythia              0.2168691
-Parvimonas_micra                  0.1846402
-Treponema_putidum                 0.1759200
-Slackia_exigua                    0.1731972
-Haemophilus_sputorum              0.1573721
-Treponema_lecithinolyticum        0.1557083</code></pre>
+<pre><code>                            Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus  3.0406736    3.20936428           3.28220896
+Actinomyces_johnsonii     2.4422730    2.09394176           2.64420983
+Actinomyces_timonensis    2.6513274    0.66022400           1.95330778
+Actinomyces_dentalis      2.5306720    0.90843145           2.05994446
+Prevotella_nanceiensis    0.7399199   -1.06100803           0.59145493
+Tannerella_forsythia      1.4562449    0.71655629           2.03249508
+Treponema_socranskii      1.2328501    0.19426450           0.89390258
+Slackia_exigua           -0.3588365    1.27326797           0.64567785
+Actinomyces_israelii      0.7549882   -0.09367224           0.36244558
+Treponema_denticola      -0.3786022    0.26415370          -0.01647333
+                         MeanDecreaseGini
+Dialister_micraerophilus        0.3542899
+Actinomyces_johnsonii           0.3456705
+Actinomyces_timonensis          0.2645487
+Actinomyces_dentalis            0.2344474
+Prevotella_nanceiensis          0.2224771
+Tannerella_forsythia            0.2053292
+Treponema_socranskii            0.1901575
+Slackia_exigua                  0.1762304
+Actinomyces_israelii            0.1742727
+Treponema_denticola             0.1583977</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
