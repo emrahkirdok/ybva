@@ -138,7 +138,7 @@ Toplam örneklem sayımız ise: $N = TP + TN + TN + FP$
 Bu değerlerin hepsini aşağıdaki şekilde özetleyebiliriz:
 
 ```{r}
-knitr::include_graphics(path = "images/conf_tbl.png")
+knitr::include_graphics(path = "../images/conf_tbl.png")
 ```
 
 
