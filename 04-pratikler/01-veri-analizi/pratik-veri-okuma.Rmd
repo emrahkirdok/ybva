@@ -1,13 +1,4 @@
----
-title: "R ile Veri Okuma"
-author: "Emrah Kırdök"
-date: "12 03 2021"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# R ile Veri Okuma
 
 ## Veri Okuma
 
@@ -22,10 +13,14 @@ Ancak, Proje oluşturursanız ve dosyalarınızı proje klasörü içinde saklar
 Peki veri okuyalım:
 
 ```{r}
-olcumler <- read.table(file = "data/olcumler.txt",
+olcumler <- read.table(file = "../../data/olcumler.txt",
                        sep=" ",
                        header = TRUE)
 ```
+
+Bu veriyi siz okumak isterseniz, aşağıdaki bağlantıdan veriyi indirebilirsiniz:
+
+
 
 Başka veri okuma fonksiyonları da bulunmakta:
 
