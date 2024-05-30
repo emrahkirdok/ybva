@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Yaşam Bilimlerinde Veri Analizi - 2&nbsp; Önemli Konular</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 32&nbsp; Random Forest Uygulaması</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -30,8 +60,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" rel="next">
-<link href="../01-kurulum/01-r-rstudio-kurulum.html" rel="prev">
+<link href="../05-istatistik/odev.html" rel="next">
+<link href="../05-istatistik/naive-bayes.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -41,8 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -69,36 +98,26 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Aramak"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../01-kurulum/02-ilk-kurallar.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -118,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Önsöz</span></a>
@@ -138,8 +157,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></a>
@@ -147,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span></a>
   </div>
 </li>
@@ -164,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -173,8 +192,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span></a>
@@ -253,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -262,8 +281,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
@@ -306,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -315,8 +334,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span></a>
@@ -353,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
@@ -362,8 +381,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
@@ -371,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
   </div>
 </li>
@@ -382,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Türkiye'nin Verisi</span></span>
@@ -401,43 +420,27 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Içindekiler</h2>
-   
-  <ul>
-  <li><a href="#karakter-kodlama-sorunları" id="toc-karakter-kodlama-sorunları" class="nav-link active" data-scroll-target="#karakter-kodlama-sorunları"><span class="header-section-number">2.1</span> Karakter kodlama sorunları</a>
-  <ul class="collapse">
-  <li><a href="#rstudio-üzerinde-karakter-kodlaması" id="toc-rstudio-üzerinde-karakter-kodlaması" class="nav-link" data-scroll-target="#rstudio-üzerinde-karakter-kodlaması"><span class="header-section-number">2.1.1</span> RStudio üzerinde karakter kodlaması</a></li>
-  </ul></li>
-  <li><a href="#dosya-ve-klasörlerin-isimlendirilmesi" id="toc-dosya-ve-klasörlerin-isimlendirilmesi" class="nav-link" data-scroll-target="#dosya-ve-klasörlerin-isimlendirilmesi"><span class="header-section-number">2.2</span> Dosya ve klasörlerin isimlendirilmesi</a>
-  <ul class="collapse">
-  <li><a href="#ondalık-işareti" id="toc-ondalık-işareti" class="nav-link" data-scroll-target="#ondalık-işareti"><span class="header-section-number">2.2.1</span> Ondalık işareti</a></li>
-  </ul></li>
-  <li><a href="#sonuç" id="toc-sonuç" class="nav-link" data-scroll-target="#sonuç"><span class="header-section-number">2.3</span> Sonuç</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../01-kurulum/02-ilk-kurallar.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-onemli" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span>
+</h1>
 </div>
 
 
@@ -451,115 +454,158 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
+</header><p>Mikrobiyal çokluk verisini yükleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">abundance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"../data/microbial-abundance.txt"</span>, header <span class="op">=</span> <span class="cn">T</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Metadata bilgisini yükleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"../data/microbial-metadata.txt"</span>, header <span class="op">=</span> <span class="cn">T</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Elimizdeki veriyi transpoze edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">r1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">abundance</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">r1</span><span class="op">$</span><span class="va">Condition</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">condition</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Şimdi random forest modelini kuralım. Bunun için elimizdeki bütün verileri kullanalım öncelikle:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">randomForest</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op">(</span><span class="va">Condition</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">r1</span>, importance <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Özet istatistiklerine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ randomForest(formula = Condition ~ ., data = r1, importance = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 15
+
+        OOB estimate of  error rate: 40.91%
+Confusion matrix:
+              Healthy Periodontitis class.error
+Healthy             9             3        0.25
+Periodontitis       6             4        0.60</code></pre>
+</div>
+</div>
+<p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus    4.152460376     3.9614244            4.5721064
+Actinomyces_johnsonii       2.823899157     3.3438897            3.6542801
+Actinomyces_timonensis      3.012246276     2.8171808            3.2152868
+Actinomyces_dentalis        2.149673372     0.6594127            1.9793472
+Prevotella_nanceiensis     -0.003503256    -1.1937767           -0.9723939
+Parvimonas_micra           -0.175741768     0.7064153            0.2749797
+Treponema_lecithinolyticum  2.745022643     2.2669898            2.9351669
+Tannerella_forsythia        1.445456299     0.4376788            1.0905458
+Slackia_exigua              1.397694154    -0.6327087            0.8764708
+Streptococcus_mitis         0.694335908     0.7617605            1.1976348
+                           MeanDecreaseGini
+Dialister_micraerophilus          0.3711920
+Actinomyces_johnsonii             0.3310364
+Actinomyces_timonensis            0.2745669
+Actinomyces_dentalis              0.2095494
+Prevotella_nanceiensis            0.1797522
+Parvimonas_micra                  0.1720434
+Treponema_lecithinolyticum        0.1624803
+Tannerella_forsythia              0.1565692
+Slackia_exigua                    0.1562318
+Streptococcus_mitis               0.1484703</code></pre>
+</div>
+</div>
+<p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
+<p>Bu kod uzun sürdüğü için internet sitesi kapsamında çalıştırmadık.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data_o</span><span class="op">&lt;-</span><span class="va">r1</span></span>
+<span><span class="va">data_o</span><span class="op">$</span><span class="va">Condition</span><span class="op">&lt;-</span><span class="va">r1</span><span class="op">$</span><span class="va">Condition</span></span>
+<span><span class="va">errors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">sig_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#data_o&lt;-r1[1:22, 1:50]</span></span>
+<span></span>
+<span></span>
+<span><span class="va">N</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">data_o</span><span class="op">)</span><span class="op">-</span><span class="fl">6</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Recursive feature elemination script has started...\n"</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Turn:"</span>, <span class="va">i</span>, <span class="st">"Remaining species:"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">data_o</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>    <span class="va">turn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"turn"</span>, <span class="va">i</span><span class="op">)</span></span>
+<span>    <span class="va">importance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op">(</span><span class="va">Condition</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">data_o</span>, importance <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>      <span class="va">imp</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">importance</span><span class="op">)</span></span>
+<span>      <span class="va">imp</span><span class="op">$</span><span class="va">Feat</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">imp</span><span class="op">)</span></span>
+<span>      <span class="va">importance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">importance</span>, <span class="va">imp</span><span class="op">)</span></span>
+<span>      <span class="va">errors</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">errors</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">turn</span>,<span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">)</span>,<span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span>    <span class="va">a</span><span class="op">&lt;-</span><span class="va">importance</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Feat</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">MeanDecreaseGini</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>MDG<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">MeanDecreaseGini</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="va">least</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">a</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">a</span><span class="op">$</span><span class="va">MDG</span><span class="op">)</span>,<span class="op">]</span>,n<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">turn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"turn"</span>, <span class="va">i</span><span class="op">)</span></span>
+<span>    <span class="va">importance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Turn:"</span>, <span class="va">i</span>, <span class="st">" "</span><span class="op">)</span></span>
+<span>    <span class="va">data_o</span> <span class="op">&lt;-</span> <span class="va">data_o</span><span class="op">[</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data_o</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">least</span><span class="op">)</span><span class="op">]</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"We eleminated the least informative feature:"</span>, <span class="va">least</span>, <span class="st">" "</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Remaining species:"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">data_o</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>    <span class="va">models</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">{</span></span>
+<span>      </span>
+<span>      <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op">(</span><span class="va">Condition</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">data_o</span>, importance <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>      </span>
+<span>      <span class="va">imp</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">importance</span><span class="op">)</span></span>
+<span>      <span class="va">imp</span><span class="op">$</span><span class="va">Feat</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">imp</span><span class="op">)</span></span>
+<span>      <span class="va">importance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">importance</span>, <span class="va">imp</span><span class="op">)</span></span>
+<span>      <span class="va">errors</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">errors</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">turn</span>,<span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">)</span>,<span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span>      </span>
+<span>      <span class="kw">if</span> <span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">)</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">models</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="va">j</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="va">model</span></span>
+<span>        <span class="va">sig_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">sig_models</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">i</span>, <span class="va">j</span>, <span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">err.rate</span><span class="op">)</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="op">}</span></span>
+<span>    <span class="op">}</span></span>
+<span>    <span class="va">least_old</span> <span class="op">&lt;-</span> <span class="va">least</span></span>
+<span>    </span>
+<span>    <span class="va">a</span><span class="op">&lt;-</span><span class="va">importance</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Feat</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">MeanDecreaseGini</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>MDG<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">MeanDecreaseGini</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="va">least</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">a</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">a</span><span class="op">$</span><span class="va">MDG</span><span class="op">)</span>,<span class="op">]</span>,n<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span>    </span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">errors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">errors</span>, stringsAsFactors <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">errors</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Turn"</span></span>
+<span><span class="va">errors</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">errors</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">errors</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">errors</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">errors</span><span class="op">[</span>,<span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">errors</span><span class="op">[</span>,<span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">errors_melt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/melt.html">melt</a></span><span class="op">(</span><span class="va">errors</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">errors_melt</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Turn"</span>, <span class="st">"Type"</span>, <span class="st">"Value"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">sig_models</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">sig_models</span>, stringsAsFactors <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">sig_models</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Turn"</span>, <span class="st">"Try"</span>, <span class="st">"OOB"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-<p>R ve RStudio sistemi, şu ana kadar çalıştığınız programlara göre daha dik bir öğrenme eğrisine sahiptir. Yani ilk öğrenme maliyeti çok yüksektir ancak bir kere öğrendiğinizde uzun vadede karlı çıkacağınız bir yetenek kazanmış olacaksınız.</p>
-<p>Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye çalıştık. Bu noktalara dikkat ederseniz öğrenme sürecini daha verimli geçirebilirsiniz.</p>
-<section id="karakter-kodlama-sorunları" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="karakter-kodlama-sorunları"><span class="header-section-number">2.1</span> Karakter kodlama sorunları</h2>
-<p>Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.</p>
-<p>İlk geliştirilen kodlama sistemlerinden birisi olan <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla belirli sayıda karakter kullanma imkanımız vardı ve daha çok latince karakterleri destekliyordu.</p>
-<p>İlerleyen yıllarda farklı kodlama sistemleri kullanılmaya başlandı ancak ASCII karakter seti her zaman geriye doğru desteklendi. Yani kodlama sistemleri değişse bile ASCII karakterleri aynı kodlarla belirtiliyordu.</p>
-<p>Son yıllarda <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> karakter kodlama sistemi yaygın olarak kullanılmaktadır. Bu sistem sayesinde, farklı alfabelerdeki karakterler (mesela Türkçe’ye özgü karakterler) desteklenmeye başlandı.</p>
-<p>UTF-8, şu anda yaygın bir kodlama sistemi olsa da, Windows bu kodlama sistemini son yıllarda kullanmaya başladı ve hâlâ bu yüzden sorunlar yaşıyoruz. Önceki yıllarda bu kodlama sorunları yüzünden öğrenci ödevlerini düzgün bir şekilde görüntüleyemedim.</p>
-<p>Bu yüzden ders kapsamında yapacağınız <strong>kodlamaları</strong> sadece ASCII karakter seti üzerinden gerçekleştirin. Aslında çok kolay, aşağıdaki kutucukta bulunan harfler - ve kendi alfabenizdeki İngilizce dışındaki karakterler - YASAK!</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Kullanılmaması gereken karakterler
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Kodlama yaparken ve dosyaları isimlendirirken aşağıdaki karakterleri kullanmayınız:</p>
-<pre><code>Ö, Ç, Ş, İ, Ğ, Ü, Ş, ı, ü, ş, ç, ö </code></pre>
-<p>Eğer sizin kullandığınız yerel dilinizde İngilizce karakter seti dışında karakterler varsa onları da kullanmayın!</p>
-</div>
-</div>
-<section id="rstudio-üzerinde-karakter-kodlaması" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="rstudio-üzerinde-karakter-kodlaması"><span class="header-section-number">2.1.1</span> RStudio üzerinde karakter kodlaması</h3>
-<p>Eğer kullandığınız RStudio programında karakter kodlamasının ne olduğunu merak ediyorsanız şu yolu takip ediniz:</p>
-<ul>
-<li>Önce üstteki menüden <strong>Tools (Araçlar)</strong> düğmesine tıklayınız.</li>
-<li>Açılan menüde <strong>Global Options (Global ayarlar)</strong> düğmesini bulunuz.</li>
-<li>Açılan sayfada <strong>Code</strong> tuşuna basınız.</li>
-<li>Ardından <strong>Saving</strong> sekmesine tıklayınız.</li>
-</ul>
-<p>Bu adımların ardından bir sonraki şekildeki ekran karşınıza çıkmalı. Burada <strong>Default text encoding</strong> kısmına dikkat ediniz. Eğer <strong>UTF-8</strong> yazmıyorsa, <strong>Change</strong> tuşuna basarak, <strong>UTF-8</strong> kodlamasını bulunuz (<a href="#fig-utf-8" class="quarto-xref">Şekil&nbsp;<span>2.1</span></a>).</p>
-<div id="fig-utf-8" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-utf-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/utf-8.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-utf-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;2.1: RStudio üzerinde UTF-8 kodlamasının seçilmesi
-</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="dosya-ve-klasörlerin-isimlendirilmesi" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="dosya-ve-klasörlerin-isimlendirilmesi"><span class="header-section-number">2.2</span> Dosya ve klasörlerin isimlendirilmesi</h2>
-<p>Bir diğer önemli nokta ise dosyaların ve klasörlerin isimlendirilmesi. Dosya isimlerinde asla <strong>ASCII</strong> dışında karakter ve boşluk kullanmayın. Ayrıca büyük küçük harf ayrımmına dikkat edin.</p>
-<p>ASCII dışındaki karakterler ve boşluk karakteri, dosya isimlerinin hatalı bir şekilde görünmesine sebep olabilir ve işlerinizi zorlaştırır.</p>
-<p>Komut satırı ile çalışan programlarda, boşluk karakteri özel bir anlama gelir. Eğer boşluk karakteri kullanıyorsanız, komut satırı işleyicileri yazdığınız kelimenin bittiğini düşünür ve komutunuz ona göre çalıştırır. Bu da hata yapmanıza sebep olur.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Dosya isimlerine dikkat ediniz
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dosya isimlerini seçerken asla ASCII dışında karakter ve boşluk kullanmayın. Boşluk kullanacağınız zaman <code>-</code> (tire) veya <code>_</code> (alt çizgi: SHIFT + <code>-</code>) karakterlerini kullanabilirisniz.</p>
-</div>
-</div>
-<p>Hatalı klasör ve dosya isimleri:</p>
-<pre><code>veri analizi/ödev 01.Rmd
-Veri analizi/Proje/Ödev (1)(11).Rmd</code></pre>
-<p>Güzel bir şekilde yazılmış klasör ve dosya isimleri:</p>
-<pre><code>veri-analizi/odev_01.Rmd
-Veri_analizi/Proje/Odev_(1).Rmd</code></pre>
-<section id="ondalık-işareti" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="ondalık-işareti"><span class="header-section-number">2.2.1</span> Ondalık işareti</h3>
-<p>Türkiye ve Avrupa’da ondalık ayracı olarak <code>,</code> kulanılmaktadır. Mesela:</p>
-<pre><code>14,6</code></pre>
-<p>Ancak R programı Amerika sistemini kullanır. Dolayısıyla ondalıklı sayılarla çalışmak istiyorsanız <code>.</code> işareti ile ondalık ayrımını gerçekleştirmeniz gerekir.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Ondalık ayracı farklıdır
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Peki kendi hazırladığınız verilerde ondalık ayracı olarak <code>,</code> kullanılmışsa ne olacak? İlerleyen bölümlerde, R içerisine veri yüklerken <code>dec</code> opsiyonu ile ondalık ayracını seçmeyi öğreneceğiz.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="sonuç" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="sonuç"><span class="header-section-number">2.3</span> Sonuç</h2>
-<p>Dikkat etmeniz gereken noktalar:</p>
-<ul>
-<li>Kodlamaları <strong>ASCII</strong> karakterleri ile yapalım.</li>
-<li>Klasör ve dosya isimlerinde yanlızca <strong>ASCII</strong> karakter kullanalım.</li>
-<li>Klasör ve dosya isimlerinde boşluk karakteri kullanmayalım.</li>
-<li>Klasör ve dosya isimlerinde büyük küçük harf ayrımına dikkat edelim.</li>
-</ul>
 
-
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -967,22 +1013,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="pagination-link" aria-label="R ve RStudio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../05-istatistik/naive-bayes.html" class="pagination-link" aria-label="Naive-Bayes ile Meme Kanser Veri Analizi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="pagination-link" aria-label="İlk adımlar">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05-istatistik/odev.html" class="pagination-link" aria-label="Ders Ödevi">
+        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</p>
 </div>   
@@ -994,8 +1037,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
