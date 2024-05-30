@@ -84,7 +84,9 @@ book:
 #        - metin_03_vektorler_pratik.Rmd
 #        - metin_04_pratik.Rmd
 #        - metin_ggplot2_pratik.Rmd
-    
+    - part: "Biyoteknolojide Veri Analizi"
+      chapters:
+        - 05-istatistik/odev.qmd
     - part: "Türkiye'nin Verisi"
   
     - references.qmd
