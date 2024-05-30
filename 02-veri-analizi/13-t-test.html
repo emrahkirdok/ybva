@@ -343,6 +343,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -357,31 +363,31 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/02-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Pratik 2023-04-06</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Pratik 2023-04-06</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">pratik-2023-04-19</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bilgisayarlı Düşünme Vize</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Bilgisayarlı Düşünme Vize</span></span></a>
   </div>
 </li>
       </ul>
@@ -398,7 +404,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
   </div>
 </li>
       </ul>
@@ -517,13 +523,13 @@ window.Quarto = {
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -65.533, df = 1988.5, p-value &lt; 2.2e-16
+t = -67.964, df = 1997.6, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.146423 -2.963573
+ -3.062507 -2.890722
 sample estimates:
 mean of x mean of y 
- 1.959143  5.014141 </code></pre>
+ 1.969499  4.946114 </code></pre>
 </div>
 </div>
 <p>Burada dikkat etmemiz gereken iki nokta var:</p>
@@ -577,13 +583,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -65.533, df = 1988.5, p-value &lt; 2.2e-16
+t = -67.964, df = 1997.6, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.146423 -2.963573
+ -3.062507 -2.890722
 sample estimates:
 mean of x mean of y 
- 1.959143  5.014141 </code></pre>
+ 1.969499  4.946114 </code></pre>
 </div>
 </div>
 <p>Şu satıra bakalım:</p>
@@ -630,13 +636,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = 1.0749, df = 1996.5, p-value = 0.2825
+t = -1.0169, df = 1998, p-value = 0.3093
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -0.03959439  0.13564543
+ -0.1301737  0.0412725
 sample estimates:
 mean of x mean of y 
- 2.033026  1.985000 </code></pre>
+ 1.982045  2.026495 </code></pre>
 </div>
 </div>
 <p>Bu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?</p>

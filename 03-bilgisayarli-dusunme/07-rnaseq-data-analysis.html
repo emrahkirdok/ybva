@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 9&nbsp; Matrisler</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 24&nbsp; RNA Dizileme Veri analizi</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../02-veri-analizi/06-veri-cerceveleri.html" rel="next">
-<link href="../02-veri-analizi/04-vektorler.html" rel="prev">
+<link href="../04-pratikler/01-veri-analizi/01-vektorler.html" rel="next">
+<link href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/05-matrisler.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/05-matrisler.html" class="sidebar-item-text sidebar-link active">
+  <a href="../02-veri-analizi/05-matrisler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></span></a>
   </div>
 </li>
@@ -320,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
   </div>
 </li>
@@ -419,15 +419,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#matris-boyutlar%C4%B1" id="toc-matris-boyutları" class="nav-link active" data-scroll-target="#matris-boyutlar%C4%B1"><span class="header-section-number">9.1</span> Matris boyutları</a></li>
-  <li><a href="#sat%C4%B1r-ve-s%C3%BCt%C3%BCn-isimleri" id="toc-satır-ve-sütün-isimleri" class="nav-link" data-scroll-target="#sat%C4%B1r-ve-s%C3%BCt%C3%BCn-isimleri"><span class="header-section-number">9.2</span> Satır ve Sütün isimleri</a></li>
-  <li><a href="#matrislerle-%C3%A7al%C4%B1%C5%9Fmak" id="toc-matrislerle-çalışmak" class="nav-link" data-scroll-target="#matrislerle-%C3%A7al%C4%B1%C5%9Fmak"><span class="header-section-number">9.3</span> Matrislerle çalışmak</a></li>
-  <li><a href="#matrislerde-mant%C4%B1ksal-i%C5%9Flemler" id="toc-matrislerde-mantıksal-işlemler" class="nav-link" data-scroll-target="#matrislerde-mant%C4%B1ksal-i%C5%9Flemler"><span class="header-section-number">9.4</span> Matrislerde mantıksal işlemler</a></li>
+<li><a href="#veri-normalizasyonu" id="toc-veri-normalizasyonu" class="nav-link active" data-scroll-target="#veri-normalizasyonu"><span class="header-section-number">24.1</span> Veri normalizasyonu</a></li>
+  <li><a href="#gen-anlat%C4%B1m-analizi" id="toc-gen-anlatım-analizi" class="nav-link" data-scroll-target="#gen-anlat%C4%B1m-analizi"><span class="header-section-number">24.2</span> Gen anlatım analizi</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/05-matrisler.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-matrisler" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">24</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span>
+</h1>
 </div>
 
 
@@ -441,184 +441,175 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Hatırlarsanız vektörler (<a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>), sadece tek bir veri tipini içeren bir boyutlu veri yapılarıydı.</p>
-<p>Ancak gerçek veri analizi işlemlerinde iki boyutlu veri yapılarına ihtiyacımız olabilir. Mesela verimiz satır ve sütünlardan oluşabilir.</p>
-<p>Bu durumda matris veri yapılarını kullanıyoruz. Matrisler de aynı vektörler gibi tek bir veri tipini kapsayabilir. Aşağıda örnek bir matris görebilirsiniz (<a href="#tbl-matrix1" class="quarto-xref">Tablo&nbsp;<span>9.1</span></a>).</p>
-<div id="tbl-matrix1" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-matrix1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tablo&nbsp;9.1
-</figcaption><div aria-describedby="tbl-matrix1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</header><p>##&nbsp;Veri yükleme</p>
+<p>Öncelikle verileri yükleyelim. İlk olarak Drosophila canlısından elde edilen RNA sayı matrisini yükleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">counts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/counts_drosophila.txt"</span>, header <span class="op">=</span> <span class="cn">T</span>, sep <span class="op">=</span> <span class="st">" "</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">counts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Şimdi de örneklerin sahip oldukları metadata bilgilerini yükleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sample_info_drosophila.txt"</span>, header <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>RNASeq matrisi boyutuna bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
-Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708
-Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432
-Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417
-Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945
-California      21198   5114        1.1    71.71   10.3    62.6    20 156361
-Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</code></pre>
+<pre><code>[1] 8359    7</code></pre>
 </div>
 </div>
+<p>Burada Sütun isimlerinin sırasına dikkat edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SRR031714" "SRR031716" "SRR031724" "SRR031726" "SRR031708" "SRR031718"
+[7] "SRR031728"</code></pre>
+</div>
+</div>
+<p>Örnek metaverisine baktığımızda, örneklerin sahip olukları metaveri bilgilerini görebilirz. Burada iki tane koşul bulunmakta: <code>kontrol</code> ve <code>uygulama</code></p>
+<p>Ayrıca, RNA sayı matrisindeki örnek sırası ile, bu veri çerçevesinde bulunan örneklerin sıralarının aynı olduğuna dikkat edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">metadata</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Ornek     Grup Kutuphane
+1 SRR031714  Kontrol        PE
+2 SRR031716  Kontrol        PE
+3 SRR031724 Uygulama        PE
+4 SRR031726 Uygulama        PE
+5 SRR031708  Kontrol        SE
+6 SRR031718 Uygulama        SE
+7 SRR031728  Kontrol        SE</code></pre>
+</div>
+</div>
+<section id="veri-normalizasyonu" class="level2" data-number="24.1"><h2 data-number="24.1" class="anchored" data-anchor-id="veri-normalizasyonu">
+<span class="header-section-number">24.1</span> Veri normalizasyonu</h2>
+<p>Kutu grafiği ile elimizdeki veriye bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<p>Bir önceki derste kullandığımız <code>yaprak_uzunlugu</code> isimli vektörden bir matris oluşturalım.</p>
+</div>
+</div>
+<p>Şimdi de verinin histogramını oluşturalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
-<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p>Bu vektörden bir matris oluşturmak istersek öncelikle <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> fonksiyonunu kullanarak, satır <code>(nrow)</code> ve sütun <code>(ncol)</code> sayılarını belirlememiz gereklidir.</p>
+</div>
+</div>
+<p>Dikkat edersek veri karşılaştırılabilir değil. Öncelikle normalizasyon ile veriyi karşılaştırılabilir hale getirelim. Bunun için kullanılacak tekniklerden bir tanesi <code>log2</code> normalizasyonu:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span>, nrow<span class="op">=</span><span class="fl">5</span>, ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]  2.3  3.0
-[2,]  3.4  1.8
-[3,]  4.5  6.3
-[4,]  1.2  2.1
-[5,]  3.4  5.0</code></pre>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">counts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Evet, sonuç olarak 5 satır ve iki sütundan oluşan ilk matrisinizi oluşturdunuz.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Satır ve Sütun sayılarına dikkat!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Satır ve sütun sayılarının çarpımı, vektörün uzunluğunu vermeli. Yani 10 tane elemana sahip bir vektörden, 2x5 ya da 5x2 boyutlarında matrisler elde edebilirsiniz.</p>
-</div>
-</div>
-<section id="matris-boyutları" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="matris-boyutları">
-<span class="header-section-number">9.1</span> Matris boyutları</h2>
-<p>Matris boyutlarını öğrenmek için üç farklı fonksiyon kullanabilirsiniz:</p>
-<ul>
-<li>
-<code>dim</code> bir matrisin satır ve sütun sayılarını geri döndürür.</li>
-<li>
-<code>nrow</code> sadece satır sayısını geri döndürür.</li>
-<li>
-<code>ncol</code> sadece sütun sayısını geri döndürür.</li>
-</ul>
-<p>Şu şekilde:</p>
+<p>Kutu grafiği ile veriyi inceleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span>, nrow<span class="op">=</span><span class="fl">5</span>, ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Şimdi de histogram ile:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dikkat ederseniz, artık veri normalize edildi.</p>
+<p>Son olarak dendrogram oluşturup, elimizdeki koşulların birlikte gruplanıp gruplanmadıklarına bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, labels <span class="op">=</span> <span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="gen-anlatım-analizi" class="level2" data-number="24.2"><h2 data-number="24.2" class="anchored" data-anchor-id="gen-anlatım-analizi">
+<span class="header-section-number">24.2</span> Gen anlatım analizi</h2>
+<p>İlk olarak birinci geni inceleyelim. Acana bu gen anlatımında anlamlı bir farklılık var mı?</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kontrol</span> <span class="op">&lt;-</span> <span class="va">counts</span><span class="op">[</span><span class="fl">1</span>,<span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">==</span><span class="st">"Kontrol"</span><span class="op">]</span></span>
+<span><span class="va">uygulama</span> <span class="op">&lt;-</span> <span class="va">counts</span><span class="op">[</span><span class="fl">1</span>,<span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">==</span><span class="st">"Uygulama"</span><span class="op">]</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5 2</code></pre>
+<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">kontrol</span>, y <span class="op">=</span> <span class="va">uygulama</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-</section><section id="satır-ve-sütün-isimleri" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="satır-ve-sütün-isimleri">
-<span class="header-section-number">9.2</span> Satır ve Sütün isimleri</h2>
-<p>İstersek matrislerimize satır ve sütun isimleri atayabiliriz. Buradaki örnek oldukça rastgele oldu ancak konunun anlaşılması için önemli.</p>
-<p>Bunun için ise iki farklı fonksiyon daha kullanıyoruz:</p>
-<ul>
-<li><code>rownames</code></li>
-<li><code>colnames</code></li>
-</ul>
+<p>Peki bu genin anlatımında görülen değişim anlamlı mı? Bunu <code>0.05</code> anlamlılık seviyesine göre inceleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Satir1"</span>, <span class="st">"Satir2"</span>, <span class="st">"Satir3"</span>, <span class="st">"Satir4"</span>, <span class="st">"Satir5"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Evet, bu gen anlamı bir şekilde değişmiş. Şimdi de bu genin grafiğine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">counts</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span><span class="op">~</span><span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Peki ikinci gende durum nedir?</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kontrol</span> <span class="op">&lt;-</span> <span class="va">counts</span><span class="op">[</span><span class="fl">2</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">==</span><span class="st">"Kontrol"</span><span class="op">]</span></span>
+<span><span class="va">uygulama</span> <span class="op">&lt;-</span> <span class="va">counts</span><span class="op">[</span><span class="fl">2</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">==</span><span class="st">"Uygulama"</span><span class="op">]</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sutun1"</span>, <span class="st">"Sutun2"</span><span class="op">)</span></span>
+<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">kontrol</span>, y <span class="op">=</span> <span class="va">uygulama</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Peki bu genin anlatımında görülen değişim anlamlı mı? Bunu <code>0.05</code> anlamlılık seviyesine göre inceleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Bu genin anlatımı anlamlı bir şekilde değişmemiş. Şimdi de bu genin grafiğine bakalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">counts</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span><span class="op">~</span><span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="07-rnaseq-data-analysis_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Şimdi bütün genler için inceleme yapalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># once p degerlerini toplayacagimiz bir boş vektor oluşturalim</span></span>
 <span></span>
-<span><span class="va">ornek_matris</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       Sutun1 Sutun2
-Satir1    2.3    3.0
-Satir2    3.4    1.8
-Satir3    4.5    6.3
-Satir4    1.2    2.1
-Satir5    3.4    5.0</code></pre>
+<span><span class="va">p.value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">counts</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">kontrol</span> <span class="op">&lt;-</span> <span class="va">counts</span><span class="op">[</span><span class="va">i</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">==</span><span class="st">"Kontrol"</span><span class="op">]</span></span>
+<span>  <span class="va">uygulama</span> <span class="op">&lt;-</span> <span class="va">counts</span><span class="op">[</span><span class="va">i</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Grup</span><span class="op">==</span><span class="st">"Uygulama"</span><span class="op">]</span></span>
+<span></span>
+<span>  <span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">kontrol</span>, y <span class="op">=</span> <span class="va">uygulama</span><span class="op">)</span></span>
+<span>  <span class="va">p.value</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span>
+<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section><section id="matrislerle-çalışmak" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="matrislerle-çalışmak">
-<span class="header-section-number">9.3</span> Matrislerle çalışmak</h2>
-<p>Matrisler’de de indis kullanabiliriz. Bu sayede matris içerisindeki elemanlara erişebiliriz. Ancak burada iki tane eleman kullanmamız gerekecek. Bir tanesi satır için, diğeri ise sütun için.</p>
-<p>Mesela, örnek matirisimizde 4. satır 2. sütundaki elemana erişmek isteyelim:</p>
+<p>Kaç tane gen anlamlı değişmiş? (0.05’e göre):</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.1</code></pre>
+<pre><code>[1] 1641</code></pre>
 </div>
 </div>
-<p>Birinci eleman satır sayısını, ikinci eleman ise sütun sayısını ifade etmektedir.</p>
-<p>Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek:</p>
-<div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Satir2 Satir3 Satir4 
-   1.8    6.3    2.1 </code></pre>
-</div>
-</div>
-<p>Dikkat ederseniz bu örnekte <code>2:4</code> yapısını kullandık. Bu bize 2, 3, 4 vektörünü geri döndürecektir. Sütun için ise sadece 2 kullandık.</p>
-<p>Sadece 4. satırı geri döndürmek için:</p>
-<div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sutun1 Sutun2 
-   1.2    2.1 </code></pre>
-</div>
-</div>
-<p>Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.</p>
-<p>Sadece birinci sütunu geri döndürmek için ise:</p>
-<div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Satir1 Satir2 Satir3 Satir4 Satir5 
-   2.3    3.4    4.5    1.2    3.4 </code></pre>
-</div>
-</div>
-</section><section id="matrislerde-mantıksal-işlemler" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="matrislerde-mantıksal-işlemler">
-<span class="header-section-number">9.4</span> Matrislerde mantıksal işlemler</h2>
-<p>Vektörlerde yaptığımız mantıksal işlemleri matrislerde de yapabiliriz.</p>
-<p>Mesela ikinci sütunda, 5’den büyük satırları geri döndürelim:</p>
-<div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Satir1 Satir2 Satir3 Satir4 Satir5 
- FALSE  FALSE   TRUE  FALSE  FALSE </code></pre>
-</div>
-</div>
-<p>Dikkat ederseniz 5’den büyük olan değerleri bize <code>TRUE</code> olarak gösterdi. Bu mantıksal vektörü tekrar bir indis olarak verelim:</p>
-<div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="fl">1</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.5</code></pre>
-</div>
-</div>
-<p>Dikkat edin mantıksal vektörü sadece satır indisi olarak kullandık! Yoksa hata alırız.</p>
-<p>Ya da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matris içinde 3’den büyük olan değerleri geri döndürelim:</p>
-<div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       Sutun1 Sutun2
-Satir1  FALSE  FALSE
-Satir2   TRUE  FALSE
-Satir3   TRUE   TRUE
-Satir4  FALSE  FALSE
-Satir5   TRUE   TRUE</code></pre>
-</div>
-</div>
-<p>Bunu tekrar bir indis olarak geri kullanalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.4 4.5 3.4 6.3 5.0</code></pre>
-</div>
-</div>
-<p>Gördüğünüz gibi bize bir vektör geri döndürdü. Çünkü tek indis kullandık. Bu özellik matrislere özgüdür.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -1030,13 +1021,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../02-veri-analizi/04-vektorler.html" class="pagination-link" aria-label="Vektörler">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></span>
+      <a href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" class="pagination-link" aria-label="Translasyon fonksiyonu anlatımı">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../02-veri-analizi/06-veri-cerceveleri.html" class="pagination-link" aria-label="Veri Çerçeveleri">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="pagination-link" aria-label="Vektörler Ödevi">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
