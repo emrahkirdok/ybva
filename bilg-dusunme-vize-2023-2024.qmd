@@ -42,7 +42,13 @@ factorial <- function(x){
 Bu fonksiyona $x=3$ değeri verilirse ne sonuç elde edilir? Aşağıda bulunan kod bloğuna yazınız:
 
 ```{r}
-
+factorial <- function(x){
+  if (x == 0){
+    return(1)
+    } else {
+      return(x*factorial(x-1))
+      } 
+}
 ```
 
 ## Soru 3
