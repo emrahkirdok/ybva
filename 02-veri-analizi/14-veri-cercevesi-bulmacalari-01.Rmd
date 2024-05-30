@@ -1,11 +1,4 @@
----
-title: "Veri çerçevesi bulmacaları"
-author: "Emrah Kırdök, Ph. D."
-date: "2022-03-16"
-
----
-
-# Giriş
+# Veri çerçevesi bulmacaları
 
 Bu belge kapsamında bir veri çerçevesinde bulunan veriyi, bazı kıstaslara göre filtrelemeyi öğreneceğiz.
 
