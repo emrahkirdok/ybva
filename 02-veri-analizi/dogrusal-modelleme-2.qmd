@@ -1,38 +1,11 @@
----
-title: "Doğrusal Modelleme Uygulaması - 2"
-author: "Emrah Kırdök, Ph. D."
-date: "3/10/2022"
-output:
-  bookdown::pdf_document2:
-    template: templates/eisvogel.tex
-    toc: false
-    pandoc_args:
-    - --filter
-    - ~/miniconda3/bin/pandoc-latex-environment
-  bookdown::html_document2:
-    css: "templates/scholarly.css"
-bibliography: bibliography.bib
-lang: tr
-header-includes: |
-  ```{=latex}
-  \usepackage{awesomebox}
-  ```
-pandoc-latex-environment:
-  noteblock: [note]
-  tipblock: [tip]
-  warningblock: [warning]
-  cautionblock: [caution]
-  importantblock: [important]
----
+## Çoklu Doğrusal Modelleme
 
-Önce kütüphaneleri yükleyelim:
+Öncelikle kütüphanelerimizi yükleyelim:
 
 ```{r}
-library(MASS)
-library(ISLR2)
+library("MASS")
+library("ISLR2")
 ```
-
-## Multiple Linear Regression
 
 Çoklu model oluşturmak için de tine  `lm()` fonksiyonunu kullanacağız:
 
