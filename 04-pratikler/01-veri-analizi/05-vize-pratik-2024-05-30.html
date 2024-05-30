@@ -17,6 +17,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -449,7 +483,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Bir araştırma grubundaki araştırmacılar, <em>Gümüş ağacı</em> bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.</p>
 <p>Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.</p>
 <p>Çalışmada kullanılacak veriye aşağıdaki bağlantıdan ulaşabilirsiniz:</p>
-<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt">https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt</a></p>
+<p>[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt</p>
+<p>Bu dökümanın <code>Rmd</code> versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:</p>
+<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd">https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd</a></p>
 <section id="çalışma-yöntemi" class="level3" data-number="28.1.1"><h3 data-number="28.1.1" class="anchored" data-anchor-id="çalışma-yöntemi">
 <span class="header-section-number">28.1.1</span> Çalışma yöntemi</h3>
 <p>Bu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.</p>
@@ -476,30 +512,61 @@ ul.task-list li input[type="checkbox"] {
 </ul></section></section><section id="veri-yükleme" class="level2" data-number="28.2"><h2 data-number="28.2" class="anchored" data-anchor-id="veri-yükleme">
 <span class="header-section-number">28.2</span> Veri yükleme</h2>
 <p>Uzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="veri-çerçevesi-inceleme" class="level2" data-number="28.3"><h2 data-number="28.3" class="anchored" data-anchor-id="veri-çerçevesi-inceleme">
 <span class="header-section-number">28.3</span> Veri çerçevesi inceleme</h2>
 <p>Yüklediğiniz veri çerçevesinin satır ve sütun sayılarını geri döndürünüz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Bu veri çerçevesindeki sütun isimlerini geri döndürebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>BU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (<em>faktör</em>) değişkeni olarak belirlenmesi gerekmektedir. Acaba bu sütunları faktöre çevirebilir misiniz?</p>
 <ul>
 <li><code>Kulturleme_kosulu</code></li>
 <li><code>Patojen</code></li>
-</ul></section><section id="koşulların-belirlenmesi" class="level2" data-number="28.4"><h2 data-number="28.4" class="anchored" data-anchor-id="koşulların-belirlenmesi">
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="koşulların-belirlenmesi" class="level2" data-number="28.4"><h2 data-number="28.4" class="anchored" data-anchor-id="koşulların-belirlenmesi">
 <span class="header-section-number">28.4</span> Koşulların belirlenmesi</h2>
 <p>Bu deney kapsamında yapılmış kültürleme koşullarını (Kurak veya Nemli) frekans tablosu haline getirebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Bu deney kapsamında yapılmış patojen uygulamalarını frekans tablosu haline getirebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Acaba her farklı kültürleme koşuluna ait kaç farklı patojen uygulaması var? Birleşik bir frekans tablosu oluşturabilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="fotosentez-hızı-ve-iletkenlik-değerlerinin-dağılımları" class="level2" data-number="28.5"><h2 data-number="28.5" class="anchored" data-anchor-id="fotosentez-hızı-ve-iletkenlik-değerlerinin-dağılımları">
 <span class="header-section-number">28.5</span> Fotosentez hızı ve iletkenlik değerlerinin dağılımları</h2>
 <p>Bu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmıştır. Bu değişkenlere ait histogramları <code>ggplot2</code> paketi kullanarak çizebilir misiniz?</p>
 <p>İlk olarak Fotosentez hızı değişkeni:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Şimdi de iletkenlik değerleri:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="fotosentez-hızında-görülen-değişimlerin-incelenmesi" class="level2" data-number="28.6"><h2 data-number="28.6" class="anchored" data-anchor-id="fotosentez-hızında-görülen-değişimlerin-incelenmesi">
 <span class="header-section-number">28.6</span> Fotosentez hızında görülen değişimlerin incelenmesi</h2>
 <p>Bu kısımda ise fotosentez hızında görülen değişimleri incelemeyi amaçladık.</p>
 <section id="kültürleme-koşulları-ve-fotosentez-hızı" class="level3" data-number="28.6.1"><h3 data-number="28.6.1" class="anchored" data-anchor-id="kültürleme-koşulları-ve-fotosentez-hızı">
 <span class="header-section-number">28.6.1</span> Kültürleme koşulları ve Fotosentez hızı</h3>
 <p>Acaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına nasıl etki gösteriyor? Bunu kutu grafiği (boxplot) kullanarak görselleştirebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşullaru, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:</p>
 <blockquote class="blockquote">
 <p>Cevabınızı bu satırlara yazınız</p>
@@ -507,6 +574,9 @@ ul.task-list li input[type="checkbox"] {
 </section><section id="patojen-inokülasyonu-ve-fotosentez-hızında-görülen-değişim" class="level3" data-number="28.6.2"><h3 data-number="28.6.2" class="anchored" data-anchor-id="patojen-inokülasyonu-ve-fotosentez-hızında-görülen-değişim">
 <span class="header-section-number">28.6.2</span> Patojen inokülasyonu ve Fotosentez hızında görülen değişim</h3>
 <p>Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Yukarıda oluşturduğunuz grafiğe bakarak aşağıdaki soruları cevaplayınız:</p>
 <p>Acaba patojen uygulaması fotosentez hızında bir değişime yol açmış olabilir mi?</p>
 <blockquote class="blockquote">
@@ -522,6 +592,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="kültürleme-koşulları-ve-iletkenlik" class="level3" data-number="28.7.1"><h3 data-number="28.7.1" class="anchored" data-anchor-id="kültürleme-koşulları-ve-iletkenlik">
 <span class="header-section-number">28.7.1</span> Kültürleme koşulları ve iletkenlik</h3>
 <p>Acaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Kurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:</p>
 <blockquote class="blockquote">
 <p>Cevabınızı bu satırlara yazınız</p>
@@ -529,11 +602,20 @@ ul.task-list li input[type="checkbox"] {
 </section><section id="patojen-inokülasyonun-iletkenlik-değerlerine-etkisi" class="level3" data-number="28.7.2"><h3 data-number="28.7.2" class="anchored" data-anchor-id="patojen-inokülasyonun-iletkenlik-değerlerine-etkisi">
 <span class="header-section-number">28.7.2</span> Patojen inokülasyonun iletkenlik değerlerine etkisi</h3>
 <p>Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section><section id="fotosentez-hızının-kontrol-örneklerinde-incelenmesi" class="level2" data-number="28.8"><h2 data-number="28.8" class="anchored" data-anchor-id="fotosentez-hızının-kontrol-örneklerinde-incelenmesi">
 <span class="header-section-number">28.8</span> Fotosentez hızının kontrol örneklerinde incelenmesi</h2>
 <p>Bu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının kurak ve nemli koşullardaki değişimini inceleyeceğiz.</p>
 <p>Sadece <code>Kontrol</code> örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir misiniz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Şimdi ise oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="iletkenlik-ve-fotosentez-arasında-bir-ilişki-var-mı" class="level2" data-number="28.9"><h2 data-number="28.9" class="anchored" data-anchor-id="iletkenlik-ve-fotosentez-arasında-bir-ilişki-var-mı">
 <span class="header-section-number">28.9</span> İletkenlik ve Fotosentez arasında bir ilişki var mı?</h2>
 <p>Peki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki değişkeni x-y ekseninde nokta grafiği ile gösterebilir misiniz? Eksenleri aşağıdaki gibi belirleyiniz:</p>
@@ -542,9 +624,16 @@ ul.task-list li input[type="checkbox"] {
 <code>x</code> ekseni: İletkenlik</li>
 <li>
 <code>y</code> ekseni: Fotosentez hizi</li>
-</ul></section><section id="bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı" class="level2" data-number="28.10"><h2 data-number="28.10" class="anchored" data-anchor-id="bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı">
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı" class="level2" data-number="28.10"><h2 data-number="28.10" class="anchored" data-anchor-id="bonus-acaba-fotosentez-hızındaki-değişim-anlamlı-mı">
 <span class="header-section-number">28.10</span> Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?</h2>
 <p>Acaba <code>Kurak</code> ve <code>Nemli</code> koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? <code>t.test</code> fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. <code>p-value</code> (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cevabinizi buraya yaziniz</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
