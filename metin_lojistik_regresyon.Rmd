@@ -1,18 +1,7 @@
----
-title: "Lojistik Regresyon"
-author: "Merve Akküp"
-date: '2022-05-16'
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Giriş
+# Lojistik Regresyon
 
 Bu çalışmada, programda mevcut olan Smarket veri seti (Borsa ile alakalı veriler bulunmaktadır.) üzerinden lojistik regresyon testi gerçekleştirilmiştir. Mevcut borsa verileri kullanılarak model oluşturulup tahminler yapılacaktır ve bu tahminlerin güvenilirliği test edilecektir.
- s
+
 Öncelikle veri setinin olduğu kütüphaneyi çağıralım:
 
 ```{r}
