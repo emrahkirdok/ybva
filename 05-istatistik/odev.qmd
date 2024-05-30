@@ -5,11 +5,17 @@ Bu döküman kapsamında **Biyoteknolojide Veri Analizi** dersi için yapılacak
 Bu çalışma kapsamında aşağıda verilmiş üç farklı veri setinin incelenmesi amaçlanmıştır. Veri setleri:
 
 + Vücüt yağ oranı hesaplama tahmini
+    
     + [Veri Seti](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/bodyfat.csv)
+    + [Metadata](https://github.com/emrahkirdok/ybva/blob/main/05-istatistik/body-fat-classification-metadata.qmd)
+
 + İnme riski tahmini
-  + [Veri seti](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv)
+    + [Veri seti](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv)
+    + [Metadata](https://github.com/emrahkirdok/ybva/blob/main/05-istatistik/stroke-prediction-dataset-metadata.qmd)
+
 + Parkinson riski tahmini:
     + [Veri seti](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/parkinsons.csv)
+    + [Metadata](https://github.com/emrahkirdok/ybva/blob/main/05-istatistik/parkinson-dataset-metadata.qmd)
   
 
 ## Metdoloji
