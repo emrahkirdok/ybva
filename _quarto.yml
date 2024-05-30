@@ -50,19 +50,9 @@ book:
         - 02-veri-analizi/11-bilimsel-hikaye-02.qmd
         - 02-veri-analizi/12-bilimsel-hikaye-03.qmd
         - 02-veri-analizi/13-t-test.qmd
+        - 02-veri-analizi/dogrusal-modelleme-1.qmd
+        - 02-veri-analizi/dogrusal-modelleme-2.qmd
         
-#        - 02-veri-analizi/06-Rmarkdown.qmd
-#        - 02-veri-analizi/08-tibble.qmd
-#        - 02-veri-analizi/09-listeler.qmd
-#        - 02-veri-analizi/10-veri-cercevesi-vs-tibble.qmd
-#        - 02-veri-analizi/11-veri-islemleri.qmd
-#        - metin_bilimsel_hikaye_anlaticiligi.Rmd
-#        - metin_rmarkdown_odevleri_bilgi.Rmd
-#        - metin_dogrusal_modelleme_uygulamasi_1.Rmd
-#        - metin_ggplot2_grafik_dilbilgisi.Rmd
-#        - metin_lojistik_regresyon.Rmd
-#        - metin_t_test.Rmd
-#
     - part: "Bilgisayarlı Düşünme"
       chapters:
         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
@@ -86,9 +76,6 @@ book:
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
         - 04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.qmd
         
-#        - metin_03_vektorler_pratik.Rmd
-#        - metin_04_pratik.Rmd
-#        - metin_ggplot2_pratik.Rmd
     - part: "Biyoteknolojide Veri Analizi"
       chapters:
         - 05-istatistik/naive-bayes.qmd
