@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 27&nbsp; Veri Analizi Pratik 2023-04-06</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 35&nbsp; Lojistik Regresyon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -53,25 +53,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" rel="next">
-<link href="../../04-pratikler/01-veri-analizi/01-vektorler.html" rel="prev">
-<link href="../../images/ybva.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../05-istatistik/random-forest.html" rel="next">
+<link href="../05-istatistik/naive-bayes.html" rel="prev">
+<link href="../images/ybva.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -97,7 +97,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Göndermek",
     "search-label": "Aramak"
   }
-}</script>
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
@@ -106,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../04-pratikler/01-veri-analizi/01-vektorler.html">Pratikler - Ödevler</a></li><li class="breadcrumb-item"><a href="../../04-pratikler/01-veri-analizi/02-pratik.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-06</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/lojistik-regresyon.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -116,10 +141,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Yaşam Bilimlerinde Veri Analizi</a> 
+      <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/emrahkirdok/ybva/" title="Kaynak Kodu" class="quarto-navigation-tool px-1" aria-label="Kaynak Kodu"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Okuyucu modunu değiştir">
@@ -139,13 +164,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Önsöz</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
+  <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Katkı Sunma</span></a>
   </div>
 </li>
@@ -160,25 +185,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-kurulum/02-ilk-kurallar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">İlk adımlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-kurulum/04-klasor-islemleri.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Klasör İşlemleri</span></span></a>
   </div>
 </li>
@@ -195,85 +220,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bilimsel Yöntem</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/04-vektorler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/05-matrisler.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/05-matrisler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrisler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/06-veri-cerceveleri.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/06-veri-cerceveleri.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Veri Çerçeveleri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/14-veri-cercevesi-bulmacalari-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/14-veri-cercevesi-bulmacalari-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Veri çerçevesi bulmacaları</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/07-listeler.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/07-listeler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Listeler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/08-dosya-okuma.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/08-dosya-okuma.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Dosya okuma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/09-rmarkdown.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/09-rmarkdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Rmarkdown Kullanımı</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/10-bilimsel-hikaye-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/10-bilimsel-hikaye-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Bilimsel Hikaye Anlatımı 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/11-bilimsel-hikaye-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/11-bilimsel-hikaye-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Bilimsel Hikaye Anlatımı 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/12-bilimsel-hikaye-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/12-bilimsel-hikaye-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bilimsel Hikaye Anlatımı 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../02-veri-analizi/13-t-test.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/13-t-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">T-Test</span></span></a>
   </div>
 </li>
@@ -290,43 +315,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
   </div>
 </li>
@@ -343,49 +368,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/02-pratik.html" class="sidebar-item-text sidebar-link active">
+  <a href="../04-pratikler/01-veri-analizi/02-pratik.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-06</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-19</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2024-05-30</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Matrisler ve Veri Çerçeveleri Pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/01-veri-analizi/liste-pratik.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/01-veri-analizi/liste-pratik.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Listeler pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Bilgisayarlı Düşünme Vize</span></span></a>
   </div>
 </li>
@@ -402,25 +427,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../05-istatistik/lojistik-regresyon.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-istatistik/lojistik-regresyon.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
   </div>
 </li>
@@ -432,7 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kaynakça</span></a>
   </div>
 </li>
@@ -447,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link">
+  <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></span></a>
   </div>
 </li>
@@ -458,19 +483,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
-   
-  <ul>
-<li><a href="#vekt%C3%B6rler" id="toc-vektörler" class="nav-link active" data-scroll-target="#vekt%C3%B6rler"><span class="header-section-number">27.1</span> Vektörler</a></li>
-  <li><a href="#matrisler" id="toc-matrisler" class="nav-link" data-scroll-target="#matrisler"><span class="header-section-number">27.2</span> Matrisler</a></li>
-  <li><a href="#veri-%C3%A7er%C3%A7eveleri" id="toc-veri-çerçeveleri" class="nav-link" data-scroll-target="#veri-%C3%A7er%C3%A7eveleri"><span class="header-section-number">27.3</span> Veri çerçeveleri</a></li>
-  <li><a href="#veri-okuma" id="toc-veri-okuma" class="nav-link" data-scroll-target="#veri-okuma"><span class="header-section-number">27.4</span> Veri okuma</a></li>
-  </ul></nav>
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../04-pratikler/01-veri-analizi/01-vektorler.html">Pratikler - Ödevler</a></li><li class="breadcrumb-item"><a href="../../04-pratikler/01-veri-analizi/02-pratik.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-06</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/lojistik-regresyon.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-06</span>
+<span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span>
 </h1>
 </div>
 
@@ -485,194 +503,254 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Bu pratiğin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:</p>
-<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/03-pratik-cevaplar.Rmd">Pratik 2023-04-06 pratiği cevapları</a></p>
-<p>Aşağıdaki tabloda Dr.&nbsp;Kristen Gorman ve Antartika’da bulunan Palmer istasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika’ya özgü üç farklı penguen türüne (<em>Chinstrap</em>, <em>Adelie</em>, <em>Gentoo</em>) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.</p>
-<table class="table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 30%">
-<col style="width: 34%">
-<col style="width: 18%">
-</colgroup>
-<thead><tr class="header">
-<th>Tür</th>
-<th>Gaga Uzunluğu (mm)</th>
-<th>Kanat Uzunluğu (mm)</th>
-<th>Cinsiyet</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Chinstrap</td>
-<td>49</td>
-<td>212</td>
-<td>erkek</td>
-</tr>
-<tr class="even">
-<td>Adelie</td>
-<td>35.3</td>
-<td>187</td>
-<td>dişi</td>
-</tr>
-<tr class="odd">
-<td>Adelie</td>
-<td>40.6</td>
-<td>183</td>
-<td>erkek</td>
-</tr>
-<tr class="even">
-<td>Chinstrap</td>
-<td>52</td>
-<td>201</td>
-<td>erkek</td>
-</tr>
-<tr class="odd">
-<td>Adelie</td>
-<td>39</td>
-<td>191</td>
-<td>dişi</td>
-</tr>
-<tr class="even">
-<td>Chinstrap</td>
-<td>51.7</td>
-<td>194</td>
-<td>erkek</td>
-</tr>
-<tr class="odd">
-<td>Adelie</td>
-<td>38.9</td>
-<td>190</td>
-<td>dişi</td>
-</tr>
-<tr class="even">
-<td>Gentoo</td>
-<td>50.5</td>
-<td>216</td>
-<td>dişi</td>
-</tr>
-<tr class="odd">
-<td>Gentoo</td>
-<td>47.8</td>
-<td>215</td>
-<td>erkek</td>
-</tr>
-<tr class="even">
-<td>Gentoo</td>
-<td>41.7</td>
-<td>210</td>
-<td>dişi</td>
-</tr>
-</tbody>
-</table>
-<p>Bu tabloya göre aşağıdaki soruları cevaplayınız.</p>
-<p>Elinizdeki dökümanın <code>Rmd</code> dosyası <a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/02-pratik.Rmd">şu bağlantıda</a> bulunmaktadır. Bağlantıya sağ tıklayıp farklı kaydet’e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki <code>author</code> alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi <code>html</code> formatına dönüştürünüz.</p>
-<section id="vektörler" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="vektörler">
-<span class="header-section-number">27.1</span> Vektörler</h2>
-<p>Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.</p>
+</header><p>Bu çalışmada, programda mevcut olan Smarket veri seti (Borsa ile alakalı veriler bulunmaktadır.) üzerinden lojistik regresyon testi gerçekleştirilmiştir. Mevcut borsa verileri kullanılarak model oluşturulup tahminler yapılacaktır ve bu tahminlerin güvenilirliği test edilecektir.</p>
+<p>Öncelikle veri setinin olduğu kütüphaneyi çağıralım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR2</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Smarket veri setini inceleyelim ve veri setini daha rahat çalışabilmek adına attach fonksiyonu ile R çevresine bağlayalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">Smarket</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Year"      "Lag1"      "Lag2"      "Lag3"      "Lag4"      "Lag5"     
+[7] "Volume"    "Today"     "Direction"</code></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">Smarket</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1250    9</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Smarket</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year           Lag1                Lag2                Lag3          
+ Min.   :2001   Min.   :-4.922000   Min.   :-4.922000   Min.   :-4.922000  
+ 1st Qu.:2002   1st Qu.:-0.639500   1st Qu.:-0.639500   1st Qu.:-0.640000  
+ Median :2003   Median : 0.039000   Median : 0.039000   Median : 0.038500  
+ Mean   :2003   Mean   : 0.003834   Mean   : 0.003919   Mean   : 0.001716  
+ 3rd Qu.:2004   3rd Qu.: 0.596750   3rd Qu.: 0.596750   3rd Qu.: 0.596750  
+ Max.   :2005   Max.   : 5.733000   Max.   : 5.733000   Max.   : 5.733000  
+      Lag4                Lag5              Volume           Today          
+ Min.   :-4.922000   Min.   :-4.92200   Min.   :0.3561   Min.   :-4.922000  
+ 1st Qu.:-0.640000   1st Qu.:-0.64000   1st Qu.:1.2574   1st Qu.:-0.639500  
+ Median : 0.038500   Median : 0.03850   Median :1.4229   Median : 0.038500  
+ Mean   : 0.001636   Mean   : 0.00561   Mean   :1.4783   Mean   : 0.003138  
+ 3rd Qu.: 0.596750   3rd Qu.: 0.59700   3rd Qu.:1.6417   3rd Qu.: 0.596750  
+ Max.   : 5.733000   Max.   : 5.73300   Max.   :3.1525   Max.   : 5.733000  
+ Direction 
+ Down:602  
+ Up  :648  
+           
+           
+           
+           </code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/attach.html">attach</a></span><span class="op">(</span><span class="va">Smarket</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Burada <code>attach</code> fonksiyonu ile verimizi R çevresine bağlayabiliyoruz. Bu sayede veri çerçevesi içindeki sütun isimlerine doğrudan erişebiliriz.</p>
 <ul>
-<li><code>tur</code></li>
-<li><code>gaga_uzunlugu</code></li>
-<li><code>kanat_uzunlugu</code></li>
-<li><code>cinsiyet</code></li>
+<li>
+<code>Year</code> Ölçümlerin alındığı yıl değişkeni</li>
+<li>
+<code>Lag1</code> Bir gün önce borsa kapanma fiyatı</li>
+<li>
+<code>Lag2</code> İki gün önceki borsa kapanma fiyatı</li>
+<li>
+<code>Lag3</code> Üç gün önceki borsa kapanma fiyatı</li>
+<li>
+<code>Lag4</code> Dört gün önceki borsa kapanma fiyatı</li>
+<li>
+<code>Lag5</code> Beş gün önceki borsa kapanma fiyatı</li>
+<li>
+<code>Volume</code> Borsanın o günkü işlem hacmi</li>
+<li>
+<code>Today</code> O gün borsa kapanma fiyatı</li>
+<li>
+<code>Direction</code> Bir önceki güne göre borsa yüksek mi yoksa düşük mü kapattı
+<ul>
+<li><code>Up</code></li>
+<li><code>Down</code></li>
 </ul>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Gaga uzunluğu vektörünü kullanarak gaga uzunluğu 50 mm’den büyük olan değerleri geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm’de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:</p>
-<div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="matrisler" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="matrisler">
-<span class="header-section-number">27.2</span> Matrisler</h2>
-<p>Kanat uzunluğu vektörünü kullanarak 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi <code>ornek_matris</code> olsun:</p>
-<p>Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm’de büyük olan değerleri geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Oluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.</p>
-<p>Sütun isimleri:</p>
-<ul>
-<li>A</li>
-<li>B</li>
+</li>
 </ul>
-<p>Satır isimleri:</p>
+<p>Bu modelleme çalışmasındaki amacımız borsanın o günkü seyrini (<code>Direction</code> değişkeni), son beş gün boyunca borsa kapanışı ve o günkü alış satış hacmini kullanarak tahmin etmeye çalışıyoruz.</p>
+<p>Verilerle bir model oluşturalım. modeli setteki Directionc verisine göre kurup modelin özetini inceleyelim; modele, modeli tanımlayacak bir isim atayarak glm fonksiyonu ile oluşturduk.</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glm.fits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">Smarket</span>, <span class="va">Direction</span><span class="op">~</span><span class="va">Lag1</span> <span class="op">+</span> <span class="va">Lag2</span> <span class="op">+</span><span class="va">Lag3</span><span class="op">+</span> <span class="va">Lag4</span><span class="op">+</span> <span class="va">Lag5</span><span class="op">+</span> <span class="va">Volume</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">glm.fits</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + 
+    Volume, family = binomial, data = Smarket)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept) -0.126000   0.240736  -0.523    0.601
+Lag1        -0.073074   0.050167  -1.457    0.145
+Lag2        -0.042301   0.050086  -0.845    0.398
+Lag3         0.011085   0.049939   0.222    0.824
+Lag4         0.009359   0.049974   0.187    0.851
+Lag5         0.010313   0.049511   0.208    0.835
+Volume       0.135441   0.158360   0.855    0.392
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1731.2  on 1249  degrees of freedom
+Residual deviance: 1727.6  on 1243  degrees of freedom
+AIC: 1741.6
+
+Number of Fisher Scoring iterations: 3</code></pre>
+</div>
+</div>
+<p>Predict fonksiyonu ile modelimizin ilk 10 parametresini tahmin edelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.glm.html">predict.glm</a></span><span class="op">(</span><span class="va">glm.fits</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2         3         4         5         6         7         8 
+0.5070841 0.4814679 0.4811388 0.5152224 0.5107812 0.5069565 0.4926509 0.5092292 
+        9        10 
+0.5176135 0.4888378 </code></pre>
+</div>
+</div>
+<p>Tahminleri yeni bir veri içine aktaralım, bu şekilde yeni verimizle sadece tahmin üzerinden işlem yapabiliriz.</p>
+<p>Öncelikle tahmin ettiğimiz Direction verilerinin olasılık değerlerini alalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glm_prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.glm.html">predict.glm</a></span><span class="op">(</span><span class="va">glm.fits</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Yeni oluşturduğumuz tahmin veri setinin ilk 6 elemanını inceleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">glm_prob</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2         3         4         5         6 
+0.5070841 0.4814679 0.4811388 0.5152224 0.5107812 0.5069565 </code></pre>
+</div>
+</div>
+<p>Ve tahmin veri setimizin histogramını oluşturduktan sonra tahmin veri seti için olasılık veri seti oluşturalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">glm_prob</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="lojistik-regresyon_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sadece histograma baktığımızda tahmin verilerimizin bir bölgede gruplandığını görebiliriz. Bu bölgeyi sınır noktası olarak kabul ederek çalışmayı 1-0 moduna indirgeyebiliriz. Bu şekilde pozitif ve negatif sonuçlar alabiliriz.</p>
+<p><code>sum</code> fonksiyonu ile 0.5 olarak kabul ettiğimiz ayrımın altında ve üstünde kalan değerlerin sayısını inceleyelim. Bunların hepsi toplandığında dim fonksiyonu ile incelediğimiz veri seti boyutunu elde etmemiz gerekir.</p>
+<p>Kaç tane tahmin olaslığı 0.5’den büyük?</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">glm_prob</span> <span class="op">&gt;</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 964</code></pre>
+</div>
+</div>
+<p>Kaç tanesi 0.5’den küçük?</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">glm_prob</span> <span class="op">&lt;</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 286</code></pre>
+</div>
+</div>
+<p>Şimdi aynı histogramın 0.5 değerini çizgi ile gösteren versiyonunu oluşturalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">glm_prob</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="fl">0.5</span>, col<span class="op">=</span><span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="lojistik-regresyon_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Şimdi bu değerleri <em>Aşağı (Down)</em> ve <em>Yukarı (Up)</em> olarak tanımlayalım.</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glm_pred</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Down"</span>, <span class="fl">1250</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">glm_pred</span><span class="op">[</span><span class="va">glm_prob</span><span class="op">&gt;</span> <span class="fl">0.5</span><span class="op">]</span>  <span class="op">&lt;-</span> <span class="st">"up"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Şimdi bu tanımlanan değerlerin table fonksiyonu ile frekans tablosunu oluşturup sağlamasını yapalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">glm_pred</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>glm_pred
+Down   up 
+ 286  964 </code></pre>
+</div>
+</div>
+<p>Veri seti içindeki herhangi bir verinin aşağı ve yukarı olarak nasıl gösterilebileceğine bakalım, burada Direction verisinin ilk 5 satırı incelenmiştir. Down olarak gösterilenler 0.5’ten küçük, up olarak gösterilenler ise 0.5’ten büyük olan değerlerdir.</p>
+<p>Peki, gerçek değerlerimiz nedir?</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Smarket</span><span class="op">$</span><span class="va">Direction</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Up   Up   Down Up   Up  
+Levels: Down Up</code></pre>
+</div>
+</div>
+<p>Şimdi ise, hem gerçek hem de tahmin edilmiş değerlerden bir karmaşa matrisi oluşturalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">Smarket</span><span class="op">$</span><span class="va">Direction</span>, <span class="va">glm_pred</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      glm_pred
+       Down  up
+  Down  145 457
+  Up    141 507</code></pre>
+</div>
+</div>
+<p>Karmaşa matrisi, bir modelin performansını ölçmek için kullanabikeceğiniz bir frekans tablosu olarak tanımlanabilir.</p>
+<p>Az önceki tabloyu oluşturmak için; gerçek değerleri, tahmin edilen değerlerle karşılaştırdık. Basit olsun diye, 1 ve 0 olarak iki durumumuz olsun.</p>
 <ul>
-<li>X</li>
-<li>Y</li>
-<li>Z</li>
-<li>T</li>
-<li>U</li>
-</ul></section><section id="veri-çerçeveleri" class="level2" data-number="27.3"><h2 data-number="27.3" class="anchored" data-anchor-id="veri-çerçeveleri">
-<span class="header-section-number">27.3</span> Veri çerçeveleri</h2>
-<p>Dökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi <code>penguenler</code> olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:</p>
-<ul>
-<li><code>tur</code></li>
-<li><code>gaga_uzunlugu</code></li>
-<li><code>kanat_uzunlugu</code></li>
-<li><code>cinsiyet</code></li>
+<li>Gerçek değer 1, tahmin edilen değer 1: <em>Gerçek Pozitif, True Pozitif</em> <span class="math inline">\(TP\)</span>
+</li>
+<li>Gerçek değer 1, tahmin edilen değer 0: <em>Yanlış Negatif, False Negative</em> <span class="math inline">\(FN\)</span>
+</li>
+<li>Gerçek değer 0, tahmin edilen değer 0: <em>Gerçek Negatif True Negative</em> <span class="math inline">\(TN\)</span>
+</li>
+<li>Gerçek değer 0, tahmin edilen değer 1: <em>Yanlış Pozitif False Positive</em> <span class="math inline">\(FP\)</span>
+</li>
 </ul>
+<p>Toplam örneklem sayımız ise: <span class="math inline">\(N = TP + TN + TN + FP\)</span></p>
+<p>Bu değerlerin hepsini aşağıdaki şekilde özetleyebiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"../images/conf_tbl.png"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="../images/conf_tbl.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<p>Oluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Sadece beşinci satırı geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Sadece ikinci sütunu geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Sadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Bu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:</p>
-<div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Bu veri çerçevesinde gaga uzunluğu 50’den büyük olan satırları geri döndürünüz:</p>
-<div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Bu veri çerçevesinde kanat uzunluğu 150’den büyük olan satırları geri döndürünüz:</p>
-<div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="veri-okuma" class="level2" data-number="27.4"><h2 data-number="27.4" class="anchored" data-anchor-id="veri-okuma">
-<span class="header-section-number">27.4</span> Veri okuma</h2>
-<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv">Şu bağlantıda</a> verilen dosyayı, derslerde gördüğümüz tekniklerden bir tanesini kullanarak okuyunuz (bilgisyara kaydediniz veya doğrudan internet üzerinden okuyunuz).</p>
-<p>Dosyayı okurken aşağıdaki noktalara dikkat ediniz:</p>
-<ul>
-<li>Ayraç karakteri olarak <code>;</code> kullanılmıştır.</li>
-<li>İlk satır, sütun isimleri olarak tanımlanmıştır.</li>
-</ul>
-<p>Okuduğunuz verinin ismi <code>sinav</code> olsun:</p>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Okuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:</p>
-<div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># kodlarınızı asagiya yazınız (# isaretini kullanmadan)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Bu veri setinde borsa değerleri vardı ve borsadaki düşüşleri ve yükselişleri temsil etmek adına ölçümlerimizi up ve down olarak tanımladık.</p>
+<p>Pozitif ve negatiften (1-0) bahsetmiştik. Karmaşa matriksinde bu değerlerin temsil ettiği durumlar şu şekildedir:</p>
+<p>Bir takım basit matematiksel formüllerle bu değer oranlarına bakılarak veri seti üzerinde oluşturulan modellerin güvenilirliği incelenebilir.</p>
+<p><span class="math display">\[
+Doğruluk (Accuracy) = \frac{TP + TN}{N}
+\]</span> Doğruları ve yanlışları ne kadar yüksek oranda belirleyebilirsek, modelimizin doğruluk payı o kadar yüksektir.</p>
+<p><span class="math display">\[
+Hata Oranı (Error Rate) = \frac{FN + FP}{N}
+\]</span></p>
+<p><span class="math display">\[
+Hata Oranı (Error Rate) = 1 - Doğruluk (Accuracy)
+\]</span> Elimizdeki gerçek değerlerin ne kadarını doğru tahmin etmişiz?</p>
+<p><span class="math display">\[
+DoğruPozitifOranı = \frac{TP}{FN + TP}
+\]</span></p>
+<p>Elimizdeki gerçek değerlerin ne kadarını yanlış tahmin etmişiz?</p>
+<p><span class="math display">\[
+Yanlış Pozitif Oranı = \frac{FP}{TN + FP}
+\]</span></p>
+<p>Peki yaptığımız tahminlerin ne kadarı doğru?</p>
+<p><span class="math display">\[
+Hassasiyet (Precision) = \frac{TP}{TP + FP}
+\]</span></p>
+<p>Peki bu öğrendiklerimizi neye ölçekleyebiliriz?</p>
+<p>Yeni bir hastalık tanı kiti oluşturduğumuzu düşünelim ve bu kitin performansını test etmek istiyoruz.</p>
+<p>Sizce ne yapabiliriz? İlk olarak hasta ve sağlıklı olduklarından emin olduğumuz bir grup kişi ile çalışmaya başlayabiliriz. Sonra bu kişilerden alınan örnekleri geliştirdiğimiz kit ile test ederek bir tahmin elde edebiliriz.</p>
+<p>Elde edeceğimiz sonuç ya hasta ya da sağlıklı olacaktır.</p>
+<p>Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir. Modelmizin ya da test kitimizin <em>Doğruluk</em> değer ne kadar yüksekse o kadar iyi çalışan bir kitimiz var demektir.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1081,13 +1159,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../04-pratikler/01-veri-analizi/01-vektorler.html" class="pagination-link" aria-label="Vektörler Ödevi">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span>
+      <a href="../05-istatistik/naive-bayes.html" class="pagination-link" aria-label="Naive-Bayes ile Meme Kanser Veri Analizi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="pagination-link" aria-label="Veri Analizi Pratik 2023-04-19">
-        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-19</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05-istatistik/random-forest.html" class="pagination-link" aria-label="Random Forest Uygulaması">
+        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
