@@ -10,7 +10,12 @@ Depends:
 Imports:
     tidyverse,
     kableExtra,
-    seqinr
+    seqinr,
+    psych,
+    corrplot,
+    caret,
+    ggpubr,
+    klaR
 Suggests:
     downlit,
     htmltools,
