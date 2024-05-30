@@ -77,10 +77,10 @@ book:
       chapters:
         - 04-pratikler/01-veri-analizi/01-vektorler.qmd
         - 04-pratikler/01-veri-analizi/02-pratik.Rmd
+        - 04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd
         - 04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
         - 04-pratikler/01-veri-analizi/liste-pratik.Rmd
         - 04-pratikler/01-veri-analizi/04-vize-pratik.qmd
-        - 04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
         - 04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.qmd
         

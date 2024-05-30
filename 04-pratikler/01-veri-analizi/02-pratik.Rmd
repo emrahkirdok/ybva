@@ -1,9 +1,4 @@
----
-title: "Pratik 2023-04-06"
-author: ""
-date: ""
-output: html_document
----
+# Veri Analizi Pratik 2023-04-06
 
 Bu pratiğin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:
 
