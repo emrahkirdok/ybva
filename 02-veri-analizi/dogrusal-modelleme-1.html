@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 22&nbsp; Fonksiyonlar</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 19&nbsp; Doğrusal modelleme</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" rel="next">
-<link href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" rel="prev">
+<link href="../02-veri-analizi/dogrusal-modelleme-2.html" rel="next">
+<link href="../02-veri-analizi/13-t-test.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +97,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Göndermek",
     "search-label": "Aramak"
   }
-}</script>
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
@@ -106,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/dogrusal-modelleme-1.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -279,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/dogrusal-modelleme-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/dogrusal-modelleme-1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></span></a>
   </div>
 </li>
@@ -308,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link active">
+  <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
   </div>
 </li>
@@ -473,14 +498,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#%C3%B6rnek-fonksiyon" id="toc-örnek-fonksiyon" class="nav-link active" data-scroll-target="#%C3%B6rnek-fonksiyon"><span class="header-section-number">22.1</span> Örnek fonksiyon</a></li>
-  <li><a href="#ba%C5%9Fka-bir-fonksiyon" id="toc-başka-bir-fonksiyon" class="nav-link" data-scroll-target="#ba%C5%9Fka-bir-fonksiyon"><span class="header-section-number">22.2</span> Başka bir fonksiyon</a></li>
+<li><a href="#k%C3%BCt%C3%BCphanler" id="toc-kütüphanler" class="nav-link active" data-scroll-target="#k%C3%BCt%C3%BCphanler"><span class="header-section-number">19.1</span> Kütüphanler</a></li>
+  <li><a href="#basit-do%C4%9Frusal-regresyon" id="toc-basit-doğrusal-regresyon" class="nav-link" data-scroll-target="#basit-do%C4%9Frusal-regresyon"><span class="header-section-number">19.2</span> Basit doğrusal regresyon</a></li>
+  <li><a href="#ekstralar-ggplot-ile-denemeler" id="toc-ekstralar-ggplot-ile-denemeler" class="nav-link" data-scroll-target="#ekstralar-ggplot-ile-denemeler"><span class="header-section-number">19.3</span> Ekstralar: <code>ggplot</code> ile denemeler</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/dogrusal-modelleme-1.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span>
+<span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span>
 </h1>
 </div>
 
@@ -495,94 +521,186 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.</p>
-<p>Aynı kod bloğunu tekrar tekrar yazmak yerine bir fonksiyon oluşturusanız o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.</p>
-<p>Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.</p>
-<p>Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (<a href="#fig-fonksiyon" class="quarto-xref">Şekil&nbsp;<span>22.1</span></a>).</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div id="fig-fonksiyon" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fonksiyon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<svg width="672" height="480" viewbox="0.00 0.00 276.39 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)"><title>fonksiyon</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 272.39,-184 272.39,4 -4,4"></polygon><!-- girdi --><g id="node1" class="node"><title>girdi</title>
-<polygon fill="none" stroke="black" points="243.57,-180 189.57,-180 189.57,-144 243.57,-144 243.57,-180"></polygon><text text-anchor="middle" x="216.57" y="-157.8" font-family="Times,serif" font-size="14.00">Girdi</text></g><!-- fonksiyon --><g id="node2" class="node"><title>fonksiyon</title>
-<ellipse fill="none" stroke="black" cx="216.57" cy="-90" rx="51.64" ry="18"></ellipse><text text-anchor="middle" x="216.57" y="-85.8" font-family="Times,serif" font-size="14.00">Fonksiyon</text></g><!-- girdi&#45;&gt;fonksiyon --><g id="edge1" class="edge"><title>girdi-&gt;fonksiyon</title>
-<path fill="none" stroke="black" d="M216.57,-143.7C216.57,-135.98 216.57,-126.71 216.57,-118.11"></path><polygon fill="black" stroke="black" points="220.07,-118.1 216.57,-108.1 213.07,-118.1 220.07,-118.1"></polygon></g><!-- cikti --><g id="node3" class="node"><title>cikti</title>
-<polygon fill="none" stroke="black" points="243.57,-36 189.57,-36 189.57,0 243.57,0 243.57,-36"></polygon><text text-anchor="middle" x="216.57" y="-13.8" font-family="Times,serif" font-size="14.00">Çıktı</text></g><!-- fonksiyon&#45;&gt;cikti --><g id="edge2" class="edge"><title>fonksiyon-&gt;cikti</title>
-<path fill="none" stroke="black" d="M216.57,-71.7C216.57,-63.98 216.57,-54.71 216.57,-46.11"></path><polygon fill="black" stroke="black" points="220.07,-46.1 216.57,-36.1 213.07,-46.1 220.07,-46.1"></polygon></g><!-- parametre --><g id="node4" class="node"><title>parametre</title>
-<polygon fill="none" stroke="black" points="147.21,-108 30.07,-108 -0.07,-72 117.08,-72 147.21,-108"></polygon><text text-anchor="middle" x="73.57" y="-85.8" font-family="Times,serif" font-size="14.00">Parametre</text></g><!-- parametre&#45;&gt;fonksiyon --><g id="edge3" class="edge"><title>parametre-&gt;fonksiyon</title>
-<path fill="none" stroke="black" d="M132.22,-90C139.62,-90 147.02,-90 154.42,-90"></path><polygon fill="black" stroke="black" points="154.51,-93.5 164.51,-90 154.51,-86.5 154.51,-93.5"></polygon></g></g></svg>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fonksiyon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;22.1: Bir fonksiyon, belirli parametreler varlığı altında bir girdiyi alır ve işleyerek çıktı haline dönüştürür
-</figcaption></figure>
-</div>
-</div>
-</div>
-<section id="örnek-fonksiyon" class="level2" data-number="22.1"><h2 data-number="22.1" class="anchored" data-anchor-id="örnek-fonksiyon">
-<span class="header-section-number">22.1</span> Örnek fonksiyon</h2>
-<p>İlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!</p>
-<p>Fonksiyonumuz iki tane girdiye sahip olsun:</p>
+</header><section id="kütüphanler" class="level2" data-number="19.1"><h2 data-number="19.1" class="anchored" data-anchor-id="kütüphanler">
+<span class="header-section-number">19.1</span> Kütüphanler</h2>
+<p>Bu kısım kapsamında kullanılacak veri setlerinin ve fonksiyonlar için iki farklı kütüphane gereklidir:</p>
 <ul>
-<li><code>a</code></li>
-<li><code>b</code></li>
+<li>
+<code>MASS</code> (R içerisinde gelmektedir.)</li>
+<li>
+<code>ISLR2</code> (Bu kütüphanenin yüklenmesi gerekidir.)</li>
 </ul>
-<p>Çıktısı ise <code>sonuc</code> olsun.</p>
-<p>Fonksiyon ismi ise <code>toplam</code> olsun.</p>
+<p>Eğer daha önce <code>ISLR2</code> paketini yüklemediyseniz öncelikle aşağıdaki gibi bu paketi yüklemelisiniz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">toplam</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span><span class="op">{</span></span>
-<span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span>
-<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ISLR2"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Önce fonksiyon ismini <code>toplam</code> yazdık ve <code>function</code> komutu ile, R’a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (<code>a</code> ve <code>b</code>).</p>
-<p>Daha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve <code>sonuc</code> değişkenini oluşturduk. Bu sonuç değişkenini ise, <code>return</code> komutu ile geri döndürdük.</p>
-<p>Her fonksiyonda mutlaka bir değer geri döndürmelisiniz.</p>
-<p>Şimdi fonksiyonu kullanalım:</p>
+<p>Daha sonra bu paketleri çalışma ortamımıza yükleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">5</span>, b <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">"MASS"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://www.statlearning.com">"ISLR2"</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ISLR2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:MASS':
+
+    Boston</code></pre>
+</div>
+</div>
+</section><section id="basit-doğrusal-regresyon" class="level2" data-number="19.2"><h2 data-number="19.2" class="anchored" data-anchor-id="basit-doğrusal-regresyon">
+<span class="header-section-number">19.2</span> Basit doğrusal regresyon</h2>
+<p>Bu uygulama kapsamında <code>ISLR2</code> paketi içerisindeki <code>Boston</code> veri setini kullancağız. Öncelikle veri setinin ilk beş satırını inceleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Boston</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 17</code></pre>
+<pre><code>     crim zn indus chas   nox    rm  age    dis rad tax ptratio lstat medv
+1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3  4.98 24.0
+2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8  9.14 21.6
+3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8  4.03 34.7
+4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7  2.94 33.4
+5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7  5.33 36.2
+6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7  5.21 28.7</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Önemli
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Fonkisyonları kullanmadan önce mutlaka tanımlamalısınız! Eğer fonksiyonu tanımlamazsanız, kullanamazsınız.</p>
-</div>
-</div>
-<p>Şimdi başka iki örnek kullanalım:</p>
+<p>Bu veri seti Boston’un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:</p>
+<ul>
+<li>
+<code>medv</code>: ortanca ev fiyatı, her bölgedeki ortanca ev fiyatını belirtmektedir.</li>
+<li>
+<code>lstat</code>: her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı.</li>
+</ul>
+<p>Bu veri seti hakkında daha fazla bilgi almak için <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html">bu bağlantıya tıklayınız</a>.</p>
+<p>Bu çalışma kapsamında <code>medv</code> ve <code>lstat</code> değişkenleri arasındaki ilişkiyi doğrusal regresyon ile modellemeye çalışacağız. Acaba bir mahallenin sosyoekonomik statüsü, mahalledeki evlerin fiyatını etkiliyor mu?</p>
+<p>Öncelikle bu iki değişken arasındaki ilişkiyi görselleştirelim. Bunun için basitçe bir grafik kullanabiliriz (Şekil @ref(fig:bostonplot)):</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">12</span>, b <span class="op">=</span> <span class="fl">45</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medv</span><span class="op">~</span><span class="va">lstat</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="dogrusal-modelleme-1_files/figure-html/bostonplot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Boston veri setinde bulunan <code>medv</code> ve <code>lstat</code> değişkenleri arasındaki ilişki</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="note">
+<p>R üzerinde herşeyin birden çok çözüm yolu bulunmaktadır. Mesela bu grafiği oluşturmak için üç farklı yol kullanabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medv</span><span class="op">~</span><span class="va">lstat</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Boston</span><span class="op">$</span><span class="va">medv</span><span class="op">~</span><span class="va">Boston</span><span class="op">$</span><span class="va">lstat</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/attach.html">attach</a></span><span class="op">(</span><span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medv</span><span class="op">~</span><span class="va">lstat</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Burada kullandığımız <code>attach</code> foknsiyonu, bahsi geçen veri setinde bulunan sütunları doğrudan kullanmamızı sağlar. Dolayısıyla, veri setini bir kere <code>attach</code> foksiyonu ile bağladık mı sütun isimlerini doğrudan kullabiliriz.</p>
+<p>Ancak kodlarımızın daha açık ve okunabilir olması açısından ben aşağıdaki tarzı tercih edeceğim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medv</span><span class="op">~</span><span class="va">lstat</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Sizce bu şekil ne anlatıyor? Sosyoekonomik seviye düşüşü ev fiyatlarını sizce nasıl etkiliyor olabilir? Bu noktada bir durup düşünün.</p>
+<p>Peki bu iki değişken arasındaki ilişkiyi doğrusal regresyon ile nasıl modelleyebilriz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Modelin sahip olduğu bilgileri almak için <code>summary</code> fonksiyonunu kullanabiliriz. Bu sayede <span class="math inline">\(p\)</span>-değerlerini inceleyebiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 57</code></pre>
+<pre><code>
+Call:
+lm(formula = medv ~ lstat, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.168  -3.990  -1.318   2.034  24.500 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
+lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.216 on 504 degrees of freedom
+Multiple R-squared:  0.5441,    Adjusted R-squared:  0.5432 
+F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</section><section id="başka-bir-fonksiyon" class="level2" data-number="22.2"><h2 data-number="22.2" class="anchored" data-anchor-id="başka-bir-fonksiyon">
-<span class="header-section-number">22.2</span> Başka bir fonksiyon</h2>
-<p>Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.</p>
-<p>Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.</p>
-<p>Yazacağımız fonksiyon santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise <code>kelvin_donusturucu</code> olsun.</p>
+<p>Modeldeki isimleri elde etmek için;</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kelvin_donusturucu</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">derece</span><span class="op">)</span><span class="op">{</span></span>
-<span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">derece</span> <span class="op">+</span> <span class="fl">273.15</span></span>
-<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Bu fonksiyonu kullanalım şimdi:</p>
-<div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">kelvin_donusturucu</span><span class="op">(</span>derece <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 303.15</code></pre>
+<pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
+ [5] "fitted.values" "assign"        "qr"            "df.residual"  
+ [9] "xlevels"       "call"          "terms"         "model"        </code></pre>
+</div>
+</div>
+<p>Modeldeki katsayıları elde etmek için <code>coef</code> fonksiyonunu kullabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)       lstat 
+ 34.5538409  -0.9500494 </code></pre>
+</div>
+</div>
+<p>Elde ettiğimiz katsayılar aslında derslerde gördüğümüz <span class="math inline">\(\beta_{0}\)</span> ve <span class="math inline">\(\beta_{1}\)</span> parametrelerini ifade etmektedir.</p>
+<p>Güven aralıklarını (%95) elde etmek için ise <code>confint</code> fonkisyonunu kullanabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %     97.5 %
+(Intercept) 33.448457 35.6592247
+lstat       -1.026148 -0.8739505</code></pre>
+</div>
+</div>
+<div class="warning">
+<p>Güven aralıkları kısmı tekrar yazılacaktır!</p>
+</div>
+<p>Eğer Şekil @ref(fig:bostonplot)’i dikkatle incelerseniz, iki değişken arasında doğrusal olmayan bir ilişki görebilme imkanınız var. Derslerde de belirttiğimiz gibi aslında mükemmel bir doğrusal ilişki bulma imkanınız yok. Bizim burada yaptığımız ise, aslında iki değişken arasındaki ilişkiyi en iyi ifade eden doğrusal modeli elde etmek.</p>
+<p>Bunu daha iyi olarak doğrusal modeli çizerek gösterebiliriz (Şekil @ref(fig:lm)).</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medv</span><span class="op">~</span><span class="va">lstat</span>, data<span class="op">=</span><span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">lm.fit</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="dogrusal-modelleme-1_files/figure-html/lm-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Boston veri setinden oluştruğdumuz doğrusal modelin grafik üzerinde gösterilmesi</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Son olarak R bize farklı grafikler ile oluşturduğumuz model hakkında daha fazla bilgi vermektedir (Şekil @ref(fig:diagnostic)). Burada dikkat etmemiz gereken grafik sol üstteki <em>Residuals cs Fitted</em> grafiği. Derste, artıklardan bahsetmiştik. Bu artık değerlerinin homojen bir şekilde doğrusal modelin etrafında dağıması ideal olacaktır. Aslında x eksenindeki girdi ile, artıklar arasında hiç bir ilişkinin olmaması gerekir.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">opar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  <span class="co"># copy of current settings</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>             <span class="co"># 2 * 2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="dogrusal-modelleme-1_files/figure-html/diagnostic-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>R içerisinde gelen doğrusal modelleme fonksiyonundaki çıktılar. Burada en önemlisi bizim sol üstteki grafiğimiz. Burada artık değerleri ile <span class="math inline">\(x\)</span> ekseni arasındaki ilişki irdeleniyor. Artıkların, x ekseni ile az da olsa bir ilişkisi var</figcaption></figure>
+</div>
+</div>
+</div>
+<p>İdeal olarak baktığımızda artık değerlerinin aslında çizdiğimiz doğrusal model etrafında homojen bir şekilde dağılmasını bekleriz. Bu bize aslında artık değerleriyle <span class="math inline">\(x\)</span> eksenindeki değişken arasında bir ilişki olmamasını beraberinde getirir.</p>
+<p>Ancak grafiğe baktığımızda artıklar ile x arasında az da olsa bir ilişki var. Bu çok istenen bir durum değildir. Benim bu noktadaki yorumum şu olur:</p>
+<blockquote class="blockquote">
+<p>Elimizdeki değişkenler arasında doğrusal bir ilişki olmadığı için artıklar doğrusal model etrafında homojen bir şekilde dağılmamıştır.</p>
+</blockquote>
+</section><section id="ekstralar-ggplot-ile-denemeler" class="level2" data-number="19.3"><h2 data-number="19.3" class="anchored" data-anchor-id="ekstralar-ggplot-ile-denemeler">
+<span class="header-section-number">19.3</span> Ekstralar: <code>ggplot</code> ile denemeler</h2>
+<p>Eğer buraya kadar geldiyseniz <code>ggplot2</code>’yi mutlaka denemelisiniz. Şimdi aynı grafikleri ggplot2 ile tekrarlayalım (Şekil @ref(fig:try)). R üzerinde harka görselleştirme araçları mevcuttur. Bununla ilgili görselleştirmeleri internet sitesinde paylaştım.</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">Boston</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lstat</span>, y <span class="op">=</span> <span class="va">medv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="dogrusal-modelleme-1_files/figure-html/try-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>ggplot2 ile oluşturulmuş bir grafik</figcaption></figure>
+</div>
 </div>
 </div>
 
@@ -996,13 +1114,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link" aria-label="Kontrol yapıları">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span>
+      <a href="../02-veri-analizi/13-t-test.html" class="pagination-link" aria-label="T-Test">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">T-Test</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="pagination-link" aria-label="DNA ile çalışma">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../02-veri-analizi/dogrusal-modelleme-2.html" class="pagination-link" aria-label="Çoklu Doğrusal Modelleme">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

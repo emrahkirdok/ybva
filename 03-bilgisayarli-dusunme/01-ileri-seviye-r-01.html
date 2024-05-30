@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 19&nbsp; Kontrol yapıları</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 21&nbsp; Kontrol yapıları</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" rel="next">
-<link href="../02-veri-analizi/13-t-test.html" rel="prev">
+<link href="../02-veri-analizi/dogrusal-modelleme-2.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -277,6 +277,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">T-Test</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/dogrusal-modelleme-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/dogrusal-modelleme-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -291,43 +303,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
   </div>
 </li>
       </ul>
@@ -344,49 +356,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/01-vektorler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Vektörler Ödevi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/02-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-06</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-06</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/04-vize-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-19</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2023-04-19</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2024-05-30</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Veri Analizi Pratik 2024-05-30</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Matrisler ve Veri Çerçeveleri Pratiği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Matrisler ve Veri Çerçeveleri Pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/liste-pratik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Listeler pratiği</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Listeler pratiği</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">DNA üzerinde işlemler</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Bilgisayarlı Düşünme Vize</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Bilgisayarlı Düşünme Vize</span></span></a>
   </div>
 </li>
       </ul>
@@ -403,25 +415,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/lojistik-regresyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
   </div>
 </li>
       </ul>
@@ -461,16 +473,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#d%C3%B6ng%C3%BCler-for" id="toc-döngüler-for" class="nav-link active" data-scroll-target="#d%C3%B6ng%C3%BCler-for"><span class="header-section-number">19.1</span> Döngüler (<code>for</code>)</a></li>
-  <li><a href="#kontrol-yap%C4%B1s%C4%B1-if-else" id="toc-kontrol-yapısı-if-else" class="nav-link" data-scroll-target="#kontrol-yap%C4%B1s%C4%B1-if-else"><span class="header-section-number">19.2</span> Kontrol yapısı (<code>if-else</code>)</a></li>
-  <li><a href="#farkl%C4%B1-yap%C4%B1lar%C4%B1-birle%C5%9Ftirelim" id="toc-farklı-yapıları-birleştirelim" class="nav-link" data-scroll-target="#farkl%C4%B1-yap%C4%B1lar%C4%B1-birle%C5%9Ftirelim"><span class="header-section-number">19.3</span> Farklı yapıları birleştirelim</a></li>
-  <li><a href="#%C3%B6dev" id="toc-ödev" class="nav-link" data-scroll-target="#%C3%B6dev"><span class="header-section-number">19.4</span> Ödev</a></li>
+<li><a href="#d%C3%B6ng%C3%BCler-for" id="toc-döngüler-for" class="nav-link active" data-scroll-target="#d%C3%B6ng%C3%BCler-for"><span class="header-section-number">21.1</span> Döngüler (<code>for</code>)</a></li>
+  <li><a href="#kontrol-yap%C4%B1s%C4%B1-if-else" id="toc-kontrol-yapısı-if-else" class="nav-link" data-scroll-target="#kontrol-yap%C4%B1s%C4%B1-if-else"><span class="header-section-number">21.2</span> Kontrol yapısı (<code>if-else</code>)</a></li>
+  <li><a href="#farkl%C4%B1-yap%C4%B1lar%C4%B1-birle%C5%9Ftirelim" id="toc-farklı-yapıları-birleştirelim" class="nav-link" data-scroll-target="#farkl%C4%B1-yap%C4%B1lar%C4%B1-birle%C5%9Ftirelim"><span class="header-section-number">21.3</span> Farklı yapıları birleştirelim</a></li>
+  <li><a href="#%C3%B6dev" id="toc-ödev" class="nav-link" data-scroll-target="#%C3%B6dev"><span class="header-section-number">21.4</span> Ödev</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span>
+<span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span>
 </h1>
 </div>
 
@@ -495,8 +507,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Bu vektörde bulunan her elemana belirli bir fonksiyonu uygulamak istediğimizi düşünelim. Şu ana kadar öğrendiğimiz bilgilerle, bu vektör içerisindeki elemanları manuel olarak seçerek bu işlemleri gerçekleştirebiliyoruz.</p>
 <p>Ancak R üzerinde kullanacağımız döngü yapısı (<code>for</code> döngüsü), bize bu vektördeki her elemana erişip, o elemanla işlem yapma şansı sağlamaktadır.</p>
 <p>Peki, 5’den büyük ve küçük olan elemanlara farklı işlemler yapmak istersek? O zaman da <code>if-else</code> kontrol yapısı bize yardımcı olacaktır. Bu sayede bir elemanın 5’den büyük veya küçük olma koşulunu inceleyerek, ona göre işlemler gerçekleştirebilriz.</p>
-<section id="döngüler-for" class="level2" data-number="19.1"><h2 data-number="19.1" class="anchored" data-anchor-id="döngüler-for">
-<span class="header-section-number">19.1</span> Döngüler (<code>for</code>)</h2>
+<section id="döngüler-for" class="level2" data-number="21.1"><h2 data-number="21.1" class="anchored" data-anchor-id="döngüler-for">
+<span class="header-section-number">21.1</span> Döngüler (<code>for</code>)</h2>
 <p>Veri ile çalışırken çoğunlukla belirli fonksiyonları art arda, farklı verilere uygulamamız gerekir. Dolayısıyla aynı işi döngü halinde yapmalıyız.</p>
 <p>Basit bir örnek verelim. Önce bir sayı vektörü oluşturalım:</p>
 <div class="cell">
@@ -574,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] 5</code></pre>
 </div>
 </div>
-<p>Gördüğünüz iki <code>for</code> döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (<a href="#fig-for-loop" class="quarto-xref">Şekil&nbsp;<span>19.1</span></a>).</p>
+<p>Gördüğünüz iki <code>for</code> döngüsü de aynı işi yapmaktadır. İlk döngüde Bunu şu şekile görselleştirebiliriz (<a href="#fig-for-loop" class="quarto-xref">Şekil&nbsp;<span>21.1</span></a>).</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-for-loop" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -595,16 +607,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-for-loop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;19.1: <code>for</code> döngüsü hakkındaki diyagram
+Şekil&nbsp;21.1: <code>for</code> döngüsü hakkındaki diyagram
 </figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="kontrol-yapısı-if-else" class="level2" data-number="19.2"><h2 data-number="19.2" class="anchored" data-anchor-id="kontrol-yapısı-if-else">
-<span class="header-section-number">19.2</span> Kontrol yapısı (<code>if-else</code>)</h2>
+</section><section id="kontrol-yapısı-if-else" class="level2" data-number="21.2"><h2 data-number="21.2" class="anchored" data-anchor-id="kontrol-yapısı-if-else">
+<span class="header-section-number">21.2</span> Kontrol yapısı (<code>if-else</code>)</h2>
 <p>Eğer yapacağımız analiz adımında veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse <code>if-else</code> yapısını kullanıyoruz.</p>
 <p>Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5’ten büyük veya eşit ise ekrana “Bu sayı 5’den büyük veya eşittir” yazsın. Eğer 5’den küçük ise, “Bu sayı 5’den küçüktür” yazsın.</p>
-<p><a href="#fig-if-else-1" class="quarto-xref">Şekil&nbsp;<span>19.2</span></a> bize bu işlemi şematize edecektir.</p>
+<p><a href="#fig-if-else-1" class="quarto-xref">Şekil&nbsp;<span>21.2</span></a> bize bu işlemi şematize edecektir.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-if-else-1" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -625,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-if-else-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;19.2: <code>if-else</code> döngüsü hakkındaki diyagram
+Şekil&nbsp;21.2: <code>if-else</code> döngüsü hakkındaki diyagram
 </figcaption></figure>
 </div>
 </div>
@@ -662,8 +674,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "bu sayi bese esit veya besten buyuktur"</code></pre>
 </div>
 </div>
-</section><section id="farklı-yapıları-birleştirelim" class="level2" data-number="19.3"><h2 data-number="19.3" class="anchored" data-anchor-id="farklı-yapıları-birleştirelim">
-<span class="header-section-number">19.3</span> Farklı yapıları birleştirelim</h2>
+</section><section id="farklı-yapıları-birleştirelim" class="level2" data-number="21.3"><h2 data-number="21.3" class="anchored" data-anchor-id="farklı-yapıları-birleştirelim">
+<span class="header-section-number">21.3</span> Farklı yapıları birleştirelim</h2>
 <p>Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
@@ -698,7 +710,7 @@ yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.033333
 yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 </code></pre>
 </div>
 </div>
-<p>Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (<a href="#fig-all-loop" class="quarto-xref">Şekil&nbsp;<span>19.3</span></a>):</p>
+<p>Şimdi bu yapıyı daha iyi anlamak için görselleşirelim (<a href="#fig-all-loop" class="quarto-xref">Şekil&nbsp;<span>21.3</span></a>):</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-all-loop" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -726,14 +738,14 @@ yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 </code></pre>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-all-loop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;19.3: İki kontrol yapısını da birleştirmek
+Şekil&nbsp;21.3: İki kontrol yapısını da birleştirmek
 </figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="ödev" class="level2" data-number="19.4"><h2 data-number="19.4" class="anchored" data-anchor-id="ödev">
-<span class="header-section-number">19.4</span> Ödev</h2>
-<p>Burada öğrendiklerimizi pekiştirmek için <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="quarto-xref"><span>Bölüm 32</span></a>’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.</p>
+</section><section id="ödev" class="level2" data-number="21.4"><h2 data-number="21.4" class="anchored" data-anchor-id="ödev">
+<span class="header-section-number">21.4</span> Ödev</h2>
+<p>Burada öğrendiklerimizi pekiştirmek için <a href="../04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.html" class="quarto-xref"><span>Bölüm 34</span></a>’de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -1145,13 +1157,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../02-veri-analizi/13-t-test.html" class="pagination-link" aria-label="T-Test">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">T-Test</span></span>
+      <a href="../02-veri-analizi/dogrusal-modelleme-2.html" class="pagination-link" aria-label="Çoklu Doğrusal Modelleme">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="pagination-link" aria-label="Fonksiyonlar">
-        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

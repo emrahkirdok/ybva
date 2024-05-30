@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yaşam Bilimlerinde Veri Analizi - 22&nbsp; Fonksiyonlar</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 20&nbsp; Çoklu Doğrusal Modelleme</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" rel="next">
-<link href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" rel="prev">
+<link href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" rel="next">
+<link href="../02-veri-analizi/dogrusal-modelleme-1.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +97,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Göndermek",
     "search-label": "Aramak"
   }
-}</script>
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
@@ -106,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/dogrusal-modelleme-2.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -285,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/dogrusal-modelleme-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-veri-analizi/dogrusal-modelleme-2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></span></a>
   </div>
 </li>
@@ -308,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link active">
+  <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
   </div>
 </li>
@@ -473,14 +498,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li><a href="#%C3%B6rnek-fonksiyon" id="toc-örnek-fonksiyon" class="nav-link active" data-scroll-target="#%C3%B6rnek-fonksiyon"><span class="header-section-number">22.1</span> Örnek fonksiyon</a></li>
-  <li><a href="#ba%C5%9Fka-bir-fonksiyon" id="toc-başka-bir-fonksiyon" class="nav-link" data-scroll-target="#ba%C5%9Fka-bir-fonksiyon"><span class="header-section-number">22.2</span> Başka bir fonksiyon</a></li>
+<li><a href="#de%C4%9Fi%C5%9Fkenler-aras%C4%B1-etkile%C5%9Fim" id="toc-değişkenler-arası-etkileşim" class="nav-link active" data-scroll-target="#de%C4%9Fi%C5%9Fkenler-aras%C4%B1-etkile%C5%9Fim"><span class="header-section-number">20.1</span> Değişkenler arası etkileşim</a></li>
+  <li><a href="#girdilere-do%C4%9Frusal-olmayan-d%C3%B6n%C3%BC%C5%9F%C3%BCm-uygulama" id="toc-girdilere-doğrusal-olmayan-dönüşüm-uygulama" class="nav-link" data-scroll-target="#girdilere-do%C4%9Frusal-olmayan-d%C3%B6n%C3%BC%C5%9F%C3%BCm-uygulama"><span class="header-section-number">20.2</span> Girdilere doğrusal olmayan dönüşüm uygulama</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/dogrusal-modelleme-2.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span>
+<span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span>
 </h1>
 </div>
 
@@ -495,94 +520,241 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>R üzerinde fonksiyonlar, belirli bir işlevi tekrar tekrar gerçekleştirmek için yazılmış kod yapılarıdır. Bir veri analizi sürecinde veriye farklı aşamalarda aynı adımları uyguladığınızı düşünün.</p>
-<p>Aynı kod bloğunu tekrar tekrar yazmak yerine bir fonksiyon oluşturusanız o işlemi rahat bir şekilde tekrar gerçekleştirebilirsiniz.</p>
-<p>Genel kural olarak, eğer bir işlemi iki seferden fazla kullanıyorsanız, onu bir fonksiyon haline çevirmeniz iyi olacaktır.</p>
-<p>Bir fonksiyonun mutlaka en az bir girdisi ve bir de çıktısı olmalıdır. Parametre kullanımı isteğe bağlıdır. Eğer yazdığınız fonksiyon işlem için farklı değişkenlere ihtiyaç duyuyorsa, parametreleri belirtmelisiniz (<a href="#fig-fonksiyon" class="quarto-xref">Şekil&nbsp;<span>22.1</span></a>).</p>
-<div class="cell" data-layout-align="default">
+</header><p>Öncelikle kütüphanelerimizi yükleyelim:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">"MASS"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://www.statlearning.com">"ISLR2"</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ISLR2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:MASS':
+
+    Boston</code></pre>
+</div>
+</div>
+<p>Çoklu model oluşturmak için de tine <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> fonksiyonunu kullanacağız:</p>
+<p>$$</p>
+<p>{}</p>
+<p>$$</p>
+<p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> fonksiyonu ile modelimizin ayrıntılarını elde edebiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span> <span class="op">+</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat + age, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.981  -3.978  -1.283   1.968  23.158 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 33.22276    0.73085  45.458  &lt; 2e-16 ***
+lstat       -1.03207    0.04819 -21.416  &lt; 2e-16 ***
+age          0.03454    0.01223   2.826  0.00491 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.173 on 503 degrees of freedom
+Multiple R-squared:  0.5513,    Adjusted R-squared:  0.5495 
+F-statistic:   309 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Bu veri setinde 12 farklı değişken var. Bu yüzden hepsini tek tek yazmak yerine aşağıdaki gibi de yazabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.fit</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ ., data = Boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.1304  -2.7673  -0.5814   1.9414  26.2526 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  41.617270   4.936039   8.431 3.79e-16 ***
+crim         -0.121389   0.033000  -3.678 0.000261 ***
+zn            0.046963   0.013879   3.384 0.000772 ***
+indus         0.013468   0.062145   0.217 0.828520    
+chas          2.839993   0.870007   3.264 0.001173 ** 
+nox         -18.758022   3.851355  -4.870 1.50e-06 ***
+rm            3.658119   0.420246   8.705  &lt; 2e-16 ***
+age           0.003611   0.013329   0.271 0.786595    
+dis          -1.490754   0.201623  -7.394 6.17e-13 ***
+rad           0.289405   0.066908   4.325 1.84e-05 ***
+tax          -0.012682   0.003801  -3.337 0.000912 ***
+ptratio      -0.937533   0.132206  -7.091 4.63e-12 ***
+lstat        -0.552019   0.050659 -10.897  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.798 on 493 degrees of freedom
+Multiple R-squared:  0.7343,    Adjusted R-squared:  0.7278 
+F-statistic: 113.5 on 12 and 493 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Burada sonuçlara tek tek ulaşabiliriz:</p>
+<p><code>summary(lm.fit)$r.sq</code> yazdığımızda bize <span class="math inline">\(R^2\)</span>, değerini verir.</p>
+<p>Peki bu değişkenlerden bir tanesini çıkartmak istesek? Mesela <code>age</code> değişkeninin p değeri çok yüksek, onu modelden çıkartalım:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.fit1</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ . - age, data = Boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.1851  -2.7330  -0.6116   1.8555  26.3838 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  41.525128   4.919684   8.441 3.52e-16 ***
+crim         -0.121426   0.032969  -3.683 0.000256 ***
+zn            0.046512   0.013766   3.379 0.000785 ***
+indus         0.013451   0.062086   0.217 0.828577    
+chas          2.852773   0.867912   3.287 0.001085 ** 
+nox         -18.485070   3.713714  -4.978 8.91e-07 ***
+rm            3.681070   0.411230   8.951  &lt; 2e-16 ***
+dis          -1.506777   0.192570  -7.825 3.12e-14 ***
+rad           0.287940   0.066627   4.322 1.87e-05 ***
+tax          -0.012653   0.003796  -3.333 0.000923 ***
+ptratio      -0.934649   0.131653  -7.099 4.39e-12 ***
+lstat        -0.547409   0.047669 -11.483  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.794 on 494 degrees of freedom
+Multiple R-squared:  0.7343,    Adjusted R-squared:  0.7284 
+F-statistic: 124.1 on 11 and 494 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Alternatif olarak <code><a href="https://rdrr.io/r/stats/update.html">update()</a></code> fonksiyonu kullanılabilr:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">lm.fit</span>, <span class="op">~</span> <span class="va">.</span> <span class="op">-</span> <span class="va">age</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="değişkenler-arası-etkileşim" class="level2" data-number="20.1"><h2 data-number="20.1" class="anchored" data-anchor-id="değişkenler-arası-etkileşim">
+<span class="header-section-number">20.1</span> Değişkenler arası etkileşim</h2>
+<p>Eğer iki değişkenin arasında etkileşim belirlemek istiyorsanız şöyle bir notasyonu uygulayabilirsiniz:</p>
+<p><code>lstat</code><span class="math inline">\(\times\)</span><code>age</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span> <span class="op">*</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat * age, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.806  -4.045  -1.333   2.085  27.552 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 36.0885359  1.4698355  24.553  &lt; 2e-16 ***
+lstat       -1.3921168  0.1674555  -8.313 8.78e-16 ***
+age         -0.0007209  0.0198792  -0.036   0.9711    
+lstat:age    0.0041560  0.0018518   2.244   0.0252 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.149 on 502 degrees of freedom
+Multiple R-squared:  0.5557,    Adjusted R-squared:  0.5531 
+F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section><section id="girdilere-doğrusal-olmayan-dönüşüm-uygulama" class="level2" data-number="20.2"><h2 data-number="20.2" class="anchored" data-anchor-id="girdilere-doğrusal-olmayan-dönüşüm-uygulama">
+<span class="header-section-number">20.2</span> Girdilere doğrusal olmayan dönüşüm uygulama</h2>
+<p>Eğer incelenen değişkenler arasında doğrusal olmayan bir ilişki varsa bunu da doğrusal model içerisinde belirtme imkanımız var. Örnek verelim,<span class="math inline">\(X\)</span> girdisi varlığı altında <span class="math inline">\(X^2\)</span> değişkenini <code>I(X^2)</code> notasyonu ile ifade edebiliriz.</p>
+<p>Burada <code><a href="https://rdrr.io/r/base/AsIs.html">I()</a></code> fonksiyonunun özel bir işlevi bulunmaktadır. Normalde <code>^</code> karakteri üssel sayıları belirtir. Ancak bizim amacımız sembolik bir notasyon yazmak. Böyle olunca bu sembolu kullanmamız gerekidir.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">lstat</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.fit2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat + I(lstat^2), data = Boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.2834  -3.8313  -0.5295   2.3095  25.4148 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 42.862007   0.872084   49.15   &lt;2e-16 ***
+lstat       -2.332821   0.123803  -18.84   &lt;2e-16 ***
+I(lstat^2)   0.043547   0.003745   11.63   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.524 on 503 degrees of freedom
+Multiple R-squared:  0.6407,    Adjusted R-squared:  0.6393 
+F-statistic: 448.5 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Dikkat edersek kuadratik terim (<code>lstat^2</code>) artık çok düşük bir <span class="math inline">\(p-değeri\)</span> ile belirtildi. Yani burada kuadratik bir fonksiyon yazmamız daha iyi bir model elde etmemizi olanaklı kıldı.</p>
+<p>Daha fazla üssel terim eklemek ve polinom fonksiyonumuzun derecesini arttırmak istersek aşağıdaki şekilde yazma imkanımız var:</p>
+<pre><code>lm(medv, poly(lstat, 5), data = Boston)</code></pre>
+<p>Bu sayaede beşinci dereceden fonksyionu otomatik olarak oluşturabiliriz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm.fit5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">lstat</span>, <span class="fl">5</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.fit5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ poly(lstat, 5), data = Boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.5433  -3.1039  -0.7052   2.0844  27.1153 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       22.5328     0.2318  97.197  &lt; 2e-16 ***
+poly(lstat, 5)1 -152.4595     5.2148 -29.236  &lt; 2e-16 ***
+poly(lstat, 5)2   64.2272     5.2148  12.316  &lt; 2e-16 ***
+poly(lstat, 5)3  -27.0511     5.2148  -5.187 3.10e-07 ***
+poly(lstat, 5)4   25.4517     5.2148   4.881 1.42e-06 ***
+poly(lstat, 5)5  -19.2524     5.2148  -3.692 0.000247 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.215 on 500 degrees of freedom
+Multiple R-squared:  0.6817,    Adjusted R-squared:  0.6785 
+F-statistic: 214.2 on 5 and 500 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>This suggests that including additional polynomial terms, up to fifth order, leads to an improvement in the model fit! However, further investigation of the data reveals that no polynomial terms beyond fifth order have significant <span class="math inline">\(p\)</span>-values in a regression fit.</p>
+<p><strong><em>Bu, beşinci sıraya kadar ek polinom terimlerinin eklenmesinin model uyumunda bir iyileşmeye yol açtığını göstermektedir! Bununla birlikte, verilerin daha fazla araştırılması, beşinci derecenin ötesinde hiçbir polinom teriminin bir regresyon uyumunda anlamlı <span class="math inline">\(p\)</span> değerlerine sahip olmadığını ortaya koymaktadır.</em></strong></p>
+<p>Peki bu üç modeli grafik üzerinden karşılaştırabilir miyiz?</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># once basit dogrusal model</span></span>
+<span><span class="va">lm.fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">lm.fit2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">lstat</span>, <span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="va">lm.fit3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">lstat</span>, <span class="fl">3</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="va">lm.fit4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">lstat</span>, <span class="fl">4</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="va">lm.fit5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">lstat</span>, <span class="fl">5</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medv</span><span class="op">~</span><span class="va">lstat</span>, data <span class="op">=</span> <span class="va">Boston</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">lm.fit</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Boston</span><span class="op">$</span><span class="va">lstat</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">lm.fit2</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Boston</span><span class="op">$</span><span class="va">lstat</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">lm.fit3</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Boston</span><span class="op">$</span><span class="va">lstat</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">lm.fit4</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"pink"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Boston</span><span class="op">$</span><span class="va">lstat</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">lm.fit5</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="st">"Modellerin karsilastirilmasi"</span>, sub <span class="op">=</span> <span class="st">"Kirmizi: dogrusal model, Mor: Ikinci derece polinom, Mavi: Besinci derece polinom"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fonksiyon" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fonksiyon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 276.39 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)"><title>fonksiyon</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 272.39,-184 272.39,4 -4,4"></polygon><!-- girdi --><g id="node1" class="node"><title>girdi</title>
-<polygon fill="none" stroke="black" points="243.57,-180 189.57,-180 189.57,-144 243.57,-144 243.57,-180"></polygon><text text-anchor="middle" x="216.57" y="-157.8" font-family="Times,serif" font-size="14.00">Girdi</text></g><!-- fonksiyon --><g id="node2" class="node"><title>fonksiyon</title>
-<ellipse fill="none" stroke="black" cx="216.57" cy="-90" rx="51.64" ry="18"></ellipse><text text-anchor="middle" x="216.57" y="-85.8" font-family="Times,serif" font-size="14.00">Fonksiyon</text></g><!-- girdi&#45;&gt;fonksiyon --><g id="edge1" class="edge"><title>girdi-&gt;fonksiyon</title>
-<path fill="none" stroke="black" d="M216.57,-143.7C216.57,-135.98 216.57,-126.71 216.57,-118.11"></path><polygon fill="black" stroke="black" points="220.07,-118.1 216.57,-108.1 213.07,-118.1 220.07,-118.1"></polygon></g><!-- cikti --><g id="node3" class="node"><title>cikti</title>
-<polygon fill="none" stroke="black" points="243.57,-36 189.57,-36 189.57,0 243.57,0 243.57,-36"></polygon><text text-anchor="middle" x="216.57" y="-13.8" font-family="Times,serif" font-size="14.00">Çıktı</text></g><!-- fonksiyon&#45;&gt;cikti --><g id="edge2" class="edge"><title>fonksiyon-&gt;cikti</title>
-<path fill="none" stroke="black" d="M216.57,-71.7C216.57,-63.98 216.57,-54.71 216.57,-46.11"></path><polygon fill="black" stroke="black" points="220.07,-46.1 216.57,-36.1 213.07,-46.1 220.07,-46.1"></polygon></g><!-- parametre --><g id="node4" class="node"><title>parametre</title>
-<polygon fill="none" stroke="black" points="147.21,-108 30.07,-108 -0.07,-72 117.08,-72 147.21,-108"></polygon><text text-anchor="middle" x="73.57" y="-85.8" font-family="Times,serif" font-size="14.00">Parametre</text></g><!-- parametre&#45;&gt;fonksiyon --><g id="edge3" class="edge"><title>parametre-&gt;fonksiyon</title>
-<path fill="none" stroke="black" d="M132.22,-90C139.62,-90 147.02,-90 154.42,-90"></path><polygon fill="black" stroke="black" points="154.51,-93.5 164.51,-90 154.51,-86.5 154.51,-93.5"></polygon></g></g></svg>
+<figure class="figure"><p><img src="dogrusal-modelleme-2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fonksiyon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;22.1: Bir fonksiyon, belirli parametreler varlığı altında bir girdiyi alır ve işleyerek çıktı haline dönüştürür
-</figcaption></figure>
-</div>
-</div>
-</div>
-<section id="örnek-fonksiyon" class="level2" data-number="22.1"><h2 data-number="22.1" class="anchored" data-anchor-id="örnek-fonksiyon">
-<span class="header-section-number">22.1</span> Örnek fonksiyon</h2>
-<p>İlk fonksiyonumuz çok basit bir işlemi gerçekleştirsin. İki sayıyı toplasın!</p>
-<p>Fonksiyonumuz iki tane girdiye sahip olsun:</p>
-<ul>
-<li><code>a</code></li>
-<li><code>b</code></li>
-</ul>
-<p>Çıktısı ise <code>sonuc</code> olsun.</p>
-<p>Fonksiyon ismi ise <code>toplam</code> olsun.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">toplam</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span><span class="op">{</span></span>
-<span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span>
-<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Önce fonksiyon ismini <code>toplam</code> yazdık ve <code>function</code> komutu ile, R’a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (<code>a</code> ve <code>b</code>).</p>
-<p>Daha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve <code>sonuc</code> değişkenini oluşturduk. Bu sonuç değişkenini ise, <code>return</code> komutu ile geri döndürdük.</p>
-<p>Her fonksiyonda mutlaka bir değer geri döndürmelisiniz.</p>
-<p>Şimdi fonksiyonu kullanalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">5</span>, b <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 17</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Önemli
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Fonkisyonları kullanmadan önce mutlaka tanımlamalısınız! Eğer fonksiyonu tanımlamazsanız, kullanamazsınız.</p>
-</div>
-</div>
-<p>Şimdi başka iki örnek kullanalım:</p>
-<div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">12</span>, b <span class="op">=</span> <span class="fl">45</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 57</code></pre>
-</div>
-</div>
-</section><section id="başka-bir-fonksiyon" class="level2" data-number="22.2"><h2 data-number="22.2" class="anchored" data-anchor-id="başka-bir-fonksiyon">
-<span class="header-section-number">22.2</span> Başka bir fonksiyon</h2>
-<p>Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.</p>
-<p>Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.</p>
-<p>Yazacağımız fonksiyon santigrad cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise <code>kelvin_donusturucu</code> olsun.</p>
-<div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kelvin_donusturucu</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">derece</span><span class="op">)</span><span class="op">{</span></span>
-<span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">derece</span> <span class="op">+</span> <span class="fl">273.15</span></span>
-<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Bu fonksiyonu kullanalım şimdi:</p>
-<div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">kelvin_donusturucu</span><span class="op">(</span>derece <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 303.15</code></pre>
 </div>
 </div>
 
@@ -996,13 +1168,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link" aria-label="Kontrol yapıları">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span>
+      <a href="../02-veri-analizi/dogrusal-modelleme-1.html" class="pagination-link" aria-label="Doğrusal modelleme">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="pagination-link" aria-label="DNA ile çalışma">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="pagination-link" aria-label="Kontrol yapıları">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
