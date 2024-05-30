@@ -89,6 +89,7 @@ book:
     - part: "Biyoteknolojide Veri Analizi"
       chapters:
         - 05-istatistik/naive-bayes.qmd
+        - 05-istatistik/random-forest.qmd
         - 05-istatistik/odev.qmd
     - part: "Türkiye'nin Verisi"
   
