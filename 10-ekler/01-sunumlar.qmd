@@ -8,6 +8,8 @@
 + [16/03/2023 Matrisler](../00-sunumlar/01-03-matrisler.html)
 + [16/03/2023 Veri çerçeveleri](../00-sunumlar/01-04-veri-cerceveleri.html)
 + [23/03/2023 Listeler](../00-sunumlar/01-05-listeler.html)
++ [Rmarkdown](../00-sunumlar/01-06-rmarkdown.html)
++ [Veri Okuma](../00-sunumlar/01-07-veri-okuma.html)
 
 ## Bilgisayarlı Düşünme
 
