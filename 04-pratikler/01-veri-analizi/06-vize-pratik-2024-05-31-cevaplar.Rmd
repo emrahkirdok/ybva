@@ -24,7 +24,7 @@ Lütfen ekte indirdiğiniz veri çerçevesini R içerisine yükleyecek kodu yaz�
 > Dikkat! sizin dosyayı indirdiğiniz yer farklı olabilir!
 
 ```{r}
-boston <- read.table(file = "data/boston.txt", header = T)
+boston <- read.table(file = "../../data/boston.txt", header = T)
 ```
 
 ## Soru 2
