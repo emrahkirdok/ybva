@@ -7,6 +7,9 @@ lang: tr
 format:
   pdf:
     template: templates/eisvogel.tex
+    include-in-header:
+      - text: |
+          \usepackage{awesomebox}
 ---
 
 ```{r setup, include=FALSE}
@@ -37,6 +40,13 @@ library("MASS")
 library("ISLR2")
 ```
 
+::: noteblock
+
+aksmflşsmfd
+
+:::
+
+
 ## Basit doğrusal regresyon
 
 Bu uygulama kapsamında `ISLR2` paketi içerisindeki `Boston` veri setini kullancağız. Öncelikle veri setinin ilk beş satırını inceleyelim:
@@ -60,8 +70,6 @@ Bu çalışma kapsamında `medv` ve `lstat` değişkenleri arasındaki ilişkiyi
 plot(medv~lstat, data = Boston)
 ```
 
-::: note
-
 R üzerinde herşeyin birden çok çözüm yolu bulunmaktadır. Mesela bu grafiği oluşturmak için üç farklı yol kullanabiliriz:
 
 ```{r, eval = FALSE}
@@ -79,8 +87,6 @@ Ancak kodlarımızın daha açık ve okunabilir olması açısından ben aşağ�
 ```{r eval = FALSE}
 plot(medv~lstat, data = Boston)
 ```
-
-:::
 
 Sizce bu şekil ne anlatıyor? Sosyoekonomik seviye düşüşü ev fiyatlarını sizce nasıl etkiliyor olabilir? Bu noktada bir durup düşünün.
 
@@ -116,11 +122,9 @@ Güven aralıklarını (%95) elde etmek için ise `confint` fonkisyonunu kullana
 confint(lm.fit)
 ```
 
-::: warning
 
 Güven aralıkları kısmı tekrar yazılacaktır!
 
-:::
 
 Eğer Şekil \@ref(fig:bostonplot)'i dikkatle incelerseniz, iki değişken arasında doğrusal olmayan bir ilişki görebilme imkanınız var. Derslerde de belirttiğimiz gibi aslında mükemmel bir doğrusal ilişki bulma imkanınız yok. Bizim burada yaptığımız ise, aslında iki değişken arasındaki ilişkiyi en iyi ifade eden doğrusal modeli elde etmek.
 
@@ -158,7 +162,7 @@ ggplot(data = Boston, aes(x = lstat, y = medv)) +
 
 # EK
 
-
+```
 output:
   bookdown::pdf_document2:
     template: templates/eisvogel.tex
@@ -172,7 +176,7 @@ output:
 lang: tr
 header-includes: |
   ```{=latex}
-  \usepackage{awesomebox}
+  usepackage{awesomebox}
   ```
 pandoc-latex-environment:
   noteblock: [note]
@@ -180,3 +184,4 @@ pandoc-latex-environment:
   warningblock: [warning]
   cautionblock: [caution]
   importantblock: [important]
+```
