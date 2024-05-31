@@ -2,32 +2,18 @@
 title: "Doğrusal Modelleme Uygulaması - 1"
 author: "Emrah Kırdök, Ph. D."
 date: "3/10/2022"
-output:
-  bookdown::pdf_document2:
-    template: templates/eisvogel.tex
-    toc: false
-    pandoc_args:
-    - --filter
-    - ~/miniconda3/bin/pandoc-latex-environment
-  bookdown::html_document2:
-    css: "templates/scholarly.css"
 bibliography: bibliography.bib
 lang: tr
-header-includes: |
-  ```{=latex}
-  \usepackage{awesomebox}
-  ```
-pandoc-latex-environment:
-  noteblock: [note]
-  tipblock: [tip]
-  warningblock: [warning]
-  cautionblock: [caution]
-  importantblock: [important]
+format:
+  pdf:
+    template: templates/eisvogel.tex
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
 
 # Doğrusal modelleme, Doğrusal regresyon
 
@@ -170,3 +156,27 @@ ggplot(data = Boston, aes(x = lstat, y = medv)) +
   geom_smooth(method = "lm", color = "red")
 ```
 
+# EK
+
+
+output:
+  bookdown::pdf_document2:
+    template: templates/eisvogel.tex
+    toc: false
+    pandoc_args:
+    - --filter
+    - ~/miniconda3/bin/pandoc-latex-environment
+  bookdown::html_document2:
+    css: "templates/scholarly.css"
+
+lang: tr
+header-includes: |
+  ```{=latex}
+  \usepackage{awesomebox}
+  ```
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
