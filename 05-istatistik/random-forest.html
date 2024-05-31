@@ -525,11 +525,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 36.36%
+        OOB estimate of  error rate: 27.27%
 Confusion matrix:
               Healthy Periodontitis class.error
-Healthy             9             3        0.25
-Periodontitis       5             5        0.50</code></pre>
+Healthy            11             1  0.08333333
+Periodontitis       5             5  0.50000000</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -538,27 +538,27 @@ Periodontitis       5             5        0.50</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                  Healthy Periodontitis MeanDecreaseAccuracy
-Actinomyces_johnsonii           1.2484050     2.0235102            1.8789350
-Dialister_micraerophilus        4.2346370     4.5153409            4.8974341
-Actinomyces_timonensis          2.5334065     2.1188872            2.5673462
-Treponema_lecithinolyticum      2.0849587     1.7541441            2.5152991
-Slackia_exigua                  2.2854179    -0.4473776            1.2707351
-Actinomyces_dentalis            2.0625736     1.2895919            1.9587557
-Parvimonas_micra                2.1508582     2.7049253            2.9899244
-Pseudoramibacter_alactolyticus -0.5924809     0.6291994            0.1503508
-Capnocytophaga_granulosa        2.0893526     1.1842823            1.7944852
-Treponema_maltophilum           1.0917427     0.4924854            0.6973773
+Actinomyces_timonensis          2.5058336     2.4921318            2.9231826
+Dialister_micraerophilus        3.2389684     2.5910600            3.1069398
+Actinomyces_johnsonii           1.4380762     0.9588695            1.2773244
+Eggerthia_catenaformis          2.4933949     2.2137706            2.3127799
+Tannerella_forsythia            2.3007192     2.5859642            2.6850786
+Treponema_socranskii           -0.2914775    -0.4538739           -0.7585297
+Pseudoramibacter_alactolyticus  1.6339887     0.1075219            1.2277239
+Parvimonas_micra                1.0644832     0.3185291            0.7872962
+Capnocytophaga_granulosa        2.4357055     1.9356853            2.6669134
+Slackia_exigua                  0.9599168     1.9671691            1.7439235
                                MeanDecreaseGini
-Actinomyces_johnsonii                 0.3483053
-Dialister_micraerophilus              0.3232034
-Actinomyces_timonensis                0.2883581
-Treponema_lecithinolyticum            0.2027244
-Slackia_exigua                        0.1997012
-Actinomyces_dentalis                  0.1957180
-Parvimonas_micra                      0.1916286
-Pseudoramibacter_alactolyticus        0.1751245
-Capnocytophaga_granulosa              0.1737994
-Treponema_maltophilum                 0.1690051</code></pre>
+Actinomyces_timonensis                0.4144991
+Dialister_micraerophilus              0.3605427
+Actinomyces_johnsonii                 0.3331209
+Eggerthia_catenaformis                0.1953971
+Tannerella_forsythia                  0.1871762
+Treponema_socranskii                  0.1850883
+Pseudoramibacter_alactolyticus        0.1809266
+Parvimonas_micra                      0.1743439
+Capnocytophaga_granulosa              0.1667477
+Slackia_exigua                        0.1664044</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
