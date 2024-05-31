@@ -1,5 +1,5 @@
 ---
-title: "Ödev - 2"
+title: "Pratik 2024-05-31"
 author: ""
 number: ""
 date: ""

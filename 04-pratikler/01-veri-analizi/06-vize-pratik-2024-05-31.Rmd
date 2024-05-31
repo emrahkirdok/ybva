@@ -1,5 +1,5 @@
 ---
-title: "Ödev - 2"
+title: "Pratik 2024-05-31"
 author: ""
 number: ""
 date: ""
@@ -16,6 +16,15 @@ Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu 
 + `lstat`: Mahallede bulunan düşük sosyoekonomik seviyeye sahip ev sayısı
 + `rm`: Mahallede bulunan evlerdeki ortalama oda sayısı
 + `chas`: Mahallelerin Charles nehrine yakınlık durumları (0: Charles nehrine yakın değil, 1: Charles nehri yakınında)
+
+Bu pratiğin boş kağıdını aşağıdan indirebilirsiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd)
+
+Bu pratiğin cevaplarını aşağıdaki dosyada inceleyebilirisniz:
+
+[https://github.com/emrahkirdok/ybva/blob/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31-cevaplar.Rmd](https://github.com/emrahkirdok/ybva/blob/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31-cevaplar.Rmd)
+
 
 ## Soru 1
 
