@@ -543,28 +543,28 @@ Periodontitis       6             4        0.60</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                 Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus       4.1284533    4.06834936            4.4401492
-Actinomyces_johnsonii          2.4142580    2.07503241            2.4282653
-Actinomyces_timonensis         1.2191931    0.66470409            1.0064713
-Slackia_exigua                 1.1217506    1.83875289            1.6302669
-Treponema_socranskii           2.0895618    1.29951073            1.9110524
-Tannerella_forsythia           3.0774843    3.09956256            3.4391505
-Actinomyces_dentalis           0.3820648   -0.04646289            0.6175277
-Parvimonas_micra               1.1251489    1.94527684            1.5483246
-Pseudoramibacter_alactolyticus 0.8897043    1.35049356            1.1794277
-Treponema_lecithinolyticum     1.9054962    1.79662353            2.1898239
+<pre><code>                                Healthy Periodontitis MeanDecreaseAccuracy
+Actinomyces_timonensis         2.492246     2.0087173            2.6428046
+Tannerella_forsythia           2.622092     2.6026755            2.8429880
+Dialister_micraerophilus       4.571468     3.8387617            4.7256388
+Actinomyces_johnsonii          2.607310     2.3278049            2.8113022
+Capnocytophaga_granulosa       2.087824     1.0868699            2.2288975
+Parvimonas_micra               1.635730     2.2026343            2.1349827
+Actinomyces_dentalis           1.961105     1.6973247            2.0643199
+Pseudoramibacter_alactolyticus 1.261513     0.6731468            1.0179153
+Prevotella_nanceiensis         1.009982    -1.7881763           -0.6902158
+Prevotella_saccharolytica      2.132889    -1.2494253            0.6719162
                                MeanDecreaseGini
-Dialister_micraerophilus              0.3772771
-Actinomyces_johnsonii                 0.2703594
-Actinomyces_timonensis                0.2452176
-Slackia_exigua                        0.2120626
-Treponema_socranskii                  0.2086698
-Tannerella_forsythia                  0.1948951
-Actinomyces_dentalis                  0.1922592
-Parvimonas_micra                      0.1796686
-Pseudoramibacter_alactolyticus        0.1769060
-Treponema_lecithinolyticum            0.1700672</code></pre>
+Actinomyces_timonensis                0.3079966
+Tannerella_forsythia                  0.2831004
+Dialister_micraerophilus              0.2584595
+Actinomyces_johnsonii                 0.2237540
+Capnocytophaga_granulosa              0.2134592
+Parvimonas_micra                      0.2077664
+Actinomyces_dentalis                  0.1985043
+Pseudoramibacter_alactolyticus        0.1803708
+Prevotella_nanceiensis                0.1760840
+Prevotella_saccharolytica             0.1591483</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
