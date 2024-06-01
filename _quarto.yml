@@ -76,6 +76,7 @@ book:
         - 04-pratikler/01-veri-analizi/liste-pratik.Rmd
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
         - 04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.qmd
+        - 04-pratikler/02-bilgisayarli-dusunme/04-Pratik-2024-06-01.Rmd
         
     - part: "Biyoteknolojide Veri Analizi"
       chapters:
