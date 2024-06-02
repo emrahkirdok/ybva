@@ -2,13 +2,6 @@
 
 Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında *glioblastoma* ve *sağlıkı, normal* beyin dokularından elde edilen gen anlatım profili incelenecektir.
 
-Gen anlatım profilini ekteki dosyadan elde edebilirsiniz:
-
-Örnekler hakkındaki metadata bilgisine ise aşağıdaki dosyadan ulaşabilirsiniz:
-
-
-Bu dosyaları kullanaraki aşağıdaki adımlar uyarınca analizinizi gerçekleştiriniz:
-
 ## Veri yükleme
 
 Örnekler hakkında metaveri bilgisini yükleyiniz:
