@@ -549,28 +549,28 @@ Periodontitis       6             4  0.60000000</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                             Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus   3.4066932     2.5487406           3.53151849
-Actinomyces_johnsonii      2.2025555     2.7423993           2.90615762
-Treponema_lecithinolyticum 2.3285571     1.1577554           1.89992398
-Tannerella_forsythia       1.2550652     0.6149627           1.05598195
-Actinomyces_dentalis       1.6165977     0.7655403           1.87662687
-Treponema_denticola        1.0832725     1.4034127           1.48890848
-Eggerthia_catenaformis     1.7049446     1.4747313           1.88070352
-Actinomyces_timonensis     2.8535682     2.1738587           2.71426491
-Treponema_socranskii       0.4305245     0.7882156           0.85016830
-Stomatobaculum_longum      0.2512180    -0.1280390          -0.08200634
+<pre><code>                            Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus   3.758890     2.9221505             3.683833
+Actinomyces_timonensis     3.019314     2.2340306             3.216356
+Actinomyces_johnsonii      2.138624     1.0927461             1.580734
+Actinomyces_dentalis       1.954408     0.4802842             1.345558
+Treponema_socranskii       2.797595     2.3454180             2.855187
+Prevotella_nanceiensis     2.509439     1.1595554             2.072832
+Eggerthia_catenaformis     2.441046     1.8094670             2.692600
+Parvimonas_micra           1.071074     1.9462784             1.905869
+Treponema_maltophilum      2.914018     1.5807222             2.404183
+Treponema_lecithinolyticum 1.717093     1.1990624             1.615834
                            MeanDecreaseGini
-Dialister_micraerophilus          0.4492583
-Actinomyces_johnsonii             0.2953884
-Treponema_lecithinolyticum        0.2227384
-Tannerella_forsythia              0.2126780
-Actinomyces_dentalis              0.2025821
-Treponema_denticola               0.1816538
-Eggerthia_catenaformis            0.1703359
-Actinomyces_timonensis            0.1695860
-Treponema_socranskii              0.1612022
-Stomatobaculum_longum             0.1556496</code></pre>
+Dialister_micraerophilus          0.3056258
+Actinomyces_timonensis            0.2680133
+Actinomyces_johnsonii             0.2601881
+Actinomyces_dentalis              0.1963985
+Treponema_socranskii              0.1815660
+Prevotella_nanceiensis            0.1797301
+Eggerthia_catenaformis            0.1668176
+Parvimonas_micra                  0.1602233
+Treponema_maltophilum             0.1479001
+Treponema_lecithinolyticum        0.1397039</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
