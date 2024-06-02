@@ -11,6 +11,10 @@ Pratik kağıdını aşağıdaki dosyadan indirebilirsiniz:
 
 [pratik kağıdı](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/02-bilgisayarli-dusunme/04-Pratik-2024-06-01.Rmd)
 
+Bu pratiğin cevaplarını aşağıdan indirebirsiniz:
+
+[cevap kağıdı](https://github.com/emrahkirdok/ybva/blob/main/03-bilgisayarli-dusunme/08-brain-cancer-microarray.qmd)
+
 Gen anlatım profilini ekteki dosyadan elde edebilirsiniz:
 
 [microarray verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/brain-expression-small-GSE50161.txt)
