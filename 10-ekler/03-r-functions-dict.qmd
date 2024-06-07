@@ -1,0 +1,5 @@
+# Soluk
+
+Bu dökümanda R komutlarının ayrıntıları yaılacaktır
+
+`to-upper`: Küük karakterleri, büyük karaktere çevirme işlemini yapar. 
