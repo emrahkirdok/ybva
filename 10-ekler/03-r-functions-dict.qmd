@@ -2,6 +2,6 @@
 
 Bu dökümanda R komutlarının ayrıntıları yaılacaktır
 
-`to-upper`: Küük karakterleri, büyük karaktere çevirme işlemini yapar.
+`to-upper`: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.
 
 `length` : bir vektörün uunluunu belirtir.
