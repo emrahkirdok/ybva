@@ -1,11 +1,19 @@
 ---
-title: "Pratik 2023-04-06"
+title: "Vektörler, matrisler, veri çerçeveleri"
 author: ""
 date: ""
 output: html_document
 ---
 
-Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer İstasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
+Elinizdeki dökümanın boş `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratik/vektorler-matrisler-veri-cerceveleri.Rmd) bulunmaktadır. 
+
+Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
+
+Bu pratiğin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:
+
+[Pratiğin Cevapları](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/vektorler-matrisler-veri-cerceveleri.Rmd)
+
+Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
 
 |   Tür      | Gaga Uzunluğu (mm)  |  Kanat Uzunluğu (mm)   |   Cinsiyet  |
 |------------|---------------------|------------------------|-------------|
@@ -22,8 +30,6 @@ Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer İstasyo
 
 Bu tabloya göre aşağıdaki soruları cevaplayınız. 
 
-Elinizdeki dökümanın `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/02-pratik.Rmd) bulunmaktadır. Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
-
 ## Vektörler
 
 Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.
@@ -35,51 +41,46 @@ Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vek
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-tur <- c("chinstrap", "adelie","adelie", "chinstrap", "adelie", "chinstrap", "adelie", "gentoo", "gentoo", "gentoo")
-gaga_uzunlugu <- c(49, 35.3, 40.6, 52, 39, 51.7, 38.9, 50.5, 47.8, 41.7)
-kanat_uzunlugu <- c(212, 187, 183, 201, 191, 194, 190, 216, 215, 210)
-cinsiyet <- c("erkek", "disi", "erkek", "erkek", "disi", "erkek", "disi", "disi", "erkek", "disi")
+
 ```
 
-Tür vektöründeki 5. elemanı geri döndüren kodu yazınız:
+Tür vekktöründeki 5. elemanı geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-tur[5]
+
 ```
 
-Gaga uzunluğu vektörünü kullanarak, gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
+Gaga uzunluğu vektörünü kullanarak gaga uzunluğu 50 mm'den büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-gaga_uzunlugu[gaga_uzunlugu > 50]
+
 ```
 
-Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
+Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-kanat_uzunlugu[kanat_uzunlugu > 192]
+
 ```
 
-Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
+Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük olan türleri geri döndüren kodu yazınız. Dikkat edin, bu sefer tür ismi geri döndürmeniz gerekiyor:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-tur[kanat_uzunlugu > 192]
-```
 
+```
 
 ## Matrisler
 
-Kanat uzunluğu vektörünü kullanarak, 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi `ornek_matris` olsun:
+Kanat uzunluğu vektörünü kullanarak 5 satır ve 2 sütundan oluşan bir matris elde ediniz. Oluşturacağınız matrisin ismi `ornek_matris` olsun:
 
-Kanat uzunluğu vektörünü kullanarak, kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
+Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-ornek_matris <- matrix(kanat_uzunlugu, nrow=5, ncol=2)
-ornek_matris[ornek_matris > 192]
+
 ```
 
 Oluşturduğunuz matrisin sütun ve satır isimlerini aşağıdaki gibi değiştiriniz.
@@ -97,12 +98,6 @@ Satır isimleri:
 + T
 + U
 
-```{r}
-rownames(ornek_matris) <- c("X", "Y", "Z", "T", "U")
-colnames(ornek_matris) <- c("A", "B")
-ornek_matris
-```
-
 ## Veri çerçeveleri
 
 Dökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde ediniz. Elde ettiğiniz veri çerçevesinin ismi `penguenler` olsun. Veri çerçevesinin sütun isimleri ise aşağıdaki gibi olsun:
@@ -114,59 +109,56 @@ Dökümanın başında verilen tabloyu kullanarak bir veri çerçevesi elde edin
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler <- data.frame(tur = c("chinstrap", "adelie","adelie", "chinstrap", "adelie", "chinstrap", "adelie", "gentoo", "gentoo", "gentoo"),
-                         gaga_uzunlugu = c(49, 35.3, 40.6, 52, 39, 51.7, 38.9, 50.5, 47.8, 41.7),
-                         kanat_uzunlugu = c(212, 187, 183, 201, 191, 194, 190, 216, 215, 210),
-                         cinsiyet = c("erkek", "disi", "erkek", "erkek", "disi", "erkek", "disi", "disi", "erkek", "disi"))
+
 ```
 
 Oluştrduğunuz veri çerçevesinin satır ve sütun sayılarını geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-dim(penguenler)
+
 ```
 
 Sadece beşinci satırı geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler[5,]
+
 ```
 
 Sadece ikinci sütunu geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler[,2]
+
 ```
 
 Sadece tür değerlerini içeren sütunu geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler$tur
+
 ```
 
 Bu veri çerçevesinde, 2 ile 4. satırlar arasındaki bütün satırları geri döndüren kodu yazınz:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler[2:4,]
+
 ```
 
 Bu veri çerçevesinde gaga uzunluğu 50'den büyük olan satırları geri döndürünüz:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler[penguenler$gaga_uzunlugu > 50, ]
+
 ```
 
 Bu veri çerçevesinde kanat uzunluğu 150'den büyük olan satırları geri döndürünüz:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-penguenler[penguenler$kanat_uzunlugu > 150, ]
+
 ```
 
 ## Veri okuma
@@ -175,20 +167,19 @@ penguenler[penguenler$kanat_uzunlugu > 150, ]
 
 Dosyayı okurken aşağıdaki noktalara dikkat ediniz:
 
-+ Ayraç karakteri olarak `;` kullanılmıştır
-+ İlk satır, sütun isimleri olarak tanımlanmıştır
++ Ayraç karakteri olarak `;` kullanılmıştır.
++ İlk satır, sütun isimleri olarak tanımlanmıştır.
 
 Okuduğunuz verinin ismi `sinav` olsun:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-sinav <- read.table(file = "sinav.csv", header = T, sep = ";")
+
 ```
 
 Okuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
-dim(sinav)
-```
 
+```
