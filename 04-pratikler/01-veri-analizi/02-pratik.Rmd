@@ -1,8 +1,12 @@
-# Veri Analizi Pratik 2023-04-06
+# Vektorler - Matrisler - Veri Çerçeveleri
+
+Elinizdeki dökümanın boş `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/02-pratik.Rmd) bulunmaktadır. 
+
+Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
 
 Bu pratiğin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:
 
-[Pratik 2023-04-06 pratiği cevapları](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/03-pratik-cevaplar.Rmd)
+[Pratiğin Cevapları](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/03-pratik-cevaplar.Rmd)
 
 Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
 
@@ -20,8 +24,6 @@ Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyon
 | Gentoo     |        41.7         |        210             |     dişi    |
 
 Bu tabloya göre aşağıdaki soruları cevaplayınız. 
-
-Elinizdeki dökümanın `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/02-pratik.Rmd) bulunmaktadır. Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
 
 ## Vektörler
 
@@ -64,7 +66,6 @@ Kanat uzunluğu vektörünü kullanarak kanat uzunlukları 192 mm'de büyük ola
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
-
 
 ## Matrisler
 
@@ -177,4 +178,3 @@ Okuduğunuz veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
 # kodlarınızı asagiya yazınız (# isaretini kullanmadan)
 
 ```
-
