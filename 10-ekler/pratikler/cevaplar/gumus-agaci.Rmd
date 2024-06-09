@@ -1,4 +1,8 @@
-# Veri Analizi Pratik 2024-05-30
+---
+title: "Gümüş Ağacı Veri Analizi"
+author : ""
+output: html_document
+---
 
 ## Bilimsel hikaye
 
@@ -6,17 +10,13 @@ Bir araştırma grubundaki araştırmacılar, *Gümüş ağacı* bitkisinde fark
 
 Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.
 
-Çalışmada kullanılacak veriye aşağıdaki bağlantıdan ulaşabilirsiniz:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt
-
 Bu dökümanın `Rmd` versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:
 
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd)
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd)
 
 Cevaplar ise aşağıda bulunan dökümanda:
 
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30-cevaplar.Rmd)
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd)
 
 ### Çalışma yöntemi
 
@@ -45,7 +45,7 @@ Uzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+veri <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt", sep = "\t", header = T)
 ```
 
 ## Veri çerçevesi inceleme
@@ -54,7 +54,7 @@ Yüklediğiniz veri çerçevesinin satır ve sütun sayılarını geri döndür�
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+dim(veri)
 ```
 
 
@@ -62,7 +62,7 @@ Bu veri çerçevesindeki sütun isimlerini geri döndürebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+colnames(veri)
 ```
 
 BU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (*faktör*) değişkeni olarak belirlenmesi gerekmektedir. Acaba bu sütunları faktöre çevirebilir misiniz?
@@ -72,7 +72,8 @@ BU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (*faktör*) değ
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+veri$Kulturleme_kosulu <- as.factor(veri$Kulturleme_kosulu)
+veri$Patojen <- as.factor(veri$Patojen)
 ```
 
 ## Koşulların belirlenmesi
@@ -81,21 +82,21 @@ Bu deney kapsamında yapılmış kültürleme koşullarını (Kurak veya Nemli) 
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+table(veri$Kulturleme_kosulu)
 ```
 
 Bu deney kapsamında yapılmış patojen uygulamalarını frekans tablosu haline getirebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+table(veri$Patojen)
 ```
 
 Acaba her farklı kültürleme koşuluna ait kaç farklı patojen uygulaması var? Birleşik bir frekans tablosu oluşturabilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+table(veri$Kulturleme_kosulu, veri$Patojen)
 ```
 
 ## Fotosentez hızı ve iletkenlik değerlerinin dağılımları
@@ -106,13 +107,14 @@ Bu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmış
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+library(ggplot2)
+ggplot(data = veri, aes(x=Fotosentez)) + geom_histogram()
 ```
 Şimdi de iletkenlik değerleri:
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri, aes(x=Iletkenlik)) + geom_histogram()
 ```
 
 ## Fotosentez hızında görülen değişimlerin incelenmesi
@@ -125,13 +127,13 @@ Acaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına na
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri, aes(x=Kulturleme_kosulu, y = Fotosentez)) + geom_boxplot()
 ```
 
 Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşullaru, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:
 
-> Cevabınızı bu satırlara yazınız
->
+> 
+> Fotosentez hızı, Nemli koşullarda artış göstermiş olabilir
 >
 
 ### Patojen inokülasyonu ve Fotosentez hızında görülen değişim
@@ -140,21 +142,20 @@ Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış?
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri, aes(x=Patojen, y = Fotosentez)) + geom_boxplot()
 ```
 
 Yukarıda oluşturduğunuz grafiğe bakarak aşağıdaki soruları cevaplayınız:
 
 Acaba patojen uygulaması fotosentez hızında bir değişime yol açmış olabilir mi?
 
-> Cevabınızı bu satırlara yazınız
->
->
+> Patojenlerin ayrı ayrı uygulanması, fotosentez hızını kontrol bitkilerine oranla bir miktar düşürmüş olabilir. 
+> Bunu, ortanca değerlerin azalmasından anlayabiliyoruz
+
 
 Aynı anda iki patojenin uygulanması, fotosentez hızını biraz daha fazla azaltmış olabilir mi?
 
-> Cevabınızı bu satırlara yazınız
->
+> Patojenlerin aynı anda uygulanması ise, fotosentez hızını kontrol bitkilerine oranla daha fazla azaltmış olabilir.
 >
 
 ## İletkenlik değerinde görülen değişimler
@@ -167,14 +168,14 @@ Acaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde n
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri, aes(x=Kulturleme_kosulu, y = Iletkenlik)) + geom_boxplot()
 ```
 
 Kurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:
 
 > Cevabınızı bu satırlara yazınız
->
->
+> Nemli kosullarda kulturlenen bitkilerin iletlenlik değerleri, kontrol bitkilerine göre daha fazla olablir.
+> Ancak, Nemli koşullarda gözlenen outlier veriler de bulunmaktadır.
 
 ### Patojen inokülasyonun iletkenlik değerlerine etkisi
 
@@ -182,7 +183,7 @@ Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açm�
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri, aes(x=Patojen, y = Iletkenlik)) + geom_boxplot()
 ```
 
 ## Fotosentez hızının kontrol örneklerinde incelenmesi
@@ -193,14 +194,14 @@ Sadece `Kontrol` örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir 
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+veri_kontrol <- veri[veri$Patojen == "Kontrol", ]
 ```
 
 Şimdi ise oluşturduğunuz yeni veri çerçevesini kullanarak Fotosentez hızının farklı kültürleme koşullarındaki değişimini gösteren kutu grafiğini çiziniz:
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri_kontrol, aes(x=Kulturleme_kosulu, y = Fotosentez)) + geom_boxplot()
 ```
 
 ## İletkenlik ve Fotosentez arasında bir ilişki var mı?
@@ -212,7 +213,7 @@ Peki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki deği
 
 ```{r}
 # Cevabinizi buraya yaziniz
-
+ggplot(data = veri_kontrol, aes(x=Iletkenlik, y = Fotosentez)) + geom_point()
 ```
 
 ## Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?
@@ -221,6 +222,10 @@ Acaba `Kurak` ve `Nemli` koşullarda kültürlenen bitkilerin fotosentez hızlar
 
 ```{r}
 # Cevabinizi buraya yaziniz
+kurak <- veri_kontrol[veri_kontrol$Kulturleme_kosulu == "Kurak", "Fotosentez"]
+nemli <- veri_kontrol[veri_kontrol$Kulturleme_kosulu == "Nemli", "Fotosentez"]
 
+test <- t.test(x = kurak, y = nemli)
+test$p.value < 0.001
 ```
 
