@@ -1,0 +1,240 @@
+---
+title: "Naive Bayes ile İnme Verilerinin Değerlendirilmesi"
+author: "Erdi Barış ÖZTAŞ"
+date: "2024-06-11"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+#Ne çalışacaksak onunla alakalı yapacağımız işlemlerin yürütücülerinin sahada bulunması gerekir. Burada R üzerinden çeşitli verilerin işlenmesi, sınıflandırılması, değerlendirilmesi, görselleştirilmesi gibi işlemler yapılacağından bunları yapabilen araçların yüklenmesi gerekir. Bundan dolayı öncelikle bu paketlerin yüklemesini yapıyoruz.
+
+```{r}
+install.packages("psych")
+install.packages("corrplot")
+install.packages("ggplot2")
+install.packages("caret")
+install.packages("ggpubr")
+install.packages("klaR")
+```
+
+#Aşağıda göreceğiniz library ile başlayan komutlar bizlerin yukarıda indirdiği paketlerin kütüphanelerinden çıkartılıp kurulmasını sağlamaktadır. Aktif hale getirilmiş olur. İlk adımda kitap kolisinde geldi, ikinci adımda kutusundan çıkartılıp kullanıma hazır hale getirildi.
+
+```{r}
+library(psych)
+library(corrplot)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+library(caret)
+```
+
+```{r}
+library(ggpubr)
+library(klaR)
+```
+
+#Veriyi yüklemek her zaman en önemli adımlardan biridir. Yapacağımız işlemlerde kullanacağımız ana verimizin yüklemesi yapılır. Ben burada internet sitesi üzerinden kaynak gösterdim, siz manuel indirip r içerisine dosya olarak yükleyerek de dosyayı kullanabilirsiniz.
+
+```{r}
+bf_data<- read.csv("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv")
+```
+
+#Kendi veri setinizi tanıyorsanız, ne yapmanız gerektiğini de biliyorsanız uygun adımlarla verileri ehlilleştirebilirsiniz. Benim verim şuan yabanıl, burada verinin N/A olarak girilmiş verilerini R'ın tanıyacağı NA haline getirip numerik veri formatına alınıyor. Çünkü bmi body mass index = vücut kitle indeksi kendisi sayısal veri sunmalı. Mesela; kırmızı ya da yeşil değil, var veya yok değil. 23, 36 gibi.
+
+```{r}
+bf_data$bmi[bf_data$bmi == "N/A"] <- NA
+bf_data$bmi <- as.numeric(bf_data$bmi)
+```
+
+#Verinin işleme adımlarında NA'lı olan kısımlar ileride sıkıntı çıkartacak, bazı kodların düzgün çalışamamasına sebep olarak verinin tamamının değerlendirilememesini sağlayacağından NA'lı kısımları çıkarttığımız bu kod işleniyor.
+
+```{r}
+bf_data<- bf_data[complete.cases(bf_data), ]
+```
+
+#Verilerimizin tiplerine göre uygun kategorileştirmeyi yapıyoruz. Mesela hipertansiyon var mı yok mu?, kalp rahatsızlığı var mı yok mu? Bunlar 2 seviyeli faktör oluyor. Ancak bu veri için cinsiyet kısmında kendisini other olarak tanımlayan bir veri olduğundan faktörleştirdiğimizde 3 seviyeli olurken, sigara içme durumu 4, çalışma tipi 5 seviyeli faktör içermiş oluyor.
+
+```{r}
+bf_data$gender<- as.factor(bf_data$gender)
+bf_data$hypertension<- as.factor(bf_data$hypertension)
+bf_data$heart_disease<- as.factor(bf_data$heart_disease)
+bf_data$ever_married<- as.factor(bf_data$ever_married)
+bf_data$Residence_type<- as.factor(bf_data$Residence_type)
+bf_data$stroke<- as.factor(bf_data$stroke)
+bf_data$work_type <- as.factor(bf_data$work_type)
+bf_data$smoking_status <- as.factor(bf_data$smoking_status)
+```
+
+#Aşağıdaki kısımlarda çeşitli ggplot komutları ile verilerin şematize edildiğini göreceksiniz, siz kendiniz göstermek istediğiniz verileri değiştirerek işleyebilirsiniz. Her birini ayrı ayrı koymaktansa bazılarını koyarak ilgilendiğinizin kısımları nasıl görüntüleyebileceğinizin yolunu açmak istedim.
+
+```{r}
+ggplot(data = bf_data, aes(x = stroke, y = age)) +
+    geom_boxplot() +
+    ggtitle("Yaş ile İnme Arasındaki İlişki") +
+    xlab("İnme Durumu") + ylab("Yaş")
+```
+
+```{r}
+ggplot(data = bf_data, aes(x = stroke, y = age)) +
+    geom_violin() +
+    ggtitle("Yaş ile İnme Arasındaki İlişki") +
+    xlab("İnme Durumu") + ylab("Yaş")
+```
+
+
+```{r}
+ggplot(bf_data, aes(x=age)) + geom_density(alpha=0.5, aes(fill=stroke)) + labs(title="Yaş ile İnme İlişkisi")
+```
+
+
+```{r}
+ggplot(bf_data, aes(x=bmi)) + geom_density(alpha=0.5, aes(fill=stroke)) + labs(title="Beden Kitle İndeksi ile İnme İlişkisi")
+```
+
+
+```{r}
+ggplot(data = bf_data, aes(x = stroke, y = age)) +
+    geom_jitter()+
+    ggtitle("Yaş ile İnme Arasındaki İlişki") +
+    xlab("İnme durumu") + ylab("Yaş")
+
+```
+
+
+#Burada herbirini ayrı ayrı belirtmektense iki örnek bırakarak vakit kazandırmak istedim. Tablo bize şunu anlatıyor: inme varlığı ve yokluğu koşullarında; kalp rahatsızlığı bulunan ve bulunmayan kişiler.
+
+#Mesela 4497+169=4666 tane kalp rahatsızlığı bulunmayan kişi var. Bunun;4497 tanesinde inme yok 169  tanesine inme var. -> 169/4666 *100 = %3.62 243 tane kalp rahatsızlığı bulunan kişi içerisinden 203 tanesinde inme yok ancak 40  tanesinde inme var. 40/243 *100 = %16.4 oranında inme var. Bu da demek oluyor ki kalp rahatsızlığı olanlarda yaklaşık olarak %12.78 oranında daha fazla inme görülüyor.
+
+```{r}
+table(bf_data$stroke, bf_data$heart_disease)
+```
+
+#Mesela burada da yerleşim yerinin bölgesine göre bir tablo analizi yaptığımızda riskler kırsalda %4.13; şehirde  %4.37 olarak çıkmatadır. Bu da şehirde yaşamanın %0.24 oranında bir inme riski yüksekliği taşıdığını tespit etmemizi sağlar.
+
+```{r}
+table(bf_data$stroke, bf_data$Residence_type)
+
+```
+
+
+#Burada makine öğrenmesinin gerçekleştirileceği adımlara geçebilmek için verilerimin içerisinden hesaplamak istediğim inme ile onun ilintilenebileceği sayısal verileri farklı bir veri çerçevesine alıyorum.
+
+```{r}
+agex <- bf_data$age
+bmix <- bf_data$bmi
+avg_glucose_levelx <- bf_data$avg_glucose_level
+strokex <- bf_data$stroke
+
+bf_datax <-data.frame(agex, avg_glucose_levelx, bmix, strokex)
+```
+
+#Burada inme verisindeki faktör seviye kısımları sistemin karışıklık çıkartmayacağı evet hayır karakter seviyelerine dönüştürülüyor. Yani 0 ve 1 ler sırasyıal yok ve var halini alıyor. İnme yok, inme var şeklinde. Burada faktör seviyelerinin sayısal veri olarak kalması bazı işlemlerde aksaklıklara yol açtığından/açabileceğinden bu şekilde yapılıyor.
+
+```{r}
+bf_datax$strokex <- as.character(bf_datax$strokex)
+bf_datax$strokex[bf_datax$strokex == 1] <- "Yes"
+bf_datax$strokex[bf_datax$strokex == 0] <- "No"
+bf_datax$strokex <- as.factor(bf_datax$strokex)
+```
+
+#Sisteme öğrettiğimiz verilerin doğruluğunu anlayabilmemiz için onu test etmeliyiz. Bunun için de veriyi öncesinde ayırarak ona (sonuç verisi bizde bulunan) bir kısmını verip öğretiriz. Sonrasında verdiğimiz kısımdan öğrendikleriyle (yine sonuç verisi bizde bulunan) diğer kısmı çözmesini/bulmasını isteriz. Bunu yaparak doğruluk, hata oranlarını hesaplarız. Ne kadar iyi öğrendiğinin ya da iyileştirmelerin hangi kısımları besleyerek yapılabileceğinin anlaşılmasının yolunu açmış oluruz. 
+
+#Test ve talim verileri, 0.7 oranında oluşturuldu. bu da demekki -> miktarlar farklı olsa da her iki tarafta da 0.7 oranında ayrılmış veri bulunuyor. Aşağıda bunu da test edeceğiz.
+
+```{r}
+set.seed(1234)
+data_index <- createDataPartition(bf_datax$strokex, p=0.7, list = FALSE)
+train_datax <- bf_datax[data_index,]
+test_datax <- bf_datax[-data_index,]
+```
+
+#Burada bf_datax verisinin oranlarını görüntülüyoruz.
+
+```{r}
+prop.table(table(bf_datax$strokex)) * 100
+```
+
+#Burada test verimizin oranlarını görüntülüyoruz.
+
+```{r}
+prop.table(table(test_datax$strokex)) * 100
+
+```
+
+#Burada da makinanın öğrenmesi için ayırdığımız verilerin oranlarını görüntüleyerk görüyoruz ki hepsinde istediğimiz yakınlığa ulaşmışız. İstediğimiz oranları hepsinde yakalamışız. Oranlar benzer oldukça miktarın artması genelde öğrenme kalitesini arttırır.
+
+```{r}
+prop.table(table(train_datax$strokex)) * 100
+
+```
+
+#Burada veri çerçevemiz içerisindeki sayısal verilerinin temel bileşen analizini yapıp görselleştiriyoruz.Verilen veri matrisi üzerinde temel bileşenler analizi gerçekleştirir ve sonuçları prcomp sınıfının bir nesnesi olarak döndürür. Çok karmaşık verilerde verilerin daha anlamlı sadeleştirilmesini sağlar. Detaylar için "Principal Component Analysis" ile web taraması yapabilirsiniz.
+
+```{r}
+pca_res <- prcomp(bf_datax[1:3], center = TRUE, scale = TRUE)
+plot(pca_res, type="l")
+```
+
+#Özetleme yaptığımız bu adımda verimize genel olarak bir bakış atmış oluruz. Bazı veriler için çok anlamlı sonuçları görmemize yarayabilir. Aşağıda da gördüğünüz üzere standart sapma, varyans oranı ve kümülatif oran verilerini görüntülemiş olduk.
+
+```{r}
+summary(pca_res)
+```
+
+#Aşağıdaki kısımlarda verimin ayrıştığı bir kare yakalamaya çalışıyorum. Ama siz de göreceksiniz ki veri keskin bir şekilde ayrılmıyor. Bu genelde istenilen bir şey değildir. Ayrılması bize nihayetinde inme varlığı ile yokluğunu sağlayan sebepleri tanıdığımızı ve bunları kullanarak tespitini sağlayabileceğimizi anlatır. Ancak tersi ise ya verinin yetersiz miktarda olduğu ya da o verinin inme varlığı ya da yokluğunu anlamamızı sağlamayacak bir veri olduğunu söyleyebilir. Yani örnek verecek olursak babanızın isminin 2. harfi de bir veridir, sesli harf olanlarda inme inmeyeceği, sessiz harf olanlarda ise inme ineceği gibi bir bilgi anlamsız görünüyor, ama bu adımlarda onların anlamlılıklarıyla, ayrışmaları yakalamaya çalışıyoruz. 
+
+```{r}
+pca_df <- as.data.frame(pca_res$x)
+ggplot(pca_df, aes(x=PC1, y=PC2, col=bf_datax$strokex)) + geom_point(alpha=0.5)
+```   
+
+```{r}
+ggplot(pca_df, aes(x=PC1, y=PC3, col=bf_datax$strokex)) + geom_point(alpha=0.5)
+
+```
+
+```{r}
+ggplot(pca_df, aes(x=PC2, y=PC3, col=bf_datax$strokex)) + geom_point(alpha=0.5)
+
+```
+
+```{r}
+g_pc1 <- ggplot(pca_df, aes(x=PC1, fill=bf_datax$strokex)) + geom_density(alpha=0.25)  
+g_pc2 <- ggplot(pca_df, aes(x=PC2, fill=bf_datax$strokex)) + geom_density(alpha=0.25)  
+g_pc3 <- ggplot(pca_df, aes(x=PC3, fill=bf_datax$strokex)) + geom_density(alpha=0.25)  
+ggarrange(g_pc1, g_pc2, g_pc3, ncol=3, common.legend = T)
+```
+
+#Makine öğrenmesi için gerekli atyapının kurulduğu, modelin oluşturulduğu satır budur. Sırada görüntülemek, test etmek var.
+
+```{r}
+fitControl <- trainControl(method="cv", number = 5, preProcOptions = list(thresh = 0.99), classProbs = TRUE, summaryFunction = twoClassSummary)
+
+model_nb <- train(strokex~., train_datax, method="nb", metric="ROC", preProcess=c('center', 'scale'), trace=FALSE, trControl=fitControl)
+```
+
+#Burada makineyi sınava sokuyoruz ve daha öncesindeki öğrendiklerini (talim verisi/train_datax vardı.) kullanarak testi çözüyor, sonuçlar aşağıda.
+
+1410 tane inme yokluğu verisinin 1359 tanesini inme yok diyerek doğru bilmiş.
+1410 tane inme yokluğu verisinin 51 tanesine inme var diyerek yanılmış.
+62 tane inme varlığı verisinin 53 tanesine yok diyerek yanılmış. Fakat
+62 tane inme varlığı verisinin 9'unu da var diyerek doğru bilmiş bulunuyor.
+
+Bunların doğrulukları, yanlışlıkları, birbirlerine karşı oranları hesaplanabilir.
+
+```{r}
+Predict <- predict(model_nb,newdata = test_datax)
+confusionMatrix(Predict, test_datax$strokex)
+```
+
+#Buradaysa veri içerisinde inme varlığı ve yokluğunun anlaşılmasındaki en önemli verilerin hangileri olduğu, sıralamayla veriliyor. TEŞEKKÜRLER.
+
+```{r}
+X <- varImp(model_nb)
+plot(X)
+```
