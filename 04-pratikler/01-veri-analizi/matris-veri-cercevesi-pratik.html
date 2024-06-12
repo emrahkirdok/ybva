@@ -527,11 +527,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matris</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2] [,3] [,4]  [,5]
-[1,] 20.0 38.7 58.9  2.5 100.0
-[2,] 26.7  9.7 81.6 72.4  84.9
-[3,] 89.9 92.4 22.4 64.1   4.9
-[4,]  8.9 28.6 88.4 89.7  52.9</code></pre>
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,] 44.5 91.9 71.0 35.5  7.6
+[2,] 53.2 60.5 13.1 13.6 79.6
+[3,] 61.0 30.5 70.2 59.6  1.0
+[4,] 23.5 37.4 93.0  8.2 16.0</code></pre>
 </div>
 </div>
 <p>Peki bu matris’in boyutları nedir? Satır ve sütun sayısını elde etmek için <code>dim</code> fonksiyonunu kullanınız:</p>
@@ -558,21 +558,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matris</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 84.9</code></pre>
+<pre><code>[1] 79.6</code></pre>
 </div>
 </div>
 <p>Sadece ikinci sütuna erişmek istesek?</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matris</span><span class="op">[</span> ,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 38.7  9.7 92.4 28.6</code></pre>
+<pre><code>[1] 91.9 60.5 30.5 37.4</code></pre>
 </div>
 </div>
 <p>Peki üçüncü satıra erişsek?</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matris</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 89.9 92.4 22.4 64.1  4.9</code></pre>
+<pre><code>[1] 61.0 30.5 70.2 59.6  1.0</code></pre>
 </div>
 </div>
 <p>İstersek, vektör olarak bir sayı dizisi verebiliriz:</p>
@@ -580,9 +580,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
-[1,] 20.0 38.7 58.9
-[2,] 26.7  9.7 81.6
-[3,] 89.9 92.4 22.4</code></pre>
+[1,] 44.5 91.9 71.0
+[2,] 53.2 60.5 13.1
+[3,] 61.0 30.5 70.2</code></pre>
 </div>
 </div>
 <p>Bu sayede, 1. satır ve 3. satır arasındaki, ve 1. sütun ile 3. sütun arasındaki verilere erişebildik.</p>

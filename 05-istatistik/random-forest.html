@@ -549,28 +549,28 @@ Periodontitis       5             5        0.50</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                   Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus        4.08112522    3.84663948            4.1888697
-Actinomyces_johnsonii           0.78696033    1.73392081            1.5360750
-Actinomyces_timonensis          3.29280029    1.65993067            2.9224247
-Actinomyces_dentalis            1.23185936    0.02358007            0.6369107
-Pseudoramibacter_alactolyticus -0.56444051    0.37239318           -0.1380945
-Streptococcus_anginosus         2.18179518    1.37951537            1.9668380
-Eggerthia_catenaformis          0.54436789    0.70502883            0.9992820
-Streptococcus_mitis            -0.28564653    0.81368158            0.7126796
-Parvimonas_micra                0.01939282    0.93799636            0.8431145
-Prevotella_nanceiensis          1.32225575    0.86772948            0.8728316
+<pre><code>                                     Healthy Periodontitis MeanDecreaseAccuracy
+Actinomyces_johnsonii           9.705459e-01     3.1170304           2.86638088
+Dialister_micraerophilus        4.161440e+00     4.4423272           4.64735814
+Actinomyces_timonensis          2.808055e+00     1.8718459           2.66367045
+Tannerella_forsythia            1.646007e+00     0.7478406           1.44980671
+Pseudoramibacter_alactolyticus -5.840583e-17     0.2700019           0.01052172
+Treponema_socranskii            1.629673e+00     1.8176028           1.92897465
+Streptococcus_mitis            -5.272769e-01     1.5051001           0.68821639
+Actinomyces_dentalis            1.078868e+00     1.9625839           1.98548070
+Actinomyces_israelii            1.089955e+00     0.2537609           0.72269227
+Actinomyces_oris               -1.866309e-02     0.6021475           0.40288629
                                MeanDecreaseGini
-Dialister_micraerophilus              0.3705575
-Actinomyces_johnsonii                 0.3158560
-Actinomyces_timonensis                0.2097611
-Actinomyces_dentalis                  0.2037138
-Pseudoramibacter_alactolyticus        0.1984070
-Streptococcus_anginosus               0.1840525
-Eggerthia_catenaformis                0.1684746
-Streptococcus_mitis                   0.1654290
-Parvimonas_micra                      0.1611765
-Prevotella_nanceiensis                0.1595548</code></pre>
+Actinomyces_johnsonii                 0.3482156
+Dialister_micraerophilus              0.2670096
+Actinomyces_timonensis                0.2192960
+Tannerella_forsythia                  0.1940671
+Pseudoramibacter_alactolyticus        0.1937203
+Treponema_socranskii                  0.1880873
+Streptococcus_mitis                   0.1798954
+Actinomyces_dentalis                  0.1720077
+Actinomyces_israelii                  0.1564880
+Actinomyces_oris                      0.1543694</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
