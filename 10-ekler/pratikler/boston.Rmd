@@ -1,5 +1,5 @@
 ---
-title: "Pratik 2024-05-31"
+title: "Boston Veriseti Pratik"
 author: ""
 number: ""
 date: ""
@@ -19,12 +19,11 @@ Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu 
 
 Bu pratiğin boş kağıdını aşağıdan indirebilirsiniz:
 
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd)
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/boston-cevaplar.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/boston-cevaplar.Rmd)
 
 Bu pratiğin cevaplarını aşağıdaki dosyada inceleyebilirisniz:
 
-[https://github.com/emrahkirdok/ybva/blob/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31-cevaplar.Rmd](https://github.com/emrahkirdok/ybva/blob/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31-cevaplar.Rmd)
-
+[https://github.com/emrahkirdok/ybva/blob/main/10-ekler/pratikler/cevaplar/boston-cevaplar.Rmd](https://github.com/emrahkirdok/ybva/blob/main/10-ekler/pratikler/cevaplar/boston-cevaplar.Rmd)
 
 ## Soru 1
 

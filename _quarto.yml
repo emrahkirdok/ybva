@@ -67,7 +67,6 @@ book:
     
     - part: "Pratikler - Ödevler"
       chapters:
-        - 04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd
         - 04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
         - 04-pratikler/01-veri-analizi/liste-pratik.Rmd
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
