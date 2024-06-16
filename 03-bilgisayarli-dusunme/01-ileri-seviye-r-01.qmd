@@ -2,7 +2,7 @@
 
 Bu kısımda ileri seviye R kullanımına başlayacağız. Veri Analizi dersi kapsamında daha çok R ile veri analizi üzerine çalışmalar yapıldı. Bu kısımda ise R ile programlama adımlarını incelemeye başlayacağız.
 
-Kontrol yapıları gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede karmaşık verisetlerinde farklı analiz adımları gerçekleştirebiliriz.
+Kontrol yapıları gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede karmaşık veri setlerinde farklı analiz adımları gerçekleştirebiliriz.
 
 Küçük bir örnekle bunu açıklamaya çalışalım. Elimizde aşağıdaki gibi bir vektör olsun:
 
@@ -113,7 +113,7 @@ digraph for{
 
 Eğer yapacağımız analiz adımında veriye bağlı olarak koşullu bir analiz gerçekleştirilecekse `if-else` yapısını kullanıyoruz. 
 
-Mesela, elimizde bir sayımız olsun. Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5'den büyük veya eşittir" yazsın. Eğer 5'den küçük ise, "Bu sayı 5'den küçüktür" yazsın.
+Mesela elimizde bir sayımız olsun. Eğer bu sayı 5'ten büyük veya eşit ise ekrana "Bu sayı 5'den büyük veya eşittir" yazsın. Eğer 5'ten küçük ise "Bu sayı 5'den küçüktür" yazsın.
 
 @fig-if-else-1 bize bu işlemi şematize edecektir.
 
@@ -147,7 +147,7 @@ sayi <- 12
 sayi >= 5
 ```
 
-Bu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5'e eşit veya 5'den büyük. Ama asla 5'den küçük değil.
+Bu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5'e eşit veya 5'ten büyük. Ama asla 5'ten küçük değil.
 
 Şimdi `if-else` yapısına bakalım:
 
@@ -159,7 +159,7 @@ if ( KOŞUL ){
 }
 ```
 
-İlk önce bir koşul belirliyoruz (sayının 5'e eşit veya 5'den büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.
+İlk önce bir koşul belirliyoruz (sayının 5'e eşit veya 5'ten büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.
 
 Şimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:
 
