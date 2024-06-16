@@ -22,8 +22,8 @@ Bir grafiği gözünüzün önüne getirin, acaba hangi ögeler var?
 + Grafik düzlemi
 + $x$ ve $y$ eksenleri
 + Görselleştirme 
-    + noktlar
-    + kutu grafiği vs
+    + noktlar,
+    + kutu grafiği vs.
 
 Mesela öncelikle boş bir grafik düzlemi oluşturalım:
 
@@ -37,7 +37,7 @@ ggplot()
 ggplot(data = iris, aes(x = Species, y = Petal.Length))
 ```
 
-Son olarak da kutu grafiğini geometrisini ekleyelim:
+Son olarak da kutu grafiği geometrisini ekleyelim:
 
 ```{r}
 ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_boxplot()
@@ -51,7 +51,7 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_boxplot() + geom_
 
 ## Histogram
 
-Peki, Petal uzunlukları irisi bitkilerinde nasıl değişiyor?
+Peki Petal uzunlukları iris bitkilerinde nasıl değişiyor?
 
 ```{r}
 ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram()
