@@ -1,6 +1,6 @@
 # Bilimsel Hikaye Anlatımı 3
 
-İlk olarak library fonksiyonunu kullanarak "ggplot2" yi yüklüyoruz.
+İlk olarak library fonksiyonunu kullanarak "ggplot2" yi kuruyoruz.
 
 Bunu yazdığınızda hata alıyorsanız install.packages("ggplot2") yazabilirsiniz.
 
@@ -79,7 +79,7 @@ ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(colo
 
 ```
 
-İstersek bu grafiği kaydedebiliriz. Plots kısmında "Export" a tıklayıp  save as pdf e tıklayıp Landscape olarak kaydedebilirsiniz.
+İstersek bu grafiği kaydedebiliriz. Plots kısmında "Export" a tıklayıp  "save as pdf" e tıklayıp "Landscape" olarak kaydedebilirsiniz.
 
 
 "xlab" ve "ylab" komutları ile grafiğin x ve y eksenini Türkçeleştirebilirsiniz fakat Türkçe olunca her zaman kaydedilemiyor.
@@ -106,14 +106,14 @@ ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) + geom_point(aes(colo
 
 ```
 
-Kutu grafikleri. Kutu grafiklerini oluşturmak için ise "geom_boxlot()" kullanmalıyız.
+Kutu grafiklerini oluşturmak için ise "geom_boxlot()" kullanmalıyız.
 
 ```{r}
 ggplot(data = iris, aes(y = Petal.Length)) + geom_boxplot()
 
 ```
 
-"X" eksenine türleri ekleme
+"X" eksenine türleri ekleme:
 
 ```{r}
 ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot()
@@ -121,7 +121,7 @@ ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot()
 
 ```
 
-Kutu grafiğinde renk ekleme.
+Kutu grafiğinde renk ekleme:
 
 ```{r}
 ggplot(data = iris, aes(y = Petal.Length, x = Species)) + geom_boxplot(aes(color = Species))
@@ -172,16 +172,16 @@ ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 30, aes(fill 
 
 ```
 
-Oluşturduğumuz histograma, başlık, y ve x ekseni isimleri ekleyelim.
+Oluşturduğumuz histograma başlık, y ve x ekseni isimleri ekleyelim.
 
 ```{r}
 ggplot(data = iris, aes(x = Petal.Length)) + geom_histogram(bins = 30, aes(fill = Species)) + ggtitle(label = "İris bitkisinde petal uzunluklarının histogrami") + xlab("Petal uzunlugu") + ylab("Frekans")
 
 ```
 
-Histogramın bir sonraki aşaması
+Histogramın bir sonraki aşaması;
 
-Yogunluk grafikleri, histogramlara göre göze daha hoş görünen grafikler
+Yogunluk grafikleri, histogramlara göre göze daha hoş görünen grafiklerdir.
 .
 ```{r}
 
@@ -190,7 +190,7 @@ ggplot(data = iris, aes(x = Petal.Length)) + geom_density()
 
 ```
 
-Biraz daha güzelleştirelim
+Biraz daha güzelleştirelim:
 
 ```{r}
 ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species))
@@ -198,17 +198,17 @@ ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species))
 
 ```
 
-Renkleri fill opsiyonu ile verdiğimiz için  üç farklı popülasyon içindeki dağılımları vermiş oldu.
+Renkleri "fill" opsiyonu ile verdiğimiz için  üç farklı popülasyon içindeki dağılımları vermiş oldu.
 
 
-Grafiğe transparanlık ekleyelim.
+Grafiğe transparanlık ekleyelim:
 
 ```{r}
 ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species), alpha = 0.9)
 
 ```
 
-Grafiğe isim ekleyelim.
+Grafiğe isim ekleyelim:
 
 ```{r}
 ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species), alpha = 0.9) + ggtitle(label = "Iris bitkisinde petal uzunlukları yogunluk grafigi")
@@ -216,13 +216,13 @@ ggplot(data = iris, aes(x = Petal.Length)) + geom_density(aes(fill = Species), a
 
 ```
 
-Kutu grafikleri ile ilgili bir grafik. Kutu grafiğine benziyor ama yoğunlukları da vermekte.
+Kutu grafikleri ile ilgili bir grafik. Kutu grafiğine benziyor ama yoğunlukları da vermektedir.
 
 ```{r}
 ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin()
 ```
 
-Bu grafiği renklendirelim
+Bu grafiği renklendirelim:
 
 ```{r}
 ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin(aes(fill = Species))
@@ -236,14 +236,14 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_p
 
 ```
 
-geom_jitter fonksiyonu ile de görselleştirme imkanımız var.
+"geom_jitter" fonksiyonu ile de görselleştirme imkanımız var.
 
 ```{r}
 ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_jitter()
 
 ```
 
-Noktaların dağılımlarını da ayarlayabiliriz.
+Noktaların dağılımlarını da ayarlayabiliriz:
 
 ```{r}
 
@@ -252,7 +252,7 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length)) + geom_violin() + geom_j
 
 ```
 
-Sütun grafikleri oluşturma.
+Sütun grafikleri oluşturma:
 
 
 ```{r}
