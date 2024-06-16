@@ -1,24 +1,24 @@
----
-title: "Veri Analizi Vize Sınavı"
-author: ""
-number: ""
-date: "04/10/2022"
-output:
-  html_document: default
----
+# Veri Analizi Pratik 2024-05-30
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
-```
-
-# Bilimsel hikaye
+## Bilimsel hikaye
 
 Bir araştırma grubundaki araştırmacılar, *Gümüş ağacı* bitkisinde farklı patojen inokülasyonu (patojen etkenine maruz bırakma) ve kültürleme koşullarında fotosentez hızı ve iletkenlik cevaplarını incelemeyi amaçlıyorlar.
 
 Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.
 
-## Çalışma yöntemi
+Çalışmada kullanılacak veriye aşağıdaki bağlantıdan ulaşabilirsiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt
+
+Bu dökümanın `Rmd` versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd)
+
+Cevaplar ise aşağıda bulunan dökümanda:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30-cevaplar.Rmd)
+
+### Çalışma yöntemi
 
 Bu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.
 
@@ -39,7 +39,7 @@ Bu süre boyunca kültürlenen bitkilerde iki farklı ölçüm yapıyorlar:
 + `Fotosentez`: Bitkide gözlenen Fotosentez hızı
 + `Iletkenlik`: Bitkinin sahip olduğu iletkenlik değeri
 
-# Veri yükleme
+## Veri yükleme
 
 Uzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:
 
@@ -48,7 +48,7 @@ Uzaktan eğitim sistemine yüklenen veriyi indirip R içerisine yükleyiniz:
 
 ```
 
-# Veri çerçevesi inceleme
+## Veri çerçevesi inceleme
 
 Yüklediğiniz veri çerçevesinin satır ve sütun sayılarını geri döndürünüz:
 
@@ -75,7 +75,7 @@ BU veri çerçevesinde aşağıdaki sütun isimlerinin kategori (*faktör*) değ
 
 ```
 
-# Koşulların belirlenmesi
+## Koşulların belirlenmesi
 
 Bu deney kapsamında yapılmış kültürleme koşullarını (Kurak veya Nemli) frekans tablosu haline getirebilir misiniz?
 
@@ -98,7 +98,7 @@ Acaba her farklı kültürleme koşuluna ait kaç farklı patojen uygulaması va
 
 ```
 
-# Fotosentez hızı ve iletkenlik değerlerinin dağılımları
+## Fotosentez hızı ve iletkenlik değerlerinin dağılımları
 
 Bu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmıştır. Bu değişkenlere ait histogramları `ggplot2` paketi kullanarak çizebilir misiniz?
 
@@ -115,11 +115,11 @@ Bu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmış
 
 ```
 
-# Fotosentez hızında görülen değişimlerin incelenmesi
+## Fotosentez hızında görülen değişimlerin incelenmesi
 
 Bu kısımda ise fotosentez hızında görülen değişimleri incelemeyi amaçladık.
 
-## Kültürleme koşulları ve Fotosentez hızı
+### Kültürleme koşulları ve Fotosentez hızı
 
 Acaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına nasıl etki gösteriyor? Bunu kutu grafiği (boxplot) kullanarak görselleştirebilir misiniz?
 
@@ -134,7 +134,7 @@ Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Ku
 >
 >
 
-## Patojen inokülasyonu ve Fotosentez hızında görülen değişim
+### Patojen inokülasyonu ve Fotosentez hızında görülen değişim
 
 Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
 
@@ -157,11 +157,11 @@ Aynı anda iki patojenin uygulanması, fotosentez hızını biraz daha fazla aza
 >
 >
 
-# İletkenlik değerinde görülen değişimler
+## İletkenlik değerinde görülen değişimler
 
 Bu kısımda ise kontrol bitkileri ve patojen uygulanmış bitkilerin iletkenlik değerlerinde görülen değişimlerin incelenmesi amaçlanmıştır.
 
-## Kültürleme koşulları ve iletkenlik
+### Kültürleme koşulları ve iletkenlik
 
 Acaba farklı kültürleme koşullarının bitkilerin iletkenlik değerlerinde ne gibi etkisi var? Farklı kültürleme koşullarındaki iletkenlik değerlerini kutu grafiği (boxplot) ile görselleştirebilir misiniz?
 
@@ -176,7 +176,7 @@ Kurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor?
 >
 >
 
-## Patojen inokülasyonun iletkenlik değerlerine etkisi
+### Patojen inokülasyonun iletkenlik değerlerine etkisi
 
 Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
 
@@ -185,7 +185,7 @@ Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açm�
 
 ```
 
-# Fotosentez hızının kontrol örneklerinde incelenmesi
+## Fotosentez hızının kontrol örneklerinde incelenmesi
 
 Bu kısımda sadece kontrol (patojen uygulaması yapılmamış) bitkilerdeki fotosentez hızının kurak ve nemli koşullardaki değişimini inceleyeceğiz.
 
@@ -203,7 +203,7 @@ Sadece `Kontrol` örneklerinin olduğu yeni bir veri çerçevesi oluşturabilir 
 
 ```
 
-# İletkenlik ve Fotosentez arasında bir ilişki var mı?
+## İletkenlik ve Fotosentez arasında bir ilişki var mı?
 
 Peki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki değişkeni x-y ekseninde nokta grafiği ile gösterebilir misiniz? Eksenleri aşağıdaki gibi belirleyiniz:
 
@@ -215,7 +215,7 @@ Peki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki deği
 
 ```
 
-# Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?
+## Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?
 
 Acaba `Kurak` ve `Nemli` koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? `t.test` fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. `p-value` (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:
 

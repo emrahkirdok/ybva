@@ -1,19 +1,15 @@
----
-title: "Random Forest"
-editor: visual
----
-
+# Random Forest Uygulaması
 
 Mikrobiyal çokluk verisini yükleyelim:
 
 ```{r}
-abundance <- read.table(file = "data/microbial-abundance.txt", header = T, sep = "\t")
+abundance <- read.table(file = "../data/microbial-abundance.txt", header = T, sep = "\t")
 ```
 
 Metadata bilgisini yükleyelim:
 
 ```{r}
-metadata <- read.table(file = "data/microbial-metadata.txt", header = T, stringsAsFactors = FALSE)
+metadata <- read.table(file = "../data/microbial-metadata.txt", header = T, stringsAsFactors = FALSE)
 ```
 
 Elimizdeki veriyi transpoze edelim:
@@ -43,10 +39,11 @@ imp <- data.frame(importance(model))
 head(imp[order(imp$MeanDecreaseGini, decreasing = T),],n = 10)
 ```
 
-Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık:
+Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.
 
+Bu kod uzun sürdüğü için internet sitesi kapsamında çalıştırmadık.
 
-```{r}
+```{r eval = FALSE}
 
 library(magrittr)
 library(dplyr)

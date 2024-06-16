@@ -1,0 +1,148 @@
+---
+title: "Bilgisayarlı Düşünme Vize Sınavı"
+author: ''
+date: "2024-04-24"
+format:
+  html:
+    fontsize: 10pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Soru 1 (25 puan)
+
+Aşağıda gösterilen işlemi bir fonksiyon haline getiriniz:
+
+$$
+y = \frac{2*x + 8}{8}
+$$
+
+Fonksiyonu aşağıdaki kod bloğuna yazınız:
+
+```{r}
+
+```
+
+## Soru 2 (10 puan)
+
+Aşağıda gösterilen fonksiyonu inceleyiniz:
+
+```r
+factorial <- function(x){
+  if (x == 0){
+    return(1)
+    } else {
+      return(x*factorial(x-1))
+      } 
+}
+```
+
+Bu fonksiyona $x=3$ değeri verilirse ne sonuç elde edilir? Aşağıda bulunan kod bloğuna yazınız:
+
+```{r}
+factorial <- function(x){
+  if (x == 0){
+    return(1)
+    } else {
+      return(x*factorial(x-1))
+      } 
+}
+```
+
+## Soru 3
+
+### Soru 3.1 (10 puan)
+
+Ondört nükleotidden daha kısa bir DNA ipliğinin $T_m$ yani ergime sıcaklığını bulmak için aşağıdaki formül kullanılır:
+
+$$
+T_m = (A_{miktari} + T_{miktari}) * 2 + (G_{miktari} + C_{miktari}) * 4
+$$
+
+Bu formülü bir fonksiyon şeklinde ifade edebilir misiniz? 
+
++ Fonksiyonun ismi `Tm` olsun. 
++ Bu fonksiyonun dört farklı girdisi ($A$, $T$, $C$, ve $T$ miktarları) olsun. 
++ Geriye ise Ergime sıcaklığı değerini geri döndürsün
+
+```{r}
+
+```
+
+### Soru 3.2 (10 puan)
+
+Bu fonksiyon uyarınca, aşağıda verilmiş dizinin ergime sıcaklığını hesaplayabilir misiniz?
+
+```
+A T C T G G A T T A A
+```
+
+Fonksiyonu, aşağıdaki kod kısmında çalıştırın:
+
+```{r}
+
+```
+
+## Soru 4 (15 puan)
+
+Aşağıdaki fonksiyonu inceleyiniz ve her satırın ne anlama geldiğiniz cevap kağıdınıza kendi el yazınızla yazınız. Satır numaralarınıa dikkat ediniz. Boş bir cevap kağıdı kullanabilirsiniz.
+
+```r
+1 GC_skew <- function(dizi){
+
+2  G_miktari <- 0
+3  C_miktari <- 0
+  
+4  for (nukleotid in dizi){
+5    if(nukleotid == "G"){G_miktari <- G_miktari +1}    
+6    if(nukleotid == "C"){C_miktari <- C_miktari +1}
+7  }
+8  sonuc <- (G_miktari - C_miktari)/(G_miktari + C_miktari)
+9  return(sonuc)
+10}
+```
+
+## Soru 5 Tranzisyon/Transversiyon oranı
+
+Nokta mutasyonları, tranzisyon ve transversiyon olarak ikiye ayrılır. 
+
+![Şekil 1: Tranzisyon ve transversiyon mutasyonların gösterimi](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/All_transitions_and_transversions.svg/800px-All_transitions_and_transversions.svg.png){ width=40% }
+
+Tranzisyon Transversiyon oranı, basit olarak, toplam tranzisyon mutasyonlarının transversiyon mutasyonlarına bölümü olarak ifade edilebilir:
+
+$$
+tv_{oranı} = \frac{tranzisyon_{toplam}}{transversiyon_{toplam}}
+$$
+
+Örnek olarak aşağıdaki iki diziye bakalım:
+
+```{r}
+dizi1 <- c("A", "T", "G", "C","G")
+dizi2 <- c("A", "C", "A", "T", "C")
+
+```
+
+Bu iki diziye baktığımızda, toplam olarak 3 tane tranzisyon mutasyonu, 1 tane de transversiyon mutasyonu görüyoruz. Dolayısıyla, bu iki dizinin sahip olduğu tranzisyon/transversiyon oranı aşağıdaki gibi olacaktır:
+
+```{r}
+3/1
+```
+
+### Soru 6.1 (20 puan)
+
+Bu bilgi uyarınca, verilen iki farklı DNA dizisinin sahip olduğu tranzisyon ve transversiyon oranını hesaplayan bir fonksiyon yazınız:
+
+```{r}
+
+```
+
+### Soru 6.2 (10 puan)
+
+Bu fonksiyonu kullanarak ekte verilmiş olan `dizi.fasta` dosyasında bulunan iki dizinin sahip olduğu tranzisyon transversiyon oranını hesaplayınız. Bu diziyi okumak için `seqinr` paketini kullanabilirisiniz:
+
+```{r}
+
+```
+

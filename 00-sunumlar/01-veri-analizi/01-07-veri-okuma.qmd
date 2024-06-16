@@ -1,10 +1,19 @@
 ---
 title: "Veri Okuma"
-author: "Emrah Kırdök, Ph. D."
-date: "2021-03-21"
-output: ioslides_presentation
----
+subtitle: "Yaşam Bilimlerinde Veri Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "21-03-2021"
+execute: 
+  echo: true
 
+format: 
+    revealjs:
+        slide-number: true
+        logo: "https://emrahkirdok.github.io/ybva/images/ybva.png"
+        footer: "Yaşam Bilimlerinde Veri Analizi"
+        embed-resources: true
+
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -64,7 +73,7 @@ Lütfen ders sistemine yüklenmiş `sinif.txt` dosyasını bilgisayarınıza ind
 Dosyayi okuyalım:
 
 ```{r read, cache=TRUE}
-sinif <- read.table("data/sinif.txt", header=T)
+sinif <- read.table("../../data/sinif.txt", header=T)
 ```
 
 Veriyi inceleyelim.

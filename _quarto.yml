@@ -42,6 +42,7 @@ book:
         - 02-veri-analizi/04-vektorler.qmd
         - 02-veri-analizi/05-matrisler.qmd
         - 02-veri-analizi/06-veri-cerceveleri.qmd
+        - 02-veri-analizi/14-veri-cercevesi-bulmacalari-01.Rmd
         - 02-veri-analizi/07-listeler.qmd
         - 02-veri-analizi/08-dosya-okuma.qmd
         - 02-veri-analizi/09-rmarkdown.Rmd
@@ -49,18 +50,9 @@ book:
         - 02-veri-analizi/11-bilimsel-hikaye-02.qmd
         - 02-veri-analizi/12-bilimsel-hikaye-03.qmd
         - 02-veri-analizi/13-t-test.qmd
-#        - 02-veri-analizi/06-Rmarkdown.qmd
-#        - 02-veri-analizi/08-tibble.qmd
-#        - 02-veri-analizi/09-listeler.qmd
-#        - 02-veri-analizi/10-veri-cercevesi-vs-tibble.qmd
-#        - 02-veri-analizi/11-veri-islemleri.qmd
-#        - metin_bilimsel_hikaye_anlaticiligi.Rmd
-#        - metin_rmarkdown_odevleri_bilgi.Rmd
-#        - metin_dogrusal_modelleme_uygulamasi_1.Rmd
-#        - metin_ggplot2_grafik_dilbilgisi.Rmd
-#        - metin_lojistik_regresyon.Rmd
-#        - metin_t_test.Rmd
-#
+        - 02-veri-analizi/dogrusal-modelleme-1.qmd
+        - 02-veri-analizi/dogrusal-modelleme-2.qmd
+        
     - part: "Bilgisayarlı Düşünme"
       chapters:
         - 03-bilgisayarli-dusunme/01-ileri-seviye-r-01.qmd
@@ -69,6 +61,7 @@ book:
         - 03-bilgisayarli-dusunme/04-dna-dizi-islemleri.qmd
         - 03-bilgisayarli-dusunme/05-dna-dizi-islemleri.qmd
         - 03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.qmd
+        - 03-bilgisayarli-dusunme/07-rnaseq-data-analysis.qmd
 #        - metin_asamali_azalis.Rmd
 #        - metin_amphiBIO_calisma.Rmd
     
@@ -76,15 +69,21 @@ book:
       chapters:
         - 04-pratikler/01-veri-analizi/01-vektorler.qmd
         - 04-pratikler/01-veri-analizi/02-pratik.Rmd
-        #- 04-pratikler/01-veri-analizi/02-pratik.qmd
         - 04-pratikler/01-veri-analizi/04-vize-pratik.qmd
+        - 04-pratikler/01-veri-analizi/05-vize-pratik-2024-05-30.Rmd
+        - 04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd
+        - 04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
+        - 04-pratikler/01-veri-analizi/liste-pratik.Rmd
         - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
         - 04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.qmd
+        - 04-pratikler/02-bilgisayarli-dusunme/04-Pratik-2024-06-01.Rmd
         
-#        - metin_03_vektorler_pratik.Rmd
-#        - metin_04_pratik.Rmd
-#        - metin_ggplot2_pratik.Rmd
-    
+    - part: "Biyoteknolojide Veri Analizi"
+      chapters:
+        - 05-istatistik/naive-bayes.qmd
+        - 05-istatistik/lojistik-regresyon.qmd
+        - 05-istatistik/random-forest.qmd
+        - 05-istatistik/odev.qmd
     - part: "Türkiye'nin Verisi"
   
     - references.qmd

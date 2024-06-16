@@ -1,13 +1,4 @@
----
-title: "pratik-2023-04-19"
-author: ""
-date: ""
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Veri Analizi Pratik 2023-04-19
 
 Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
 

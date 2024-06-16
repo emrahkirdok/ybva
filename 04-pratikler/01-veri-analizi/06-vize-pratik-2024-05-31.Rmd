@@ -1,5 +1,5 @@
 ---
-title: "Ödev - 2"
+title: "Pratik 2024-05-31"
 author: ""
 number: ""
 date: ""
@@ -17,6 +17,15 @@ Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu 
 + `rm`: Mahallede bulunan evlerdeki ortalama oda sayısı
 + `chas`: Mahallelerin Charles nehrine yakınlık durumları (0: Charles nehrine yakın değil, 1: Charles nehri yakınında)
 
+Bu pratiğin boş kağıdını aşağıdan indirebilirsiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31.Rmd)
+
+Bu pratiğin cevaplarını aşağıdaki dosyada inceleyebilirisniz:
+
+[https://github.com/emrahkirdok/ybva/blob/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31-cevaplar.Rmd](https://github.com/emrahkirdok/ybva/blob/main/04-pratikler/01-veri-analizi/06-vize-pratik-2024-05-31-cevaplar.Rmd)
+
+
 ## Soru 1
 
 Lütfen ekte indirdiğiniz veri çerçevesini R içerisine yükleyecek kodu yazınız:
@@ -24,7 +33,7 @@ Lütfen ekte indirdiğiniz veri çerçevesini R içerisine yükleyecek kodu yaz�
 > Dikkat! sizin dosyayı indirdiğiniz yer farklı olabilir!
 
 ```{r}
-boston <- read.table(file = "data/boston.txt", header = T)
+
 ```
 
 ## Soru 2
@@ -32,20 +41,20 @@ boston <- read.table(file = "data/boston.txt", header = T)
 Elde ettiğiniz veri çerçevesinin boyutlarını (satır ve sütun sayılarını) geri döndüren kodu yazınız:
 
 ```{r}
-dim(boston)
+
 ```
 
 
 Bu veri çerçevesindeki sütunları geri döndüren kodu yazınız:
 
 ```{r}
-colnames(boston)
+
 ```
 
 Bu veri çerçevesinde bulunan `chas` sütunu aslında bir kategori değişkeni. Acaba bu sütunu kategori değişkeni haline çeviren kodu yazabilir misiniz?
 
 ```{r}
-boston$chas <- factor(boston$chas)
+
 ```
 
 ## Soru 3: Histogramlar
@@ -53,22 +62,13 @@ boston$chas <- factor(boston$chas)
 Boston veri setinde `medv` sütünundaki verilerin dağılımını göstern bir histogram elde edebilir misiniz? Unutmayın, grafikleri tam ve eksiksiz bir şekilde hazırlamalısınız (Eksen isimlerine dikkat edin)
 
 ```{r}
-library(ggplot2)
-ggplot(data = boston, aes(x=medv)) + 
-  geom_histogram() + 
-  ggtitle(label = "Ev fiyatlari histogrami") + 
-  xlab("Ev fiyati") + 
-  ylab("Frekans")
+
 ```
 
 Peki, şimdi `rm` değişkeni için aynı histogramı oluşturabilir misiniz?
 
 ```{r}
-ggplot(data = boston, aes(x=rm)) + 
-  geom_histogram() + 
-  ggtitle(label = "Oda sayilari histogrami") + 
-  xlab("Oda sayisi") + 
-  ylab("Frekans")
+
 ```
 
 ## Soru 4: Kutu grafikleri
@@ -78,19 +78,12 @@ Yukarıdaki soruda bulunan `medv` ve `rm` değişkenleri için ayrı ayrı iki k
 Öncelikle `medv` için:
 
 ```{r}
-ggplot(data = boston, aes(y=medv)) + 
-  geom_boxplot() + 
-  ggtitle(label = "Ev fiyatlari kutu grafigi") + 
-  ylab("Ev fiyati")
+
 ```
 
 Şimdi de `rm`` için:
 
 ```{r}
-ggplot(data = boston, aes(y=rm)) + 
-  geom_boxplot() + 
-  ggtitle(label = "Oda sayisi kutu grafigi") + 
-  ylab("Oda sayisi")
 
 ```
 
@@ -99,11 +92,7 @@ ggplot(data = boston, aes(y=rm)) +
 Ortalama ev değerleri, Charles nehrine yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
 
 ```{r eval = TRUE}
-ggplot(data = boston, aes(x=chas,y=medv)) + 
-  geom_boxplot() + 
-  ggtitle(label = "Charles nehri yakininda ve uzagindaki evlerin fiyat dagilimlari") + 
-  xlab("Charles nehri kenari") + 
-  ylab("Ev fiyati")
+
 ```
 
 ## Soru 6: Ev fiyatları hangi değişkenlerden etkilenebilir?
@@ -116,11 +105,7 @@ Bir araştırmacı, ev fiyatlarının farklı değişkenlerle bağlı olan deği
 Ev fiyatları ve düşük sosyoekonomik seviye arasındaki ilişkiyi gösteren nokta grafiğini oluşturabilir misiniz? (y ekseni `medv`, x ekseni `lstat`)
 
 ```{r}
-ggplot(data = boston, aes(x = lstat, y = medv)) + 
-  geom_point() + 
-  ggtitle(label = "Ev fiyatlari ve sosyoekonomik seviye arasindaki iliski") + 
-  xlab("Sosyo ekonomik seviye") + 
-  ylab("Ev fiyatlari")
+
 ```
 
 Sizce bu iki değişken arasında nasıl bir ikişki var? Bir cümleyle açıklayabilir misiniz? Cevabınızı aşağıdaki \> ile başkaya satırlara yazınız:
@@ -131,17 +116,13 @@ Sizce bu iki değişken arasında nasıl bir ikişki var? Bir cümleyle açıkla
 Peki ev fiyatları ve mahalledeki ortalama oda sayısı arasındaki ilişkiyi açıklayan grafiği oluşturabilir misiniz?
 
 ```{r}
-ggplot(data = boston, aes(x = rm, y = medv)) + 
-  geom_point() + 
-  ggtitle(label = "Ev fiyatlari ve oda sayisi arasindaki iliski") + 
-  xlab("Oda sayisi") + 
-  ylab("Ev fiyatlari")
+
 ```
 
 Grafiğe baktığınızda, oda sayısı ve ev fiyatları arasında nasıl bir ilişki var? Bir kaç cümleyle aşağıya açıklayabilir misiniz?
 
-> Ev fiyatları ve o mahalledeki evlerde bulunan ortalama oda sayısı birbiri ile ilişkide.
-> Mahalledeki ortalama oda sayısı arttıkça, ev fiyatları da artış gösteriyor.
+> 
+> 
 >
 >
 

@@ -1,0 +1,124 @@
+# Beynin kanseri mikrodizin analizi
+
+Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında *glioblastoma* ve *sağlıkı, normal* beyin dokularından elde edilen gen anlatım profili incelenecektir.
+
+## Veri yükleme
+
+Örnekler hakkında metaveri bilgisini yükleyiniz:
+
+```{r}
+metadata <- read.table(file = "../data/metadata-GSE50161.csv", header = T)
+```
+
+Yüklediğiniz metaverinin sütun isimlerini elde eden kodu yazınız:
+
+```{r}
+colnames(metadata)
+```
+
+Çalışmada kaç tane örnek kullanılmış? Kullanılan örnek sayısını geri döndüren kodu yazınız:
+
+```{r}
+length(metadata$Ornek)
+```
+
+Çalışmada kullanılan koşulların tablosunu oluşturan kodu yazınız:
+
+```{r}
+table(metadata$Durum)
+```
+
+Şimdi de gen anlatım verisini yükleyiniz:
+
+```{r}
+microarray <- read.table(file = "../data/brain-expression-small-GSE50161.csv", header = T)
+```
+
+
+Yüklediğiniz gen anlatım verisini matrise çeviriniz:
+
+```{r}
+microarray <- as.matrix(microarray)
+```
+
+
+Bu matrisin satır ve sütun sayılarını geri döndürünüz:
+
+```{r}
+dim(microarray)
+```
+
+Acaba kaç tane gen incelenmiş? Bunu geri döndüren kodu yazınız:
+
+```{r}
+nrow(microarray)
+```
+
+
+## Verinin Kalite Kontrolü
+
+Elinizdeki veriyi histogram oluşturarak kontrol ediniz:
+
+```{r}
+hist(microarray)
+```
+
+
+Elinizdeki veriin kutu grafiklerini oluşturunuz:
+
+```{r}
+boxplot(microarray)
+```
+
+Hiyerarşik kümeleme yapınız:
+
+```{r}
+plot(hclust(dist(t(microarray))), labels = metadata$Durum)
+```
+
+Bu bilgilere göre şu sorunun cevabını yazınız. Acaba verimizin kalitesi, ön işlem yapmadan çalışmaya uygun mudur? Neden bu kanıya vardınız?
+
+> Histogram bize standart bir dağılım örüntüsü verdi
+> Kutu grafiklerinde ortanca değerler çok benzer
+> Kümeleme analizi sonucunda, kontrol ve hastalıklı örnekler ayrı gruplandı
+
+## Ayrımsal gen anlatım analizi
+
+Şimdi de bütün genler için ayrımsal gen anlatım analizi yapınız:
+
+```{r}
+# once p degerlerini toplayacagimiz bir boş vektor oluşturalim
+
+p.value <- rep(0, nrow(microarray))
+
+for (i in 1:nrow(microarray)){
+  kontrol <- microarray[i, metadata$Durum=="normal"]
+  uygulama <- microarray[i, metadata$Durum=="glioblastoma"]
+
+  test <- t.test(x = kontrol, y = uygulama)
+  p.value[i] <- test$p.value
+}
+
+```
+
+Kaç tane gen anlamlı değişmiş? (0.001'e göre):
+
+```{r}
+sum(p.value < 0.001, na.rm = TRUE)
+```
+
+Şimdi de anlatımları en farklı değişmiş bir tane geni ineceleyelim. Bu gen kaçıncı sırada?
+
+```{r}
+which.min(p.value)
+```
+
+Bu genin kutu grafiğine bakalım mı?
+
+```{r}
+boxplot(microarray[305,]~metadata$Durum)
+```
+
+Bu genin anlatımı, glibolastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:
+
+> Normal koşula göre azalmış

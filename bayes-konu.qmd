@@ -1,0 +1,21 @@
+
+## Bayes teoremi
+
+
+
+
+$p(A) = 0.2$
+
+$$
+
+p(A) = \frac{p(B|A)*p(A1)}{p(B|A1)*P(A1) + p(B|A2)*p()}
+
+$$
+
+## Kmer
+
+$$
+
+P(K1|G1) = \frac{P(G1|K1)*p(K1)}
+
+$$

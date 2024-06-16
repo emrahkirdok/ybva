@@ -1,0 +1,175 @@
+---
+title: "Veri Analizi Vize Sınavı"
+output: html_document
+date: "2024-04-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Aşağıdaki tabloyu inceleyin:
+
+| Tur     | Ulke              | Varyete       | Aroma | Asidite |
+|:--------|:------------------|:--------------|------:|--------:|
+| Arabica | Brazil            | Catuai        |  7.42 |    7.50 |
+| Arabica | Brazil            | Mundo Novo    |  8.00 |    7.83 |
+| Arabica | Taiwan            | Typica        |  7.92 |    7.08 |
+| Arabica | Colombia          | Other         |  7.67 |    7.42 |
+| Arabica | Brazil            | Bourbon       |  7.58 |    7.42 |
+| Arabica | Guatemala         | Bourbon       |  7.75 |    7.50 |
+| Arabica | El Salvador       | Other         |  7.75 |    7.50 |
+| Arabica | Colombia          | Caturra       |  7.83 |    7.75 |
+| Arabica | United States     | Hawaiian Kona |  7.50 |    6.92 |
+| Arabica | Mexico            | Bourbon       |  7.50 |    7.25 |
+
+
+## Soru 1 (5 puan)
+
+Yukarıda gösterilen tabloyu kullanarak aşağıdaki isimlerde beş farklı vektör oluşturun:
+
++ `Tur`
++ `Ulke`
++ `Varyete`
++ `Aroma`
++ `Asidite`
+
+```{r}
+
+```
+
+## Soru 2 (5 puan)
+
+Oluşturduğunuz vektörlerden bir tanesinin uzunluğunu geri döndüren kodu yazınız (sadece bir tanesini kullanın):
+
+```{r}
+
+```
+
+## Soru 3 (5 puan)
+
+Asidite değeri, 7.8'den büyük olan değerleri geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 4 (5 puan)
+
+Oluşturduğunuz `Ulke` vektörünü kullanarak, bu vektörün frekans tablosunu geri döndüren kodu yazabilir misiniz?
+
+```{r}
+
+```
+
+## Soru 5 (5 puan)
+
+Aroma değerlerini içeren vektörün minimum, maksimum, ortalama, ortanca değerlerini geri döndüren kodları yazabilir misiniz?
+
+```{r}
+
+```
+
+## Soru 6 (5 puan)
+
+Oluşturduğunuz bu vektörleri kullanarak `Kahve` isminde bir veri çerçevesi oluşturan kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 7 (5 puan)
+
+Oluşturduğunuz `Kahve` veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 8 (5 puan)
+
+Asidite değerleri 7.8'den büyük olan satırları geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 9 (5 puan)
+
+Aroma değeri 7.6'nın üzerinde olan satırları geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 10 (10 puan)
+
+Ekte verilmiş olan dosyayı okuyunuz. Oluşturacağınız veri çerçevesinin ismi `gumus_agaci` olsun:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+## Soru 11 (5 puan)
+
+Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 12 (5 puan)
+
+Bu veri çerçevesinin sütun isimlerini geri döndürünüz:
+
+```{r}
+
+```
+
+## Soru 13 (5 puan)
+
+Kültürleme koşullarının tablosunu oluşturabilir misiniz?
+
+```{r}
+
+```
+
+## Soru 14 (5 puan)
+
+Iletkenlik değerinin histogramını oluşturabilir misiniz?
+
+```{r}
+
+```
+
+## Soru 15 (5 puan)
+
+Fotosentez değerlerinin histogramını oluşturalım
+
+```{r}
+
+```
+
+## Soru 16 (5 puan)
+
+Iletkenlik ve Fotosentez değerlerine ait nokta grafiği oluşturunuz. Y ekseni Fotosentez, x ekseni ise İletlenlik değerini göstersin. Noktaların renklerini ise Kültürleme koşuluna göre renklendiriniz
+
+```{r}
+
+```
+
+## Soru 17 (5 puan)
+
+İletkenlik değerlerinin, kültürleme koşullarına bağlı olarak kutu grafiğini oluşturunuz. X ekseni kültürleme koşullarını, Y ekseni ise fotosentez değerlerini içersin.
+
+```{r}
+
+```
+
+## Soru 18 (10 puan)
+
+Bir önceki grafiğe göre şu soruyu cevaplayınız. İletkenlik değer, nemli kültürleme koşulunda, kurak kültürleme koşullarına göre nasıl değişmiş olabilir? Cevabınızı bir cümle ile aşağıya yazınız:
+
+>
+

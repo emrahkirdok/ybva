@@ -1,63 +1,40 @@
----
-title: "bva_naive_bayes_pratik_2"
-author: "Tanya Beril Korkmaz, Emrah Kırdök"
-format: html
-editor: visual
----
+# Naive-Bayes ile Meme Kanser Veri Analizi
 
-# Naive Bayes Pratiği
-
-Araçları yükleyelim:
+İlk olarak aşağıda bulunan paketleri kurmanız gerekidir:
 
 ```{r eval = FALSE}
-install.packages('tidyverse')
-install.packages('ggplot2')
-install.packages('caret')
-install.packages('caretEnsemble')
-install.packages('psych')
-install.packages('Amelia')
-install.packages('mice')
-install.packages('GGally')
-install.packages('rpart')
-install.packages('randomForest')
-install.packages("ranger")
+install.packages("psych")
 install.packages("corrplot")
 install.packages("ggplot2")
-install.packages("gridExtra")
+install.packages("caret")
+install.packages("ggpubr")
+install.packages("klaR")
 ```
 
-Kütüphaneleri çalıştıralım (bunları konsolda yaparsanız daha güzel bir çıktı alabilirsiniz)
+Daha sonra bu paketleri yükleyelim:
 
 ```{r}
-library(tidyverse)
-library(ggplot2)
-library(caret)
-library(caretEnsemble)
 library(psych)
-library(Amelia)
-library(mice)
-library(GGally)
-library(rpart)
-library(randomForest)
-library(e1071)
-library(ranger)
 library(corrplot)
 library(ggplot2)
-library(gridExtra)
+library(caret)
+library(ggpubr)
+library(klaR)
 ```
 
-
-Kullanılan tutorial:
+Bu çalışmada kullanılan tutorial:
 
 [https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis](https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis)
 
 Veri setimizi alalım (Siz buraya kendi dosya yolunuzu yazacaksınız). Veri seti link: <https://www.kaggle.com/code/lbronchal/breast-cancer-dataset-analysis/input>
 
+İlk olarak verimizi yükleyelim:
+
 ```{r}
-bc_data <- read.csv("data.csv")
+bc_data <- read.csv("https://raw.githubusercontent.com/emrahkirdok/ybva/main/05-istatistik/data.csv")
 ```
 
-Teşhisi faktör olarak düzenleyelim (M:malign tümör, B:benign tümör) ve veri setini inceleyelim
+Teşhisi faktör olarak düzenleyelim (M:malign tümör, B:benign tümör) ve veri setini inceleyelim:
 
 ```{r}
 bc_data$diagnosis <- as.factor(bc_data$diagnosis)
@@ -65,36 +42,29 @@ bc_data[,33] <- NULL
 summary(bc_data)
 ```
 
-Teşhis bilgisine bakalım
+Teşhis bilgisine bakalım:
 
 ```{r}
 prop.table(table(bc_data$diagnosis))
 ```
 
-Veri setini inceleyelim.
+Veri setini inceleyelim:
 
 ```{r}
 describe(bc_data)
 ```
 
-Korelasyon matrixi ile ilişkili olan verileri inceleyelim
+Korelasyon matrixi ile ilişkili olan verileri inceleyelim:
 
 ```{r}
 corr_mat <- cor(bc_data[,3:ncol(bc_data)])
 corrplot(corr_mat, order = "hclust", tl.cex = 1, addrect = 8)
 ```
 
-Etkenlerden birini seçip plotlayalım
+Etkenlerden birini seçip plotlayalım:
 
 ```{r}
-# ggplot(bc_data, aes(Age)) +
-# geom_density(alpha=0.5, aes(fill=Outcome)) + labs(title="Age_Distribution_by_Outcome")
-```
-
-Hepsini birlikte deneyelim
-
-```{r}
-# ggpairs(bc_data)
+ggplot(bc_data, aes(x=texture_mean)) + geom_density(alpha=0.5, aes(fill=diagnosis)) + labs(title="Texture distribution by outcome")
 ```
 
 Şimdi yavaşça işin makine öğrenmesi kısmına başlıyoruz. Burada veri setimiz rastgele olarak iki parçaya bölünüyor: Makineye "öğreten" training set ve bunu test eden testing set.
@@ -146,37 +116,20 @@ Teşhis bilgisi için her bileşeni ayrıca inceleyelim:
 ```{r}
 g_pc1 <- ggplot(pca_df, aes(x=PC1, fill=bc_data$diagnosis)) + geom_density(alpha=0.25)  
 g_pc2 <- ggplot(pca_df, aes(x=PC2, fill=bc_data$diagnosis)) + geom_density(alpha=0.25)  
-grid.arrange(g_pc1, g_pc2, ncol=2)
-```
-
-Etkenlerden birini seçip plotlayalım
-
-```{r}
-# ggplot(bc_data, aes(Age)) +
-# geom_density(alpha=0.5, aes(fill=Outcome)) + labs(title="Age_Distribution_by_Outcome")
-```
-
-Hepsini birlikte deneyelim
-
-```{r}
-# ggpairs(bc_data)
+ggarrange(g_pc1, g_pc2, ncol=2, common.legend = T)
 ```
 
 Modeli oluşturalım ve görüntüleyelim:
 
-```{r}
+```{r warning = FALSE}
 fitControl <- trainControl(method="cv", number = 5, preProcOptions = list(thresh = 0.99), classProbs = TRUE, summaryFunction = twoClassSummary)
 
 model_nb <- train(diagnosis~., train_data, method="nb", metric="ROC", preProcess=c('center', 'scale'), trace=FALSE, trControl=fitControl)
-
-# pred_nb <- predict(model_nb, test_data)
-# cm_nb <- confusionMatrix(pred_nb, test_data$diagnosis, positive = "M")
-# cm_nb
 ```
 
 Modeli test edelim ve inceleyelim (bunu aslında yukarıda da yaptık)
 
-```{r}
+```{r warning = FALSE}
 Predict <- predict(model_nb,newdata = test_data)
 confusionMatrix(Predict, test_data$diagnosis)
 ```

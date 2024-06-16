@@ -1,0 +1,292 @@
+---
+title: "Aşamalı Azalış"
+editor: visual
+---
+
+```{r}
+gradient_descent_v1 <- function(data, alpha, iterations){
+  cost <- function(X, y, theta) {
+  sum( (X %*% theta - y)^2 ) / (2*length(y))
+  }
+  
+alpha <- alpha
+interations <- iterations
+x <- data$x
+y <- data$y
+
+
+cost_history <- double(iterations)
+theta_history <- list(iterations)
+theta <- matrix(c(9,-0.5), nrow=2)
+
+# add a column of 1's for the intercept coefficient
+X <- cbind(1, matrix(x))
+
+for (i in 1:iterations) {
+  error <- (X %*% theta - y)
+  delta <- t(X) %*% error / length(y)
+  theta <- theta - alpha * delta
+  cost_history[i] <- cost(X, y, theta)
+  theta_history[[i]] <- theta
+}
+
+optimized <- as.matrix(cbind(t(matrix(unlist(theta_history),
+                            nrow=2, 
+                            ncol=length(theta_history))),
+                   cost_history))
+
+optimized <- data.frame(optimized)
+colnames(optimized) <- c("a", "b", "cost_history")
+optimized$iterations <- 1:iterations
+
+library(ggplot2)
+
+output <- list()
+
+
+p1 <- ggplot(data=optimized, aes(x=iterations, y = cost_history)) +  geom_point()
+p2 <- ggplot(data=data, aes(x=x,y=y)) + 
+  geom_point() + 
+  geom_abline(slope = optimized$b[nrow(optimized)], 
+              intercept = optimized$a[nrow(optimized)], col = "red")
+
+output$optimized <- optimized
+output$p1 <- p1
+output$p2 <- p2
+return(output)
+}
+```
+
+```{r}
+gradient_descent_v2 <- function(data, alpha, iterations, random=TRUE){
+  cost <- function(X, y, theta) {
+  sum( (X %*% theta - y)^2 ) / (2*length(y))
+  }
+  
+alpha <- alpha
+interations <- iterations
+x <- data$x
+y <- data$y
+
+
+cost_history <- double(iterations)
+theta_history <- list(iterations)
+
+if(random == TRUE){
+  random_a <- sample(x = seq( min(y), max(y),0.1) , size=1)
+  random_b <- sample(x= seq(-1,1,0.1), size=1)
+  theta <- matrix(c(random_a,random_b), nrow=2)
+}else{
+  theta <- matrix(c(0,0), nrow=2)
+}
+
+
+# add a column of 1's for the intercept coefficient
+X <- cbind(1, matrix(x))
+
+for (i in 1:iterations) {
+  error <- (X %*% theta - y)
+  delta <- t(X) %*% error / length(y)
+  theta <- theta - alpha * delta
+  cost_history[i] <- cost(X, y, theta)
+  theta_history[[i]] <- theta
+}
+
+optimized <- as.matrix(cbind(t(matrix(unlist(theta_history),nrow=2,ncol=length(theta_history))),cost_history))
+
+optimized <- data.frame(optimized)
+colnames(optimized) <- c("a", "b", "cost_history")
+optimized$iterations <- 1:iterations
+
+library(ggplot2)
+
+output <- list()
+
+
+p1 <- ggplot(data=optimized, aes(x=iterations, y = cost_history)) +  geom_point()
+p2 <- ggplot(data=data, aes(x=x,y=y)) + 
+  geom_point() + 
+  geom_abline(slope = optimized$b[nrow(optimized)], 
+              intercept = optimized$a[nrow(optimized)], col = "red")
+
+output$optimized <- optimized
+output$p1 <- p1
+output$p2 <- p2
+
+return(output)
+}
+
+```
+
+```{r}
+gradient_descent_v3 <- function(data, alpha, iterations, b_i, a_i, random=TRUE){
+  cost <- function(X, y, theta) {
+  sum( (X %*% theta - y)^2 ) / (2*length(y))
+  }
+  
+x <- data$x
+y <- data$y
+
+a <- seq(-max(y), max(y), 0.1)
+b <- seq(-max(x), max(x), 0.1)
+
+cost_history <- double(iterations)
+theta_history <- list(iterations)
+
+if(random == TRUE){
+  random_a <- sample(x = a, size=1)
+  random_b <- sample(x = b, size=1)
+  theta <- matrix(c(random_a,random_b), nrow=2)
+}else{
+  theta <- matrix(c(a_i,b_i), nrow=2)
+}
+
+
+# add a column of 1's for the intercept coefficient
+X <- cbind(1, matrix(x))
+
+for (i in 1:iterations) {
+  error <- (X %*% theta - y)
+  delta <- t(X) %*% error / length(y)
+  theta <- theta - alpha * delta
+  cost_history[i] <- cost(X, y, theta)
+  theta_history[[i]] <- theta
+}
+
+optimized <- as.matrix(cbind(t(matrix(unlist(theta_history),nrow=2,ncol=length(theta_history))),cost_history))
+
+optimized <- data.frame(optimized)
+colnames(optimized) <- c("a", "b", "cost_history")
+optimized$iterations <- 1:iterations
+
+
+history_mat <- matrix(data=NA, nrow = length(a), ncol=length(b))
+
+for (i in 1:length(a)){
+  for (j in 1:length(b)){
+    theta <- matrix(c(a[i],b[j]), nrow=2)
+    error <- (X %*% theta - y)
+    c <- cost(X, y, theta)
+    history_mat[i,j] <- c
+  }
+}
+
+
+library(ggplot2)
+library(plotly)
+
+output <- list()
+
+p1 <- ggplot(data=optimized, aes(x=iterations, y = cost_history)) +  geom_point()
+p2 <- ggplot(data=data, aes(x=x,y=y)) + 
+  geom_point() + 
+  geom_abline(slope = optimized$b[nrow(optimized)], 
+              intercept = optimized$a[nrow(optimized)], col = "red")
+
+p3 <- plot_ly(x=b,y=a,z=~history_mat ,type="surface")
+
+p4 <- plot_ly(x=b, y=a, z=~history_mat,type="surface") %>% 
+  add_trace(y=~optimized$a, x=~optimized$b, z=~optimized$cost_history, type = "scatter3d")
+
+p5 <- plot_ly(x=b, y=a, z=~history_mat,type="surface") %>% 
+  add_trace(y=~optimized$a, x=~optimized$b, z=~optimized$cost_history, frame = ~optimized$iterations, type = "scatter3d", mode = "markers")
+
+
+output$optimized <- optimized
+output$p1 <- p1
+output$p2 <- p2
+output$p3 <- p3
+output$p4 <- p4
+output$p5 <- p5
+return(output)
+}
+
+```
+
+
+```{r}
+gradient_descent_v4 <- function(data, alpha, iterations, b_i, a_i, random=TRUE){
+  cost <- function(X, y, theta) {
+  sum( (X %*% theta - y)^2 ) / (2*length(y))
+  }
+  
+x <- data$x
+y <- data$y
+
+a <- seq(-max(y), max(y), 0.1)
+b <- seq(-max(x), max(x), 0.1)
+
+cost_history <- double(iterations)
+theta_history <- list(iterations)
+
+if(random == TRUE){
+  random_a <- sample(x = a, size=1)
+  random_b <- sample(x = b, size=1)
+  theta <- matrix(c(random_a,random_b), nrow=2)
+}else{
+  theta <- matrix(c(a_i,b_i), nrow=2)
+}
+
+
+# add a column of 1's for the intercept coefficient
+X <- cbind(1, matrix(x))
+
+for (i in 1:iterations) {
+  error <- (X %*% theta - y)
+  delta <- t(X) %*% error / length(y)
+  theta <- theta - alpha * delta
+  cost_history[i] <- cost(X, y, theta)
+  theta_history[[i]] <- theta
+}
+
+optimized <- as.matrix(cbind(t(matrix(unlist(theta_history),nrow=2,ncol=length(theta_history))),cost_history))
+
+optimized <- data.frame(optimized)
+colnames(optimized) <- c("a", "b", "cost_history")
+optimized$iterations <- 1:iterations
+
+
+history_mat <- matrix(data=NA, nrow = length(a), ncol=length(b))
+
+for (i in 1:length(a)){
+  for (j in 1:length(b)){
+    theta <- matrix(c(a[i],b[j]), nrow=2)
+    error <- (X %*% theta - y)
+    c <- cost(X, y, theta)
+    history_mat[i,j] <- c
+  }
+}
+
+
+library(ggplot2)
+library(plotly)
+
+output <- list()
+
+p1 <- ggplot(data=optimized, aes(x=iterations, y = cost_history)) +  geom_point()
+p2 <- ggplot(data=data, aes(x=x,y=y)) + 
+  geom_point() + 
+  geom_abline(slope = optimized$b[nrow(optimized)], 
+              intercept = optimized$a[nrow(optimized)], col = "red")
+
+p3 <- plot_ly(x=b,y=a,z=~history_mat ,type="surface")
+
+p4 <- plot_ly(x=b, y=a, z=~history_mat,type="surface") %>% 
+  add_trace(y=~optimized$a, x=~optimized$b, z=~optimized$cost_history, type = "scatter3d")
+
+p5 <- plot_ly(x=b, y=a, z=~history_mat,type="surface") %>% 
+  add_trace(y=~optimized$a, x=~optimized$b, z=~optimized$cost_history, frame = ~optimized$iterations, type = "scatter3d", mode = "markers")
+
+
+output$optimized <- optimized
+output$p1 <- p1
+output$p2 <- p2
+output$p3 <- p3
+output$p4 <- p4
+output$p5 <- p5
+return(output)
+}
+
+```
+
+
