@@ -69,11 +69,11 @@ toplam(a = 12, b = 45)
 
 ## Başka bir fonksiyon
 
-Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrad derece cinsinden bir sıcaklık birimini Kelvin'e çevirelim.
+Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrat derece cinsinden bir sıcaklık birimini Kelvin'e çevirelim.
 
-Bu dönüşüm için, santigrad cinsinden dereceye, 273.15 eklememiz gerek.
+Bu dönüşüm için, santigrat cinsinden dereceye, 273.15 eklememiz gerek.
 
-Yazacağımız fonksiyon santigrad cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
+Yazacağımız fonksiyon santigrat cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
 
 ```{r}
 kelvin_donusturucu <- function(derece){
