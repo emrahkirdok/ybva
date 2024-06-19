@@ -26,8 +26,9 @@ Bu kapsamda elde edilmiş ölçümler ile ilgili bilgileri aşağıda bulabilirs
 
 # Veri yükleme
 
-Lütfen ekte verilmiş `sinav.csv` verisini aşağıdaki bilgileri kullanarak yükleyiniz:
+Lütfen aşağıda bağlantısı verilmiş `sinav.csv` verisini aşağıdaki bilgileri kullanarak yükleyiniz:
 
++ [Veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv)
 + Ayraç (`sep`): `;`
 + Başlık satırları (`header`) bulunmaktadır.
 
@@ -35,7 +36,7 @@ Yükleme kodunu aşağıya yazınız (7 puan):
 
 ```{r}
 library(ggplot2)
-veri <- read.table("data/sinav.csv", sep = ";", header= T)
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv", sep = ";", header= T)
 ```
 
 # Veriyi tanıma
