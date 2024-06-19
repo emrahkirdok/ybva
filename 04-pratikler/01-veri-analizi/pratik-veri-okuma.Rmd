@@ -1,6 +1,9 @@
-# R ile Veri Okuma
+---
+title: "Dosya okuma pratiği"
+author: ""
+output: html_document
 
-## Veri Okuma
+---
 
 İlk olarak dosyanız nerede? Eğer çalışma klasörünüzü öğrenmek istiyorsanız:
 
@@ -10,101 +13,211 @@ getwd()
 
 Ancak, Proje oluşturursanız ve dosyalarınızı proje klasörü içinde saklarsanız, işiniz daha kolay olur.
 
-Peki veri okuyalım:
+## Sorunlar
+
+Yaşanan en büyük sorun, veride kullanılan ayracı düzgün bir şekilde seçmemek. Genel olarak dört tip ayraç var:
+
+- `;`
+- `,`
+- ` ` (Boşluk karakteri)
+- `\t` (Tab karakteri)
+
+Bu pratik kağıdında, yukarıda belirtilen dört farklı ayraç ile oluşturulmuş farklı veri dosyaları inceleyeceksiniz.
+
+Ben bir veri dosyası yüklemek istesem, önce veriyi not defteri gibi bir programla açarım. Aşağıda verilen verileri ise, sağ tıklayp yeni pencerede açabilirsiniz.
+
+Daha sonra, sütunlar arasında hangi ayracın kullanıldığına bakarım. Siz, dört farklı ayracı da test edebilir, ve hangisi çalışıyorsa onu kullanabilirsiniz.
+
+## Soru 1
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyunuz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv)
 
 ```{r}
-olcumler <- read.table(file = "../../data/olcumler.txt",
-                       sep=" ",
-                       header = TRUE)
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv", sep = ";", header = TRUE)
 ```
 
-Bu veriyi siz okumak isterseniz, aşağıdaki bağlantıdan veriyi indirebilirsiniz:
-
-
-
-Başka veri okuma fonksiyonları da bulunmakta:
-
-- `read.delim`
-- `read.csv`
-- `read.csv2`
-
-`read.table` fonksiyonunda, öntanımlı ayraç *boşluk* karakteri.
-`read.csv` fonksiyonunda, öntanımlı ayra. *;* karakteri.
-`read.delim` fonksiyonunda, öntanımlı ayraç *TAB (`\t`)* karakteri.
-
-Peki, `olcumler` veri çerçevesini inceleyelim:
-
-Satır ve sütun sayısı:
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
-dim(olcumler)
+dim(veri)
 ```
 
-Bu veri çerçevesindeki sütun isimlerine bakalım:
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
 
 ```{r}
-colnames(olcumler)
+colnames(veri)
 ```
 
-## Veri çerçeveleri üzerinde işlemler
-
-Sadece *setosa* türlerinden bir alt küme yapalım:
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
 
 ```{r}
-olcumler[olcumler$tur=="setosa", ]
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
 ```
 
-Peki, sepal uzunlukları 5.5'den büyün olan verileri içeren bir alt küme oluşturalım:
+## Soru 2
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv)
 
 ```{r}
-olcumler[olcumler$canak.uzunluk > 5.5, ]
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv", sep = ",", header = TRUE)
 ```
 
-
-## Subset fonksiyonu kullanımı
-
-Veri çerçeveleri üzerinde, `subset` fonksiyonu kullanarak da işlem yapabiliriz.
-
-Bu veri çerçevesi içerisinde, sadece *virginica* türlerine ait verileri içeren bir alt küme oluşturalım:
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
-subset(x = olcumler, subset = tur == "virginica")
+dim(veri)
 ```
 
-İstersek, `subset` fonksiyonu ile, istediğimiz bir sütunu da geri döndürebiliriz. Örnek olarak, sadece *virginica* türlerine ait sepal uzunluğu değerlerini geri döndürelim:
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
 
 ```{r}
-subset(x = olcumler, subset = tur == "virginica", select = canak.uzunluk)
+colnames(veri)
 ```
 
-Subset fonksiyonu:
-- x: alt kümesi yapılacak veri çerçevesi
-- subset: işletilecek mantıksal fonksiyon
-- select: geri döndürülmesi istenen sütun ismi
-
-Karmaşık alt küme oluşturma işlemleri yapabilirsinz.
-
-Virginica bitkilerini *ve* sepal uzunluğu 6'dan büyük olan bitkilerden bir alt küme oluşturalım. Ve sepal uzunluklarını geri döndürelim:
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
 
 ```{r}
-subset(x = olcumler, 
-       subset = tur == "virginica" & canak.uzunluk > 6, 
-       select = canak.uzunluk)
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
 ```
 
-Ama:
+## Soru 3
 
-Virginica bitkilerini *veya* sepal uzunluğu 6'dan büyük olan bitkilerden bir alt küme oluşturalım. Ve sepal uzunluklarını geri döndürelim:
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt)
 
 ```{r}
-subset(x = olcumler, 
-       subset = tur == "virginica" | canak.uzunluk > 6, 
-       select = canak.uzunluk)
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt", sep = " ", header = TRUE)
 ```
 
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
 
 ```{r}
-subset(x = olcumler,
-       subset = tur == "virginica" & canak.genislik > 3 & tac.genislik < 5.5  )
+dim(veri)
 ```
 
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 4
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt", sep = "\t", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 5
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv", sep = ",", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 6
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv", sep = ",", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
