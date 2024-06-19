@@ -5,14 +5,6 @@ date: ""
 output: html_document
 ---
 
-Elinizdeki dökümanın boş `Rmd` dosyası [şu bağlantıda](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratik/vektorler-matrisler-veri-cerceveleri.Rmd) bulunmaktadır. 
-
-Bağlantıya sağ tıklayıp farklı kaydet'e basınız ve bilgisayarınıza kaydediniz. Üstbilgi kısmındaki `author` alanına kendi isminiz yazınız. Cevaplarınızı bu doysa içinde bulunan R kod bloklar içierisnde yazınız. İşlem bittikten sonra belgenizi `html` formatına dönüştürünüz.
-
-Bu pratiğin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:
-
-[Pratiğin Cevapları](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/vektorler-matrisler-veri-cerceveleri.Rmd)
-
 Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer istasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
 
 |   Tür      | Gaga Uzunluğu (mm)  |  Kanat Uzunluğu (mm)   |   Cinsiyet  |
