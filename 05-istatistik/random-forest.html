@@ -442,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../10-ekler/pratikler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pratikler.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Pratik ve Uygulamalar</span></span></a>
   </div>
 </li>
       </ul>
@@ -507,11 +507,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 27.27%
+        OOB estimate of  error rate: 31.82%
 Confusion matrix:
               Healthy Periodontitis class.error
-Healthy            11             1  0.08333333
-Periodontitis       5             5  0.50000000</code></pre>
+Healthy            10             2   0.1666667
+Periodontitis       5             5   0.5000000</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -520,27 +520,27 @@ Periodontitis       5             5  0.50000000</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                           Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus 4.0973451     4.1250269            4.5633722
-Actinomyces_dentalis     2.4923441     1.0726113            2.0192345
-Actinomyces_timonensis   3.5558281     2.8626146            3.6929960
-Actinomyces_johnsonii    1.5550891     1.4540168            2.0599766
-Treponema_maltophilum    1.1623019     1.5396961            1.3796753
-Parvimonas_micra         2.2211543     1.4298666            2.2217941
-Tannerella_forsythia     1.8322661     2.3884839            2.4135936
-Capnocytophaga_granulosa 1.8167779    -0.1810774            0.5903102
-Streptococcus_mitis      2.1352975     1.6393083            2.4154463
-Lactobacillus_salivarius 0.9973991     0.1574427            0.6673122
+Actinomyces_johnsonii    2.6492293      2.462211             2.630711
+Dialister_micraerophilus 3.8950581      3.437269             3.995446
+Parvimonas_micra         2.0187412      2.610531             2.673207
+Treponema_socranskii     2.4535485      2.262936             2.746183
+Actinomyces_timonensis   2.7639995      2.647288             2.909762
+Dialister_invisus        2.2467263      2.410973             2.640631
+Haemophilus_sputorum     1.2659876      1.510995             1.411253
+Tannerella_forsythia     2.4540051      1.977438             2.272168
+Eggerthia_catenaformis   2.4690553      2.767651             2.774540
+Streptococcus_mitis      0.1836137      1.273268             1.010596
                          MeanDecreaseGini
-Dialister_micraerophilus        0.4110719
-Actinomyces_dentalis            0.3173008
-Actinomyces_timonensis          0.2899707
-Actinomyces_johnsonii           0.2681878
-Treponema_maltophilum           0.1815524
-Parvimonas_micra                0.1772218
-Tannerella_forsythia            0.1694904
-Capnocytophaga_granulosa        0.1654089
-Streptococcus_mitis             0.1624716
-Lactobacillus_salivarius        0.1591698</code></pre>
+Actinomyces_johnsonii           0.3285729
+Dialister_micraerophilus        0.3269057
+Parvimonas_micra                0.2717961
+Treponema_socranskii            0.2706956
+Actinomyces_timonensis          0.2466323
+Dialister_invisus               0.1800123
+Haemophilus_sputorum            0.1778974
+Tannerella_forsythia            0.1680580
+Eggerthia_catenaformis          0.1646112
+Streptococcus_mitis             0.1554481</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
