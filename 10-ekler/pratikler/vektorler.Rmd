@@ -1,4 +1,9 @@
-# Vektörler Ödevi
+---
+title: "Vektörler Pratik"
+author: ""
+date: ""
+output: html_document
+---
 
 Bu belge birinci ödeviniz için çözmeniz gereken soruları içermektedir. Başarılar.
 

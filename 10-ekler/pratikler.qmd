@@ -1,0 +1,5 @@
+# Pratik ve Uygulamalar
+
+## Veri analizi
+
+Vektörler uygulaması: []()
