@@ -3,6 +3,7 @@
 ## Veri analizi
 
 Vektörler uygulaması: 
+
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/vektorler.Rmd)
 + [Cevapları içeren Rmd dosyası]() YÜKLENMEDİ!
 
@@ -19,7 +20,7 @@ Veri çerçeveleri:
 Veri okuma pratiği:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/pratik-veri-okuma.Rmd)
-+ [Cevapları içeren Rmd dosyası](https://github.com/emrahkirdok/ybva/edit/main/10-ekler/pratikler/cevaplar/pratik-veri-okuma.Rmd)
++ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/pratik-veri-okuma.Rmd)
 
 Boston veri seti pratik
 
