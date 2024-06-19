@@ -6,7 +6,12 @@ Vektörler uygulaması:
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/vektorler.Rmd)
 + [Cevapları içeren Rmd dosyası]()
 
-Vektörler, matrisler, veri çerçeveleri
+Vektörler, matrisler, veri çerçeveleri:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/vektorler-matrisler-veri-cerceveleri.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/vektorler-matrisler-veri-cerceveleri.Rmd)
+
+Veri çerçeveleri:
+
++ [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/veri-cerceveleri.Rmd)
++ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/veri-cerceveleri.Rmd)

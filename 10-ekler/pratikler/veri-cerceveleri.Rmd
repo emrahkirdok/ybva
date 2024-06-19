@@ -4,10 +4,6 @@ author : ""
 output: html_document
 ---
 
-Bu pratiğin boş kağıdını [şu bağlantıdan](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratik/veri-cerceveleri.Rmd) indirebilirsiniz.
-
-Bu pratiğin cevaplarını [şu bağlantıdan](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratik/cevaplar/veri-cerceveleri.Rmd) indirebilirsiniz.
-
 Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
 
 + isimler
