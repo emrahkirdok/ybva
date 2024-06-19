@@ -31,3 +31,10 @@ Gümüş ağacı veri seti pratik
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd)
+
+## Bilgisayarlı Düşünme
+
+Meme kanseri mikrodizin analizi
+
++ [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-final-2023-2024.Rmd)
++ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-final-2023-2024.Rmd)
