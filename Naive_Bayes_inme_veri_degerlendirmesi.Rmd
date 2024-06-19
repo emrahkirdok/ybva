@@ -9,7 +9,7 @@ output:
 
 Ne çalışacaksak onunla alakalı yapacağımız işlemlerin yürütücülerinin sahada bulunması gerekir. Burada R üzerinden çeşitli verilerin işlenmesi, sınıflandırılması, değerlendirilmesi, görselleştirilmesi gibi işlemler yapılacağından bunları yapabilen araçların yüklenmesi gerekir. Bundan dolayı öncelikle bu paketlerin yüklemesini yapıyoruz.
 
-```{r}
+```{r eval = FALSE}
 install.packages("psych")
 install.packages("corrplot")
 install.packages("ggplot2")
