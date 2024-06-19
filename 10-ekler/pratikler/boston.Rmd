@@ -17,19 +17,10 @@ Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu 
 + `rm`: Mahallede bulunan evlerdeki ortalama oda sayısı
 + `chas`: Mahallelerin Charles nehrine yakınlık durumları (0: Charles nehrine yakın değil, 1: Charles nehri yakınında)
 
-Bu pratiğin boş kağıdını aşağıdan indirebilirsiniz:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/boston-cevaplar.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/boston-cevaplar.Rmd)
-
-Bu pratiğin cevaplarını aşağıdaki dosyada inceleyebilirisniz:
-
-[https://github.com/emrahkirdok/ybva/blob/main/10-ekler/pratikler/cevaplar/boston-cevaplar.Rmd](https://github.com/emrahkirdok/ybva/blob/main/10-ekler/pratikler/cevaplar/boston-cevaplar.Rmd)
-
 ## Soru 1
 
 Lütfen ekte indirdiğiniz veri çerçevesini R içerisine yükleyecek kodu yazınız:
 
-> Dikkat! sizin dosyayı indirdiğiniz yer farklı olabilir!
 
 ```{r}
 
