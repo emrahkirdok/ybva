@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Yaşam Bilimlerinde Veri Analizi - 1&nbsp; R ve RStudio</title>
+<title>Yaşam Bilimlerinde Veri Analizi - 28&nbsp; Beynin kanseri mikrodizin analizi</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -30,8 +60,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-kurulum/02-ilk-kurallar.html" rel="next">
-<link href="../CONTRIBUTING.html" rel="prev">
+<link href="../04-pratikler/01-veri-analizi/liste-pratik.html" rel="next">
+<link href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -41,8 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -69,36 +98,26 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Aramak"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -118,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Önsöz</span></a>
@@ -138,10 +157,10 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></a>
   </div>
 </li>
@@ -164,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -173,8 +192,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span></a>
@@ -271,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -280,8 +299,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
@@ -325,12 +344,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -339,8 +358,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-pratikler/01-veri-analizi/liste-pratik.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Listeler pratiği</span></span></a>
@@ -365,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
@@ -374,8 +393,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
@@ -400,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Türkiye'nin Verisi</span></span>
@@ -419,8 +438,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></span></a>
@@ -433,31 +452,25 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Içindekiler</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link active" data-scroll-target="#posit-cloud"><span class="header-section-number">1.1</span> Posit Cloud</a>
-  <ul class="collapse">
-  <li><a href="#posit-cloud-sistemine-giriş" id="toc-posit-cloud-sistemine-giriş" class="nav-link" data-scroll-target="#posit-cloud-sistemine-giriş"><span class="header-section-number">1.1.1</span> Posit Cloud sistemine giriş</a></li>
-  </ul></li>
-  <li><a href="#r-ve-rstudio-kurulumu" id="toc-r-ve-rstudio-kurulumu" class="nav-link" data-scroll-target="#r-ve-rstudio-kurulumu"><span class="header-section-number">1.2</span> R ve RStudio kurulumu</a></li>
-  </ul>
-</nav>
+<li><a href="#veri-y%C3%BCkleme" id="toc-veri-yükleme" class="nav-link active" data-scroll-target="#veri-y%C3%BCkleme"><span class="header-section-number">28.1</span> Veri yükleme</a></li>
+  <li><a href="#verinin-kalite-kontrol%C3%BC" id="toc-verinin-kalite-kontrolü" class="nav-link" data-scroll-target="#verinin-kalite-kontrol%C3%BC"><span class="header-section-number">28.2</span> Verinin Kalite Kontrolü</a></li>
+  <li><a href="#ayr%C4%B1msal-gen-anlat%C4%B1m-analizi" id="toc-ayrımsal-gen-anlatım-analizi" class="nav-link" data-scroll-target="#ayr%C4%B1msal-gen-anlat%C4%B1m-analizi"><span class="header-section-number">28.3</span> Ayrımsal gen anlatım analizi</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-sistem" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span>
+</h1>
 </div>
 
 
@@ -471,77 +484,141 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<p>Bu ders kapsamında, açık kaynaklı olarak dağıtılan <a href="https://www.r-project.org/">R istatistik paketi</a> ve bu paketle bütünleşmiş geliştirme platformu olan <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> masaüstü programını kullanacağız.</p>
-<p><a href="https://www.r-project.org/">R istatistik paketi</a>, son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta biyolojik veri analizi için önemli olan R paketleri, <a href="https://www.bioconductor.org/">Bioconductor</a> sistemi içerisinde sürekli bir şekilde güncellenmektedir.</p>
-<p>R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimimizi sağlayan ve R’a yeni işlevler kazandıran bir kabuk gibi düşünülebilir.</p>
-<p>Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren <a href="https://posit.co/">posit</a> şirketi tarafından sunulan <a href="https://posit.co/products/cloud/cloud/">posit cloud</a> platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.</p>
-<section id="posit-cloud" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="posit-cloud"><span class="header-section-number">1.1</span> Posit Cloud</h2>
-<p>Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız ya ücret ödemeniz gerekir ya da bir sonraki ayı beklemeniz gerekmektedir.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</header><p>Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında <em>glioblastoma</em> ve <em>sağlıkı, normal</em> beyin dokularından elde edilen gen anlatım profili incelenecektir.</p>
+<section id="veri-yükleme" class="level2" data-number="28.1"><h2 data-number="28.1" class="anchored" data-anchor-id="veri-yükleme">
+<span class="header-section-number">28.1</span> Veri yükleme</h2>
+<p>Örnekler hakkında metaveri bilgisini yükleyiniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/metadata-GSE50161.txt"</span>, header <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-İşlemci saati
+<p>Yüklediğiniz metaverinin sütun isimlerini elde eden kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Ornek" "Durum"</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Bu terim, bir ay boyunca size tanınan işlemciyi kullanarak yapılan hesaplama hakkını ya da toplam kod çalıştırma hakkınızı belirtir. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.</p>
+<p>Çalışmada kaç tane örnek kullanılmış? Kullanılan örnek sayısını geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">Ornek</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47</code></pre>
 </div>
 </div>
-<section id="posit-cloud-sistemine-giriş" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="posit-cloud-sistemine-giriş"><span class="header-section-number">1.1.1</span> Posit Cloud sistemine giriş</h3>
-<p>İlk olarak <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> sitesine gidelim ve <strong>Sign Up</strong> tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, <strong>Login</strong> tuşuna basarak hesabımıza giriş yapalım (<a href="#fig-posit1" class="quarto-xref">Şekil&nbsp;<span>1.1</span></a>).</p>
-<div id="fig-posit1" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-posit1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/posit1.png" class="img-fluid figure-img">
+<p>Çalışmada kullanılan koşulların tablosunu oluşturan kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">Durum</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+glioblastoma       normal 
+          34           13 </code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posit1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.1: Posit Cloud sitesi üzerinden yeni bir hesap açalım
-</figcaption>
+</div>
+<p>Şimdi de gen anlatım verisini yükleyiniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">microarray</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/brain-expression-small-GSE50161.txt"</span>, header <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Yüklediğiniz gen anlatım verisini matrise çeviriniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">microarray</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Bu matrisin satır ve sütun sayılarını geri döndürünüz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1999   47</code></pre>
+</div>
+</div>
+<p>Acaba kaç tane gen incelenmiş? Bunu geri döndüren kodu yazınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1999</code></pre>
+</div>
+</div>
+</section><section id="verinin-kalite-kontrolü" class="level2" data-number="28.2"><h2 data-number="28.2" class="anchored" data-anchor-id="verinin-kalite-kontrolü">
+<span class="header-section-number">28.2</span> Verinin Kalite Kontrolü</h2>
+<p>Elinizdeki veriyi histogram oluşturarak kontrol ediniz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="08-brain-cancer-microarray_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<p>Arından, <strong>New Project</strong> tuşuna basalım ve <strong>New RStudio Project</strong> tuşuna basarak yeni bir R projesi oluşturalım (<a href="#fig-posit2" class="quarto-xref">Şekil&nbsp;<span>1.2</span></a>).</p>
-<div id="fig-posit2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-posit2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/posit2.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posit2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.2: Yeni bir proje oluşturalım
-</figcaption>
+</div>
+<p>Elinizdeki veriin kutu grafiklerini oluşturunuz:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="08-brain-cancer-microarray_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<p>Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (<a href="#fig-posit3" class="quarto-xref">Şekil&nbsp;<span>1.3</span></a>).</p>
-<div id="fig-posit3" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-posit3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/posit3.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posit3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.3: Projemizi oluşturduktan sonra karşımıza çıkan ekran
-</figcaption>
+</div>
+<p>Hiyerarşik kümeleme yapınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, labels <span class="op">=</span> <span class="va">metadata</span><span class="op">$</span><span class="va">Durum</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="08-brain-cancer-microarray_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<p>Tebrikler, Posit Cloud sistemi ile R ve RStudio kullanmaya hazırsınız artık!</p>
-</section>
-</section>
-<section id="r-ve-rstudio-kurulumu" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="r-ve-rstudio-kurulumu"><span class="header-section-number">1.2</span> R ve RStudio kurulumu</h2>
-<p>Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi şu anda 64 bit ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.</p>
-<p>Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekmekte. Sadece RStudio kurmanız yeterli değildir.</p>
+</div>
+</div>
+<p>Bu bilgilere göre şu sorunun cevabını yazınız. Acaba verimizin kalitesi, ön işlem yapmadan çalışmaya uygun mudur? Neden bu kanıya vardınız?</p>
+<blockquote class="blockquote">
+<p>Histogram bize standart bir dağılım örüntüsü verdi Kutu grafiklerinde ortanca değerler çok benzer Kümeleme analizi sonucunda, kontrol ve hastalıklı örnekler ayrı gruplandı</p>
+</blockquote>
+</section><section id="ayrımsal-gen-anlatım-analizi" class="level2" data-number="28.3"><h2 data-number="28.3" class="anchored" data-anchor-id="ayrımsal-gen-anlatım-analizi">
+<span class="header-section-number">28.3</span> Ayrımsal gen anlatım analizi</h2>
+<p>Şimdi de bütün genler için ayrımsal gen anlatım analizi yapınız:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># once p degerlerini toplayacagimiz bir boş vektor oluşturalim</span></span>
+<span></span>
+<span><span class="va">p.value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">kontrol</span> <span class="op">&lt;-</span> <span class="va">microarray</span><span class="op">[</span><span class="va">i</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Durum</span><span class="op">==</span><span class="st">"normal"</span><span class="op">]</span></span>
+<span>  <span class="va">uygulama</span> <span class="op">&lt;-</span> <span class="va">microarray</span><span class="op">[</span><span class="va">i</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Durum</span><span class="op">==</span><span class="st">"glioblastoma"</span><span class="op">]</span></span>
+<span></span>
+<span>  <span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">kontrol</span>, y <span class="op">=</span> <span class="va">uygulama</span><span class="op">)</span></span>
+<span>  <span class="va">p.value</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span>
+<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Kaç tane gen anlamlı değişmiş? (0.001’e göre):</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.001</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 400</code></pre>
+</div>
+</div>
+<p>Şimdi de anlatımları en farklı değişmiş bir tane geni ineceleyelim. Bu gen kaçıncı sırada?</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">p.value</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 305</code></pre>
+</div>
+</div>
+<p>Bu genin kutu grafiğine bakalım mı?</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">microarray</span><span class="op">[</span><span class="fl">305</span>,<span class="op">]</span><span class="op">~</span><span class="va">metadata</span><span class="op">$</span><span class="va">Durum</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="08-brain-cancer-microarray_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu genin anlatımı, glibolastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:</p>
+<blockquote class="blockquote">
+<p>Normal koşula göre azalmış</p>
+</blockquote>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -949,22 +1026,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../CONTRIBUTING.html" class="pagination-link" aria-label="Katkı Sunma">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Katkı Sunma</span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="pagination-link" aria-label="RNA Dizileme Veri analizi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-kurulum/02-ilk-kurallar.html" class="pagination-link" aria-label="Önemli Konular">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../04-pratikler/01-veri-analizi/liste-pratik.html" class="pagination-link" aria-label="Listeler pratiği">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Listeler pratiği</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</p>
 </div>   
@@ -976,8 +1050,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
