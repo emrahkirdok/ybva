@@ -7,7 +7,7 @@ Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri
 Örnekler hakkında metaveri bilgisini yükleyiniz:
 
 ```{r}
-metadata <- read.table(file = "../data/metadata-GSE50161.csv", header = T)
+metadata <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/metadata-GSE50161.txt", header = T)
 ```
 
 Yüklediğiniz metaverinin sütun isimlerini elde eden kodu yazınız:
@@ -31,7 +31,7 @@ table(metadata$Durum)
 Şimdi de gen anlatım verisini yükleyiniz:
 
 ```{r}
-microarray <- read.table(file = "../data/brain-expression-small-GSE50161.csv", header = T)
+microarray <- read.table(file = ".https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/brain-expression-small-GSE50161.txt", header = T)
 ```
 
 
