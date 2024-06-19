@@ -10,14 +10,6 @@ Bir araştırma grubundaki araştırmacılar, *Gümüş ağacı* bitkisinde fark
 
 Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulunmuyor. Bu nedenle sizden yardım istiyorlar. Lütfen bu araştırma ekibine yardım ediniz.
 
-Bu dökümanın `Rmd` versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd)
-
-Cevaplar ise aşağıda bulunan dökümanda:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd)
-
 ### Çalışma yöntemi
 
 Bu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.

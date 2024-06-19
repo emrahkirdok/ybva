@@ -14,14 +14,6 @@ Maalesef bu çalışma grubunda veri analizi üzerine uzmanlaşmış birisi bulu
 
 [https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt
 
-Bu dökümanın `Rmd` versiyonunu aşağıdaki bağlantıdan indirebilirsiniz:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd)
-
-Cevaplar ise aşağıda bulunan dökümanda:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd)
-
 ### Çalışma yöntemi
 
 Bu kapsamda 157 farklı gümüş ağacı biktisini çalışmaya dahil ediyorlar.
