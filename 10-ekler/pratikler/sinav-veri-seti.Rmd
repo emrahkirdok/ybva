@@ -35,8 +35,8 @@ Lütfen aşağıda bağlantısı verilmiş `sinav.csv` verisini aşağıdaki bil
 Yükleme kodunu aşağıya yazınız (7 puan):
 
 ```{r}
-library(ggplot2)
-veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv", sep = ";", header= T)
+# kodunuzu asagiya yaziniz
+
 ```
 
 # Veriyi tanıma
@@ -44,20 +44,23 @@ veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data
 Yüklediğiniz veri çerçevesinin boyutlarını geri döndüren kodu yazınız (7 puan):
 
 ```{r}
-dim(veri)
+# kodunuzu asagiya yaziniz
+
 ```
 
 Yüklediğiniz veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız (7 puan):
 
 ```{r}
-colnames(veri)
+# kodunuzu asagiya yaziniz
+
 ```
 
 
 Çalışmaya katılan üniversiteler hakkında frekans tablosu oluşturabilir misiniz? Her üniversiteden kaç tane ölçüm var? (7 puan)
 
 ```{r}
-table(veri$universite)
+# kodunuzu asagiya yaziniz
+
 ```
 
 
@@ -68,10 +71,8 @@ Oluşturulacak grafikler için `ggplot2` paketini kullanınız.
 Öğrencilerin veri analizi dersindeki başarsını gösteren histogramı çizebilir misiniz? (7 puan)
 
 ```{r}
-ggplot(data=veri, aes(x=veri_analizi)) + 
-  geom_histogram() + 
-  ggtitle("Veri analizi dersi basarisini gosteren histogram") + 
-  xlab("Veri analizi dersi notu")  + ylab("Frekans")
+# kodunuzu asagiya yaziniz
+
 ```
 
 
@@ -79,19 +80,15 @@ ggplot(data=veri, aes(x=veri_analizi)) +
 
 
 ```{r}
-ggplot(data=veri, aes(x=bilgisayar)) + 
-  geom_histogram() + 
-  ggtitle("Bilgisayar dersi basarisini gosteren histogram") + 
-  xlab("Bilgisayar dersi notu")  + ylab("Frekans")
+# kodunuzu asagiya yaziniz
+
 ```
 
 Öğrencilerin istatistik derslerinden aldığı notları gösteren histogramı çizebilir misiniz? (7 puan)
 
 ```{r}
-ggplot(data=veri, aes(x=istatistik)) + 
-  geom_histogram() + 
-  ggtitle("Istatistik dersi basarisini gosteren histogram") + 
-  xlab("Istatistik dersi notu")  + ylab("Frekans")
+# kodunuzu asagiya yaziniz
+
 ```
 
 # Nokta grafikleri
@@ -101,20 +98,16 @@ Bilgisayar ve istatistik derslerindeki başarı acaba veri analizini etkiliyor m
 İlk olarak veri analizi dersindeki başarı ve bilgisayar dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni bilgisayar dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
 
 ```{r}
-ggplot(data = veri, aes(x = bilgisayar, y = veri_analizi)) + 
-  geom_point() + 
-  ggtitle("Veri analizi ve bilgisayar dersleri arasindaki iliski") + 
-  xlab("Bilgisayar dersi basarisi") + ylab("Veri analizi dersi basarisi")
+# kodunuzu asagiya yaziniz
+
 ```
 
 
 Şimdi de veri analizi dersindeki başarı ve istatistik dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni istatistik dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
 
 ```{r}
-ggplot(data = veri, aes(x = istatistik, y = veri_analizi)) + 
-  geom_point()  + geom_smooth(method = "lm") +
-  ggtitle("Veri analizi ve istatistik dersleri arasindaki iliski") + 
-  xlab("Istatistik dersi basarisi") + ylab("Veri analizi dersi basarisi")
+# kodunuzu asagiya yaziniz
+
 ```
 
 # Kutu grafikleri
@@ -122,10 +115,8 @@ ggplot(data = veri, aes(x = istatistik, y = veri_analizi)) +
 Farklı üniversitelerdeki veri analizi dersi sınav başarısını gösteren kutu grafiğini çizebilir misiniz? (7 puan)
 
 ```{r}
-ggplot(data = veri, aes(x = universite, y = veri_analizi)) + 
-  geom_boxplot() + 
-  ggtitle("Veri analizi dersi basarisinin farkli universitelere gore dagilimi") + 
-  xlab("Universite") + ylab("Veri analizi dersi basarisi")
+# kodunuzu asagiya yaziniz
+
 ```
 
 
@@ -142,18 +133,15 @@ Kodunuzu, şu adımları izleyerek oluşturabilirsiniz:
 
 
 ```{r}
-x <- veri$veri_analizi[veri$universite=="Universite_1"]
-y <- veri$veri_analizi[veri$universite=="Universite_2"]
+# kodunuzu asagiya yaziniz
 
-test <- t.test(x = x, y = y)
-
-test
 ```
 
 
 Buraya kadar geldiyseniz, Veri analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
 
 ```{r}
-ggplot(data = veri, aes(x=veri_analizi)) + geom_density(aes(fill=universite))
+# kodunuzu asagiya yaziniz
+
 ```
 
