@@ -31,7 +31,7 @@ table(metadata$Durum)
 Şimdi de gen anlatım verisini yükleyiniz:
 
 ```{r}
-microarray <- read.table(file = ".https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/brain-expression-small-GSE50161.txt", header = T)
+microarray <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/brain-expression-small-GSE50161.txt", header = T)
 ```
 
 
