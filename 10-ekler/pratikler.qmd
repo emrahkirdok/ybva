@@ -4,7 +4,7 @@
 
 Vektörler uygulaması: 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/vektorler.Rmd)
-+ [Cevapları içeren Rmd dosyası]()
++ [Cevapları içeren Rmd dosyası]() YÜKLENMEDİ!
 
 Vektörler, matrisler, veri çerçeveleri:
 
