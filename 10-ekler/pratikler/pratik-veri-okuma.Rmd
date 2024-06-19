@@ -2,12 +2,7 @@
 title: "Dosya okuma pratiği"
 author: ""
 output: html_document
-
 ---
-
-Cevaplar asagida:
-
-[https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/cevaplar/pratik-veri-okuma.Rmd](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/pratik-veri-okuma.Rmd)
 
 İlk olarak dosyanız nerede? Eğer çalışma klasörünüzü öğrenmek istiyorsanız:
 
