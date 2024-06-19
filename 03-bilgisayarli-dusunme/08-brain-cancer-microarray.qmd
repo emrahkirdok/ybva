@@ -51,7 +51,7 @@ dim(microarray)
 Acaba kaç tane gen incelenmiş? Bunu geri döndüren kodu yazınız:
 
 ```{r}
-ncol(microarray)
+nrow(microarray)
 ```
 
 
