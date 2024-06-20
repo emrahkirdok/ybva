@@ -19,4 +19,4 @@ p <- ggplot(data = set, aes(x=Throws, y=Proportion)) +
   geom_line(aes(group=Outcome, color=Outcome))
 
   
-p <- p + transition_time(time=Throws)
+p <- p + transition_time(time = Throws)
