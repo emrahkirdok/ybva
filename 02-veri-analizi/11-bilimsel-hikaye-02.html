@@ -493,8 +493,8 @@ window.Quarto = {
 <span class="math inline">\(x\)</span> ve <span class="math inline">\(y\)</span> eksenleri</li>
 <li>Görselleştirme
 <ul>
-<li>noktlar</li>
-<li>kutu grafiği vs</li>
+<li>noktlar,</li>
+<li>kutu grafiği vs.</li>
 </ul>
 </li>
 </ul>
@@ -518,7 +518,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Son olarak da kutu grafiğini geometrisini ekleyelim:</p>
+<p>Son olarak da kutu grafiği geometrisini ekleyelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Petal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -540,7 +540,7 @@ window.Quarto = {
 </div>
 </section><section id="histogram" class="level2" data-number="16.2"><h2 data-number="16.2" class="anchored" data-anchor-id="histogram">
 <span class="header-section-number">16.2</span> Histogram</h2>
-<p>Peki, Petal uzunlukları irisi bitkilerinde nasıl değişiyor?</p>
+<p>Peki Petal uzunlukları iris bitkilerinde nasıl değişiyor?</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">

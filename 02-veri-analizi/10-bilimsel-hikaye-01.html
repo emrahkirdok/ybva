@@ -485,9 +485,9 @@ window.Quarto = {
   
 
 
-</header><p>Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler, ve veri çerçevelerini öğrendik. Hatta, bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?</p>
-<p>Veri analizi aslında bilimsel bir hikaye anlatıcılığıdır. Nasıl bir hikaye anlatıcısı üslubuyla, benzetmeleriyle, kelime oyunlarıyla bize bir öykü anlatıyorsa; biz de tablolarımızla, grafiklerimizle, ve istatsisitk bilgimizle okuyuculara bilimsel bir öykü anlatıyoruz. Bu öykü anlatıcılığındaki ilk adım ise, elimizdeki verinin ne olduğunu tanımlamak. İşte bunu tanımlayıcı istatistik olarak isimlendiriyoruz.</p>
-<p>Öncelikle, R üzerinde gelen öntanımlı <code>iris</code> veri setini kullanarak işe başlayalım.</p>
+</header><p>Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler ve veri çerçevelerini öğrendik. Hatta bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?</p>
+<p>Veri analizi aslında bilimsel bir hikaye anlatıcılığıdır. Nasıl bir hikaye anlatıcısı üslubuyla, benzetmeleriyle, kelime oyunlarıyla bize bir öykü anlatıyorsa; biz de tablolarımızla, grafiklerimizle ve istatsisitk bilgimizle okuyuculara bilimsel bir öykü anlatıyoruz. Bu öykü anlatıcılığındaki ilk adım ise elimizdeki verinin ne olduğunu tanımlamak. İşte bunu tanımlayıcı istatistik olarak isimlendiriyoruz.</p>
+<p>Öncelikle R üzerinde gelen öntanımlı <code>iris</code> veri setini kullanarak işe başlayalım.</p>
 <p>Bu veri çerçevesinin sütun isimlerini elde edelim:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -592,8 +592,8 @@ window.Quarto = {
 <p><span class="math display">\[
 \overline{x} = \frac{\sum_{i=i}^{n} x_{i}}{n}
 \]</span></p>
-<p>Ortanca değer ise, bir vektörü küçükten büyüğe doğru sıraladığınzda, en ortada elde edilen değerdir. Elemanların yarısı bu değerin altında, diğer yarısı ise bu değerin üzerinde bulunur.</p>
-<p>Peki, verimizin sınırları ne? Bunun için tekrar <code>summary</code> fonksiyonuna bakalım:</p>
+<p>Ortanca değer ise bir vektörü küçükten büyüğe doğru sıraladığınzda, en ortada elde edilen değerdir. Elemanların yarısı bu değerin altında, diğer yarısı ise bu değerin üzerinde bulunur.</p>
+<p>Peki verimizin sınırları ne? Bunun için tekrar <code>summary</code> fonksiyonuna bakalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -612,7 +612,7 @@ window.Quarto = {
 <pre><code>[1] 7.9</code></pre>
 </div>
 </div>
-<p>Aynı zamanda ortanca (median), ve aritmetik ortalama (mean) değerleri de hesaplanmış. Peki, 1st Qu. ve 3rd Qu. nedir?</p>
+<p>Aynı zamanda ortanca (median) ve aritmetik ortalama (mean) değerleri de hesaplanmış. Peki 1st Qu. ve 3rd Qu. nedir?</p>
 <p>Bu değerler <em>çeyreklik</em> olarak isimlendirilir. Elimizdeki veriyi, her bir parça toplam rakamların %25’ini içerecek şekilde 4 parçaya böldüğümüzde, elde ettiğimiz her bölge çeyreklik olarak isimlendirilir. Bu değerleri daha iyi anlamak için <code>quantile</code> fonksiyonunu kullanalım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -636,7 +636,7 @@ window.Quarto = {
 [145] 7.6 7.7 7.7 7.7 7.7 7.9</code></pre>
 </div>
 </div>
-<p>Tam olmasa da, yaklaşık olarak eşit sayıda gruplar olduğu görülmekte.</p>
+<p>Tam olmasa da yaklaşık olarak eşit sayıda gruplar olduğu görülmekte.</p>
 <p>Son olarak <code>cut</code> isimli fonksiyonlar benzer bir çalışma yapabiliriz. Bu fonksiyon, elimizdeki bir rakam vektörünü, istediğimiz aralıklarla bölmemizi sağlar. Mesela <code>Sepal.Length</code> vektörünü, en küçük elemanı koruyacak şekilde 4 parçaya ayıralım:</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span>, <span class="fl">4</span>, include.lowest <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -704,7 +704,7 @@ Levels: [4.3,5.1] (5.1,5.8] (5.8,6.4] (6.4,7.9]</code></pre>
        41        39        35        35 </code></pre>
 </div>
 </div>
-<p>Yaklaşık olarak eşit gruplar elde ettik. Sonuç olarak verimizin dağılımı bu şekilde</p>
+<p>Yaklaşık olarak eşit gruplar elde ettik. Sonuç olarak verimizin dağılımı bu şekilde:</p>
 </section><section id="hatta-grafiğini-yapalım" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="hatta-grafiğini-yapalım">
 <span class="header-section-number">15.3</span> Hatta grafiğini yapalım!</h2>
 <p>R bize aynı zamanda bu dağılımı görselleştirme imkanı da sunuyor. Mesela <strong>kutu grafikleri</strong> (<code>boxplot</code>) elimizdeki verinin dağılımını gösteren yegane görselleştirme metodudur. Burada <code>boxplot</code> fonksiyonu ile birlikte bir rakam vektörü kullanmamız gerektiğine dikkat edin lütfen. Yani sadece <strong>sürekli (continious)</strong> veri tipleriyle işlem yapabiliriz. Faktör gibi <strong>kategori (disecrete)</strong> veri tipleri tek başlarına kullanılamaz.</p>
@@ -718,13 +718,7 @@ Levels: [4.3,5.1] (5.1,5.8] (5.8,6.4] (6.4,7.9]</code></pre>
 </div>
 </div>
 </div>
-<p>Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir. Ortadaki kalın çizgi bize ortanca değeri gösterir.</p>
-<ul>
-<li>En aşağıdaki çizgi ise minimum değeri</li>
-<li>kesikli çizgi birinci çeyreklik kısmı</li>
-<li>kutu içerisinde ikinci ve üçüncü çeyreklik kısımlar ortanca değer ile ayrılır</li>
-<li>en üstteki değerle kutunun arasındaki kesikli çizgi ise dördüncü çeyrekliği gösterir</li>
-</ul>
+<p>Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir; - Ortadaki kalın çizgi bize ortanca değeri gösterir, - En aşağıdaki çizgi ise minimum değeri, - Kesikli çizgi birinci çeyreklik kısmı, - Kutu içerisinde ikinci ve üçüncü çeyreklik kısımlar ortanca değer ile ayrılır, - En üstteki değerle kutunun arasındaki kesikli çizgi ise dördüncü çeyrekliği gösterir.</p>
 <div class="cell">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -732,7 +726,7 @@ Levels: [4.3,5.1] (5.1,5.8] (5.8,6.4] (6.4,7.9]</code></pre>
   4.300   5.100   5.800   5.843   6.400   7.900 </code></pre>
 </div>
 </div>
-<p>En küçük değer 4.3, en büyük ise 7.9 oluyor. İstersek, petal uzunlukları için de aynısını gerçekleştirebiliriz.</p>
+<p>En küçük değer 4.3, en büyük ise 7.9 oluyor. İstersek petal uzunlukları için de aynısını gerçekleştirebiliriz.</p>
 <div class="cell">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Petal.Length</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -744,7 +738,7 @@ Levels: [4.3,5.1] (5.1,5.8] (5.8,6.4] (6.4,7.9]</code></pre>
 </div>
 <section id="bağlantıları-kurmak-hikaye-anlatımı" class="level3" data-number="15.3.1"><h3 data-number="15.3.1" class="anchored" data-anchor-id="bağlantıları-kurmak-hikaye-anlatımı">
 <span class="header-section-number">15.3.1</span> Bağlantıları kurmak: Hikaye anlatımı</h3>
-<p>Peki, Sepal uzunluğunun türler ile olan ilişkisi nasıldır?</p>
+<p>Peki Sepal Uzunluğunun Türler ile olan ilişkisi nasıldır?</p>
 <div class="cell">
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
