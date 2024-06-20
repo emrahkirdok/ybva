@@ -44,6 +44,10 @@ Abalone veri analizi ve doğrusal modeller:
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-vize-2021-2022.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-vize-2021-2022.Rmd)
 
+Amfibi veri seti çalışma. Boş kağıt yok.
+
++ [Pratik dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/amphiBIO_calisma.Rmd)
+
 Meme kanseri mikrodizin analizi:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-final-2023-2024.Rmd)
