@@ -7,6 +7,10 @@ Vektörler uygulaması:
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/vektorler.Rmd)
 + [Cevapları içeren Rmd dosyası]() YÜKLENMEDİ!
 
+Liste uygulaması:
+
++ [Uygulama](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/liste.Rmd)
+
 Vektörler, matrisler, veri çerçeveleri:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/vektorler-matrisler-veri-cerceveleri.Rmd)
@@ -38,6 +42,18 @@ Sınav veri seti pratiği:
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/sinav-veri-seti.Rmd)
 
 ## Bilgisayarlı Düşünme
+
+DNA transkripsiyon uygulaması:
+
++ [Uygulama](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/dna-transkripsiyon.Rmd)
+
+DNA dizi işlemleri uygulaması:
+
++ [Uygulama](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/dna-dizi-islemleri.Rmd)
+
+Bilgisayarlı düşünme vize cevaplar 2023-2024:
+
++ [Cevaplar](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-vize-2023-2024.Rmd)
 
 Abalone veri analizi ve doğrusal modeller:
 
