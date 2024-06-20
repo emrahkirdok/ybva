@@ -2,15 +2,9 @@
 
 Merhabalar! Mersin Üniversitesi Biyoteknoloji bölümü 2023 - 2024 Bahar döneminde verdiğim **Veri Analizi** ve **İstatistiksel Öğrenme** isimli dersler ile ilgili en güncel bilgileri bu sayfa üzerinden paylaşacağım.
 
-Bu internet sitesi aslında 2020 - 2022 yılında verilen dersler süresince oluşturulan kaynakları temel almaktadır.
-
-[Eski siteye buradan ulaşabilirsiniz](old-site/index.html)
-
 Dersler sürekli güncellenmektedir. Dolayısıyla dönemin sonuna doğru eski site kullanımdan kaldırılacaktır ancak şu an için dersin internet sitesini sürekli takip etmeniz iyi olacaktır.
 
 ## Dersin işlenme şekli {.unnumbered}
-
-
 
 Biyoteknoloji Bölümü Discord sunucusu temel haberleşme noktamız olacaktır. Derslerle ilgili bütün soruları sunucuda cevaplayacağım. Dolayısıyla platforma üye olmanız tavsiye edilir.
 
