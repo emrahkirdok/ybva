@@ -63,15 +63,6 @@ book:
         - 03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.qmd
         - 03-bilgisayarli-dusunme/07-rnaseq-data-analysis.qmd
         - 03-bilgisayarli-dusunme/08-brain-cancer-microarray.qmd
-#        - metin_asamali_azalis.Rmd
-#        - metin_amphiBIO_calisma.Rmd
-    
-    - part: "Pratikler - Ödevler"
-      chapters:
-        - 04-pratikler/01-veri-analizi/liste-pratik.Rmd
-        - 04-pratikler/02-bilgisayarli-dusunme/01-DNA-transkripsiyon.qmd
-        - 04-pratikler/02-bilgisayarli-dusunme/03-vize-sinavi-cevaplari.qmd
-        - 04-pratikler/02-bilgisayarli-dusunme/04-Pratik-2024-06-01.Rmd
         
     - part: "Biyoteknolojide Veri Analizi"
       chapters:
