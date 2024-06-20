@@ -17,12 +17,10 @@ Bu dökümanda, amfibi takımlarının özelliklerinin araştırıldığı ve gr
 
 Ders materyallerinin paylaşıldığı siteden AmphiBIO veri setininin linkine sağ tıklayıp **Bağlantıyı farklı kaydet** seçeneği ile bilgisayara kaydedelim. Klasör isimlerinde Türkçe karakter kullanmamaya özen gösterelim.
 
-Öncelikle çalışma yaptığımız klasör konumuna bakalım, veri setini yüklemek için bu bilgiye ihtiyacımız olacak. 
+Kullanılan veriye aşağıdaki bağlantıdan erişebilirsiniz:
 
- ```{r eval=FALSE}
- getwd()
- ```
- 
+[https://github.com/emrahkirdok/ybva/raw/main/data/AmphiBIO_v1.csv](https://github.com/emrahkirdok/ybva/raw/main/data/AmphiBIO_v1.csv)
+
 Bilgisayarımıza indirdiğimiz veri setini önce inceleyelim. Ayraç olarak kullanılan karakteri tespit edelim. Sonrasında isim atayıp buraya yükleyelim; atadığımız isimlerin akılda kalıcı, takip edilebilir ve veriyi tanımlayıcı olmasına dikkat edelim. 
 
 Kullanılan opsiyonların anlamları:
@@ -35,16 +33,7 @@ amph_veri <- read.table("data/AmphiBIO_v1.csv", sep = "," , header = T)
 
 ```
 
-Veri setimizi yükledikten sonra inceleyelim:
-
-Buradaki komutu sadece konsolda kullanın. Bu komutun çıktısı grafiksel arabirime ihtiyaç duyar. Rmarkdown belgesini html'ye çevirirken kullanırsanız hata alırsınız.
-
-```{r eval = FALSE}
-View(amph_veri)
-
-```
-
-Şimdi de veri setinin boyutlarını inceleyelim:
+Önce veri setinin boyutlarını inceleyelim:
 
 ```{r}
 dim(amph_veri)
