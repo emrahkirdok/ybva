@@ -16,6 +16,11 @@ Final sınavı kapsamında Meme kanseri üzerine yapılmış mikrodizin verisini
 3. Ayrımsal gen anlatım analizi
 4. Anlatımlar en anlamlı şekilde değişmiş genlerin analizi
 
+Çalışmada kullanılacak verilere aşağıdan erişebilrsiniz:
+
+[Mikrodizin verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/final-gene-expression.txt)
+[Metadata verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/final-metadata.txt)
+
 ## Soru 1 (10 puan)
 
 Bahsedilen veriyi ve metadata verisini yükleyiniz
