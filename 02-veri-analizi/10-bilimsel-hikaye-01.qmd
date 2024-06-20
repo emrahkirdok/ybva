@@ -1,10 +1,10 @@
 # Bilimsel Hikaye Anlatımı 1
 
-Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler, ve veri çerçevelerini öğrendik. Hatta, bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?
+Bu noktaya kadar R üzerinde veri tiplerini, vektörleri, listeler ve veri çerçevelerini öğrendik. Hatta bilgisayardaki verileri okuduk. Bu sayede basit vektörel işlemler yaptık. Mesela boyu belirli bir değerden büyük olan kişileri seçtik. Ya da boy ve kilo değişkenlerini kullanarak vücut kütle endeksi bile hesapladık. Peki bundan sonra ne olacak?
 
-Veri analizi aslında bilimsel bir hikaye anlatıcılığıdır. Nasıl bir hikaye anlatıcısı üslubuyla, benzetmeleriyle, kelime oyunlarıyla bize bir öykü anlatıyorsa; biz de tablolarımızla, grafiklerimizle, ve istatsisitk bilgimizle okuyuculara bilimsel bir öykü anlatıyoruz. Bu öykü anlatıcılığındaki ilk adım ise, elimizdeki verinin ne olduğunu tanımlamak. İşte bunu tanımlayıcı istatistik olarak isimlendiriyoruz.
+Veri analizi aslında bilimsel bir hikaye anlatıcılığıdır. Nasıl bir hikaye anlatıcısı üslubuyla, benzetmeleriyle, kelime oyunlarıyla bize bir öykü anlatıyorsa; biz de tablolarımızla, grafiklerimizle ve istatsisitk bilgimizle okuyuculara bilimsel bir öykü anlatıyoruz. Bu öykü anlatıcılığındaki ilk adım ise elimizdeki verinin ne olduğunu tanımlamak. İşte bunu tanımlayıcı istatistik olarak isimlendiriyoruz.
 
-Öncelikle, R üzerinde gelen öntanımlı `iris` veri setini kullanarak işe başlayalım. 
+Öncelikle R üzerinde gelen öntanımlı `iris` veri setini kullanarak işe başlayalım. 
 
 Bu veri çerçevesinin sütun isimlerini elde edelim:
 
@@ -84,9 +84,9 @@ $$
 \overline{x} = \frac{\sum_{i=i}^{n} x_{i}}{n} 
 $$
 
-Ortanca değer ise, bir vektörü küçükten büyüğe doğru sıraladığınzda, en ortada elde edilen değerdir. Elemanların yarısı bu değerin altında, diğer yarısı ise bu değerin üzerinde bulunur.
+Ortanca değer ise bir vektörü küçükten büyüğe doğru sıraladığınzda, en ortada elde edilen değerdir. Elemanların yarısı bu değerin altında, diğer yarısı ise bu değerin üzerinde bulunur.
 
-Peki, verimizin sınırları ne? Bunun için tekrar `summary` fonksiyonuna bakalım:
+Peki verimizin sınırları ne? Bunun için tekrar `summary` fonksiyonuna bakalım:
 
 ```{r}
 summary(iris$Sepal.Length)
@@ -99,7 +99,7 @@ min(iris$Sepal.Length)
 max(iris$Sepal.Length)
 ```
 
-Aynı zamanda ortanca (median), ve aritmetik ortalama (mean) değerleri de hesaplanmış. Peki, 1st Qu. ve 3rd Qu. nedir?
+Aynı zamanda ortanca (median) ve aritmetik ortalama (mean) değerleri de hesaplanmış. Peki 1st Qu. ve 3rd Qu. nedir?
 
 Bu değerler *çeyreklik* olarak isimlendirilir. Elimizdeki veriyi, her bir parça toplam rakamların %25'ini içerecek şekilde 4 parçaya böldüğümüzde, elde ettiğimiz her bölge çeyreklik olarak isimlendirilir. Bu değerleri daha iyi anlamak için `quantile` fonksiyonunu kullanalım:
 
@@ -113,7 +113,7 @@ quantile(iris$Sepal.Length)
 sort(iris$Sepal.Length)
 ```
 
-Tam olmasa da, yaklaşık olarak eşit sayıda gruplar olduğu görülmekte. 
+Tam olmasa da yaklaşık olarak eşit sayıda gruplar olduğu görülmekte. 
 
 Son olarak `cut` isimli fonksiyonlar benzer bir çalışma yapabiliriz. Bu fonksiyon, elimizdeki bir rakam vektörünü, istediğimiz aralıklarla bölmemizi sağlar. Mesela `Sepal.Length` vektörünü, en küçük elemanı koruyacak şekilde 4 parçaya ayıralım:
 
@@ -133,7 +133,7 @@ Son olarak elde ettiğimiz faktör vektörünün frekans tablosunu elde edelim:
 table(cut(iris$Sepal.Length, quantile(iris$Sepal.Length), include.lowest = TRUE))
 ```
 
-Yaklaşık olarak eşit gruplar elde ettik. Sonuç olarak verimizin dağılımı bu şekilde
+Yaklaşık olarak eşit gruplar elde ettik. Sonuç olarak verimizin dağılımı bu şekilde:
 
 ## Hatta grafiğini yapalım!
 
@@ -145,18 +145,18 @@ Burada kullandığımız `outline` opsiyonu, outlier değerlerin gösterilmemesi
 boxplot(iris$Sepal.Length, outline = FALSE)
 ```
 
-Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir. Ortadaki kalın çizgi bize ortanca değeri gösterir. 
-
-- En aşağıdaki çizgi ise minimum değeri
-- kesikli çizgi birinci çeyreklik kısmı
-- kutu içerisinde ikinci ve üçüncü çeyreklik kısımlar ortanca değer ile ayrılır
-- en üstteki değerle kutunun arasındaki kesikli çizgi ise dördüncü çeyrekliği gösterir
+Kutu grafikleri, sürekli veri tiplerinin dağılımını görselleştirir;
+- Ortadaki kalın çizgi bize ortanca değeri gösterir, 
+- En aşağıdaki çizgi ise minimum değeri,
+- Kesikli çizgi birinci çeyreklik kısmı,
+- Kutu içerisinde ikinci ve üçüncü çeyreklik kısımlar ortanca değer ile ayrılır,
+- En üstteki değerle kutunun arasındaki kesikli çizgi ise dördüncü çeyrekliği gösterir.
 
 ```{r}
 summary(iris$Sepal.Length)
 ```
 
-En küçük değer 4.3, en büyük ise 7.9 oluyor. İstersek, petal uzunlukları için de aynısını gerçekleştirebiliriz.
+En küçük değer 4.3, en büyük ise 7.9 oluyor. İstersek petal uzunlukları için de aynısını gerçekleştirebiliriz.
 
 ```{r}
 boxplot(iris$Petal.Length)
@@ -164,7 +164,7 @@ boxplot(iris$Petal.Length)
 
 ### Bağlantıları kurmak: Hikaye anlatımı
 
-Peki, Sepal uzunluğunun türler ile olan ilişkisi nasıldır?
+Peki Sepal Uzunluğunun Türler ile olan ilişkisi nasıldır?
 
 ```{r}
 boxplot(iris$Sepal.Length~iris$Species)

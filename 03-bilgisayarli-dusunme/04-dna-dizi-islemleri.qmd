@@ -10,7 +10,7 @@ library("seqinr")
 
 [Örnek DNA verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna)
 
-Öncelikle veriyi okuyalım:
+Veriyi okuyalım:
 
 ```{r}
 dna <- read.fasta(file = "data/example.fna")
@@ -47,7 +47,7 @@ tamamlayici(dna[[1]])
 
 ## Soru 2: G+C oranı bulma
 
-Bir DNA dizisindeki *G + C nükleotidi oranını* aşağıdaki şekilde bulabilirsiniz. 
+Bir DNA dizisindeki *G + C nükleotidi oranını* aşağıdaki şekilde bulabilirsiniz:
 
 $$
 GC = \frac{G+C}{A+G+C+T}

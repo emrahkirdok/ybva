@@ -17,7 +17,7 @@ library(seqinr)
 
 [Örnek DNA verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna)
 
-Öncelikle veriyi okuyalım:
+Veriyi okuyalım:
 
 ```{r}
 dna <- read.fasta(file = "data/example.fna")

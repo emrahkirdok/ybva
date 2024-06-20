@@ -79,7 +79,7 @@ Tabloları yukarıdaki gibi oluşturabilirsiniz.
 
 ![Şeklin ismini buraya yazınız](images/4panes.png)
 
-Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten her hangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisniz.
+Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten herhangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisniz.
 
 ![İnternetten eklenmiş şekil](https://www.publicdomainpictures.net/pictures/290000/nahled/clouds-1553569446EXG.jpg)
 
@@ -97,7 +97,7 @@ bitki_ismi <- c("bitki 1", "bitki 2", "bitki 3")
 bitki_ismi[2]
 ```
 
-R size bu kodu çalıştıracak, ve çıktsını da dökümanınız içerisinde ekleyecektir.
+R size bu kodu çalıştıracak ve çıktsını da dökümanınız içerisinde ekleyecektir.
 
 İlerleyen derslerde grafikler oluşturarak bu özelliği kullanacağız.
 

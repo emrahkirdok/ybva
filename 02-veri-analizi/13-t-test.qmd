@@ -13,7 +13,7 @@ Bunu göstermek için iki farklı dağlım simüle edelim.
 
 ```{r}
 dagilim1 <- rnorm(n = 1000, mean = 2, sd = 1)
-dagilim2 <- rnorm(n = 1000, mean = 5, sd = 1)
+dagilim2 <- rnorm(n = 1000, mean = 5, sd = 2)
 ```
 
 Histogramlar ile bu dağılımları inceleyelim:
@@ -24,7 +24,7 @@ hist(dagilim1)
 hist(dagilim2)
 ```
 
-İstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik, ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:
+İstersek yoğunluk grafiğiyle de bunu görselleştirebiliriz. Burada iki dağılımı alıp, bir veri çerçevesinin içersine yerleştirdik ve dagilim1 ve dagilim2 olarak iki farklı faktör verisi oluşturduk:
 
 ```{r}
 sim <- data.frame(
@@ -39,6 +39,7 @@ library(ggplot2)
 
 ggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)
 ```
+
 Dikkat ederseniz bu iki dağılımın ortalamarı birbirlerinden farklı. Peki bu fark anlamlı mı? Bunu tespit etmek için `t.test` kullanabiliriz:
 
 ```{r}
@@ -73,7 +74,7 @@ Yani aslında ortaya iki tane hipotez atıyoruz:
 
 Yapmaya çalıştığımız ise doğrudan sıfır hipotezini reddetmeye çalışmak. Bu sayede alternatif hipotezi kabul edebiliriz.
 
-Testimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte, sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?
+Testimiz sonucunda bir p-değeri elde etmiştik hatırlarsınız. Bu p-değeri işte sıfır hipotezinin oluşma olasılığını ifade etmekte. Bizim elde ettiğimiz p-değeri neydi?
 
 ```{r}
 test$p.value
@@ -127,7 +128,8 @@ library(ggplot2)
 ggplot(data = sim, aes(x=dagilim)) + geom_density(aes(fill = seviye), alpha = 0.9)
 
 ```
-Dikkat ederseniz, bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?
+
+Dikkat ederseniz bu dağılımların ortalamaları üst üste bindi. Peki t-testi uygularsak nasıl bir sonuç elde edeceğiz?
 
 ```{r}
 test <- t.test(x = dagilim1, y = dagilim2)
