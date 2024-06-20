@@ -22,12 +22,12 @@ Veri okuma pratiği:
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/pratik-veri-okuma.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/pratik-veri-okuma.Rmd)
 
-Boston veri seti pratik
+Boston veri seti pratik:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/boston.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/boston-cevaplar.Rmd)
 
-Gümüş ağacı veri seti pratik
+Gümüş ağacı veri seti pratik:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd)
@@ -39,7 +39,12 @@ Sınav veri seti pratiği:
 
 ## Bilgisayarlı Düşünme
 
-Meme kanseri mikrodizin analizi
+Abalone veri analizi ve doğrusal modeller:
+
++ [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-vize-2021-2022.Rmd)
++ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-vize-2021-2022.Rmd)
+
+Meme kanseri mikrodizin analizi:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-final-2023-2024.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-final-2023-2024.Rmd)
