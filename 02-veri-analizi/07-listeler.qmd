@@ -2,9 +2,9 @@
 
 Matrisler (@sec-matrisler) ve veri çerçeveleri (@sec-veri-cerceveleri) derslerinde gördüğümüz veri yapıları, belirli bir düzende oluşturulabiliyordu. Yani bu veri yapılarının, belirli kısıtları bulunmaktaydı. Mesela bir grup vektörden veri çerçevesi oluşturmak istiyorsanız, vektörlerin uzunluklarının aynı olması gerekiyordu.
 
-Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip. 
+Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip.
 
-## Liste oluşturma
+## Liste oluşturma
 
 Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım ve bir liste içerisinde saklayalım.
 
