@@ -426,14 +426,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Içindekiler</h2>
    
   <ul>
-<li>
-<a href="#listelerde-indisleme" id="toc-listelerde-indisleme" class="nav-link active" data-scroll-target="#listelerde-indisleme"><span class="header-section-number">12.1</span> Listelerde indisleme</a>
+<li><a href="#liste-olu%C5%9Fturma" id="toc-liste-oluşturma" class="nav-link active" data-scroll-target="#liste-olu%C5%9Fturma"><span class="header-section-number">12.1</span> Liste oluşturma</a></li>
+  <li>
+<a href="#listelerde-indisleme" id="toc-listelerde-indisleme" class="nav-link" data-scroll-target="#listelerde-indisleme"><span class="header-section-number">12.2</span> Listelerde indisleme</a>
   <ul class="collapse">
-<li><a href="#liste-i%C3%A7indeki-elemana-eri%C5%9Fme" id="toc-liste-içindeki-elemana-erişme" class="nav-link" data-scroll-target="#liste-i%C3%A7indeki-elemana-eri%C5%9Fme"><span class="header-section-number">12.1.1</span> Liste içindeki elemana erişme</a></li>
-  <li><a href="#alt-liste-geri-d%C3%B6nd%C3%BCrme" id="toc-alt-liste-geri-döndürme" class="nav-link" data-scroll-target="#alt-liste-geri-d%C3%B6nd%C3%BCrme"><span class="header-section-number">12.1.2</span> Alt liste geri döndürme</a></li>
+<li><a href="#liste-i%C3%A7indeki-elemana-eri%C5%9Fme" id="toc-liste-içindeki-elemana-erişme" class="nav-link" data-scroll-target="#liste-i%C3%A7indeki-elemana-eri%C5%9Fme"><span class="header-section-number">12.2.1</span> Liste içindeki elemana erişme</a></li>
+  <li><a href="#alt-liste-geri-d%C3%B6nd%C3%BCrme" id="toc-alt-liste-geri-döndürme" class="nav-link" data-scroll-target="#alt-liste-geri-d%C3%B6nd%C3%BCrme"><span class="header-section-number">12.2.2</span> Alt liste geri döndürme</a></li>
   </ul>
 </li>
-  <li><a href="#sonu%C3%A7lar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonu%C3%A7lar"><span class="header-section-number">12.2</span> Sonuçlar</a></li>
+  <li><a href="#sonu%C3%A7lar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonu%C3%A7lar"><span class="header-section-number">12.3</span> Sonuçlar</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -456,7 +457,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><p>Matrisler (<a href="05-matrisler.html" class="quarto-xref"><span>Bölüm 9</span></a>) ve veri çerçeveleri (<a href="06-veri-cerceveleri.html" class="quarto-xref"><span>Bölüm 10</span></a>) derslerinde gördüğümüz veri yapıları, belirli bir düzende oluşturulabiliyordu. Yani bu veri yapılarının, belirli kısıtları bulunmaktaydı. Mesela bir grup vektörden veri çerçevesi oluşturmak istiyorsanız, vektörlerin uzunluklarının aynı olması gerekiyordu.</p>
 <p>Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip.</p>
-<p>##&nbsp;Liste oluşturma</p>
+<section id="liste-oluşturma" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="liste-oluşturma">
+<span class="header-section-number">12.1</span> Liste oluşturma</h2>
 <p>Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım ve bir liste içerisinde saklayalım.</p>
 <table class="caption-top table">
 <caption>Hayali veri setimizdeki bitkiler</caption>
@@ -578,8 +580,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] "Ali"    "Deniz"  "Fatma"  "Emre"   "Volkan" "Onur"  </code></pre>
 </div>
 </div>
-<section id="listelerde-indisleme" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="listelerde-indisleme">
-<span class="header-section-number">12.1</span> Listelerde indisleme</h2>
+</section><section id="listelerde-indisleme" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="listelerde-indisleme">
+<span class="header-section-number">12.2</span> Listelerde indisleme</h2>
 <p>Listelerde indisleme biraz farklıdır.</p>
 <p>Öncelikle elimizdeki listenin kaç tane eleman içerdiğine bakalım:</p>
 <div class="cell">
@@ -613,8 +615,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Liste içindeki elemana erişim: <code>[[]]</code> doğrudan liste elemanını geri döndürür.</li>
 <li>Liste’den yeni bir liste geri döndürmek: <code>[]</code> bize bir alt listeyi geri döndürdü.</li>
 </ul>
-<section id="liste-içindeki-elemana-erişme" class="level3" data-number="12.1.1"><h3 data-number="12.1.1" class="anchored" data-anchor-id="liste-içindeki-elemana-erişme">
-<span class="header-section-number">12.1.1</span> Liste içindeki elemana erişme</h3>
+<section id="liste-içindeki-elemana-erişme" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="liste-içindeki-elemana-erişme">
+<span class="header-section-number">12.2.1</span> Liste içindeki elemana erişme</h3>
 <p>İlk yöntem bize liste elemanlarına erişim ve bu elemanlar içinde işlem yapma olanağı sağlar.</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -678,8 +680,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 1.2</code></pre>
 </div>
 </div>
-</section><section id="alt-liste-geri-döndürme" class="level3" data-number="12.1.2"><h3 data-number="12.1.2" class="anchored" data-anchor-id="alt-liste-geri-döndürme">
-<span class="header-section-number">12.1.2</span> Alt liste geri döndürme</h3>
+</section><section id="alt-liste-geri-döndürme" class="level3" data-number="12.2.2"><h3 data-number="12.2.2" class="anchored" data-anchor-id="alt-liste-geri-döndürme">
+<span class="header-section-number">12.2.2</span> Alt liste geri döndürme</h3>
 <p>Bu yöntemde elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani, indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -736,8 +738,8 @@ $ornek_matris
 <span><span class="va">liste</span><span class="op">$</span><span class="va">isimler</span></span>
 <span><span class="va">liste</span><span class="op">[</span><span class="st">"isimler"</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="sonuçlar" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="sonuçlar">
-<span class="header-section-number">12.2</span> Sonuçlar</h2>
+</section></section><section id="sonuçlar" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="sonuçlar">
+<span class="header-section-number">12.3</span> Sonuçlar</h2>
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
