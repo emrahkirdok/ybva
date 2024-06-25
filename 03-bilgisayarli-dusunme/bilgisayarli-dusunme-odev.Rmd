@@ -11,7 +11,7 @@ Bu derste yapılan pratiklerin cevaplarına aşağıdaki dosyadan ulaşabilirsin
 
 ## Hamming uzaklığı
 
-İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
+İki DNA dizisi arasındaki tespit edilen nükleotid farklılıkları, Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
 
 Aşağıdaki iki farklı diziyi inceleyelim:
 
@@ -74,7 +74,7 @@ dizi <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", 
 
 ::: {.callout-tip}
 # İpucu
-Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.
+Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırlayınız.
 :::
 
 
