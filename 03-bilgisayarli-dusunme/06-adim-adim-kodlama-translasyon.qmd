@@ -61,11 +61,12 @@ for (i in baslangic){
 }
 ```
 
-Ancak geri döndürdüğümüz `secilen_kodon` değeri aslında bir vektör. Kodon tablosunda arama yapmak için, bunu vektöre çevirmeliyiz. Bir örnek:
+Ancak geri döndürdüğümüz `secilen_kodon` değeri aslında bir vektör. Kodon tablosunda arama yapmak için bunu vektöre çevirmeliyiz. Bir örnek:
 
 ```{r}
 paste(ornek[4:6], collapse="")
 ```
+
 Şimdi bunu da `for` döngümüze ekleyelim:
 
 ```{r}
@@ -87,6 +88,7 @@ for (i in baslangic){
   cat("Secilen kodon:", secilen_kodon, "kodona karsilik gelen amino asit:", aa, "\n")
 }
 ```
+
 Peki amino asit ipliğini nasıl oluşturabilriz?
 
 ```{r}
@@ -126,6 +128,7 @@ translasyon <- function(ornek, kodon){
 ```{r}
 translasyon(ornek = ornek, kodon = kodon)
 ```
+
 Derste kullandığımız DNA dizilerini kullanalım:
 
 ```{r}
