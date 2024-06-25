@@ -1,11 +1,11 @@
 # Vektörler Ödevi {#sec-odev-vektorler}
 Bu belge birinci ödeviniz için çözmeniz gereken soruları içermektedir. Başarılar.
 
-Cevaplarınızı R kod blokları içerisinde yazacaksınız.
+Cevaplarınızı R kod blokları içerisine yazacaksınız.
 
 `#` ile başlayan satırlar kod olarak çalıştırılmaz. Sadece yorum eklemek için kullanılır.
 
-Aşağıdaki tabloda 3 farklı iris bitkisine ait sepal ve petal uzunlukları bulunmaktadır. Ödevdeki soruları bu tabloya göre cevaplandıracaksınız:
+Aşağıdaki tabloda 3 farklı iris bitkisine ait sepal ve petal uzunlukları bulunmaktadır. Ödevde ki soruları bu tabloya göre cevaplandıracaksınız:
 
 | Sepal Uzunluğu | Petal Uzunluğu |    Tür     |
 |---------------:|---------------:|:-----------|
@@ -23,7 +23,7 @@ Aşağıdaki tabloda 3 farklı iris bitkisine ait sepal ve petal uzunlukları bu
 
 ## Soru 1
 
-Bu tabloyu kullanarak üç farklı aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:
+Bu tabloyu kullanarak aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:
 
 + `sepal_uzunlugu`
 + `petal_uzunlugu`
@@ -63,7 +63,7 @@ Petal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri ger
 
 ## Soru 5
 
-Petal uzunluğu vektörünü kullanarak petal uzunlukları 3.3'den büyük olan değerleri geri döndürebilir misiniz?
+Petal uzunluğu vektörünü kullanarak petal uzunlukları 3.3'ten büyük olan değerleri geri döndürebilir misiniz?
 
 ```{r}
 # cevabinizi buraya yaziniz
