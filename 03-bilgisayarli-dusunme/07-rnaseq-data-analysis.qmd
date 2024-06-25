@@ -23,7 +23,7 @@ RNASeq matrisi boyutuna bakalım:
 dim(counts)
 ```
 
-Burada Sütun isimlerinin sırasına dikkat edelim:
+Burada sütun isimlerinin sırasına dikkat edelim:
 
 ```{r}
 colnames(counts)
@@ -31,7 +31,7 @@ colnames(counts)
 
 Örnek metaverisine baktığımızda, örneklerin sahip olukları metaveri bilgilerini görebilirz. Burada iki tane koşul bulunmakta: `kontrol` ve `uygulama`
 
-Ayrıca, RNA sayı matrisindeki örnek sırası ile, bu veri çerçevesinde bulunan örneklerin sıralarının aynı olduğuna dikkat edelim:
+Ayrıca RNA sayı matrisindeki örnek sırası ile, bu veri çerçevesinde bulunan örneklerin sıralarının aynı olduğuna dikkat edelim:
 
 ```{r}
 metadata
@@ -69,7 +69,7 @@ boxplot(counts)
 hist(counts)
 ```
 
-Dikkat ederseniz, artık veri normalize edildi.
+Dikkat ederseniz artık veri normalize edildi.
 
 Son olarak dendrogram oluşturup, elimizdeki koşulların birlikte gruplanıp gruplanmadıklarına bakalım:
 
@@ -94,7 +94,7 @@ Peki bu genin anlatımında görülen değişim anlamlı mı? Bunu `0.05` anlaml
 test$p.value < 0.05
 ```
 
-Evet, bu gen anlamı bir şekilde değişmiş. Şimdi de bu genin grafiğine bakalım:
+Evet bu gen anlamı bir şekilde değişmiş. Şimdi de bu genin grafiğine bakalım:
 
 ```{r}
 boxplot(counts[1,]~metadata$Grup)
