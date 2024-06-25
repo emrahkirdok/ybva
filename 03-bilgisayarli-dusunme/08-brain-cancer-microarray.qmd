@@ -64,7 +64,7 @@ hist(microarray)
 ```
 
 
-Elinizdeki veriin kutu grafiklerini oluşturunuz:
+Elinizdeki verinin kutu grafiklerini oluşturunuz:
 
 ```{r}
 boxplot(microarray)
@@ -119,6 +119,6 @@ Bu genin kutu grafiğine bakalım mı?
 boxplot(microarray[305,]~metadata$Durum)
 ```
 
-Bu genin anlatımı, glibolastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:
+Bu genin anlatımı, glioblastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:
 
 > Normal koşula göre azalmış
