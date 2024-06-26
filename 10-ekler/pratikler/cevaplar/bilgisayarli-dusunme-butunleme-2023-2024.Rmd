@@ -1,6 +1,6 @@
 ---
 title: "Bilgisayarlı Düşünme Bütünleme"
-author: "Emrah Kırdök, Ph. D."
+author: " "
 date: "2024-06-26"
 output: html_document
 ---
@@ -24,6 +24,7 @@ Bahsedilen veriyi ve metadata verisini yükleyiniz
 # Kodlarinizi buraya yaziniz
 expression <- read.table(file = "~/Akademia/Lectures/ybva/data/GSE38666-data.txt", header = T, sep = "\t")
 metadata <- read.table(file = "~/Akademia/Lectures/ybva/data/GSE38666-metadata.txt", header = T, sep = "\t")
+
 ```
 
 ## Soru 2 (5 puan)
@@ -33,6 +34,7 @@ Gen anlatım verisini matrise dönüştürünüz:
 ```{r}
 # Kodlarinizi buraya yaziniz
 expression <- as.matrix(expression)
+
 ```
 
 ## Soru 3 (5 puan)
@@ -42,6 +44,7 @@ Gen anlatım matrisinin boyutlarını geri döndürünüz:
 ```{r}
 # Kodlarinizi buraya yaziniz
 dim(expression)
+
 ```
 
 ## Soru 4 (5 puan)
@@ -51,6 +54,7 @@ Metadata verisinde bulunan ve örneklerin hastalık durumlarını ifade eden `Co
 ```{r}
 # Kodlarinizi buraya yaziniz
 table(metadata$Condition)
+
 ```
 
 ## Soru 5 (5 puan)
@@ -60,13 +64,16 @@ Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekl
 ```{r}
 # Kodlarinizi buraya yaziniz
 boxplot(expression)
+
 ```
 ## Soru 6 (5 puan)
 
 Derste gördüğümüz `log2` normalizasyon tekniği ile, veriyi normalize ediniz:
 
 ```{r}
+# Kodlarinizi buraya yaziniz
 expression <- log2(expression)
+
 ```
 
 ## Soru 7 (5 puan)
@@ -76,6 +83,7 @@ Tekrar kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu g
 ```{r}
 # Kodlarinizi buraya yaziniz
 boxplot(expression)
+
 ```
 
 ## Soru 8 (20 puan)
@@ -89,10 +97,10 @@ p.value <- rep(0, nrow(expression))
 for (i in 1:nrow(expression)){
   kontrol <- expression[i, metadata$Condition=="control"]
   uygulama <- expression[i, metadata$Condition=="disease"]
-
   test <- t.test(x = kontrol, y = uygulama)
   p.value[i] <- test$p.value
 }
+
 ```
 
 ## Soru 9 (5 puan)
@@ -102,6 +110,7 @@ Alfa 0.001 değerine göre kaç tane genin anlatımı anlamlı bir şekilde değ
 ```{r}
 # Kodlarinizi buraya yaziniz
 sum(p.value < 0.001)
+
 ```
 
 ## Soru 10 (5 puan)
@@ -112,8 +121,8 @@ Anlatımları en anlamlı şekilde değişen ilk 3 geni tespit ediniz (en küç�
 # Kodlarinizi buraya yaziniz
 rows <- head(order(p.value), n = 3)
 rows
-
 rownames(expression)[rows]
+
 ```
 
 ## Soru 11 (15 puan)
@@ -123,9 +132,7 @@ Bu üç gene ait kutu grafikerini oluşturunuz:
 ```{r}
 # Kodlarinizi buraya yaziniz
 boxplot(expression[498,]~metadata$Condition)
-
 boxplot(expression[747,]~metadata$Condition)
-
 boxplot(expression[1029,]~metadata$Condition)
 ```
 
