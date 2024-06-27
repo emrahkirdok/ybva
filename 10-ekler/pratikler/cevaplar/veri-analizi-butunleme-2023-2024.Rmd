@@ -94,9 +94,11 @@ colnames(veri_cercevesi)
 
 Ekte verilmiş veriyi `bodyfat.csv` verisini indirerek, R içerisine yükleyiniz (5 puan):
 
+**Burada yüklenen dosya ile sınavda verilen dosya aynı**
+
 ```{r }
 # Kodunuzu asagiya yaziniz:
-veri <- read.table(file = "../../../data/bodyfat.csv", header =T, sep = ",")
+veri <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/bodyfat.csv", header =T, sep = ",")
 ```
 
 Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız (5 puan):

@@ -41,6 +41,11 @@ Sınav veri seti pratiği:
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/sinav-veri-seti.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/sinav-veri-seti.Rmd)
 
+Veri Analizi Bütünleme 2023-2024:
+
++ [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/veri-analizi-butunleme-2023-2024.Rmd)
++ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/veri-analizi-butunleme-2023-2024.Rmd)
+
 ## Bilgisayarlı Düşünme
 
 DNA transkripsiyon uygulaması:
