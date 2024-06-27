@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.556">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Yaşam Bilimlerinde Veri Analizi - 18&nbsp; T-Test</title>
 <style>
@@ -97,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Göndermek",
     "search-label": "Aramak"
   }
-}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -530,13 +530,13 @@ window.Quarto = {
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -42.053, df = 1468.4, p-value &lt; 2.2e-16
+t = -43.079, df = 1466.1, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.056484 -2.784051
+ -3.189542 -2.911722
 sample estimates:
 mean of x mean of y 
- 1.983142  4.903409 </code></pre>
+ 1.990845  5.041478 </code></pre>
 </div>
 </div>
 <p>Burada dikkat etmemiz gereken iki nokta var:</p>
@@ -548,7 +548,7 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.594943e-254</code></pre>
+<pre><code>[1] 1.128839e-262</code></pre>
 </div>
 </div>
 <p>Dikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.</p>
@@ -566,7 +566,7 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.594943e-254</code></pre>
+<pre><code>[1] 1.128839e-262</code></pre>
 </div>
 </div>
 <p>Bu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli <span class="math inline">\(alpha\)</span> değerleri kullanılır:</p>
@@ -590,13 +590,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -42.053, df = 1468.4, p-value &lt; 2.2e-16
+t = -43.079, df = 1466.1, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.056484 -2.784051
+ -3.189542 -2.911722
 sample estimates:
 mean of x mean of y 
- 1.983142  4.903409 </code></pre>
+ 1.990845  5.041478 </code></pre>
 </div>
 </div>
 <p>Şu satıra bakalım:</p>
@@ -643,13 +643,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = 0.073025, df = 1980.8, p-value = 0.9418
+t = -0.23209, df = 1997.8, p-value = 0.8165
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -0.08432557  0.09084825
+ -0.10041346  0.07916188
 sample estimates:
 mean of x mean of y 
- 2.008635  2.005373 </code></pre>
+ 2.096218  2.106844 </code></pre>
 </div>
 </div>
 <p>Bu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?</p>
