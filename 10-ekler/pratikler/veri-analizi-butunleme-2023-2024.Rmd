@@ -1,0 +1,176 @@
+---
+title: "Veri Analizi Bütünleme"
+author: ""
+date: "2024-06-26"
+output: html_document
+---
+
+## Soru 1 (Toplam 10 puan)
+
+Aşağıda verilmiş veriyi R ile okuyunuz (5 puan):
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-abundance.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-abundance.txt)
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Verinin boyutlarını geri döndüren kodu yazınız (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 2 (Toplam 10 puan)
+
+Aşağıda verilmiş veriyi R ile okuyunuz (5 puan):
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/parkinsons.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/parkinsons.csv)
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Verinin boyutlarını geri döndüren kodu yazınız (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 3 (Toplam 10 puan)
+
+Aşağıda verilmiş veriyi R ile okuyunuz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/GSE38666-data.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/GSE38666-data.txt)
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Verinin boyutlarını geri döndüren kodu yazınız.
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 4 (Toplam 20 puan)
+
+Aşağıda verilmiş tabloyu bir veri çerçevesi haline getiriniz (10 puan):
+
+| Cinsiyet    | Yaş   | Kalp Hastalığı | Kan Şekeri |
+|-------------|-------|----------------|------------|
+| Erkek       |  67   | Evet           | 228.69     |
+| Kadin       |  61   | Evet           | 202.21     |
+| Erkek       |  80   | Hayir          | 105.92     |
+| Kadin       |  49   | Evet           | 171.23     |
+| Kadin       |  79   | Evet           | 174.12     |
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 5 (Toplam 15 puan)
+
+Ekte verilmiş veriyi `bodyfat.csv` verisini indirerek, R içerisine yükleyiniz (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız (5 puan):
+
+```{r }
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 6 Histogramlar (Toplam 15 puan)
+
+Bu soruda, Soru 5 kapsamında yüklediğiniz veri çerçevesini kullanarak analizlerinize devam ediniz.
+
+Bu veri setinde bulunan kişilerin **Beden yağ indekslerinin (BodyFat)** (`BodyFat`) histogramını `ggplot2` paketiyle oluşturabilir misiniz?
+
+```{r}
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu veri setinde bulunan kişilerin **Yaşlarının (Age)** (`Age`) histogramını `ggplot2` paketiyle oluşturabilir misiniz?
+
+```{r}
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu veri setinde bulunan kişilerin **Ağırlıklarının (Weight)** (`Weight`) histogramını `ggplot2` paketiyle oluşturabilir misiniz?
+
+```{r}
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 7 (Toplam 10 puan)
+
+Bu kişilerin **Beden Yağ Oranı (BodyFat)**  (`y` ekseni `BodyFat`) ve **Kiloları (Weight)** (`x` ekseni `Weight`) arasındaki ilişkiyi nokta grafiği ile görselleştirebilir misiniz? (5 puan)
+
+```{r}
+# Kodunuzu asagiya yaziniz:
+
+```
+
+Bu kişilerin **Beden Yağ Oranı (BodyFat)**  (`y` ekseni  `BodyFat`) ve **Yaşları (Age)** (`x` ekseni `Age`) arasındaki ilişkiyi nokta grafiği ile görselleştirebilir misiniz? (5 puan)
+
+```{r}
+# Kodunuzu asagiya yaziniz:
+
+```
+
+## Soru 8 (10 puan)
+
+Soru 7'den elde ettiğiniz grafikleri yorumlayınız. Acaba beden yağı, hangi değişkenle daha çok ilişkide?:
+
+>
+>
+>
+>
+>
+>
+
+
+## Soru 9 (Bonus 10 puan)
+
+Bu veri setinde, **Beden Yağ Oranı (BodyFat)**  ve **Kiloları (Weight)** arasındaki doğrusal ilişkiyi `lm` fonksiyonu ile modelleyip, özet istatistiklerini elde edebilir misiniz?
+
+```{r}
+# Kodunuzu asagiya yaziniz:
+
+```
