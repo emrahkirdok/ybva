@@ -73,3 +73,8 @@ Meme kanseri mikrodizin analizi:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-final-2023-2024.Rmd)
 + [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-final-2023-2024.Rmd)
+
+Bilgisayarlı Düşünme Bütünleme 2023-2024:
+
++ [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/bilgisayarli-dusunme-butunleme-2023-2024.Rmd)
++ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/bilgisayarli-dusunme-butunleme-2023-2024.Rmd)

@@ -20,10 +20,12 @@ Bütünleme sınavı kapsamında Yumurtalık kanseri üzerine yapılmış mikrod
 
 Bahsedilen veriyi ve metadata verisini yükleyiniz
 
+**Burada yüklenen veri ile sınavda kullanılan veriler aynı**
+
 ```{r}
 # Kodlarinizi buraya yaziniz
-expression <- read.table(file = "~/Akademia/Lectures/ybva/data/GSE38666-data.txt", header = T, sep = "\t")
-metadata <- read.table(file = "~/Akademia/Lectures/ybva/data/GSE38666-metadata.txt", header = T, sep = "\t")
+expression <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/GSE38666-data.txt", header = T, sep = "\t")
+metadata <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/GSE38666-metadata.txt", header = T, sep = "\t")
 
 ```
 
