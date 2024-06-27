@@ -1,0 +1,127 @@
+---
+title: "Bilgisayarlı Düşünme Bütünleme"
+author: " "
+date: "2024-06-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Bütünleme sınavı kapsamında Yumurtalık kanseri üzerine yapılmış mikrodizin verisini analiz edeceksiniz. Bu kapsamda aşağıdaki adımları gerçekleştirmeniz gereklidir:
+
+1. Veri yükleme
+2. Veri kalite kontrolü
+3. Ayrımsal gen anlatım analizi
+4. Anlatımlar en anlamlı şekilde değişmiş genlerin analizi
+
+## Soru 1 (10 puan)
+
+Bahsedilen veriyi ve metadata verisini yükleyiniz
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 2 (5 puan)
+
+Gen anlatım verisini matrise dönüştürünüz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 3 (5 puan)
+
+Gen anlatım matrisinin boyutlarını geri döndürünüz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 4 (5 puan)
+
+Metadata verisinde bulunan ve örneklerin hastalık durumlarını ifade eden `Condition` sütunun frekans tablosunu oluşturunuz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 5 (5 puan)
+
+Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekleştiriniz
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+## Soru 6 (5 puan)
+
+Derste gördüğümüz `log2` normalizasyon tekniği ile, veriyi normalize ediniz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 7 (5 puan)
+
+Tekrar kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekleştiriniz
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 8 (20 puan)
+
+Bu veride, sağlıklı ve hastalıklı örneler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz. 
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 9 (5 puan)
+
+Alfa 0.001 değerine göre kaç tane genin anlatımı anlamlı bir şekilde değişmiş? Hesaplayınız:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 10 (5 puan)
+
+Anlatımları en anlamlı şekilde değişen ilk 3 geni tespit ediniz (en küçük p değerine sahip olanlar) ve bu genlerin isimlerini geri döndürünüz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 11 (15 puan)
+
+Bu üç gene ait kutu grafikerini oluşturunuz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 12 (15 puan)
+
+Bu genlerin anlatımları hakkında ne söyleyebilirsiniz? Cevap kağıdınıza yazınız:
+
+>
+>
+>
+>
+>
+>
+
