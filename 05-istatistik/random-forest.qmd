@@ -39,7 +39,7 @@ imp <- data.frame(importance(model))
 head(imp[order(imp$MeanDecreaseGini, decreasing = T),],n = 10)
 ```
 
-Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.
+Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.
 
 Bu kod uzun sürdüğü için internet sitesi kapsamında çalıştırmadık.
 
