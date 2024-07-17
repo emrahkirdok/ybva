@@ -6,13 +6,13 @@ author: "Emrah Kırdök, Ph.D."
 
 # Giriş
 
-Dersler kapsamında verilecek ödevleri Rmarkdown üzerinde cevaplayacaksınız. Dolayısıyla, Rmarkdown bilgisi önem teşkil etmektedir. Bu belge, hen Rmarkdown ödevleri ile ilgili bir yol haritası çizmeyi hem de ileri seviye Rmarkdown ipuçlarını vermeyi hedeflemiştir.
+Dersler kapsamında verilecek ödevleri Rmarkdown üzerinde cevaplayacaksınız. Dolayısıyla, Rmarkdown bilgisi önem teşkil etmektedir. Bu belge, hem Rmarkdown ödevleri ile ilgili bir yol haritası çizmeyi hem de ileri seviye Rmarkdown ipuçlarını vermeyi hedeflemiştir.
 
 ## Dosya isimlendirme
 
-Derslerin başında da bahsettiğimiz gibi, dosya isimlerinde İngilizce karakter seti dışında karakter ve boşluk kullanmayın! Bu kısım çok önemli, çünkü windows ve mac kodlama sistemi farklılıkları yüzünden ödeviniz açamayabilirim ve eksik puanlandırılırsınız.
+Derslerin başında da bahsettiğimiz gibi, dosya isimlerinde İngilizce karakter seti dışında karakter ve boşluk kullanmayın! Bu kısım çok önemli, çünkü windows ve mac kodlama sistemi farklılıkları yüzünden ödevinizi açamayabilirim ve eksik puanlandırılırsınız.
 
-Ödevleriniz şu şekilde isimlendirmeniz tavsiye ederim:
+Ödevlerinizi şu şekilde isimlendirmenizi tavsiye ederim:
 
 > odev\_01\_emrah\_kirdok\_571.Rmd
 
@@ -30,7 +30,7 @@ Eğer bu belgenin Rmarkdown versiyonunu inceliyorsanız, `_` karakteri önünde 
 
 ## Soru şekilleri
 
-Sorular karşınıza bir paragraf olarak gelecektir. Aynı zamanda her sonunun sonunda, o sorunun puanı da olacaktır.
+Sorular karşınıza bir paragraf olarak gelecektir. Aynı zamanda her sorunun sonunda, o sorunun puanı da olacaktır.
 
 ## Düz metin ile cevap verme
 
