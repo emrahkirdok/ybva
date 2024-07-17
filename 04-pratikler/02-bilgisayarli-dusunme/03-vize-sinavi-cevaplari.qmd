@@ -2,7 +2,7 @@
 
 ## Soru 1
 
-Aşağıda verilen fonksiyonu dikkatlice inceleyeiniz:
+Aşağıda verilen fonksiyonu dikkatlice inceleyiniz:
 
 ``` r
 f <- function(x){
@@ -14,7 +14,7 @@ f <- function(x){
 }
 ```
 
-Bu fonksiyon uyarınca, `f(x = 5)`'yı çalıştırınca elde edeceğiniz değeri, aşağıdaki kod bloğuna yazınız.
+Bu fonksiyon uyarınca, `f(x = 5)`'yı çalıştırınca elde edeceğiniz değeri aşağıdaki kod bloğuna yazınız.
 
 ## Cevap 1
 
@@ -93,7 +93,7 @@ Oluşturacağınız fonksiyonda `for` döngüsünü kullanınız.
 
 ### Cevap 3.1
 
-Bu sorunun tek bir çözüm yolu yok. Ancak benim aklımdaki yol aşağıda. Daha ileri teknikleri kullanan arkadaşalr da var. O teknikleri anlatmamıştım, demek ki araştırarak öğrenmişler.
+Bu sorunun tek bir çözüm yolu yok. Ancak benim aklımdaki yol aşağıda. Daha ileri teknikleri kullanan arkadaşlar da var. O teknikleri anlatmamıştım, demek ki araştırarak öğrenmişler.
 
 Bu soruyu cevaplamak için, öncelikle `amino-acid-mass.txt` isimli dosyayı yüklemeliyiz. Amino asitlerin kütleleri bu tablo içindedir.
 
@@ -109,14 +109,14 @@ kutle_tablosu <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/
 head(kutle_tablosu)
 ```
 
-Yani, bir amino asitin kütlesini öğrenmek isterse bu dosyaydan faydalanabiliriz. Mesela, Asparajin (`N`) amino asitinin kütlesini şu şekilde öğrenebiliriz:
+Yani bir amino asitin kütlesini öğrenmek isterse bu dosyaydan faydalanabiliriz. Mesela Asparajin (`N`) amino asitinin kütlesini şu şekilde öğrenebiliriz:
 
 ```{r}
 aa_agirlik <- kutle_tablosu$molekul_agirligi[kutle_tablosu$kod == "N"]
 aa_agirlik
 ```
 
-Şimdi, fonkisyonumuzu yazabiliriz:
+Şimdi fonkisyonumuzu yazabiliriz:
 
 ```{r}
 # once fonksiyonu olusturmak icin gerekli komutlari yazalim. Fonksiyonun, iki tane girdisi olacaktir. 
@@ -171,7 +171,7 @@ protein_kutle_hesapla(iplik = protein_ipligi, kutle_tablosu = kutle_tablosu)
 
 ## Soru 4
 
-Aşağda verilen `for` döngüsünü, ve bu döngünün çıktısını dikkatlice inceleyiniz: 
+Aşağda verilen `for` döngüsünü ve bu döngünün çıktısını dikkatlice inceleyiniz: 
 
 ```{r}
 dna <- c("A", "T", "G", "C", "G", "C", "A")
