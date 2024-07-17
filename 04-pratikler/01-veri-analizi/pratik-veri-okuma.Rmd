@@ -29,7 +29,7 @@ Başka veri okuma fonksiyonları da bulunmakta:
 - `read.csv2`
 
 `read.table` fonksiyonunda, öntanımlı ayraç *boşluk* karakteri.
-`read.csv` fonksiyonunda, öntanımlı ayra. *;* karakteri.
+`read.csv` fonksiyonunda, öntanımlı ayraç *;* karakteri.
 `read.delim` fonksiyonunda, öntanımlı ayraç *TAB (`\t`)* karakteri.
 
 Peki, `olcumler` veri çerçevesini inceleyelim:
@@ -54,7 +54,7 @@ Sadece *setosa* türlerinden bir alt küme yapalım:
 olcumler[olcumler$tur=="setosa", ]
 ```
 
-Peki, sepal uzunlukları 5.5'den büyün olan verileri içeren bir alt küme oluşturalım:
+Peki sepal uzunlukları 5.5'den büyün olan verileri içeren bir alt küme oluşturalım:
 
 ```{r}
 olcumler[olcumler$canak.uzunluk > 5.5, ]
@@ -63,7 +63,7 @@ olcumler[olcumler$canak.uzunluk > 5.5, ]
 
 ## Subset fonksiyonu kullanımı
 
-Veri çerçeveleri üzerinde, `subset` fonksiyonu kullanarak da işlem yapabiliriz.
+Veri çerçeveleri üzerinde `subset` fonksiyonu kullanarak da işlem yapabiliriz.
 
 Bu veri çerçevesi içerisinde, sadece *virginica* türlerine ait verileri içeren bir alt küme oluşturalım:
 
