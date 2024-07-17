@@ -7,7 +7,7 @@ Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullana
 + kilo
 + cinsiyet 
 
-Unutmayın, cinsiyet vektörü faktör olmalı!
+Unutmayın, cinsiyet vektörü faktör vektörü olmalı!
 
 | İsimler |  Boy | Kilo | Yaş | Cinsiyet |
 |---------|------|------|-----|----------|
@@ -39,7 +39,7 @@ cinsiyet <- factor(c("m","f","m","m","m","f","m","m","m","m"))
 isimler[6]
 ```
 
-Boy vektörünü kullanarak,1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
+Boy vektörünü kullanarak, 1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -111,6 +111,7 @@ karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle g
 $$
 vki = \frac{kilo}{boy^2}
 $$
+
 Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz.
 
 ```{r}
@@ -129,7 +130,7 @@ vki <- c(ekip$kilo/ekip$boy^2)
 ```
 :::
 
-Şimdi, `ekip` vektörü içerisinde vücut kitle endeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:
+Şimdi, `ekip` vektörü içerisinde vücut kitle indeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:
 
 
 ```{r}
@@ -137,7 +138,7 @@ vki <- c(ekip$kilo/ekip$boy^2)
 ekip$isimler[vki > 25]
 ```
 
-0luşturduğunuz `vke` isimli vektörü `ekip` veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi `vke` olsun) :
+0luşturduğunuz `vki` isimli vektörü `ekip` veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi `vki` olsun) :
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -156,7 +157,7 @@ ekip <- data.frame(isimler, cinsiyet, boy, kilo, yas, vki)
 :::
 
 
-Ekipteki 25 yaş altı kişilerin isimlerini kapsayan `gencler` isimli yeni bir vektör olusturnuz:
+Ekipteki 25 yaş altı kişilerin isimlerini kapsayan `gencler` isimli yeni bir vektör oluşturnuz:
 
 ```{r}
 # cevabinizi asagiya yaziniz
