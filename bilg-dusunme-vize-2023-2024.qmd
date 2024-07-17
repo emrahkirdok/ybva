@@ -87,7 +87,7 @@ Fonksiyonu, aşağıdaki kod kısmında çalıştırın:
 
 ## Soru 4 (15 puan)
 
-Aşağıdaki fonksiyonu inceleyiniz ve her satırın ne anlama geldiğiniz cevap kağıdınıza kendi el yazınızla yazınız. Satır numaralarınıa dikkat ediniz. Boş bir cevap kağıdı kullanabilirsiniz.
+Aşağıdaki fonksiyonu inceleyiniz ve her satırın ne anlama geldiğini cevap kağıdınıza kendi el yazınızla yazınız. Satır numaralarına dikkat ediniz. Boş bir cevap kağıdı kullanabilirsiniz.
 
 ```r
 1 GC_skew <- function(dizi){
