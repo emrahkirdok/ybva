@@ -106,6 +106,7 @@ Bu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmış
 library(ggplot2)
 ggplot(data = veri, aes(x=Fotosentez)) + geom_histogram()
 ```
+
 Şimdi de iletkenlik değerleri:
 
 ```{r}
@@ -126,7 +127,7 @@ Acaba farklı kültürleme koşulları (Kurak veya Nemli) fotosentez hızına na
 ggplot(data = veri, aes(x=Kulturleme_kosulu, y = Fotosentez)) + geom_boxplot()
 ```
 
-Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşullaru, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:
+Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Kurak kültürleme koşulları, fotosentez hızında bir değişime yol açmış olabilir mi? Cevabınızı aşağıya yazınız:
 
 > 
 > Fotosentez hızı, Nemli koşullarda artış göstermiş olabilir
@@ -134,7 +135,7 @@ Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Ku
 
 ### Patojen inokülasyonu ve Fotosentez hızında görülen değişim
 
-Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
+Patojen inokülasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -170,12 +171,12 @@ ggplot(data = veri, aes(x=Kulturleme_kosulu, y = Iletkenlik)) + geom_boxplot()
 Kurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor? Aşağıda bir cümle ile açıklayınız:
 
 > Cevabınızı bu satırlara yazınız
-> Nemli kosullarda kulturlenen bitkilerin iletlenlik değerleri, kontrol bitkilerine göre daha fazla olablir.
+> Nemli kosullarda kültürlenen bitkilerin iletlenlik değerleri, kontrol bitkilerine göre daha fazla olablir.
 > Ancak, Nemli koşullarda gözlenen outlier veriler de bulunmaktadır.
 
 ### Patojen inokülasyonun iletkenlik değerlerine etkisi
 
-Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
+Patojen inokülasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -205,7 +206,7 @@ ggplot(data = veri_kontrol, aes(x=Kulturleme_kosulu, y = Fotosentez)) + geom_box
 Peki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki değişkeni x-y ekseninde nokta grafiği ile gösterebilir misiniz? Eksenleri aşağıdaki gibi belirleyiniz:
 
 + `x` ekseni: İletkenlik
-+ `y` ekseni: Fotosentez hizi
++ `y` ekseni: Fotosentez hızı
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -214,7 +215,7 @@ ggplot(data = veri_kontrol, aes(x=Iletkenlik, y = Fotosentez)) + geom_point()
 
 ## Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?
 
-Acaba `Kurak` ve `Nemli` koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? `t.test` fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. `p-value` (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:
+Acaba `Kurak` ve `Nemli` koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? `t.test` fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farkın anlamlı olup olmadığını belirleyiniz. `p-value` (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:
 
 ```{r}
 # Cevabinizi buraya yaziniz
