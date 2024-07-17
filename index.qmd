@@ -72,6 +72,6 @@ Burada yazan bilgiler o işin gerçekleştirilmesi için önem arz etmektedir.
 :::{.callout-caution}
 ## Dikkat!
 
-Eğer bu kutududaki bilgilere dikkat etmezseniz bir hatayla karşılaşma ihtimaliniz oldukça yüksektir.
+Eğer bu kutudaki bilgilere dikkat etmezseniz bir hatayla karşılaşma ihtimaliniz oldukça yüksektir.
 
 :::
