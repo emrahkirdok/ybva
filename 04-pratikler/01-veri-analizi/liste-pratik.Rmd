@@ -155,7 +155,7 @@ Karat vektörünün 2 ve 6. elamanına erişmek istesek?
 elmaslar[[1]][2:6]
 ```
 
-Son olarak, matris'e bakalım. Bu matristeki elemanlara nasıl erişebiliriz? Mesela matriste 2. satırda ve 4. sütunda bulunan öğeye nasıl erişebiliriz
+Son olarak, Matris'e bakalım. Bu matristeki elemanlara nasıl erişebiliriz? Mesela matriste 2. satırda ve 4. sütunda bulunan öğeye nasıl erişebiliriz:
 
 ```{r}
 elmaslar[[5]][2,4]
