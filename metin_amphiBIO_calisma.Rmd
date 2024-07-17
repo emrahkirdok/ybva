@@ -97,7 +97,7 @@ colnames(amph_sub_veri)
 
 ```
 
-Ortaya attığımız hipoteze göre veya çalışmak istediğimiz konuya göre verileri görselleştirmeye başlayabiliriz. Bu çalışmada amaç, seçtiğimiz verilerin birbiriyle ilişkisini incelemektir fakat unutmayın ki her ilişki (korelasyon) bilimsel olarak anlamlı veya doğru olmak zorunda değildir.
+Ortaya attığımız hipoteze göre veya çalışmak istediğimiz konuya göre verileri görselleştirmeye başlayabiliriz. Bu çalışmada amaç seçtiğimiz verilerin birbiriyle ilişkisini incelemektir fakat unutmayın ki her ilişki (korelasyon) bilimsel olarak anlamlı veya doğru olmak zorunda değildir.
 
 Şimdi alt veri setindeki iki veri grubunu histogramda inceleyelim:
 
@@ -131,7 +131,7 @@ plot(data=amph_sub_veri, Longevity_max_y~Body_mass_g)
 
 Görüldüğü üzere oluşturulan grafikler bir anlam ifade etmemektedir. Bunun nedeni kıyaslanmak istenen verilerin farklı birimlerde olmasıdır. Örneğin yaşam ömrü sayı, vücut kütlesi de gram cinsindendir. Yorumlanabilir bir görselleştirme için bu verileri logaritmik cinsten yazabiliriz.
 
-O zaman son denediğimiz grafiği, log versiyonda inceleyelim:
+O zaman son denediğimiz grafiği log versiyonda inceleyelim:
 
 ```{r}
 plot(data=amph_sub_veri, log(Longevity_max_y)~log(Body_mass_g))
@@ -140,7 +140,7 @@ plot(data=amph_sub_veri, log(Longevity_max_y)~log(Body_mass_g))
 
 Artık grafiğimiz daha güzel görünüyor. Bunun yerine oluşturduğumuz alt veriyi tek tek log cinsinde tanımlamak yerine, alt veri setinin tamamını log cinsine çevirelim:
 
-> Burada dikkat etmeniz gereken şey şu, elimizde sadece sayısal veri olduğu için bütün veri çerçevesini `log` fonksiyonu ile modifiye edebildik. Eğer elimizda karakter verileri de olsaydı tek tek sütunları dönüştürmek durumunda kalacaktık.
+> Burada dikkat etmeniz gereken şey şu elimizde sadece sayısal veri olduğu için bütün veri çerçevesini `log` fonksiyonu ile modifiye edebildik. Eğer elimizda karakter verileri de olsaydı tek tek sütunları dönüştürmek durumunda kalacaktık.
 
 ```{r}
 amph_log <- log(amph_sub_veri)
@@ -177,7 +177,7 @@ model <- lm(data=amph_log, Longevity_max_y~.)
 
 ```
 
-ve bu modeli özetleyelim:
+Bu modeli özetleyelim:
 
 ```{r}
 summary(model)
@@ -197,7 +197,7 @@ summary(model_1)
 
 ```
 
-AmphiBIO çalışması, 3 farklı takım bazında gerçekleştirilmiştir. Bu nedenle biz de veri setini takım bazında incelemek için yeni bir takım değişkeni oluşturabiliriz. 
+AmphiBIO çalışması, 3 farklı takım bazında gerçekleştirilmiştir. Bu nedenle bizde veri setini takım bazında incelemek için yeni bir takım değişkeni oluşturabiliriz. 
 
 ```{r}
 amph_log$order <- amph_veri$Order
@@ -231,14 +231,17 @@ Son olarak order değişkeni ile modelleri inceleyelim ve özetlerine bakalım:
 model_2 <- lm(data=amph_log, Longevity_max_y~order)
 
 ```
+
 ```{r}
 summary(model_2)
 
 ```
+
 ```{r}
 model_3 <- lm(data=amph_log, Longevity_max_y~Body_mass_g * Body_size_mm + Body_size_mm + order)
 
 ```
+
 ```{r}
 summary(model_3)
 
