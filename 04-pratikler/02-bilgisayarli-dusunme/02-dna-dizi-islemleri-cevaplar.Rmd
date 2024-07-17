@@ -91,7 +91,7 @@ dizi <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", 
 ``` 
 
 # İpucu
-Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.
+Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırlayınız.
 
 ```{r}
 GC_kaymasi <- function(dizi){
