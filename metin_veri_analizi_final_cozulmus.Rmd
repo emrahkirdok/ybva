@@ -130,9 +130,9 @@ ggplot(data = veri, aes(x = universite, y = veri_analizi)) +
 
 # T-test (10 puan)
 
-Peki, test edilen iki üniversitedeki veri analizi dersleri başarısı arasında anlamlı bir farklılık var mı? Bu sorunun cevabını *t-test* ile test edebilir misiniz?
+Peki test edilen iki üniversitedeki veri analizi dersleri başarısı arasında anlamlı bir farklılık var mı? Bu sorunun cevabını *t-test* ile test edebilir misiniz?
 
-Kodunuzu, şu adımları izleyerek oluşturabilirsiniz:
+Kodunuzu şu adımları izleyerek oluşturabilirsiniz:
 
 1. Önce `Universite_1` için `veri_analizi` dersi başarı notlarını alın ve `x` değişkeni içinde depolayın
 2. Sonra `Universite_2` için `veri_analizi` dersi başarı notlarını alın ve `y` değişkeni içinde depolayın
@@ -150,7 +150,7 @@ test
 ```
 
 
-Buraya kadar geldiyseniz, Veri analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
+Buraya kadar geldiyseniz, Veri Analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
 
 ```{r}
 ggplot(data = veri, aes(x=veri_analizi)) + geom_density(aes(fill=universite))
