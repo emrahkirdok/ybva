@@ -96,7 +96,7 @@ ggplot(data = boston, aes(y=rm)) +
 
 ## Soru 5: İki ekseni birlikte kullanma
 
-Ortalama ev değerleri, Charles nehrine yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
+Ortalama ev değerleri, Charles nehrinin yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
 
 ```{r eval = TRUE}
 ggplot(data = boston, aes(x=chas,y=medv)) + 
@@ -126,7 +126,7 @@ ggplot(data = boston, aes(x = lstat, y = medv)) +
 Sizce bu iki değişken arasında nasıl bir ikişki var? Bir cümleyle açıklayabilir misiniz? Cevabınızı aşağıdaki \> ile başkaya satırlara yazınız:
 
 > Grafiğe bakıldığında; ev fiyatları ile mahallelerdeki sosyo ekonomik seviye arasında bir ilişki var.
-> Bir mahallede düşük sosyoekonomik seviyeye sahip ev miktarı arttıkça, o mahalledeki ev fiyatlarında bir azalış gözleniyor.
+> Bir mahallede düşük sosyoekonomik seviyeye sahip ev miktarı arttıkça, o mahalledeki ev fiyatlarında bir azalma gözleniyor.
 
 Peki ev fiyatları ve mahalledeki ortalama oda sayısı arasındaki ilişkiyi açıklayan grafiği oluşturabilir misiniz?
 
