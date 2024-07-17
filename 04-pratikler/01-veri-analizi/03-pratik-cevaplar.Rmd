@@ -5,7 +5,7 @@ date: ""
 output: html_document
 ---
 
-Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer İstasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu, ve cinsiyet bilgileri toplanmıştır.
+Aşağıdaki tabloda  Dr. Kristen Gorman ve Antartika'da bulunan Palmer İstasyonu çalışanları tarafından elde edilmiş bir veri seti bulunmaktadır. Bu veri setinde, Antarktika'ya özgü üç farklı penguen türüne (*Chinstrap*, *Adelie*, *Gentoo*) ait gaga uzunluğu, kanat uzunluğu ve cinsiyet bilgileri toplanmıştır.
 
 |   Tür      | Gaga Uzunluğu (mm)  |  Kanat Uzunluğu (mm)   |   Cinsiyet  |
 |------------|---------------------|------------------------|-------------|
@@ -26,7 +26,7 @@ Elinizdeki dökümanın `Rmd` dosyası [şu bağlantıda](https://raw.githubuser
 
 ## Vektörler
 
-Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır.
+Bu tablodaki bilgileri kullanarak aşağıda verilen isimlerde dört farklı vektör oluşturunuz. Cinsiyet vektörü faktör vektörü olmalıdır!
 
 + `tur`
 + `gaga_uzunlugu`
