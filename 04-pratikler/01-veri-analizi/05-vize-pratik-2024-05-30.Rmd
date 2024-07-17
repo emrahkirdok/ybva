@@ -29,7 +29,7 @@ Bitkileri dört farklı patojen (`Patojen` değişkeni) uygulamasına maruz bır
 + `P. multivora`
 + `Patojenler` (Her iki patojen ile inoküle edilmiş bitkiler)
 
-Ardından bu bitkileri 37 güne kadar  iki farklı kültürleme koşulunda (`Kulturleme_kosulu` değişkeni) yetiştiriyorlar:
+Ardından bu bitkileri 37 güne kadar iki farklı kültürleme koşulunda (`Kulturleme_kosulu` değişkeni) yetiştiriyorlar:
 
 + `Kurak`
 + `Nemli`
@@ -108,6 +108,7 @@ Bu veri setinde fotosentez hızı ve iletkenlik hakkında ölçümler alınmış
 # Cevabinizi buraya yaziniz
 
 ```
+
 Şimdi de iletkenlik değerleri:
 
 ```{r}
@@ -136,7 +137,7 @@ Sizce fotosentez hızı kültürleme koşulundan nasıl etkilenmiş olabilir? Ku
 
 ### Patojen inokülasyonu ve Fotosentez hızında görülen değişim
 
-Patojen inokulasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
+Patojen inokülasyonu acaba fotosentez hızında ne gibi değişime yol açmış? Uygulanan patojen türlerinin Fotosentez dağılımına etkisini kutu grafiği olarak gösterebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -178,7 +179,7 @@ Kurak kültürleme koşulları iletkenlik değerine nasıl bir etki gösteriyor?
 
 ### Patojen inokülasyonun iletkenlik değerlerine etkisi
 
-Patojen inokulasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
+Patojen inokülasyonu acaba iletkenlik değerlerinde ne gibi değişime yol açmış olabilir? Uygulanan patojen türlerinin iletkenlik değerlerine etkisini kutu grafiği olarak gösterebilir misiniz?
 
 ```{r}
 # Cevabinizi buraya yaziniz
@@ -217,7 +218,7 @@ Peki iletkenlik ve fotosentez hızı arasında bir ilişki var mı? Bu iki deği
 
 ## Bonus: Acaba fotosentez hızındaki değişim anlamlı mı?
 
-Acaba `Kurak` ve `Nemli` koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? `t.test` fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farklın anlamlı olup olmadığını belirleyiniz. `p-value` (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:
+Acaba `Kurak` ve `Nemli` koşullarda kültürlenen bitkilerin fotosentez hızlarında anlamlı bir değişim var mı? `t.test` fonksiyonu ile bu iki kategorinin ortalamaları arasındaki farkın anlamlı olup olmadığını belirleyiniz. `p-value` (p-değeri) anlamlılık analizi için 0.001 eşiğini kullanınız:
 
 ```{r}
 # Cevabinizi buraya yaziniz
