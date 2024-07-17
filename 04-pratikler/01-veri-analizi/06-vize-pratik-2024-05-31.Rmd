@@ -10,7 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu veri setinde, Boston şehrinde bulunan farklı mahallelerden elde edilen istatistik veriler derlenmiştir. Aşağıda bu verileri hakkında bilgileri bulabilirsiniz:
+Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu veri setinde, Boston şehrinde bulunan farklı mahallelerden elde edilen istatistik veriler derlenmiştir. Aşağıda bu veriler hakkında bilgileri bulabilirsiniz:
 
 + `medv`: Her mahalledeki ev fiyatlarının ortanca değeri 
 + `lstat`: Mahallede bulunan düşük sosyoekonomik seviyeye sahip ev sayısı
@@ -59,7 +59,7 @@ Bu veri çerçevesinde bulunan `chas` sütunu aslında bir kategori değişkeni.
 
 ## Soru 3: Histogramlar
 
-Boston veri setinde `medv` sütünundaki verilerin dağılımını göstern bir histogram elde edebilir misiniz? Unutmayın, grafikleri tam ve eksiksiz bir şekilde hazırlamalısınız (Eksen isimlerine dikkat edin)
+Boston veri setinde `medv` sütünundaki verilerin dağılımını gösteren bir histogram elde edebilir misiniz? Unutmayın, grafikleri tam ve eksiksiz bir şekilde hazırlamalısınız (Eksen isimlerine dikkat edin)
 
 ```{r}
 
@@ -89,7 +89,7 @@ Yukarıdaki soruda bulunan `medv` ve `rm` değişkenleri için ayrı ayrı iki k
 
 ## Soru 5: İki ekseni birlikte kullanma
 
-Ortalama ev değerleri, Charles nehrine yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
+Ortalama ev değerleri, Charles nehrinin yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
 
 ```{r eval = TRUE}
 
