@@ -23,7 +23,7 @@ Gen anlatım profilini ekteki dosyadan elde edebilirsiniz:
 
 [metadata verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/metadata-GSE50161.txt)
 
-Bu dosyaları kullanaraki aşağıdaki adımlar uyarınca analizinizi gerçekleştiriniz:
+Bu dosyaları kullanarak aşağıdaki adımlar uyarınca analizinizi gerçekleştiriniz:
 
 ## Veri yükleme
 
@@ -83,7 +83,7 @@ Elinizdeki veriyi histogram oluşturarak kontrol ediniz:
 
 ```
 
-Elinizdeki veriin kutu grafiklerini oluşturunuz:
+Elinizdeki verinin kutu grafiklerini oluşturunuz:
 
 ```{r}
 
@@ -129,7 +129,7 @@ Bu genin kutu grafiğine bakalım mı?
 
 ```
 
-Bu genin anlatımı, glibolastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:
+Bu genin anlatımı, glioblastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:
 
 >
 >
