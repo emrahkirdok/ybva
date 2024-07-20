@@ -1,0 +1,91 @@
+# Sözlük
+
+'get.wd()' : Bulunduğunuz çalışma klasörünü gösterir.
+'dir()' : Klasördeki dosyaları gösterir.
+'library()' : R sistemi içerisine veri yüklemek için kullanılır.
+'<-' : Atama operatörüdür.
+'num.' : Numara
+'chr.' : Karakter
+'logi.' : Mantık
+'fac.' : Faktör
+'NA' : Kayıp veri yerine yazılır.
+'str()' : Verinin tipini verir.
+'as.character' : Elimizdeki vektörü karaktar vektörüne çevirmek için kullanılır.
+'as.numeric' : Elimizdeki vektörü sayı vektörüne çevirmek için kullanılır.
+'as.factor' : Elimizdeki vektörü faktör vektörüne çevirmek için kullanılır.
+'as.logical' : Elimizdeki vektörü mantık vektörüne çevirmek için kullanılır.
+'c()' : Vektör oluşturmak için kullanılır.
+'length()' : Vektörün uzunluğunu verir.
+'names()' : Vektöre isim atamak için kullanılır.
+'seq()' : İki farklı sayı arasında, belirli aralıklara göre sayı vektörü oluşturur. Elimizdeki veride belirli satır ve sütunları döndürmekde kullanılır.
+'head()' : Veri çerçevesinin ilk beş satırını geri döndürür.
+'matrix()' : Vektörden matris oluşturmak için kullanılır.
+'nrow' : Satır sayısı
+'ncol' : Sütun ismi
+'dim()' : Matristeki satır ve sütun isimlerini dödürür.
+'rownames()' : Sadece satır isimlerini dödürür.
+'colnames()' : Sadece sütun isimlerini dödürür.
+'$' : "ve" operatörüdür.
+'|' : "veya" operatörüdür.
+'[[]]' : Doğrudan liste elemanını geri döndürmek için kullanılır.
+'[]' : Bir alt listeyi geri döndürmek için kullanılır.
+'read.table()' : Dosya okuma fonksiyonudur.
+'file:' : Dosyayı okuyacağımız yolu gösterir.
+'header:' : İlk satırın başlık satırı olduğunu gösterir.
+'sep:' : Dosyada kullanılan ayraç karakterini/türünü belirtir. {'\t' : tab}
+'install.pckages()' : Program kurmak için kullanılır.
+'yaml' : Döküman üst bilgisidir < tarih, isim vs. >
+'#' : Birinci seviye başlık oluşturmak için kullanılır.
+'##' : İkinci seviye başlık oluşturmak için kullanılır.{ Bu işaretin kullanım sayısı başlık seviyesi belirlenmiş olur. }
+'+' : Liste oluşturmak için kullanılır.
+'*' : "İtalik" yazı tipi için kullanılır.
+'**' : "Kalın harf" yazı tipi için kullanılır.
+'summary()': Veri çerçevesini özetlemek için kullanılır.
+'mean()' : Aritmetik ortalama değerini veriri.
+'median()' : Ortanca değeri verir.
+'min()' : Minimum / en küçük değeri verir.
+'max()' : Maksimim / en büyük değeri verir.
+'quantile()' : Elimizdeki veriyi dört eşit parçaya böler.
+'sort()' : Rakamları sıralamamızı sağlar.
+'cut()' : Elimizdeki rakam vektörünü istediğimiz aralıkta eşit parçalara böler.
+'table()' : Frekans tablosu oluşturmamızı sağlar.
+'boxplot()' : Kutu grafiği oluşturur.
+'outline= T/F' : Outlier (aykırı değerler) değerlerinin görünüp görünmeyeceğini belirler.
+'~' : Soldaki değeri sağdaki değere göre ifade eder.
+'ggplot()' : Grafik düzlemi oluşturur.
+'aes(x= , y= )' : Eksenleri belirler.
+'geom_boxplot()' : Kutu grafiği.
+'geom_point()' : Nokta grafiği.
+'geom_histogram()' : Histogram.
+'geom_density()' : Yoğunluk grafikleri.
+'geom_bar()' : Sütun grafikleri:
+'fill=' : İçini doldurarak boyar.
+'color=' : Dış çerçeveyi boyar.
+'ggtitle()' : Başlık eklemek içindir.
+'subtitle=' : Alt başlıktır.
+'xlab / ylab' : x/y ekseninin başlıklarını Türkçelerştirmek için kullanılır.
+'shape=' : Grafikte türlerin şekillerini değiştirir.
+'size=' : Grafikteki noktaların boyutunu değiştirir.
+'alpha=' : Transparanlık ekler.
+'t.test' : İki grubun ortalamaları arasında öenemli bir fark olup olmadığını test etmek için kullanılır.
+'n=' : Örnek sayısı.
+'sd=' : Standart sapma.
+'rnorm' : ?
+'par()' : ?
+'hist()' : ?
+'mfrow()' : ?
+'sim' : ?
+'p.value' : T testin sonucunu değerlendirmek için kullanılır.
+'H0' : Sıfır hipotezi.
+'HA' : Alternatif hipotez.
+'for' : Döngüler.
+'if-else' : Koşullu analiz yapmayı sağlar.
+'digraph' : ?
+'function()' : R'a bir fonksiyon yazacağımızı belirtir.
+'return()' : Geri döndürmek için kullanılır.
+'seqinr' : DNA dizileri ile çalışma paketi.
+'!=' : "Eşit değil mi?" yapısıdır.
+'log2' : Normalizasyon fonksiyonu.
+'p-value' : Anlamlılık testi.
+'list' : Liste oluşturmak için kullanılır.
+'getwd()' : Çalışma klasörünü öğrenmek için kullanılır.
