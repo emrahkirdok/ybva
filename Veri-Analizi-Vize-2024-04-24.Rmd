@@ -48,7 +48,7 @@ Oluşturduğunuz vektörlerden bir tanesinin uzunluğunu geri döndüren kodu ya
 
 ## Soru 3 (5 puan)
 
-Asidite değeri, 7.8'den büyük olan değerleri geri döndüren kodu yazınız:
+Asidite değeri 7.8'den büyük olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 
@@ -137,7 +137,7 @@ Kültürleme koşullarının tablosunu oluşturabilir misiniz?
 
 ## Soru 14 (5 puan)
 
-Iletkenlik değerinin histogramını oluşturabilir misiniz?
+İletkenlik değerinin histogramını oluşturabilir misiniz?
 
 ```{r}
 
@@ -153,7 +153,7 @@ Fotosentez değerlerinin histogramını oluşturalım
 
 ## Soru 16 (5 puan)
 
-Iletkenlik ve Fotosentez değerlerine ait nokta grafiği oluşturunuz. Y ekseni Fotosentez, x ekseni ise İletlenlik değerini göstersin. Noktaların renklerini ise Kültürleme koşuluna göre renklendiriniz
+İletkenlik ve Fotosentez değerlerine ait nokta grafiği oluşturunuz. Y ekseni Fotosentez, x ekseni ise İletlenlik değerini göstersin. Noktaların renklerini ise Kültürleme koşuluna göre renklendiriniz
 
 ```{r}
 
@@ -169,7 +169,8 @@ Iletkenlik ve Fotosentez değerlerine ait nokta grafiği oluşturunuz. Y ekseni 
 
 ## Soru 18 (10 puan)
 
-Bir önceki grafiğe göre şu soruyu cevaplayınız. İletkenlik değer, nemli kültürleme koşulunda, kurak kültürleme koşullarına göre nasıl değişmiş olabilir? Cevabınızı bir cümle ile aşağıya yazınız:
+Bir önceki grafiğe göre şu soruyu cevaplayınız:
+-İletkenlik değeri, nemli kültürleme koşulunda, kurak kültürleme koşullarına göre nasıl değişmiş olabilir? Cevabınızı bir cümle ile aşağıya yazınız:
 
 >
 
