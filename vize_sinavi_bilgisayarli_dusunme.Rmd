@@ -125,6 +125,7 @@ Modelleme yapalım (modelin ismi `model1` olsun) ve modelin özet istatistikleri
 ```{r}
 
 ```
+
 Yukarıdaki iki sonuca göre aşağıdaki soruları cevaplayınız:
 
 Sizce `Yas` ve `Uzunluk` arasındaki bağlantı, 0.001 `alfa` değerine (p-değeri eşiği) göre anlamlı mı? (Bu cevabın aynısını kağıda da yazınız.)
@@ -155,7 +156,7 @@ Tahmini bir aralık belirtebilir misiniz? (Bu cevabın aynısını kağıda da y
 
 ## Çoklu modeller
 
-Peki, şimdi diğer değişkenleri işin içine katalım. `Cinsiyet` değişkeni haricindeki diğer değişkenleri kullanarak bir çoklu model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `Model2` olsun. Modeli oluşturduktan sonra özet istatistiklerini görüntüleyin.
+Peki şimdi diğer değişkenleri işin içine katalım. `Cinsiyet` değişkeni haricindeki diğer değişkenleri kullanarak bir çoklu model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `Model2` olsun. Modeli oluşturduktan sonra özet istatistiklerini görüntüleyin.
 
 ```{r}
 
