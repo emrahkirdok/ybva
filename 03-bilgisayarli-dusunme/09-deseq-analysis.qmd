@@ -1,0 +1,196 @@
+# Ayrımsal Gen İfadesi Analizi (DESeq Analizi)
+
+DESeq analizi, gen ifadesinin farklı koşullar veya gruplar arasında nasıl değiştiğini inceleyen ve bu değişikliklerin biyolojik anlamını anlamamıza yardımcı olan, R Studio kullanılarak gerçekleştirilen bir analiz yöntemidir.
+
+## Hazırlık
+
+İlk olarak Bioconductor, ardından da gerekli tüm kütüphaneleri yükleyelim. Unutmayalım ki Bioconductor R Studio çalışması boyunca bir kez yüklenmelidir. Tekrar tekrar yüklememek için 'eval = F' eklemeliyiz.
+
+```{r eval = F}
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.19")
+BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
+```
+
+```{r}
+library("DESeq2")
+library("pheatmap")
+library("ggplot2")
+library("kableExtra")
+library("ggrepel")
+library("limma")
+library("affy")
+library("R.utils")
+library("dplyr")
+library("tidyverse")
+library("readr")
+library("contrast")
+library("igraph")
+library("ggraph")
+library("dendextend")
+library("reshape2")
+```
+
+Metadatayı tanımlayalım.
+
+```{r}
+metadata <- read.table(file = "data/data.txt", sep = "" , header = F)
+colnames(metadata) <- c("Sample", "Layout", "Condition")
+rownames(metadata) <- metadata$Sample
+```
+
+Sayı matrislerini birleştirmemiz gerekiyor.
+
+```{r}
+count_matrix <- read.table(file = paste0("data/counts-",  metadata$Sample[1], "-bwa.txt"), header=T)
+
+count_matrix <- count_matrix[ ,c(1,7)]
+
+rownames(count_matrix) <- count_matrix$Geneid
+
+count_matrix$Geneid <- NULL
+
+colnames(count_matrix) <- metadata$Sample[1]
+  
+for (i in 2:nrow(metadata)){
+  data <- read.table(file = paste0("data/counts-",  metadata$Sample[i], "-bwa.txt"), header=T)
+  data <- data[ ,c(1,7)]
+  rownames(data) <- data$Geneid
+  data$Geneid <- NULL
+  colnames(data) <- metadata$Sample[i]
+  count_matrix <- merge(x = count_matrix, y = data, by = 'row.names')
+  rownames(count_matrix) <- count_matrix$Row.names
+  count_matrix$Row.names <- NULL
+}
+
+```
+Birleştirdiğimiz sayı matrisini kontrol edelim.
+
+```{r}
+dim(count_matrix)
+```
+
+Artık DESeq işlemine başlamak için hazırız.
+
+## DESeq
+
+DESeq kodumuzu kuralım. Alfabetik sıraya göre sıralama olacağı için 'condition' kontrol olarak alınacaktır.
+
+```{r}
+dds <- DESeqDataSetFromMatrix(countData = count_matrix, colData = metadata, design=~Condition)
+```
+
+Düşük anlatımları (10'dan az ortalamaya sahip olanları) silelim.
+
+```{r}
+keep <- rowMeans(counts(dds)) >= 10
+delete <- rowMeans(counts(dds)) < 10
+```
+
+Sildiğimiz düşük anlatımları kontrol etmek için yazdıralım. Ardından test edelim.
+
+```{r}
+write.csv2(file = "non-expressed-genes.csv", x=count_matrix[delete,])
+```
+
+```{r}
+write.csv2(file = "expressed-genes-test.csv", x=count_matrix[keep,])
+```
+
+DESeq işlemini gerçekleştirelim.
+
+```{r}
+dds <- dds[keep,]
+dds <- DESeq(dds)
+res_dds <- results(dds)
+res_dds <- res_dds[order(res_dds$padj),]
+resultsNames(dds)
+```
+
+Matrisi yazdırıp görüntüleyelim.
+
+```{r}
+write.csv2(file = "dds_results_matrix.csv", x=res_dds)
+```
+
+## DESeq Analizleri
+
+Normalizasyon yapalım.
+
+```{r}
+normalized_counts <- counts(dds, normalized = T)
+```
+
+Puntoları (Büyüklükleri) küçülterek dendogram oluşturalım.
+
+```{r}
+a <- normalized_counts
+colnames(a) <- dds$Condition
+dend <- hclust(dist(x = t(a)))
+
+plot(dend, cex = 0.4, color = dds$Condition)
+```
+
+PCA analizini yapalım.
+
+```{r}
+pca <- prcomp(x=t(normalized_counts))
+
+pca_data <- as.data.frame(pca$x)
+pca_data$Case <- metadata$Condition
+pca_data$Sample <- metadata$Sample
+
+ggplot(pca_data, aes(x=PC1, y=PC2, color=metadata$Condition)) + geom_point() + theme_bw()
+```
+
+p değeri 0,05'ten küçük olan (anlamlı) kaç gen olduğuna bakalım.
+
+```{r}
+sum(res_dds$padj < 0.05, na.rm = T)
+```
+
+Outlierlara (Aykırı değerlere) bakalım.
+
+```{r}
+outliers <- count_matrix[res_dds[is.na(res_dds$Padj),]$Geneid,]
+nrow(outliers)
+```
+Volcano (Yanardağ) plot oluşturalım.
+
+```{r}
+#maxFold <- max(res_dds$log2FoldChange[!is.na(res_dds$log2FoldChange)])
+#minFold <- min(res_dds$log2FoldChange[!is.na(res_dds$log2FoldChange)])
+
+#par(mfrow = c(1,1))
+
+#with(res_dds, plot(log2FoldChange, -log10(padj), pch=20, main="Volcano plot", xlim=c(minFold, maxFold)))
+
+#with(subset(res_dds, padj<0.05), points(log2FoldChange, -log10(padj), pch=20, col="purple"))
+
+#with(subset(res_dds, padj<0.05 & abs(log2FoldChange)>1), points(log2FoldChange, -log10(padj), pch=20, col="pink"))
+```
+
+-inf değerleri 0 yapalım.
+
+```{r}
+sig_ptd <- normalized_counts[res_dds$Geneid,]
+logsig_ptd <- log2(sig_ptd)
+logsig_ptd[logsig_ptd == -Inf] <- 0
+
+```
+
+Sonucu Excell için alalım.
+
+```{r}
+write.table(file = "sonuc.csv", sep = ";", quote = FALSE, x=logsig_ptd, dec = ",")
+```
+
+NOT: Boxplot işlemlerini yapalım.
+
+
+
+
+
+
+
