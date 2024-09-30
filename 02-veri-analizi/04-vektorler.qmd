@@ -1,6 +1,6 @@
 # Vektörler {#sec-vektorler}
 
-Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil, bir grup örnek ile çalışmamız gerekmektedir.
+Ancak dikkat ederseniz sadece tek bir eleman üzerinde işlemlerimizi gerçekleştirdik. Gerçek bir veri analizi senaryosunda ise tek bir örnek değil bir grup örnek ile çalışmamız gerekmektedir.
 
 ## Nasıl vektör oluşturulur?
 
@@ -79,7 +79,7 @@ Aşağıdaki tablo, hayali bir deneyi tarif etmektedir. Bir türe ait 10 tane bi
 | bitki5     | 3.4                  | Aydınlık        |
 | bitki6     | -                    | Karanlık        |
 | bitki7     | 1.8                  | Karanlık        |
-| bitki8     | 6.3                  | Aydinlik        |
+| bitki8     | 6.3                  | Aydınlık        |
 | bitki9     | 2.1                  | Karanlık        |
 | bitki10    | -                    | Karanlık        |
 
@@ -118,7 +118,7 @@ Gerçekten faktör vektörü oluşturmuşmuyuz kontrol edelim:
 str(deney_kosullari)
 ```
 
-Burada levels olarak belirtilen aslında faktör seviyeleri. `aydinlik` ve `karanlik` olmak üzere iki farklı seviye bulunmakta ve bu seviyeler `1` ve `2` olarak kodlanmış durumdadır. R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır. 
+Burada "levels" olarak belirtilen aslında faktör seviyeleri. `aydinlik` ve `karanlik` olmak üzere iki farklı seviye bulunmakta ve bu seviyeler `1` ve `2` olarak kodlanmış durumdadır. R üzerinde faktörler, öntanımlı olarak alfabetik sıraya göre kodlanmaktadır. 
 
 ### Vektörün uzunluğunu öğrenmek
 
@@ -229,8 +229,4 @@ Bu kısım kapsamında aşağıdaki konular önemlidir:
 + Bir vektör oluşturmak için `c()` fonksiyonunu kullanırız ve vektör elemanlarını `,` ile ayırırız.
 + Bir vektörün uzunluğunu öğrenmek için `length()` fonksiyonunu kullanırız.
 + Vektör içinde bir ya da bir grup elemanı geri döndürmek için ise indisler kullanırız `yaprak_uzunlugu[5]`
-+ `seq` fonksiyonu kullanımı 
-
-## Ödev
-
-Bu derste öğrendiklerimizi pekiştirmek için @sec-odev-vektorler'de bulunan ödeve bakalım ve haftaya kadar cevaplayalım.
++ `seq` fonksiyonu kullanımı.
