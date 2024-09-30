@@ -2,9 +2,9 @@
 
 Matrisler (@sec-matrisler) ve veri çerçeveleri (@sec-veri-cerceveleri) derslerinde gördüğümüz veri yapıları, belirli bir düzende oluşturulabiliyordu. Yani bu veri yapılarının, belirli kısıtları bulunmaktaydı. Mesela bir grup vektörden veri çerçevesi oluşturmak istiyorsanız, vektörlerin uzunluklarının aynı olması gerekiyordu.
 
-Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip. 
+Listeler ise farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme potansiyeline sahip.
 
-## Liste oluşturma
+## Liste oluşturma
 
 Şimdi gelin önceki derslerde oluşturduğumuz veri yapılarını tekrar oluşturalım ve bir liste içerisinde saklayalım.
 
@@ -18,7 +18,7 @@ Listeler ise, farklı uzunluklarda ve tiplerde veri yapılarını kapsayabilme p
 | bitki5     | 3.4                  | Aydınlık        |
 | bitki6     | -                    | Karanlık        |
 | bitki7     | 1.8                  | Karanlık        |
-| bitki8     | 6.3                  | Aydinlik        |
+| bitki8     | 6.3                  | Aydınlık        |
 | bitki9     | 2.1                  | Karanlık        |
 | bitki10    | -                    | Karanlık        |
 
@@ -132,7 +132,7 @@ liste[[1]]
 liste[[1]][4,2]
 ```
 
-Eğer listemizin isimleri varsa doğruda bu isimleri kullanabiliriz:
+Eğer listemizin isimleri varsa doğrudan bu isimleri kullanabiliriz:
 
 ```{r}
 liste$veri
@@ -146,7 +146,7 @@ liste$veri[4,2]
 
 ### Alt liste geri döndürme
 
-Bu yöntemde elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani, indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.
+Bu yöntemde elimizdeki listeden yeni bir alt liste oluşturuyoruz. Yani indisleme yaptıktan sonra elde ettiğimiz veri yapısı da bir liste.
 
 ```{r}
 liste[3]
