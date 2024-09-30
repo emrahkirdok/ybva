@@ -1,13 +1,13 @@
 # Beynin kanseri mikrodizin analizi
 
-Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında *glioblastoma* ve *sağlıkı, normal* beyin dokularından elde edilen gen anlatım profili incelenecektir.
+Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında *glioblastoma* ve *sağlıklı, normal* beyin dokularından elde edilen gen anlatım profili incelenecektir.
 
 ## Veri yükleme
 
 Örnekler hakkında metaveri bilgisini yükleyiniz:
 
 ```{r}
-metadata <- read.table(file = "../data/metadata-GSE50161.csv", header = T)
+metadata <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/metadata-GSE50161.txt", header = T)
 ```
 
 Yüklediğiniz metaverinin sütun isimlerini elde eden kodu yazınız:
@@ -31,7 +31,7 @@ table(metadata$Durum)
 Şimdi de gen anlatım verisini yükleyiniz:
 
 ```{r}
-microarray <- read.table(file = "../data/brain-expression-small-GSE50161.csv", header = T)
+microarray <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/brain-expression-small-GSE50161.txt", header = T)
 ```
 
 
@@ -76,11 +76,12 @@ Hiyerarşik kümeleme yapınız:
 plot(hclust(dist(t(microarray))), labels = metadata$Durum)
 ```
 
-Bu bilgilere göre şu sorunun cevabını yazınız. Acaba verimizin kalitesi, ön işlem yapmadan çalışmaya uygun mudur? Neden bu kanıya vardınız?
+Bu bilgilere göre şu sorunun cevabını yazınız: 
+Acaba verimizin kalitesi, ön işlem yapmadan çalışmaya uygun mudur? Neden bu kanıya vardınız?
 
-> Histogram bize standart bir dağılım örüntüsü verdi
-> Kutu grafiklerinde ortanca değerler çok benzer
-> Kümeleme analizi sonucunda, kontrol ve hastalıklı örnekler ayrı gruplandı
+> Histogram bize standart bir dağılım örüntüsü verdi.
+> Kutu grafiklerinde ortanca değerler çok benzer.
+> Kümeleme analizi sonucunda, kontrol ve hastalıklı örnekler ayrı gruplandı.
 
 ## Ayrımsal gen anlatım analizi
 
@@ -107,7 +108,7 @@ Kaç tane gen anlamlı değişmiş? (0.001'e göre):
 sum(p.value < 0.001, na.rm = TRUE)
 ```
 
-Şimdi de anlatımları en farklı değişmiş bir tane geni ineceleyelim. Bu gen kaçıncı sırada?
+Şimdi de anlatımları en fazla değişmiş bir tane geni ineceleyelim. Bu gen kaçıncı sırada?
 
 ```{r}
 which.min(p.value)
@@ -121,4 +122,4 @@ boxplot(microarray[305,]~metadata$Durum)
 
 Bu genin anlatımı, glioblastoma koşulunda normal koşula göre nasıl değişmiş? Cevabı aşağıya yazınız:
 
-> Normal koşula göre azalmış
+> Normal koşula göre azalmış.
