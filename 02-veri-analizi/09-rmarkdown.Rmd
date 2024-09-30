@@ -1,17 +1,10 @@
 ---
 title: "Rmarkdown Kullanımı"
 author: "Emrah Kırdök"
-date: "29-05-2024"
-output: html_document
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Giriş
-
-Bu döküman kapsamında Rmarkdown kullanımı anlatılacaktır. İlk defa Rmarkdown kullanacaksanız öncelikle programı R içerisine kurmanız gerekecektir. Bu işlemi R otomatik olarak da yapailir. Eğer otomatik kurmadıysanız, aşağıkdai satırı komut satırına yazmanız gereklidir. Bu işlemi bir kere yapsanız yeter.
+Bu döküman kapsamında Rmarkdown kullanımı anlatılacaktır. İlk defa Rmarkdown kullanacaksanız öncelikle programı R içerisine kurmanız gerekecektir. Bu işlemi R otomatik olarak da yapabilir. Eğer otomatik kurmadıysanız, aşağıkdaki satırı komut satırına yazmanız gereklidir. Bu işlemi bir kere yapmanız yeterlidir.
 
 ```{r eval = FALSE}
 install.packages("rmarkdown")
@@ -62,15 +55,15 @@ Eğer liste oluşturmak istiyorsanız `+` karakterini kullanmalısınız:
   + alt liste 2
 + liste 3
 
-Bir liste ögesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturabilirsiniz. 
+Bir liste öğesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturabilirsiniz. 
 
 ## Vurgular
 
-Eğer *italik* yazmak isterseniz `*` tuşlarını kullanmalısınız. **Kalın harflerle** yazmak isterseniz iki tane `**` kullanmalısınız.
+Eğer *italik* yazmak isterseniz `*` karakterini kullanmalısınız. **Kalın harflerle** yazmak isterseniz iki tane `**` kullanmalısınız.
 
 ## Tablo oluşturma
 
-Boru karakteri oluşturma: `Sağ Alt Gr tuşu + < : | `
+Boru karakteri oluşturma: `Sağ AltGr tuşu + < : | `
 
 |   bitki ismi | yaprak uzunluğu | koşul    |
 |--------------|-----------------|----------|
@@ -86,7 +79,7 @@ Tabloları yukarıdaki gibi oluşturabilirsiniz.
 
 ![Şeklin ismini buraya yazınız](images/4panes.png)
 
-Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten herhangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisniz.
+Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten herhangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisiniz.
 
 ![İnternetten eklenmiş şekil](https://www.publicdomainpictures.net/pictures/290000/nahled/clouds-1553569446EXG.jpg)
 
@@ -104,6 +97,66 @@ bitki_ismi <- c("bitki 1", "bitki 2", "bitki 3")
 bitki_ismi[2]
 ```
 
-R size bu kodu çalıştıracak ve çıktsını da dökümanınız içerisinde ekleyecektir.
+R size bu kodu çalıştıracak ve çıktsını da dökümanınız içerisine ekleyecektir.
 
 İlerleyen derslerde grafikler oluşturarak bu özelliği kullanacağız.
+
+## Dosya isimlendirme
+
+Derslerin başında da bahsettiğimiz gibi, dosya isimlerinde İngilizce karakter seti dışında karakter ve boşluk kullanmayın! Bu kısım çok önemli, çünkü windows ve mac kodlama sistemi farklılıkları yüzünden ödevinizi açamayabilirim ve eksik puanlandırılırsınız.
+
+Ödevleriniz şu şekilde isimlendirmeniz tavsiye ederim:
+
+> odev\_01\_emrah\_kirdok\_571.Rmd
+
+> odev\_01\_emrah\_kirdok\_571.html
+
+Dikkat ederseniz İngilizce karakter seti dışında karakter kullanmadım ve boşluk yerine alt çizgi "\_" (Shift tuşu + tire (-)) kullandım. 571 ise öğrenci numaram olsun. 
+
+::: note
+
+Eğer bu belgenin Rmarkdown versiyonunu inceliyorsanız, `_` karakteri önünde `\` işareti olduğunu göreceksiniz. Bu karakter kaçış karakteri (escape character) olarak isimlendirilir. Bu sayede Rmarkdown tarafından stil kodlarını normal metin olarak kullanabilirsiniz. Mesela `#` karakteri Rmakrdown için başlık olarak algılanıyor. Ancak siz bunu sadece normal bir karakter olarak kullanmak istiyorsanız `\#` yazabilirsiniz:
+
+\#
+
+:::
+
+## Soru şekilleri
+
+Sorular karşınıza bir paragraf olarak gelecektir. Aynı zamanda her sonunun sonunda o sorunun puanı da olacaktır.
+
+## Düz metin ile cevap verme
+
+Soruların bazılarının cevabı normal metin olarak verilecektir. Bu durumda alıntı işareti kullanılarak cevabın verilmesi gereklidir. Mesela:
+
+> Eğer sorulara normal metin olarak cevap vermeniz isteniyorsa, ">" karakterini kullanarak alıntı formatında cevabınızı veriniz.
+> Belgenizi `html` formatına çevirdiğinizde, tam olarak bu şekilde bir biçimlendirme görmeniz gerekir.
+
+Kullanmanız gereken karakter aşağıda:
+
+\>
+
+## Kodlama ile verilecek cevaplar
+
+Ödevlerinizin çoğunluğunda kod yazarak cevap vereceksiniz. Bu durumda aşağıdaki R kodu satırlarına bu cevabınızı R kodu olarak yazmanız gereklidir. 
+
+```{r eval  = FALSE}
+# Kodunuzu buraya yaziniz
+
+```
+
+Burada dikkat edilmesi gereken noktalar:
+
+1. \# işareti ile başlayan satırlar R kodu olarak çalıştırılmaz. Bu kısımlar genelde okuyucuya bilgi vermek içindir.
+2. Kod bloklarında İngilizce karakter seti dışında karakter kullanmamaya özen gösterin.
+
+::: tip
+
+Kod yazarken \# işareti bir yorum belirtir. Yani \# işaretini gördüğünüz yerlerdeki kodlar çalıştırılmaz, sadece insanlar için bilgi verimesi için yazılır. 
+
+Bu sayede yazdığınız programı okuyan bir araştırmacı, sadece yorum kısımlarına bakarak programınızda neler olduğunu anlayabilir.
+:::
+
+## Belgeyi derlemek
+
+Cevaplarınızı düzgün bir şekilde verdikten sonra `knit` tuşuna basarak belgenizi `html` olarak derleyiniz ve bir sorun almadan düzgün bir çıktı aldığınızdan emin olunuz.
