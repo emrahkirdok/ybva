@@ -1,0 +1,251 @@
+---
+title: "Bilgisayarlı Düşünme Vize Sınavı"
+author: "Tanya Beril Korkmaz"
+date: "26/04/2022"
+output:
+  html_document: default
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bilimsel hikaye
+
+Abalone yumuşakçaları, denizlerde yaşayan kabuklu hayvanlardır. Bu hayvanları aslında rahatlıkla midyeler gibi düşünebilirsiniz.
+
+Bilim insanları, Abalone yumuşakçalarının yaşlarını tahmin etmek için kabuklarını kesip mikroskop altında özel boyalarla yaş halkalarını sayıyorlar. Ancak bu iş oldukça zahmetli ve yorucu olmaktaktadır. Alternatif olarak ise yumuşakçalardan alınacak bazı ölçümler kullanarak, yaş tahmini yapabilecek modeller oluşturabiliriz.
+
+Bu kapsamda, gerekli modelleri oluşturarak bilim insanlarını bu zorlu işten kurtarınız.
+
+## Ölçümler
+
+Ekte verilmiş `abalone.csv` verisinde 4177 farklı abalon yumuşakçasına ait aşağıdaki bilgiler bulunmaktadır:
+
++ `Cinsiyet`
+  + `D` (dişi)
+  + `E` (erkek)
+  + `C` (çocuk)
++ `Uzunluk`: Kabuk uzunluğu
++ `Cap`: Kabuk çapı
++ `Kalinlik`: Kabukların kalınlığı
++ `Tam_agirlik`: Hayvanların tam ağırlığı (kabuk + iç organlar)
++ `Et_agirlik`: Sadece et ağırlığı
++ `Ic_organlar_agirlik`: İç organların ağırlığı
++ `Kabuk_agirlik`: Kabukların ağırlığı
++ `Yas`: Toplam yaş halkası
+
+# Sınav
+
+## Veri yükleme 
+
+Bu [dosyayı](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalone.csv) yükleyiniz lütfen (verinizi bir değişkenin içine yükleyin mutlaka). Bu verideki ayraç karakteriniz (`sep`) boşluk karakteri olarak belirlenmiştir. İlk satır ise sütun isimleri olarak düzenlenmiştir.
+
+En kolayı, yeni bir proje klasörü oluşturmanız ve bu veriyi de o proje klasörü içerisine yüklemeniz olacaktır. Dosyanın uzantısı sizde farklı olabilir.
+
+Verimizi, sonrasında üzerinde çalışılmak üzere kolay takip edilebilir ve veriyi tanımlayıcı bir isime atayalım. Ayraç fonksiyonuna dikkat ediniz; zaten boşluk tuşu kullanıldığından tekrar belirtmek durumunda kalmadık. Header fonksiyonunu TRUE olarak belirtip, veri çerçevesinin ilk satırını sütun etiketleri olarak atadık. 
+
+```{r}
+abalone_veri <- read.table("data/abalone.csv", header = T)
+
+```
+
+Veri çerçevesi boyutlarına bakalım:
+
+```{r}
+dim(abalone_veri)
+
+```
+
+Yüklediğiniz veri çerçevesinin sütun isimleri:
+
+```{r}
+colnames(abalone_veri)
+
+```
+
+Cinsiyet bir faktör vektörü olmalı. Bundan emin olur musunuz?
+
+```{r}
+abalone_veri$Cinsiyet <- factor(abalone_veri$Cinsiyet)
+str(abalone_veri$Cinsiyet)
+
+
+```
+
+# Frekans tablosu
+
+Cinsyet değerlerinden bir frekans tablosu oluşturabilir misiniz?
+
+```{r}
+table(abalone_veri$Cinsiyet)
+
+```
+
+## Yaş değerlerinin incelenmesi
+
+Acaba yaş değerlerinin bir histogramını oluşturabilir misiniz?
+
+Histogram sonrasında abline fonksiyonu ile ortalamayı grafiksel olarak inceleyebiliriz.
+Mean fonksiyonuna veriyi ekledik, col ile çizgi rengini ve lwd ile çizgi kalınlığını seçtik.
+v, vertical(dikey) çizgi eklemek istediğimizde belirtiriz, yatay çizgi ile çalışacağımızda h (horizontal) harfini kullanırız.
+
+```{r}
+hist(abalone_veri$Yas)
+abline(v=mean(abalone_veri$Yas), col="red", lwd=5)
+
+```
+
+Peki yaş değerlerinin farklı cinsiyetlerdeki dağılımını gösteren kutu grafiği oluşturabilir misiniz?
+
+```{r}
+boxplot(data=abalone_veri, Yas~Cinsiyet)
+
+```
+
+## Uzunluk değerlerinin incelenmesi
+
+Acaba `Uzunluk` değerlerinden bir histogram oluşturabilir misiniz?
+
+Sonrasında ortalamayı ve ortalama grafiğini inceleyelim:
+
+
+```{r}
+hist(abalone_veri$Uzunluk)
+mean(abalone_veri$Uzunluk)
+abline(v=mean(abalone_veri$Uzunluk), col="red", lwd=5)
+
+```
+
+Şimdi de `Uzunluk` değerlerinin cinsiyete göre dağılımllarını gösteren kutu grafiklerini oluşturalım:
+
+```{r}
+boxplot(data=abalone_veri, Uzunluk~Cinsiyet)
+
+```
+
+## Tek değişkenli regresyon
+
+İlk olarak `Uzunluk` değişkeninin, `Yas` değişkeni ile ilişkisine bakalım.
+
+```{r}
+plot(data=abalone_veri, Yas~Uzunluk)
+
+```
+Acaba yaş ile uzunluk arasındaki ikişki nasıl? Doğrusal bir ilişki var mı? Bir cümle ile cevaplayınız (Bu cevabın aynısını kağıda da yazınız):
+
+> Bu iki veri birlikte artış göstermektedir ve bu pozitif korelasyondur.
+>
+>
+
+Modelleme yapalım (modelin ismi `model1` olsun) ve modelin özet istatistiklerini elde edelim:
+
+```{r}
+model1 <- lm(data = abalone_veri, Yas~Uzunluk)
+summary(model1)
+
+```
+
+Şimdi tekrar `Uzunluk` değişkeninin, `Yas` değişkeni arasındaki nokta grafiğini oluşturalım ve regresyon çizgisini ekleyelim (çizgyi kırmızı renkle boyayınız):
+
+Birkaç soru sonra 0.5-0.7 aralığında inceleme yapmamız istenecektir. Daha iyi gözlem için istersek bu aralığın hattını burada hazırlayabiliriz:
+
+```{r}
+plot(data=abalone_veri, Yas~Uzunluk)
+abline(model1, col = "red", lwd=5)
+abline(v=0.5, col= "blue", lwd = 4)
+abline(v=0.7, col = "blue", lwd = 4)
+
+```
+
+Yukarıdaki iki sonuca göre aşağıdaki soruları cevaplayınız:
+
+Sizce `Yas` ve `Uzunluk` arasındaki bağlantı, 0.001 `alfa` değerine (p-değeri eşiği) göre anlamlı mı? (Bu cevabın aynısını kağıda da yazınız.)
+
+> Evet anlamlıdır. p değeri 2e-16'da ***olarak gösterilmiş ki bu p değerinin 0.001'de anlamlı olduğunu gösterir. 
+>
+>
+
+Modelden elde edilen artık değerleri (residuals) sizce homojen bir şekilde dağılmış mı? (Bu cevabın aynısını kağıda da yazınız.)
+
+> Hayır, residuals değerleri basitçe sayı doğrusunda simetrik değerler gösterdiği sürece homojen dağılmıştır diyebiliriz. Örneğin min/max, 1Q/3Q değerleri, sayı doğrusu 0 orijininde, ''homojen dağılmştır'' ifadesini kullanabileceğimiz kadar simetrik değildir. 
+>
+>
+
+Elde ettiğiniz bu model, toplam varyasyonun yüzde kaçını kapsıyor? (Bu cevabın aynısını kağıda da yazınız.)
+
+>Bunun için Adjusted R-squared değerine bakılır. Bu modelde de bu değer yaklaşık %31'dir.
+>
+>
+
+Grafiğe baktığınızda, oluşturduğunuz modelin performansı 0.5 - 0.7 `Uzunluk` değeri aralığında nasıl bir performans gösteriyor? Bu aralıktaki hata oranının yüksek mi yoksa düşük mü olmasını beklersiniz?
+Tahmini bir aralık belirtebilir misiniz? (Bu cevabın aynısını kağıda da yazınız.)
+
+> Çizgiyi incelediğimizde, soruda belirtilen aralıktan oldukça uzak değerler olduğunu görüyoruz. Bunlar standart hatadır ve standart hata fazlalığı hatanın göreceli fazla olduğunu gösterir.
+>
+>
+>
+
+## Çoklu modeller
+
+Peki şimdi diğer değişkenleri işin içine katalım. `Cinsiyet` değişkeni haricindeki diğer değişkenleri kullanarak bir çoklu model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `Model2` olsun. Modeli oluşturduktan sonra özet istatistiklerini görüntüleyin.
+
+'~' işareti sonrasına '.' eklediğimizde, veri setindeki bütün veri gruplarını alır. '+' veya '-' tuşlarıyla sırasıyla veri grubu ekleme ve çıkarmaları yapabiliriz.
+
+```{r}
+model2 <- lm(data = abalone_veri, Yas~. - Cinsiyet)
+summary(model2)
+        
+```
+
+Sadece `Uzunluk` değişkeni ile yaptığımız modele göre nasıl bir değişiklik gördük? Çok değişkenli modelimiz acaba tahmin performansımızı arttırmış olabilir mi? Aşağıdaki soruları cevaplayınız:
+
+Yeni modelde artık değerlerinin dağılımıları nasıl? Modelin içerisinden artık değerlerini `model2$residuals` yazarak elde edebilirsiniz. Bu değerlerin histogramını oluşturunuz:
+
+```{r}
+hist(model2$residuals)
+
+```
+
+Sizce artık değerleri, tek değişkenli modele göre daha homojen bir şekilde mi dağılmış? (Bu cevabın aynısını kağıda da yazınız.)
+
+> Evet hem histogram üzerinde hem de summary üzerinde görüldüğü üzere 1Q/3Q ve min/max değerleri, model1'e oranla daha simetrik görünmektedir. 
+>
+>
+
+Yeni modelimizin kapsadığı varyasyon oranı ne kadar? Eski modele göre bir gelişme var mı? (Bu cevabın aynısını kağıda da yazınız.)
+
+>R-squared değerlerine göre model2 %52'lik varyasyonu kapsar. Model1'de bu değer yaklaşık olarak %31'di. Buna bağlı olarak gelişme vardır diyebiliriz.
+>
+>
+
+Sizce hangi değişken artık `Yas` değeri ile ilişkisini kaybetti? (Bu cevabın aynısını kağıda da yazınız.)
+
+> 'Uzunluk' değeri, 'Yas' ile ilişkisini kaybetmiştir. Summary p-value'da Uzunluk p değeri için yıldızlar kaybolmuştur ki zaten 0.38 p-value için oldukça düşük bir değerdir ve bu verinin güvenilirliğini düşürür.
+>
+>
+
+## Çok değişkenli modeli güncelleme
+
+Bu değişkeni çıkartarak yeni bir model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `model3` olsun. Modeli oluşturduktan sonra özet istatistiklerini görüntüleyin:
+
+```{r}
+model3 <- lm(data = abalone_veri, Yas~. - Cinsiyet -Uzunluk)
+summary(model3)
+
+```
+
+Şimdi son bir ekleme daha yapalım. `Cinsiyet` değişkenini de modele dahil edelim:
+
+```{r}
+model4 <- lm(data=abalone_veri, Yas~. -Uzunluk )
+summary(model4)
+
+```
+
+Cinsiyet değişkenini eklediğimizde modelin performansında bir iyileşme gördük mü? (Bu cevabın aynısını kağıda da yazınız.)
+
+> Evet R-squared değerleri ikisinde de artış göstermiştir. Bu değer modelin verileri kapsama/ifade edebilme "gücünü" göstermektedir.
+>
+>
