@@ -1,0 +1,223 @@
+---
+title: "Dosya okuma pratiği"
+author: ""
+output: html_document
+
+---
+
+İlk olarak dosyanız nerede? Eğer çalışma klasörünüzü öğrenmek istiyorsanız:
+
+```{r}
+getwd()
+```
+
+Ancak Proje oluşturursanız ve dosyalarınızı proje klasörü içinde saklarsanız, işiniz daha kolay olur.
+
+## Sorunlar
+
+Yaşanan en büyük sorun, veride kullanılan ayracı düzgün bir şekilde seçmemek. Genel olarak dört tip ayraç var:
+
+- `;`
+- `,`
+- ` ` (Boşluk karakteri)
+- `\t` (Tab karakteri)
+
+Bu pratik kağıdında, yukarıda belirtilen dört farklı ayraç ile oluşturulmuş farklı veri dosyaları inceleyeceksiniz.
+
+Ben bir veri dosyası yüklemek istesem, önce veriyi not defteri gibi bir programla açarım. Aşağıda verilen verileri ise sağ tıklayıp yeni pencerede açabilirsiniz.
+
+Daha sonra sütunlar arasında hangi ayracın kullanıldığına bakarız. Siz, dört farklı ayracı da test edebilir ve hangisi çalışıyorsa onu kullanabilirsiniz.
+
+## Soru 1
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyunuz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv", sep = ";", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 2
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv", sep = ",", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 3
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt", sep = " ", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 4
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt", sep = "\t", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 5
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv", sep = ",", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
+
+## Soru 6
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv)
+
+```{r}
+veri <- read.table("https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv", sep = ",", header = TRUE)
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+dim(veri)
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+colnames(veri)
+```
+
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+head(veri, n = 5)
+
+# veya
+
+veri[1:5, ]
+```
