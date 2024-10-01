@@ -1,0 +1,120 @@
+---
+title: "Meme kanseri pratik"
+author: ""
+date: "2024-06-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Final sınavı kapsamında Meme kanseri üzerine yapılmış mikrodizin verisini analiz edeceksiniz. Bu kapsamda aşağıdaki adımları gerçekleştirmeniz gereklidir:
+
+1. Veri yükleme
+2. Veri kalite kontrolü
+3. Ayrımsal gen anlatım analizi
+4. Anlatımlar en anlamlı şekilde değişmiş genlerin analizi
+
+Çalışmada kullanılacak verilere aşağıdan erişebilirsiniz:
+
+[Mikrodizin verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/final-gene-expression.txt)
+[Metadata verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/final-metadata.txt)
+
+## Soru 1 (10 puan)
+
+Bahsedilen veriyi ve metadata verisini yükleyiniz
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 2 (10 puan)
+
+Bu veriyi matrise dönüştürünüz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 3 (5 puan)
+
+Gen anlatım matrisinin boyutlarını geri döndürünüz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+Metadata verisinde bulunan `Durum` koşullarının frekans tablosunu oluşturunuz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 4 (5 puan)
+
+Kalite kontrol değerlerini belirleyiniz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 5 (5 puan)
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 6 (25 puan)
+
+Bu veride, sağlıklı ve hastalıklı örnekler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 7 (5 puan)
+
+Alfa 0.001 değerine göre kaç tane genin anlatımı anlamlı bir şekilde değişmiş? Hesaplayınız:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 8 (5 puan)
+
+Anlatımları en anlamlı şekilde değişen ilk 3 geni tespit ediniz (en küçük p değerine sahip olanlar) ve bu genlerin isimlerini geri döndürünüz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 9 (15 puan)
+
+Bu üç gene ait kutu grafikerini oluşturunuz:
+
+```{r}
+# Kodlarinizi buraya yaziniz
+
+```
+
+## Soru 10 (15 puan)
+
+Bu genlerin anlatımları hakkında ne söyleyebilirsiniz? Cevap kağıdınıza yazınız:
+
+>
+>
+>
+>
+>
+>
+
