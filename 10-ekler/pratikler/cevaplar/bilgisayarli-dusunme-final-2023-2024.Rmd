@@ -1,0 +1,137 @@
+---
+title: "Meme kanseri pratik"
+author: "Emrah Kırdök, Ph. D."
+date: "2024-06-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Final sınavı kapsamında Meme kanseri üzerine yapılmış mikrodizin verisini analiz edeceksiniz. Bu kapsamda aşağıdaki adımları gerçekleştirmeniz gereklidir:
+
+1. Veri yükleme
+2. Veri kalite kontrolü
+3. Ayrımsal gen anlatım analizi
+4. Anlatımlar en anlamlı şekilde değişmiş genlerin analizi
+
+Aşağıda ise, bu veri kullanılarak oluşturumluş bir birincil öz bileşen tahlili analizi görmektesiniz. 
+
+```{r echo = FALSE}
+expression <- read.table(file = "data/final-gene-expression.txt", header = T)
+metadata <- read.table(file = "data/final-metadata.txt", header = T)
+
+pca <- prcomp(x = t(expression))
+df <- data.frame(pca$x)
+df$Durum <- metadata$Durum
+library(ggplot2)
+
+ggplot(data = df, aes(x = PC1, y = PC2)) + geom_point(aes(shape = Durum, color = Durum)) + theme_bw()
+```
+
+## Soru 1 (10 puan)
+
+Bahsedilen veriyi ve metadata verisini yükleyiniz:
+
+```{r}
+expression <- read.table(file = "data/final-gene-expression.txt", header = T)
+metadata <- read.table(file = "data/final-metadata.txt", header = T)
+
+```
+
+## Soru 2 (10 puan)
+
+Bu veriyi matrise dönüştürünüz:
+
+```{r}
+expression <- as.matrix(expression)
+```
+
+## Soru 3 (5 puan)
+
+Gen anlatım matrisinin boyutlarını geri döndürünüz:
+
+```{r}
+dim(expression)
+```
+
+Metadata verisinde bulunan `Durum` koşullarının frekans tablosunu oluşturunuz:
+
+```{r}
+table(metadata$Durum)
+```
+
+## Soru 4 (5 puan)
+
+Kalite kontrol değerlerini belirleyiniz:
+
+```{r}
+boxplot(expression)
+```
+
+## Soru 5 (5 puan)
+
+```{r}
+plot(hclust(dist(t(expression))), labels = metadata$Durum)
+```
+
+## Soru 6 (25 puan)
+
+Bu veride, sağlıklı ve hastalıklı örnekler arasında gen anlatım farklılıklarının anlamlı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz:
+
+```{r}
+p.value <- rep(0, nrow(expression))
+
+for (i in 1:nrow(expression)){
+  kontrol <- expression[i, metadata$Durum=="normal"]
+  uygulama <- expression[i, metadata$Durum=="tumoral"]
+
+  test <- t.test(x = kontrol, y = uygulama)
+  p.value[i] <- test$p.value
+}
+```
+
+## Soru 7 (5 puan)
+
+Alfa 0.001 değerine göre kaç tane genin anlatımı anlamlı bir şekilde değişmiş? Hesaplayınız:
+
+```{r}
+# Kodunuzu asagiya yaziniz
+sum(p.value < 0.001)
+```
+
+## Soru 8 (5 puan)
+
+Anlatımları en anlamlı şekilde değişen ilk 3 geni tespit ediniz (en küçük p değerine sahip olanlar) ve bu genlerin isimlerini geri döndürünüz:
+
+```{r}
+rows <- head(order(p.value), n = 3)
+rows
+
+rownames(expression)[rows]
+```
+
+## Soru 9 (15 puan)
+
+Bu üç gene ait kutu grafikerini oluşturunuz:
+
+```{r}
+boxplot(expression[1038,]~metadata$Durum)
+
+boxplot(expression[1604,]~metadata$Durum)
+
+boxplot(expression[1065,]~metadata$Durum)
+```
+
+## Soru 10 (15 puan)
+
+Bu genlerin anlatımları hakkında ne söyleyebilirsiniz? Cevap kağıdınıza yazınız:
+
+>
+>
+>
+>
+>
+>
+
