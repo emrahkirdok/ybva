@@ -1,0 +1,220 @@
+---
+title: "Dosya okuma pratiği"
+author: ""
+output: html_document
+---
+
+İlk olarak dosyanız nerede? Eğer çalışma klasörünüzü öğrenmek istiyorsanız:
+
+```{r}
+getwd()
+```
+
+Ancak Proje oluşturursanız ve dosyalarınızı proje klasörü içinde saklarsanız, işiniz daha kolay olur.
+
+## Sorunlar
+
+Yaşanan en büyük sorun, veride kullanılan ayracı düzgün bir şekilde seçmemek. Genel olarak dört tip ayraç var:
+
+- `;`
+- `,`
+- ` ` (Boşluk karakteri)
+- `\t` (Tab karakteri)
+
+Bu pratik kağıdında, yukarıda belirtilen dört farklı ayraç ile oluşturulmuş farklı veri dosyaları inceleyeceksiniz.
+
+Ben bir veri dosyası yüklemek istesem, önce veriyi not defteri gibi bir programla açarım. Aşağıda verilen verileri ise sağ tıklayp yeni pencerede açabilirsiniz.
+
+Daha sonra sütunlar arasında hangi ayracın kullanıldığına bakarım. Siz, dört farklı ayracı da test edebilir ve hangisi çalışıyorsa onu kullanabilirsiniz.
+
+## Soru 1
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyunuz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+## Soru 2
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+## Soru 3
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+## Soru 4
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+## Soru 5
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+## Soru 6
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile yükleyiniz:
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv](https://raw.githubusercontent.com/emrahkirdok/ybva/main/02-veri-analizi/data/sra_stat.csv)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz verinin ilk 5 satırını geri döndüren kodu yazınız:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
