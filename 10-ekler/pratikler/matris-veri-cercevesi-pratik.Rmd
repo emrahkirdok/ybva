@@ -1,0 +1,223 @@
+---
+title: "Matrisler Veri Çerçeveleri Pratik"
+author: ""
+output: html_document
+
+---
+
+## Matrisler
+
+Matrisler, vektörler gibi sadece tek bir tip veri içermelidir. Yani ya sayısal ya karakter ya mantıksal ya da faktör verisi içermelidir.
+
+Öncelikle rastgele bir vektör oluşturalım:
+
+```{r}
+vektor <- sample(x = seq(1,100,0.1), size = 20, replace = TRUE)
+```
+
+Şimdi bu vektörü 4 x 5'lik bir matrise çeviren kodu yazınız:
+
+```{r}
+matris <- matrix(data = vektor, nrow = 4, ncol = 5)
+```
+
+Burada `ncol` sütun sayısını, `nrow` ise satır sayısını ifade etmektedir.
+
+Peki bu matrisin boyutları nedir? Bu matrisin satır ve sütun sayılarını geri döndüren kodu yazınız:
+
+```{r}
+dim(matris)
+```
+
+Bununla birlikte satır ve sütun sayılarını da ayrı ayrı elde edebileceğiniz kodları yazabilir misiniz?
+
+```{r}
+nrow(matris)
+ncol(matris)
+```
+
+## Matris'lerde hareket
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
+Matris'lerde hareket etmek için indisleri kullanabiliriz. Mesela 2. satır ve 5. sütundaki veriye nasıl erişebiliriz?
+=======
+Matris'lerde harket etmek için indisleri kullanabiliriz. Mesela 2. satır ve 5. sütundaki veriye erişen kodu yazabilir misiniz?
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/matris-veri-cercevesi-pratik.Rmd
+
+```{r}
+matris[2, 5]
+```
+
+Sadece ikinci sütuna erişmek istesek?
+
+```{r}
+matris[ ,2]
+```
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
+
+Peki üçüncü satıra erişmek istesek?
+=======
+Peki üçüncü satıra erişsek?
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/matris-veri-cercevesi-pratik.Rmd
+
+```{r}
+matris[3, ]
+```
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
+İstersek vektör olarak bir sayı dizisi verebiliriz:
+=======
+
+Son olarak, 1. satır ve 3. satır arasındaki, ve 1. sütun ile 3. sütun arasındaki verilere erişmek için kullanacağımız kodu yazabilir misiniz?
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/matris-veri-cercevesi-pratik.Rmd
+
+```{r}
+matris[1:3, 1:3]
+```
+
+Son olarak yukarıda elde ettiğimiz matris, `mat` değişkeni içine atayalım:
+
+```{r}
+mat <- matris[1:3, 1:3]
+```
+
+## Matrislerde satır ve sütun isimleri
+
+İki farklı fonksiyon ile satır ve sütun isimleri atayabiliriz:
+
+- `colnames` ile sütun isimleri
+- `rownames` ile de satır isimleri
+
+```{r}
+colnames(matris) <- c("A", "B", "C", "D", "E")
+rownames(matris) <- c("X", "Y", "Z", "T")
+```
+
+Bu matrisin satır ve sütun isimlerini geri döndüren kodu yazabilir misiniz?
+
+```{r}
+colnames(matris)
+
+rownames(matris)
+```
+
+## Veri Çerçeveleri
+
+Veri çerçevelerinde ise farklı tipte veri bulunan vektörleri birleştirebiliriz. Örnek olarak aşağıda bir tablo bulunmaktadır.
+
+
+| Karat |  Kesim  | Derinlik |
+|------:|:--------|---------:|
+| 0.41  | Luks    | 59.7     |
+| 0.4   | Ideal   | 61.5     |
+| 0.38  | Ideal   | 60.9     |
+| 1.25  | Cok iyi | 61       |
+| 0.71  | Cok iyi | 60.2     |
+| 0.71  | Ideal   | 62       |
+| 0.33  | Ideal   | 63       |
+| 0.32  | Cok iyi | 61.2     |
+| 0.52  | Cok iyi | 61.2     |
+
+
+Bu tabloya bakarsanız hem sayı hem de karakter değerleri bulunmaktaktadır. Her birisi için bir vektör oluşturalım:
+
+```{r}
+Karat <- c(0.41, 0.4, 0.38, 1.25, 0.71, 0.71, 0.33, 0.32, 0.52)
+Kesim <- c("Luks", "Ideal", "Ideal", "Cok iyi", "Cok iyi", "Ideal", "Ideal", "Cok iyi", "Cok iyi")
+Derinlik <- c(59.7, 61.5, 60.9, 61, 60.2, 62, 63, 61.2, 61.2)
+
+```
+
+Bir veri çerçevesi oluşturalım mı?
+
+```{r}
+elmaslar <- data.frame(Karat = Karat, Kesim = Kesim, Derinlik = Derinlik)
+
+```
+
+Acaba bu veri tiplerine baksak olur mu?
+
+```{r}
+str(elmaslar)
+```
+
+## Satır ve sütun isimleri
+
+Bu veri çerçevesindeki satır ve sütun isimlerini geri döndüren kodları yazabilir misiniz?
+
+```{r}
+colnames(elmaslar)
+
+rownames(elmaslar)
+```
+
+## Veri çerçeveleride hareket
+
+Bu veri çerçevesinde 2. satır 4. sütuna erişen kodu yazabilir misiniz?
+
+
+```{r}
+elmaslar[2, 4]
+```
+
+Peki sütunlara nasıl erişebiliriz? Mesela `Derinlik` sütununa erişen kodu yazabilir misiniz?
+
+Sadece sütun numarası ile bu sütuna erişen kodu yazınız:
+
+```{r}
+elmaslar[ ,3]
+```
+
+Sütun ismi ile erişen kodu yazınız:
+
+```{r}
+elmaslar$Derinlik
+```
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
+Yine sütun ismi ile:
+
+```{r}
+elmaslar["Derinlik"]
+```
+
+Son olarak yine sütun numarası ile:
+
+
+```{r}
+elmaslar[[3]]
+```
+
+Peki 0.5 karat'da büyük elmaslara ait bütün satırları nasıl elde edebiliriz?
+=======
+Peki, 0.5 karat'da büyük elmaslara ait bütün satırları nasıl elde edebiliriz?
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/matris-veri-cercevesi-pratik.Rmd
+
+```{r}
+elmaslar[elmaslar$Karat>0.5, ]
+```
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/matris-veri-cercevesi-pratik.Rmd
+Adım adım yapalım. Önce sadece Karat değeri 0.5'den büyük elemanları bulalım:
+
+```{r}
+elmaslar$Karat>0.5
+```
+
+Daha sonra bunu veri çerçevesindeki satır indisi kısmına koyalım:
+
+```{r}
+elmaslar[elmaslar$Karat>0.5, ]
+```
+
+Peki kesimleri İdeal olan elmaslara ait satırları nasıl elde edebiliriz?
+=======
+Peki, kesimleri İdeal olan elmaslarlara ait satırları nasıl elde edebiliriz?
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/matris-veri-cercevesi-pratik.Rmd
+
+```{r}
+elmaslar[elmaslar$Kesim == "Ideal", ]
+```
+
+
