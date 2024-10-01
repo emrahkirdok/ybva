@@ -1,0 +1,192 @@
+---
+title: "Veri Çerçeveleri"
+author : ""
+output: html_document
+---
+
+Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
+
++ isimler
++ boy
++ kilo
++ cinsiyet 
+
+Unutmayın, cinsiyet vektörü faktör vektörü olmalı!
+
+| İsimler |  Boy | Kilo | Yaş | Cinsiyet |
+|---------|------|------|-----|----------|
+| Aslı    | 1.76 |   67 |  35 | m        |
+| Sibel   | 1.72 |   66 |  66 | f        |
+| Tarkan  | 1.65 |   65 |  26 | m        |
+| Sezen   | 1.62 |   80 |  32 | m        |
+| Ali     | 1.94 |   59 |  58 | m        |
+| Barış   | 1.94 |   53 |  34 | f        |
+| Şebnem  | 1.75 |   70 |  23 | m        |
+| Funda   | 2.00 |   75 |  24 | m        |
+| Murat   | 1.75 |   51 |  64 | m        |
+| Arda    | 1.70 |   73 |  18 | m        |
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+isimler <- c("Aslı", "Sibel" ,"Tarkan" ,"Sezen" ,"Ali" ,"Barış" ,"Şebnem" ,"Funda" ,"Murat" ,"Arda")
+boy <- c(1.76,1.72,1.65,1.62,1.94,1.94,1.75,2.00,1.75,1.70)
+kilo <- c(67,66,65,80,59,53,70,75,51,73)
+yas <- c(35,66,26,32,58,34,23,24,64,18)
+cinsiyet <- factor(c("m","f","m","m","m","f","m","m","m","m"))
+```
+
+İsimler vektöründeki 6. elemanı geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+isimler[6]
+```
+
+Boy vektörünü kullanarak, 1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+boy[boy >1.60]
+```
+
+Yukarıda verilen verileri kullanarak `isimler`, `boy`, `kilo`, `yas` ve `cinsiyet` vektörlerini içeren `ekip` isimli bir veri çerçevesi oluşturunuz:
+
+```{r}
+# cevabinizi asagiya yaziniz
+ekip <- data.frame(isimler,cinsiyet,boy,kilo,yas)
+```
+
+Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+dim(ekip)
+```
+
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+colnames(ekip)
+```
+
+İkinci satırı geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+ekip[2, ]
+```
+
+Bu veri çerçevesinde 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+ekip[,3:5]
+```
+
+Bu veri çerçevesindeki kilo değerlerini geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+ekip$kilo
+
+# Veya o sütunun numarası:
+
+ekip[,3]
+```
+
+Vücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:
+
+$$
+vki = \frac{kilo}{boy^2}
+$$
+
+Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz.
+
+```{r}
+# cevabinizi asagiya yaziniz
+vki <- ekip$kilo/ekip$boy^2
+```
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/04-vize-pratik.qmd
+:::{.callout-note}
+## Vektörel işlemler
+
+Bazı arkadaşlar bir önceki soruya şöyle cevap vermişler. `ekip$kilo/ekip$boy^2` işlemini yaptığınızda geriye bir vektör döndürülür. Dolayısıyla `c()` fonksiyonunu kullanmaya gerek yok.
+
+```{r eval = FALSE}
+# cevabinizi asagiya yaziniz
+vki <- c(ekip$kilo/ekip$boy^2)
+```
+:::
+
+Şimdi, `ekip` vektörü içerisinde vücut kitle indeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:
+=======
+Şimdi, `ekip` vektörü içerisinde vücut kitle endeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/cevaplar/veri-cerceveleri.Rmd
+
+```{r}
+# cevabinizi asagiya yaziniz
+ekip$isimler[vki > 25]
+```
+
+0luşturduğunuz `vki` isimli vektörü `ekip` veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi `vki` olsun) :
+
+```{r}
+# cevabinizi asagiya yaziniz
+ekip$vki <- vki
+```
+
+<<<<<<< HEAD:04-pratikler/01-veri-analizi/04-vize-pratik.qmd
+:::{.callout-note}
+## Veri çerçevesinde sütun oluşturmak
+
+Veri çerçevesinde yeni bir sütun oluşturmak için doğrudan `$` fonksiyonunu kullanabiliriz. Şu şekilde yapan arkadaşlar var. Yanlış değil ama çok da işlevsel değil.
+
+```{r eval = FALSE}
+# cevabinizi asagiya yaziniz
+ekip <- data.frame(isimler, cinsiyet, boy, kilo, yas, vki)
+```
+:::
+
+
+Ekipteki 25 yaş altı kişilerin isimlerini kapsayan `gencler` isimli yeni bir vektör oluşturnuz:
+=======
+Ekipteki 25 yaş altı kişilerin isimlerini kapsayan `gencler` isimli yeni bir vektör olusturnuz:
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/cevaplar/veri-cerceveleri.Rmd
+
+```{r}
+# cevabinizi asagiya yaziniz
+gencler <- ekip$isimler[ekip$yas < 25]
+```
+
+Ekipteki 1.80 üzerindeki kişilerin isimlerini kapsayan `uzunlar` isimli bir vektör oluşturunuz:
+
+```{r}
+# cevabinizi asagiya yaziniz
+uzunlar <- ekip$isimler[ekip$boy > 1.80]
+```
+
+Aşağıda bağlantısı verilen verilen `gumus_agaci.txt` isimli dosyayı okuyunuz ve `gumus_agaci` ismini kullanarak R içerisine aktarınız. Verinin ilk satırı sütun isimleri olarak belirlenmiştir. Sütunlar tab (`\t`) karakteri ile ayrılmıştır.
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt][https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt]
+
+```{r}
+# cevabinizi asagiya yaziniz
+gumus_agaci <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt", header = TRUE, sep =  "\t")
+```
+
+Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+dim(gumus_agaci)
+```
+
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+colnames(gumus_agaci)
+```
