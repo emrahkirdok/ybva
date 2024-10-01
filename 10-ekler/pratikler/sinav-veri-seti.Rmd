@@ -1,0 +1,140 @@
+---
+title: "Veri Analizi Final Sınavı"
+author: "Emrah Kırdök"
+date: "06 06 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Verinin hikayesi
+
+Veri analizi üzerine verilen bir R dersi kapsamında, iki farklı üniversiteden elde edilen sonuçlar derlenmiştir. Bu çalışma kapsamında iki temel soru cevaplanmaya çalışılmıştır:
+
++ Veri analizi dersindek başarının farklı üniversitelerdeki değişimi
++ Bilgisayar ve istatistik dersi bilgilerinin veri analizi dersi üzerindeki etkisi
+
+Bu kapsamda elde edilmiş ölçümler ile ilgili bilgileri aşağıda bulabilirsiniz:
+
++ `kod`: Derse katılan öğrencinin kodu
++ `veri_analizi`: Veri analizi dersinde öğrencinin aldığı not (100 üzerinden)
++ `bilgisayar`: Öğrencinin bilgisayar dersinden aldığı not
++ `istatistik`: Öğrencinin istatistik dersinden aldığı not
++ `universite`: Çalışmaların yapıldığı üniversiteler
+
+# Veri yükleme
+
+Lütfen aşağıda bağlantısı verilmiş `sinav.csv` verisini aşağıdaki bilgileri kullanarak yükleyiniz:
+
++ [Veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/sinav.csv)
++ Ayraç (`sep`): `;`
++ Başlık satırları (`header`) bulunmaktadır.
+
+Yükleme kodunu aşağıya yazınız (7 puan):
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+# Veriyi tanıma
+
+Yüklediğiniz veri çerçevesinin boyutlarını geri döndüren kodu yazınız (7 puan):
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Yüklediğiniz veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız (7 puan):
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Çalışmaya katılan üniversiteler hakkında frekans tablosu oluşturabilir misiniz? Her üniversiteden kaç tane ölçüm var? (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+# Histogramlar
+
+Oluşturulacak grafikler için `ggplot2` paketini kullanınız.
+
+Öğrencilerin veri analizi dersindeki başarsını gösteren histogramı çizebilir misiniz? (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Öğrencilerin bilgisayar derslerinden aldığı notları gösteren histogramı çizebilir misiniz? (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Öğrencilerin istatistik derslerinden aldığı notları gösteren histogramı çizebilir misiniz? (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+# Nokta grafikleri
+
+Bilgisayar ve istatistik derslerindeki başarı acaba veri analizini etkiliyor mu? 
+
+İlk olarak veri analizi dersindeki başarı ve bilgisayar dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni bilgisayar dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Şimdi de veri analizi dersindeki başarı ve istatistik dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni istatistik dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+# Kutu grafikleri
+
+Farklı üniversitelerdeki veri analizi dersi sınav başarısını gösteren kutu grafiğini çizebilir misiniz? (7 puan)
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+
+# T-test (10 puan)
+
+Peki test edilen iki üniversitedeki veri analizi dersleri başarısı arasında anlamlı bir farklılık var mı? Bu sorunun cevabını *t-test* ile test edebilir misiniz?
+
+Kodunuzu, şu adımları izleyerek oluşturabilirsiniz:
+
+1. Önce `Universite_1` için `veri_analizi` dersi başarı notlarını alın ve `x` değişkeni içinde depolayın
+2. Sonra `Universite_2` için `veri_analizi` dersi başarı notlarını alın ve `y` değişkeni içinde depolayın
+3. `t-test` fonkisyonu ile testi gerçekleştirin ve sonuçları `test` değişkeni içinde depolayın
+4. Son olarak test hakkındaki bilgileri ekrana yazdırın.
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
+Buraya kadar geldiyseniz Veri analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
+
+```{r}
+# kodunuzu asagiya yaziniz
+
+```
+
