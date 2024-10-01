@@ -1,0 +1,116 @@
+---
+title: "Boston Veriseti Pratik"
+author: ""
+number: ""
+date: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu veri setinde, Boston şehrinde bulunan farklı mahallelerden elde edilen istatistik veriler derlenmiştir. Aşağıda bu veriler hakkında bilgileri bulabilirsiniz:
+
++ `medv`: Her mahalledeki ev fiyatlarının ortanca değeri 
++ `lstat`: Mahallede bulunan düşük sosyoekonomik seviyeye sahip ev sayısı
++ `rm`: Mahallede bulunan evlerdeki ortalama oda sayısı
++ `chas`: Mahallelerin Charles nehrine yakınlık durumları (0: Charles nehrine yakın değil, 1: Charles nehri yakınında)
+
+## Soru 1
+
+Lütfen ekte indirdiğiniz veri çerçevesini R içerisine yükleyecek kodu yazınız:
+
+```{r}
+
+```
+
+## Soru 2
+
+Elde ettiğiniz veri çerçevesinin boyutlarını (satır ve sütun sayılarını) geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+Bu veri çerçevesindeki sütunları geri döndüren kodu yazınız:
+
+```{r}
+
+```
+
+Bu veri çerçevesinde bulunan `chas` sütunu aslında bir kategori değişkeni. Acaba bu sütunu kategori değişkeni haline çeviren kodu yazabilir misiniz?
+
+```{r}
+
+```
+
+## Soru 3: Histogramlar
+
+Boston veri setinde `medv` sütünundaki verilerin dağılımını gösteren bir histogram elde edebilir misiniz? Unutmayın, grafikleri tam ve eksiksiz bir şekilde hazırlamalısınız (Eksen isimlerine dikkat edin)
+
+```{r}
+
+```
+
+Peki, şimdi `rm` değişkeni için aynı histogramı oluşturabilir misiniz?
+
+```{r}
+
+```
+
+## Soru 4: Kutu grafikleri
+
+Yukarıdaki soruda bulunan `medv` ve `rm` değişkenleri için ayrı ayrı iki kutu grafiği oluşturunuz.
+
+Öncelikle `medv` için:
+
+```{r}
+
+```
+
+Şimdi de `rm` için:
+
+```{r}
+
+```
+
+## Soru 5: İki ekseni birlikte kullanma
+
+Ortalama ev değerleri, Charles nehrinin yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
+
+```{r eval = TRUE}
+
+```
+
+## Soru 6: Ev fiyatları hangi değişkenlerden etkilenebilir?
+
+Bir araştırmacı, ev fiyatlarının farklı değişkenlerle bağlı olan değişimini incelemek istiyor. Bu amaçla iki farklı grafik tasarlıyor:
+
++ `medv` ve `lstat` değişkenleri arasındaki ilişki
++ `medv` ve `rm` değişkenleri arasındaki ilişki
+
+Ev fiyatları ve düşük sosyoekonomik seviye arasındaki ilişkiyi gösteren nokta grafiğini oluşturabilir misiniz? (y ekseni `medv`, x ekseni `lstat`)
+
+```{r}
+
+```
+
+Sizce bu iki değişken arasında nasıl bir ikişki var? Bir cümleyle açıklayabilir misiniz? Cevabınızı aşağıdaki \> ile başkaya satırlara yazınız:
+
+> Grafiğe bakıldığında; ev fiyatları ile mahallelerdeki sosyo ekonomik seviye arasında bir ilişki var.
+> Bir mahallede düşük sosyoekonomik seviyeye sahip ev miktarı arttıkça, o mahalledeki ev fiyatlarında bir azalış gözleniyor.
+
+Peki ev fiyatları ve mahalledeki ortalama oda sayısı arasındaki ilişkiyi açıklayan grafiği oluşturabilir misiniz?
+
+```{r}
+
+```
+
+Grafiğe baktığınızda, oda sayısı ve ev fiyatları arasında nasıl bir ilişki var? Bir kaç cümleyle aşağıya açıklayabilir misiniz?
+
+> 
+> 
+>
+>
+
