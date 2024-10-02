@@ -1,0 +1,152 @@
+---
+title: "Veri Çerçeveleri"
+author : ""
+output: html_document
+---
+
+Aşağıda hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
+
++ isimler
++ boy
++ kilo
++ cinsiyet 
+
+Unutmayın cinsiyet vektörü faktör vektörü olmalı!
+
+| İsimler |  Boy | Kilo | Yaş | Cinsiyet |
+|---------|------|------|-----|----------|
+| Aslı    | 1.76 |   67 |  35 | m        |
+| Sibel   | 1.72 |   66 |  66 | f        |
+| Tarkan  | 1.65 |   65 |  26 | m        |
+| Sezen   | 1.62 |   80 |  32 | m        |
+| Ali     | 1.94 |   59 |  58 | m        |
+| Barış   | 1.94 |   53 |  34 | f        |
+| Şebnem  | 1.75 |   70 |  23 | m        |
+| Funda   | 2.00 |   75 |  24 | m        |
+| Murat   | 1.75 |   51 |  64 | m        |
+| Arda    | 1.70 |   73 |  18 | m        |
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+İsimler vektöründeki 6. elemanı geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Boy vektörünü kullanarak, 1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Yukarıda verilen verileri kullanarak `isimler`, `boy`, `kilo`, `yas` ve `cinsiyet` vektörlerini içeren `ekip` isimli bir veri çerçevesi oluşturunuz:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Oluşturduğunuz veri çerçevesinde satır ve sütunlarının sayısını geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazın:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+İkinci satırı geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Bu veri çerçevesinde 3. ve 5. sütunlar arasındaki bütün sütunları geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Bu veri çerçevesindeki kilo değerlerini geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Vücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:
+
+$$
+vki = \frac{kilo}{boy^2}
+$$
+
+Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Şimdi `ekip` vektörü içerisinde vücut kitle indeksi 25'in üstünde olan isimleri geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+0luşturduğunuz `vki` isimli vektörü `ekip` veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi `vki` olsun) :
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Ekipteki 25 yaş altı kişilerin isimlerini kapsayan `gencler` isimli yeni bir vektör olusturnuz:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Ekipteki 1.80 üzerindeki kişilerin isimlerini kapsayan `uzunlar` isimli bir vektör oluşturunuz:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Aşağıda bağlantısı verilen verilen `gumus_agaci.txt` isimli dosyayı okuyunuz ve `gumus_agaci` ismini kullanarak R içerisine aktarınız. Verinin ilk satırı sütun isimleri olarak belirlenmiştir. Sütunlar tab (`\t`) karakteri ile ayrılmıştır.
+
+[https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt][https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/gumus_agaci.txt]
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Bu veri çerçevesinin boyutlarını geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
+
+Bu veri çerçevesinin sütun isimlerini geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi asagiya yaziniz
+
+```
