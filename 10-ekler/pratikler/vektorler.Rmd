@@ -1,0 +1,86 @@
+---
+title: "Vektörler Pratik"
+author: ""
+date: ""
+output: html_document
+---
+
+Bu belge birinci ödeviniz için çözmeniz gereken soruları içermektedir. Başarılar.
+
+Cevaplarınızı R kod blokları içerisine yazacaksınız.
+
+`#` ile başlayan satırlar kod olarak çalıştırılmaz. Sadece yorum eklemek için kullanılır.
+
+Aşağıdaki tabloda 3 farklı iris bitkisine ait sepal ve petal uzunlukları bulunmaktadır. Ödevde ki soruları bu tabloya göre cevaplandıracaksınız:
+
+| Sepal Uzunluğu | Petal Uzunluğu |    Tür     |
+|---------------:|---------------:|:-----------|
+| 5.4            | 3.9            | setosa     |
+| 7.2            | 3.2            | virginica  |
+| 5.5            | 3.5            | setosa     |
+| 6.0            | 2.2            | virginica  |
+| 6.0            | 2.2            | versicolor |
+| 6.2            | 3.4            | virginica  |
+| 4.7            | 3.2            | setosa     |
+| 5.2            | 2.7            | versicolor |
+| 7.2            | 3.6            | virginica  |
+| 4.9            | 3.1            | setosa     |
+
+
+## Soru 1
+
+Bu tabloyu kullanarak aşağıdaki isimlere sahip üç farklı vektör oluşturunuz:
+
++ `sepal_uzunlugu`
++ `petal_uzunlugu`
++ `tur`
+
+```{r}
+# cevabinizi buraya yaziniz
+
+```
+
+## Soru 2
+
+Oluşturduğunuz bu üç vektörün uzunluklarını geri döndüren kodları yazınız:
+
+```{r}
+# cevabinizi buraya yaziniz
+
+```
+
+## Soru 3
+
+Sepal uzunluğu vektörü içerisindeki 3. elemana erişen kodu yazınız:
+
+```{r}
+# cevabinizi buraya yaziniz
+
+```
+
+## Soru 4
+
+Petal uzunluğu vektöründe, 3 ve 7. elemanlar arasında bulunan değerleri geri döndüren kodu yazınız:
+
+```{r}
+# cevabinizi buraya yaziniz
+
+```
+
+## Soru 5
+
+Petal uzunluğu vektörünü kullanarak petal uzunlukları 3.3'ten büyük olan değerleri geri döndürebilir misiniz?
+
+```{r}
+# cevabinizi buraya yaziniz
+
+```
+
+## Soru 6
+
+Sepal uzunluğu verilerini kullanarak sepal uzunlukları 5.2'den büyük olan türleri geri döndüren kodu yazabilir misiniz?
+
+```{r}
+# cevabinizi buraya yaziniz
+
+```
