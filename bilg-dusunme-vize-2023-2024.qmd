@@ -65,7 +65,7 @@ Bu formülü bir fonksiyon şeklinde ifade edebilir misiniz?
 
 + Fonksiyonun ismi `Tm` olsun. 
 + Bu fonksiyonun dört farklı girdisi ($A$, $T$, $C$, ve $T$ miktarları) olsun. 
-+ Geriye ise Ergime sıcaklığı değerini geri döndürsün
++ Geriye ise Ergime sıcaklığı değerini döndürsün
 
 ```{r}
 
