@@ -1,0 +1,13 @@
+Ornekler Durum
+Sample-768 normal
+Sample-770 normal
+Sample-772 normal
+Sample-774 normal
+Sample-776 normal
+Sample-778 normal
+Sample-769 tumoral
+Sample-771 tumoral
+Sample-773 tumoral
+Sample-775 tumoral
+Sample-777 tumoral
+Sample-779 tumoral
