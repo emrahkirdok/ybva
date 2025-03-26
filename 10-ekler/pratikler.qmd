@@ -34,7 +34,7 @@ Boston veri seti pratik:
 Gümüş ağacı veri seti pratik:
 
 + [Boş Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/gumus-agaci.Rmd)
-+ [Cevapları içeren Rmd dosyası](https://raw.githubusercontent.com/emrahkirdok/ybva/main/10-ekler/pratikler/cevaplar/gumus-agaci.Rmd)
++ [Cevapları içeren Rmd dosyası]()
 
 Sınav veri seti pratiği:
 
