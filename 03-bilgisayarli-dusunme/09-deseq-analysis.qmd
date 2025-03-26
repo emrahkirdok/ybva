@@ -1,6 +1,6 @@
 # Ayrımsal Gen İfadesi Analizi (DESeq Analizi)
 
-DESeq analizi, gen ifadesinin farklı koşullar veya gruplar arasında nasıl değiştiğini inceleyen ve bu değişikliklerin biyolojik anlamını anlamamıza yardımcı olan, R Studio kullanılarak gerçekleştirilen bir analiz yöntemidir.
+DESeq analizi; gen ifadesinin farklı koşullar veya gruplar arasında nasıl değiştiğini inceleyen ve bu değişikliklerin biyolojik anlamını anlamamıza yardımcı olan, R Studio kullanılarak gerçekleştirilen bir analiz yöntemidir.
 
 ## Hazırlık
 
@@ -65,6 +65,7 @@ for (i in 2:nrow(metadata)){
 }
 
 ```
+
 Birleştirdiğimiz sayı matrisini kontrol edelim.
 
 ```{r}
@@ -156,6 +157,7 @@ Outlierlara (Aykırı değerlere) bakalım.
 outliers <- count_matrix[res_dds[is.na(res_dds$Padj),]$Geneid,]
 nrow(outliers)
 ```
+
 Volcano (Yanardağ) plot oluşturalım.
 
 ```{r}

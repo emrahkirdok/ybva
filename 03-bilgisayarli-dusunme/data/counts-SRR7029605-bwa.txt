@@ -1,7 +1,7 @@
 # Program:featureCounts v2.0.6; Command:"featureCounts" "-T4" "-t" "CDS" "-a" "data/ref/GCA_000007565.2_ASM756v2_genomic.gtf" "-o" "results/counts/counts-SRR7029605-bwa.txt" "results/alignment/bwa/SRR7029605.sorted.bam" 
 Geneid	Chr	Start	End	Strand	Length	results/alignment/bwa/SRR7029605.sorted.bam
 PP_0001	AE015451.2	150	1019	-	870	981
-PP_0002	AE015451.2	1032	1820	-	789	1094
+PP_0002	AE015451.2	1032	1820	-	789	1094ssss
 PP_0003	AE015451.2	1842	2489	-	648	575
 PP_0004	AE015451.2	2489	4381	-	1893	2771
 PP_0005	AE015451.2	5015	6382	-	1368	1408

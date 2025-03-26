@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Abalone yumuşakçaları, denizlerde yaşayan kabuklu hayvanlardır. Bu hayvanları aslında rahatlıkla midyeler gibi düşünebilirsiniz.
 
-Bilim insanları, abalon yumuşakçalarının yaşlarını tahmin etmek için kabuklarını kesip mikroskop altında özel boyalarla yaş hakalarını sayıyorlar. Ancak bu iş oldukça zahmetli ve yorucu olmaktaktadır. Alternatif olarak ise, yumuşakçalardan alınacak bazı ölçümler kullanarak, yaş tahmini yapabilecek modeller oluşturabiliriz.
+Bilim insanları, abalone yumuşakçalarının yaşlarını tahmin etmek için kabuklarını kesip mikroskop altında özel boyalarla yaş halkalarını sayıyorlar. Ancak bu iş oldukça zahmetli ve yorucu olmaktaktadır. Alternatif olarak ise, yumuşakçalardan alınacak bazı ölçümler kullanarak, yaş tahmini yapabilecek modeller oluşturabiliriz.
 
 Bu kapsamda, gerekli modelleri oluşturarak bilim insanlarını bu zorlu işten kurtarınız.
 
@@ -44,7 +44,7 @@ Bu [dosyayı](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/abalo
 
 En kolayı, yeni bir proje klasörü oluşturmanız ve bu veriyi de o proje klasörü içerisine yüklemeniz olacaktır. Dosyanın uzantısı sizde farklı olabilir.
 
-Verimizi, sonrasında üzerinde çalışılmak üzere kolay takip edilebilir ve veriyi tanımlayıcı bir isime atayalım. Ayraç fonksiyonuna dikkat ediniz; zaten boşluk tuşu kullanıldığından tekrar belirtmek durumunda kalmadık. header fonksiyonunu TRUE olarak belirtip, veri çerçevesinin ilk satırını sütun etiketleri olarak atadık. 
+Verimizi, sonrasında üzerinde çalışılmak üzere kolay takip edilebilir ve veriyi tanımlayıcı bir isime atayalım. Ayraç fonksiyonuna dikkat ediniz; zaten boşluk tuşu kullanıldığından tekrar belirtmek durumunda kalmadık. Header fonksiyonunu TRUE olarak belirtip, veri çerçevesinin ilk satırını sütun etiketleri olarak atadık. 
 
 ```{r}
 
@@ -64,7 +64,6 @@ Yüklediğiniz veri çerçevesinin sütun isimleri:
 
 Cinsiyet bir faktör vektörü olmalı. Bundan emin olur musunuz?
 
-
 ```{r}
 
 ```
@@ -81,9 +80,9 @@ Cinsyet değerlerinden bir frekans tablosu oluşturabilir misiniz?
 
 Acaba yaş değerlerinin bir histogramını oluşturabilir misiniz?
 
-histogram sonrasında abline fonksiyonu ile ortalamayı grafiksel olarak inceleyebiliriz.
-mean fonksiyonuna veriyi ekledik, col ile çizgi rengini ve lwd ile çizgi kalınlığını seçtik.
-v, vertical(dikey) çizgi eklemek istediğimizde belirtiriz, yatay çizgi ile çalışacağımızda h (horizontal) harfini kullanırız. 
+Histogram sonrasında abline fonksiyonu ile ortalamayı grafiksel olarak inceleyebiliriz.
+'mean' fonksiyonuna veriyi ekledik, 'col' ile çizgi rengini ve 'lwd' ile çizgi kalınlığını seçtik.
+v (vertical) dikey çizgi eklemek istediğimizde belirtiriz, yatay çizgi ile çalışacağımızda h (horizontal) harfini kullanırız. 
 ```{r}
 
 ```
@@ -99,7 +98,6 @@ Peki, yaş değerlerinin farklı cinsiyetlerdeki dağılımını gösteren kutu 
 Acaba `Uzunluk` değerlerinden bir histogram oluşturabilir misiniz?
 
 Sonrasında ortalamayı ve ortalama grafiğini inceleyelim:
-
 
 ```{r}
 
@@ -118,6 +116,7 @@ Sonrasında ortalamayı ve ortalama grafiğini inceleyelim:
 ```{r}
 
 ```
+
 Acaba yaş ile uzunluk arasındaki ikişki nasıl? Doğrusal bir ilişki var mı? Bir cümle ile cevaplayınız (Bu cevabın aynısını kağıda da yazınız):
 
 > Bu iki veri birlikte artış göstermektedir ve bu pozitif korelasyondur.
@@ -130,14 +129,14 @@ Modelleme yapalım (modelin ismi `model1` olsun) ve modelin özet istatistikleri
 
 ```
 
-Şimdi tekrar `Uzunluk` değişkeninin, `Yas` değişkeni arasındaki nokta grafiğini oluşturalım ve regresyon çizgisini ekleyelim (çizgyi kırmızı renkle boyayınız):
+Şimdi tekrar `Uzunluk` değişkeninin, `Yas` değişkeni arasındaki nokta grafiğini oluşturalım ve regresyon çizgisini ekleyelim (Çizgyi kırmızı renkle boyayınız):
 
 Birkaç soru sonra 0.5-0.7 aralığında inceleme yapmamız istenecektir. Daha iyi gözlem için istersek bu aralığın hattını burada hazırlayabiliriz:
-
 
 ```{r}
 
 ```
+
 Yukarıdaki iki sonuca göre aşağıdaki soruları cevaplayınız:
 
 Sizce `Yas` ve `Uzunluk` arasındaki bağlantı, 0.001 `alfa` değerine (p-değeri eşiği) göre anlamlı mı? (Bu cevabın aynısını kağıda da yazınız)
@@ -168,9 +167,13 @@ Tahmini bir aralık belirtebilir misiniz? (Bu cevabın aynısını kağıda da y
 
 ## Çoklu modeller
 
+<<<<<<< HEAD:vize_sinavi_bilgisayarli_dusunme.Rmd
+Peki şimdi diğer değişkenleri işin içine katalım. `Cinsiyet` değişkeni haricindeki diğer değişkenleri kullanarak bir çoklu model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `Model2` olsun. Modeli oluşturduktan sonra özet istatistiklerini görüntüleyin.
+=======
 Peki, şimdi diğer değişkenleri işin içine katalım. `Cinsiyet` değişkeni haricindeki diğer değişkenleri kullanarak bir çoklu model oluşturabilir misiniz? Oluşturduğunuz modelin ismi `Model2` olsun. Modeli oluşturduktan sonra, özet istatistiklerini görüntüleyin.
 
 ~ işareti sonrasına . eklediğimizde, veri setindeki bütün veri gruplarını alır. + veya - tuşlarıyla sırasıyla veri grubu ekleme ve çıkarmaları yapabiliriz.
+>>>>>>> a43b2c8b6879ff7d47fdd04631a68b4f797601af:10-ekler/pratikler/bilgisayarli-dusunme-vize-2021-2022.Rmd
 
 ```{r}
         

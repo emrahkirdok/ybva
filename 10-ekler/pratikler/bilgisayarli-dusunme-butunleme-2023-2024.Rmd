@@ -54,7 +54,7 @@ Metadata verisinde bulunan ve örneklerin hastalık durumlarını ifade eden `Co
 
 ## Soru 5 (5 puan)
 
-Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekleştiriniz
+Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekleştiriniz:
 
 ```{r}
 # Kodlarinizi buraya yaziniz
@@ -62,7 +62,7 @@ Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekl
 ```
 ## Soru 6 (5 puan)
 
-Derste gördüğümüz `log2` normalizasyon tekniği ile, veriyi normalize ediniz:
+Derste gördüğümüz `log2` normalizasyon tekniği ile veriyi normalize ediniz:
 
 ```{r}
 # Kodlarinizi buraya yaziniz
@@ -80,7 +80,7 @@ Tekrar kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu g
 
 ## Soru 8 (20 puan)
 
-Bu veride, sağlıklı ve hastalıklı örneler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz. 
+Bu veride, sağlıklı ve hastalıklı örnekler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz:
 
 ```{r}
 # Kodlarinizi buraya yaziniz

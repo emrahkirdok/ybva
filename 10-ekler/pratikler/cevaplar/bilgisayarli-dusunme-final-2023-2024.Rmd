@@ -32,7 +32,7 @@ ggplot(data = df, aes(x = PC1, y = PC2)) + geom_point(aes(shape = Durum, color =
 
 ## Soru 1 (10 puan)
 
-Bahsedilen veriyi ve metadata verisini yükleyiniz
+Bahsedilen veriyi ve metadata verisini yükleyiniz:
 
 ```{r}
 expression <- read.table(file = "data/final-gene-expression.txt", header = T)
@@ -78,7 +78,7 @@ plot(hclust(dist(t(expression))), labels = metadata$Durum)
 
 ## Soru 6 (25 puan)
 
-Bu veride, sağlıklı ve hastalıklı örneler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz. 
+Bu veride, sağlıklı ve hastalıklı örnekler arasında gen anlatım farklılıklarının anlamlı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz:
 
 ```{r}
 p.value <- rep(0, nrow(expression))

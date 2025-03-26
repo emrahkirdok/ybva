@@ -4,7 +4,7 @@ author: "Emrah Kırdök"
 
 ---
 
-Bu döküman kapsamında Rmarkdown kullanımı anlatılacaktır. İlk defa Rmarkdown kullanacaksanız öncelikle programı R içerisine kurmanız gerekecektir. Bu işlemi R otomatik olarak da yapailir. Eğer otomatik kurmadıysanız, aşağıkdai satırı komut satırına yazmanız gereklidir. Bu işlemi bir kere yapsanız yeter.
+Bu döküman kapsamında Rmarkdown kullanımı anlatılacaktır. İlk defa Rmarkdown kullanacaksanız öncelikle programı R içerisine kurmanız gerekecektir. Bu işlemi R otomatik olarak da yapabilir. Eğer otomatik kurmadıysanız, aşağıkdaki satırı komut satırına yazmanız gereklidir. Bu işlemi bir kere yapmanız yeterlidir.
 
 ```{r eval = FALSE}
 install.packages("rmarkdown")
@@ -55,15 +55,15 @@ Eğer liste oluşturmak istiyorsanız `+` karakterini kullanmalısınız:
   + alt liste 2
 + liste 3
 
-Bir liste ögesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturabilirsiniz. 
+Bir liste öğesinin alt elemanlarını belirlemek istiyorsanız, `tab` tuşuna basarak bir satır girinti oluşturabilirsiniz. 
 
 ## Vurgular
 
-Eğer *italik* yazmak isterseniz `*` tuşlarını kullanmalısınız. **Kalın harflerle** yazmak isterseniz iki tane `**` kullanmalısınız.
+Eğer *italik* yazmak isterseniz `*` karakterini kullanmalısınız. **Kalın harflerle** yazmak isterseniz iki tane `**` kullanmalısınız.
 
 ## Tablo oluşturma
 
-Boru karakteri oluşturma: `Sağ Alt Gr tuşu + < : | `
+Boru karakteri oluşturma: `Sağ AltGr tuşu + < : | `
 
 |   bitki ismi | yaprak uzunluğu | koşul    |
 |--------------|-----------------|----------|
@@ -79,7 +79,7 @@ Tabloları yukarıdaki gibi oluşturabilirsiniz.
 
 ![Şeklin ismini buraya yazınız](images/4panes.png)
 
-Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten herhangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisniz.
+Ancak dikkat edin, bu şeklin sizin bilgisayarınızda olması gerekir. İsterseniz internetten herhangi bir şeklin bağlantısını da vererek bu işi gerçekleştirebilirisiniz.
 
 ![İnternetten eklenmiş şekil](https://www.publicdomainpictures.net/pictures/290000/nahled/clouds-1553569446EXG.jpg)
 
@@ -97,13 +97,13 @@ bitki_ismi <- c("bitki 1", "bitki 2", "bitki 3")
 bitki_ismi[2]
 ```
 
-R size bu kodu çalıştıracak ve çıktsını da dökümanınız içerisinde ekleyecektir.
+R size bu kodu çalıştıracak ve çıktsını da dökümanınız içerisine ekleyecektir.
 
 İlerleyen derslerde grafikler oluşturarak bu özelliği kullanacağız.
 
 ## Dosya isimlendirme
 
-Derslerin başında da bahsettiğimiz gibi, dosya isimlerinde İngilizce karakter seti dışında karakter ve boşluk kullanmayın! Bu kısım çok önemli, çünkü windows ve mac kodlama sistemi farklılıkları yüzünden ödeviniz açamayabilirim ve eksik puanlandırılırsınız.
+Derslerin başında da bahsettiğimiz gibi, dosya isimlerinde İngilizce karakter seti dışında karakter ve boşluk kullanmayın! Bu kısım çok önemli, çünkü windows ve mac kodlama sistemi farklılıkları yüzünden ödevinizi açamayabilirim ve eksik puanlandırılırsınız.
 
 Ödevleriniz şu şekilde isimlendirmeniz tavsiye ederim:
 
@@ -123,14 +123,14 @@ Eğer bu belgenin Rmarkdown versiyonunu inceliyorsanız, `_` karakteri önünde 
 
 ## Soru şekilleri
 
-Sorular karşınıza bir paragraf olarak gelecektir. Aynı zamanda her sonunun sonunda, o sorunun puanı da olacaktır.
+Sorular karşınıza bir paragraf olarak gelecektir. Aynı zamanda her sonunun sonunda o sorunun puanı da olacaktır.
 
 ## Düz metin ile cevap verme
 
 Soruların bazılarının cevabı normal metin olarak verilecektir. Bu durumda alıntı işareti kullanılarak cevabın verilmesi gereklidir. Mesela:
 
 > Eğer sorulara normal metin olarak cevap vermeniz isteniyorsa, ">" karakterini kullanarak alıntı formatında cevabınızı veriniz.
-> Belgenizi `html` formatına çevirdiğinizde, tam olarak bu şekilde bir biçimlendirme görmeniz gereklidir.
+> Belgenizi `html` formatına çevirdiğinizde, tam olarak bu şekilde bir biçimlendirme görmeniz gerekir.
 
 Kullanmanız gereken karakter aşağıda:
 
@@ -147,7 +147,7 @@ Kullanmanız gereken karakter aşağıda:
 
 Burada dikkat edilmesi gereken noktalar:
 
-1. \# işareti ile başlayan satırlar R kodu olarak çalıştırılmaz. Bu kısımlar genelde okuyucuya bilgi vermek içindir
+1. \# işareti ile başlayan satırlar R kodu olarak çalıştırılmaz. Bu kısımlar genelde okuyucuya bilgi vermek içindir.
 2. Kod bloklarında İngilizce karakter seti dışında karakter kullanmamaya özen gösterin.
 
 ::: tip

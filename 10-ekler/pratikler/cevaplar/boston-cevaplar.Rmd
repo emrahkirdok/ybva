@@ -10,7 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu veri setinde, Boston şehrinde bulunan farklı mahallelerden elde edilen istatistik veriler derlenmiştir. Aşağıda bu verileri hakkında bilgileri bulabilirsiniz:
+Bu ödev kapsamında `boston` veri seti üzerine incelemeler yapacaksınız. Bu veri setinde, Boston şehrinde bulunan farklı mahallelerden elde edilen istatistik verileri derlenmiştir. Aşağıda bu veriler hakkında bilgileri bulabilirsiniz:
 
 + `medv`: Her mahalledeki ev fiyatlarının ortanca değeri 
 + `lstat`: Mahallede bulunan düşük sosyoekonomik seviyeye sahip ev sayısı
@@ -84,7 +84,7 @@ ggplot(data = boston, aes(y=medv)) +
   ylab("Ev fiyati")
 ```
 
-Şimdi de `rm`` için:
+Şimdi de `rm` için:
 
 ```{r}
 ggplot(data = boston, aes(y=rm)) + 
@@ -96,7 +96,7 @@ ggplot(data = boston, aes(y=rm)) +
 
 ## Soru 5: İki ekseni birlikte kullanma
 
-Ortalama ev değerleri, Charles nehrine yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
+Ortalama ev değerleri, Charles nehrinin yakınında veya uzağında nasıl değişiyor? Aşağıdaki kutu grafiğini oluşturacak kodu yazabilir misiniz?
 
 ```{r eval = TRUE}
 ggplot(data = boston, aes(x=chas,y=medv)) + 
@@ -123,10 +123,10 @@ ggplot(data = boston, aes(x = lstat, y = medv)) +
   ylab("Ev fiyatlari")
 ```
 
-Sizce bu iki değişken arasında nasıl bir ikişki var? Bir cümleyle açıklayabilir misiniz? Cevabınızı aşağıdaki \> ile başkaya satırlara yazınız:
+Sizce bu iki değişken arasında nasıl bir ikişki var? Bir cümleyle açıklayabilir misiniz? Cevabınızı aşağıdaki \> ile başlayan satırlara yazınız:
 
 > Grafiğe bakıldığında; ev fiyatları ile mahallelerdeki sosyo ekonomik seviye arasında bir ilişki var.
-> Bir mahallede düşük sosyoekonomik seviyeye sahip ev miktarı arttıkça, o mahalledeki ev fiyatlarında bir azalış gözleniyor.
+> Bir mahallede düşük sosyoekonomik seviyeye sahip ev miktarı arttıkça, o mahalledeki ev fiyatlarında bir azalma gözleniyor.
 
 Peki ev fiyatları ve mahalledeki ortalama oda sayısı arasındaki ilişkiyi açıklayan grafiği oluşturabilir misiniz?
 

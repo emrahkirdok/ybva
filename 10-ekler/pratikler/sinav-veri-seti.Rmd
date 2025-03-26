@@ -55,14 +55,12 @@ Yüklediğiniz veri çerçevesinin sütun isimlerini geri döndüren kodu yazın
 
 ```
 
-
 Çalışmaya katılan üniversiteler hakkında frekans tablosu oluşturabilir misiniz? Her üniversiteden kaç tane ölçüm var? (7 puan)
 
 ```{r}
 # kodunuzu asagiya yaziniz
 
 ```
-
 
 # Histogramlar
 
@@ -75,9 +73,7 @@ Oluşturulacak grafikler için `ggplot2` paketini kullanınız.
 
 ```
 
-
 Öğrencilerin bilgisayar derslerinden aldığı notları gösteren histogramı çizebilir misiniz? (7 puan)
-
 
 ```{r}
 # kodunuzu asagiya yaziniz
@@ -102,7 +98,6 @@ Bilgisayar ve istatistik derslerindeki başarı acaba veri analizini etkiliyor m
 
 ```
 
-
 Şimdi de veri analizi dersindeki başarı ve istatistik dersindeki başarıyı bir nokta grafiği şeklinde gösterebilir misiniz? X ekseni istatistik dersindeki başarıyı, Y ekseni ise Veri analizi dersindeki başarıyı göstersin. (7 puan)
 
 ```{r}
@@ -122,23 +117,21 @@ Farklı üniversitelerdeki veri analizi dersi sınav başarısını gösteren ku
 
 # T-test (10 puan)
 
-Peki, test edilen iki üniversitedeki veri analizi dersleri başarısı arasında anlamlı bir farklılık var mı? Bu sorunun cevabını *t-test* ile test edebilir misiniz?
+Peki test edilen iki üniversitedeki veri analizi dersleri başarısı arasında anlamlı bir farklılık var mı? Bu sorunun cevabını *t-test* ile test edebilir misiniz?
 
 Kodunuzu, şu adımları izleyerek oluşturabilirsiniz:
 
 1. Önce `Universite_1` için `veri_analizi` dersi başarı notlarını alın ve `x` değişkeni içinde depolayın
 2. Sonra `Universite_2` için `veri_analizi` dersi başarı notlarını alın ve `y` değişkeni içinde depolayın
-3. `t-test` fonkisyonu ile, testi gerçekleştirin ve sonuçları `test` değişkeni içinde depolayın
+3. `t-test` fonkisyonu ile testi gerçekleştirin ve sonuçları `test` değişkeni içinde depolayın
 4. Son olarak test hakkındaki bilgileri ekrana yazdırın.
-
 
 ```{r}
 # kodunuzu asagiya yaziniz
 
 ```
 
-
-Buraya kadar geldiyseniz, Veri analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
+Buraya kadar geldiyseniz Veri analizi dersinden elde edilen notların farklı üniversitelerdeki dağılımını yoğunluk grafiği ile görselleştirin lütfen:
 
 ```{r}
 # kodunuzu asagiya yaziniz

@@ -17,6 +17,6 @@ set <- melt(data = set, id.vars = "Throws", variable.name = "Outcome", value.nam
 
 p <- ggplot(data = set, aes(x=Throws, y=Proportion)) + 
   geom_line(aes(group=Outcome, color=Outcome))
-
+  
   
 p <- p + transition_time(time = Throws)

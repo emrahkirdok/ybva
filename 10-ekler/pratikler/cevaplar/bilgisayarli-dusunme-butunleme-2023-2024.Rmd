@@ -9,16 +9,16 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Bütünleme sınavı kapsamında Yumurtalık kanseri üzerine yapılmış mikrodizin verisini analiz edeceksiniz. Bu kapsamda aşağıdaki adımları gerçekleştirmeniz gereklidir:
+Bütünleme sınavı kapsamında Yumurtalık Kanseri üzerine yapılmış mikrodizin verisini analiz edeceksiniz. Bu kapsamda aşağıdaki adımları gerçekleştirmeniz gereklidir:
 
 1. Veri yükleme
 2. Veri kalite kontrolü
 3. Ayrımsal gen anlatım analizi
-4. Anlatımlar en anlamlı şekilde değişmiş genlerin analizi
+4. Anlatımları en anlamlı şekilde değişmiş genlerin analizi
 
 ## Soru 1 (10 puan)
 
-Bahsedilen veriyi ve metadata verisini yükleyiniz
+Bahsedilen veriyi ve metadata verisini yükleyiniz:
 
 **Burada yüklenen veri ile sınavda kullanılan veriler aynı**
 
@@ -61,13 +61,14 @@ table(metadata$Condition)
 
 ## Soru 5 (5 puan)
 
-Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekleştiriniz
+Kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlünü gerçekleştiriniz:
 
 ```{r}
 # Kodlarinizi buraya yaziniz
 boxplot(expression)
 
 ```
+
 ## Soru 6 (5 puan)
 
 Derste gördüğümüz `log2` normalizasyon tekniği ile, veriyi normalize ediniz:
@@ -80,7 +81,7 @@ expression <- log2(expression)
 
 ## Soru 7 (5 puan)
 
-Tekrar kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlunu gerçekleştiriniz
+Tekrar kutu grafikleri oluşturarak, gen anlatım matrisinin kalite kontorlünü gerçekleştiriniz:
 
 ```{r}
 # Kodlarinizi buraya yaziniz
@@ -90,7 +91,7 @@ boxplot(expression)
 
 ## Soru 8 (20 puan)
 
-Bu veride, sağlıklı ve hastalıklı örneler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz. 
+Bu veride, sağlıklı ve hastalıklı örnekler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz. 
 
 ```{r}
 # Kodlarinizi buraya yaziniz

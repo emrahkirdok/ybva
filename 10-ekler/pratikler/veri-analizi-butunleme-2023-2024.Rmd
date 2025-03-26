@@ -156,7 +156,7 @@ Bu kişilerin **Beden Yağ Oranı (BodyFat)**  (`y` ekseni  `BodyFat`) ve **Yaş
 
 ## Soru 8 (10 puan)
 
-Soru 7'den elde ettiğiniz grafikleri yorumlayınız. Acaba beden yağı, hangi değişkenle daha çok ilişkide?:
+Soru 7'den elde ettiğiniz grafikleri yorumlayınız. Acaba beden yağı, hangi değişkenle daha çok ilişkilis?:
 
 >
 >

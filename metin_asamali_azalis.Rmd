@@ -1,14 +1,14 @@
 # Aşamalı alçalış
 
-Bu belge kapsamında aşamalı alçalış kullanarak nasıl doğrusal modelleme gerçekleştirilebileceği irdelenecektir. Bu belgede genel olarak [Alex Beacher](https://www.alexbaecher.com/post/gradient-descent/) tarafından yazılmış blog yazısını temel alacaktır.
+Bu belge kapsamında aşamalı alçalış kullanarak nasıl doğrusal modelleme gerçekleştirilebileceği irdelenecektir. Bu belge genel olarak [Alex Beacher](https://www.alexbaecher.com/post/gradient-descent/) tarafından yazılmış blog yazısını temel alacaktır.
 
 ## Aşamalı alçalış
 
-Bir öncek belgede basit kareler toplamı ismindek metodu kullanarak doğrusal modelleme yaptık. Ancak bu ders kapsamında biz istatistiksel öğrenmenin temellerini incelemek istiyoruz. Bu açıdan baktığımızda bu soruyu basit bir örnek üzerinden irdelemek güzel olacaktır.
+Bir önceki belgede basit kareler toplamı ismindek metodu kullanarak doğrusal modelleme yaptık. Ancak bu ders kapsamında biz istatistiksel öğrenmenin temellerini incelemek istiyoruz. Bu açıdan baktığımızda bu soruyu basit bir örnek üzerinden irdelemek güzel olacaktır.
 
 ## Veri
 
-Bu çalışma kapsamınd veri simüle edeceğiz:
+Bu çalışma kapsamında veri simüle edeceğiz:
 
 ```{r}
 set.seed(123)
@@ -52,9 +52,9 @@ theta <- matrix(c(0,0), nrow=2)
 X <- cbind(1, matrix(x))
 ```
 
-Burada `theta` olarak belirlediğimiz veri aslında bizim başlangıç katsayılarımız. Aslıbda $\beta_{0}$ ve $\beta_{1}$ katsayılarımız bunlar.
+Burada `theta` olarak belirlediğimiz veri aslında bizim başlangıç katsayılarımız. Aslında $\beta_{0}$ ve $\beta_{1}$ katsayılarımız bunlar.
 
-Peki bu katasyılar bize nasıl bir doğru çiziyor? Bakalım hemen. Burada gördüğümüz kırmızı çizgi aslında bizim başlangıç kastasıylarımız ifade eden denklem. Biz bu noktadan başlayarak bu veri en iyi açıklayan doğruyu tahmin etmeye çalışacağız.
+Peki bu katasyılar bize nasıl bir doğru çiziyor? Bakalım hemen. Burada gördüğümüz kırmızı çizgi aslında bizim başlangıç kastasıylarımızı ifade eden denklem. Biz bu noktadan başlayarak bu veri en iyi açıklayan doğruyu tahmin etmeye çalışacağız.
 
 ```{r}
 plot(y~x)
@@ -73,7 +73,7 @@ for (i in 1:num_iters) {
 }
 ```
 
-Maliyet çıktısına bakalım (head ile)
+Maliyet çıktısına bakalım (head ile) :
 
 ```{r}
 head(cost_history)

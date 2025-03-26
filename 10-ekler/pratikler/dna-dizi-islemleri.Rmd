@@ -9,7 +9,7 @@ output: html_document
 
 ## Hamming uzaklığı
 
-İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıklar  Moleküler Biyoloji'de filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
+İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları Moleküler Biyoloji'nin filogenetik analizler ya da mikrodizin teknolojisi [@Mohammadi-Kambs] gibi  farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.
 
 Aşağıdaki iki farklı diziyi inceleyelim:
 
@@ -64,11 +64,15 @@ hamming_uzakligi_2(dizi1 = dizi1, dizi2 = dizi2)
 ```
 
 # İpucu
+
 İki farklı karakter birbirine eşit olmadığı sorgusunu yapmak için `!=` (eşit değil mi?) yapısını kullanabilirsiniz. Eğer karakterler eşit değilse `TRUE` değeri geri döndürülecektir. 
+
 ```{r}
 "A" != "T"
 ```
+
 ## Not
+
 https://github.com/kursatozer/ybva.git
 Bu fonksiyonu `for` ve `if-else` yapılarını kullanmadan da yazabilirsiniz. Ancak amacımız şu anda bu yapıların kullanımını öğrenmek olduğu için kendinizi biraz zorlayın.
 
@@ -78,7 +82,7 @@ Normalde nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak 
 
 Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.
 
-GC kaymasını aşağıdaki formüle göre hesaplayabilriz:
+GC kaymasını aşağıdaki formüle göre hesaplayabiliriz:
 
 $$
 GC = \frac{G-C}{G+C}
@@ -91,7 +95,8 @@ dizi <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", 
 ``` 
 
 # İpucu
-Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.
+
+Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırlayınız.
 
 ```{r}
 GC_kaymasi <- function(dizi){
