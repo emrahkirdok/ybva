@@ -1,0 +1,8 @@
+# Örnek Veri Analizi: İnme Verisi
+
+## Sağlık verisi yükleme
+
+```{r}
+healthcare <- read.table(file="https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv",sep ="," , header = TRUE)
+
+```
