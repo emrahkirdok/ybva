@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.42">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>31&nbsp; Random Forest Uygulaması – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
@@ -68,10 +68,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-b70ebd05f2949d6405d8d3a02ad3e3cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -460,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">randomForest</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>randomForest 4.7-1.1</code></pre>
+<pre><code>randomForest 4.7-1.2</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
@@ -478,11 +478,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 45.45%
+        OOB estimate of  error rate: 36.36%
 Confusion matrix:
               Healthy Periodontitis class.error
 Healthy             9             3        0.25
-Periodontitis       7             3        0.70</code></pre>
+Periodontitis       5             5        0.50</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -490,28 +490,28 @@ Periodontitis       7             3        0.70</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                              Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus    3.9312606     3.4464722           4.27673784
-Actinomyces_johnsonii       1.4664294     1.0829525           1.33433718
-Actinomyces_timonensis      2.4647855     2.1019663           2.49307424
-Actinomyces_dentalis       -0.6642363    -0.7074606          -0.48203301
-Treponema_socranskii        1.8602869     1.1783295           1.84332194
-Tannerella_forsythia        1.8016563     0.8895730           1.68904143
-Parvimonas_micra            0.1040162    -0.3266335           0.10381890
-Slackia_exigua              1.6260685     1.8828667           2.01030885
-Treponema_lecithinolyticum  1.3144425    -1.2989525           0.23605700
-Prevotella_nanceiensis     -0.8013031     1.3770905           0.09568491
-                           MeanDecreaseGini
-Dialister_micraerophilus          0.4228851
-Actinomyces_johnsonii             0.3672267
-Actinomyces_timonensis            0.2972309
-Actinomyces_dentalis              0.2385421
-Treponema_socranskii              0.2143127
-Tannerella_forsythia              0.2121673
-Parvimonas_micra                  0.2051567
-Slackia_exigua                    0.1797016
-Treponema_lecithinolyticum        0.1731005
-Prevotella_nanceiensis            0.1619972</code></pre>
+<pre><code>                                   Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus        3.70015760    3.57878256            4.1884250
+Actinomyces_johnsonii           2.41579532    2.10713712            2.6916909
+Actinomyces_timonensis          2.60876910    2.26147786            2.8083695
+Actinomyces_dentalis            0.00000000   -0.41626403           -0.9877713
+Streptococcus_mitis             0.04085896    1.85013207            0.9858540
+Prevotella_nanceiensis          1.18411623    0.05123169            0.6534588
+Eggerthia_catenaformis          1.54157103    2.19858068            2.3690041
+Actinomyces_israelii            1.83995656    1.91673567            2.1466009
+Dialister_invisus               1.47394905    0.79511951            1.4397188
+Pseudoramibacter_alactolyticus -1.17775662    0.46862417           -1.0705513
+                               MeanDecreaseGini
+Dialister_micraerophilus              0.3696511
+Actinomyces_johnsonii                 0.3496876
+Actinomyces_timonensis                0.2643389
+Actinomyces_dentalis                  0.2409224
+Streptococcus_mitis                   0.2060490
+Prevotella_nanceiensis                0.1852884
+Eggerthia_catenaformis                0.1712090
+Actinomyces_israelii                  0.1704371
+Dialister_invisus                     0.1700341
+Pseudoramibacter_alactolyticus        0.1699905</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
@@ -676,8 +676,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -788,7 +786,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
