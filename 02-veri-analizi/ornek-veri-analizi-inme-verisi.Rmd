@@ -1,8 +1,8 @@
-#Farklı veri yükleme senaryoları
+# Farklı veri yükleme senaryoları
 
 Bu döküman kapsamında, farklı veri yükleme senaryoları gösterilecektir. Hepsinin farklı ayraç (`sep`) değerleri vardır.
 
-##Covid verisi yükleme
+## Covid verisi yükleme
 
 Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyoruz.
 
@@ -28,7 +28,7 @@ Yüklediğimiz verinin ilk 5 satırını geri döndüren kodu yazalım:
 covid [1:5, ]
 ```
 
-##Mikrobiyal meta veri yükleme
+## Mikrobiyal meta veri yükleme
 
 ```{r}
 microbial <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt", sep = "\t", header = TRUE)
@@ -40,7 +40,7 @@ Verimizin içindeki condition(koşul ya da durum) sütünuna uluşmak için gere
 table(microbial$condition)
 ```
 
-##Kalp sağlığı verisi yükleme
+## Kalp sağlığı verisi yükleme
 
 Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyoruz.
 
@@ -100,7 +100,7 @@ Yüklediğimiz kalp sağlığı verisinin sütun isimlerini yeniden geri döndü
 colnames(veri)
 ```
 
-Ggplot2 ile verimizi ileri seviye görselleştirelim. `Aes(x,y)` kodunu kullanarak x değişkenine gender verisini,y değişkenine avg_glucose_level(ortalama glukoz seviyesi) atayan kodu yazalım ve verimizin içindeki sayısal değerlerin dağılımını göstermek için geom boxplot(kutu garafiği) kullanalım:
+Ggplot2 ile verimizi ileri seviye görselleştirelim. `aes(x,y)` kodunu kullanarak x değişkenine gender verisini,y değişkenine avg_glucose_level(ortalama glukoz seviyesi) atayan kodu yazalım ve verimizin içindeki sayısal değerlerin dağılımını göstermek için geom boxplot(kutu garafiği) kullanalım:
 
 Ancak bunun için önce `ggplot2` paketini yüklememiz gerekmektedir. Eğer daha önce hiç `ggplot2` yüklemediyseniz, `install.packages("ggplot2")` yazarak paketi yükleyin.
 
@@ -124,7 +124,7 @@ Değişkenlerimize farklı kategorilerden verileri atayıp bunun oluşturduğu t
 ```{r}
 ggplot(data = veri, aes(x=work_type,y=avg_glucose_level)) + geom_boxplot()
 ```
-`Scale_color_manual` fonksiyonu ile kategorilere özel olarak istediğimiz renkleri atayalım. dikkat edin, elimizde iki farklı kategori verisi var (yes, no). Bu yüzden iki farklı renk belirlemeliyiz. Daha fazla renk verirseniz, sadece ilk ikisi kullanılır:
+`scale_color_manual` fonksiyonu ile kategorilere özel olarak istediğimiz renkleri atayalım. dikkat edin, elimizde iki farklı kategori verisi var (yes, no). Bu yüzden iki farklı renk belirlemeliyiz. Daha fazla renk verirseniz, sadece ilk ikisi kullanılır:
 
 ```{r}
 ggplot(data = veri, aes(x=work_type,y=avg_glucose_level)) + geom_boxplot(aes(colour=ever_married))+ scale_color_manual(values = c("blue","pink"))
@@ -135,7 +135,7 @@ Yüklediğimiz kalp sağlığı verisinin sütun isimlerini yine geri döndüren
 colnames(veri)
 ```
 
-`Geom_histogram` ile kalp sağlığı verimizin avg_glucose_level kategorisinin sıklık grafiğini oluşturan kodu yazalım:
+`geom_histogram` ile kalp sağlığı verimizin avg_glucose_level kategorisinin sıklık grafiğini oluşturan kodu yazalım:
 
 ```{r}
 ggplot(data = veri, aes(x = avg_glucose_level)) + geom_histogram()
