@@ -1,0 +1,174 @@
+# Farklı veri yükleme senaryoları
+
+Bu döküman kapsamında, farklı veri yükleme senaryoları gösterilecektir. Hepsinin farklı ayraç (`sep`) değerleri vardır.
+
+## Covid verisi yükleme
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyoruz.
+
+```{r}
+covid <- read.table(file="https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/covid.txt",sep =" ",header = TRUE)
+```
+
+Yüklediğimiz verinin boyutlarını geri döndüren kodu yazalım:
+
+```{r}
+#boyutları geri döndüren kod
+dim(covid)
+```
+
+```{r}
+#sütun isimlerini geri döndüren kod
+colnames(covid)
+```
+
+Yüklediğimiz verinin ilk 5 satırını geri döndüren kodu yazalım:
+
+```{r}
+covid [1:5, ]
+```
+
+## Mikrobiyal meta veri yükleme
+
+```{r}
+microbial <- read.table(file = "https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/microbial-metadata.txt", sep = "\t", header = TRUE)
+```
+
+Verimizin içindeki condition(koşul ya da durum) sütünuna uluşmak için gereken kodu yazalım:
+
+```{r}
+table(microbial$condition)
+```
+
+## Kalp sağlığı verisi yükleme
+
+Aşağıda gösterilen veriyi `read.table()` fonksiyonu ile okuyoruz.
+
+```{r}
+veri <- read.table(file="https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/healthcare-dataset-stroke-data.csv",sep ="," , header = TRUE)
+```
+
+Yüklediğimiz verinin boyutlarını geri döndüren kodu ve sütun isimlerini geri döndüren kodu yazalım:
+
+```{r}
+#boyutları geri döndüren kod
+dim(veri)
+```
+
+```{r}
+#sütun isimlerini geri döndüren kod
+colnames(veri)
+```
+
+Yüklediğimiz verinin ilk 5 satırını geri döndüren kodu yazalım:
+
+```{r}
+veri [1:5, ]
+```
+
+```{r}
+head(veri, 5)
+```
+Diğer verilerimizden biri olan kalp sağlığı verisinden gender(cinsiyet) ve work type(iş tipi) sütunlarına ulaşmak için gereken kodu yazalım:
+
+```{r}
+table(veri$gender)
+```
+
+```{r}
+table(veri$work_type)
+```
+Kalp sağlığı verimizden gender ve work type sütunlarındaki kategorik verilerin birlikte dağılımını gösteren kodu yazalım:
+
+```{r}
+table(veri$gender,veri$work_type)
+```
+Kalp sağlığı verimizden gender ve smoking status(sigara içme durumu) sütunlarındaki kategorik verilerin birlikte dağılımını gösteren kodu yazalım:
+
+```{r}
+table(veri$gender,veri$smoking_status)
+```
+Kalp sağlığı verimizden smoking status ve heart disease(kalp hastalığı) sütunlarındaki kategorik verilerin birlikte dağılımını gösteren kodu yazalım:
+
+```{r}
+table(veri$smoking_status,veri$heart_disease)
+```
+
+Yüklediğimiz kalp sağlığı verisinin sütun isimlerini yeniden geri döndüren kodu yazalım:
+
+```{r}
+colnames(veri)
+```
+
+Ggplot2 ile verimizi ileri seviye görselleştirelim. `aes(x,y)` kodunu kullanarak x değişkenine gender verisini,y değişkenine avg_glucose_level(ortalama glukoz seviyesi) atayan kodu yazalım ve verimizin içindeki sayısal değerlerin dağılımını göstermek için geom boxplot(kutu garafiği) kullanalım:
+
+Ancak bunun için önce `ggplot2` paketini yüklememiz gerekmektedir. Eğer daha önce hiç `ggplot2` yüklemediyseniz, `install.packages("ggplot2")` yazarak paketi yükleyin.
+
+Her kullanımdan önce `library` fonksiyonu ile çalışma ortamınıza yüklemelisiniz:
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(data = veri, aes(x=gender,y=avg_glucose_level)) + geom_boxplot()
+```
+Ve bu grafiğimizi `aes(color)` kodu ile birlikte renklendirelim:
+
+```{r}
+ggplot(data = veri, aes(x=gender,y=avg_glucose_level)) + geom_boxplot(aes(color=gender))
+```
+
+Değişkenlerimize farklı kategorilerden verileri atayıp bunun oluşturduğu tabloyu görelim:
+
+```{r}
+ggplot(data = veri, aes(x=work_type,y=avg_glucose_level)) + geom_boxplot()
+```
+`scale_color_manual` fonksiyonu ile kategorilere özel olarak istediğimiz renkleri atayalım. dikkat edin, elimizde iki farklı kategori verisi var (yes, no). Bu yüzden iki farklı renk belirlemeliyiz. Daha fazla renk verirseniz, sadece ilk ikisi kullanılır:
+
+```{r}
+ggplot(data = veri, aes(x=work_type,y=avg_glucose_level)) + geom_boxplot(aes(colour=ever_married))+ scale_color_manual(values = c("blue","pink"))
+```
+Yüklediğimiz kalp sağlığı verisinin sütun isimlerini yine geri döndüren kodu yazalım:
+
+```{r}
+colnames(veri)
+```
+
+`geom_histogram` ile kalp sağlığı verimizin avg_glucose_level kategorisinin sıklık grafiğini oluşturan kodu yazalım:
+
+```{r}
+ggplot(data = veri, aes(x = avg_glucose_level)) + geom_histogram()
+```
+
+Avg_glucose_level kategorisinin gender kategorisine göre dağılımını, `fill` fonksiyonu kullanarak ve renk atayarak sıklık grafiğini oluşturan kodu yazalım:
+
+```{r}
+ggplot(data = veri, aes(x = avg_glucose_level)) + geom_histogram(aes(fill = gender))
+```
+
+Ve son olarak avg_glucose_level kategorisine bağlı olarak `as.factor` fonksiyonunu kullanıp verimizdeki insanlardan hangilerinin stroke(inme) geçirdiğini gösteren kodu yazalım:
+
+```{r}
+ggplot(data = veri, aes(x = avg_glucose_level)) + geom_histogram(aes(fill = as.factor(stroke)))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
