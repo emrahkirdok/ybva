@@ -1,5 +1,5 @@
 ---
-title: "Meme kanseri pratik"
+title: "Meme Kanseri Pratik"
 author: ""
 date: "2024-06-05"
 output: html_document

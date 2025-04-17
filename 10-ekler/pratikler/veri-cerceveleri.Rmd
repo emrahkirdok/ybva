@@ -4,14 +4,14 @@ author : ""
 output: html_document
 ---
 
-Aşağıda, hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
+Aşağıda hayali bir sınıfa ait bir tablo bulunmaktadır. Bu tabloyu kullanarak aşağıdaki isimleri kullanarak beş farklı vektör oluşturunuz:
 
 + isimler
 + boy
 + kilo
 + cinsiyet 
 
-Unutmayın, cinsiyet vektörü faktör olmalı!
+Unutmayın cinsiyet vektörü faktör vektörü olmalı!
 
 | İsimler |  Boy | Kilo | Yaş | Cinsiyet |
 |---------|------|------|-----|----------|
@@ -38,7 +38,7 @@ Unutmayın, cinsiyet vektörü faktör olmalı!
 
 ```
 
-Boy vektörünü kullanarak,1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
+Boy vektörünü kullanarak, 1.60'dan uzun olan değerleri geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -46,7 +46,6 @@ Boy vektörünü kullanarak,1.60'dan uzun olan değerleri geri döndüren kodu y
 ```
 
 Yukarıda verilen verileri kullanarak `isimler`, `boy`, `kilo`, `yas` ve `cinsiyet` vektörlerini içeren `ekip` isimli bir veri çerçevesi oluşturunuz:
-
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -88,28 +87,27 @@ Bu veri çerçevesindeki kilo değerlerini geri döndüren kodu yazınız:
 
 ```
 
-Vücut kitle indeksi (vki); bir kişinin kilosunun, boyunun
-karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:
+Vücut kitle indeksi (vki); bir kişinin kilosunun, boyunun karesine bölümü olarak tanımlanmaktadır. Bu değeri aşağıdaki formüle göre hesaplayabilirsiniz:
 
 $$
 vki = \frac{kilo}{boy^2}
 $$
 
-Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz.
+Bu formülü kullanarak bu sınıftaki herkesin vki değerini hesaplayınız ve `vki` isimli vektörü oluştrunuz:
 
 ```{r}
 # cevabinizi asagiya yaziniz
 
 ```
 
-Şimdi, `ekip` vektörü içerisinde vücut kitle endeksi 25in üstünde olan isimleri geri döndüren kodu yazınız:
+Şimdi `ekip` vektörü içerisinde vücut kitle indeksi 25'in üstünde olan isimleri geri döndüren kodu yazınız:
 
 ```{r}
 # cevabinizi asagiya yaziniz
 
 ```
 
-0luşturduğunuz `vke` isimli vektörü `ekip` veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi `vke` olsun) :
+0luşturduğunuz `vki` isimli vektörü `ekip` veri çerçevesinde yeni bir sütun olarak ekleyiniz (sütunun ismi `vki` olsun) :
 
 ```{r}
 # cevabinizi asagiya yaziniz

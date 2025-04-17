@@ -67,7 +67,7 @@ Etkenlerden birini seçip plotlayalım:
 ggplot(bc_data, aes(x=texture_mean)) + geom_density(alpha=0.5, aes(fill=diagnosis)) + labs(title="Texture distribution by outcome")
 ```
 
-Şimdi yavaşça işin makine öğrenmesi kısmına başlıyoruz. Burada veri setimiz rastgele olarak iki parçaya bölünüyor: Makineye "öğreten" training set ve bunu test eden testing set.
+Şimdi yavaşça işin makine öğrenmesi kısmına başlıyoruz. Burada veri setimiz rastgele olarak iki parçaya bölünüyor: Makineye öğreten "training" set ve bunu test eden "testing" set.
 
 ```{r}
 set.seed(1234)

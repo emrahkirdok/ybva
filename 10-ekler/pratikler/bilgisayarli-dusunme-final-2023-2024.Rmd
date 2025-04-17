@@ -16,7 +16,7 @@ Final sınavı kapsamında Meme kanseri üzerine yapılmış mikrodizin verisini
 3. Ayrımsal gen anlatım analizi
 4. Anlatımlar en anlamlı şekilde değişmiş genlerin analizi
 
-Çalışmada kullanılacak verilere aşağıdan erişebilrsiniz:
+Çalışmada kullanılacak verilere aşağıdan erişebilirsiniz:
 
 [Mikrodizin verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/final-gene-expression.txt)
 [Metadata verisi](https://raw.githubusercontent.com/emrahkirdok/ybva/main/data/final-metadata.txt)
@@ -73,7 +73,7 @@ Kalite kontrol değerlerini belirleyiniz:
 
 ## Soru 6 (25 puan)
 
-Bu veride, sağlıklı ve hastalıklı örneler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz. 
+Bu veride, sağlıklı ve hastalıklı örnekler arasında gen anlatım farklılıklarının anlamı olup olmadığını `t.test` fonksiyonu ile belirleyiniz. Bu analizi bütün genler için gerçekleştiriniz:
 
 ```{r}
 # Kodlarinizi buraya yaziniz

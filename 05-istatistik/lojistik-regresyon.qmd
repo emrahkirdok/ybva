@@ -37,7 +37,7 @@ Burada `attach` fonksiyonu ile verimizi R çevresine bağlayabiliyoruz. Bu sayed
 
 Bu modelleme çalışmasındaki amacımız borsanın o günkü seyrini (`Direction` değişkeni), son beş gün boyunca borsa kapanışı ve o günkü alış satış hacmini kullanarak tahmin etmeye çalışıyoruz.
 
-Verilerle bir model oluşturalım. modeli setteki Directionc verisine göre kurup modelin özetini inceleyelim; modele, modeli tanımlayacak bir isim atayarak glm fonksiyonu ile oluşturduk.
+Verilerle bir model oluşturalım. Modeli setteki Directionc verisine göre kurup modelin özetini inceleyelim; modele, modeli tanımlayacak bir isim atayarak glm fonksiyonu ile oluşturduk.
 
 ```{r}
 glm.fits <- glm(data = Smarket, Direction~Lag1 + Lag2 +Lag3+ Lag4+ Lag5+ Volume, family = binomial)
@@ -112,13 +112,13 @@ table(glm_pred)
 
 Veri seti içindeki herhangi bir verinin aşağı ve yukarı olarak nasıl gösterilebileceğine bakalım, burada Direction verisinin ilk 5 satırı incelenmiştir. Down olarak gösterilenler 0.5'ten küçük, up olarak gösterilenler ise 0.5'ten büyük olan değerlerdir.
 
-Peki, gerçek değerlerimiz nedir?
+Peki gerçek değerlerimiz nedir?
 
 ```{r}
 Smarket$Direction[1:5]
 ```
 
-Şimdi ise, hem gerçek hem de tahmin edilmiş değerlerden bir karmaşa matrisi oluşturalım:
+Şimdi ise hem gerçek hem de tahmin edilmiş değerlerden bir karmaşa matrisi oluşturalım:
 
 ```{r}
 table(Smarket$Direction, glm_pred)
@@ -152,6 +152,7 @@ Bir takım basit matematiksel formüllerle bu değer oranlarına bakılarak veri
 $$
 Doğruluk (Accuracy) = \frac{TP + TN}{N}
 $$
+
 Doğruları ve yanlışları ne kadar yüksek oranda belirleyebilirsek, modelimizin doğruluk payı o kadar yüksektir.
 
 $$
@@ -162,6 +163,7 @@ $$
 $$
 Hata Oranı (Error Rate) = 1 - Doğruluk (Accuracy)
 $$
+
 Elimizdeki gerçek değerlerin ne kadarını doğru tahmin etmişiz?
 
 $$
@@ -188,5 +190,5 @@ Sizce ne yapabiliriz? İlk olarak hasta ve sağlıklı olduklarından emin oldu�
 
 Elde edeceğimiz sonuç ya hasta ya da sağlıklı olacaktır. 
 
-Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir. Modelmizin ya da test kitimizin *Doğruluk* değer ne kadar yüksekse o kadar iyi çalışan bir kitimiz var demektir.
+Amacımız sizce ne olabilir? Mantık olarak; gerçekten hasta olan kişileri hasta olarak, gerçekten sağlıklı olan kişileri de sağlıklı olarak tahmin edebiliyorsak kitimiz doğru çalışıyor demektir. Modelmizin ya da test kitimizin *Doğruluk* değeri ne kadar yüksekse o kadar iyi çalışan bir kitimiz var demektir.
 

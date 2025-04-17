@@ -11,7 +11,7 @@ output: html_document
 getwd()
 ```
 
-Ancak, Proje oluşturursanız ve dosyalarınızı proje klasörü içinde saklarsanız, işiniz daha kolay olur.
+Ancak Proje oluşturursanız ve dosyalarınızı proje klasörü içinde saklarsanız, işiniz daha kolay olur.
 
 ## Sorunlar
 
@@ -24,9 +24,9 @@ Yaşanan en büyük sorun, veride kullanılan ayracı düzgün bir şekilde seç
 
 Bu pratik kağıdında, yukarıda belirtilen dört farklı ayraç ile oluşturulmuş farklı veri dosyaları inceleyeceksiniz.
 
-Ben bir veri dosyası yüklemek istesem, önce veriyi not defteri gibi bir programla açarım. Aşağıda verilen verileri ise, sağ tıklayp yeni pencerede açabilirsiniz.
+Ben bir veri dosyası yüklemek istesem, önce veriyi not defteri gibi bir programla açarım. Aşağıda verilen verileri ise sağ tıklayıp yeni pencerede açabilirsiniz.
 
-Daha sonra, sütunlar arasında hangi ayracın kullanıldığına bakarım. Siz, dört farklı ayracı da test edebilir, ve hangisi çalışıyorsa onu kullanabilirsiniz.
+Daha sonra sütunlar arasında hangi ayracın kullanıldığına bakarız. Siz, dört farklı ayracı da test edebilir ve hangisi çalışıyorsa onu kullanabilirsiniz.
 
 ## Soru 1
 

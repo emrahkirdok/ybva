@@ -15,10 +15,10 @@ Bu bilgiye göre aşağıdaki soruları cevaplayan kodları yazınız. Kodunuzda
 
 Bu DNA dizisini, RNA formuna dönüştüren kodu yazınız.
 
-Oluşturacağınız kod, `rna` isminde bir vektör geri döndürmeli, ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır. 
+Oluşturacağınız kod, `rna` isminde bir vektörü geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen RNA dizisi bulunmalıdır. 
 
 ## Soru 2
 
 Bu DNA dizisinin tamamlayıcı ipliğini oluşturan kodu yazınız. 
 
-Oluşturacağınız kod, `complementary` isminde bir vektör geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır. 
+Oluşturacağınız kod, `complementary` isminde bir vektörü geri döndürmeli ve bu vektör içerisinde DNA dizisine karşılık gelen tamamlayıcı iplik DNA dizisi bulunmalıdır. 

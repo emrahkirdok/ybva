@@ -69,8 +69,7 @@ Peki üçüncü satıra erişsek?
 
 ```
 
-
-Son olarak, 1. satır ve 3. satır arasındaki, ve 1. sütun ile 3. sütun arasındaki verilere erişmek için kullanacağımız kodu yazabilir misiniz?
+Son olarak, 1. satır ile 3. satır arasındaki ve 1. sütun ile 3. sütun arasındaki verilere erişmek için kullanacağımız kodu yazabilir misiniz?
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -144,7 +143,7 @@ Acaba bu veri tiplerine baksak olur mu?
 
 ## Satır ve sütun isimleri
 
-Bu veri çerçevesindeki sator ve sütun isimlerini geri döndüren kodları yazabilir misiniz?
+Bu veri çerçevesindeki satır ve sütun isimlerini geri döndüren kodları yazabilir misiniz?
 
 ```{r}
 # cevabinizi asagiya yaziniz
@@ -161,7 +160,7 @@ Bu veri çerçevesinde 2. satır 4. sütuna erişen kodu yazabilir misiniz?
 
 ```
 
-Peki, sütunlara nasıl erişebiliriz? Mesela `Derinlik` sütununa erişen kodu yazabilir misiniz?
+Peki sütunlara nasıl erişebiliriz? Mesela `Derinlik` sütununa erişen kodu yazabilir misiniz?
 
 Sadece sütun numarası ile bu sütuna erişen kodu yazınız:
 
@@ -177,14 +176,14 @@ Sütun ismi ile erişen kodu yazınız:
 
 ```
 
-Peki, 0.5 karat'da büyük elmaslara ait bütün satırları nasıl elde edebiliriz?
+Peki 0.5 karat'da büyük elmaslara ait bütün satırları nasıl elde edebiliriz?
 
 ```{r}
 # cevabinizi asagiya yaziniz
 
 ```
 
-Peki, kesimleri İdeal olan elmaslarlara ait satırları nasıl elde edebiliriz?
+Peki kesimleri İdeal olan elmaslarlara ait satırları nasıl elde edebiliriz?
 
 ```{r}
 # cevabinizi asagiya yaziniz
