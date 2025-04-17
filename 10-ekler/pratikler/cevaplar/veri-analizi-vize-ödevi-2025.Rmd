@@ -1,0 +1,167 @@
+# Veri Analizi Vize Ödevi: Abalone Yumuşakçaları Yaş Tahmini
+
+## Giriş
+
+Abalone (denizkulağı) yumuşakçaları, denizlerde yaşayan ve besin için tüketilen kabuklu hayvanlardır. Bu hayvanları aslında rahatlıkla midyeler gibi düşünebilirsiniz. Bu yumuşakçalar çiftliklerde üretilerek, besin olarak kullanılmaktadır. Ancak bu canlılar ancak belli bir yaşa geldiklerinde toplanmalıdır. Bilim insanları, abalon yumuşakçalarının yaşlarını tahmin etmek için kabuklarını kesip mikroskop altında özel boyalarla yaş hakalarını sayıyorlar. Ancak bu iş oldukça zahmetli ve yorucu olmaktadır. Alternatif olarak, yumuşakçalardan alınacak bazı ölçümler kullanarak yaş tahmini yapabilecek modeller oluşturabiliriz. Bir grup bilim insanı bu işe girişmeye karar veriyorlar. Bu amaçla bir grup denizkulağı bireyinden farklı ölçümler alıp bu sayede yaş tahmini yapabilecek modeller oluşturmak istiyorlar. Aşağıdaki soruları cevaplayarak bu bilim insanlarına yardımcı olunuz.
+
+## Veri seti
+
+Kullancağınız veri setini uzaktan eğitim sisteminden indiriniz.Bu veride aşağıdaki değişkenler bulunmaktadır:
+
+- Cinsiyet
+  - D (dişi)
+  - E (erkek)
+  - C (çocuk)
+- Uzunluk: Kabuk uzunluğu
+- Cap: Kabuk çapı
+- Kalinlik: Kabukların kalınlığı
+- Tam_agirlik: Hayvanların tam ağırlığı (kabuk + iç organlar)
+- Et_agirlik: Sadece et ağırlığı
+- Ic_organlar_agirlik: İç organların ağırlığı
+- Kabuk_agirlik: Kabukların ağırlığı
+- Yas: Toplam yaş halkası
+
+Aşağıdaki soruları cevaplayarak bu bilim insanlarına yardımcı olalım.
+
+### Cevaplanacak sorular
+
+1. İlk olarak veri çerçevesini yükleyip boyutlarını elde edelim.(Kendi bilgisayarınızda veriyi hangi dosyaya yüklediyseniz o yolu kopyalayıp veriyi yükleyebilirsiniz):
+
+```{r}
+abalone <- read.table("C:/Users/benan/Documents/Projeler/Veri-Analizi/abalone.csv", header = TRUE, sep = ";", stringsAsFactors = FALSE)
+```
+
+2. Yumuşakçalara ait cinsiyet tablosunu oluşturalım:
+
+```{r}
+cinsiyet_tablosu <- as.data.frame(table(abalone$Cinsiyet))
+colnames(cinsiyet_tablosu) <- c("Cinsiyet", "Adet")
+```
+
+3. Cinsiyet dışındaki diğer verilerin özet istatistiklerini elde edelim:
+
+```{r}
+summary(abalone[ , -which(names(abalone) == "Cinsiyet")])
+```
+
+4. Yaş ve cinsiyet arasındaki ilişkiyi özetleyen kutu grafiği oluşturunuz
+
+```{r}
+ggplot(abalone, aes(x = Cinsiyet, y = Yas, fill = Cinsiyet)) +
+  geom_boxplot() +
+  labs(title = "Cinsiyete baglı Yas Dagılımı",
+       x = "Cinsiyet", y = "Yas") +
+  theme_minimal()
+```
+
+5. Amacımız yaş tahmin edecek modeller oluşturmak, bu amaçla yaş değişkeninin, diğer değişkenlerle olan ilişkisini kontrol edelim. Nokta grafikleri kullanalım. İhtiyacımız kadar çok grafik oluşturabiliriz.İlk olarak uzunluk ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Uzunluk, y = Yas)) +
+  geom_point(color = "steelblue") +
+  labs(title = "Uzunluk ile Yas İliskisi", x = "Uzunluk", y = "Yas")
+```
+
+- Çap ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Cap, y = Yas)) +
+  geom_point(color = "darkgreen") +
+  labs(title = "Cap ile Yas İliskisi", x = "Cap", y = "Yas")
+```
+
+- Kalınlık ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Kalinlik, y = Yas)) +
+  geom_point(color = "purple") +
+  labs(title = "Kalinlik ile Yas İliskisi", x = "Kalinlik", y = "Yas")
+```
+
+- Tam ağırlık ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Tam_agirlik, y = Yas)) +
+  geom_point(color = "orange") +
+  labs(title = "Tam agirlik ile Yas İliskisi", x = "Tam agirlik", y = "Yas")
+```
+
+- Sadece et ağırlığı ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Et_agirlik, y = Yas)) +
+  geom_point(color = "brown") +
+  labs(title = "Et agirligi ile Yas İliskisi", x = "Et agirligi", y = "Yas")
+``` 
+
+- İç organların ağırlığı ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Ic_organlar_agirlik, y = Yas)) +
+  geom_point(color = "darkgray") +
+  labs(title = "Ic organlarin agirligi ile Yas İliskisi", x = "Ic organlarin agirligi", y = "Yas")
+```
+
+- Kabuk ağırlığı ile yaş ilişkisini inceleyeceğimiz grafiği oluşturalım:
+
+```{r}
+ggplot(abalone, aes(x = Kabuk_agirlik, y = Yas)) +
+  geom_point(color = "black") +
+  labs(title = "Kabuk agirligi ile Yas İliskisi", x = "Kabuk agirligi", y = "Yas")
+```
+
+6. Acaba hangi değişkenler yaş ile daha ilişkide? Bunu basit bir korelasyon hesabı ile anlayabiliriz. Elde ettiğimiz korelasyon katsayılarını bir veri çerçevesi olarak özetleyip, dökümanımızın içine yazdıralım:
+
+- Sayısal değişkenleri alalım. (cinsiyet dışındaki):
+
+```{r}
+numeric_vars <- abalone[, sapply(abalone, is.numeric)]
+```
+
+- Yas ile diğer değişkenler arasındaki korelasyonları alalım:
+
+```{r}
+yas_cor <- cor(numeric_vars)[,"Yas"]
+```
+
+- Sadece Yas ile ilişkili olanları alıp, kendisini hariç tutalım:
+
+```{r}
+yas_cor <- yas_cor[names(yas_cor) != "Yas"]
+```
+
+- Veri çerçevesine dönüştürelim:
+
+```{r}
+cor_table <- data.frame(Degisken = names(yas_cor), Korelasyon = round(yas_cor, 3))
+```
+- Sonuçları yazdıralım:
+
+```{r}
+cor_table
+```
+
+7. Bir yumuşakçanın yaşını tahmin etmek için hangi değişkenler kullanılabilir? Oluşturduğumuz grafikler ve korelasyon hesabını işin içine katarak yorumlayalım:
+
+ > Yaş tahmininde kullanılabilecek değişkenleri belirlemek amacıyla hazırlanan nokta grafikleri ve yapılan korelasyon analizi sonucunda, bazı ölçüm değişkenlerinin yaş ile daha güçlü ilişkili olduğu tespit edilmiştir. Özellikle; kabuk ağırlığı, çap, uzunluk ve kalınlık değişkenleri yaşla pozitif yönde ve belirgin bir ilişki içerisindedir. Korelasyon katsayıları bu değişkenlerde orta değer ile yüksek değer arasında değişmekte, grafiklerde de bu değişkenlerle yaş arasındaki doğrusal ilişki açıkça gözlemlenmektedir.Öte yandan;et ağırlığı ve iç organ ağırlığı gibi değişkenlerin yaşla olan ilişkisi daha zayıf düzeyde kalmıştır. Sonuç olarak, yaş tahmini yapılırken en çok katkı sağlayabilecek değişkenler kabuk ağırlığı, çap ve uzunluk gibi fiziksel ölçümlerdir. Bu değişkenlerin kullanıldığı modellerin, yaş tahmini açısından daha başarılı sonuçlar vereceği öngörülmektedir.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
