@@ -124,7 +124,7 @@ Değişkenlerimize farklı kategorilerden verileri atayıp bunun oluşturduğu t
 ```{r}
 ggplot(data = veri, aes(x=work_type,y=avg_glucose_level)) + geom_boxplot()
 ```
-`scale_color_manual` fonksiyonu ile kategorilere özel olarak istediğimiz renkleri atayalım. dikkat edin, elimizde iki farklı kategori verisi var (yes, no). Bu yüzden iki farklı renk belirlemeliyiz. Daha fazla renk verirseniz, sadece ilk ikisi kullanılır:
+`scale_ color _manual` fonksiyonu ile kategorilere özel olarak istediğimiz renkleri atayalım. dikkat edin, elimizde iki farklı kategori verisi var (yes, no). Bu yüzden iki farklı renk belirlemeliyiz. Daha fazla renk verirseniz, sadece ilk ikisi kullanılır:
 
 ```{r}
 ggplot(data = veri, aes(x=work_type,y=avg_glucose_level)) + geom_boxplot(aes(colour=ever_married))+ scale_color_manual(values = c("blue","pink"))
@@ -135,7 +135,7 @@ Yüklediğimiz kalp sağlığı verisinin sütun isimlerini yine geri döndüren
 colnames(veri)
 ```
 
-`geom_histogram` ile kalp sağlığı verimizin avg_glucose_level kategorisinin sıklık grafiğini oluşturan kodu yazalım:
+`geom_ histogram` ile kalp sağlığı verimizin avg_glucose_level kategorisinin sıklık grafiğini oluşturan kodu yazalım:
 
 ```{r}
 ggplot(data = veri, aes(x = avg_glucose_level)) + geom_histogram()
