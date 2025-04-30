@@ -18,6 +18,7 @@ Daha sonra bu paketleri çalışma ortamımıza yükleyelim:
 ```{r}
 library("MASS")
 library("ISLR2")
+library("ggplot2")
 ```
 
 ## Basit doğrusal regresyon
