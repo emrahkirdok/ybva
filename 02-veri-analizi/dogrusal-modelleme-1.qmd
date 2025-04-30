@@ -39,8 +39,8 @@ Bu çalışma kapsamında `medv` ve `lstat` değişkenleri arasındaki ilişkiyi
 
 Öncelikle bu iki değişken arasındaki ilişkiyi görselleştirelim. Bunun için basitçe bir grafik kullanabiliriz (Şekil \@ref(fig:bostonplot)):
 
-```{r bostonplot, fig.cap = "Boston veri setinde bulunan `medv` ve `lstat` değişkenleri arasındaki ilişki"}
-plot(medv~lstat, data = Boston)
+```{r bostonplot, fig.cap = "Boston veri setinde bulunan medv ve lstat değişkenleri arasındaki ilişki"}
+ggplot(data = Boston, aes(y = medv, x = lstat)) + geom_point()
 ```
 
 ::: note
