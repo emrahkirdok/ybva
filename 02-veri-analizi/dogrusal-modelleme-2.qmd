@@ -98,7 +98,7 @@ lm.fit3 <- lm(medv ~ poly(lstat, 3), data = Boston)
 lm.fit4 <- lm(medv ~ poly(lstat, 4), data = Boston)
 lm.fit5 <- lm(medv ~ poly(lstat, 5), data = Boston)
 
-plot(medv~lstat, data = Boston)
+ggplot(data = Boston, aes(y = medv, x = lstat)) + geom_point()
 abline(lm.fit, col = "red")
 points(x = Boston$lstat, y = fitted(lm.fit2), col = "purple")
 points(x = Boston$lstat, y = fitted(lm.fit3), col = "green")

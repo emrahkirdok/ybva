@@ -18,6 +18,7 @@ Daha sonra bu paketleri çalışma ortamımıza yükleyelim:
 ```{r}
 library("MASS")
 library("ISLR2")
+library("ggplot2")
 ```
 
 ## Basit doğrusal regresyon
@@ -39,8 +40,8 @@ Bu çalışma kapsamında `medv` ve `lstat` değişkenleri arasındaki ilişkiyi
 
 Öncelikle bu iki değişken arasındaki ilişkiyi görselleştirelim. Bunun için basitçe bir grafik kullanabiliriz (Şekil \@ref(fig:bostonplot)):
 
-```{r bostonplot, fig.cap = "Boston veri setinde bulunan `medv` ve `lstat` değişkenleri arasındaki ilişki"}
-plot(medv~lstat, data = Boston)
+```{r bostonplot, fig.cap = "Boston veri setinde bulunan medv ve lstat değişkenleri arasındaki ilişki"}
+ggplot(data = Boston, aes(y = medv, x = lstat)) + geom_point()
 ```
 
 ::: note
@@ -60,7 +61,7 @@ Burada kullandığımız `attach` foknsiyonu, bahsi geçen veri setinde bulunan 
 Ancak kodlarımızın daha açık ve okunabilir olması açısından ben aşağıdaki tarzı tercih edeceğim:
 
 ```{r eval = FALSE}
-plot(medv~lstat, data = Boston)
+ggplot(data = Boston, aes(y = medv, x = lstat)) + geom_point()
 ```
 
 :::
@@ -110,7 +111,7 @@ Eğer Şekil \@ref(fig:bostonplot)'i dikkatle incelerseniz, iki değişken aras�
 Bunu daha iyi olarak doğrusal modeli çizerek gösterebiliriz (Şekil \@ref(fig:lm)).
 
 ```{r lm, fig.cap = "Boston veri setinden oluştruğdumuz doğrusal modelin grafik üzerinde gösterilmesi"}
-plot(medv~lstat, data=Boston)
+ggplot(data = Boston, aes(y = medv, x = lstat)) + geom_point()
 abline(lm.fit, col = "red")
 ```
 
