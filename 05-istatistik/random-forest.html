@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>31&nbsp; Random Forest Uygulaması – Yaşam Bilimlerinde Veri Analizi</title>
+<title>32&nbsp; Random Forest Uygulaması – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Ara" onclick="window.quartoOpenSearch();">
@@ -275,20 +275,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../02-veri-analizi/ornek-veri-analizi-inme-verisi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Örnek bir veri analizi</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/13-t-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">T-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">T-Test</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/dogrusal-modelleme-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Doğrusal modelleme</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/dogrusal-modelleme-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Çoklu Doğrusal Modelleme</span></span></a>
   </div>
 </li>
       </ul>
@@ -305,49 +311,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/02-ileri-seviye-r-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fonksiyonlar</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/03-dna-dizisi-yukleme.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/07-rnaseq-data-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">RNA Dizileme Veri analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span></span></a>
   </div>
 </li>
       </ul>
@@ -364,25 +370,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/lojistik-regresyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
   </div>
 </li>
       </ul>
@@ -428,9 +434,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span>
+<span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span>
 </h1>
 </div>
 
@@ -480,11 +486,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 31.82%
+        OOB estimate of  error rate: 36.36%
 Confusion matrix:
               Healthy Periodontitis class.error
-Healthy            11             1  0.08333333
-Periodontitis       6             4  0.60000000</code></pre>
+Healthy             9             3        0.25
+Periodontitis       5             5        0.50</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -492,28 +498,28 @@ Periodontitis       6             4  0.60000000</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                            Healthy Periodontitis MeanDecreaseAccuracy
-Parvimonas_micra         1.26209513     1.8732300            1.8468528
-Actinomyces_johnsonii    2.32496741     2.2819431            2.5483906
-Actinomyces_timonensis   2.71245969     2.7703607            3.2928355
-Dialister_micraerophilus 3.86065522     3.6314271            4.0548734
-Tannerella_forsythia     1.09416449     2.7507164            2.5021176
-Actinomyces_dentalis     0.66108278     0.4448620            0.7642889
-Slackia_exigua           2.65671964     0.2258237            1.9645683
-Treponema_putidum        0.05612644    -1.2190969           -0.6977609
-Treponema_socranskii     2.18456560     1.9170528            2.1177343
-Stomatobaculum_longum    2.68463523     1.6997530            2.7677943
-                         MeanDecreaseGini
-Parvimonas_micra                0.3198948
-Actinomyces_johnsonii           0.3068518
-Actinomyces_timonensis          0.3030646
-Dialister_micraerophilus        0.2887855
-Tannerella_forsythia            0.2718739
-Actinomyces_dentalis            0.2622919
-Slackia_exigua                  0.2537551
-Treponema_putidum               0.1914262
-Treponema_socranskii            0.1844165
-Stomatobaculum_longum           0.1702117</code></pre>
+<pre><code>                                 Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus       4.2107631     4.4901974             4.934530
+Actinomyces_timonensis         1.9915160     1.6484250             2.173938
+Actinomyces_johnsonii          2.4928976     1.6975317             2.270572
+Tannerella_forsythia           2.5497747     2.9743144             3.126447
+Actinomyces_dentalis           2.3579274     1.7781863             2.286172
+Treponema_socranskii           3.0340846     1.9720939             2.918908
+Slackia_exigua                 1.9694744     1.1397431             1.568897
+Parvimonas_micra               0.3100235     1.8393486             1.274119
+Capnocytophaga_granulosa       3.4965330     1.5311020             3.103398
+Pseudoramibacter_alactolyticus 1.7783375     0.2721857             1.472384
+                               MeanDecreaseGini
+Dialister_micraerophilus              0.4409617
+Actinomyces_timonensis                0.2694498
+Actinomyces_johnsonii                 0.2537198
+Tannerella_forsythia                  0.2252631
+Actinomyces_dentalis                  0.2124493
+Treponema_socranskii                  0.2103108
+Slackia_exigua                        0.2088608
+Parvimonas_micra                      0.1846184
+Capnocytophaga_granulosa              0.1781510
+Pseudoramibacter_alactolyticus        0.1591819</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
@@ -996,12 +1002,12 @@ Stomatobaculum_longum           0.1702117</code></pre>
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../05-istatistik/lojistik-regresyon.html" class="pagination-link" aria-label="Lojistik Regresyon">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../05-istatistik/odev.html" class="pagination-link" aria-label="Ders Ödevi">
-        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
