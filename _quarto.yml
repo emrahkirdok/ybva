@@ -49,6 +49,7 @@ book:
         - 02-veri-analizi/10-bilimsel-hikaye-01.qmd
         - 02-veri-analizi/11-bilimsel-hikaye-02.qmd
         - 02-veri-analizi/12-bilimsel-hikaye-03.qmd
+        - 02-veri-analizi/ornek-veri-analizi-inme-verisi.Rmd
         - 02-veri-analizi/13-t-test.qmd
         - 02-veri-analizi/dogrusal-modelleme-1.qmd
         - 02-veri-analizi/dogrusal-modelleme-2.qmd
