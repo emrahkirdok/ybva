@@ -112,7 +112,6 @@ Bunu daha iyi olarak doğrusal modeli çizerek gösterebiliriz (Şekil \@ref(fig
 
 ```{r lm, fig.cap = "Boston veri setinden oluştruğdumuz doğrusal modelin grafik üzerinde gösterilmesi"}
 ggplot(data = Boston, aes(y = medv, x = lstat)) + geom_point()
-abline(lm.fit, col = "red")
 ```
 
 Son olarak R bize farklı grafikler ile oluşturduğumuz model hakkında daha fazla bilgi vermektedir (Şekil \@ref(fig:diagnostic)). Burada dikkat etmemiz gereken grafik sol üstteki *Residuals cs Fitted* grafiği. Derste, artıklardan bahsetmiştik. Bu artık değerlerinin homojen bir şekilde doğrusal modelin etrafında dağıması ideal olacaktır. Aslında x eksenindeki girdi ile, artıklar arasında hiç bir ilişkinin olmaması gerekir.
