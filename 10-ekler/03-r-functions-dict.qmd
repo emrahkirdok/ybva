@@ -5,3 +5,164 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 `to-upper`: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.
 
 `length` : bir vektörün uzunluğunu belirtir.
+
+`c()` : Vektör oluşturur, birden fazla değeri tek yapıya toplar.   
+
+`mean()` : Bir sayısal vektörün ortalamasını hesaplar.      
+
+`median()` : Ortanca değeri döndürür (veri setinin orta noktası). 
+
+`sd()` : Standart sapmayı hesaplar (dağılım ölçüsü). 
+
+`var()` : Varyansı hesaplar (dağılım ölçüsü).    
+
+`summary()`  : Veri seti ya da vektör için özet istatistik verir. 
+
+`table()` : Kategorik verilerin frekans tablosunu oluşturur. 
+
+`dim()` : Bir veri çerçevesi veya matrisin satır ve sütun sayısını verir. 
+
+`str()` : Veri yapısının içeriğini ve yapısını özetler.         
+
+`class()` : Bir nesnenin veri tipini gösterir (örnek: "data.frame").
+
+`typeof()` : Daha detaylı veri tipi bilgisini verir.   
+
+`head()` : Verinin ilk birkaç satırını görüntüler. 
+
+`tail()` : Verinin son birkaç satırını görüntüler.
+
+`names()` : Bir nesnedeki sütun veya liste elemanlarının isimlerini verir.    
+
+`colnames()` : Sütun adlarını gösterir veya değiştirir.   
+
+`rownames()` : Satır adlarını gösterir veya değiştirir.  
+
+`data.frame()` : Veri çerçevesi oluşturur (sütun bazlı tablo yapısı). 
+
+`matrix()` : Matris oluşturur (2 boyutlu sayısal yapı).         
+
+`list()` : Liste oluşturur; farklı veri türlerini bir araya getirebilir.  
+
+`read.csv()` : CSV dosyasını içeri aktarır.                   
+
+`write.csv()` : Veriyi CSV dosyasına dışa aktarır.         
+
+`plot()` : Temel grafik oluşturur.                 
+
+`hist()` : Histogram çizer.                  
+
+`boxplot()` : Kutu grafiği çizer.            
+
+`barplot()` : Çubuk grafik oluşturur.       
+
+`lm()` : Doğrusal regresyon modeli kurar.    
+
+`glm()` : Genelleştirilmiş doğrusal model kurar (örneğin lojistik regresyon).
+
+`predict()` : Model sonuçlarını kullanarak tahmin yapar.               
+
+`install.packages()` : Yeni bir R paketini yükler.                  
+
+`library()` :Yüklü bir paketi aktif hale getirir.       
+
+`if()` : Koşullu ifade başlatır (eğer...ise).          
+
+`for()` : Belirli sayıda tekrar eden döngü başlatır.   
+
+`while()` : Belirli bir koşul sağlandıkça döngü devam eder.
+
+`function()` : Kendi fonksiyonunu yazmanı sağlar.           
+
+`is.na()` : Eksik değer olup olmadığını kontrol eder.       
+
+`na.omit()` :Eksik verileri veri setinden çıkarır.      
+
+`subset()` : Belirli bir koşula göre alt veri kümesi oluşturur.   
+
+`getwd()` : R'nin şu anda çalıştığı klasörün yolunu verir.
+
+`dir()` : Çalışma dizinindeki dosya ve klasörleri listeler.
+
+`format = "latex"` : çıktı LaTeX uyumlu olur.LaTeX, akademik yazılarda kullanılan bir biçimlendirme dilidir.
+
+`kableExtra` : `kable()` fonksiyonuna stil, renk, hizalama gibi gelişmiş özellikler eklemeyi sağlar; `kable()` şeklinde yazmak, `kableExtra` paketindeki `kable()` fonksiyonunu kullanmak anlamına gelir.
+
+`xlab("X")` : X ekseninin başlığını `"X"` olarak değiştirir.
+
+`ylab("Y")` : Y ekseninin başlığını `"Y"` olarak değiştirir.
+
+`geom_smooth(method = "lm")` : Veriye doğrusal regresyon (linear model - `lm`) çizgisi ekler ve ilişki trendini gösterir.
+
+`theme_bw()` : Grafiğe siyah-beyaz (black and white) bir tema uygular; arka planı beyaz yapar, çizgileri belirginleştirir.
+
+`str()` : Bir nesnenin iç yapısını (veri türü, boyut, sütun adları vs.) özet halinde gösterir.
+
+`factor()` : Kategorik (sınıflayıcı) verileri tanımlamak ve düzeylerini (levels) belirtmek için kullanılır.
+
+`as.character()` : Veriyi karakter (metin/string) türüne dönüştürür.
+
+`as.numeric()` : Veriyi sayısal (numeric) türüne dönüştürür.
+
+`seq()` : Belirli aralıklarla sayısal bir dizi (vektör) oluşturur.
+
+`matrix()` : Bir matris (satır ve sütunlardan oluşan 2 boyutlu yapı) oluşturur.
+
+`nrow()` : Bir matris veya veri çerçevesindeki satır sayısını verir.
+
+`ncol()` : Bir matris veya veri çerçevesindeki sütun sayısını verir.
+
+`data.frame` : R'de satır ve sütunlardan oluşan, her sütunu farklı veri tipinde olabilen tablo yapısındaki veri nesnesidir.
+
+`$` : İşareti bir veri çerçevesindeki belirli bir sütuna ulaşmak için kullanılır.
+
+`[ ]` : İşareti veri çerçevesinden satır/sütun seçmek için kullanılır.
+
+`&` : Ve işareti iki koşulun aynı anda sağlanmasını ister (mantıksal VE).
+
+`|` : Veya işareti iki koşuldan en az birinin sağlanmasını ister (mantıksal VEYA).
+
+`list()` : Farklı türdeki (sayı, metin, vektör, veri çerçevesi vb.) verileri tek bir kapsayıcı yapı içinde saklamak için kullanılan liste nesnesi oluşturur.
+
+`file`: Opsiyonu bize o dosyayı okuyacağımız yolu gösterir.
+
+`header` : Opsiyonu ise ilk satırın başlık satırı olduğunu gösterir.
+
+`sep` : Dosyada kullanılan ayraç karakterini belirtir.
+
+`read.table()` : Dışardan veri dosyalarını (genellikle metin veya .txt formatında) satır ve sütun halinde R ortamına veri çerçevesi olarak okumak için kullanılır.
+
+`summary()` : Bir nesnenin temel istatistiksel özetini (minimum, maksimum, ortanca, ortalama vb.) verir.
+
+`mean()` : Sayısal bir vektörün aritmetik ortalamasını hesaplar.
+
+`median()` : Sayısal bir vektörün ortanca (medyan) değerini verir.
+
+`min()` : Bir vektördeki en küçük değeri verir.
+
+`max()` : Bir vektördeki en büyük değeri verir.
+
+`quantile()` : Bir veri kümesinin belirli yüzdelik (percentile) değerlerini hesaplar.
+
+`cut()` : Sürekli (sayısal) verileri belirli aralıklara bölerek kategorilere ayırır.
+
+`include.lowest`: `cut()` içinde en düşük sınırdaki değerin de ilk kategoriye dahil edilmesini sağlar.
+
+`sort` bir vektörü küçükten büyüğe sıralar.
+
+`==` : Operatörü,iki değerin birbirine eşit olup olmadığını kontrol eder ve sonuç olarak `TRUE` veya `FALSE` döndürür.
+
+`rep()` : Bir vektörü belirli sayıda tekrar eder.
+
+`summary(lm.fit)` : Bir regresyon modeli (lm) için özet istatistikleri (R², katsayılar, p-değerleri vb.) verir. lm.fit bir lm() fonksiyonu ile oluşturulmuş modeldir.
+
+`coef(lm.fit)` : Regresyon modelindeki katsayıları (intercept ve eğimler) verir.
+
+`confint(lm.fit)` : Regresyon katsayıları için güven aralıklarını verir.
+
+`opar` :Genellikle par() fonksiyonuyla kaydedilen önceki grafik ayarlarını tutmak için kullanılır.
+
+
+
+
+
