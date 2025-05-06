@@ -525,7 +525,7 @@ Attaching package: 'ISLR2'</code></pre>
 6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7  5.21 28.7</code></pre>
 </div>
 </div>
-<p>Boston konut veri setindeki değişkenlerin açıklaması:</p>
+<p>Bu veri seti Boston’un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:</p>
 <ul>
 <li><p><code>crim</code>: Mahalle başına düşen suç oranı – bölgedeki suç yoğunluğunu gösterir.</p></li>
 <li><p><code>zn</code>: 25,000 metrekareden büyük konut arsalarının yüzdesi – düşük yoğunluklu konut alanlarını gösterir.</p></li>
@@ -538,15 +538,8 @@ Attaching package: 'ISLR2'</code></pre>
 <li><p><code>rad</code>: Otoyollara erişim kolaylığı indeksi – ulaşım imkanlarını gösterir.</p></li>
 <li><p><code>tax</code>: Her 10,000 dolar emlak değeri başına düşen vergi oranı – yerel vergi düzeyini belirtir.</p></li>
 <li><p><code>ptratio</code>: Öğrenci-öğretmen oranı – eğitim kalitesi hakkında ipucu verir.</p></li>
-<li><p><code>lstat</code>: Düşük gelirli nüfus yüzdesi – ekonomik düzeyi temsil eder.</p></li>
-<li><p><code>medv</code>: Evlerin medyan (orta) fiyatı (bin dolar cinsinden) – hedef değişkendir, tahmin edilmek istenir.</p></li>
-</ul>
-<p>Bu veri seti Boston’un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:</p>
-<ul>
-<li>
-<code>medv</code>: ortanca ev fiyatı, her bölgedeki ortanca ev fiyatını belirtmektedir.</li>
-<li>
-<code>lstat</code>: her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı.</li>
+<li><p><code>lstat</code>: Düşük gelirli nüfus yüzdesi – ekonomik düzeyi temsil eder. her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı.</p></li>
+<li><p><code>medv</code>: Evlerin medyan (orta) fiyatı (bin dolar cinsinden) – hedef değişkendir. Bu veri setinde tahmin edilmek istenen asıl değer.</p></li>
 </ul>
 <p>Bu veri seti hakkında daha fazla bilgi almak için <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html">bu bağlantıya tıklayınız</a>.</p>
 <p>Bu çalışma kapsamında <code>medv</code> ve <code>lstat</code> değişkenleri arasındaki ilişkiyi doğrusal regresyon ile modellemeye çalışacağız. Acaba bir mahallenin sosyoekonomik statüsü, mahalledeki evlerin fiyatını etkiliyor mu?</p>
