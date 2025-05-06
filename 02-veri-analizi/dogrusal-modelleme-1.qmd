@@ -29,7 +29,7 @@ Bu uygulama kapsamında `ISLR2` paketi içerisindeki `Boston` veri setini kullan
 head(Boston)
 ```
 
-Boston konut veri setindeki değişkenlerin açıklaması:
+Bu veri seti Boston'un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:
 
 + `crim`: Mahalle başına düşen suç oranı – bölgedeki suç yoğunluğunu gösterir.
 
@@ -53,14 +53,9 @@ Boston konut veri setindeki değişkenlerin açıklaması:
 
 + `ptratio`: Öğrenci-öğretmen oranı – eğitim kalitesi hakkında ipucu verir.
 
-+ `lstat`: Düşük gelirli nüfus yüzdesi – ekonomik düzeyi temsil eder.
++ `lstat`: Düşük gelirli nüfus yüzdesi – ekonomik düzeyi temsil eder. her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı.
 
-+ `medv`: Evlerin medyan (orta) fiyatı (bin dolar cinsinden) – hedef değişkendir, tahmin edilmek istenir.
-
-Bu veri seti Boston'un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:
-
-+ `medv`: ortanca ev fiyatı, her bölgedeki ortanca ev fiyatını belirtmektedir.
-+ `lstat`: her bölgede bulunan sosyoekonomik açıdan düşük gelir seviyesine sahip ev sayısı.
++ `medv`: Evlerin medyan (orta) fiyatı (bin dolar cinsinden) – hedef değişkendir. Bu veri setinde tahmin edilmek istenen asıl değer.
 
 Bu veri seti hakkında daha fazla bilgi almak için [bu bağlantıya tıklayınız](https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html).
 
