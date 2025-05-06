@@ -29,6 +29,34 @@ Bu uygulama kapsamında `ISLR2` paketi içerisindeki `Boston` veri setini kullan
 head(Boston)
 ```
 
+Boston konut veri setindeki değişkenlerin açıklaması:
+
++ `crim`: Mahalle başına düşen suç oranı – bölgedeki suç yoğunluğunu gösterir.
+
++ `zn`: 25,000 metrekareden büyük konut arsalarının yüzdesi – düşük yoğunluklu konut alanlarını gösterir.
+
++ `indus`: Şehirdeki ticari olmayan iş sahalarının oranı – sanayi bölgelerinin yoğunluğunu ifade eder.
+
++ `chas`: Charles Nehri’ne komşu olma durumu – 1 ise ev nehre komşudur, 0 ise değildir (kategorik değişken).
+
++ `nox`: Havadaki azot oksit konsantrasyonu – hava kirliliği seviyesini temsil eder.
+
++ `rm`: Bir konuttaki ortalama oda sayısı – evlerin büyüklüğünü kabaca gösterir.
+
++ `age`: 1940’tan önce inşa edilmiş konutların yüzdesi – binaların yaşını belirtir.
+
++ `dis`: Beş büyük iş merkezine uzaklıkların ağırlıklı ortalaması – merkeze ulaşım kolaylığını yansıtır.
+
++ `rad`: Otoyollara erişim kolaylığı indeksi – ulaşım imkanlarını gösterir.
+
++ `tax`: Her 10,000 dolar emlak değeri başına düşen vergi oranı – yerel vergi düzeyini belirtir.
+
++ `ptratio`: Öğrenci-öğretmen oranı – eğitim kalitesi hakkında ipucu verir.
+
++ `lstat`: Düşük gelirli nüfus yüzdesi – ekonomik düzeyi temsil eder.
+
++ `medv`: Evlerin medyan (orta) fiyatı (bin dolar cinsinden) – hedef değişkendir, tahmin edilmek istenir.
+
 Bu veri seti Boston'un 506 farklı bölgesindeki evlerin fiyatlarını göstermektedir. Şimdi kullanacağımız sütun isimlerine bakalım:
 
 + `medv`: ortanca ev fiyatı, her bölgedeki ortanca ev fiyatını belirtmektedir.
