@@ -1,0 +1,7 @@
+# Soluk
+
+Bu dökümanda R komutlarının ayrıntıları yaılacaktır
+
+`to-upper`: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.
+
+`length` : bir vektörün uunluunu belirtir.
