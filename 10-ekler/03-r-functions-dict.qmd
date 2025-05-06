@@ -64,7 +64,7 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `install.packages()` : Yeni bir R paketini yükler.                  
 
-`library()` :Yüklü bir paketi aktif hale getirir.       
+`library()` : Yüklü bir paketi aktif hale getirir.       
 
 `if()` : Koşullu ifade başlatır (eğer...ise).          
 
@@ -76,7 +76,7 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `is.na()` : Eksik değer olup olmadığını kontrol eder.       
 
-`na.omit()` :Eksik verileri veri setinden çıkarır.      
+`na.omit()` : Eksik verileri veri setinden çıkarır.      
 
 `subset()` : Belirli bir koşula göre alt veri kümesi oluşturur.   
 
@@ -84,7 +84,7 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `dir()` : Çalışma dizinindeki dosya ve klasörleri listeler.
 
-`format = "latex"` : çıktı LaTeX uyumlu olur.LaTeX, akademik yazılarda kullanılan bir biçimlendirme dilidir.
+`format = "latex"` : Çıktı LaTeX uyumlu olur.LaTeX, akademik yazılarda kullanılan bir biçimlendirme dilidir.
 
 `kableExtra` : `kable()` fonksiyonuna stil, renk, hizalama gibi gelişmiş özellikler eklemeyi sağlar; `kable()` şeklinde yazmak, `kableExtra` paketindeki `kable()` fonksiyonunu kullanmak anlamına gelir.
 
@@ -160,7 +160,7 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `confint(lm.fit)` : Regresyon katsayıları için güven aralıklarını verir.
 
-`opar` :Genellikle par() fonksiyonuyla kaydedilen önceki grafik ayarlarını tutmak için kullanılır.
+`opar` : Genellikle par() fonksiyonuyla kaydedilen önceki grafik ayarlarını tutmak için kullanılır.
 
 
 
