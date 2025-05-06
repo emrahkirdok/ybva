@@ -1,6 +1,6 @@
-# Soluk
+# Sözlük
 
-Bu dökümanda R komutlarının ayrıntıları yaılacaktır
+Bu dökümanda R komutlarının ayrıntıları yaılacaktır.
 
 `to-upper`: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.
 
