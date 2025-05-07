@@ -1,4 +1,10 @@
+# Olasılık
+
+## Yazı Tura
+
+```{r}
 library(reshape2)
+```
 
 try <- 100
 
