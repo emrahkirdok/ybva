@@ -2,27 +2,19 @@
 
 Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
-`to-upper`: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.
+`to-upper()`: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.
 
-`length` : bir vektörün uzunluğunu belirtir.
+`length()` : bir vektörün uzunluğunu belirtir.
 
 `c()` : Vektör oluşturur, birden fazla değeri tek yapıya toplar.   
 
-`mean()` : Bir sayısal vektörün ortalamasını hesaplar.      
-
-`median()` : Ortanca değeri döndürür (veri setinin orta noktası). 
-
 `sd()` : Standart sapmayı hesaplar (dağılım ölçüsü). 
 
-`var()` : Varyansı hesaplar (dağılım ölçüsü).    
-
-`summary()`  : Veri seti ya da vektör için özet istatistik verir. 
+`var()` : Varyansı hesaplar (dağılım ölçüsü).     
 
 `table()` : Kategorik verilerin frekans tablosunu oluşturur. 
 
-`dim()` : Bir veri çerçevesi veya matrisin satır ve sütun sayısını verir. 
-
-`str()` : Veri yapısının içeriğini ve yapısını özetler.         
+`dim()` : Bir veri çerçevesi veya matrisin satır ve sütun sayısını verir.         
 
 `class()` : Bir nesnenin veri tipini gösterir (örnek: "data.frame").
 
@@ -36,11 +28,7 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `colnames()` : Sütun adlarını gösterir veya değiştirir.   
 
-`rownames()` : Satır adlarını gösterir veya değiştirir.  
-
-`data.frame()` : Veri çerçevesi oluşturur (sütun bazlı tablo yapısı). 
-
-`matrix()` : Matris oluşturur (2 boyutlu sayısal yapı).         
+`rownames()` : Satır adlarını gösterir veya değiştirir.   
 
 `list()` : Liste oluşturur; farklı veri türlerini bir araya getirebilir.  
 
@@ -124,13 +112,13 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `list()` : Farklı türdeki (sayı, metin, vektör, veri çerçevesi vb.) verileri tek bir kapsayıcı yapı içinde saklamak için kullanılan liste nesnesi oluşturur.
 
-`file`: Opsiyonu bize o dosyayı okuyacağımız yolu gösterir.
-
-`header` : Opsiyonu ise ilk satırın başlık satırı olduğunu gösterir.
-
-`sep` : Dosyada kullanılan ayraç karakterini belirtir.
-
 `read.table()` : Dışardan veri dosyalarını (genellikle metin veya .txt formatında) satır ve sütun halinde R ortamına veri çerçevesi olarak okumak için kullanılır.
+
++ `file`: Opsiyonu bize o dosyayı okuyacağımız yolu gösterir.
+
++ `header` : Opsiyonu ise ilk satırın başlık satırı olduğunu gösterir.
+
++ `sep` : Dosyada kullanılan ayraç karakterini belirtir.
 
 `summary()` : Bir nesnenin temel istatistiksel özetini (minimum, maksimum, ortanca, ortalama vb.) verir.
 
@@ -161,6 +149,8 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 `confint(lm.fit)` : Regresyon katsayıları için güven aralıklarını verir.
 
 `opar` : Genellikle par() fonksiyonuyla kaydedilen önceki grafik ayarlarını tutmak için kullanılır.
+
+
 
 
 
