@@ -13,15 +13,18 @@ Biyoteknoloji Bölümü Discord sunucusu temel haberleşme noktamız olacaktır.
 Bu ders aynı zamanda öğrencilerden gelen katkılara açıktır. Şu ana kadar katkıda bulunan yazarlar aşağıda alfabetik olarak sıralanmıştır:
 
 + Anıl Yalçıner
++ Benan Nihal Çimen
 + Cemil Bayraktar
 + Erdi Barış Öztaş
 + Fatma Nur Pırnaz
 + Furkan Kürşat Özer
 + Merve Akküp
 + Nursena Kocatürk
-+ Veysi Bingöl
 + Tanya Beril Korkmaz
-+ Benan Nihal Çimen
++ Veysi Bingöl
++ Yasemin İrem Şahin
+
+
 
 Eğer siz de katkı sunmak isterseniz, bir sonraki kısımda yazılanları inceleyebilirsiniz.
 
