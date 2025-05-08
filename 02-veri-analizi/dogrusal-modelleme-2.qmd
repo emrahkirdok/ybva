@@ -7,7 +7,7 @@ library("MASS")
 library("ISLR2")
 ```
 
-Çoklu model oluşturmak için de tine  `lm()` fonksiyonunu kullanacağız:
+Çoklu model oluşturmak için de yine  `lm()` fonksiyonunu kullanacağız:
 
 $$
 
@@ -49,7 +49,7 @@ lm.fit1 <- update(lm.fit, ~ . - age)
 
 ## Değişkenler arası etkileşim
 
-Eğer iki değişkenin arasında etkileşim belirlemek istiyorsanız şöyle bir notasyonu uygulayabilirsiniz:
+Eğer iki değişkenin arasında etkileşim belirlemek istiyorsanız şöyle bir yazım uygulayabilirsiniz:
 
 `lstat`$\times$`age` 
 
@@ -76,7 +76,7 @@ Daha fazla üssel terim eklemek ve polinom fonksiyonumuzun derecesini arttırmak
 lm(medv, poly(lstat, 5), data = Boston)
 ```
 
-Bu sayaede beşinci dereceden fonksyionu otomatik olarak oluşturabiliriz:
+Bu sayede beşinci dereceden fonksiyonu otomatik olarak oluşturabiliriz:
 
 ```{r chunk23}
 lm.fit5 <- lm(medv ~ poly(lstat, 5), data = Boston)
