@@ -449,6 +449,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Pratik ve Uygulamalar</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../10-ekler/03-r-functions-dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sözlük</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -538,13 +544,13 @@ window.Quarto = {
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -42.158, df = 1479.5, p-value &lt; 2.2e-16
+t = -44.171, df = 1462.6, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.095951 -2.820654
+ -3.296714 -3.016360
 sample estimates:
 mean of x mean of y 
- 2.025411  4.983714 </code></pre>
+ 1.995191  5.151727 </code></pre>
 </div>
 </div>
 <p>Burada dikkat etmemiz gereken iki nokta var:</p>
@@ -556,7 +562,7 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.120632e-256</code></pre>
+<pre><code>[1] 1.777289e-271</code></pre>
 </div>
 </div>
 <p>Dikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.</p>
@@ -574,7 +580,7 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.120632e-256</code></pre>
+<pre><code>[1] 1.777289e-271</code></pre>
 </div>
 </div>
 <p>Bu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli <span class="math inline">\(alpha\)</span> değerleri kullanılır:</p>
@@ -598,13 +604,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -42.158, df = 1479.5, p-value &lt; 2.2e-16
+t = -44.171, df = 1462.6, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.095951 -2.820654
+ -3.296714 -3.016360
 sample estimates:
 mean of x mean of y 
- 2.025411  4.983714 </code></pre>
+ 1.995191  5.151727 </code></pre>
 </div>
 </div>
 <p>Şu satıra bakalım:</p>
@@ -651,13 +657,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -0.60272, df = 1995.7, p-value = 0.5468
+t = 1.0967, df = 1988.6, p-value = 0.2729
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -0.1139167  0.0603573
+ -0.03826742  0.13536010
 sample estimates:
 mean of x mean of y 
- 1.959402  1.986182 </code></pre>
+ 2.001150  1.952604 </code></pre>
 </div>
 </div>
 <p>Bu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?</p>

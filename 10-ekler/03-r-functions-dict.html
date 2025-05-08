@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>26&nbsp; DNA dizi işlemleri - 3 – Yaşam Bilimlerinde Veri Analizi</title>
+
+
+<title>Ek C — Sözlük – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,62 +20,8 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
+
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -81,8 +30,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" rel="next">
-<link href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" rel="prev">
+<link href="../10-ekler/pratikler.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -93,7 +41,8 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,52 +68,37 @@ div.csl-indent {
     "search-submit-button-title": "Gönder",
     "search-label": "Ara"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+}</script>
+
+
 </head>
+
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../10-ekler/01-sunumlar.html">Ekler</a></li><li class="breadcrumb-item"><a href="../10-ekler/03-r-functions-dict.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sözlük</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Ara" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -184,7 +118,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Önsöz</span></a>
@@ -204,8 +138,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></a>
@@ -230,7 +164,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -239,8 +173,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span></a>
@@ -343,7 +277,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -352,8 +286,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
@@ -379,7 +313,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link active">
+  <a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></span></a>
   </div>
 </li>
@@ -402,7 +336,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -411,8 +345,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
@@ -437,7 +371,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Türkiye'nin Verisi</span></span>
@@ -456,8 +390,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></span></a>
@@ -471,29 +405,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../10-ekler/03-r-functions-dict.html" class="sidebar-item-text sidebar-link">
+  <a href="../10-ekler/03-r-functions-dict.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sözlük</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">İçindekiler</h2>
-   
-  <ul>
-<li><a href="#hamming-uzakl%C4%B1%C4%9F%C4%B1" id="toc-hamming-uzaklığı" class="nav-link active" data-scroll-target="#hamming-uzakl%C4%B1%C4%9F%C4%B1"><span class="header-section-number">26.1</span> Hamming uzaklığı</a></li>
-  <li><a href="#gc-kaymas%C4%B1" id="toc-gc-kayması" class="nav-link" data-scroll-target="#gc-kaymas%C4%B1"><span class="header-section-number">26.2</span> GC kayması</a></li>
-  </ul></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/05-dna-dizi-islemleri.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">26</span>&nbsp; <span class="chapter-title">DNA dizi işlemleri - 3</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../10-ekler/01-sunumlar.html">Ekler</a></li><li class="breadcrumb-item"><a href="../10-ekler/03-r-functions-dict.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sözlük</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Ek C — Sözlük</h1>
 </div>
 
 
@@ -507,90 +438,86 @@ window.Quarto = {
   
 
 
-</header><p>Bu derste yapılan pratiklerin cevaplarına aşağıdaki dosyadan ulaşabilirsiniz:</p>
-<p><a href="https://raw.githubusercontent.com/emrahkirdok/ybva/main/04-pratikler/02-bilgisayarli-dusunme/02-dna-dizi-islemleri-cevaplar.Rmd">2023-04-06 günü derste yapılan pratik cevapları</a></p>
-<section id="hamming-uzaklığı" class="level2" data-number="26.1"><h2 data-number="26.1" class="anchored" data-anchor-id="hamming-uzaklığı">
-<span class="header-section-number">26.1</span> Hamming uzaklığı</h2>
-<p>İki DNA dizisi arasındaki tespit edilen Nükleotid farklılıkları, Moleküler Biyoloji’de filogenetik analizler ya da mikrodizin teknolojisi <span class="citation" data-cites="Mohammadi-Kambs">(<a href="../references.html#ref-Mohammadi-Kambs" role="doc-biblioref">Mohammadi-Kambs vd. 2017</a>)</span> gibi farklı alanlarında işimize yaramaktadır. Örnek vermek gerekirse, biyoinformatik dersinde gördüğümüz filogenetik ağaçları oluşturmak için uzaklık matrisi oluşturmuştuk. Uzaklık matrisi aslında DNA dizileri arasındaki farklılıkları belirtmektedir. Bu farklılıklardan bir tanesi de DNA dizileri arasındaki tek nükleotid farklılıklarının toplamıdır.</p>
-<p>Aşağıdaki iki farklı diziyi inceleyelim:</p>
-<pre><code>A T G C T A T C
-A G G C T T A C</code></pre>
-<p>Acaba kaç tane tek nükleotid farklılığı var? Sadece üç pozisyonda eşleşme yok.</p>
-<p><a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming uzaklığı</a> eşit uzunluğa sahip iki karakter vektörünün sembolleri arasında gözlenen toplam pozisyonel farklılıklardır.</p>
-<p>Bu bilgiyi kullanarak aşağıdaki iki dizi arasındaki tek nükleotid farklılıklarını geri döndüren fonksiyonu yazınız. Fonksiyonun ismi <code>hamming_uzakligi</code> olsun. Bu fonksiyonu oluştururken <code>for</code> ve <code>if-else</code> yapılarını kullanınız.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dizi1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span><span class="op">)</span></span>
-<span>  </span>
-<span><span class="va">dizi2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"T"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-İpucu
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>İki farklı karakter birbirine eşit olmadığı sorgusunu yapmak için <code>!=</code> (eşit değil mi?) yapısını kullanabilirsiniz. Eğer karakterler eşit değilse <code>TRUE</code> değeri geri döndürülecektir.</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"A"</span> <span class="op">!=</span> <span class="st">"T"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Not
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Bu fonksiyonu <code>for</code> ve <code>if-else</code> yapılarını kullanmadan da yazabilirsiniz. Ancak amacımız şu anda bu yapıların kullanımını öğrenmek olduğu için kendinizi biraz zorlayın.</p>
-</div>
-</div>
-</section><section id="gc-kayması" class="level2" data-number="26.2"><h2 data-number="26.2" class="anchored" data-anchor-id="gc-kayması">
-<span class="header-section-number">26.2</span> GC kayması</h2>
-<p>Normalde nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir <span class="citation" data-cites="Salzberg">(<a href="../references.html#ref-Salzberg" role="doc-biblioref">Lu 2020</a>)</span>. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA’nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur.</p>
-<p>Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.</p>
-<p>GC kaymasını aşağıdaki formüle göre hesaplayabilriz:</p>
-<p><span class="math display">\[
-GC = \frac{G-C}{G+C}
-\]</span></p>
-<p>Bu formül uyarınca, aşağıdaki DNA dizisinin GC kayma değerini hesaplayan fonksiyonu yazınız. Fonksiyonun ismi <code>GC_kaymasi</code> olsun.</p>
-<div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dizi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"T"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-İpucu
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.</p>
-</div>
-</div>
+</header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Salzberg" class="csl-entry" role="listitem">
-Lu, Steven L., Jennifer AND Salzberg. 2020. <span>“SkewIT: The Skew Index Test for large-scale GC Skew analysis of bacterial genomes”</span>. <em>PLOS Computational Biology</em> 16 (12): 1-16. <a href="https://doi.org/10.1371/journal.pcbi.1008439">https://doi.org/10.1371/journal.pcbi.1008439</a>.
-</div>
-<div id="ref-Mohammadi-Kambs" class="csl-entry" role="listitem">
-Mohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, ve Albrecht Ott. 2017. <span>“Hamming Distance as a Concept in DNA Molecular Recognition”</span>. <em>ACS Omega</em> 2 (4): 1302-8. <a href="https://doi.org/10.1021/acsomega.7b00053">https://doi.org/10.1021/acsomega.7b00053</a>.
-</div>
-</div>
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+<p>Bu dökümanda R komutlarının ayrıntıları yazılacaktır.</p>
+<p><code>to-upper()</code>: Küçük karakterleri, büyük karaktere çevirme işlemini yapar.</p>
+<p><code>length()</code> : bir vektörün uzunluğunu belirtir.</p>
+<p><code>c()</code> : Vektör oluşturur, birden fazla değeri tek yapıya toplar.</p>
+<p><code>sd()</code> : Standart sapmayı hesaplar (dağılım ölçüsü).</p>
+<p><code>var()</code> : Varyansı hesaplar (dağılım ölçüsü).</p>
+<p><code>table()</code> : Kategorik verilerin frekans tablosunu oluşturur.</p>
+<p><code>dim()</code> : Bir veri çerçevesi veya matrisin satır ve sütun sayısını verir.</p>
+<p><code>class()</code> : Bir nesnenin veri tipini gösterir (örnek: “data.frame”).</p>
+<p><code>typeof()</code> : Daha detaylı veri tipi bilgisini verir.</p>
+<p><code>head()</code> : Verinin ilk birkaç satırını görüntüler.</p>
+<p><code>tail()</code> : Verinin son birkaç satırını görüntüler.</p>
+<p><code>names()</code> : Bir nesnedeki sütun veya liste elemanlarının isimlerini verir.</p>
+<p><code>colnames()</code> : Sütun adlarını gösterir veya değiştirir.</p>
+<p><code>rownames()</code> : Satır adlarını gösterir veya değiştirir.</p>
+<p><code>list()</code> : Liste oluşturur; farklı veri türlerini bir araya getirebilir.</p>
+<p><code>read.csv()</code> : CSV dosyasını içeri aktarır.</p>
+<p><code>write.csv()</code> : Veriyi CSV dosyasına dışa aktarır.</p>
+<p><code>plot()</code> : Temel grafik oluşturur.</p>
+<p><code>hist()</code> : Histogram çizer.</p>
+<p><code>boxplot()</code> : Kutu grafiği çizer.</p>
+<p><code>barplot()</code> : Çubuk grafik oluşturur.</p>
+<p><code>lm()</code> : Doğrusal regresyon modeli kurar.</p>
+<p><code>glm()</code> : Genelleştirilmiş doğrusal model kurar (örneğin lojistik regresyon).</p>
+<p><code>predict()</code> : Model sonuçlarını kullanarak tahmin yapar.</p>
+<p><code>install.packages()</code> : Yeni bir R paketini yükler.</p>
+<p><code>library()</code> : Yüklü bir paketi aktif hale getirir.</p>
+<p><code>if()</code> : Koşullu ifade başlatır (eğer…ise).</p>
+<p><code>for()</code> : Belirli sayıda tekrar eden döngü başlatır.</p>
+<p><code>while()</code> : Belirli bir koşul sağlandıkça döngü devam eder.</p>
+<p><code>function()</code> : Kendi fonksiyonunu yazmanı sağlar.</p>
+<p><code>is.na()</code> : Eksik değer olup olmadığını kontrol eder.</p>
+<p><code>na.omit()</code> : Eksik verileri veri setinden çıkarır.</p>
+<p><code>subset()</code> : Belirli bir koşula göre alt veri kümesi oluşturur.</p>
+<p><code>getwd()</code> : R’nin şu anda çalıştığı klasörün yolunu verir.</p>
+<p><code>dir()</code> : Çalışma dizinindeki dosya ve klasörleri listeler.</p>
+<p><code>format = "latex"</code> : Çıktı LaTeX uyumlu olur.LaTeX, akademik yazılarda kullanılan bir biçimlendirme dilidir.</p>
+<p><code>kableExtra</code> : <code>kable()</code> fonksiyonuna stil, renk, hizalama gibi gelişmiş özellikler eklemeyi sağlar; <code>kable()</code> şeklinde yazmak, <code>kableExtra</code> paketindeki <code>kable()</code> fonksiyonunu kullanmak anlamına gelir.</p>
+<p><code>xlab("X")</code> : X ekseninin başlığını <code>"X"</code> olarak değiştirir.</p>
+<p><code>ylab("Y")</code> : Y ekseninin başlığını <code>"Y"</code> olarak değiştirir.</p>
+<p><code>geom_smooth(method = "lm")</code> : Veriye doğrusal regresyon (linear model - <code>lm</code>) çizgisi ekler ve ilişki trendini gösterir.</p>
+<p><code>theme_bw()</code> : Grafiğe siyah-beyaz (black and white) bir tema uygular; arka planı beyaz yapar, çizgileri belirginleştirir.</p>
+<p><code>str()</code> : Bir nesnenin iç yapısını (veri türü, boyut, sütun adları vs.) özet halinde gösterir.</p>
+<p><code>factor()</code> : Kategorik (sınıflayıcı) verileri tanımlamak ve düzeylerini (levels) belirtmek için kullanılır.</p>
+<p><code>as.character()</code> : Veriyi karakter (metin/string) türüne dönüştürür.</p>
+<p><code>as.numeric()</code> : Veriyi sayısal (numeric) türüne dönüştürür.</p>
+<p><code>seq()</code> : Belirli aralıklarla sayısal bir dizi (vektör) oluşturur.</p>
+<p><code>matrix()</code> : Bir matris (satır ve sütunlardan oluşan 2 boyutlu yapı) oluşturur.</p>
+<p><code>nrow()</code> : Bir matris veya veri çerçevesindeki satır sayısını verir.</p>
+<p><code>ncol()</code> : Bir matris veya veri çerçevesindeki sütun sayısını verir.</p>
+<p><code>data.frame</code> : R’de satır ve sütunlardan oluşan, her sütunu farklı veri tipinde olabilen tablo yapısındaki veri nesnesidir.</p>
+<p><code>$</code> : İşareti bir veri çerçevesindeki belirli bir sütuna ulaşmak için kullanılır.</p>
+<p><code>[ ]</code> : İşareti veri çerçevesinden satır/sütun seçmek için kullanılır.</p>
+<p><code>&amp;</code> : Ve işareti iki koşulun aynı anda sağlanmasını ister (mantıksal VE).</p>
+<p><code>|</code> : Veya işareti iki koşuldan en az birinin sağlanmasını ister (mantıksal VEYA).</p>
+<p><code>list()</code> : Farklı türdeki (sayı, metin, vektör, veri çerçevesi vb.) verileri tek bir kapsayıcı yapı içinde saklamak için kullanılan liste nesnesi oluşturur.</p>
+<p><code>read.table()</code> : Dışardan veri dosyalarını (genellikle metin veya .txt formatında) satır ve sütun halinde R ortamına veri çerçevesi olarak okumak için kullanılır. + <code>file</code>: Opsiyonu bize o dosyayı okuyacağımız yolu gösterir. + <code>header</code> : Opsiyonu ise ilk satırın başlık satırı olduğunu gösterir. + <code>sep</code> : Dosyada kullanılan ayraç karakterini belirtir.</p>
+<p><code>summary()</code> : Bir nesnenin temel istatistiksel özetini (minimum, maksimum, ortanca, ortalama vb.) verir.</p>
+<p><code>mean()</code> : Sayısal bir vektörün aritmetik ortalamasını hesaplar.</p>
+<p><code>median()</code> : Sayısal bir vektörün ortanca (medyan) değerini verir.</p>
+<p><code>min()</code> : Bir vektördeki en küçük değeri verir.</p>
+<p><code>max()</code> : Bir vektördeki en büyük değeri verir.</p>
+<p><code>quantile()</code> : Bir veri kümesinin belirli yüzdelik (percentile) değerlerini hesaplar.</p>
+<p><code>cut()</code> : Sürekli (sayısal) verileri belirli aralıklara bölerek kategorilere ayırır.</p>
+<p><code>include.lowest</code>: <code>cut()</code> içinde en düşük sınırdaki değerin de ilk kategoriye dahil edilmesini sağlar.</p>
+<p><code>sort</code> bir vektörü küçükten büyüğe sıralar.</p>
+<p><code>==</code> : Operatörü,iki değerin birbirine eşit olup olmadığını kontrol eder ve sonuç olarak <code>TRUE</code> veya <code>FALSE</code> döndürür.</p>
+<p><code>rep()</code> : Bir vektörü belirli sayıda tekrar eder.</p>
+<p><code>summary(lm.fit)</code> : Bir regresyon modeli (lm) için özet istatistikleri (R², katsayılar, p-değerleri vb.) verir. lm.fit bir lm() fonksiyonu ile oluşturulmuş modeldir.</p>
+<p><code>coef(lm.fit)</code> : Regresyon modelindeki katsayıları (intercept ve eğimler) verir.</p>
+<p><code>confint(lm.fit)</code> : Regresyon katsayıları için güven aralıklarını verir.</p>
+<p><code>opar</code> : Genellikle par() fonksiyonuyla kaydedilen önceki grafik ayarlarını tutmak için kullanılır.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -988,19 +915,19 @@ Mohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, ve Albrecht Ott. 2017. <sp
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../03-bilgisayarli-dusunme/04-dna-dizi-islemleri.html" class="pagination-link" aria-label="DNA ile çalışma">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">DNA ile çalışma</span></span>
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../10-ekler/pratikler.html" class="pagination-link" aria-label="Pratik ve Uygulamalar">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Pratik ve Uygulamalar</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-bilgisayarli-dusunme/06-adim-adim-kodlama-translasyon.html" class="pagination-link" aria-label="Translasyon fonksiyonu anlatımı">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Translasyon fonksiyonu anlatımı</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</p>
 </div>   
@@ -1012,6 +939,8 @@ Mohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, ve Albrecht Ott. 2017. <sp
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
