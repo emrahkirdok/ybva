@@ -78,6 +78,7 @@ book:
   appendices:
     - 10-ekler/01-sunumlar.qmd
     - 10-ekler/pratikler.qmd
+    - 10-ekler/03-r-functions-dict.qmd
 
 
 bibliography : bibliography.bib
