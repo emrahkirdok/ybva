@@ -112,7 +112,8 @@ Bu dökümanda R komutlarının ayrıntıları yazılacaktır.
 
 `list()` : Farklı türdeki (sayı, metin, vektör, veri çerçevesi vb.) verileri tek bir kapsayıcı yapı içinde saklamak için kullanılan liste nesnesi oluşturur.
 
-`read.table()` : Dışardan veri dosyalarını (genellikle metin veya .txt formatında) satır ve sütun halinde R ortamına veri çerçevesi olarak okumak için kullanılır.
+`read.table()` : Dışardan veri dosyalarını (genellikle metin veya .txt formatında) satır ve sütun halinde R ortamına veri çerçevesi olarak okumak için kullanılır:
+
 + `file`: Opsiyonu bize o dosyayı okuyacağımız yolu gösterir.
 + `header` : Opsiyonu ise ilk satırın başlık satırı olduğunu gösterir.
 + `sep` : Dosyada kullanılan ayraç karakterini belirtir.
