@@ -52,7 +52,7 @@ for ( ÇALIŞILACAK ELEMAN KÜMESİ ){
 }
 ```
 
-Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. `for` döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli **YAPILACAK İŞ** adımı çalıştırılıyor.
+Burada "döngü" ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. `for` döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli **YAPILACAK İŞ** adımı çalıştırılıyor.
 
 Ancak bu yapıyı yukarıdaki gibi kullanmalıyız.
 
