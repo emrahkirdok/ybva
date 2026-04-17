@@ -29,7 +29,7 @@ Burada Sütun isimlerinin sırasına dikkat edelim:
 colnames(counts)
 ```
 
-Örnek metaverisine baktığımızda, örneklerin sahip olukları metaveri bilgilerini görebilirz. Burada iki tane koşul bulunmakta: `kontrol` ve `uygulama`
+Örnek metaverisine baktığımızda, örneklerin sahip oldukları metaveri bilgilerini görebiliriz. Burada iki tane koşul bulunmakta: `kontrol` ve `uygulama`
 
 Ayrıca, RNA sayı matrisindeki örnek sırası ile, bu veri çerçevesinde bulunan örneklerin sıralarının aynı olduğuna dikkat edelim:
 
@@ -79,7 +79,7 @@ plot(hclust(dist(t(counts))), labels = metadata$Grup)
 
 ## Gen anlatım analizi
 
-İlk olarak birinci geni inceleyelim. Acana bu gen anlatımında anlamlı bir farklılık var mı?
+İlk olarak birinci geni inceleyelim. Acaba bu gen anlatımında anlamlı bir farklılık var mı?
 
 ```{r}
 kontrol <- counts[1,metadata$Grup=="Kontrol"]
@@ -94,7 +94,7 @@ Peki bu genin anlatımında görülen değişim anlamlı mı? Bunu `0.05` anlaml
 test$p.value < 0.05
 ```
 
-Evet, bu gen anlamı bir şekilde değişmiş. Şimdi de bu genin grafiğine bakalım:
+Evet, bu gen anlamlı bir şekilde değişmiş. Şimdi de bu genin grafiğine bakalım:
 
 ```{r}
 boxplot(counts[1,]~metadata$Grup)

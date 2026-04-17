@@ -6,7 +6,7 @@ Bu sayfada, önceki yıllarda karşılaşılan önemli sorunları özetlemeye ç
 
 ## Karakter kodlama sorunları
 
-Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden bir bilgisayarda görünen karakter başka bir bilgisayarda düzgün bir şekilde görülmeyebilir.
+Bilgisayarlar geliştirildiği günden beri farklı karakter kodlama sistemleri kullanılmıştır. Hatta farklı işletim sistemleri bile birbirleriyle uyumsuz karakter kodlama sistemleri ile çalışır. Bu yüzden bir bilgisayarda görünen karakter başka bilgisayarda düzgün bir şekilde görülmeyebilir.
 
 İlk geliştirilen kodlama sistemlerinden birisi olan [ASCII](https://en.wikipedia.org/wiki/ASCII) sadece belirli sayıda basılı karakter içerebiliyordu. Dolayısıyla belirli sayıda karakter kullanma imkanımız vardı ve daha çok latince karakterleri destekliyordu.
 

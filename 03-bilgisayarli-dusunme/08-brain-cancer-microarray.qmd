@@ -1,6 +1,6 @@
 # Beynin kanseri mikrodizin analizi
 
-Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında *glioblastoma* ve *sağlıkı, normal* beyin dokularından elde edilen gen anlatım profili incelenecektir.
+Bu pratik kapsamında GSE50161 numaralı çalışmadan elde edilen beyin kanseri verisi üzerine küçük bir çalışma yapılacaktır. Bu çalışma kapsamında *glioblastoma* ve *sağlıklı, normal* beyin dokularından elde edilen gen anlatım profili incelenecektir.
 
 ## Veri yükleme
 
@@ -64,7 +64,7 @@ hist(microarray)
 ```
 
 
-Elinizdeki veriin kutu grafiklerini oluşturunuz:
+Elinizdeki verinin kutu grafiklerini oluşturunuz:
 
 ```{r}
 boxplot(microarray)

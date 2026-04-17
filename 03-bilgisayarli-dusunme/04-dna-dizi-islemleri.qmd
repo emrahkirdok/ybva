@@ -25,7 +25,7 @@ tamamlayici <- function(dna){
   # once bos bir vektor olusturalim
   complementary <- c()
   
-  # DNA dizinin hepsini buyuk karaktere cevirelim
+  # DNA dizisinin hepsini buyuk karaktere cevirelim
   dna <- toupper(dna)
   for ( baz in dna){
     # her baz icin asagidaki kosullari test et

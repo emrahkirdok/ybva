@@ -7,7 +7,7 @@ R üzerinde DNA dizileri ile çalışabiliriz. Bunun için `seqinr` paketini yü
 install.packages("seqinr")
 ```
 
-Daha sonra R oturumunza eklemelisniz:
+Daha sonra R oturumunuza eklemelisniz:
 
 ```{r}
 library(seqinr)
@@ -29,7 +29,7 @@ dna <- read.fasta(file = "data/example.fna")
 Benim verimi indirdiğim yer, projemin çalışma klasörü içerisindeki `data` isimli klasör. Siz alıştırmayı yaparken, `file` kısmına kendi bilgisayarınızdaki veriyi verin. Yoksa hata alırsınız.
 :::
 
-Bu işlemin soncunda elimize bir liste geçti. İsterseniz `names` fonksiyonu ile bu listedeki dizilerin fasta isimlerini inceleyelim:
+Bu işlemin sonucunda elimize bir liste geçti. İsterseniz `names` fonksiyonu ile bu listedeki dizilerin fasta isimlerini inceleyelim:
 
 ```{r}
 names(dna)
@@ -43,4 +43,4 @@ dna[[1]]
 
 Bu aslında bir vektör. Her DNA nükletoditi, vektörün bir elemanı olarak ifade edilmektedir.
 
-Artık bir fasta dizisini, R içersisine aktarmayı biliyorsunuz. Tebrikler.
+Artık bir fasta dizisini, R içerisine aktarmayı biliyorsunuz. Tebrikler.

@@ -43,7 +43,7 @@ toplam <- function(a,b){
 }
 ```
 
-Önce fonksiyon ismini  `toplam` yazdık ve `function` komutu ile, R'a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (`a` ve `b`). 
+Önce fonksiyon ismini  `toplam` yazdık ve `function` komutu ile, R'a bir fonsksiyon yazacağımızı beyan ettik. Bu fonksiyonun parametreleri olarak kullanacağımız değişkenleri belirledik (`a` ve `b`). 
 
 Daha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve `sonuc` değişkenini oluşturduk. Bu sonuç değişkenini ise, `return` komutu ile geri döndürdük.
 
@@ -73,7 +73,7 @@ toplam(a = 12, b = 45)
 
 Bu dönüşüm için, santigrat cinsinden dereceye, 273.15 eklememiz gerek.
 
-Yazacağımız fonksiyon santigrat cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonkisyonun ismi ise `kelvin_donusturucu` olsun.
+Yazacağımız fonksiyon santigrat cinsinden sıcaklık birimini alsın ve Kelvin'e çevirsin. Fonksiyonun ismi ise `kelvin_donusturucu` olsun.
 
 ```{r}
 kelvin_donusturucu <- function(derece){

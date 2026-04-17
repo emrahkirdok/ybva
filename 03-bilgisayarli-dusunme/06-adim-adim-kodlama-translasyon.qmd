@@ -2,7 +2,7 @@
 
 Bu dersteki amacımız, bir DNA ipliğini amino asit dizisine çevirmek olacak. Bunun için `codon.txt` isimli kodon tablosunu ve `example.fna` içinde bulunan birinci DNA dizisini kullanacağız.
 
-DNA dizisini okumak için, `seqinr` paketini kullanacağız. Eğer bu paketi daha önce kurmadıysanız, konsola `install.packages("seqinr")` yazmalınız.
+DNA dizisini okumak için, `seqinr` paketini kullanacağız. Eğer bu paketi daha önce kurmadıysanız, konsola `install.packages("seqinr")` yazmalısınız.
 
 Paket kurduysanız öncelikle çalışma alanımıza yükleyelim:
 

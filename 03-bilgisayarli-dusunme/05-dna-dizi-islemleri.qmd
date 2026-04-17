@@ -47,7 +47,7 @@ Normalde nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak 
 
 Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.
 
-GC kaymasını aşağıdaki formüle göre hesaplayabilriz:
+GC kaymasını aşağıdaki formüle göre hesaplayabiliriz:
 
 $$
 GC = \frac{G-C}{G+C}
@@ -61,5 +61,5 @@ dizi <- c("G", "A", "G", "C", "C", "T", "A", "C", "T", "A", "A", "T", "G", "G", 
 
 ::: {.callout-tip}
 # İpucu
-Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.
+Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırlayınız.
 :::

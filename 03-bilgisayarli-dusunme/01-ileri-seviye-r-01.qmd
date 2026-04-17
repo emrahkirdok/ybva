@@ -52,7 +52,7 @@ for ( ÇALIŞILACAK ELEMAN KÜMESİ ){
 }
 ```
 
-Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. `for` döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli **YAPILACAK İŞ** adımı çalıştırılıyor.
+Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. `for` döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeki **YAPILACAK İŞ** adımı çalıştırılıyor.
 
 Ancak bu yapıyı yukarıdaki gibi kullanmalıyız.
 
@@ -65,7 +65,7 @@ for (i in 1:length(yaprak_uzunlugu)){
 }
 ```
 
-Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1'den `r length(yaprak_uzunlugu)`'a kadar bir sayı dizisi oluştuyor. 
+Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1'den `r length(yaprak_uzunlugu)`'a kadar bir sayı dizisi oluşturuyor. 
 
 `i in 1:length(yaprak_uzunlugu)` cümlesini kullandığımızda R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.
 
