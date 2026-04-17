@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>10&nbsp; Veri Çerçeveleri – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -466,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Genel olarak veri çerçeveleri, farklı veri tiplerine sahip vektörlerden oluşmuştur. Kullandığımız vektörlerin uzunluklarının aynı olması gereklidir. Gelin şimdi <a href="04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>’de işlediğimiz <a href="04-vektorler.html#tbl-bitkiler" class="quarto-xref">Tablo&nbsp;<span>8.1</span></a> versini veri çerçevesine çevirelim.</p>
 <p>Hatırlarsanız öncelikle vektörler tanımlamıştık.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bitki_ismi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
 <span>                <span class="st">"bitki6"</span>, <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
@@ -474,11 +477,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span></span>
 <span><span class="va">deney_kosullari</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>,</span>
-<span>                            <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>                            <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Şimdi ise bu vektörleri bir veri çerçevesi içerisinde birleştirelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>bitki_ismi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>bitki_ismi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, </span>
 <span>                                    <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, </span>
 <span>                                    <span class="st">"bitki5"</span>, <span class="st">"bitki6"</span>, </span>
 <span>                                    <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, </span>
@@ -490,11 +493,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                                                    <span class="st">"aydinlik"</span>, <span class="st">"karanlik"</span>, </span>
 <span>                                                    <span class="st">"karanlik"</span>, <span class="st">"aydinlik"</span>, </span>
 <span>                                                    <span class="st">"karanlik"</span>, <span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Şimdi gelin <code>str</code> fonksiyonu ile oluştruduğumuz veri çerçevesini inceleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   10 obs. of  3 variables:
  $ bitki_ismi     : chr  "bitki1" "bitki2" "bitki3" "bitki4" ...
@@ -507,21 +510,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">10.1</span> Veri Çerçevesi boyutları</h2>
 <p>Elimizdeki veri çerçevesinin boyutlarını aynı matrisler gibi öğrenebiliriz.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10  3</code></pre>
 </div>
 </div>
 <p>Satır sayısı:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
 </div>
 <p>Sütun sayısı:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -530,23 +533,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">10.2</span> Sütun ve satır isimleri</h2>
 <p>Her veri çerçevesinin bir sütun ismi olması gerekir. Sütun isimlerini <code>colnames</code> fonksiyonu ile öğrenebiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "bitki_ismi"      "yaprak_uzunlugu" "deney_kosullari"</code></pre>
 </div>
 </div>
 <p>Aynı şekilde, her veri çerçevesinde bir satır ismi de bulunmaktadır. Bunu da <code>rownames</code> fonksiyonu ile öğrenebiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"</code></pre>
 </div>
 </div>
 <p>İstersek satır ve sütun isimlerini değiştirebiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"isim"</span>, <span class="st">"uzunluk"</span>, <span class="st">"kosul"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"isim"</span>, <span class="st">"uzunluk"</span>, <span class="st">"kosul"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bitki1"</span>, <span class="st">"bitki2"</span>, <span class="st">"bitki3"</span>, <span class="st">"bitki4"</span>, <span class="st">"bitki5"</span>, </span>
-<span>                        <span class="st">"bitki6"</span>, <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>                        <span class="st">"bitki6"</span>, <span class="st">"bitki7"</span>,<span class="st">"bitki8"</span>, <span class="st">"bitki9"</span>, <span class="st">"bitki10"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -554,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Dikkat!
+<span class="screen-reader-only">Uyarı</span>Dikkat!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -563,7 +566,7 @@ Dikkat!
 </div>
 <p>Şimdi tekrar veri çerçevesini ekrana yazdıralım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           isim uzunluk    kosul
 bitki1   bitki1     2.3 karanlik
@@ -580,7 +583,7 @@ bitki10 bitki10      NA karanlik</code></pre>
 </div>
 <p>Elimizdeki veri çerçeveleri çok uzun olabilir, bu yüzden verinin hepsini ekrana yazdırmak istemeyebiliriz. <code>head</code> komutu, bize veri çerçevesinin ilk bir kaç satırını ekrana yazdırma şansı verir:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         isim uzunluk    kosul
 bitki1 bitki1     2.3 karanlik
@@ -595,7 +598,7 @@ bitki6 bitki6      NA karanlik</code></pre>
 <span class="header-section-number">10.3</span> Veri çerçevesi işlemleri</h2>
 <p>Bir veri çerçevesinde, aynı matris gibi hareket edebiliriz. Mesela ikinci satırın üçüncü sütunundaki veriyi elde edelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] aydinlik
 Levels: aydinlik karanlik</code></pre>
@@ -603,14 +606,14 @@ Levels: aydinlik karanlik</code></pre>
 </div>
 <p>Şimdi sadece ikinci sütunu elde edelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 2.3 3.4 4.5 1.2 3.4  NA 1.8 6.3 2.1  NA</code></pre>
 </div>
 </div>
 <p>Şimdi de üçünücü satırı elde edelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">3</span>,<span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">3</span>,<span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         isim uzunluk    kosul
 bitki3 bitki3     4.5 aydinlik</code></pre>
@@ -618,14 +621,14 @@ bitki3 bitki3     4.5 aydinlik</code></pre>
 </div>
 <p>İstersek sadece sütun isimlerini de kullanabiliriz. Önce sütun isimlerine bakalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">veri</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "isim"    "uzunluk" "kosul"  </code></pre>
 </div>
 </div>
 <p>Sadece yaprak uzunluklarına bakalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 2.3 3.4 4.5 1.2 3.4  NA 1.8 6.3 2.1  NA</code></pre>
 </div>
@@ -633,14 +636,14 @@ bitki3 bitki3     4.5 aydinlik</code></pre>
 <p>Eğer <code>$</code> işaretini kullanırsak, doğrudan sütun isimleri ile çalışabiliriz. Bu bize bir vektör geri döndürdü.</p>
 <p>Peki yaprak uzunlukları vektöründeki 5. elemanı elde etmek istersek:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">$</span><span class="va">uzunluk</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.4</code></pre>
 </div>
 </div>
 <p>Bunu şu şekilde de yapabiliriz:</p>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">veri</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.4</code></pre>
 </div>
@@ -699,13 +702,14 @@ bitki3 bitki3     4.5 aydinlik</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

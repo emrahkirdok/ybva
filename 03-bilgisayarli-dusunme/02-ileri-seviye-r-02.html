@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>23&nbsp; Fonksiyonlar – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -499,17 +502,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Çıktısı ise <code>sonuc</code> olsun.</p>
 <p>Fonksiyon ismi ise <code>toplam</code> olsun.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">toplam</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">toplam</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span>
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Önce fonksiyon ismini <code>toplam</code> yazdık ve <code>function</code> komutu ile, R’a bir fonsksiyon yazacağımız beyan ettik. Bu fonksiyonun paramtreleri olarak kullanacağımız değişkenleri belirledik (<code>a</code> ve <code>b</code>).</p>
+<p>Önce fonksiyon ismini <code>toplam</code> yazdık ve <code>function</code> komutu ile, R’a bir fonsksiyon yazacağımızı beyan ettik. Bu fonksiyonun parametreleri olarak kullanacağımız değişkenleri belirledik (<code>a</code> ve <code>b</code>).</p>
 <p>Daha sonra bu değişkenleri kullanarak işimizi gerçekleştirdik ve <code>sonuc</code> değişkenini oluşturduk. Bu sonuç değişkenini ise, <code>return</code> komutu ile geri döndürdük.</p>
 <p>Her fonksiyonda mutlaka bir değer geri döndürmelisiniz.</p>
 <p>Şimdi fonksiyonu kullanalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">5</span>, b <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">5</span>, b <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 17</code></pre>
 </div>
@@ -520,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Önemli
+<span class="screen-reader-only">Uyarı</span>Önemli
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -529,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Şimdi başka iki örnek kullanalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">12</span>, b <span class="op">=</span> <span class="fl">45</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">toplam</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">12</span>, b <span class="op">=</span> <span class="fl">45</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 57</code></pre>
 </div>
@@ -538,16 +541,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">23.2</span> Başka bir fonksiyon</h2>
 <p>Şimdi ise, sıcaklık dönüşümü için bir fonksiyon yazalım. Santigrat derece cinsinden bir sıcaklık birimini Kelvin’e çevirelim.</p>
 <p>Bu dönüşüm için, santigrat cinsinden dereceye, 273.15 eklememiz gerek.</p>
-<p>Yazacağımız fonksiyon santigrat cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonkisyonun ismi ise <code>kelvin_donusturucu</code> olsun.</p>
+<p>Yazacağımız fonksiyon santigrat cinsinden sıcaklık birimini alsın ve Kelvin’e çevirsin. Fonksiyonun ismi ise <code>kelvin_donusturucu</code> olsun.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kelvin_donusturucu</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">derece</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kelvin_donusturucu</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">derece</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="va">derece</span> <span class="op">+</span> <span class="fl">273.15</span></span>
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bu fonksiyonu kullanalım şimdi:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">kelvin_donusturucu</span><span class="op">(</span>derece <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">kelvin_donusturucu</span><span class="op">(</span>derece <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 303.15</code></pre>
 </div>
@@ -605,13 +608,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>22&nbsp; Kontrol yapıları – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -468,8 +471,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Kontrol yapıları gerçekleştireceğiniz analiz adımlarında farklı aşamaların çalıştırılması ve veri analizi akışının kontrol edilmesini sağlamaktadır. Bu sayede karmaşık veri setlerinde farklı analiz adımları gerçekleştirebiliriz.</p>
 <p>Küçük bir örnekle bunu açıklamaya çalışalım. Elimizde aşağıdaki gibi bir vektör olsun:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
-<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bu vektörde bulunan her elemana belirli bir fonksiyonu uygulamak istediğimizi düşünelim. Şu ana kadar öğrendiğimiz bilgilerle, bu vektör içerisindeki elemanları manuel olarak seçerek bu işlemleri gerçekleştirebiliyoruz.</p>
 <p>Ancak R üzerinde kullanacağımız döngü yapısı (<code>for</code> döngüsü), bize bu vektördeki her elemana erişip, o elemanla işlem yapma şansı sağlamaktadır.</p>
@@ -479,37 +482,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Veri ile çalışırken çoğunlukla belirli fonksiyonları art arda, farklı verilere uygulamamız gerekir. Dolayısıyla aynı işi döngü halinde yapmalıyız.</p>
 <p>Basit bir örnek verelim. Önce bir sayı vektörü oluşturalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
-<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bu vektörün her elemanına 5 ekleyerek çıkan sonucu ikiye bölmek istediğimiz düşünelim. Çok mantıksız bir örnek olabilir ama olayın işleyişini kavramamıza yardımcı olacaktır.</p>
 <p>Önce ilk eleman için yapalım. Vektörler ve vektörlerde indisleme konusunu hatırlamak isterseniz <a href="../02-veri-analizi/04-vektorler.html" class="quarto-xref"><span>Bölüm 8</span></a>’i tekrar gözden geçirebilirsiniz.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.65</code></pre>
 </div>
 </div>
 <p>Şimdi ise ikinci eleman için bunu yapalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.2</code></pre>
 </div>
 </div>
 <p>Dikkat ederseniz sadece kullandığımız vektördeki indis değişiyor. Dolayısıyla <code>for</code> döngüsü kullanırsak bu işi daha kolay bir şekilde halledebiliriz.</p>
 <p>Öncelikle <code>for</code> döngüsünün genel yapısına bakalım:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( ÇALIŞILACAK ELEMAN KÜMESİ ){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( ÇALIŞILACAK ELEMAN KÜMESİ ){</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    YAPILACAK İŞ</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. <code>for</code> döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeli <strong>YAPILACAK İŞ</strong> adımı çalıştırılıyor.</p>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Burada DÖNGÜ ile belirtilen kısma, hangi elemanlardan bir döngü oluşturacağımızı yazıyoruz. <code>for</code> döngüsü bize o elemanları tek tek seçme şansı veriyor. Daha sonra süslü parantezler içerisindeki <strong>YAPILACAK İŞ</strong> adımı çalıştırılıyor.</p>
 <p>Ancak bu yapıyı yukarıdaki gibi kullanmalıyız.</p>
 <p>Şimdi döngümüzü yazalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.65
 [1] 4.2
@@ -523,10 +526,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] 5</code></pre>
 </div>
 </div>
-<p>Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluştuyor.</p>
+<p>Bu işlemi yakından inceleyelim. Önce bir sayı vektörü oluşturuyoruz. Ancak bu sayı vektörünü kullanacağımız vektörün uzunluğuna göre belirliyoruz. Yani elimizde 1’den 10’a kadar bir sayı dizisi oluşturuyor.</p>
 <p><code>i in 1:length(yaprak_uzunlugu)</code> cümlesini kullandığımızda R bize elimizdeki eleman kümesini tek tek seçme şansı veriyor.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
@@ -536,10 +539,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Bu işlem oluşturduğumuz sayı vektörü bitene kadar devam ediyor.</p>
 <p>Bir önceki örnekte vektördeki eleman sırasını kullandık. İstersek doğrudan vektördeki elemanları da kullanabiliriz. Bunun için ise <code>i</code> yerine <code>eleman</code> isimli bir değişken oluşturalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sonuc</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.65
 [1] 4.2
@@ -611,32 +614,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>İlk olarak bir sayı belirleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>İlk koşulu çalıştıralım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&gt;=</span> <span class="fl">5</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&gt;=</span> <span class="fl">5</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>Bu işlemin sonucunda TRUE değeri geri döndürüldü. Burada bir karşılaştırma işlemi yaptık. Yani elimizdeki sayı 5’e eşit veya 5’ten büyük. Ama asla 5’ten küçük değil.</p>
 <p>Şimdi <code>if-else</code> yapısına bakalım:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( KOŞUL ){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( KOŞUL ){</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU İSE BURAYI ÇALIŞTIR</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    KOŞUL DOĞRU DEĞİL İSE BURAYI ÇALIŞTIR</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <p>İlk önce bir koşul belirliyoruz (sayının 5’e eşit veya 5’ten büyük olması). Eğer bu koşul doğru ise ilk yapı çalışıyor, eğer bu koşul doğru değil ise ikinci satır çalışıyor.</p>
 <p>Şimdi bu örnek ile gerçekten çalışabilir bir kod yazalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
 <span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="va">sayi</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"bu sayi bese esit veya besten buyuktur"</span><span class="op">)</span></span>
 <span><span class="op">}</span> <span class="kw">else</span><span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"bu sayi besten kucuktur"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "bu sayi bese esit veya besten buyuktur"</code></pre>
 </div>
@@ -645,8 +648,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">22.3</span> Farklı yapıları birleştirelim</h2>
 <p>Şimdi tekrar yaprak uzunluğu örneğimize gelelim ve bu iki yapıyı birleştirelim. Bu sefer her elemana farklı işlemler uygulamaya çalışalım.</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
-<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Elimizde artık iki tane koşul olsun:</p>
 <ul>
@@ -655,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Yine örneğimiz biraz rastgele oldu. Böyle bir senaryo için <code>if-else</code> yapısı kullanmalıyız. Önce cevabı görelim, daha sonra adım adım inceleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">eleman</span> <span class="kw">in</span> <span class="va">yaprak_uzunlugu</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="kw">if</span> <span class="op">(</span><span class="va">eleman</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span><span class="op">{</span></span>
 <span>        <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı:"</span>, <span class="va">sonuc</span>, <span class="st">"\n"</span><span class="op">)</span></span>
@@ -663,7 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>        <span class="va">sonuc</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">eleman</span><span class="op">+</span><span class="fl">10</span><span class="op">)</span><span class="op">/</span><span class="fl">3</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı:"</span>, <span class="va">sonuc</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.1 
 yaprak uzunlugu 5'den kucuk, ikinci formul uygulandı: 4.466667 
@@ -766,13 +769,14 @@ yaprak uzunlugu 5'den buyuk veya esit, ilk formul uygulandı: 5 </code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

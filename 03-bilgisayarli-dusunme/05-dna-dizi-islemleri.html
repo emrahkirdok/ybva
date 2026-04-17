@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>26&nbsp; DNA dizi işlemleri - 3 – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -56,7 +59,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -90,10 +92,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +121,7 @@ div.csl-indent {
     "search-submit-button-title": "Gönder",
     "search-label": "Ara"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -130,7 +132,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -164,7 +166,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -519,9 +521,9 @@ A G G C T T A C</code></pre>
 <p><a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming uzaklığı</a> eşit uzunluğa sahip iki karakter vektörünün sembolleri arasında gözlenen toplam pozisyonel farklılıklardır.</p>
 <p>Bu bilgiyi kullanarak aşağıdaki iki dizi arasındaki tek nükleotid farklılıklarını geri döndüren fonksiyonu yazınız. Fonksiyonun ismi <code>hamming_uzakligi</code> olsun. Bu fonksiyonu oluştururken <code>for</code> ve <code>if-else</code> yapılarını kullanınız.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dizi1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dizi1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span><span class="op">)</span></span>
 <span>  </span>
-<span><span class="va">dizi2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"T"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">dizi2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"T"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -529,13 +531,13 @@ A G G C T T A C</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-İpucu
+<span class="screen-reader-only">İpucu</span>İpucu
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>İki farklı karakter birbirine eşit olmadığı sorgusunu yapmak için <code>!=</code> (eşit değil mi?) yapısını kullanabilirsiniz. Eğer karakterler eşit değilse <code>TRUE</code> değeri geri döndürülecektir.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"A"</span> <span class="op">!=</span> <span class="st">"T"</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"A"</span> <span class="op">!=</span> <span class="st">"T"</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -548,7 +550,7 @@ A G G C T T A C</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Not
+<span class="screen-reader-only">Not</span>Not
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -559,13 +561,13 @@ Not
 <span class="header-section-number">26.2</span> GC kayması</h2>
 <p>Normalde nükleotidlerin genom içerisinde rastgele bir şekilde homojen olarak dağılması beklenir. Ancak bazı durumlarda bu gerçekleşmez ve genomun farklı bölgelerinde nükleotid oranları değişebilir <span class="citation" data-cites="Salzberg">(<a href="../references.html#ref-Salzberg" role="doc-biblioref">Lu 2020</a>)</span>. Bu durum özellikle bakteri genomlarında daha sık bir şekilde gözlenir ve DNA’nın iki farklı ipliğinde nükleotid oranlarında bir farklılaşmaya sebep olur.</p>
 <p>Bu değişim sayesinde, bakterilerde replikasyon başlangıç noktasını tespit edebiliriz.</p>
-<p>GC kaymasını aşağıdaki formüle göre hesaplayabilriz:</p>
+<p>GC kaymasını aşağıdaki formüle göre hesaplayabiliriz:</p>
 <p><span class="math display">\[
 GC = \frac{G-C}{G+C}
 \]</span></p>
 <p>Bu formül uyarınca, aşağıdaki DNA dizisinin GC kayma değerini hesaplayan fonksiyonu yazınız. Fonksiyonun ismi <code>GC_kaymasi</code> olsun.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dizi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"T"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dizi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"G"</span>, <span class="st">"T"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -573,16 +575,16 @@ GC = \frac{G-C}{G+C}
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-İpucu
+<span class="screen-reader-only">İpucu</span>İpucu
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırayınız.</p>
+<p>Önceki derslerde yazdığımız GC değerini hesaplayan fonksiyonu hatırlayınız.</p>
 </div>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-Salzberg" class="csl-entry" role="listitem">
 Lu, Steven L., Jennifer AND Salzberg. 2020. <span>“SkewIT: The Skew Index Test for large-scale GC Skew analysis of bacterial genomes”</span>. <em>PLOS Computational Biology</em> 16 (12): 1-16. <a href="https://doi.org/10.1371/journal.pcbi.1008439">https://doi.org/10.1371/journal.pcbi.1008439</a>.
 </div>
@@ -641,13 +643,14 @@ Mohammadi-Kambs, Mina, Kathrin Hölz, Mark M. Somoza, ve Albrecht Ott. 2017. <sp
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

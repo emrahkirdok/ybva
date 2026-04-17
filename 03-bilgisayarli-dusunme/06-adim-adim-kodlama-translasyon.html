@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>27&nbsp; Translasyon fonksiyonu anlatımı – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -465,52 +468,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>Bu dersteki amacımız, bir DNA ipliğini amino asit dizisine çevirmek olacak. Bunun için <code>codon.txt</code> isimli kodon tablosunu ve <code>example.fna</code> içinde bulunan birinci DNA dizisini kullanacağız.</p>
-<p>DNA dizisini okumak için, <code>seqinr</code> paketini kullanacağız. Eğer bu paketi daha önce kurmadıysanız, konsola <code>install.packages("seqinr")</code> yazmalınız.</p>
+<p>DNA dizisini okumak için, <code>seqinr</code> paketini kullanacağız. Eğer bu paketi daha önce kurmadıysanız, konsola <code>install.packages("seqinr")</code> yazmalısınız.</p>
 <p>Paket kurduysanız öncelikle çalışma alanımıza yükleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://seqinr.r-forge.r-project.org/">seqinr</a></span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://seqinr.r-forge.r-project.org/">seqinr</a></span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="ön-bilgileri-yükleyelim" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="ön-bilgileri-yükleyelim">
 <span class="header-section-number">27.1</span> Ön bilgileri yükleyelim</h2>
 <p>Burada internet sitesinin <code>github</code> sayfasında bulunan dosyalar internet üzerinden yüklenmektedir. Dosyaları bu şekilde de yükleyebilirsiniz. Ayrıntılı bilgi için: {<a href="../02-veri-analizi/08-dosya-okuma.html" class="quarto-xref"><span>Bölüm 13</span></a>}</p>
 <p>Şimdi DNA dizisini yükleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fasta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/seqinr/man/read.fasta.html">read.fasta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna"</span>, forceDNAtolower <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fasta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/seqinr/man/read.fasta.html">read.fasta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna"</span>, forceDNAtolower <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bir sonraki adımda, kodon dosyamızı yükleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kodon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">kodon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="bir-kodonu-nasıl-seçebiliriz" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="bir-kodonu-nasıl-seçebiliriz">
 <span class="header-section-number">27.2</span> Bir kodonu nasıl seçebiliriz?</h2>
 <p>Önce örnek bir DNA verisi oluşturalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"C"</span> , <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"T"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"A"</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"C"</span> , <span class="st">"G"</span>, <span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"T"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"A"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Birinci kodon:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "A" "T" "G"</code></pre>
 </div>
 </div>
 <p>İkinci kodon:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "A" "C" "G"</code></pre>
 </div>
 </div>
 <p>Şimdi başlangıç pozisyonlarını oluşturalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">baslangic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">ornek</span><span class="op">)</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">baslangic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">ornek</span><span class="op">)</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Şimdi kodonları tek tek seçelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">secilen_kodon</span> <span class="op">&lt;-</span> <span class="va">ornek</span><span class="op">[</span><span class="va">i</span><span class="op">:</span><span class="op">(</span><span class="va">i</span><span class="op">+</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Secilen kodon: "</span>, <span class="va">secilen_kodon</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Secilen kodon:  A T G 
 Secilen kodon:  A C G 
@@ -520,18 +523,18 @@ Secilen kodon:  T G A </code></pre>
 </div>
 <p>Ancak geri döndürdüğümüz <code>secilen_kodon</code> değeri aslında bir vektör. Kodon tablosunda arama yapmak için, bunu vektöre çevirmeliyiz. Bir örnek:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">ornek</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, collapse<span class="op">=</span><span class="st">""</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">ornek</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, collapse<span class="op">=</span><span class="st">""</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ACG"</code></pre>
 </div>
 </div>
 <p>Şimdi bunu da <code>for</code> döngümüze ekleyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">secilen_kodon</span> <span class="op">&lt;-</span> <span class="va">ornek</span><span class="op">[</span><span class="va">i</span><span class="op">:</span><span class="op">(</span><span class="va">i</span><span class="op">+</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="va">secilen_kodon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">secilen_kodon</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Secilen kodon: "</span>, <span class="va">secilen_kodon</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Secilen kodon:  ATG 
 Secilen kodon:  ACG 
@@ -541,13 +544,13 @@ Secilen kodon:  TGA </code></pre>
 </div>
 <p>Artık, <code>kodon</code> veri setinde bulunan kodon listesi içerisinde arama yapabiliriz. Şimdi seçtiğimiz kodona uygun amino asiti geri döndürelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">secilen_kodon</span> <span class="op">&lt;-</span> <span class="va">ornek</span><span class="op">[</span><span class="va">i</span><span class="op">:</span><span class="op">(</span><span class="va">i</span><span class="op">+</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="va">secilen_kodon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">secilen_kodon</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
 <span>  <span class="va">aa</span> <span class="op">&lt;-</span> <span class="va">kodon</span><span class="op">[</span><span class="va">kodon</span><span class="op">$</span><span class="va">Codon</span> <span class="op">==</span> <span class="va">secilen_kodon</span>, <span class="fl">2</span><span class="op">]</span></span>
 <span>  </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Secilen kodon:"</span>, <span class="va">secilen_kodon</span>, <span class="st">"kodona karsilik gelen amino asit:"</span>, <span class="va">aa</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Secilen kodon: ATG kodona karsilik gelen amino asit: Met 
 Secilen kodon: ACG kodona karsilik gelen amino asit: Thr 
@@ -557,7 +560,7 @@ Secilen kodon: TGA kodona karsilik gelen amino asit: Stp </code></pre>
 </div>
 <p>Peki amino asit ipliğini nasıl oluşturabilriz?</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">aa_ipligi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">aa_ipligi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">baslangic</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">secilen_kodon</span> <span class="op">&lt;-</span> <span class="va">ornek</span><span class="op">[</span><span class="va">i</span><span class="op">:</span><span class="op">(</span><span class="va">i</span><span class="op">+</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
@@ -565,14 +568,14 @@ Secilen kodon: TGA kodona karsilik gelen amino asit: Stp </code></pre>
 <span>  <span class="va">aa</span> <span class="op">&lt;-</span> <span class="va">kodon</span><span class="op">[</span><span class="va">kodon</span><span class="op">$</span><span class="va">Codon</span> <span class="op">==</span> <span class="va">secilen_kodon</span>, <span class="fl">2</span><span class="op">]</span></span>
 <span>  <span class="va">aa_ipligi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">aa_ipligi</span>, <span class="va">aa</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Secilen kodon:"</span>, <span class="va">secilen_kodon</span>, <span class="st">"kodona karsilik gelen amino asit:"</span>, <span class="va">aa</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Secilen kodon: ATG kodona karsilik gelen amino asit: Met 
 Secilen kodon: ACG kodona karsilik gelen amino asit: Thr 
 Secilen kodon: ATT kodona karsilik gelen amino asit: Ile 
 Secilen kodon: TGA kodona karsilik gelen amino asit: Stp </code></pre>
 </div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">aa_ipligi</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">aa_ipligi</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Met Thr Ile Stp</code></pre>
 </div>
@@ -580,7 +583,7 @@ Secilen kodon: TGA kodona karsilik gelen amino asit: Stp </code></pre>
 </section><section id="bunu-bir-fonksiyona-dönüştürelim" class="level2" data-number="27.3"><h2 data-number="27.3" class="anchored" data-anchor-id="bunu-bir-fonksiyona-dönüştürelim">
 <span class="header-section-number">27.3</span> Bunu bir fonksiyona dönüştürelim</h2>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">translasyon</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">ornek</span>, <span class="va">kodon</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">translasyon</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">ornek</span>, <span class="va">kodon</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">aa_ipligi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="va">baslangic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">ornek</span><span class="op">)</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span>  </span>
@@ -592,11 +595,11 @@ Secilen kodon: TGA kodona karsilik gelen amino asit: Stp </code></pre>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Secilen kodon:"</span>, <span class="va">secilen_kodon</span>, <span class="st">"kodona karsilik gelen amino asit:"</span>, <span class="va">aa</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">aa_ipligi</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Şimdi bu fonksiyonu kullanalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">translasyon</span><span class="op">(</span>ornek <span class="op">=</span> <span class="va">ornek</span>, kodon <span class="op">=</span> <span class="va">kodon</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">translasyon</span><span class="op">(</span>ornek <span class="op">=</span> <span class="va">ornek</span>, kodon <span class="op">=</span> <span class="va">kodon</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Secilen kodon: ATG kodona karsilik gelen amino asit: Met 
 Secilen kodon: ACG kodona karsilik gelen amino asit: Thr 
@@ -609,7 +612,7 @@ Secilen kodon: TGA kodona karsilik gelen amino asit: Stp </code></pre>
 </div>
 <p>Derste kullandığımız DNA dizilerini kullanalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">translasyon</span><span class="op">(</span>ornek <span class="op">=</span> <span class="va">fasta</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, kodon <span class="op">=</span> <span class="va">kodon</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">translasyon</span><span class="op">(</span>ornek <span class="op">=</span> <span class="va">fasta</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, kodon <span class="op">=</span> <span class="va">kodon</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Secilen kodon: ATG kodona karsilik gelen amino asit: Met 
 Secilen kodon: AGT kodona karsilik gelen amino asit: Ser 
@@ -779,7 +782,7 @@ Secilen kodon: TAA kodona karsilik gelen amino asit: Stp </code></pre>
 <li>Kodlara açıklama ekleyelim</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">translasyon</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dna</span>, <span class="va">kodon</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">translasyon</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dna</span>, <span class="va">kodon</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="co"># oncelikle bos bir amino asit iplik vektoru olusturalim</span></span>
 <span>  <span class="va">aa_ipligi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  </span>
@@ -801,15 +804,15 @@ Secilen kodon: TAA kodona karsilik gelen amino asit: Stp </code></pre>
 <span>  <span class="op">}</span></span>
 <span>  <span class="co"># amino asit ipligini geri dondurelim</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">aa_ipligi</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Fonksiyonu tekrar çalıştıralım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fasta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/seqinr/man/read.fasta.html">read.fasta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna"</span>, forceDNAtolower <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fasta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/seqinr/man/read.fasta.html">read.fasta</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/example.fna"</span>, forceDNAtolower <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">kodon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/emrahkirdok/ybva/main/03-bilgisayarli-dusunme/data/codon.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">translasyon</span><span class="op">(</span>dna <span class="op">=</span> <span class="va">fasta</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, kodon <span class="op">=</span> <span class="va">kodon</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu">translasyon</span><span class="op">(</span>dna <span class="op">=</span> <span class="va">fasta</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, kodon <span class="op">=</span> <span class="va">kodon</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "Met" "Val" "Leu" "Ser" "Pro" "Ala" "Asp" "Lys" "Thr" "Asn" "Val" "Lys"
  [13] "Ala" "Ala" "Trp" "Gly" "Lys" "Val" "Gly" "Ala" "His" "Ala" "Gly" "Glu"
@@ -878,13 +881,14 @@ Secilen kodon: TAA kodona karsilik gelen amino asit: Stp </code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

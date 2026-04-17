@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>9&nbsp; Matrisler – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81ee1b55bfa6e3092aba939d32fac8d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -469,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-matrix1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tablo&nbsp;9.1
 </figcaption><div aria-describedby="tbl-matrix1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
 Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708
@@ -484,12 +487,12 @@ Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</co
 </div>
 <p>Bir önceki derste kullandığımız <code>yaprak_uzunlugu</code> isimli vektörden bir matris oluşturalım.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
-<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yaprak_uzunlugu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">1.2</span>, <span class="fl">3.4</span>, </span>
+<span>                    <span class="fl">3</span>, <span class="fl">1.8</span>, <span class="fl">6.3</span>, <span class="fl">2.1</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bu vektörden bir matris oluşturmak istersek öncelikle <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> fonksiyonunu kullanarak, satır <code>(nrow)</code> ve sütun <code>(ncol)</code> sayılarını belirlememiz gereklidir.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span>, nrow<span class="op">=</span><span class="fl">5</span>, ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span>, nrow<span class="op">=</span><span class="fl">5</span>, ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,]  2.3  3.0
@@ -506,7 +509,7 @@ Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</co
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Satır ve Sütun sayılarına dikkat!
+<span class="screen-reader-only">Önemli</span>Satır ve Sütun sayılarına dikkat!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -526,17 +529,17 @@ Satır ve Sütun sayılarına dikkat!
 </ul>
 <p>Şu şekilde:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span>, nrow<span class="op">=</span><span class="fl">5</span>, ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">yaprak_uzunlugu</span>, nrow<span class="op">=</span><span class="fl">5</span>, ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 2</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -550,11 +553,11 @@ Satır ve Sütun sayılarına dikkat!
 <li><code>colnames</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Satir1"</span>, <span class="st">"Satir2"</span>, <span class="st">"Satir3"</span>, <span class="st">"Satir4"</span>, <span class="st">"Satir5"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Satir1"</span>, <span class="st">"Satir2"</span>, <span class="st">"Satir3"</span>, <span class="st">"Satir4"</span>, <span class="st">"Satir5"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ornek_matris</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sutun1"</span>, <span class="st">"Sutun2"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ornek_matris</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">ornek_matris</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Sutun1 Sutun2
 Satir1    2.3    3.0
@@ -569,7 +572,7 @@ Satir5    3.4    5.0</code></pre>
 <p>Matrisler’de de indis kullanabiliriz. Bu sayede matris içerisindeki elemanlara erişebiliriz. Ancak burada iki tane eleman kullanmamız gerekecek. Bir tanesi satır için, diğeri ise sütun için.</p>
 <p>Mesela, örnek matirisimizde 4. satır 2. sütundaki elemana erişmek isteyelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.1</code></pre>
 </div>
@@ -577,7 +580,7 @@ Satir5    3.4    5.0</code></pre>
 <p>Birinci eleman satır sayısını, ikinci eleman ise sütun sayısını ifade etmektedir.</p>
 <p>Sadece ikinci sütunda bulunan, 2 ve 4 arasındaki satırlara erişmek istersek:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Satir2 Satir3 Satir4 
    1.8    6.3    2.1 </code></pre>
@@ -586,7 +589,7 @@ Satir5    3.4    5.0</code></pre>
 <p>Dikkat ederseniz bu örnekte <code>2:4</code> yapısını kullandık. Bu bize 2, 3, 4 vektörünü geri döndürecektir. Sütun için ise sadece 2 kullandık.</p>
 <p>Sadece 4. satırı geri döndürmek için:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="fl">4</span>,<span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sutun1 Sutun2 
    1.2    2.1 </code></pre>
@@ -595,7 +598,7 @@ Satir5    3.4    5.0</code></pre>
 <p>Sütun indisini kullanmazsak, bütün sütun elementlerini geri döndürür.</p>
 <p>Sadece birinci sütunu geri döndürmek için ise:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Satir1 Satir2 Satir3 Satir4 Satir5 
    2.3    3.4    4.5    1.2    3.4 </code></pre>
@@ -606,7 +609,7 @@ Satir5    3.4    5.0</code></pre>
 <p>Vektörlerde yaptığımız mantıksal işlemleri matrislerde de yapabiliriz.</p>
 <p>Mesela ikinci sütunda, 5’den büyük satırları geri döndürelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Satir1 Satir2 Satir3 Satir4 Satir5 
  FALSE  FALSE   TRUE  FALSE  FALSE </code></pre>
@@ -614,7 +617,7 @@ Satir5    3.4    5.0</code></pre>
 </div>
 <p>Dikkat ederseniz 5’den büyük olan değerleri bize <code>TRUE</code> olarak gösterdi. Bu mantıksal vektörü tekrar bir indis olarak verelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="fl">1</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="fl">1</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.5</code></pre>
 </div>
@@ -622,7 +625,7 @@ Satir5    3.4    5.0</code></pre>
 <p>Dikkat edin mantıksal vektörü sadece satır indisi olarak kullandık! Yoksa hata alırız.</p>
 <p>Ya da bütün matris içerisinde bir karşılaştırma yapabiliriz. Bütün matris içinde 3’den büyük olan değerleri geri döndürelim:</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Sutun1 Sutun2
 Satir1  FALSE  FALSE
@@ -634,7 +637,7 @@ Satir5   TRUE   TRUE</code></pre>
 </div>
 <p>Bunu tekrar bir indis olarak geri kullanalım:</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span></span></code><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ornek_matris</span><span class="op">[</span><span class="va">ornek_matris</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.4 4.5 3.4 6.3 5.0</code></pre>
 </div>
@@ -693,13 +696,14 @@ Satir5   TRUE   TRUE</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
