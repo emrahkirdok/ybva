@@ -1,0 +1,93 @@
+# Needleman-Wunsch Algoritması
+
+Bu algoritma, iki nükleotit dizisini baştan sona en uygun şekilde eşleştirmek için Dinamik Programlama yöntemini kullanır. Süreç iki ana aşamadan oluşmaktadır: Matris Doldurma ve Geri İzleme(Traceback)
+
+```{r}
+d1_vektor <- c("A","A","C","G")
+d2_vektor <- c("A","A","T","G","C","T")
+
+match <- 1
+mismatch <- -1
+gap <- -2
+
+rows <- length(d2_vektor) + 1
+cols <- length(d1_vektor) + 1
+
+matris <- matrix(NA, nrow = rows, ncol = cols) 
+points <- matrix(NA, nrow = rows, ncol = cols)
+
+matris [1, ] <- seq(0,length(d1_vektor)*gap, gap)
+matris [ ,1] <- seq(0,length(d2_vektor)*gap, gap)
+
+#points[1, ]<-"left"
+#points[,1 ]<-"up"
+#points[1,1 ]<-"-"
+
+#--Matris Doldurma Aşaması
+
+for(i in 2:rows ) {  
+  for(j in 2:cols ) {
+    if(d1_vektor[j-1] == d2_vektor[i-1]){
+      skor1 <- matris[i-1, j-1] + match 
+    }else {
+      skor1 <- matris[i-1, j-1] + mismatch
+    }
+  skor2 <- matris[i-1, j] + gap
+  skor3 <- matris[i, j-1] + gap
+  matris[i,j] <- max(skor1,skor2,skor3)
+  position <- which.max(c(skor1,skor2,skor3))
+  if(position == 1){
+    points[i,j] <- "diag"
+  } else if (position == 2) {  
+    points[i,j]<- "up"
+  } else{ points[i,j]<-"left"}
+}
+}
+
+
+#--Geri İzleme (Traceback)
+
+aln1<-c()
+aln2<-c()
+
+i<-length(d2_vektor)+1  
+j<-length(d1_vektor)+1  
+
+while (i!=1 & j!=1) {
+  if (points[i,j]=="diag"){ 
+    i<-i-1
+    j<-j-1
+    print("diag") 
+    aln1<-c (d1_vektor[j-1],aln1)
+    aln2<-c (d2_vektor[i-1],aln2)
+    
+    print(aln1)
+    print(aln2)
+    
+  } else if(points[i,j]=="up"){
+      i<- i-1 
+      aln1<-c("-",aln1)
+      aln2<-c(d2_vektor[i-1],aln2)
+      print("up")
+      
+      print(aln1)
+      print(aln2)
+  } else {
+      j<-j-1
+      aln1<-c(d1_vektor[j-1],aln1)
+      aln2<-c("-",aln2)
+      print("left")
+      
+      print(aln1)
+      print(aln2)
+    }
+}
+
+print(aln1)
+print(aln2)
+
+
+
+
+
+
