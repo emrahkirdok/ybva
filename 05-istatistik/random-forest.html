@@ -495,11 +495,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 40.91%
+        OOB estimate of  error rate: 36.36%
 Confusion matrix:
               Healthy Periodontitis class.error
 Healthy             9             3        0.25
-Periodontitis       6             4        0.60</code></pre>
+Periodontitis       5             5        0.50</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -507,28 +507,28 @@ Periodontitis       6             4        0.60</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                              Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus    4.4566174  4.020227e+00            4.5167624
-Actinomyces_johnsonii       2.3694607  1.320213e+00            2.2388322
-Actinomyces_timonensis      2.6645869  7.065571e-01            2.0515524
-Slackia_exigua              1.2096930  4.909659e-01            1.1620018
-Actinomyces_dentalis        1.9540761  6.351029e-01            1.5830441
-Treponema_denticola         1.0760778  6.804408e-01            0.8850252
-Treponema_lecithinolyticum -0.4541508 -9.226195e-01           -0.4017545
-Eggerthia_catenaformis      1.5561700 -1.342692e-16            1.4442876
-Capnocytophaga_granulosa    1.2491638  1.187760e+00            1.3930281
-Prevotella_nanceiensis     -0.5129564 -2.142277e+00           -1.7873332
-                           MeanDecreaseGini
-Dialister_micraerophilus          0.3432882
-Actinomyces_johnsonii             0.3306379
-Actinomyces_timonensis            0.2622430
-Slackia_exigua                    0.2411580
-Actinomyces_dentalis              0.1767030
-Treponema_denticola               0.1624388
-Treponema_lecithinolyticum        0.1599246
-Eggerthia_catenaformis            0.1546082
-Capnocytophaga_granulosa          0.1514691
-Prevotella_nanceiensis            0.1507955</code></pre>
+<pre><code>                                  Healthy Periodontitis MeanDecreaseAccuracy
+Actinomyces_johnsonii           2.6994892     2.3106233            2.8420920
+Actinomyces_timonensis          2.8130150     2.0316848            2.6762540
+Dialister_micraerophilus        4.3109758     4.4469365            4.4516008
+Actinomyces_dentalis            1.9533869     2.5385919            2.3898754
+Treponema_lecithinolyticum      1.4653936     0.7865702            1.7024112
+Parvimonas_micra                1.1854299     2.2148434            2.2278132
+Pseudoramibacter_alactolyticus -0.7358252     0.1286947            0.5443285
+Treponema_socranskii            2.8215511     1.6958498            2.7508115
+Actinomyces_israelii            1.8000817    -1.6419645            0.2652656
+Enterococcus_italicus           1.4959328     0.2521967            0.9803710
+                               MeanDecreaseGini
+Actinomyces_johnsonii                 0.3901202
+Actinomyces_timonensis                0.3753081
+Dialister_micraerophilus              0.3487122
+Actinomyces_dentalis                  0.2614291
+Treponema_lecithinolyticum            0.2372114
+Parvimonas_micra                      0.2338241
+Pseudoramibacter_alactolyticus        0.1614812
+Treponema_socranskii                  0.1411911
+Actinomyces_israelii                  0.1309254
+Enterococcus_italicus                 0.1277801</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
