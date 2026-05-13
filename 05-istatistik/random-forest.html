@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>33&nbsp; Random Forest Uygulaması – Yaşam Bilimlerinde Veri Analizi</title>
+<title>34&nbsp; Random Forest Uygulaması – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Ara" onclick="window.quartoOpenSearch();">
@@ -365,6 +365,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-bilgisayarli-dusunme/upgma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">UPGMA</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -379,25 +385,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/lojistik-regresyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
   </div>
 </li>
       </ul>
@@ -449,9 +455,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-istatistik/naive-bayes.html">Biyoteknolojide Veri Analizi</a></li><li class="breadcrumb-item"><a href="../05-istatistik/random-forest.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span>
+<span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span>
 </h1>
 </div>
 
@@ -501,11 +507,11 @@ Call:
                      Number of trees: 500
 No. of variables tried at each split: 15
 
-        OOB estimate of  error rate: 31.82%
+        OOB estimate of  error rate: 40.91%
 Confusion matrix:
               Healthy Periodontitis class.error
-Healthy            10             2   0.1666667
-Periodontitis       5             5   0.5000000</code></pre>
+Healthy             9             3        0.25
+Periodontitis       6             4        0.60</code></pre>
 </div>
 </div>
 <p>Peki en önemli bakteriler nedir? En önemli 10 bakteriye bakalım:</p>
@@ -513,28 +519,28 @@ Periodontitis       5             5   0.5000000</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                  Healthy Periodontitis MeanDecreaseAccuracy
-Actinomyces_johnsonii           3.2166778     0.6104845           2.70704967
-Actinomyces_dentalis            1.6633395     1.0886623           1.50241496
-Dialister_micraerophilus        3.7072744     3.1774587           3.83560663
-Actinomyces_timonensis          2.8153574     0.9198927           2.65146929
-Parvimonas_micra                2.1003887     1.4145954           2.16620999
-Pseudoramibacter_alactolyticus -0.3809552     0.5912428          -0.08344104
-Tannerella_forsythia            1.7903087    -0.4466829           1.03744451
-Treponema_socranskii            1.9885942     1.2280076           1.53300594
-Treponema_putidum               0.0000000    -0.4314114          -0.12894217
-Eggerthia_catenaformis          1.7902850     0.3067701           1.67527130
-                               MeanDecreaseGini
-Actinomyces_johnsonii                 0.3266353
-Actinomyces_dentalis                  0.2758889
-Dialister_micraerophilus              0.2697385
-Actinomyces_timonensis                0.2391834
-Parvimonas_micra                      0.2331776
-Pseudoramibacter_alactolyticus        0.1984745
-Tannerella_forsythia                  0.1911668
-Treponema_socranskii                  0.1833757
-Treponema_putidum                     0.1647098
-Eggerthia_catenaformis                0.1575333</code></pre>
+<pre><code>                              Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus    3.9596713    3.21887735            4.0149134
+Parvimonas_micra            1.6805118    1.10086473            1.6059380
+Treponema_lecithinolyticum  1.6335894    2.29101973            2.4244474
+Actinomyces_johnsonii       2.5660692    2.27558381            2.6919707
+Actinomyces_dentalis        1.6227818    2.13832473            2.2133062
+Treponema_denticola         0.5956181   -1.39162329           -0.6612598
+Slackia_exigua              1.8225554    2.36546059            2.2460879
+Streptococcus_mitis        -0.6021475   -0.35297892           -0.1139190
+Tannerella_forsythia        1.3779833    1.12633652            1.4580328
+Streptococcus_anginosus     1.8177815    0.05263172            1.2036592
+                           MeanDecreaseGini
+Dialister_micraerophilus          0.3645126
+Parvimonas_micra                  0.2496278
+Treponema_lecithinolyticum        0.2418009
+Actinomyces_johnsonii             0.2357353
+Actinomyces_dentalis              0.2303441
+Treponema_denticola               0.2259190
+Slackia_exigua                    0.2204276
+Streptococcus_mitis               0.1711704
+Tannerella_forsythia              0.1612940
+Streptococcus_anginosus           0.1611792</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
@@ -1018,12 +1024,12 @@ Eggerthia_catenaformis                0.1575333</code></pre>
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../05-istatistik/lojistik-regresyon.html" class="pagination-link" aria-label="Lojistik Regresyon">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../05-istatistik/odev.html" class="pagination-link" aria-label="Ders Ödevi">
-        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

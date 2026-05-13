@@ -390,6 +390,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-bilgisayarli-dusunme/upgma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">UPGMA</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -404,25 +410,25 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/lojistik-regresyon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lojistik Regresyon</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/random-forest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Random Forest Uygulaması</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/odev.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Ders Ödevi</span></span></a>
   </div>
 </li>
       </ul>
@@ -553,13 +559,13 @@ window.Quarto = {
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -43.442, df = 1467.9, p-value &lt; 2.2e-16
+t = -42.487, df = 1482.6, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.213260 -2.935615
+ -3.149139 -2.871192
 sample estimates:
 mean of x mean of y 
- 1.974340  5.048778 </code></pre>
+ 2.046657  5.056822 </code></pre>
 </div>
 </div>
 <p>Burada dikkat etmemiz gereken iki nokta var:</p>
@@ -571,7 +577,7 @@ mean of x mean of y
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8.790298e-266</code></pre>
+<pre><code>[1] 1.110215e-258</code></pre>
 </div>
 </div>
 <p>Dikkat ederseniz bu değer çok düşük. Bu sonuç aslında bu iki dağılımın ortalamalarının birbirlerinden farklı olduğunu gösteriyor bize.</p>
@@ -589,7 +595,7 @@ mean of x mean of y
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">p.value</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8.790298e-266</code></pre>
+<pre><code>[1] 1.110215e-258</code></pre>
 </div>
 </div>
 <p>Bu değer çok çok çok düşük bir değer. Yani bu iki dağılımın ortalamalarının aynı olması çok düşük bir olasılık. Bu olasılığın anlamlı olup olmadığını öğrenmek için ise belirli <span class="math inline">\(alpha\)</span> değerleri kullanılır:</p>
@@ -613,13 +619,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = -43.442, df = 1467.9, p-value &lt; 2.2e-16
+t = -42.487, df = 1482.6, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -3.213260 -2.935615
+ -3.149139 -2.871192
 sample estimates:
 mean of x mean of y 
- 1.974340  5.048778 </code></pre>
+ 2.046657  5.056822 </code></pre>
 </div>
 </div>
 <p>Şu satıra bakalım:</p>
@@ -666,13 +672,13 @@ mean of x mean of y
     Welch Two Sample t-test
 
 data:  dagilim1 and dagilim2
-t = 0.54921, df = 1997.5, p-value = 0.5829
+t = -0.18111, df = 1996.2, p-value = 0.8563
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -0.06254954  0.11120989
+ -0.09377436  0.07791857
 sample estimates:
 mean of x mean of y 
- 2.048995  2.024665 </code></pre>
+ 1.989523  1.997451 </code></pre>
 </div>
 </div>
 <p>Bu sonuçta bakmamız gereken şey aslında şu: Bu iki dağılımın ortalamaları çok az da olsa birbirlerinden farklı. Peki bu farklılık anlamlı mı?</p>

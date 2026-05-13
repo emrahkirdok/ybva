@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="tr" xml:lang="tr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>1&nbsp; R ve RStudio – Yaşam Bilimlerinde Veri Analizi</title>
+<title>31&nbsp; UPGMA – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,8 +20,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -33,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-kurulum/02-ilk-kurallar.html" rel="next">
-<link href="../CONTRIBUTING.html" rel="prev">
+<link href="../05-istatistik/naive-bayes.html" rel="next">
+<link href="../03-bilgisayarli-dusunme/needleman-wunsch.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -45,8 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -73,37 +103,26 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Ara"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/upgma.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">UPGMA</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Ara" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+      <img src="../images/ybva.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/ybva.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Yaşam Bilimlerinde Veri Analizi</a> 
         <div class="sidebar-tools-main">
@@ -123,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Önsöz</span></a>
@@ -143,10 +162,10 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-kurulum/01-r-rstudio-kurulum.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></a>
   </div>
 </li>
@@ -169,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -178,8 +197,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-veri-analizi/01-veri-bilimine-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Neden Veri Analizi?</span></span></a>
@@ -282,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -291,8 +310,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Kontrol yapıları</span></span></a>
@@ -348,12 +367,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/upgma.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/upgma.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">UPGMA</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -362,8 +381,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-istatistik/naive-bayes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span></a>
@@ -388,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Türkiye'nin Verisi</span></span>
@@ -407,8 +426,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../10-ekler/01-sunumlar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ders sunumları</span></span></a>
@@ -427,31 +446,19 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">İçindekiler</h2>
-   
-  <ul>
-  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link active" data-scroll-target="#posit-cloud"><span class="header-section-number">1.1</span> Posit Cloud</a>
-  <ul class="collapse">
-  <li><a href="#posit-cloud-sistemine-giriş" id="toc-posit-cloud-sistemine-giriş" class="nav-link" data-scroll-target="#posit-cloud-sistemine-giriş"><span class="header-section-number">1.1.1</span> Posit Cloud sistemine giriş</a></li>
-  </ul></li>
-  <li><a href="#r-ve-rstudio-kurulumu" id="toc-r-ve-rstudio-kurulumu" class="nav-link" data-scroll-target="#r-ve-rstudio-kurulumu"><span class="header-section-number">1.2</span> R ve RStudio kurulumu</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html">Derse Hazırlık</a></li><li class="breadcrumb-item"><a href="../01-kurulum/01-r-rstudio-kurulum.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-sistem" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R ve RStudio</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/upgma.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">UPGMA</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">31</span>&nbsp; <span class="chapter-title">UPGMA</span>
+</h1>
 </div>
 
 
@@ -465,77 +472,129 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
+</header><p>Bu ders kapsamında UPGMA tekniği ile bir uzaklık matrisinde, kümeleme analizinin nasıl yapılacağı gösterilecektir.</p>
+<p>Öncelikle bir uzaklık matrisi oluşturalım:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 1. BAŞLANGIÇ VERİLERİNİ OLUŞTURMA</span></span>
+<span><span class="co"># Basit bir 4x4 uzaklık matrisi oluşturalım</span></span>
+<span><span class="va">isimler</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span></span>
+<span><span class="va">D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">7</span>,</span>
+<span>              <span class="fl">2</span>, <span class="fl">0</span>, <span class="fl">4</span>, <span class="fl">6</span>,</span>
+<span>              <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">0</span>, <span class="fl">3</span>,</span>
+<span>              <span class="fl">7</span>, <span class="fl">6</span>, <span class="fl">3</span>, <span class="fl">0</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">4</span>, dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">isimler</span>, <span class="va">isimler</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>              <span class="co"># Her kümenin içindeki eleman sayısı (Başlangıçta herkes tek başına)</span></span>
+<span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>A<span class="op">=</span><span class="fl">1</span>, B<span class="op">=</span><span class="fl">1</span>, C<span class="op">=</span><span class="fl">1</span>, D<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Uzaklık matrisini ekrana yazalım:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Başlangıç Matrisi:\n"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Başlangıç Matrisi:</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  A B C D
+A 0 2 2 7
+B 2 0 4 6
+C 2 4 0 3
+D 7 6 3 0</code></pre>
+</div>
+</div>
+<p>Temel algoritma döngüsü:</p>
+<ul>
+<li>Derste gördüğümüz gibi en yakın örnekler birleştirlerek işe başlanacak</li>
+<li>Örnekler birleştirildikçe matris güncellenecek</li>
+<li>Matris 1x1 olana kadar işlem devam edecek</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2. ALGORİTMA DÖNGÜSÜ (Matriste 1 eleman kalana kadar devam et)</span></span>
+<span><span class="kw">while</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="co"># a. En küçük mesafeyi (sıfır olmayan) bulma</span></span>
+<span>  <span class="co"># Köşegenleri (0'ları) sonsuz (Inf) yapıyoruz ki minimum olarak seçilmesinler</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">Inf</span> </span>
+<span>  <span class="va">min_val</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># Minimum değerin koordinatlarını (hangi iki küme?) bulma</span></span>
+<span>  <span class="co"># arr.ind=TRUE bize satır ve sütun indekslerini verir</span></span>
+<span>  <span class="va">min_idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">D</span> <span class="op">==</span> <span class="va">min_val</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span> </span>
+<span>  <span class="va">i_isim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">[</span><span class="va">min_idx</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>  <span class="va">j_isim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">[</span><span class="va">min_idx</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nBirleşenler:"</span>, <span class="va">i_isim</span>, <span class="st">"ve"</span>, <span class="va">j_isim</span>, <span class="st">"| Mesafe:"</span>, <span class="va">min_val</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># b. Yeni kümenin ismini belirle (Örn: "A+B")</span></span>
+<span>  <span class="va">yeni_isim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">i_isim</span>, <span class="st">"+"</span>, <span class="va">j_isim</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># c. Yeni mesafeleri hesaplama (UPGMA Formülü)</span></span>
+<span>  <span class="va">kalan_isimler</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">i_isim</span>, <span class="va">j_isim</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">yeni_mesafeler</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">kalan_isimler</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="kw">for</span><span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">kalan_isimler</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">k_isim</span> <span class="op">&lt;-</span> <span class="va">kalan_isimler</span><span class="op">[</span><span class="va">k</span><span class="op">]</span></span>
+<span>    </span>
+<span>    <span class="co"># derste gördüğümüz yöntem</span></span>
+<span>    <span class="va">pay</span> <span class="op">&lt;-</span> <span class="va">D</span><span class="op">[</span><span class="va">i_isim</span>, <span class="va">k_isim</span><span class="op">]</span> <span class="op">+</span> <span class="va">D</span><span class="op">[</span><span class="va">j_isim</span>, <span class="va">k_isim</span><span class="op">]</span> </span>
+<span>    <span class="va">payda</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span></span>
+<span>    <span class="co"># Ağırlıklı ortalama formülü, en ideal çözüm</span></span>
+<span>    <span class="co"># pay &lt;- (N[i_isim] * D[i_isim, k_isim]) + (N[j_isim] * D[j_isim, k_isim])</span></span>
+<span>    <span class="co"># payda &lt;- N[i_isim] + N[j_isim]</span></span>
+<span>    </span>
+<span>    <span class="va">yeni_mesafeler</span><span class="op">[</span><span class="va">k</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">pay</span> <span class="op">/</span> <span class="va">payda</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="co"># d. Matrisi Güncelleme</span></span>
+<span>  <span class="co"># Eski i ve j satır/sütunlarını çıkar</span></span>
+<span>  <span class="va">D</span> <span class="op">&lt;-</span> <span class="va">D</span><span class="op">[</span><span class="va">kalan_isimler</span>, <span class="va">kalan_isimler</span>, drop<span class="op">=</span><span class="cn">FALSE</span><span class="op">]</span></span>
+<span>  </span>
+<span>  <span class="co"># Yeni satır ve sütunu matrise ekle</span></span>
+<span>  <span class="va">D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">D</span>, <span class="va">yeni_mesafeler</span><span class="op">)</span></span>
+<span>  <span class="va">D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">D</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">yeni_mesafeler</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="co"># Kendi kendine uzaklığı 0</span></span>
+<span>  </span>
+<span>  <span class="co"># Satır ve sütun isimlerini güncelle</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">yeni_isim</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">yeni_isim</span></span>
+<span>  </span>
+<span>  <span class="co"># e. Eleman sayılarını güncelle (N vektörü)</span></span>
+<span>  <span class="va">N</span><span class="op">[</span><span class="va">yeni_isim</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">N</span><span class="op">[</span><span class="va">i_isim</span><span class="op">]</span> <span class="op">+</span> <span class="va">N</span><span class="op">[</span><span class="va">j_isim</span><span class="op">]</span></span>
+<span>  <span class="va">N</span> <span class="op">&lt;-</span> <span class="va">N</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">!=</span> <span class="va">i_isim</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">!=</span> <span class="va">j_isim</span><span class="op">]</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Güncel Matris:\n"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">0</span> <span class="co"># Görüntü için köşegenleri tekrar 0 yap</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">D</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Birleşenler: B ve A | Mesafe: 2 
+Güncel Matris:
+    C   D B+A
+C   0 3.0 3.0
+D   3 0.0 6.5
+B+A 3 6.5 0.0
+
+Birleşenler: D ve C | Mesafe: 3 
+Güncel Matris:
+     B+A  D+C
+B+A 0.00 4.75
+D+C 4.75 0.00
+
+Birleşenler: D+C ve B+A | Mesafe: 4.75 
+Güncel Matris:
+        D+C+B+A
+D+C+B+A       0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nAlgoritma Tamamlandı! Tüm kümeler birleşti.\n"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Algoritma Tamamlandı! Tüm kümeler birleşti.</code></pre>
+</div>
+</div>
 
 
-<p>Bu ders kapsamında, açık kaynaklı olarak dağıtılan <a href="https://www.r-project.org/">R istatistik paketi</a> ve bu paketle bütünleşmiş geliştirme platformu olan <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> masaüstü programını kullanacağız.</p>
-<p><a href="https://www.r-project.org/">R istatistik paketi</a>, son yıllarda yaşam bilimleri ve biyolojik veri analizi alanında sıklıkla kullanılmaktadır. Hatta biyolojik veri analizi için önemli olan R paketleri, <a href="https://www.bioconductor.org/">Bioconductor</a> sistemi içerisinde sürekli bir şekilde güncellenmektedir.</p>
-<p>R istatistik paketini, istastiksel ve grafiksel işlemlerin yapıldığı bir çekirdek sistem olarak düşünebilirsiniz. RStudio ise, R istatistik paketi ile iletişimimizi sağlayan ve R’a yeni işlevler kazandıran bir kabuk gibi düşünülebilir.</p>
-<p>Bu ders kapsamında R ve RStudio programlarını kullanmanız için iki farklı yolunuz var. İlk olarak RStudio programını geliştiren <a href="https://posit.co/">posit</a> şirketi tarafından sunulan <a href="https://posit.co/products/cloud/cloud/">posit cloud</a> platformunu kullanabilirsiniz. İkinci yol ise, bilgisayarınıza R ve RStudio programlarını kurarak, R ve RStudio programlarının bütün özelliklerinden faydalanabilirsiniz.</p>
-<section id="posit-cloud" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="posit-cloud"><span class="header-section-number">1.1</span> Posit Cloud</h2>
-<p>Eğer bu yolu tercih ederseniz, sadece interenete bağlanabilen bir bilgisayar rahatlıkla işinizi görecektir. İlk başta bu yöntemi tercih edebilirsiniz ancak bu sistem size kısıtlı bir ücretsiz kullanım hakkı vermektedir. <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> platformunda bir hesap açarsanız, ayda 25 işlem saati boyunca RStudio üzerinde çalışma hakkınız bulunmaktadır. Aylık 25 işlemci saatini aşarsanız ya ücret ödemeniz gerekir ya da bir sonraki ayı beklemeniz gerekmektedir.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Not</span>İşlemci saati
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Bu terim, bir ay boyunca size tanınan işlemciyi kullanarak yapılan hesaplama hakkını ya da toplam kod çalıştırma hakkınızı belirtir. Eğer hesaplama yapmıyorsanız, bu işlemci saatlerinizi kullanmazsınız.</p>
-</div>
-</div>
-<section id="posit-cloud-sistemine-giriş" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="posit-cloud-sistemine-giriş"><span class="header-section-number">1.1.1</span> Posit Cloud sistemine giriş</h3>
-<p>İlk olarak <a href="https://posit.co/products/cloud/cloud/">Posit cloud</a> sitesine gidelim ve <strong>Sign Up</strong> tuşuna tıklayarak yeni bir hesap açalım. Eğer hesabımız var ise, <strong>Login</strong> tuşuna basarak hesabımıza giriş yapalım (<a href="#fig-posit1" class="quarto-xref">Şekil&nbsp;<span>1.1</span></a>).</p>
-<div id="fig-posit1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-posit1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/posit1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posit1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.1: Posit Cloud sitesi üzerinden yeni bir hesap açalım
-</figcaption>
-</figure>
-</div>
-<p>Arından, <strong>New Project</strong> tuşuna basalım ve <strong>New RStudio Project</strong> tuşuna basarak yeni bir R projesi oluşturalım (<a href="#fig-posit2" class="quarto-xref">Şekil&nbsp;<span>1.2</span></a>).</p>
-<div id="fig-posit2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-posit2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/posit2.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posit2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.2: Yeni bir proje oluşturalım
-</figcaption>
-</figure>
-</div>
-<p>Eğer her şey yolunda gittiyse, yeni bir R proje ekranı ile karşılaşmamız gerekir (<a href="#fig-posit3" class="quarto-xref">Şekil&nbsp;<span>1.3</span></a>).</p>
-<div id="fig-posit3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-posit3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/posit3.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posit3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Şekil&nbsp;1.3: Projemizi oluşturduktan sonra karşımıza çıkan ekran
-</figcaption>
-</figure>
-</div>
-<p>Tebrikler, Posit Cloud sistemi ile R ve RStudio kullanmaya hazırsınız artık!</p>
-</section>
-</section>
-<section id="r-ve-rstudio-kurulumu" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="r-ve-rstudio-kurulumu"><span class="header-section-number">1.2</span> R ve RStudio kurulumu</h2>
-<p>Eğer bilgisayarınza R ve Rstudio kurmak isterseniz - ki bu yöntem uzun vadede tavsiye edilir - bu yoldan gitmelisiniz. Bunun için öncelikle bilgisayarınızın mimarisini öğrenmeniz gereklidir. En güncel işlemci mimarisi şu anda 64 bit ancak hala 32 bit bilgisayarlar dolaşımda bulunmakta. İşlemci mimarinize uygun R ve RStudio programlarını indirmeniz gereklidir.</p>
-<p>Öncelikle R istastik paketini kurmalısınız, daha sonra RStudio masaüstü programını kurmanız gerekmekte. Sadece RStudio kurmanız yeterli değildir.</p>
 
-
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -934,22 +993,19 @@ ul.task-list li input[type="checkbox"] {
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../CONTRIBUTING.html" class="pagination-link" aria-label="Katkı Sunma">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Katkı Sunma</span>
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../03-bilgisayarli-dusunme/needleman-wunsch.html" class="pagination-link" aria-label="Needleman-Wunsch Algoritması">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-kurulum/02-ilk-kurallar.html" class="pagination-link" aria-label="Önemli Konular">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Önemli Konular</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05-istatistik/naive-bayes.html" class="pagination-link" aria-label="Naive-Bayes ile Meme Kanser Veri Analizi">
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Yaşam Bilimlerinde Veri Analizi Emrah Kırdök, Ph.D.</p>
 </div>   
@@ -961,8 +1017,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
