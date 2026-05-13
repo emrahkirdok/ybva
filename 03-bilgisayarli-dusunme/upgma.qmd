@@ -1,0 +1,97 @@
+# UPGMA 
+
+Bu ders kapsamında UPGMA tekniği ile bir uzaklık matrisinde, kümeleme analizinin nasıl yapılacağı gösterilecektir.
+
+
+Öncelikle bir uzaklık matrisi oluşturalım:
+
+```{r}
+
+# 1. BAŞLANGIÇ VERİLERİNİ OLUŞTURMA
+# Basit bir 4x4 uzaklık matrisi oluşturalım
+isimler <- c("A", "B", "C", "D")
+D <- matrix(c(0, 2, 2, 7,
+              2, 0, 4, 6,
+              2, 4, 0, 3,
+              7, 6, 3, 0), nrow=4, dimnames=list(isimler, isimler))
+
+              # Her kümenin içindeki eleman sayısı (Başlangıçta herkes tek başına)
+N <- c(A=1, B=1, C=1, D=1)
+```
+
+Uzaklık matrisini ekrana yazalım:
+
+```{r}
+cat("Başlangıç Matrisi:\n")
+print(D)
+```
+
+Temel algoritma döngüsü:
+
+- Derste gördüğümüz gibi en yakın örnekler birleştirlerek işe başlanacak
+- Örnekler birleştirildikçe matris güncellenecek
+- Matris 1x1 olana kadar işlem devam edecek
+
+```{r}
+
+# 2. ALGORİTMA DÖNGÜSÜ (Matriste 1 eleman kalana kadar devam et)
+while(nrow(D) > 1) {
+  
+  # a. En küçük mesafeyi (sıfır olmayan) bulma
+  # Köşegenleri (0'ları) sonsuz (Inf) yapıyoruz ki minimum olarak seçilmesinler
+  diag(D) <- Inf 
+  min_val <- min(D)
+  
+  # Minimum değerin koordinatlarını (hangi iki küme?) bulma
+  # arr.ind=TRUE bize satır ve sütun indekslerini verir
+  min_idx <- which(D == min_val, arr.ind = TRUE)[1, ] 
+  i_isim <- rownames(D)[min_idx[1]]
+  j_isim <- colnames(D)[min_idx[2]]
+  
+  cat("\nBirleşenler:", i_isim, "ve", j_isim, "| Mesafe:", min_val, "\n")
+  
+  # b. Yeni kümenin ismini belirle (Örn: "A+B")
+  yeni_isim <- paste0(i_isim, "+", j_isim)
+  
+  # c. Yeni mesafeleri hesaplama (UPGMA Formülü)
+  kalan_isimler <- setdiff(rownames(D), c(i_isim, j_isim))
+  yeni_mesafeler <- numeric(length(kalan_isimler))
+  
+  for(k in seq_along(kalan_isimler)) {
+    k_isim <- kalan_isimler[k]
+    
+    # derste gördüğümüz yöntem
+    pay <- D[i_isim, k_isim] + D[j_isim, k_isim] 
+    payda <- 2
+
+    # Ağırlıklı ortalama formülü, en ideal çözüm
+    # pay <- (N[i_isim] * D[i_isim, k_isim]) + (N[j_isim] * D[j_isim, k_isim])
+    # payda <- N[i_isim] + N[j_isim]
+    
+    yeni_mesafeler[k] <- pay / payda
+  }
+  
+  # d. Matrisi Güncelleme
+  # Eski i ve j satır/sütunlarını çıkar
+  D <- D[kalan_isimler, kalan_isimler, drop=FALSE]
+  
+  # Yeni satır ve sütunu matrise ekle
+  D <- rbind(D, yeni_mesafeler)
+  D <- cbind(D, c(yeni_mesafeler, 0)) # Kendi kendine uzaklığı 0
+  
+  # Satır ve sütun isimlerini güncelle
+  rownames(D)[nrow(D)] <- yeni_isim
+  colnames(D)[ncol(D)] <- yeni_isim
+  
+  # e. Eleman sayılarını güncelle (N vektörü)
+  N[yeni_isim] <- N[i_isim] + N[j_isim]
+  N <- N[names(N) != i_isim & names(N) != j_isim]
+  
+  cat("Güncel Matris:\n")
+  diag(D) <- 0 # Görüntü için köşegenleri tekrar 0 yap
+  print(round(D, 2))
+}
+
+cat("\nAlgoritma Tamamlandı! Tüm kümeler birleşti.\n")
+
+```

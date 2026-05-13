@@ -65,6 +65,7 @@ book:
         - 03-bilgisayarli-dusunme/07-rnaseq-data-analysis.qmd
         - 03-bilgisayarli-dusunme/08-brain-cancer-microarray.qmd
         - 03-bilgisayarli-dusunme/needleman-wunsch.qmd
+        - 03-bilgisayarli-dusunme/upgma.qmd
         
     - part: "Biyoteknolojide Veri Analizi"
       chapters:
