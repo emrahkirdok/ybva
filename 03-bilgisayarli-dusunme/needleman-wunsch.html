@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>7&nbsp; R ve Rstudio ile çalışma – Yaşam Bilimlerinde Veri Analizi</title>
+<title>30&nbsp; Needleman-Wunsch Algoritması – Yaşam Bilimlerinde Veri Analizi</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../02-veri-analizi/04-vektorler.html" rel="next">
-<link href="../02-veri-analizi/02-bilimsel-yontem.html" rel="prev">
+<link href="../05-istatistik/naive-bayes.html" rel="next">
+<link href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html" rel="prev">
 <link href="../images/ybva.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/03-r-giris.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/needleman-wunsch.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Kenar çubuğunu değiştir" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Ara" onclick="window.quartoOpenSearch();">
@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link active">
+  <a href="../02-veri-analizi/03-r-giris.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></span></a>
   </div>
 </li>
@@ -361,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-bilgisayarli-dusunme/needleman-wunsch.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-bilgisayarli-dusunme/needleman-wunsch.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span></span></a>
   </div>
 </li>
@@ -445,23 +445,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">İçindekiler</h2>
-   
-  <ul>
-<li><a href="#de%C4%9Fi%C5%9Fken-atama" id="toc-değişken-atama" class="nav-link active" data-scroll-target="#de%C4%9Fi%C5%9Fken-atama"><span class="header-section-number">7.1</span> Değişken atama</a></li>
-  <li>
-<a href="#veri-tipleri" id="toc-veri-tipleri" class="nav-link" data-scroll-target="#veri-tipleri"><span class="header-section-number">7.2</span> Veri tipleri</a>
-  <ul class="collapse">
-<li><a href="#kay%C4%B1p-veri" id="toc-kayıp-veri" class="nav-link" data-scroll-target="#kay%C4%B1p-veri"><span class="header-section-number">7.2.1</span> Kayıp veri</a></li>
-  </ul>
-</li>
-  <li><a href="#veri-tipi-d%C3%B6n%C3%BC%C5%9F%C3%BCmleri" id="toc-veri-tipi-dönüşümleri" class="nav-link" data-scroll-target="#veri-tipi-d%C3%B6n%C3%BC%C5%9F%C3%BCmleri"><span class="header-section-number">7.3</span> Veri tipi dönüşümleri</a></li>
-  </ul></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-veri-analizi/01-veri-bilimine-giris.html">Veri Analizi</a></li><li class="breadcrumb-item"><a href="../02-veri-analizi/03-r-giris.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-r-giris" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R ve Rstudio ile çalışma</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/01-ileri-seviye-r-01.html">Bilgisayarlı Düşünme</a></li><li class="breadcrumb-item"><a href="../03-bilgisayarli-dusunme/needleman-wunsch.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Needleman-Wunsch Algoritması</span>
+</h1>
 </div>
 
 
@@ -475,164 +466,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Bir önceki kısımda (<a href="../01-kurulum/03-r-rstudio-ilk-adimlar.html" class="quarto-xref"><span>Bölüm 3</span></a>), R ile çalışmanın temel adımlarını öğrenmeye başlamıştık. Çalışma sistemimiz şu an için büyük oranda konsol üzerinde devam edecektir. Dolayıyısyla, eksikleriniz var ise, bahsi geçen bölümü tekrar etmeniz iyi olacaktır.</p>
-<section id="değişken-atama" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="değişken-atama">
-<span class="header-section-number">7.1</span> Değişken atama</h2>
-<p>Ancak, bu şekilde yaptığınız işlemler genel olarak uzun ömürlü değildir. R üzerinde genel olarak kullandığımız her şeyi bir değişken içerisinde saklarız. Bunun için atama operatörü <code>&lt;-</code> kullanılmaktadır. Bu operatör, aslında okun sağındaki bilgiyi, soldaki değişkenin içerisine atamaktan sorumludur. Örnek olarak aşağıdaki işlemi yapalım:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">&lt;-</span> <span class="fl">12</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Bu işlemin aynısını şu şekilde de yapabiliriz. Önemli olan okun yönü:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">12</span> <span class="op">-&gt;</span> <span class="va">sayi1</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Bu işlemin sonucunda 12 değerini, <code>sayi1</code> değişkeni içerisinde atamış oluyoruz. Artık, 12’yi kullancağımız her yerde <code>sayi1</code> değişkenini kullanabiliriz.</p>
-<p>Bu değişkenleri ise, sağ ekranda bulunan çevre (environment) sekmesinde görebilirsiniz. Artık değişkenimiz, hafıza içerisine alınmış ve tekrar tekrar kullanılmaya hazır bir şekilde beklemektedir.</p>
-<p>İsterseniz ikinci bir değişken atayalım:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi2</span> <span class="op">&lt;-</span> <span class="fl">23</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Artık ikinci bir değişken elde ettik. Peki bunlarla neler yapabiliriz? Mesela dört işlem gerçekleştirebiliriz:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sayi1</span> <span class="op">+</span> <span class="va">sayi2</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 35</code></pre>
-</div>
-</div>
-<p>Şu ana kadar sadece sayılarla çalıştık. Ancak R içerisinde daha fazla veri tipi bulunmaktadır. Bu veri tipleri bize farklı değişkenlerle çalışma (karakter, tarih vs) imkanı vererek, farklı alanlarda veri analizi çalışmaları yapmamızı sağlamaktadır.</p>
-</section><section id="veri-tipleri" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="veri-tipleri">
-<span class="header-section-number">7.2</span> Veri tipleri</h2>
-<p>R içerisinde dört temel veri tipimiz bulunmaktadır:</p>
+</header><p>Bu algoritma, iki nükleotit dizisini baştan sona en uygun şekilde eşleştirmek için Dinamik Programlama yöntemini kullanır.</p>
+<p>Süreç iki ana aşamadan oluşmaktadır:</p>
 <ul>
-<li>Sayı (<em>numeric</em>, <code>num</code>)</li>
-<li>Karakter (<em>character</em>, <code>chr</code>)</li>
-<li>Mantıksal (<em>logical</em>, <code>logi</code>)</li>
-<li>Kategori/faktör (<em>factor</em>, <code>fac</code>)</li>
-<li>Kayıp veri (<code>NA</code>)</li>
+<li>Matris Doldurma</li>
+<li>Geri İzleme(Traceback)</li>
 </ul>
-<p>Bu veri tiplerinin hepsi, farklı veri analizi adımlarında kullanılmaktadır. Dolayısıyla, bu veri tiplerinin düzgün bir şekilde ayarlandığından emin olmalısınız.</p>
-<p>Bir verinin tipini öğrenmek istiyorsanız, basit olarak <code>str</code> fonksiyonunu kullanabilirsiniz:</p>
+<p>İlk olarak değişkenlerimizi tanımlayalım:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> num 12</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d1_vektor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"C"</span>,<span class="st">"G"</span><span class="op">)</span></span>
+<span><span class="va">d2_vektor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"T"</span>,<span class="st">"G"</span>,<span class="st">"C"</span>,<span class="st">"T"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">match</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="va">mismatch</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">1</span></span>
+<span><span class="va">gap</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">2</span></span>
+<span></span>
+<span><span class="co"># matrisin satır ve sütun sayılarını</span></span>
+<span><span class="va">rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">d2_vektor</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">d1_vektor</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Not
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>R üzerindeki fonksiyonlar, belirli işlevleri yerine getiren kod parçaları olarak tanımlanabilir. Her fonskiyonun, parantez içerisine yazılan en az bir tane girdisi bulunmaktadır. Burada kullandığımız <code>str</code> fonksiyonu, parantez içerisinde belirtilen verinin tipini geri döndürmekten sorumludur.</p>
-</div>
-</div>
-<p>Sayılar dışında neler kullanabiliriz? Karakterleri kullanabiliriz. Ancak karakterle çalışmak istiyorsanız, mutlaka tırnak işareti <code>"</code> kullanmalısınız:</p>
+<p>Skorlama matrisini ve yön matrisini (point matris) oluşturalım:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"karakter"</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "karakter"</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matris</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, nrow <span class="op">=</span> <span class="va">rows</span>, ncol <span class="op">=</span> <span class="va">cols</span><span class="op">)</span> </span>
+<span><span class="va">points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, nrow <span class="op">=</span> <span class="va">rows</span>, ncol <span class="op">=</span> <span class="va">cols</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">matris</span> <span class="op">[</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">d1_vektor</span><span class="op">)</span><span class="op">*</span><span class="va">gap</span>, <span class="va">gap</span><span class="op">)</span></span>
+<span><span class="va">matris</span> <span class="op">[</span> ,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">d2_vektor</span><span class="op">)</span><span class="op">*</span><span class="va">gap</span>, <span class="va">gap</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<p>Peki bu karakterin tipine bakalım:</p>
+<p>Matrisi inceleyelim:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="st">"karakter"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">matris</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> chr "karakter"</code></pre>
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    0   -2   -4   -6   -8
+[2,]   -2   NA   NA   NA   NA
+[3,]   -4   NA   NA   NA   NA
+[4,]   -6   NA   NA   NA   NA
+[5,]   -8   NA   NA   NA   NA
+[6,]  -10   NA   NA   NA   NA
+[7,]  -12   NA   NA   NA   NA</code></pre>
 </div>
 </div>
-<p>Şimdi ise başka bir örnek verelim. Bir sayıyı, <code>"</code> işaretleri arasına alırsak ne olur?</p>
+<p>Matris doldurma aşamasına geçelim:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="st">"12"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> chr "12"</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#--Matris Doldurma Aşaması</span></span>
+<span></span>
+<span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">rows</span> <span class="op">)</span> <span class="op">{</span>  </span>
+<span>  <span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">cols</span> <span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">if</span><span class="op">(</span><span class="va">d1_vektor</span><span class="op">[</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">==</span> <span class="va">d2_vektor</span><span class="op">[</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="va">skor1</span> <span class="op">&lt;-</span> <span class="va">matris</span><span class="op">[</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span>, <span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">match</span> </span>
+<span>    <span class="op">}</span><span class="kw">else</span> <span class="op">{</span></span>
+<span>      <span class="va">skor1</span> <span class="op">&lt;-</span> <span class="va">matris</span><span class="op">[</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span>, <span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">mismatch</span></span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="va">skor2</span> <span class="op">&lt;-</span> <span class="va">matris</span><span class="op">[</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span>, <span class="va">j</span><span class="op">]</span> <span class="op">+</span> <span class="va">gap</span></span>
+<span>  <span class="va">skor3</span> <span class="op">&lt;-</span> <span class="va">matris</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">gap</span></span>
+<span>  <span class="co"># o pozisyonda elde edilmesi gereken max skor</span></span>
+<span>  <span class="va">matris</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">skor1</span>,<span class="va">skor2</span>,<span class="va">skor3</span><span class="op">)</span></span>
+<span>  <span class="co"># maksimum skor hangi kutucuktan geldi?</span></span>
+<span>  <span class="va">position</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">skor1</span>,<span class="va">skor2</span>,<span class="va">skor3</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span><span class="op">(</span><span class="va">position</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="va">points</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"diag"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">position</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>  </span>
+<span>    <span class="va">points</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span><span class="op">&lt;-</span> <span class="st">"up"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span><span class="op">{</span> </span>
+<span>    <span class="va">points</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span><span class="op">&lt;-</span><span class="st">"left"</span></span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<p>Evet, bir sayıyı tırnak işareti içerisine alırsak artık onu karaktere çevirmiş oluruz. Dolayısıyla artık sayı olarak kullanamayız.</p>
-<p>Mantıksal değişkenler ise <em>Evet</em> ya da <em>Hayır</em> durumlarını belirleyen operatörler olarak tanımlanabilir. R içerisinde tanımlı olarak gelirler ve dört farklı şekilde ifade edebilirsiniz. Herhangi bir tırnak kullanımına ihtiyaç yoktur:</p>
-<ul>
-<li>
-<code>TRUE</code> veya <code>T</code>
-</li>
-<li>
-<code>FALSE</code> veya <code>F</code>
-</li>
-</ul>
-<p>Mesela bir tanesinin tipine bakalım:</p>
+<p>Oluşturduğumuz matrisi inceleyelim:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">matris</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> logi TRUE</code></pre>
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    0   -2   -4   -6   -8
+[2,]   -2    1   -1   -3   -5
+[3,]   -4   -1    2    0   -2
+[4,]   -6   -3    0    1   -1
+[5,]   -8   -5   -2   -1    2
+[6,]  -10   -7   -4   -1    0
+[7,]  -12   -9   -6   -3   -2</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Not
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Mantıksal operatörler, R içerisinde ön tanımlı olarak gelmektedir. Dolayısıyla, bu operatörleri oldukları gibi kullanabilme imkanınız bulunmaktadır.</p>
-</div>
-</div>
-<p>Son olarak kategori ya da faktörleri inceleyelim. Faktör değişkenleri, genel olarak gruplandırma vazifesi görmektedir. Mesela, farklı deney koşullarını faktör olarak gösterebiliriz. Bu sayede, R içerisinde bu koşullara arasındaki değişimleri inceleme imkanımız bulunmaktadır. Faktör oluşturmak için mutlaka bir karaktere ihtiyacımız bulunmaktadır. Bir faktör oluşturmak için, <code>factor</code> fonksiyonunu kullanmalıyız:</p>
+<p>Şimdi de yön matrisimizi inceleyelim:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="st">"karanlik"</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] karanlik
-Levels: karanlik</code></pre>
+<pre><code>     [,1] [,2]   [,3]   [,4]   [,5]  
+[1,] NA   NA     NA     NA     NA    
+[2,] NA   "diag" "diag" "left" "left"
+[3,] NA   "diag" "diag" "left" "left"
+[4,] NA   "up"   "up"   "diag" "diag"
+[5,] NA   "up"   "up"   "diag" "diag"
+[6,] NA   "up"   "up"   "diag" "up"  
+[7,] NA   "up"   "up"   "up"   "diag"</code></pre>
 </div>
 </div>
-<p>İsterseniz bir de bu faktörün tipine bakalım:</p>
+<p>Son olarak geri takip kodumuzu yazalım:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="st">"karanlik"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#--Geri İzleme (Traceback)</span></span>
+<span><span class="co"># inclediğimiz dizilerin hizalanmış versiyonları</span></span>
+<span><span class="va">aln1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">aln2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">i</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">d2_vektor</span><span class="op">)</span><span class="op">+</span><span class="fl">1</span>  </span>
+<span><span class="va">j</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">d1_vektor</span><span class="op">)</span><span class="op">+</span><span class="fl">1</span>  </span>
+<span></span>
+<span><span class="kw">while</span> <span class="op">(</span><span class="va">i</span><span class="op">!=</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">j</span><span class="op">!=</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">points</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span><span class="op">==</span><span class="st">"diag"</span><span class="op">)</span><span class="op">{</span> </span>
+<span>    <span class="va">i</span><span class="op">&lt;-</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span></span>
+<span>    <span class="va">j</span><span class="op">&lt;-</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"diag"</span><span class="op">)</span> </span>
+<span>    <span class="va">aln1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="va">d1_vektor</span><span class="op">[</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="va">aln1</span><span class="op">)</span></span>
+<span>    <span class="va">aln2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="va">d2_vektor</span><span class="op">[</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="va">aln2</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln1</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln2</span><span class="op">)</span></span>
+<span>    </span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span><span class="op">(</span><span class="va">points</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span><span class="op">==</span><span class="st">"up"</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="va">i</span><span class="op">&lt;-</span> <span class="va">i</span><span class="op">-</span><span class="fl">1</span> </span>
+<span>      <span class="va">aln1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span>,<span class="va">aln1</span><span class="op">)</span></span>
+<span>      <span class="va">aln2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">d2_vektor</span><span class="op">[</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="va">aln2</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"up"</span><span class="op">)</span></span>
+<span>      </span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln1</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln2</span><span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>      <span class="va">j</span><span class="op">&lt;-</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span></span>
+<span>      <span class="va">aln1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">d1_vektor</span><span class="op">[</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="va">aln1</span><span class="op">)</span></span>
+<span>      <span class="va">aln2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span>,<span class="va">aln2</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"left"</span><span class="op">)</span></span>
+<span>      </span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln1</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln2</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Factor w/ 1 level "karanlik": 1</code></pre>
+<pre><code>[1] "diag"
+[1] "C"
+[1] "C"
+[1] "diag"
+[1] "A" "C"
+[1] "G" "C"
+[1] "up"
+[1] "-" "A" "C"
+[1] "T" "G" "C"
+[1] "up"
+[1] "-" "-" "A" "C"
+[1] "A" "T" "G" "C"
+[1] "diag"
+[1] "A" "-" "-" "A" "C"
+[1] "A" "A" "T" "G" "C"
+[1] "diag"
+[1] "A" "-" "-" "A" "C"
+[1] "A" "A" "T" "G" "C"</code></pre>
 </div>
-</div>
-<section id="kayıp-veri" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="kayıp-veri">
-<span class="header-section-number">7.2.1</span> Kayıp veri</h3>
-<p>Veri analizi çalışmalarında sıklıkla kayıp verilerle uğraşacaksınız. Çünkü deneyler sonucunda her zaman sonuç alamayabilirsiniz. Ancak o deneyi yaptığınız için, bir şekilde veri setinizde bu çıkmayan sonucu belirtmeniz gerekir. Eğer deneyinizin sonucunda çıkmayan bir veri varsa bunu <code>NA</code> karakteri ile belirtebilirsiniz. Bu karakter aslında mantıksal bir değişkendir ve olduğu gibi kullanılmalıdır.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln1</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> logi NA</code></pre>
+<pre><code>[1] "A" "-" "-" "A" "C"</code></pre>
 </div>
-</div>
-</section></section><section id="veri-tipi-dönüşümleri" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="veri-tipi-dönüşümleri">
-<span class="header-section-number">7.3</span> Veri tipi dönüşümleri</h2>
-<p>Bir veri tipini, başka bir veri tipine dönüştürme imkanımız bulunmaktadır. Tabii ki belirli kurallar dahilinde bu işlemi gerçekleştirebiliriz.</p>
-<p>Elimizde bir sayı olduğunu ve bunu karaktere dönüştüreceğimizi düşünelim:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">aln2</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "12"</code></pre>
+<pre><code>[1] "A" "A" "T" "G" "C"</code></pre>
 </div>
 </div>
-<p>Yanlışlıkla karakter haline çevrilmiş bir sayıyı tekrar sayı haline dönüştürelim:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-<p>Kullanılabilecek diğer dönüşümler:</p>
-<ul>
-<li>Faktör verisi: <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code>
-</li>
-<li>Mantıksal veri: <code><a href="https://rdrr.io/r/base/logical.html">as.logical()</a></code>
-</li>
-</ul>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1032,13 +1033,13 @@ Levels: karanlik</code></pre>
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../02-veri-analizi/02-bilimsel-yontem.html" class="pagination-link" aria-label="Bilimsel Yöntem">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bilimsel Yöntem</span></span>
+      <a href="../03-bilgisayarli-dusunme/08-brain-cancer-microarray.html" class="pagination-link" aria-label="Beynin kanseri mikrodizin analizi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Beynin kanseri mikrodizin analizi</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../02-veri-analizi/04-vektorler.html" class="pagination-link" aria-label="Vektörler">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vektörler</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05-istatistik/naive-bayes.html" class="pagination-link" aria-label="Naive-Bayes ile Meme Kanser Veri Analizi">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Naive-Bayes ile Meme Kanser Veri Analizi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
