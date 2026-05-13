@@ -1,6 +1,13 @@
 # Needleman-Wunsch Algoritması
 
-Bu algoritma, iki nükleotit dizisini baştan sona en uygun şekilde eşleştirmek için Dinamik Programlama yöntemini kullanır. Süreç iki ana aşamadan oluşmaktadır: Matris Doldurma ve Geri İzleme(Traceback)
+Bu algoritma, iki nükleotit dizisini baştan sona en uygun şekilde eşleştirmek için Dinamik Programlama yöntemini kullanır. 
+
+Süreç iki ana aşamadan oluşmaktadır: 
+
+- Matris Doldurma 
+- Geri İzleme(Traceback)
+
+İlk olarak değişkenlerimizi tanımlayalım:
 
 ```{r}
 d1_vektor <- c("A","A","C","G")
@@ -10,19 +17,30 @@ match <- 1
 mismatch <- -1
 gap <- -2
 
+# matrisin satır ve sütun sayılarını
 rows <- length(d2_vektor) + 1
 cols <- length(d1_vektor) + 1
+```
 
+Skorlama matrisini ve yön matrisini (point matris) oluşturalım:
+
+```{r}
 matris <- matrix(NA, nrow = rows, ncol = cols) 
 points <- matrix(NA, nrow = rows, ncol = cols)
 
 matris [1, ] <- seq(0,length(d1_vektor)*gap, gap)
 matris [ ,1] <- seq(0,length(d2_vektor)*gap, gap)
+```
 
-#points[1, ]<-"left"
-#points[,1 ]<-"up"
-#points[1,1 ]<-"-"
+Matrisi inceleyelim:
 
+```{r}
+print(matris)
+```  
+
+Matris doldurma aşamasına geçelim:
+
+```{r}
 #--Matris Doldurma Aşaması
 
 for(i in 2:rows ) {  
@@ -34,19 +52,37 @@ for(i in 2:rows ) {
     }
   skor2 <- matris[i-1, j] + gap
   skor3 <- matris[i, j-1] + gap
+  # o pozisyonda elde edilmesi gereken max skor
   matris[i,j] <- max(skor1,skor2,skor3)
+  # maksimum skor hangi kutucuktan geldi?
   position <- which.max(c(skor1,skor2,skor3))
   if(position == 1){
     points[i,j] <- "diag"
   } else if (position == 2) {  
     points[i,j]<- "up"
-  } else{ points[i,j]<-"left"}
+  } else{ 
+    points[i,j]<-"left"
+    }
+  }
 }
-}
+```
+Oluşturduğumuz matrisi inceleylim:
 
+```{r}
+print(matris)
+```
 
+Şimdi de yön matrisimizi inceleyelim:
+
+```{r}
+print(point)
+```
+
+Son olarak geri takip kodumuzu yazalım:
+
+```{r}
 #--Geri İzleme (Traceback)
-
+# inclediğimiz dizilerin hizalanmış versiyonları
 aln1<-c()
 aln2<-c()
 
@@ -86,8 +122,4 @@ while (i!=1 & j!=1) {
 print(aln1)
 print(aln2)
 
-
-
-
-
-
+```
