@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f6e46dcddbb380a3d318a27ee70f52d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e1ed20523caef13175a6e20104858daf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -519,28 +519,28 @@ Periodontitis       6             4        0.60</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/importance.html">importance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">imp</span><span class="op">$</span><span class="va">MeanDecreaseGini</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="op">]</span>,n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div><button title="Panoya Kopyala" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                              Healthy Periodontitis MeanDecreaseAccuracy
-Dialister_micraerophilus    3.9596713    3.21887735            4.0149134
-Parvimonas_micra            1.6805118    1.10086473            1.6059380
-Treponema_lecithinolyticum  1.6335894    2.29101973            2.4244474
-Actinomyces_johnsonii       2.5660692    2.27558381            2.6919707
-Actinomyces_dentalis        1.6227818    2.13832473            2.2133062
-Treponema_denticola         0.5956181   -1.39162329           -0.6612598
-Slackia_exigua              1.8225554    2.36546059            2.2460879
-Streptococcus_mitis        -0.6021475   -0.35297892           -0.1139190
-Tannerella_forsythia        1.3779833    1.12633652            1.4580328
-Streptococcus_anginosus     1.8177815    0.05263172            1.2036592
-                           MeanDecreaseGini
-Dialister_micraerophilus          0.3645126
-Parvimonas_micra                  0.2496278
-Treponema_lecithinolyticum        0.2418009
-Actinomyces_johnsonii             0.2357353
-Actinomyces_dentalis              0.2303441
-Treponema_denticola               0.2259190
-Slackia_exigua                    0.2204276
-Streptococcus_mitis               0.1711704
-Tannerella_forsythia              0.1612940
-Streptococcus_anginosus           0.1611792</code></pre>
+<pre><code>                                  Healthy Periodontitis MeanDecreaseAccuracy
+Dialister_micraerophilus        3.5786056     4.4040886            4.2034892
+Actinomyces_johnsonii           1.3087853     2.4952049            2.5138245
+Slackia_exigua                  1.4966610     1.9768344            1.8171786
+Actinomyces_timonensis          2.3581831     2.8727249            2.8009799
+Treponema_lecithinolyticum      2.2408157     1.9435263            2.3328882
+Pseudoramibacter_alactolyticus -0.1168207    -0.0734337            0.2349553
+Parvimonas_micra               -0.9375790     0.4858148           -0.4997913
+Eggerthia_catenaformis          1.5329307     2.0913028            2.0246457
+Actinomyces_dentalis            2.4436448     0.3615097            1.7383503
+Capnocytophaga_granulosa        1.1040890     0.7133848            0.8575850
+                               MeanDecreaseGini
+Dialister_micraerophilus              0.2854843
+Actinomyces_johnsonii                 0.2601493
+Slackia_exigua                        0.2209119
+Actinomyces_timonensis                0.2131634
+Treponema_lecithinolyticum            0.2084502
+Pseudoramibacter_alactolyticus        0.2044406
+Parvimonas_micra                      0.2038016
+Eggerthia_catenaformis                0.1894417
+Actinomyces_dentalis                  0.1860430
+Capnocytophaga_granulosa              0.1810375</code></pre>
 </div>
 </div>
 <p>Biz ise iterative feature elimination isminde bir metod kullandık. Her adımda, modelin başarısına en az katkı sunan bakteriyi veri setinden çıkarttık.</p>
