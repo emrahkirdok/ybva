@@ -1,0 +1,376 @@
+---
+title: "RNA-seq Veri Analizi: PCA,Heatmap ve UPGMA Kümeleme ile Örnek Karşılaştırması"
+output:
+  html_document: default
+  pdf_document: default
+date: "2026-01-25"
+---
+
+# Giriş
+
+RNA-seq deneyleri çok büyük gen ekspresyon veri setleri üretir. Bu veri setleri sayesinde farklı biyolojik örnekler arasındaki gen ifade farklarını inceleyebiliriz.
+
+Bu çalışmada **GEO (Gene Expression Omnibus)** veritabanından alınan RNA-seq ham sayım verileri analiz edilmiştir.
+
+Bu analizde RNA-seq çalışmalarında sık kullanılan bazı temel keşif adımları uygulanacaktır.
+
+Bu adımlar şunlardır:
+
+- düşük ekspresyonlu genlerin filtrelenmesi  
+- sayım verilerinin log dönüşümü  
+- PCA ile örnekler arasındaki genel farklılıkların incelenmesi  
+- en değişken genlerin heatmap ile görselleştirilmesi  
+- UPGMA yöntemi ile hiyerarşik kümeleme yapılması  
+
+Bu çalışmanın amacı RNA-seq analizinin **temel mantığını öğrencilerin anlayabileceği şekilde göstermek**tir.
+
+Bu nedenle otomatik analiz pipeline'ları yerine **adım adım manuel analiz yapılacaktır**.
+
+---
+
+# Veri Seti Tanımı
+
+Bu çalışmada kullanılan RNA-seq veri seti **GEO veritabanından** alınmıştır.
+
+Veri seti hakkında bilgiler:
+
+- **Kaynak:** GEO (Gene Expression Omnibus)  
+- **Dosya:** `GSE164073_raw_counts_GRCh38.p13_NCBI.tsv.gz`  
+- **İçerik:** gen seviyesinde ham sayım matrisi  
+- **Boyut:** 39,376 gen × 18 örnek  
+
+Bu veri seti **insan (Homo sapiens)** RNA-seq örneklerini içerir.
+
+Veri matrisinde:
+
+- satırlar **genleri**
+- sütunlar **örnekleri**
+
+temsil eder.
+
+Matris içindeki sayılar **raw read count** değerleridir.  
+Bu sayılar bir gene kaç dizileme okumasının eşlendiğini gösterir.
+
+---
+
+# Veri Ön İşleme
+
+Analize başlamadan önce RNA-seq verisinin düzgün bir şekilde hazırlanması gerekir.
+
+Bu aşamada şunları yapacağız:
+
+- GEO'dan indirilen sayım dosyasını okumak  
+- veri setinin boyutunu kontrol etmek  
+- sayım matrisini analiz için hazırlamak  
+
+Bu adımlar PCA, heatmap ve clustering analizlerinin düzgün çalışmasını sağlar.
+
+```{r warning=FALSE}
+library(here)
+
+# dosya yolu
+dosya <- here("03-bilgisayarli-dusunme",
+              "data",
+              "GSE164073_raw_counts_GRCh38.p13_NCBI.tsv.gz")
+
+# dosyayı oku
+sayim_tablosu <- read.delim(dosya, check.names = FALSE)
+
+# veri boyutunu kontrol et
+dim(sayim_tablosu)
+
+```
+
+`library(here)` komutu **here paketini yükler**.  
+Bu paket projelerde dosya yollarını daha güvenli şekilde yazmamızı sağlar.  
+Böylece dosya yolu farklı bilgisayarlarda veya klasörlerde de sorunsuz çalışabilir.
+
+`read.delim()` fonksiyonu bu dosyayı okuyarak bir tablo haline getirir.  
+`check.names = FALSE` seçeneği sütun isimlerinin değiştirilmesini engeller ve orijinal isimlerin korunmasını sağlar.
+
+
+---
+
+# PCA
+
+Principal Component Analysis (PCA) büyük veri setlerini daha basit şekilde incelememizi sağlayan bir yöntemdir.
+
+RNA-seq verileri binlerce gen içerdiği için doğrudan yorumlamak zor olabilir.
+
+PCA veriyi daha küçük bir boyuta indirir ve veri içindeki en büyük değişimleri gösterir.
+
+Bu analizde şu adımlar yapılacaktır:
+
+- düşük ekspresyonlu genleri filtrelemek  
+- veriye log dönüşümü uygulamak  
+- veriyi ölçeklemek  
+- PCA uygulamak  
+
+Bu sayede örneklerin gen ekspresyonlarına göre nasıl gruplaştığını görebiliriz.
+
+```{r}
+# Yüklediğimiz tablonun ilk sütunu gen isimlerini içeriyor
+gen_id <- sayim_tablosu[[1]]
+
+# sayim_tablosu[, -1] → Tablonun birinci sütunu hariç tüm sütunlarını al demek. Yani gen isimlerini çıkarıp sadece sayısal verileri alıyoruz.
+sayim_matrisi <- as.matrix(sayim_tablosu[, -1])
+
+# Az önce kaydettiğimiz gen isimlerini matrisin satır isimleri olarak atıyoruz.
+rownames(sayim_matrisi) <- gen_id
+
+# dim() → Matrisin kaç satır ve kaç sütundan oluştuğunu gösterir.
+dim(sayim_matrisi)
+
+# ilk birkaç veriyi kontrol et [1:3, 1:3] → "İlk 3 satır ve ilk 3 sütunu göster" demek
+sayim_matrisi[1:3, 1:3]
+
+# düşük ekspresyonlu genleri filtrele
+#Neden 10? Çok az okunan genler biyolojik anlam taşımaz, sadece gürültüdür. Bunları analizden çıkarmak sonuçları daha güvenilir kılar.
+tut <- rowSums(sayim_matrisi) > 10
+
+# filtrelenmiş veri
+#[tut, ] → Sadece TRUE olan satırları, yani toplam sayımı 10'dan büyük olan genleri al demek.
+sayim_filtre <- sayim_matrisi[tut, , drop = FALSE]
+
+# Filtreleme sonrası kaç gen kaldığını kontrol ediyoruz.
+dim(sayim_filtre)
+
+# log dönüşümü uygula
+#log2(...) → Sayıları logaritmik ölçeğe çeker. Örneğin 1 → 0, 100 → 6.6, 1000 → 10 olur. Büyük farklar küçülür, veri daha dengeli hale gelir.
+ifade_log <- log2(sayim_filtre + 1)
+
+# PCA için veriyi ölçekle
+#t(ifade_log) → Matrisin devriğini alır. Satırlar ve sütunlar yer değiştirir. Artık satırlar = örnekler, sütunlar = genler olur. PCA örnekleri karşılaştırdığı için örneklerin satırda olması gerekir.
+ifade_scaled <- scale(t(ifade_log))
+
+# PCA uygula
+#prcomp(...) → PCA hesaplamasını gerçekleştirir.
+pca <- prcomp(ifade_scaled)
+
+# PCA grafiği çiz
+plot(pca$x[,1], pca$x[,2],
+     pch = 19,
+     xlab = "PC1",
+     ylab = "PC2",
+     main = "PCA sonucu")
+
+# örnek isimlerini ekle
+text(pca$x[,1], pca$x[,2],
+     labels = colnames(sayim_filtre),
+     pos = 3,
+     cex = 0.6)
+```
+
+
+---
+
+## PCA Grafiği Nasıl Okunur
+
+PCA grafiğinde her nokta **bir RNA-seq örneğini temsil eder**.
+
+Grafiği yorumlarken şu noktalar önemlidir:
+
+- birbirine yakın noktalar → gen ekspresyonu benzerdir  
+- uzak noktalar → gen ekspresyonu farklıdır  
+- kümeler → benzer biyolojik örnekleri gösterebilir  
+
+PCA veri setindeki genel varyasyonu hızlıca görmemizi sağlar.
+
+---
+
+## PCA Görselleştirmesini Biraz Daha İyileştirmek
+
+PCA sonuçlarını daha düzenli görmek için sonuçları bir veri çerçevesine dönüştürebiliriz.
+
+Bu sayede grafikte:
+
+- daha büyük noktalar  
+- örnek isimleri  
+- arka plan grid  
+
+gibi görsel iyileştirmeler yapılabilir.
+
+```{r}
+# PCA sonuçlarını veri çerçevesine çevir
+#Bir önceki adımda prcomp() ile PCA hesapladık. Sonuçlar pca$x içinde saklı ama bu format doğrudan kullanımı zor.
+#data.frame(...) → Veriyi daha düzenli bir tabloya dönüştürüyoruz. Şu 3 sütunu oluşturuyoruz:
+pca_df <- data.frame(
+  sample = rownames(pca$x),
+  PC1 = pca$x[,1],
+  PC2 = pca$x[,2]
+)
+
+# PCA grafiği
+plot(pca_df$PC1, pca_df$PC2,
+     pch = 19,
+     cex = 1.3,
+     col = "steelblue",
+     xlab = "PC1",
+     ylab = "PC2",
+     main = "PCA grafiği")
+
+# örnek isimleri
+text(pca_df$PC1, pca_df$PC2,
+     labels = pca_df$sample,
+     pos = 3,
+     cex = 0.7)
+
+# grid ekle
+grid()
+```
+
+`data.frame(...)` PCA sonuçlarını bir tabloya dönüştürür.  
+Bu tabloda:
+
+- `sample` sütununda örnek isimleri bulunur (`rownames(pca$x)`)
+- `PC1` sütununda birinci ana bileşenin değerleri vardır
+- `PC2` sütununda ikinci ana bileşenin değerleri vardır
+
+Böylece PCA sonuçlarını içeren daha düzenli bir veri tablosu elde ederiz.
+
+Grafikte kullanılan bazı ayarlar:
+
+- `cex = 1.3` noktaların boyutunu biraz büyütür, böylece grafikte daha kolay görülür.
+- `col = "steelblue"` noktaların rengini çelik mavisi yapar. Önceki grafikte renk belirtilmediği için noktalar siyah görünüyordu.
+- `grid()` grafiğin arka planına ızgara çizgileri ekler. Bu çizgiler grafikteki noktaların konumunu daha kolay yorumlamayı sağlar.
+
+---
+
+# Heatmap
+
+Heatmap RNA-seq analizlerinde gen ekspresyon desenlerini görmek için çok kullanılan bir yöntemdir.
+
+Tüm genleri göstermek yerine genellikle **en değişken genleri** incelemek daha anlamlıdır.
+
+Bu nedenle şu adımlar yapılacaktır:
+
+- her gen için varyans hesaplanacak  
+- en yüksek varyansa sahip 50 gen seçilecek  
+- bu genler için heatmap oluşturulacak  
+
+```{r}
+# Tüm örnekler boyunca her gen için varyans hesapla
+# Bu işlem her genin örnekler arasında ne kadar değiştiğini ölçer
+gene_var <- apply(ifade_log, 1, var)
+
+
+
+# En yüksek varyansa sahip ilk 50 geni seç
+# Bu genler örnekler arasındaki farkı en güçlü şekilde gösteren genlerdir
+top <- order(gene_var, decreasing = TRUE)[1:50]
+
+
+# Seçilen genler için heatmap oluştur
+heatmap(
+  
+  # En değişken genlerin ekspresyon değerlerini al
+  # Görselleştirme için matrisi devrik al ve ölçekle
+  scale(t(ifade_log[top, ])),
+  
+  scale = "none",                 # heatmap() fonksiyonunun tekrar ölçekleme yapmasını engeller
+  main = "En Değişken 50 Gen"     # Grafiğin başlığı
+)
+
+```
+
+`apply(ifade_log, 1, var)` her gen için varyans hesaplar.  
+Buradaki `1` değeri işlemin **satırlar üzerinde** yapılacağını gösterir.  
+Yani her genin farklı örneklerde ne kadar değiştiğini ölçmüş oluruz.  
+Varyans ne kadar büyükse o gen örnekler arasında o kadar farklı davranıyor demektir.
+
+`order(..., decreasing = TRUE)[1:50]` genleri varyansa göre büyükten küçüğe sıralar ve ilk 50 geni seçer.  
+Bu genler genellikle örnekler arasındaki farkı en iyi gösteren genlerdir.
+
+---
+
+# Heatmap (pheatmap)
+
+Daha gelişmiş bir heatmap oluşturmak için **pheatmap paketi** kullanılabilir.
+
+```{r}
+# paketi yükle. Bu paket, temel `heatmap()` fonksiyonuna göre daha iyi görselleştirme seçenekleri sunar.
+library(pheatmap)
+
+# seçilen genler
+#daha önce seçtiğimiz **en değişken 50 genin** ekspresyon değerlerini alır.
+mat <- ifade_log[top, ]
+
+# z-score normalize et
+mat_s <- t(scale(t(mat)))
+
+# basit bir heatmap çizer.
+pheatmap(mat_s)
+
+# örnek isimleri
+samples <- colnames(sayim_filtre)
+
+# örneklere sırayla Group1 ve Group2 etiketleri verir.  
+#Bu gruplar gerçek biyolojik gruplar değildir, sadece heatmap'teki annotation özelliğini göstermek için eklenmiştir.
+group <- rep(c("Group1","Group2"), length.out = length(samples))
+names(group) <- samples
+
+#grup etiketlerini faktöre çevirir. 
+cols <- as.factor(group)
+
+# heatmap için bir annotation tablosu oluşturur.
+ann <- data.frame(Group = cols)
+rownames(ann) <- colnames(mat_s)
+
+# annotationlı heatmap
+pheatmap(mat_s,
+         annotation_col = ann,
+         show_colnames = TRUE,
+         show_rownames = FALSE,
+         main = "Top 50 Variable Genes")
+```
+
+
+`t(scale(t(mat)))` ifadesi veriye **z-skor standardizasyonu** uygular.  
+Önce `t(mat)` ile matris devrik alınır, sonra `scale()` ile gen değerleri standartlaştırılır.  
+Son olarak tekrar `t()` ile matris eski haline getirilir.
+
+- `annotation_col = ann` → örneklerin üstüne renkli grup çubukları ekler  
+- `show_colnames = TRUE` → örnek isimlerini gösterir  
+- `show_rownames = FALSE` → gen isimlerini gizler (çok kalabalık görünmemesi için)
+
+---
+
+# UPGMA Clustering
+
+Hiyerarşik kümeleme örnekler arasındaki benzerliği incelemek için kullanılan başka bir yöntemdir.
+
+Bu analizde **UPGMA (average linkage)** yöntemi kullanılacaktır.
+
+```{r}
+# örnekler arası uzaklık matrisi
+ dist_matrix <- dist(t(ifade_log))
+
+ # hiyerarşik kümeleme
+ hc <- hclust(dist_matrix, method = "average")
+
+ # dendrogram çiz
+ plot(hc,
+ main = "UPGMA Clustering",
+ xlab = "Samples",
+ ylab = "Height")
+```
+ 
+
+Önce `dist(t(ifade_log))` ile örnekler arasındaki uzaklık hesaplanır.  
+Burada `t()` kullanılmasının nedeni, `dist()` fonksiyonunun satırlar arasındaki uzaklığı hesaplamasıdır. Bu yüzden örneklerin satırlarda olması gerekir.
+
+Daha sonra `hclust()` fonksiyonu ile bu uzaklık matrisi kullanılarak hiyerarşik kümeleme yapılır.  
+`method = "average"` seçeneği **UPGMA yöntemini** kullanır.
+
+Son olarak `plot()` fonksiyonu ile kümeleme sonucu **dendrogram** olarak çizilir.
+
+
+---
+
+## Bu Analiz Ne Gösteriyor
+
+Bu analizde PCA, heatmap ve UPGMA clustering yöntemleri kullanılmıştır.
+
+Genellikle bu üç yöntemde de benzer örneklerin birlikte gruplaştığı görülür.
+
+Bu da veri setinde gerçekten biyolojik olarak benzer örnekler olduğunu gösterebilir.

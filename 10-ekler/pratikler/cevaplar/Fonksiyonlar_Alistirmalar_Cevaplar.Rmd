@@ -1,0 +1,339 @@
+# Fonksiyonlar Alistirmalari - Cevaplar 
+
+
+---
+
+## Hazirlik (Test Verileri)
+
+Asagidaki DNA dizilerini ornek olarak kullanacagiz.
+
+```{r}
+dna1 <- c("A","G","C","T","G")
+dna2 <- c("A","T","A","T","A","T")
+dna3 <- c("G","G","C","C","G","G")
+dna4 <- c("N","N","A","T","G")
+dna5 <- c("A","G","X","T")   # bilinmeyen karakter testi
+
+dna_listesi <- list(dna1, dna2, dna3, dna4)
+```
+
+---
+
+## Duzey 1 — Basit
+
+### Alistirma 1: `kare_al(x)`
+
+**Beklenen cikti:** `kare_al(4) = 16`
+
+```{r}
+kare_al <- function(x) {
+  # x: fonksiyona disaridan verilen sayi
+  
+  sonuc <- x * x
+  # sonuc: x sayisinin karesi (x ile x carpiliyor)
+
+  return(sonuc)
+  # return(): fonksiyonun disariya verecegi sonucu belirtir
+}
+
+kare_al(4)
+```
+
+**Ne ogrendik?**
+- Fonksiyon giris alir (`x`)
+- Iceride hesap yapar
+- Sonucu `return()` ile disariya verir
+
+
+---
+
+## Duzey 2 — Orta (for + if + sayac)
+
+### Alistirma 2: `gc_say(dna)`
+
+**Beklenen cikti:** `gc_say(dna1) = 3`
+
+```{r}
+gc_say <- function(dna) {
+
+  GC_toplami <- 0
+  # sayac: baslangicta 0, her G/C buldugumuzda 1 artacak
+
+  for (n in dna) {
+    # for dongusu: dna icindeki bazlari tek tek gezer
+    # n: o an baktigimiz baz (ornegin "A" veya "G")
+
+    if (n == "G" || n == "C") {
+      # if kosulu: n bazinin G veya C olup olmadigini kontrol eder
+      # || : "veya" demek
+
+      GC_toplami <- GC_toplami + 1
+      # eger G veya C ise sayaci 1 arttir
+    }
+  }
+
+  return(GC_toplami)
+  # toplam G ve C sayisini disariya ver
+}
+
+gc_say(dna1)
+```
+
+**Ne ogrendik?**
+- sayac mantigi: `0` ile basla, kosul saglaninca `+1` yap
+- `for` dongusu ile elemanlari tek tek gezme
+- `if` ile kosul kontrol etme
+
+---
+
+### Alistirma 3: `gc_orani(dna)`
+
+**Beklenen cikti:** `gc_orani(c("G","C","A","T")) = 0.5`
+
+```{r}
+gc_orani <- function(dna) {
+
+  GC_toplami <- 0
+
+  for (n in dna) {
+    if (n == "G" || n == "C") {
+      GC_toplami <- GC_toplami + 1
+    }
+  }
+
+  oran <- GC_toplami / length(dna)
+  # GC orani = (G + C sayisi) / (toplam baz sayisi)
+
+  return(oran)
+}
+
+gc_orani(c("G","C","A","T"))
+```
+
+**Ne ogrendik?**
+- Oran hesaplamak icin: "parca / toplam" mantigi
+
+---
+
+## Duzey 3 — Orta / Ileri (Siniflandirma)
+
+### Alistirma 4: `gc_durum(dna)`
+
+**Beklenen cikti:** `gc_durum(dna3) = "GC-zengin"`
+
+```{r}
+gc_durum <- function(dna) {
+
+  oran <- gc_orani(dna)
+  # burada tekrar dongu yazmak yerine bir önceki alıştırmada oluşturduğumuz gc_orani() fonksiyonunu cagirdik
+
+  if (oran > 0.5) {
+    # oran 0.5'ten buyukse GC daha yuksek demektir
+    return("GC-zengin")
+  } else {
+    return("GC-fakir")
+  }
+}
+
+gc_durum(dna3)
+```
+
+**Ne ogrendik?**
+- Fonksiyon icinde baska fonksiyon cagirmak kodu kisaltir ve temizler.
+
+---
+
+## Duzey 4 — Zor (Girdi kontrolu + QC)
+
+### Alistirma 5: `dna_kontrol(dna)`
+
+**Beklenen cikti:**
+- `dna_kontrol(dna1) = "OK"`
+- `dna_kontrol(dna5) = "HATA: Bilinmeyen baz"`
+
+```{r}
+dna_kontrol <- function(dna) {
+
+  hata_var_mi <- FALSE
+  # mantiksal degisken (boolean):
+  # FALSE = hata yok, TRUE = hata var
+
+  for (n in dna) {
+
+    if (n != "A" && n != "T" && n != "G" && n != "C" && n != "N") {
+      # n A degilse VE T degilse VE G degilse VE C degilse VE N degilse
+      # o zaman gecersiz karakter var demektir.
+      # && : "ve" demek
+
+      hata_var_mi <- TRUE
+    }
+  }
+
+  if (hata_var_mi == TRUE) {
+    return("HATA: Bilinmeyen baz")
+  } else {
+    return("OK")
+  }
+}
+
+dna_kontrol(dna5)
+dna_kontrol(dna1)
+```
+
+**Ne ogrendik?**
+- Veri temizligi / kontrol: girdi dogru mu diye bakmak
+- `TRUE/FALSE` ile kontrol mantigi
+
+---
+
+### Alistirma 6: `dna_kalite(dna)`
+
+**Beklenen cikti:** `dna_kalite(dna4) = "Belirsiz DNA"`
+
+```{r}
+dna_kalite <- function(dna) {
+
+  N_var_mi <- FALSE
+  # N varsa "belirsiz" sayacagiz
+
+  GC_toplami <- 0
+  # GC sayaci
+
+  for (n in dna) {
+
+    if (n == "N") {
+      N_var_mi <- TRUE
+      # herhangi bir yerde N gorduk mu? evet -> TRUE
+    }
+
+    if (n == "G" || n == "C") {
+      GC_toplami <- GC_toplami + 1
+    }
+  }
+
+  if (N_var_mi == TRUE) {
+    # once N kontrolu
+    return("Belirsiz DNA")
+  } else {
+    # N yoksa GC oranina bak
+    oran <- GC_toplami / length(dna)
+
+    if (oran >= 0.6) {
+      return("Yuksek GC")
+    } else {
+      return("Normal DNA")
+    }
+  }
+}
+
+dna_kalite(dna4)
+```
+
+**Ne ogrendik?**
+- Once "kritik durum" kontrol edilir (N var mi?)
+- Sonra diger kriterlere gecilir (GC oranina gore)
+
+---
+
+### Alistirma 7: `liste_rapor(dna_listesi)`
+
+Bu fonksiyon, listedeki her DNA icin sirayla rapor yazdirir.
+
+**Beklenen cikti (ornek):**
+```
+1. DNA -> Normal DNA | GC: 0.6
+2. DNA -> Normal DNA | GC: 0
+3. DNA -> Yuksek GC  | GC: 1
+4. DNA -> Belirsiz DNA
+```
+
+```{r}
+liste_rapor <- function(dna_listesi) {
+
+  idx <- 1
+  # idx: kacıncı DNA oldugunu yazmak icin sayac
+
+  for (dna in dna_listesi) {
+
+    kontrol <- dna_kontrol(dna)
+    # once DNA gecersiz karakter var mi kontrol et
+
+    if (kontrol != "OK") {
+      # hata varsa direkt yazdir, diger hesaplara gecme
+      print(paste(idx, ". DNA ->", kontrol))
+
+    } else {
+
+      durum <- dna_kalite(dna)
+      # hata yoksa kalite durumuna bak
+
+      if (durum == "Belirsiz DNA") {
+        # N varsa GC yazdirmiyoruz (cunku belirsiz)
+        print(paste(idx, ". DNA ->", durum))
+
+      } else {
+
+        oran <- gc_orani(dna)
+        # N yoksa GC oranini da hesapla
+
+        print(paste(idx, ". DNA ->", durum, "| GC:", oran))
+      }
+    }
+
+    idx <- idx + 1
+    # listedeki bir sonraki DNA'ya gecmek icin sayaci arttir
+  }
+}
+
+liste_rapor(dna_listesi)
+```
+
+**Ne ogrendik?**
+- Liste icinde gezme (for ile)
+- Her eleman icin fonksiyon cagirip rapor yazma
+- `paste()` ile metin birlestirme
+
+---
+
+### Alistirma 8: `dna_ozet(dna)`
+
+Tek bir DNA icin ozet metin dondurur.
+
+**Beklenen cikti:**  
+`dna_ozet(dna1) = "OK | Normal DNA | GC=0.6"`
+
+```{r}
+dna_ozet <- function(dna) {
+
+  kontrol <- dna_kontrol(dna)
+
+  if (kontrol != "OK") {
+    # hata varsa direkt don
+    return(kontrol)
+
+  } else {
+
+    durum <- dna_kalite(dna)
+
+    if (durum == "Belirsiz DNA") {
+      # belirsizse GC ekleme
+      return(paste("OK |", durum))
+
+    } else {
+
+      oran <- gc_orani(dna)
+      # normal veya yuksek GC ise oran da ekle
+
+      return(paste("OK |", durum, "| GC=", oran))
+    }
+  }
+}
+
+dna_ozet(dna1)
+dna_ozet(dna2)
+dna_ozet(dna3)
+```
+
+**Ne ogrendik?**
+- "pipeline" mantigi: kontrol -> kalite -> (gerekirse) GC orani
+- Tek bir metin halinde ozet cikti uretme

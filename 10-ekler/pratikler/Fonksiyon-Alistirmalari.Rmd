@@ -1,0 +1,345 @@
+# Fonksiyon Alıştırmaları
+
+Bu bölümde fonksiyon yazmayı pratik ederek öğreneceğiz.  
+Alıştırmalar basitten zora doğru ilerler.
+
+---
+
+## Hazırlık (Test Verileri)
+
+Önce bazı örnek DNA dizileri oluşturalım.
+
+```{r}
+dna1 <- c("A","G","C","T","G")
+dna2 <- c("A","T","A","T","A","T")
+dna3 <- c("G","G","C","C","G","G")
+dna4 <- c("N","N","A","T","G")
+dna5 <- c("A","G","X","T")   # bilinmeyen karakter testi
+
+dna_listesi <- list(dna1, dna2, dna3, dna4)
+```
+
+---
+
+# Düzey 1 — Basit (Fonksiyon mantığını kavra)
+
+## Alıştırma 1: Kare alan fonksiyon
+
+**Görev:**  
+Bir sayının karesini geri döndüren bir fonksiyon yazın.
+
+
+**Fonksiyon adı**
+
+```
+kare_al(x)
+```
+
+**Beklenen çıktı**
+
+```
+kare_al(4)
+16
+```
+
+**İpucu**
+
+Sonucu şu şekilde hesaplayabilirsiniz:
+
+```
+sonuc <- x * x
+```
+
+Sonra `return(sonuc)` ile sonucu döndürünüz.
+
+
+---
+
+# Düzey 2 — Orta (for + if + sayaç)
+
+## Alıştırma 2: GC sayısını hesapla
+
+**Görev**
+
+DNA dizisindeki toplam **G** ve **C** sayısını döndüren bir fonksiyon yazın.
+
+**Fonksiyon adı**
+
+```
+gc_say(dna)
+```
+
+**Kural**
+
+- for döngüsü kullanın
+- if koşulu kullanın
+- sayaç kullanın
+
+**Beklenen çıktı**
+
+```
+gc_say(dna1)
+3
+```
+
+**İpucu**
+
+Sayaç oluşturun:
+
+```
+GC_toplami <- 0
+```
+
+Döngü içinde:
+
+```
+if (n == "G" || n == "C")
+```
+
+ise sayacı artırın.
+
+---
+
+## Alıştırma 3: GC oranı
+
+**Görev**
+
+GC sayısını bulun ve DNA uzunluğuna bölerek GC oranını hesaplayın.
+
+**Fonksiyon adı**
+
+```
+gc_orani(dna)
+```
+
+**Beklenen çıktı**
+
+```
+gc_orani(c("G","C","A","T"))
+0.5
+```
+
+**İpucu**
+
+Önce GC sayısını hesapla, sonra:
+
+```
+GC_toplami / length(dna)
+```
+
+---
+
+# Düzey 3 — Orta / İleri (Sınıflandırma)
+
+## Alıştırma 4: GC durumu sınıflandırma
+
+**Görev**
+
+GC oranına göre DNA dizisini sınıflandıran bir fonksiyon yazın.
+
+**Fonksiyon adı**
+
+```
+gc_durum(dna)
+```
+
+**Kurallar**
+
+- GC oranı **0.5'ten büyükse** → `"GC-rich"`
+- değilse → `"GC-poor"`
+
+**Beklenen çıktı**
+
+```
+gc_durum(dna3)
+"GC-rich"
+```
+
+**İpucu**
+
+Önce GC oranını hesaplayın, sonra `if/else` kullanın.
+
+---
+
+# Düzey 4 — Zor (Girdi kontrolü)
+
+## Alıştırma 5: DNA kontrolü
+
+**Görev**
+
+DNA dizisindeki karakterleri kontrol eden bir fonksiyon yazın.
+
+**Fonksiyon adı**
+
+```
+dna_kontrol(dna)
+```
+
+**Kurallar**
+
+DNA içinde **A / T / G / C / N dışında** bir karakter varsa:
+
+```
+"HATA: Bilinmeyen baz"
+```
+
+yoksa:
+
+```
+"OK"
+```
+
+**Beklenen çıktı**
+
+```
+dna_kontrol(dna1)
+"OK"
+```
+
+```
+dna_kontrol(dna5)
+"HATA: Bilinmeyen baz"
+```
+
+**İpucu**
+
+Döngü içinde her karakter için şunu kontrol edin:
+
+Eğer
+
+```
+n != "A" && n != "T" && n != "G" && n != "C" && n != "N"
+```
+
+ise hata ver.
+
+---
+
+## Alıştırma 7: DNA kalite kontrolü (QC mantığı)
+
+**Görev**
+
+DNA dizisini kalite kontrol mantığıyla sınıflandıran bir fonksiyon yazın.
+
+**Fonksiyon adı**
+
+```
+dna_kalite(dna)
+```
+
+**Kurallar**
+
+- Eğer `"N"` varsa → `"Belirsiz DNA"`
+- Eğer GC oranı ≥ 0.6 ise → `"Yüksek GC"`
+- aksi halde → `"Normal DNA"`
+
+**Beklenen çıktı**
+
+```
+dna_kalite(dna4)
+"Belirsiz DNA"
+```
+
+**İpucu**
+
+Önce `"N"` var mı kontrol edin.
+
+```
+N_var_mi <- FALSE
+```
+
+Sonra GC oranına göre karar verin.
+
+---
+
+## Alıştırma 8: Liste raporu
+
+**Görev**
+
+Bir DNA listesi alan ve her DNA için bir rapor yazdıran fonksiyon yazın.
+
+**Fonksiyon adı**
+
+```
+liste_rapor(dna_listesi)
+```
+
+**İstenen davranış**
+
+Her DNA için sırayla:
+
+1. `dna_kontrol` çalıştır  
+2. hata yoksa `dna_kalite` çalıştır  
+3. N yoksa GC oranını da yazdır  
+
+**Beklenen çıktı (örnek)**
+
+```
+liste_rapor(dna_listesi)
+
+1. DNA -> Normal DNA | GC: 0.6
+2. DNA -> Normal DNA | GC: 0
+3. DNA -> Yüksek GC  | GC: 1
+4. DNA -> Belirsiz DNA
+```
+
+**İpucu**
+
+Sayaç kullanabilirsiniz:
+
+```
+idx <- 1
+```
+
+ve metin yazdırmak için:
+
+```
+paste()
+```
+
+fonksiyonunu kullanın.
+
+---
+
+## Alıştırma 9: DNA özet fonksiyonu
+
+**Görev**
+
+Tek bir fonksiyonla DNA için kısa bir özet metni döndürün.
+
+**Fonksiyon adı**
+
+```
+dna_ozet(dna)
+```
+
+**İstenen**
+
+1. `dna_kontrol(dna)` çalıştırın 
+2. hata varsa direkt sonucu döndürün  
+3. değilse `dna_kalite(dna)` çalıştırın  
+4. eğer `"Belirsiz DNA"` değilse GC oranını da ekleyiniz  
+
+**Beklenen çıktı**
+
+```
+dna_ozet(dna1)
+
+"OK | Normal DNA | GC=0.6"
+```
+
+**İpucu**
+
+Metin birleştirmek için:
+
+```
+paste()
+```
+
+kullanabilirsiniz.
+
+Örnek:
+
+```
+paste("OK |", durum, "| GC=", oran)
+```
