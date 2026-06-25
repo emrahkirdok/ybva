@@ -1,0 +1,180 @@
+---
+title: "Fonksiyonlar"
+date: "2026-01-12"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+## 1. Fonksiyon Nedir?
+
+Kod yazarken çoğu zaman aynı işlemleri tekrar tekrar yapmamız gerekir  
+(örneğin GC oranını tekrar tekrar hesaplamak gibi).
+
+Aynı kodu her seferinde yeniden yazmak yerine, bu kodu bir **fonksiyon** içine koyabiliriz.
+
+Bu şu anlama gelir:
+
+- Kodu **bir kez yazarız**
+- İhtiyaç duyduğumuzda **fonksiyonu çağırırız**
+
+Bir fonksiyonu **mutfaktaki blender** gibi düşünebilirsiniz:
+
+- **Girdi (Input):** Blenderın içine meyveleri koyarsınız  
+- **İşlem (Process):** Blender meyveleri karıştırır  
+- **Çıktı (Output):** Sonuç olarak meyve suyu elde edersiniz  
+
+Programlamada da fonksiyon buna benzer şekilde çalışır.
+
+Bir fonksiyon küçük bir kutu gibidir:
+
+- içine **veri verirsiniz**
+- fonksiyon **veriyi işler**
+- size bir **sonuç döndürür**
+
+---
+
+## 2. Bir Fonksiyonun Yapısı
+
+Genel şablon:
+
+```{r}
+fonksiyon_adi <- function(parametre) {
+
+  # parametre: fonksiyona dışarıdan verilen girdi
+
+  # burada yapılacak işlemler yapılır
+
+  return(sonuc)  # hesaplanan sonucu dışarı verir
+}
+```
+
+- `fonksiyon_adi`: fonksiyona verdiğimiz isimdir (örneğin `calculate_gc_content`)
+
+- `parametre`: fonksiyonun aldığı girdidir
+
+- `return(sonuc)`: fonksiyonun geri döndürdüğü son sonuçtur
+
+> Not: R dilinde `return()` kullanmak her zaman zorunlu değildir.  
+> Fonksiyondaki **son satır otomatik olarak çıktı olarak döndürülür.**  
+> Ancak yeni başlayanlar için `return()` kullanmak genellikle daha anlaşılır olur.
+
+## 3. Basit Bir Örnek
+
+```{r}
+ikiyle_carp <- function(sayi) {
+  sonuc <- sayi * 2
+  return(sonuc)
+}
+
+ikiyle_carp(5)
+```
+
+### Açıklama
+
+- `ikiyle_carp` fonksiyonun adıdır.  
+- `sayi` fonksiyonun girdisidir.  
+- `sayi * 2` verilen sayıyı 2 ile çarpar.  
+- Sonuç `sonuc` adlı değişkende saklanır.  
+- Sonuç fonksiyon tarafından geri döndürülür.  
+- Fonksiyonu çalıştırmak için adını yazıp parantez içinde bir değer vermemiz gerekir: `ikiyle_carp(5)`.
+
+
+## 4. Fonksiyon + Biyolojik Örnek: GC İçeriği
+
+Amaç: Bir DNA dizisinin **GC oranını** hesaplayan bir fonksiyon yazmak.
+
+Fonksiyon DNA dizisini şu formatta bekler:
+
+```{r}
+c("A","G","C","T")
+```
+
+### Fonksiyon Yazma
+
+```{r}
+gc_orani_hesapla <- function(dna) {
+
+  # gc_toplami: G ve C bazlarının toplam sayısını tutacak sayaç
+  gc_toplami <- 0
+
+  # dna dizisi içindeki bazları tek tek dolaş
+  for (baz in dna) {
+
+    # eğer baz G veya C ise sayacı artır
+    if (baz == "G" || baz == "C") {
+      gc_toplami <- gc_toplami + 1
+    }
+  }
+
+  # GC oranı = GC sayısı / toplam baz sayısı
+  oran <- gc_toplami / length(dna)
+
+  return(oran)
+}
+
+# örnek DNA dizisi
+dna1 <- c("A", "G", "C", "T", "G")
+
+# fonksiyonu çalıştır
+gc_orani_hesapla(dna1)
+
+```
+
+### GC Oranı Fonksiyonunu Adım Adım Anlamak
+
+- `gc_orani_hesapla` → fonksiyonun adıdır  
+- `function(dna)` → fonksiyon bir girdi alır  
+- `dna` → fonksiyona verilen DNA dizisidir  
+- `{ }` → fonksiyonun içinde çalışan kod bloğunu gösterir  
+
+- `gc_toplami <- 0`  
+  - GC sayacını başlatır  
+  - başlangıç değeri 0’dır  
+
+- `for (baz in dna)`  
+  - DNA dizisinin içindeki her elemanı tek tek dolaşır  
+  - `baz` o anda incelenen nükleotittir  
+
+- `if (baz == "G" || baz == "C")`  
+  - bazın G veya C olup olmadığını kontrol eder  
+  - `==` eşitlik kontrolü yapar  
+  - `||` "veya" anlamına gelir  
+
+- `gc_toplami <- gc_toplami + 1`  
+  - her G veya C görüldüğünde sayacı 1 artırır  
+
+- `oran <- gc_toplami / length(dna)`  
+  - GC oranı = (G + C sayısı) / (toplam baz sayısı)  
+
+- `return(oran)`  
+  - son sonucu geri döndürür  
+
+---
+
+## 5. Biyoinformatik Örneği: Yaprak Uzunluğu Kontrolü
+
+**Amaç:** Yaprak uzunluğu 5’ten büyükse **"Uzun yaprak"**, değilse **"Kısa yaprak"** sonucunu döndüren bir fonksiyon yazmak.
+
+```{r}
+yaprak_analizi <- function(uzunluk) {
+
+  # Eğer yaprak uzunluğu 5'ten büyükse
+  if (uzunluk > 5) {
+    sonuc <- "Uzun yaprak"
+
+  } else {
+    # değilse kısa yaprak olarak sınıflandır
+    sonuc <- "Kısa yaprak"
+  }
+
+  # sonucu geri döndür
+  return(sonuc)
+}
+
+# fonksiyonu çalıştır
+yaprak_analizi(3.2)
+yaprak_analizi(6.1)
+```
+

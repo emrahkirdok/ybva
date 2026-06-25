@@ -1,0 +1,363 @@
+---
+title: "Iris Veri Seti ile PCA Analizi"
+author: "Oğuzhan Işılay"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+  pdf:
+    toc: true
+---
+
+# Giriş: PCA Nedir?
+
+Birçok biyolojik ve bilimsel veri setinde **aynı anda çok sayıda değişken ölçülür**.
+
+Bir veri setinde değişken sayısı arttıkça, veriyi **görselleştirmek ve yorumlamak zorlaşır**.
+
+**Principal Component Analysis (PCA)** verinin önemli bilgilerini mümkün olduğunca koruyarak  
+**boyutunu azaltmak için kullanılan istatistiksel bir yöntemdir**.
+
+PCA, **principal component (ana bileşen)** adı verilen yeni değişkenler oluşturur.
+
+- **PC1** veri setindeki en büyük varyasyonu açıklar.
+- **PC2** ikinci en büyük varyasyonu açıklar.
+- Daha sonraki bileşenler daha küçük varyasyonları açıklar.
+
+**PC1 ve PC2 birlikte çizildiğinde**, karmaşık veri setleri **iki boyutlu bir grafikte görselleştirilebilir**.
+
+---
+
+## Öğrenme Hedefleri
+
+Bu eğitimde şunları öğreneceksiniz:
+
+- PCA nedir
+- R kullanarak PCA nasıl yapılır
+- PCA sonuçları nasıl görselleştirilir
+- PCA grafiği nasıl yorumlanır
+
+---
+
+# 1. Gerekli Paketi Yükleme
+
+Grafikleri daha net ve profesyonel çizmek için **ggplot2** paketini kullanacağız.
+
+Eğer bilgisayarınızda ggplot2 kurulu değilse, **Console** kısmında bir kere şu komutu çalıştırın:
+
+'install.packages("ggplot2")'
+
+```{r}
+# ggplot2 paketini yükler
+# ggplot2 veri görselleştirme için en yaygın kullanılan R paketlerinden biridir
+library(ggplot2)
+```
+
+
+---
+
+# 2. Iris Veri Setini Yükleme ve İnceleme
+
+**iris veri seti**, veri bilimi ve istatistikte en çok kullanılan veri setlerinden biridir.
+
+Bu veri seti **R içinde hazır olarak bulunduğu için** ayrıca indirmenize gerek yoktur.
+
+Veri setinde **150 iris çiçeğine ait ölçümler bulunmaktadır.**
+
+---
+
+## Veri Setindeki Türler
+
+Veri setinde **3 farklı iris türü vardır:**
+
+- setosa  
+- versicolor  
+- virginica  
+
+---
+
+## Sayısal Ölçümler
+
+Her çiçek için **4 farklı sayısal ölçüm vardır:**
+
+- **Sepal.Length** → çanak yaprağın uzunluğu  
+- **Sepal.Width** → çanak yaprağın genişliği  
+- **Petal.Length** → taç yaprağın uzunluğu  
+- **Petal.Width** → taç yaprağın genişliği  
+
+---
+
+## Kategorik Değişken
+
+Ayrıca bir tane **kategorik değişken** vardır:
+
+- **Species** → çiçeğin hangi türe ait olduğunu gösterir
+
+---
+
+## Iris veri setini yükleme
+
+```{r}
+# data() fonksiyonu R içinde hazır bulunan veri setlerini yüklemek için kullanılır
+# iris veri seti R içinde hazır bulunduğu için ayrıca indirmeye gerek yoktur
+data(iris)
+
+# head() fonksiyonu veri setinin ilk 6 satırını gösterir
+# bu fonksiyon veri setinin yapısını hızlıca anlamamıza yardımcı olur
+head(iris)
+
+# str() fonksiyonu veri setinin yapısını gösterir
+# değişkenlerin türünü (numeric, factor vb.) görmemizi sağlar
+str(iris)
+```
+
+
+---
+
+### Bu adımda ne öğrendik?
+
+Bu veri setinden şunları öğreniyoruz:
+
+- Veri setinde **150 gözlem (çiçek)** vardır.
+- Veri setinde **5 değişken** vardır.
+- İlk **4 değişken sayısaldır**.
+- Son değişken (**Species**) **kategorik bir değişkendir**.
+
+---
+
+# 3. PCA için Veriyi Hazırlama
+
+PCA çalıştırmadan önce veri setini hazırlamamız gerekir.
+
+**Principal Component Analysis (PCA)** yalnızca **sayısal değişkenlerle çalışır**.
+
+Bu yüzden **Species gibi kategorik değişkenleri PCA hesaplamasına dahil edemeyiz.**
+
+iris veri setinde:
+
+- İlk **4 sütun sayısal ölçümlerdir**
+- Son sütun (**Species**) kategorik bir değişkendir
+
+Bu nedenle sadece **sayısal sütunları seçeceğiz.**
+
+---
+
+## Sayısal değişkenleri seçme
+
+```{r}
+# iris veri setinin ilk dört sütununu seçiyoruz
+# bu sütunlar sayısal ölçümleri içerir
+iris_numeric <- iris[, 1:4]
+
+# seçtiğimiz veri setinin ilk satırlarını gösteriyoruz
+# böylece doğru sütunları seçtiğimizi kontrol edebiliriz
+head(iris_numeric)
+
+# veri setinin yapısını tekrar kontrol ediyoruz
+# tüm değişkenlerin numeric olduğunu görmeliyiz
+str(iris_numeric)
+```
+
+
+---
+
+### Bunu neden yapıyoruz?
+
+- PCA yalnızca **sayısal verilerle çalışır**.
+- **Species kategorik bir değişkendir**, bu yüzden PCA hesaplamasına dahil edilmez.
+- Daha sonra **grafikte türleri renklendirmek için** tekrar kullanacağız.
+
+---
+
+# 4. PCA Çalıştırma (Veriyi Ölçekleyerek)
+
+Şimdi PCA analizini **prcomp() fonksiyonu** ile çalıştıracağız.
+
+---
+
+## Neden veriyi ölçekliyoruz?
+
+Değişkenlerimiz aynı birimde ölçülmüş olsa bile:
+
+- değişkenlerin **değer aralıkları farklı olabilir**
+
+Eğer veriyi ölçeklemezsek:
+
+- büyük değerli değişkenler **PCA sonucunu domine edebilir**
+
+Bu yüzden:
+
+**scale. = TRUE**
+
+kullanarak değişkenleri **standartlaştırıyoruz**.
+
+---
+
+## PCA çalıştırma
+
+```{r}
+# prcomp() fonksiyonu PCA analizi yapmak için kullanılır
+# iris_numeric veri setindeki sayısal değişkenleri PCA analizine sokuyoruz
+
+# scale. = TRUE parametresi değişkenleri standartlaştırır
+# böylece farklı ölçeklerdeki değişkenler PCA sonucunu etkilemez
+
+pca_result <- prcomp(iris_numeric, scale. = TRUE)
+
+```
+
+
+---
+
+## PCA varyans bilgisini görüntüleme
+
+```{r}
+# summary() fonksiyonu PCA sonucunun özetini gösterir
+
+# burada her principal component'in
+# veri setindeki toplam varyansın ne kadarını açıkladığını görürüz
+
+summary(pca_result)
+```
+
+
+---
+
+## PCA özetini nasıl okuruz?
+
+Özet çıktısında şunları görürüz:
+
+- **Standard deviation** → her ana bileşenin standart sapması
+- **Proportion of Variance** → her bileşenin açıkladığı varyans oranı
+- **Cumulative Proportion** → kümülatif açıklanan varyans
+
+Genellikle **2 boyutlu PCA grafiği çizmek için PC1 ve PC2 kullanılır**  
+çünkü bu iki bileşen veri setindeki varyansın büyük kısmını açıklar.
+
+---
+
+# 5. PCA Skorlarını Çıkarma
+
+PCA çalıştırıldıktan sonra her örneğin yeni PCA uzayındaki koordinatlarını almamız gerekir.
+
+Bu koordinatlara **PCA skorları** denir.
+
+Her örnek için:
+
+- PC1
+- PC2
+- PC3
+- PC4
+
+değerleri hesaplanır.
+
+Bu skorlar PCA nesnesinin içinde saklanır.
+
+---
+
+## PCA skorlarını çıkarma
+
+```{r}
+# PCA sonucunda elde edilen koordinatlar pca_result$x içinde bulunur
+
+# bu koordinatları veri çerçevesine dönüştürüyoruz
+# böylece daha kolay analiz ve grafik çizimi yapabiliriz
+
+pca_scores <- as.data.frame(pca_result$x)
+
+# PCA grafiğinde türleri gösterebilmek için
+# Species değişkenini tekrar veri setine ekliyoruz
+
+pca_scores$Species <- iris$Species
+```
+
+
+---
+
+## Species bilgisini ekleme
+
+PCA hesaplamasına **Species dahil edilmedi**.
+
+Ancak grafikte:
+
+- farklı türleri **renklerle göstermek için** Species kullanacağız.
+
+Artık veri setimizde:
+
+- PCA koordinatları
+- tür bilgisi
+
+bulunmaktadır.
+
+---
+
+# 6. PCA Grafiğini Çizme (PC1 vs PC2)
+
+Şimdi PCA sonuçlarını **iki boyutlu bir scatter plot** ile görselleştireceğiz.
+
+Grafikte:
+
+- **PC1 x ekseninde**
+- **PC2 y ekseninde**
+- noktalar **Species'e göre renklendirilecek**
+
+---
+
+## PCA grafiğini oluşturma
+
+
+```{r}
+# ggplot fonksiyonu veri görselleştirmek için kullanılır
+
+# aes() fonksiyonu grafikte hangi değişkenlerin kullanılacağını belirtir
+# x ekseni -> PC1
+# y ekseni -> PC2
+# color -> Species (türlere göre renk)
+
+ggplot(pca_scores, aes(x = PC1, y = PC2, color = Species)) +
+
+  # geom_point() scatter plot oluşturur
+  # size = 3 noktaların boyutunu büyütür
+  geom_point(size = 3) +
+
+  # x ekseninin etiketi
+  xlab("PC1 (Birinci Ana Bileşen)") +
+
+  # y ekseninin etiketi
+  ylab("PC2 (İkinci Ana Bileşen)") +
+
+  # grafiğin başlığı
+  ggtitle("Iris Veri Seti ile PCA Analizi") +
+
+  # daha temiz bir grafik teması
+  theme_minimal()
+```
+
+
+---
+
+## PCA grafiğini nasıl yorumlarız?
+
+PCA grafiği örneklerin **birbirine ne kadar benzediğini veya farklı olduğunu** gösterir.
+
+- **Birbirine yakın noktalar** → benzer örnekler
+- **Uzak noktalar** → farklı örnekler
+- **Kümeler** → biyolojik gruplar veya türler
+
+iris veri setinde genellikle:
+
+- **setosa türü diğerlerinden net şekilde ayrılır**
+- **versicolor ve virginica türleri birbirine daha yakındır**
+
+---
+
+## PCA grafiğini okumak
+
+- **x ekseni (PC1)** → veri setindeki en büyük varyasyonu temsil eder
+- **y ekseni (PC2)** → ikinci en büyük varyasyonu temsil eder
+- Her nokta **bir örneği temsil eder**
+- Renkler **farklı türleri gösterir**
+
+Bu şekilde PCA kullanarak **çok boyutlu verileri daha kolay görselleştirebilir ve yorumlayabiliriz.**
+
+---

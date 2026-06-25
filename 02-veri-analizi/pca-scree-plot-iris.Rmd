@@ -1,0 +1,288 @@
+---
+title: "Iris Veri Seti ile PCA Scree Plot Analizi"
+author: "Oğuzhan Işılay"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+# 0) Bu eğitimin amacı
+
+PCA analizinde yalnızca grafik çizmek yeterli değildir.
+
+Ayrıca şu soruyu da sormamız gerekir:
+
+**Kaç tane ana bileşen kullanmalıyız?**
+
+Bu soruyu cevaplamak için **scree plot** kullanılır.
+
+Scree plot bize:
+
+- her principal component'in ne kadar varyans açıkladığını
+- hangi bileşenlerin daha önemli olduğunu
+- PCA'de kaç bileşenin anlamlı olabileceğini
+
+göstermeye yardımcı olur.
+
+---
+
+# 1) Paket ve veri setini yükleme
+
+Bu eğitimde grafikleri çizmek için **ggplot2** paketini kullanacağız.
+
+Eğer bilgisayarınızda ggplot2 kurulu değilse, Console kısmında bir kez şu komutu çalıştırabilirsiniz:
+
+'install.packages("ggplot2")'
+
+```{r}
+# ggplot2 paketini yükler
+# ggplot2 veri görselleştirme için kullanılan en yaygın R paketlerinden biridir
+library(ggplot2)
+
+# iris veri setini yükler
+# iris veri seti R içinde hazır bulunduğu için ayrıca indirmeye gerek yoktur
+data(iris)
+
+# PCA yalnızca sayısal değişkenlerle çalışır
+# Bu nedenle ilk 4 sütunu seçiyoruz
+iris_numeric <- iris[, 1:4]
+
+```
+
+
+---
+
+# 2) PCA çalıştırma
+
+PCA analizinden önce veriyi ölçeklemek önemlidir.
+
+Bunun nedeni, değişkenlerin değer aralıklarının farklı olabilmesidir.
+
+Eğer veriyi ölçeklemezsek:
+
+- bazı değişkenler PCA sonucunu daha fazla etkileyebilir
+
+Bu yüzden `scale. = TRUE` kullanıyoruz.
+
+```{r}
+# prcomp() fonksiyonu PCA analizi yapmak için kullanılır
+
+# iris_numeric veri setindeki sayısal sütunları PCA analizine sokuyoruz
+
+# scale. = TRUE parametresi değişkenleri standartlaştırır
+# Böylece değişkenler birbirleriyle karşılaştırılabilir hale gelir
+
+pca_result <- prcomp(iris_numeric, scale. = TRUE)
+```
+
+
+---
+
+# 3) PCA sonucundaki varyans bilgisini inceleme
+
+PCA sonucunda her principal component (ana bileşen), veri setindeki toplam varyansın belli bir kısmını açıklar.
+
+Bu bilgiyi görmek için `summary()` fonksiyonunu kullanabiliriz.
+
+```{r}
+# PCA sonucunun özetini gösterir
+# Her principal component'in açıkladığı varyans miktarını görürüz
+
+summary(pca_result)
+```
+
+
+---
+
+## PCA özetinde hangi bilgiler vardır?
+
+Bu çıktıda genellikle şunları görürüz:
+
+- **Standard deviation** → her ana bileşenin standart sapması
+- **Proportion of Variance** → her ana bileşenin açıkladığı varyans oranı
+- **Cumulative Proportion** → bileşenler toplandıkça açıklanan toplam varyans
+
+Bu bilgiler PCA yorumlamasında çok önemlidir.
+
+---
+
+# 4) Scree plot için gerekli veriyi hazırlama
+
+Scree plot çizmek için her principal component'in açıkladığı varyans oranını ayrı bir veri çerçevesine koymamız gerekir.
+
+Bunu PCA sonucundaki standart sapma değerlerinden hesaplayabiliriz.
+
+```{r}
+# PCA sonucundaki standart sapma değerlerini alır
+# sdev = standard deviation
+standart_sapmalar <- pca_result$sdev
+
+# Varyans hesaplamak için standart sapmaların karesini alıyoruz
+varyans <- standart_sapmalar^2
+
+# Her bileşenin açıkladığı varyans oranını hesaplıyoruz
+# Toplam varyansa bölerek oran elde ediyoruz
+varyans_orani <- varyans / sum(varyans)
+
+# Bileşen isimlerini oluşturuyoruz
+bilesenler <- paste0("PC", 1:length(varyans_orani))
+
+# Scree plot için veri çerçevesi oluşturuyoruz
+scree_data <- data.frame(
+  Bilesen = bilesenler,
+  Varyans_Orani = varyans_orani
+)
+
+# Oluşturulan tabloyu görüntülüyoruz
+scree_data
+```
+
+
+---
+
+# 5) Basit scree plot çizimi
+
+İlk olarak temel bir scree plot oluşturabiliriz.
+
+Bu grafik bize principal component'lerin açıkladığı varyansı görsel olarak gösterir.
+
+```{r}
+# Basit scree plot çizimi
+
+ggplot(scree_data, aes(x = Bilesen, y = Varyans_Orani)) +
+
+  # Sütun grafiği çiziyoruz
+  geom_col() +
+
+  # Noktaları daha belirgin göstermek için üstüne nokta ekliyoruz
+  geom_point(size = 3) +
+
+  # Eksen isimleri
+  xlab("Principal Component") +
+  ylab("Açıklanan Varyans Oranı") +
+
+  # Grafiğin başlığı
+  ggtitle("Iris Veri Seti icin Scree Plot") +
+
+  # Temiz bir tema kullanıyoruz
+  theme_minimal()
+```
+
+
+---
+
+# 6) Yüzde olarak daha okunabilir scree plot
+
+Bazen varyans oranlarını ondalıklı sayı yerine yüzde olarak görmek daha anlaşılır olabilir.
+
+Bu yüzden yeni bir sütun ekleyebiliriz.
+
+```{r}
+# Varyans oranını yüzdeye çeviriyoruz
+scree_data$Yuzde <- scree_data$Varyans_Orani * 100
+
+# Güncellenmiş veri çerçevesini görüntülüyoruz
+scree_data
+```
+
+
+Şimdi yüzde değerleri ile daha okunabilir bir scree plot çizelim.
+
+```{r}
+# Yüzde değerleri ile scree plot çiziyoruz
+
+ggplot(scree_data, aes(x = Bilesen, y = Yuzde)) +
+
+  # Sütunları çiz
+  geom_col() +
+
+  # Her sütunun üstüne yüzde değerini yaz
+  geom_text(aes(label = round(Yuzde, 2)),
+            vjust = -0.5,
+            size = 4) +
+
+  # Noktaları ekle
+  geom_point(size = 3) +
+
+  # Eksen isimleri
+  xlab("Principal Component") +
+  ylab("Aciklanan Varyans (%)") +
+
+  # Başlık
+  ggtitle("Iris Veri Seti icin Scree Plot") +
+
+  # Temiz tema
+  theme_minimal()
+```
+
+
+---
+
+# 7) Scree plot nasıl yorumlanır?
+
+Scree plot yorumlanırken genellikle üç şeye bakılır.
+
+---
+
+## 7.1 En büyük varyansı hangi bileşen açıklıyor?
+
+Grafikte en yüksek sütun genellikle **PC1** olur.
+
+Bu, veri setindeki en büyük varyasyonun ilk ana bileşen tarafından açıklandığını gösterir.
+
+---
+
+## 7.2 Sonraki bileşenler ne kadar katkı yapıyor?
+
+PC2, PC3 ve PC4 gibi diğer bileşenler daha az varyans açıklar.
+
+Eğer ilk birkaç bileşen toplam varyansın büyük kısmını açıklıyorsa:
+
+- veriyi daha az boyutta temsil edebiliriz
+
+---
+
+## 7.3 Dirsek noktası (elbow) var mı?
+
+Scree plot'ta bazen bir **dirsek noktası** görülür.
+
+Bu nokta, bileşenlerin katkısının belirgin şekilde azalmaya başladığı yeri gösterir.
+
+Genellikle:
+
+- dirsekten önceki bileşenler daha önemlidir
+- dirsekten sonraki bileşenler daha az bilgi taşır
+
+---
+
+# 8) Iris veri seti için beklenen yorum
+
+Iris veri setinde genellikle:
+
+- **PC1 en büyük varyansı açıklar**
+- **PC2 ikinci sırada gelir**
+- ilk iki bileşen birlikte toplam varyansın büyük kısmını açıklar
+
+Bu yüzden iris veri setinde çoğu zaman:
+
+- **PC1 ve PC2 ile çizilen PCA grafiği yeterince bilgilendiricidir**
+
+---
+
+# 9) Bu eğitimden ne öğrendik?
+
+Bu bölümde şunları öğrendik:
+
+- scree plot'un ne işe yaradığını
+- PCA sonucundaki varyans bilgisinin nasıl çıkarıldığını
+- principal component'lerin açıkladığı varyansın nasıl hesaplandığını
+- ggplot2 ile scree plot'un nasıl çizildiğini
+- scree plot'un nasıl yorumlandığını
+
+Scree plot, PCA analizinin önemli bir parçasıdır çünkü bize:
+
+**kaç tane principal component kullanmamız gerektiği konusunda fikir verir.**
+
+
+

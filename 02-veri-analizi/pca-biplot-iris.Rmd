@@ -1,0 +1,238 @@
+---
+title: "Iris Veri Seti ile PCA Biplot Analizi"
+author: "Oğuzhan Işılay"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+# 0) Bu eğitimin amacı
+
+PCA grafiğinde (PC1–PC2) türlerin ayrıldığını görebiliriz.
+
+Ancak önemli bir soru ortaya çıkar:
+
+**Bu ayrımı hangi değişkenler oluşturuyor?**
+
+Bu soruyu cevaplamak için **biplot** kullanırız.
+
+Bir biplot grafiğinde:
+
+- Noktalar = örnekler (çiçekler)
+- Oklar = değişkenler (Sepal ve Petal ölçümleri)
+
+Böylece **örnekleri ve değişkenleri aynı grafikte görebiliriz.**
+
+---
+
+# 1) Paket ve veri setini yükleme
+
+```{r}
+# ggplot2 paketini yükler
+# ggplot2 veri görselleştirme için kullanılan en popüler R paketlerinden biridir
+# Eğer sisteminizde kurulu değilse aşağıdaki komutu bir kez çalıştırabilirsiniz
+
+# install.packages("ggplot2")
+
+# ggplot2 paketini aktif hale getirir
+library(ggplot2)
+
+# iris veri setini yükler
+# iris veri seti R içinde hazır bulunduğu için ayrıca indirmeye gerek yoktur
+data(iris)
+
+# PCA yalnızca sayısal değişkenlerle çalışır
+# Bu yüzden veri setinin ilk 4 sütununu seçiyoruz
+# Bu sütunlar sepal ve petal ölçümleridir
+iris_numeric <- iris[, 1:4]
+```
+
+---
+
+# 2) PCA çalıştırma
+
+PCA analizinden önce veriyi **ölçeklendirmemiz gerekir**.
+
+Bu önemlidir çünkü değişkenlerin değer aralıkları farklı olabilir.
+
+```{r}
+# prcomp() fonksiyonu PCA analizi yapmak için kullanılır
+
+# iris_numeric veri setindeki sayısal değişkenleri PCA analizine sokuyoruz
+
+# scale. = TRUE parametresi değişkenleri standartlaştırır
+# Böylece farklı büyüklükteki değişkenler PCA sonucunu domine etmez
+
+pca_result <- prcomp(iris_numeric, scale. = TRUE)
+```
+
+
+---
+
+# 3) PCA'de iki önemli çıktı
+
+Bir **biplot** iki önemli bilgiyi birlikte kullanır:
+
+- **Scores (skorlar)** → örneklerin koordinatları  
+- **Loadings (yükler)** → değişkenlerin PCA üzerindeki etkisi  
+
+---
+
+## 3.1 Scores (örnek koordinatları)
+
+`pca_result$x` her örneğin PCA uzayındaki konumunu gösterir.
+
+```{r}
+# PCA skorlarını veri çerçevesine dönüştürüyoruz
+# Böylece daha kolay analiz ve grafik çizimi yapabiliriz
+
+scores <- as.data.frame(pca_result$x)
+
+# PCA grafiğinde türleri renklendirebilmek için
+# Species değişkenini veri setine ekliyoruz
+
+scores$Species <- iris$Species
+```
+
+
+---
+
+## 3.2 Loadings (değişken katkıları)
+
+`pca_result$rotation` değişkenlerin PCA bileşenlerine ne kadar katkı yaptığını gösterir.
+
+Bu değerler biplot grafiğindeki **okları oluşturur**.
+
+```{r}
+# PCA loadings değerlerini çıkarıyoruz
+# Bu değerler değişkenlerin PCA bileşenlerine katkısını gösterir
+
+loadings <- as.data.frame(pca_result$rotation)
+
+# Değişken isimlerini ekliyoruz
+# rownames() satır isimlerini alır
+
+loadings$Variable <- rownames(loadings)
+```
+
+
+---
+
+# 4) Basit biplot (Base R)
+
+Bu grafik oldukça basittir ancak PCA biplot mantığını anlamak için faydalıdır.
+
+```{r}
+# biplot() fonksiyonu PCA sonucunu hızlıca görselleştirir
+
+# cex parametresi yazı ve nokta boyutlarını küçültür
+# Böylece grafik daha okunabilir hale gelir
+
+biplot(pca_result, cex = 0.7)
+```
+
+
+---
+
+# 5) ggplot ile daha iyi bir biplot
+
+Şimdi daha temiz ve daha okunabilir bir grafik oluşturacağız.
+
+Loadings okları bazen çok küçük olabilir.
+
+Bu yüzden okları **ölçeklendireceğiz**.
+
+```{r}
+# Okların ölçeklendirme katsayısı
+# Loadings değerleri küçük olabileceği için
+# okları görünür yapmak amacıyla bu değerle çarpıyoruz
+
+scale_factor <- 3
+
+# PCA biplot grafiği oluşturuyoruz
+
+# PC1 ve PC2 ilk iki ana bileşendir
+# Bunlar veri setindeki en büyük varyasyonu açıklar
+
+ggplot(scores, aes(x = PC1, y = PC2, color = Species)) +
+
+  # Örnekleri (çiçekleri) nokta olarak çiziyoruz
+  # Her nokta bir örneği temsil eder
+  geom_point(size = 3) +
+
+  # Değişkenleri ok olarak çiziyoruz
+  # Oklar (0,0) noktasından başlar
+
+  geom_segment(
+    data = loadings,
+    aes(x = 0, y = 0,
+        xend = PC1 * scale_factor,
+        yend = PC2 * scale_factor),
+    arrow = arrow(length = unit(0.2, "cm")),
+    inherit.aes = FALSE
+  ) +
+
+  # Okların uçlarına değişken isimlerini ekliyoruz
+  # Böylece her okun hangi ölçümü temsil ettiğini görürüz
+
+  geom_text(
+    data = loadings,
+    aes(x = PC1 * scale_factor,
+        y = PC2 * scale_factor,
+        label = Variable),
+    size = 4,
+    vjust = 1.2,
+    inherit.aes = FALSE
+  ) +
+
+  # X ekseninin etiketi
+  xlab("PC1") +
+
+  # Y ekseninin etiketi
+  ylab("PC2") +
+
+  # Grafiğin başlığı
+  ggtitle("Iris Veri Seti PCA Biplot (Scores + Loadings)") +
+
+  # Daha temiz bir grafik teması
+  theme_minimal()
+```
+
+
+---
+
+# 6) Biplot grafiği nasıl yorumlanır?
+
+Bir biplot grafiğini okurken üç şeye odaklanmak gerekir.
+
+---
+
+## 6.1 Noktalar (örnekler)
+
+- Birbirine yakın noktalar → örnekler benzerdir  
+- Ayrı kümeler → gruplar birbirinden farklıdır  
+
+---
+
+## 6.2 Oklar (değişkenler)
+
+- Okun yönü → değişkenin arttığı yönü gösterir  
+- Uzun oklar → PCA bileşenlerine daha güçlü katkı  
+
+---
+
+## 6.3 Iris veri setinde beklenen sonuç
+
+Iris veri setinde genellikle şunlar görülür:
+
+- **Petal.Length** ve **Petal.Width** PCA üzerinde güçlü etkiye sahiptir
+- **Setosa türü diğerlerinden net şekilde ayrılır**
+- **Versicolor ve Virginica birbirine daha yakındır ve kısmen örtüşebilir**
+
+Bu şekilde biplot grafikleri kullanarak:
+
+- örneklerin ilişkilerini
+- değişkenlerin etkisini
+
+aynı grafikte görebiliriz.

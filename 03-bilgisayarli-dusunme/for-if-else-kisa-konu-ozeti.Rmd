@@ -1,0 +1,369 @@
+---
+title: "Kısa Konu Özeti: for + if/else"
+author: "Oğuzhan Işılay"
+date: "2026-01-12"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Kısa Konu Özeti: for + if/else
+
+## 1. For Döngüsü
+
+R dilinde **for döngüsü**, aynı işlemi birden fazla değer için tekrar etmemizi sağlar.
+
+Örnek yapı:
+
+```{r}
+elemanlar <- c(1,2,3)
+
+for (eleman in elemanlar) {
+  # her eleman üzerinde yapılacak işlem
+}
+```
+
+elemanlar → birden fazla değer içeren bir vektör veya liste  
+eleman → her döngü adımında listedeki bir değeri temsil eder  
+
+Döngü şu mantıkla çalışır:
+
+**elemanlar** içindeki her elemanı sırayla al ve döngünün içindeki kodu çalıştır.
+
+Örnek vektör:
+
+```{r}
+yaprak_uzunluklari <- c(3.2, 5.1, 4.0)
+```
+
+**c()** fonksiyonu *combine (birleştirmek)* anlamına gelir.  
+Birden fazla değeri birleştirerek bir vektör oluşturur.
+
+Burada **yaprak_uzunluklari** adlı bir vektör oluşturduk.
+
+Şimdi bir döngü kullanarak her değeri yazdırabiliriz:
+
+```{r}
+# yaprak_uzunluklari vektöründeki her değeri sırayla al
+for (u in yaprak_uzunluklari) {
+
+  # o anki değeri ekrana yazdır
+  print(u)
+}
+```
+
+Bilgisayar şu işlemleri yapar:
+
+İlk döngü → ilk değeri yazdırır  
+İkinci döngü → ikinci değeri yazdırır  
+Üçüncü döngü → üçüncü değeri yazdırır  
+
+Vektör bittiğinde döngü de durur.
+
+---
+
+### Boş Bir Vektör Oluşturma
+
+Bazen sonuçları saklamak için bir yere ihtiyacımız olur.
+
+```{r}
+sonuclar <- c()
+```
+
+Bu işlem **boş bir vektör** oluşturur.
+
+Günlük hayattan bir benzetme:
+
+Sonuçlarımızı içine koyacağımız **boş bir sepet** olduğunu düşünün.
+
+Şimdi veriyi işlemeye başlayalım:
+
+```{r}
+# yaprak_uzunluklari vektöründeki her değeri sırayla al
+for (uzunluk in yaprak_uzunluklari) {
+
+  # her uzunluğu 2 ile çarp ve sonucu sonuclar vektörüne ekle
+  sonuclar <- c(sonuclar, uzunluk * 2)
+
+  # güncel sonuçları ekrana yazdır
+  print(sonuclar)
+}
+```
+
+Burada ne oluyor?
+
+**yaprak_uzunluklari** içindeki her değer sırayla alınır.  
+Her değer 2 ile çarpılır.  
+Elde edilen sonuç **sonuclar** vektörüne eklenir.
+
+Yani döngünün mantığı şudur:
+
+Değeri al → işle → sonucu sakla.
+
+Bu yapı biyolojik veri analizlerinde çok sık kullanılır.
+
+---
+
+# 2. if / else
+
+**if / else** yapısı bilgisayarın karar vermesini sağlar.
+
+Temel mantık:
+
+Eğer bir şey doğruysa → bir işlem yap  
+Aksi halde → başka bir işlem yap
+
+Genel yapı:
+
+'if (kosul) {
+  # koşul doğruysa çalışacak kod
+}'
+
+Koşulun sonucu **TRUE** veya **FALSE** olmalıdır.
+
+Örnek:
+
+```{r}
+# Yaprak uzunluğunu tanımlıyoruz
+yaprak_uzunlugu <- 6
+
+# Eğer yaprak uzunluğu 5'ten büyükse
+if (yaprak_uzunlugu > 5) {
+
+  # "Uzun yaprak" mesajını yazdır
+  print("Uzun yaprak")
+}
+```
+
+6 > 5 ifadesi **TRUE** olduğu için mesaj ekrana yazdırılır.
+
+Eğer değer **4** olsaydı, koşul **FALSE** olurdu ve hiçbir şey gerçekleşmezdi.
+
+---
+
+### if / else yapısı
+
+'if (kosul) {
+  # koşul doğruysa çalışacak kod
+} else {
+  # koşul yanlışsa çalışacak kod
+}'
+
+Örnek:
+
+```{r}
+# Yaprak uzunluğunu tanımlıyoruz
+yaprak_uzunlugu <- 4
+
+# Eğer yaprak uzunluğu 5'ten büyükse
+if (yaprak_uzunlugu > 5) {
+
+  # uzun yaprak olarak yazdır
+  print("Uzun yaprak")
+
+} else {
+
+  # değilse kısa yaprak olarak yazdır
+  print("Kısa yaprak")
+}
+```
+
+4 > 5 ifadesi **FALSE** olduğu için **else** bloğu çalışır.
+
+Çıktı:
+
+Kısa yaprak
+
+---
+
+### Birden Fazla Koşul
+
+Bazen iki koşuldan daha fazlasına ihtiyaç duyarız.
+
+```{r}
+# Yaprak uzunluğuna göre sınıflandırma yapıyoruz
+
+if (yaprak_uzunlugu < 3) {
+  # Eğer yaprak uzunluğu 3'ten küçükse
+  print("Çok kısa")
+
+} else if (yaprak_uzunlugu < 6) {
+  # Eğer uzunluk 3 ile 6 arasında ise
+  print("Orta")
+
+} else {
+  # Eğer uzunluk 6'dan büyük veya eşitse
+  print("Uzun")
+}
+```
+
+Bilgisayar koşulları adım adım kontrol eder.
+
+İlk koşul  
+Eğer **FALSE** ise → bir sonraki koşula geçer  
+Koşullardan biri **TRUE** olana kadar devam eder.
+
+---
+
+# 3. for ile if / else Kullanımı
+
+Çoğu zaman **döngüleri** ve **koşulları** birlikte kullanırız.
+
+for → değerleri tek tek işler  
+if / else → her değer için ne yapılacağına karar verir
+
+Örnek:
+
+```{r}
+# Yaprak uzunluklarını içeren bir vektör oluşturuyoruz
+yapraklar <- c(2.5, 4.8, 6.1)
+
+# Vektördeki her yaprak uzunluğunu sırayla kontrol eden döngü
+for (uzunluk in yapraklar) {
+
+  # Eğer yaprak uzunluğu 5'ten büyükse
+  if (uzunluk > 5) {
+
+    # uzun yaprak olarak sınıflandır
+    print("Uzun yaprak")
+
+  } else {
+
+    # değilse kısa yaprak olarak sınıflandır
+    print("Kısa yaprak")
+  }
+
+}
+```
+
+Mantık şu şekildedir:
+
+Bir yaprak al  
+Uzunluğunu kontrol et  
+Sınıflandırmayı yazdır  
+Bir sonraki yaprağa geç
+
+Bu yapı, birçok biyolojik veri analizinin temel mantığını temsil eder.
+
+---
+
+# Mini Örnek: DNA Dizilerinde GC% ve Motif Analizi
+
+## Örnek 1: DNA Dizisinde GC İçeriğini Kontrol Etme
+
+Her nükleotidin **GC güçlü bağı** mı yoksa **AT zayıf bağı** mı oluşturduğunu inceliyoruz.
+
+```{r}
+dna_dizisi <- c("A", "G", "C", "T", "G")
+
+# DNA dizisi içindeki her bazı sırayla inceleyen döngü
+for (nukleotit in dna_dizisi) {
+
+  # Eğer nükleotit G veya C ise
+  if (nukleotit == "G" | nukleotit == "C") {
+
+    # GC bazları güçlü bağ oluşturur
+    print(paste(nukleotit, ": GC Güçlü Bağ"))
+
+  } else {
+
+    # A ve T bazları zayıf bağ oluşturur
+    print(paste(nukleotit, ": AT Zayıf Bağ"))
+  }
+
+}
+```
+
+---
+
+## Örnek 2: Basit Motif Arama
+
+Birden fazla DNA bölgesine sahibiz ve **başlangıç kodonunu (ATG)** tespit etmek istiyoruz.
+
+```{r}
+# DNA bölgelerini içeren bir vektör oluşturuyoruz
+bolgeler <- c("CCG", "ATG", "TTA", "ATG")
+
+# 1:length(bolgeler) → vektörün uzunluğu kadar sayıları üretir (1,2,3,4)
+# i değişkeni döngü sırasında sırayla bu sayıları alır
+for (i in 1:length(bolgeler)) {
+
+  # Eğer ilgili bölgedeki dizi "ATG" ise
+  if (bolgeler[i] == "ATG") {
+
+    # başlangıç kodonu bulunduğunu yazdır
+    print(paste(i, ". bölgede başlangıç kodonu var!"))
+
+  } else {
+
+    # ATG yoksa bölgenin temiz olduğunu yazdır
+    print(paste(i, ". bölge temiz."))
+  }
+
+}
+```
+
+---
+
+## Örnek 3: GC Oranı Hesaplama
+
+Dizide kaç tane **G** ve **C** bazı bulunduğunu sayıyoruz.
+
+```{r}
+# DNA dizisini içeren bir vektör oluşturuyoruz
+dna <- c("G", "C", "A", "T", "G", "G", "A")
+
+# G ve C bazlarının sayısını tutacak sayaç
+gc_sayisi <- 0
+
+# DNA dizisindeki her bazı sırayla kontrol et
+for (baz in dna) {
+
+  # Eğer baz G veya C ise
+  if (baz == "G" | baz == "C") {
+
+    # GC sayacını 1 artır
+    gc_sayisi <- gc_sayisi + 1
+  }
+}
+
+# Dizinin toplam uzunluğunu hesapla
+toplam_uzunluk <- length(dna)
+
+# GC oranını yüzde olarak hesapla
+gc_orani <- (gc_sayisi / toplam_uzunluk) * 100
+
+# sonuçları ekrana yazdır
+print(paste("Toplam GC sayısı:", gc_sayisi))
+print(paste("GC oranı:", gc_orani, "%"))
+```
+
+---
+
+## Örnek 4: Birden Fazla Koşul (Sıcaklık ve Enzim Aktivitesi)
+
+Farklı sıcaklıklarda enzim aktivitesini değerlendiriyoruz.
+
+```{r}
+# Farklı sıcaklık değerlerini içeren bir vektör oluşturuyoruz
+sicakliklar <- c(10, 37, 55, 90)
+
+# Her sıcaklık değerini sırayla kontrol eden bir döngü
+for (sicaklik in sicakliklar) {
+
+  # Eğer sıcaklık 20 dereceden küçükse
+  if (sicaklik < 20) {
+    print(paste(sicaklik, "derece: Enzim çok yavaş çalışıyor."))
+
+  # Eğer sıcaklık 20 ile 45 derece arasındaysa
+  } else if (sicaklik >= 20 & sicaklik <= 45) {
+    print(paste(sicaklik, "derece: Enzimin optimum çalışma sıcaklığı."))
+
+  # Eğer sıcaklık daha yüksekse
+  } else {
+    print(paste(sicaklik, "derece: Enzim yapısı zarar görebilir (Denatürasyon)."))
+  }
+
+}
+```
+

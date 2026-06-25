@@ -1,0 +1,497 @@
+# Fonksiyonlar Alıştırmaları – Çözümler
+
+---
+
+# Hazırlık (Test Verileri)
+
+Bu bölümde bazı örnek DNA dizileri kullanacağız.  
+Bu diziler, yazılan fonksiyonların doğru çalışıp çalışmadığını test etmek için kullanılacaktır.
+
+```{r}
+dna1 <- c("A","G","C","T","G")
+dna2 <- c("A","T","A","T","A","T")
+dna3 <- c("G","G","C","C","G","G")
+dna4 <- c("N","N","A","T","G")
+dna5 <- c("A","G","X","T")   # bilinmeyen karakter testi
+
+dna_listesi <- list(dna1, dna2, dna3, dna4)
+```
+
+
+---
+
+# Düzey 1 — Basit
+
+## Alıştırma 1: kare_al(x)
+
+**Beklenen çıktı**
+
+kare_al(4) = 16
+
+Bu alıştırmada bir sayı alan ve sayının karesini döndüren bir fonksiyon yazılmıştır.  
+Fonksiyon içine verilen sayı kendi ile çarpılır ve sonuç geri döndürülür.
+
+```{r}
+# kare_al isimli bir fonksiyon tanımlıyoruz
+# function(x) -> fonksiyon dışarıdan x adlı bir değer alır
+kare_al <- function(x) {
+
+  # sonuc değişkeni oluşturuluyor
+  # x sayısı kendi ile çarpılarak karesi hesaplanıyor
+  sonuc <- x * x
+
+  # return(): fonksiyonun dışarıya vereceği sonucu belirler
+  return(sonuc)
+}
+
+# fonksiyonu çalıştırıyoruz
+# x yerine 4 gönderiyoruz
+kare_al(4)
+
+```
+
+
+### Ne öğrendik?
+
+- Fonksiyonlar dışarıdan veri alabilir.
+- Fonksiyon içinde hesaplama yapılabilir.
+- Sonuç `return()` ile dışarı verilir.
+
+---
+
+# Düzey 2 — Orta (for + if + sayaç)
+
+## Alıştırma 2: gc_say(dna)
+
+**Beklenen çıktı**
+
+gc_say(dna1) = 3
+
+Bu alıştırmada bir DNA dizisindeki toplam **G ve C sayısını** hesaplayan bir fonksiyon yazılmıştır.
+
+Fonksiyon içinde bir sayaç oluşturulur ve DNA dizisi bir döngü ile tek tek incelenir.  
+Eğer baz **G veya C** ise sayaç artırılır.
+
+```{r}
+# gc_say fonksiyonu DNA dizisi içindeki G ve C bazlarını sayar
+gc_say <- function(dna) {
+
+  # GC_toplami: GC sayısını tutacak sayaç
+  # başlangıç değeri 0
+  GC_toplami <- 0
+
+  # for döngüsü DNA vektörünün içindeki her elemanı sırayla gezer
+  # n değişkeni o anda incelenen bazı temsil eder
+  for (n in dna) {
+
+    # if koşulu: n bazının G veya C olup olmadığını kontrol eder
+    # || operatörü "veya" anlamına gelir
+    if (n == "G" || n == "C") {
+
+      # eğer baz G veya C ise sayaç 1 artırılır
+      GC_toplami <- GC_toplami + 1
+    }
+  }
+
+  # toplam GC sayısı fonksiyon çıktısı olarak döndürülür
+  return(GC_toplami)
+}
+
+# fonksiyon test edilir
+gc_say(dna1)
+
+```
+
+
+### Ne öğrendik?
+
+- Sayaç mantığı: 0 ile başla, koşul sağlanınca artır.
+- `for` döngüsü ile veri içinde gezinme.
+- `if` ile koşul kontrolü yapma.
+
+---
+
+## Alıştırma 3: gc_orani(dna)
+
+**Beklenen çıktı**
+
+gc_orani(c("G","C","A","T")) = 0.5
+
+Bu alıştırmada DNA dizisindeki GC oranı hesaplanır.
+
+Önce G ve C bazlarının sayısı bulunur.  
+Daha sonra bu sayı toplam baz sayısına bölünerek GC oranı elde edilir.
+
+```{r}
+# gc_orani fonksiyonu DNA dizisindeki GC oranını hesaplar
+gc_orani <- function(dna) {
+
+  # GC sayısını tutacak sayaç
+  GC_toplami <- 0
+
+  # DNA dizisi içinde döngü başlatılır
+  for (n in dna) {
+
+    # eğer baz G veya C ise
+    if (n == "G" || n == "C") {
+
+      # sayaç 1 artırılır
+      GC_toplami <- GC_toplami + 1
+    }
+  }
+
+  # GC oranı hesaplanır
+  # GC sayısı toplam baz sayısına bölünür
+  oran <- GC_toplami / length(dna)
+
+  # hesaplanan oran döndürülür
+  return(oran)
+}
+
+# örnek DNA için GC oranı hesaplanır
+gc_orani(c("G","C","A","T"))
+
+```
+
+
+### Ne öğrendik?
+
+- Oran hesaplama mantığı: **parça / toplam**
+
+---
+
+# Düzey 3 — Orta / İleri (Sınıflandırma)
+
+## Alıştırma 4: gc_durum(dna)
+
+**Beklenen çıktı**
+
+gc_durum(dna3) = "GC-zengin"
+
+Bu alıştırmada DNA dizisi GC oranına göre sınıflandırılır.
+
+Önce DNA'nın GC oranı hesaplanır.  
+Eğer GC oranı 0.5’ten büyükse DNA dizisi **GC-zengin**, değilse **GC-fakir** olarak sınıflandırılır.
+
+```{r}
+# gc_durum fonksiyonu DNA dizisini GC oranına göre sınıflandırır
+gc_durum <- function(dna) {
+
+  # bir önceki alıştırmada oluşturduğumuz gc_orani fonksiyonu çağrılarak GC oranı hesaplanır
+  oran <- gc_orani(dna)
+
+  # if koşulu: oran 0.5'ten büyük mü?
+  if (oran > 0.5) {
+
+    # eğer büyükse DNA GC bakımından zengin kabul edilir
+    return("GC-zengin")
+
+  } else {
+
+    # değilse GC bakımından fakir kabul edilir
+    return("GC-fakir")
+  }
+}
+
+# fonksiyon test edilir
+gc_durum(dna3)
+
+```
+
+
+### Ne öğrendik?
+
+- Fonksiyon içinde başka bir fonksiyon kullanmak kodu kısaltır.
+- Kod tekrarını azaltarak daha temiz bir yapı oluşturur.
+
+---
+
+# Düzey 4 — Zor (Girdi kontrolü)
+
+## Alıştırma 5: dna_kontrol(dna)
+
+**Beklenen çıktı**
+
+dna_kontrol(dna1) = "OK"  
+dna_kontrol(dna5) = "HATA: Bilinmeyen baz"
+
+Bu alıştırmada DNA dizisinin geçerli karakterlerden oluşup oluşmadığı kontrol edilir.
+
+DNA dizisinde **A, T, G, C veya N dışında bir karakter** varsa hata mesajı döndürülür.  
+Eğer dizide sadece geçerli bazlar varsa "OK" sonucu verilir.
+
+```{r}
+# dna_kontrol fonksiyonu DNA dizisindeki karakterleri kontrol eder
+dna_kontrol <- function(dna) {
+
+  # hata_var_mi mantıksal değişkenidir
+  # başlangıçta FALSE (hata yok)
+  hata_var_mi <- FALSE
+
+  # DNA dizisi içindeki her baz incelenir
+  for (n in dna) {
+
+    # eğer baz A, T, G, C veya N değilse
+    # && operatörü "ve" anlamına gelir
+    if (n != "A" && n != "T" && n != "G" && n != "C" && n != "N") {
+
+      # geçersiz bir karakter bulundu
+      hata_var_mi <- TRUE
+    }
+  }
+
+  # döngü bittikten sonra hata kontrolü yapılır
+  if (hata_var_mi == TRUE) {
+
+    # hata varsa mesaj döndürülür
+    return("HATA: Bilinmeyen baz")
+
+  } else {
+
+    # hata yoksa OK mesajı döndürülür
+    return("OK")
+  }
+}
+
+# test
+dna_kontrol(dna5)
+dna_kontrol(dna1)
+
+```
+
+
+### Ne öğrendik?
+
+- Veri doğrulama (input validation)
+- TRUE / FALSE mantığı ile kontrol yapma
+
+---
+
+## Alıştırma 6: dna_kalite(dna)
+
+**Beklenen çıktı**
+
+dna_kalite(dna4) = "Belirsiz DNA"
+
+Bu alıştırmada DNA dizisi kalite kontrol mantığı ile sınıflandırılır.
+
+Önce dizide **N karakteri** olup olmadığı kontrol edilir.  
+Eğer N varsa DNA dizisi **Belirsiz DNA** olarak değerlendirilir.
+
+Eğer N yoksa GC oranı hesaplanır ve:
+
+- GC oranı ≥ 0.6 ise **Yüksek GC**
+- aksi halde **Normal DNA**
+
+sonucu verilir.
+
+```{r}
+# dna_kalite fonksiyonu DNA dizisini kalite kontrol mantığı ile değerlendirir
+dna_kalite <- function(dna) {
+
+  # N bazının olup olmadığını takip edecek değişken
+  N_var_mi <- FALSE
+
+  # GC sayısını tutacak sayaç
+  GC_toplami <- 0
+
+  # DNA dizisi içinde döngü başlatılır
+  for (n in dna) {
+
+    # eğer baz N ise
+    if (n == "N") {
+
+      # N bulunduğu işaretlenir
+      N_var_mi <- TRUE
+    }
+
+    # eğer baz G veya C ise
+    if (n == "G" || n == "C") {
+
+      # GC sayacı artırılır
+      GC_toplami <- GC_toplami + 1
+    }
+  }
+
+  # önce N kontrolü yapılır
+  if (N_var_mi == TRUE) {
+
+    # N varsa DNA belirsiz kabul edilir
+    return("Belirsiz DNA")
+
+  } else {
+
+    # N yoksa GC oranı hesaplanır
+    oran <- GC_toplami / length(dna)
+
+    # GC oranı kontrol edilir
+    if (oran >= 0.6) {
+
+      # yüksek GC içerik
+      return("Yuksek GC")
+
+    } else {
+
+      # normal GC içerik
+      return("Normal DNA")
+    }
+  }
+}
+
+# test
+dna_kalite(dna4)
+
+```
+
+
+### Ne öğrendik?
+
+- Önce kritik durum kontrol edilir.
+- Daha sonra diğer kriterlere bakılır.
+
+---
+
+# Düzey 5 — Fonksiyonları Birleştirme
+
+## Alıştırma 7: liste_rapor(dna_listesi)
+
+Bu fonksiyon bir DNA listesi alır ve listedeki her DNA için bir rapor oluşturur.
+
+Her DNA dizisi için şu adımlar uygulanır:
+
+1. Önce DNA karakter kontrolü yapılır.
+2. Eğer hata varsa doğrudan hata mesajı yazdırılır.
+3. Hata yoksa DNA kalite sınıflandırması yapılır.
+4. Eğer DNA belirsiz değilse GC oranı da rapora eklenir.
+
+### Beklenen çıktı (örnek)
+
+1. DNA -> Normal DNA | GC: 0.6  
+2. DNA -> Normal DNA | GC: 0  
+3. DNA -> Yüksek GC | GC: 1  
+4. DNA -> Belirsiz DNA  
+
+```{r}
+# liste_rapor fonksiyonu bir DNA listesi alır ve her DNA için rapor üretir
+liste_rapor <- function(dna_listesi) {
+
+  # idx değişkeni DNA numarasını takip eder
+  idx <- 1
+
+  # listedeki her DNA için döngü başlatılır
+  for (dna in dna_listesi) {
+
+    # önce DNA karakter kontrolü yapılır
+    kontrol <- dna_kontrol(dna)
+
+    # eğer DNA geçersiz karakter içeriyorsa
+    if (kontrol != "OK") {
+
+      # hata mesajı yazdırılır
+      print(paste(idx, ". DNA ->", kontrol))
+
+    } else {
+
+      # DNA kalite sınıflandırması yapılır
+      durum <- dna_kalite(dna)
+
+      # eğer DNA belirsiz ise
+      if (durum == "Belirsiz DNA") {
+
+        # GC oranı yazdırılmaz
+        print(paste(idx, ". DNA ->", durum))
+
+      } else {
+
+        # GC oranı hesaplanır
+        oran <- gc_orani(dna)
+
+        # kalite durumu ve GC oranı birlikte yazdırılır
+        print(paste(idx, ". DNA ->", durum, "| GC:", oran))
+      }
+    }
+
+    # bir sonraki DNA için sayaç artırılır
+    idx <- idx + 1
+  }
+}
+
+# fonksiyon çalıştırılır
+liste_rapor(dna_listesi)
+
+```
+
+
+### Ne öğrendik?
+
+- Liste içinde döngü ile veri işleme
+- Fonksiyonları birleştirerek rapor oluşturma
+- Metin birleştirme
+
+---
+
+# Alıştırma 8: dna_ozet(dna)
+
+Bu fonksiyon tek bir DNA dizisi için kısa bir özet metni üretir.
+
+Fonksiyon şu sırayı takip eder:
+
+1. Önce DNA karakter kontrolü yapılır.
+2. Eğer hata varsa doğrudan hata mesajı döndürülür.
+3. Hata yoksa DNA kalite durumu belirlenir.
+4. Eğer DNA belirsiz değilse GC oranı da özete eklenir.
+
+```{r}
+# dna_ozet fonksiyonu tek bir DNA için kısa bir özet üretir
+dna_ozet <- function(dna) {
+
+  # önce DNA karakter kontrolü yapılır
+  kontrol <- dna_kontrol(dna)
+
+  # eğer hata varsa
+  if (kontrol != "OK") {
+
+    # doğrudan hata mesajı döndürülür
+    return(kontrol)
+
+  } else {
+
+    # kalite durumu belirlenir
+    durum <- dna_kalite(dna)
+
+    # eğer DNA belirsiz ise
+    if (durum == "Belirsiz DNA") {
+
+      # sadece durum bilgisi döndürülür
+      return(paste("OK |", durum))
+
+    } else {
+
+      # GC oranı hesaplanır
+      oran <- gc_orani(dna)
+
+      # tüm bilgiler tek bir metin olarak birleştirilir
+      return(paste("OK |", durum, "| GC=", oran))
+    }
+  }
+}
+
+# test
+dna_ozet(dna1)
+dna_ozet(dna2)
+dna_ozet(dna3)
+
+```
+
+
+### Beklenen çıktı
+
+dna_ozet(dna1) =  
+"OK | Normal DNA | GC=0.6"
+
+### Ne öğrendik?
+
+- Pipeline mantığı:  
+  **kontrol → kalite → GC oranı**
+
+- Tek bir fonksiyon ile özet çıktı üretme
